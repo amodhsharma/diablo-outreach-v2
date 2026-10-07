@@ -1,1 +1,4 @@
-job_id,location,channel,languages,companies_wanted,added_by,added_on,status,reason,approved_by,ran_on,output_file
+job_id,location,channel,languages,companies_wanted,added_by,added_on,status,reason,approved_by,ran_on,output_file,attempts
+J0001,"dublin, ireland",distributors,,30,amodhsharma,2026-10-07,Waiting,,,,,
+J0001,"dublin, ireland",wholesalers,,30,amodhsharma,2026-10-07,Waiting,,,,,
+J0001,"dublin, ireland",retailers,,30,amodhsharma,2026-10-07,Waiting,,,,,
