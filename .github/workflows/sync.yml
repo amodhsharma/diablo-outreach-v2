@@ -1,0 +1,30 @@
+name: 5. Sync Instantly to HubSpot
+
+# Runs by itself every 3 hours, and can be started by hand.
+# It quietly skips until the HubSpot and Instantly keys are added.
+# To sync the live account, add a repository variable PIPELINE_TARGET = live
+# (Settings > Secrets and variables > Actions > Variables).
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+
+concurrency: sync
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Sync
+        env:
+          INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: python -m outreach.sync --target "$TARGET" --skip-if-not-configured

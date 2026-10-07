@@ -1,0 +1,46 @@
+name: 2a. Add research to the queue
+
+# Actions tab > "2a. Add research to the queue" > Run workflow.
+# Adds one job: one Location and one or more Channels. The research runs at 8 AM IST
+# (oldest job first), or straight away as a manual run from Claude.
+on:
+  workflow_dispatch:
+    inputs:
+      location:
+        description: "Location: a country, region or city, country last (e.g. India, or Mumbai, India)"
+        required: true
+      channels:
+        description: "Channels: the types of company to find, separated by commas (e.g. distributors, wholesalers, retailers, marketplace sellers)"
+        required: true
+      languages:
+        description: "Languages to also search local sources in (e.g. Hindi, Marathi). Leave empty for the main local languages"
+        default: ""
+      wanted:
+        description: "Companies wanted per Channel (leave empty for 60)"
+        default: ""
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Add the job
+        env:
+          LOCATION: ${{ inputs.location }}
+          CHANNELS: ${{ inputs.channels }}
+          LANGUAGES: ${{ inputs.languages }}
+          WANTED: ${{ inputs.wanted }}
+          BY: ${{ github.actor }}
+        run: python -m outreach.research_queue add --location "$LOCATION" --channels "$CHANNELS" --languages "$LANGUAGES" --wanted "$WANTED" --by "$BY"
+      - name: Save the queue
+        run: |
+          bash .github/scripts/save_changes.sh "Queue: add $(tail -n 1 research/queue.csv | cut -d, -f1)" research/queue.csv

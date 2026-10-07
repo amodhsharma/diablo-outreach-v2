@@ -1,0 +1,4 @@
+{
+  "subject": "{{subject_line}}",
+  "body": "Hi {{firstName}},<br/><br/>{{personal_line}}<br/><br/>We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company. We make 117+ products across chocolate, biscuits, sweets, spreads and syrups, sold in 126 countries, and we are looking for the right distribution partner in {{market}}.<br/><br/>Would you be open to a short call to see whether our range fits your portfolio?<br/><br/>Best,<br/>Team at Diablo<br/><br/>--<br/>Diablo Sugar Free (B Healthy Ltd, London). We found your business details in public and commercial sources. If you would rather not hear from us, reply \"no thanks\" and we will not contact you again. Privacy notice: {{privacy_url}}"
+}

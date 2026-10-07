@@ -1,0 +1,39 @@
+name: 2d. Approve a repeat
+
+# Lets an On hold repeat run: the job (or one Channel of it) goes back to Waiting.
+# The job ID is the first column of research/queue.csv (e.g. J0003).
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job ID, e.g. J0003"
+        required: true
+      channel:
+        description: "Only this Channel (leave empty for every Channel in the job)"
+        default: ""
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Approve
+        env:
+          JOB: ${{ inputs.job }}
+          CHANNEL: ${{ inputs.channel }}
+          BY: ${{ github.actor }}
+        run: python -m outreach.research_queue approve --job "$JOB" --channel "$CHANNEL" --by "$BY"
+      - name: Save the queue
+        env:
+          JOB: ${{ inputs.job }}
+        run: |
+          bash .github/scripts/save_changes.sh "Queue: approve $JOB" research/queue.csv

@@ -1,0 +1,35 @@
+name: 1. Set up HubSpot fields
+
+# Start it from the Actions tab: "1. Set up HubSpot fields" > Run workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Which HubSpot account"
+        type: choice
+        options: [test, live]
+        default: test
+      dry_run:
+        description: "Dry run (show the plan, change nothing)"
+        type: boolean
+        default: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Offline tests
+        run: python -m pytest -q
+      - name: Create the fields
+        env:
+          HUBSPOT_TOKEN: ${{ inputs.target == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: |
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ "${{ inputs.target }}" = "live" ]; then ARGS="$ARGS --allow-production"; fi
+          python -m outreach.setup_hubspot $ARGS

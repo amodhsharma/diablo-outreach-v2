@@ -1,0 +1,42 @@
+name: 4b. Send to Instantly
+
+# Adds contacts set to Approved to send (gate 2) to paused Instantly campaigns.
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Which HubSpot account"
+        type: choice
+        options: [test, live]
+        default: test
+      dry_run:
+        description: "Dry run (show the plan, send nothing)"
+        type: boolean
+        default: true
+
+concurrency: send
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Send
+        env:
+          INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+          HUBSPOT_TOKEN: ${{ inputs.target == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: |
+          ARGS="--target ${{ inputs.target }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          python -m outreach.send $ARGS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: send-plan
+          path: runs/
+          if-no-files-found: ignore

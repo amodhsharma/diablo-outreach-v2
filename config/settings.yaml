@@ -1,0 +1,142 @@
+# Diablo outreach pipeline settings.
+# Edit this file on GitHub (pencil icon) to change how the jobs behave.
+# Lines starting with # are notes and are ignored.
+
+# Research settings (companies wanted, floor, searches) live in
+# skills/outreachResearch/settings.yaml, next to the skill that uses them.
+
+contacts:
+  # How many people to collect per company, most senior first (see hierarchy below).
+  # Each approved person gets their own email.
+  per_company: 10
+  # Most emails to reveal per company while trying to reach per_company verified ones.
+  # Apollo charges about 1 credit per email revealed, verified or not.
+  max_reveals_per_company: 15
+  # Most companies to process in one run.
+  companies_per_run: 25
+  # Stop revealing emails once this many Apollo credits are used in one run.
+  max_credits_per_run: 150
+  # Only these Apollo email statuses are kept.
+  keep_email_statuses: [verified]
+  # Seniority order, most senior level first. Each person is placed in the level whose
+  # words best match their job title (the longest matching words win, so "Assistant
+  # Director" goes to level 4, not level 3). Move words between levels, or add new
+  # words, to change the order. Matching ignores capital letters.
+  hierarchy:
+    - level: Top leadership
+      words: [chief executive, ceo, managing director, founder, co-founder, owner, proprietor,
+              chairman, chairperson, president, managing partner]
+    - level: C-suite
+      words: [chief operating, coo, chief commercial, cco, chief financial, cfo, chief marketing,
+              cmo, chief, executive director, whole time director, director general, partner]
+    - level: Directors
+      words: [director, regional director, national director, vice president, vp,
+              general manager, country manager]
+    - level: Heads and junior directors
+      words: [head, assistant director, associate director, deputy director,
+              assistant vice president, avp, deputy general manager, dgm,
+              assistant general manager, agm, senior manager]
+    - level: Managers
+      words: [manager]
+  # People whose title matches no level above (e.g. Sales Executive, Accountant).
+  # true = collect them too, ranked last. false = never collect them.
+  include_everyone_else: true
+  # Never collect people with these words in their job title.
+  exclude_words: [intern, trainee, student, apprentice]
+  # Optional Apollo seniority filter for the search. Empty = everyone Apollo holds.
+  seniorities: []
+  # Inside one seniority level, people with these buying titles come first.
+  # Per Channel, best first. The Channel is matched to what was typed into
+  # "Add research to the queue" (capital letters do not matter). Any
+  # Channel not listed here uses the "default" list. To give a new Channel its
+  # own list, copy the default block and rename it, e.g. "Sugar free distributor:".
+  titles:
+    default:
+      - Purchasing Manager
+      - Procurement Manager
+      - Category Manager
+      - Import Manager
+      - Business Development Manager
+      - Managing Director
+      - Founder
+    Health food distributor:
+      - Purchasing Manager
+      - Procurement Manager
+      - Category Manager
+      - Import Manager
+      - Business Development Manager
+      - Director
+      - Managing Director
+      - Founder
+    Convenience and impulse distributor:
+      - Purchasing Manager
+      - Category Manager
+      - Business Development Manager
+      - Sales Director
+      - Managing Director
+      - Founder
+    Grocery wholesaler:
+      - Purchasing Manager
+      - Procurement Manager
+      - Category Manager
+      - Import Manager
+      - Buying Director
+      - Managing Director
+    Pharmacy distributor:
+      - Category Manager
+      - Procurement Manager
+      - Purchasing Manager
+      - OTC Manager
+      - Business Development Manager
+      - Managing Director
+
+assignment:
+  # Gives each approved company a salesperson (its HubSpot company owner) when
+  # "3. Find contacts" runs. Contacts get the same owner. Companies that already
+  # have an owner keep it. Leave rules and default_owners empty to switch this off.
+  #
+  # Each rule: market (a country, region or city), optional category, and the
+  # salespeople's HubSpot login emails. The most specific matching rule wins.
+  # Within a rule, work is shared evenly: the company goes to whoever owns the
+  # fewest pipeline companies in that market.
+  #
+  # Example:
+  # rules:
+  #   - market: India
+  #     owners: [person1@diablosugarfree.com, person2@diablosugarfree.com]
+  #   - market: Mumbai, India
+  #     category: Pharmacy distributor   # the Channel as typed into the queue; capitals do not matter
+  #     owners: [person3@diablosugarfree.com]
+  rules: []
+  # Used when no rule matches. Empty means those companies stay unassigned.
+  default_owners: []
+
+send:
+  contacts_per_run: 200
+  # Sending mailboxes connected in Instantly (warmed secondary domains only).
+  # Example: ["ariel@getdiablo.com", "ariel@diablosnacks.com"]
+  sending_accounts: [sales@diablosnosugar.com]
+  daily_limit: 30
+  # One reminder email for anyone who has not replied (text in templates/follow_up.json).
+  # Anyone who replies, or whose colleague replies, gets no reminder.
+  follow_up:
+    enabled: true
+    delay_days: 7
+  # Privacy notice link shown in every email footer. Check it before sending.
+  privacy_url: https://www.diablosugarfree.com/policies/privacy-policy
+  # Sending hours per market, in that market's time zone. A market can be a
+  # country, region or city; "Mumbai, India" uses the India entry unless a
+  # "Mumbai" entry exists.
+  schedule:
+    default:
+      timezone: Europe/London
+      from: "09:00"
+      to: "17:00"
+    India:
+      timezone: Asia/Kolkata
+      from: "10:00"
+      to: "17:00"
+
+sync:
+  # Only Instantly campaigns whose name starts with this are synced.
+  campaign_prefix: "Diablo |"

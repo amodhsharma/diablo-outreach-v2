@@ -1,0 +1,42 @@
+name: 2e. Import research into HubSpot
+
+# Runs by itself when the outreachResearch skill saves new files to research/.
+# Checks each new file again, adds its companies to HubSpot as Awaiting review
+# (gate 1) and marks the queue. Can also be started by hand to import any file
+# not yet imported. To use the live account, add a repository variable
+# PIPELINE_TARGET = live (Settings > Secrets and variables > Actions > Variables).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/*/*.json"
+  workflow_dispatch:
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Import into HubSpot
+        env:
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: |
+          git pull --rebase
+          python -m outreach.import_research --target "$TARGET"
+      - name: Save the queue and email details
+        if: always()
+        run: |
+          bash .github/scripts/save_changes.sh "Import research results" research/queue.csv data/company_notes.json

@@ -1,0 +1,36 @@
+name: 2f. Save the HubSpot company list
+
+# Runs by itself every night (about 2 AM IST) and can be started by hand.
+# Saves every company already in HubSpot to data/known_companies.csv, so the
+# morning research skips them. To use the live account, add a repository
+# variable PIPELINE_TARGET = live (Settings > Secrets and variables > Actions > Variables).
+on:
+  schedule:
+    - cron: "33 20 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Read HubSpot
+        env:
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: python -m outreach.known_companies --target "$TARGET" --skip-if-not-configured
+      - name: Save the list
+        run: |
+          bash .github/scripts/save_changes.sh "Nightly HubSpot company list" data/known_companies.csv

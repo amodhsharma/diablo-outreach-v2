@@ -1,0 +1,4 @@
+{
+  "subject": "",
+  "body": "Hi {{firstName}},<br/><br/>Following up on our note from last week about Diablo Sugar Free. We would be glad to send our range overview and trade terms so you can judge the fit for {{market}}.<br/><br/>Is a short call worthwhile, or is there someone else on your team we should speak to?<br/><br/>Best,<br/>Team at Diablo<br/><br/>--<br/>Diablo Sugar Free (B Healthy Ltd, London). If you would rather not hear from us, reply \"no thanks\" and we will not contact you again. Privacy notice: {{privacy_url}}"
+}

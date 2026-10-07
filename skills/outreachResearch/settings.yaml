@@ -1,0 +1,15 @@
+# Settings for the outreachResearch skill and the import job.
+# Edit on GitHub with the pencil icon. One "name: number" per line.
+
+# Companies wanted per Channel when the "Companies wanted" box is left empty.
+default_companies: 60
+
+# Below this many companies a Channel is marked "Done, fewer than wanted".
+# For small jobs (fewer wanted than this), the number wanted is used instead.
+min_floor: 30
+
+# Most web searches each helper may run for one Channel.
+max_searches_per_channel: 60
+
+# Most companies listed in the prompt's exclusion list.
+max_exclusions_in_prompt: 500
