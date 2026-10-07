@@ -116,7 +116,7 @@ def exclusion_lines(country, limit):
 
 def output_paths(run_date, job_id, location, channels):
     folder = ROOT / "research" / run_date
-    base = f"{job_id}_{slug(location, 40)}_{slug('-'.join(channels), 80)}"
+    base = f"{job_id}_{run_date}_{slug(location, 40)}_{slug('-'.join(channels), 80)}"
     name, n = base, 2
     while (folder / f"{name}.json").exists():
         name = f"{base}-{n}"
@@ -201,7 +201,11 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
         location_prompt = str(work / "location_prompt.md")
         Path(location_prompt).write_text(loc, encoding="utf-8")
 
-    json_path, report_path = output_paths(run_date, job_id, job_location, [c["channel"] for c in channels])
+    # A retry replaces the earlier run's files for this job: the new file keeps that run's
+    # finished Channels and adds the ones tried again, and the old files are removed.
+    replaces = sorted({r["output_file"] for r in lines if rq.is_retry(r)})
+    all_channels = [r["channel"] for r in rows if r["job_id"] == job_id and r["status"] != rq.CANCELLED]
+    json_path, report_path = output_paths(run_date, job_id, job_location, all_channels)
     plan = {
         "job_id": job_id, "location": job_location, "country": country, "languages": languages,
         "run_date": run_date, "run_type": "manual" if manual else "scheduled",
@@ -210,6 +214,7 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
         "location_prompt": location_prompt, "location_file": str(work / "location.md"),
         "closing_file": str(work / "closing.md"),
         "output_json": str(json_path.relative_to(ROOT)), "output_report": str(report_path.relative_to(ROOT)),
+        "replaces": replaces,
         "channels": channels,
     }
     (work / "plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -237,6 +242,8 @@ def main(argv=None):
                   f"{c['companies_wanted']} wanted, prompt {c['prompt_file']}")
         else:
             print(f"- Channel {c['index']}: {c['channel']} -> ON HOLD: {c['reason']}")
+    for old in plan["replaces"]:
+        print(f"Retry: this run replaces {old}")
     print(f"Plan saved to {Path(plan['work']) / 'plan.json'}")
     return 0
 

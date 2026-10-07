@@ -30,13 +30,14 @@ RESEARCH METHODOLOGY AND SOURCES
 
 OUTPUT FIELDS (one entry per company, company level only)
 1. Company name
-2. Domain of the found company: its own website, bare (e.g. example.com), or "no domain"
-3. What they distribute or sell (categories, not vague descriptions)
-4. Which retailers, marketplaces or channels they supply or sell through, named where possible
-5. Whether they already carry sugar-free, no-added-sugar, diabetic or better-for-you ranges, and which brands; flag any that compete directly with Diablo
-6. Fit rationale for Diablo, two or three sentences, specific not generic
-7. Confidence: high (two or more independent sources), medium (one solid source), low (directory, storefront or import record only)
-8. Found the company from: the source URL(s)
+2. Based out of: the city and country of its head office (e.g. "Pune, India")
+3. Domain of the found company: its own website, bare (e.g. example.com), or "no domain"
+4. What they distribute or sell (categories, not vague descriptions)
+5. Which retailers, marketplaces or channels they supply or sell through, named where possible
+6. Whether they already carry sugar-free, no-added-sugar, diabetic or better-for-you ranges, and which brands; flag any that compete directly with Diablo
+7. Fit rationale for Diablo, two or three sentences, specific not generic
+8. Confidence: high (two or more independent sources), medium (one solid source), low (directory, storefront or import record only)
+9. Found the company from: the source URL(s)
 
 TIERING AND RANKING
 - Tier 1: best fit, prioritise for outreach. Tier 2: viable, approach after tier 1. Tier 3: possible but lower priority or conditional.
@@ -61,6 +62,7 @@ Save one JSON file at {{OUTPUT_FILE}} with exactly this shape and these keys (us
   "companies": [
     {
       "name": "Company name",
+      "based_out_of": "City, Country",
       "domain": "example.com",
       "tier": 1,
       "tier_rank": 1,

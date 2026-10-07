@@ -54,6 +54,8 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
   are ignored ("Wholesaler" matches "wholesalers"); any other wording is new.
 - Locations match as written: "UK" and "United Kingdom" are different.
 - A repeat goes On hold until someone presses **2d. Approve a repeat**.
+- A failed Channel runs again by itself once, at the next run, and the new files replace the
+  earlier ones. If it fails again it is marked Failed until someone presses **2c. Retry a failed job**.
 
 ## Where things are
 

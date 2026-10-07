@@ -41,6 +41,8 @@ If it prints `NOTHING TO DO`, stop: report "Nothing waiting in the queue today" 
 Otherwise read `work/plan.json`. Channels marked `on_hold` are not researched (another job
 already covered them); the scripts record that, you do nothing for them.
 If every Channel is on hold, go straight to Step 5.
+If the plan lists `replaces`, this is a retry: only the Channels that failed last time run, and
+the merge keeps the earlier run's finished Channels and removes the earlier files.
 
 ## Step 3: research, all at the same time
 
@@ -83,13 +85,14 @@ It prints each Channel's result, the Tier 1 companies and the check result.
 ## Step 6: save to GitHub
 
 ```
-git add research/
+git add -A research/
 git commit -m "Research: <job ID> <Location>"
 git pull --rebase
 git push
 ```
 
-Only the two new files in `research/<date>/` should be in the commit. If the push is refused,
+Only the two new files in `research/<date>/` (and, on a retry, the removal of the earlier two)
+should be in the commit. If the push is refused,
 say so plainly in the summary; the files are lost when this session ends.
 
 ## Step 7: summary

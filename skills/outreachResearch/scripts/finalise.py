@@ -28,7 +28,7 @@ from check_output import (  # noqa: E402
     FORMAT, NO_DOMAIN, check_final, check_part, clean_domain, load_exclusions, norm_name,
 )
 
-TEXT_FIELDS = ("name", "distributes", "channels_supplied", "sf_brands_carried", "fit_rationale")
+TEXT_FIELDS = ("name", "based_out_of", "distributes", "channels_supplied", "sf_brands_carried", "fit_rationale")
 
 
 def tidy_text(value):
@@ -68,12 +68,43 @@ def _read_helper(entry, exclusions):
     return data, None
 
 
+def _carry_over(plan, notes):
+    """On a retry: the finished Channels and companies of the earlier file(s) this run replaces.
+    Returns (channel rows, companies). A file that fails the check is not reused."""
+    retried = {ch["channel"] for ch in plan["channels"]}
+    rows, companies = [], []
+    for old in plan.get("replaces", []):
+        path = ROOT / old
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if check_final(data):
+            notes["warnings"].append(f"The earlier file {old} did not pass the check, so nothing was reused from it.")
+            continue
+        kept = [ch for ch in data["channels"] if ch["status"] == "done" and ch["channel"] not in retried]
+        names = {ch["channel"] for ch in kept}
+        for ch in kept:
+            rows.append(ch)
+            notes["channels"][ch["channel"]] = {
+                "tier_logic": f"Researched in the earlier run on {data['run_date']} and kept as it was.",
+                "checked_and_excluded": [], "shortfall_note": None}
+        for c in data["companies"]:
+            if c["channel_category"][0] in names:
+                companies.append(dict(c, channel_category=[x for x in c["channel_category"] if x in names]))
+        if kept:
+            notes["warnings"].append(f"Retry: {', '.join(names)} kept from the earlier run on {data['run_date']}; "
+                                     "only the Channels that failed were researched again.")
+    return rows, companies
+
+
 def merge(work):
     plan = load_plan(work)
     exclusions = load_exclusions(Path(work) / "exclusions.txt")
     names, domains = exclusions
     notes = {"channels": {}, "merged": [], "dropped": [], "warnings": []}
-    entries, channel_rows = [], []
+    entries = []
+    channel_rows, carried = _carry_over(plan, notes)
     for ch in plan["channels"]:
         row = {"channel": ch["channel"], "template": ch["template"], "status": ch["status"],
                "reason": ch["reason"], "companies_wanted": ch["companies_wanted"],
@@ -108,6 +139,11 @@ def merge(work):
     # One entry per company; the Channel where it ranks best becomes its main Channel.
     entries.sort(key=lambda e: (e[2]["tier"], e[2]["tier_rank"], e[0]))
     merged, by_key = [], {}
+    for c in carried:
+        c = dict(c, _order=(0, c["tier"], c["tier_rank"]))
+        merged.append(c)
+        for k in ((("d", c["domain"]),) if c["domain"] != NO_DOMAIN else ()) + (("n", norm_name(c["name"])),):
+            by_key.setdefault(k, c)
     for index, channel, c in entries:
         keys = [k for k in (("d", c["domain"]) if c["domain"] != NO_DOMAIN else None,
                             ("n", norm_name(c["name"]))) if k]
@@ -121,7 +157,8 @@ def merge(work):
             notes["merged"].append({"name": found["name"], "also": channel})
         else:
             found = {
-                "name": c["name"], "domain": c["domain"], "channel_category": [channel],
+                "name": c["name"], "based_out_of": c["based_out_of"], "domain": c["domain"],
+                "channel_category": [channel],
                 "tier": c["tier"], "tier_rank": c["tier_rank"], "distributes": c["distributes"],
                 "channels_supplied": c["channels_supplied"], "sf_brands_carried": c["sf_brands_carried"],
                 "competing_brand_flag": c["competing_brand_flag"], "fit_rationale": c["fit_rationale"],
@@ -143,7 +180,7 @@ def merge(work):
     for row in channel_rows:
         if row["status"] == "done":
             row["companies_found"] = sum(1 for c in merged if row["channel"] in c["channel_category"])
-            floor = next(ch["floor"] for ch in plan["channels"] if ch["channel"] == row["channel"])
+            floor = next((ch["floor"] for ch in plan["channels"] if ch["channel"] == row["channel"]), 0)
             if row["companies_found"] < floor:
                 note = notes["channels"][row["channel"]]["shortfall_note"] or "no reason given"
                 notes["warnings"].append(f'"{row["channel"]}" found {row["companies_found"]} companies, '
@@ -151,7 +188,8 @@ def merge(work):
 
     final = {
         "format": FORMAT, "job_id": plan["job_id"], "location": plan["location"],
-        "run_date": plan["run_date"], "run_type": plan["run_type"], "channels": channel_rows,
+        "run_date": plan["run_date"], "run_type": plan["run_type"],
+        "replaces": plan.get("replaces", []), "channels": channel_rows,
         "companies": merged,
     }
     out = ROOT / plan["output_json"]
@@ -161,6 +199,11 @@ def merge(work):
                                                   encoding="utf-8")
     errors = check_final(final, None, exclusions)
     print(f"Merged file saved: {plan['output_json']}")
+    for old in final["replaces"]:
+        for path in (ROOT / old, (ROOT / old).with_name(Path(old).stem + "_report.md")):
+            if path.exists() and path != out:
+                path.unlink()
+                print(f"Removed the earlier file it replaces: {path.relative_to(ROOT)}")
     for row in channel_rows:
         extra = f" ({row['reason']})" if row["reason"] else ""
         print(f"- {row['channel']}: {row['status']}, {row['companies_found']} companies{extra}")

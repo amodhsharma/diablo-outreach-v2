@@ -29,7 +29,7 @@ SETTINGS_FILE = ROOT / "skills" / "outreachResearch" / "settings.yaml"
 
 COLUMNS = [
     "job_id", "location", "channel", "languages", "companies_wanted", "added_by", "added_on",
-    "status", "reason", "approved_by", "ran_on", "output_file",
+    "status", "reason", "approved_by", "ran_on", "output_file", "attempts",
 ]
 
 WAITING = "Waiting"
@@ -42,6 +42,10 @@ STATUSES = (WAITING, ON_HOLD, DONE, DONE_FEWER, FAILED, CANCELLED)
 
 # A Location and Channel counts as covered once a line for it is waiting or done.
 COVERED = (WAITING, DONE, DONE_FEWER)
+
+# A failed Channel is retried once by itself at the next run; after that it stays Failed
+# until someone presses "Retry a failed job".
+AUTO_RETRIES = 1
 
 
 class QueueError(RuntimeError):
@@ -216,8 +220,8 @@ def cancel(rows, job_id, channel=None):
 
 
 def retry(rows, job_id, channel=None):
-    return _change(rows, job_id, channel, (FAILED,), WAITING, "retry", reason="Retried", ran_on="",
-                   output_file="")
+    """One more try. The earlier file stays recorded so the new run replaces it."""
+    return _change(rows, job_id, channel, (FAILED,), WAITING, "retry", reason="Retry pressed")
 
 
 def approve_repeat(rows, job_id, channel=None, by=""):
@@ -227,9 +231,14 @@ def approve_repeat(rows, job_id, channel=None, by=""):
 
 # ---- used by the skill and the import job -------------------------------
 
+def is_retry(row):
+    """A Waiting line that has run before (it failed and is being tried again)."""
+    return row["status"] == WAITING and bool(row["output_file"])
+
+
 def waiting_job(rows, job_id=None, location=None):
-    """The job to research: the one named, else the oldest with a Waiting line
-    (optionally only for one Location). Returns (job_id, its Waiting lines) or (None, [])."""
+    """The job to research: the one named, else a retry first, else the oldest with a Waiting
+    line (optionally only for one Location). Returns (job_id, its Waiting lines) or (None, [])."""
     waiting = [r for r in rows if r["status"] == WAITING]
     if job_id:
         job_id = job_id.strip().upper()
@@ -238,7 +247,7 @@ def waiting_job(rows, job_id=None, location=None):
         waiting = [r for r in waiting if norm_location(r["location"]) == norm_location(location)]
     if not waiting:
         return None, []
-    first = min(waiting, key=lambda r: (r["added_on"], r["job_id"]))
+    first = min(waiting, key=lambda r: (not is_retry(r), r["added_on"], r["job_id"]))
     return first["job_id"], [r for r in waiting if r["job_id"] == first["job_id"]]
 
 
@@ -250,6 +259,24 @@ def is_repeat_now(rows, row):
         if (other["job_id"] != row["job_id"] and other["status"] in (DONE, DONE_FEWER)
                 and same_scope(other, row)):
             return other
+    return None
+
+
+def record_failure(rows, job_id, channel, reason, ran_on="", output_file=""):
+    """A Channel failed: back to Waiting for one automatic retry, else Failed.
+    Returns the line, or None when it is not in the queue."""
+    for r in rows:
+        if r["job_id"] == job_id and norm_channel(r["channel"]) == norm_channel(channel):
+            r["attempts"] = str(int(r["attempts"] or 0) + 1)
+            again = int(r["attempts"]) <= AUTO_RETRIES
+            r["status"] = WAITING if again else FAILED
+            r["reason"] = (f"Failed once ({reason}); it runs again by itself at the next run" if again
+                           else f"Failed again: {reason}")
+            if ran_on:
+                r["ran_on"] = ran_on
+            if output_file:
+                r["output_file"] = output_file
+            return r
     return None
 
 

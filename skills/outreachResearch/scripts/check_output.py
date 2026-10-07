@@ -24,16 +24,17 @@ FORMAT = "outreachResearch v1"
 
 # The fields every company must have in a helper's file, in this order.
 PART_COMPANY_KEYS = [
-    "name", "domain", "tier", "tier_rank", "distributes", "channels_supplied",
+    "name", "based_out_of", "domain", "tier", "tier_rank", "distributes", "channels_supplied",
     "sf_brands_carried", "competing_brand_flag", "fit_rationale", "confidence", "source_urls",
 ]
-# The final file adds channel_category: 12 fields per company.
+# The final file adds channel_category: 13 fields per company.
 FINAL_COMPANY_KEYS = [
-    "name", "domain", "channel_category", "tier", "tier_rank", "distributes", "channels_supplied",
-    "sf_brands_carried", "competing_brand_flag", "fit_rationale", "confidence", "source_urls",
+    "name", "based_out_of", "domain", "channel_category", "tier", "tier_rank", "distributes",
+    "channels_supplied", "sf_brands_carried", "competing_brand_flag", "fit_rationale", "confidence",
+    "source_urls",
 ]
 PART_KEYS = ["channel", "searches_used", "tier_logic", "checked_and_excluded", "shortfall_note", "companies"]
-FINAL_KEYS = ["format", "job_id", "location", "run_date", "run_type", "channels", "companies"]
+FINAL_KEYS = ["format", "job_id", "location", "run_date", "run_type", "replaces", "channels", "companies"]
 CHANNEL_KEYS = ["channel", "template", "status", "reason", "companies_wanted", "companies_found",
                 "searches_used"]
 CHANNEL_STATUSES = ("done", "failed", "on_hold")
@@ -41,6 +42,7 @@ CHANNEL_STATUSES = ("done", "failed", "on_hold")
 # How each field is named to people (in error messages and the report).
 LABELS = {
     "name": "Company name",
+    "based_out_of": "Based out of",
     "domain": "Domain of the found company",
     "channel_category": "Channel",
     "tier": "Tier",
@@ -182,7 +184,7 @@ def check_company(errors, where, c, keys, channels=None):
         errors.append(f"{where}: Rank within the tier must be a whole number from 1 (found {c['tier_rank']!r})")
     if c["confidence"] not in ("high", "medium", "low"):
         errors.append(f"{where}: Confidence must be high, medium or low (found {c['confidence']!r})")
-    for key in ("distributes", "channels_supplied", "sf_brands_carried", "fit_rationale"):
+    for key in ("based_out_of", "distributes", "channels_supplied", "sf_brands_carried", "fit_rationale"):
         if not _is_text(c[key]):
             errors.append(f"{where}: {LABELS[key]} must be text or null")
     if not (c["fit_rationale"] or "").strip():
@@ -315,6 +317,9 @@ def check_final(data, report_text=None, exclusions=(set(), set())):
         errors.append("The file: run_date must be a date like 2026-10-09")
     if data["run_type"] not in ("scheduled", "manual"):
         errors.append("The file: run_type must be scheduled or manual")
+    if not isinstance(data["replaces"], list) or not all(
+            isinstance(x, str) and x.startswith("research/") for x in data["replaces"]):
+        errors.append("The file: replaces must list the earlier research files this retry replaces")
     channels = data["channels"]
     done = []
     if not isinstance(channels, list) or not channels:

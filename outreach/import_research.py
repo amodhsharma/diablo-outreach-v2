@@ -2,10 +2,11 @@
 
 Runs by itself when the outreachResearch skill saves files to research/<date>/. Each new
 JSON file is checked again with the skill's strict check: a file that fails is rejected
-whole (nothing reaches HubSpot) and its job is marked Failed with the reason. A file that
-passes is added to HubSpot as "Awaiting review" (gate 1), the email details go into
-data/company_notes.json, and each Channel's line in research/queue.csv is marked Done,
-Done fewer than wanted, Failed or On hold.
+whole (nothing reaches HubSpot). A file that passes is added to HubSpot as "Awaiting
+review" (gate 1) and the email details go into data/company_notes.json. Each Channel's line
+in research/queue.csv is marked Done, Done fewer than wanted or On hold. A failed Channel
+goes back to Waiting once, so the next run tries it again by itself; a second failure
+marks it Failed.
 
 Usage:
     python -m outreach.import_research --target test            # every file not yet imported
@@ -93,7 +94,8 @@ def hubspot_records(data):
         if has_domain:
             props["domain"] = c["domain"]
             notes[c["domain"]] = {
-                "name": c["name"], "market": data["location"], "category": clean_category(channel),
+                "name": c["name"], "based_out_of": c["based_out_of"] or "",
+                "market": data["location"], "category": clean_category(channel),
                 "channels": c["channel_category"], "fit_rationale": c["fit_rationale"] or "",
                 "distributes": c["distributes"] or "", "channels_supplied": c["channels_supplied"] or "",
                 "sf_brands_carried": c["sf_brands_carried"] or "", "added": now_iso()[:10],
@@ -105,10 +107,8 @@ def hubspot_records(data):
 
 def _mark_rejected(rows, job_id, path, reason):
     changed = []
-    for r in rows:
-        if r["job_id"] == job_id and r["status"] == rq.WAITING:
-            r["status"], r["reason"], r["output_file"] = rq.FAILED, reason, relative(path)
-            changed.append(r)
+    for r in [r for r in rows if r["job_id"] == job_id and r["status"] == rq.WAITING]:
+        changed.append(rq.record_failure(rows, job_id, r["channel"], reason, output_file=relative(path)))
     return changed
 
 
@@ -153,6 +153,10 @@ def import_file(path, rows, hs, settings, log=print):
         save_company_notes({r["domain"]: notes[r["domain"]] for r in new if r.get("domain")})
         created, existing = len(new), len(records) - len(new)
 
+    # A retry's file replaces the earlier one: point finished lines at the new file.
+    for r in rows:
+        if r["job_id"] == job_id and r["output_file"] in data["replaces"]:
+            r["output_file"] = name
     floor_setting = int(settings.get("min_floor", 30))
     for ch in data["channels"]:
         line = next((r for r in job_rows if rq.norm_channel(r["channel"]) == rq.norm_channel(ch["channel"])
@@ -168,7 +172,9 @@ def import_file(path, rows, hs, settings, log=print):
         elif ch["status"] == "on_hold":
             status, reason = rq.ON_HOLD, ch["reason"]
         else:
-            status, reason = rq.FAILED, ch["reason"]
+            rq.record_failure(rows, job_id, line["channel"], ch["reason"], ran_on=data["run_date"],
+                              output_file=name)
+            continue
         rq.set_status(rows, job_id, line["channel"], status, reason, ran_on=data["run_date"], output_file=name)
     return (f"{name}: {created} companies added to HubSpot as Awaiting review or No domain, "
             f"{existing} already in HubSpot")

@@ -71,7 +71,7 @@ def test_queue_file_round_trip(tmp_path):
 # ---- the strict check ------------------------------------------------------
 
 def company(name="Alpha Foods", domain="alphafoods.in", tier=1, rank=1, **extra):
-    c = {"name": name, "domain": domain, "tier": tier, "tier_rank": rank, "distributes": "Chocolate",
+    c = {"name": name, "based_out_of": "Mumbai, India", "domain": domain, "tier": tier, "tier_rank": rank, "distributes": "Chocolate",
          "channels_supplied": "Pharmacies", "sf_brands_carried": None, "competing_brand_flag": False,
          "fit_rationale": "Imports European chocolate.", "confidence": "high",
          "source_urls": ["https://example.org/a"]}
@@ -204,7 +204,7 @@ def test_known_companies(tmp_path):
 
 def final_file(job="J0001"):
     return {"format": check_output.FORMAT, "job_id": job, "location": "Mumbai, India",
-            "run_date": "2026-10-09", "run_type": "scheduled",
+            "run_date": "2026-10-09", "run_type": "scheduled", "replaces": [],
             "channels": [
                 {"channel": "distributors", "template": "distributor", "status": "done", "reason": "",
                  "companies_wanted": 2, "companies_found": 2, "searches_used": 40},
@@ -242,8 +242,13 @@ def test_import_adds_companies_and_marks_the_queue(import_env):
     added = names["No Site Traders"]
     assert added["diablo_outreach_status"] == "no_domain" and added["diablo_channel_category"] == "distributors"
     assert added["country"] == "India" and added["diablo_tier"] == "tier_1" and "city" not in added
+    assert hs.records["companies"] and common.load_company_notes() == {}  # no domain: no email notes
     rows = rq.load()
-    assert [(r["status"], r["ran_on"]) for r in rows] == [(rq.DONE, "2026-10-09"), (rq.FAILED, "2026-10-09")]
+    # The failed Channel goes back to Waiting for one automatic retry.
+    assert [(r["status"], r["ran_on"], r["attempts"]) for r in rows] == [
+        (rq.DONE, "2026-10-09", ""), (rq.WAITING, "2026-10-09", "1")]
+    assert "runs again by itself" in rows[1]["reason"]
+    assert rq.waiting_job(rows)[0] == "J0001"
     assert rows[0]["output_file"] == "research/2026-10-09/J0001_mumbai-india_distributors-retailers.json"
     # Running again imports nothing new.
     before = len(hs.records["companies"])
@@ -259,8 +264,16 @@ def test_import_rejects_a_bad_file_whole(import_env):
     hs = FakeCRM()
     lines = import_research.run("test", hs, log=quiet)
     assert "REJECTED" in lines[0] and not hs.records["companies"]
-    assert {r["status"] for r in rq.load()} == {rq.FAILED}
+    assert {r["status"] for r in rq.load()} == {rq.WAITING}  # retried once by itself
     assert "Domain of the found company" in rq.load()[0]["reason"]
+    # The retry fails the check too: now Failed, until someone presses Retry.
+    rows = rq.load()
+    for r in rows:
+        r["output_file"] = ""
+    rq.save(rows)
+    import_research.run("test", hs, log=quiet)
+    assert {r["status"] for r in rq.load()} == {rq.FAILED}
+    assert rq.load()[0]["reason"].startswith("Failed again")
 
 
 def test_import_marks_fewer_than_wanted(import_env, monkeypatch):
@@ -271,3 +284,42 @@ def test_import_marks_fewer_than_wanted(import_env, monkeypatch):
     (folder / "J0001_mumbai-india_y.json").write_text(json.dumps(data))
     import_research.run("test", FakeCRM(), log=quiet)
     assert rq.load()[0]["status"] == rq.DONE_FEWER
+
+
+def test_retry_replaces_the_earlier_file(repo):
+    # First run: distributors done, marketplace sellers and health food stores fail.
+    assert run_script(repo, "prepare_run.py").returncode == 0
+    work = repo / "work"
+    (work / "channel_1.json").write_text(json.dumps(part([company()])))
+    assert run_script(repo, "finalise.py", "merge").returncode == 0
+    (work / "location.md").write_text("## Market structure\nA.\n\n## Barriers to entry\n- B.\n")
+    (work / "closing.md").write_text("- Alpha Foods first.\n")
+    assert run_script(repo, "finalise.py", "report").returncode == 0
+    first = json.loads((work / "plan.json").read_text())["output_json"]
+    assert "J0001_2026-" in first  # the run date is in the file name
+
+    # The import marks the queue (done in the test by hand, as GitHub would).
+    rows = rq.load(repo / "research" / "queue.csv")
+    rows[0].update(status=rq.DONE, output_file=first, ran_on="2026-10-07")
+    for r in rows[1:]:
+        rq.record_failure(rows, "J0001", r["channel"], "usage limit", "2026-10-07", first)
+    rq.save(rows, repo / "research" / "queue.csv")
+
+    # Second run: only the failed Channels run, and the new file replaces the first.
+    assert run_script(repo, "prepare_run.py").returncode == 0
+    plan = json.loads((work / "plan.json").read_text())
+    assert plan["replaces"] == [first] and [c["channel"] for c in plan["channels"]] == [
+        "marketplace sellers", "health food stores"]
+    (work / "channel_1.json").write_text(json.dumps(part([company(name="Seller One", domain="sellerone.in")],
+                                                          "marketplace sellers")))
+    (work / "channel_2.json").write_text(json.dumps(part([company(name="Shop One", domain="shopone.in")],
+                                                          "health food stores")))
+    out = run_script(repo, "finalise.py", "merge")
+    assert out.returncode == 0 and "Removed the earlier file" in out.stdout, out.stdout
+    assert not (repo / first).exists()
+    (work / "location.md").write_text("## Market structure\nA.\n\n## Barriers to entry\n- B.\n")
+    assert run_script(repo, "finalise.py", "report").returncode == 0
+    final = json.loads((repo / plan["output_json"]).read_text())
+    assert [c["status"] for c in final["channels"]] == ["done", "done", "done"]
+    assert {c["name"] for c in final["companies"]} == {"Alpha Foods", "Seller One", "Shop One"}
+    assert final["replaces"] == [first]
