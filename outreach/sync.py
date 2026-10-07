@@ -2,6 +2,11 @@
 
 Statuses only move forward (Sent never goes back to Queued, Interested never back to
 Replied). An opt-out also stops all outreach to that company.
+
+It then moves companies on to their next person (one person per company at a time, see
+next_in_line.py): if nobody at a company has replied 4 days after the current person's
+first email, the next approved contact is added to the same campaign. A company whose
+contacts have all been emailed without a reply is marked "No reply".
 Usage:
     python -m outreach.sync --target test
 """
@@ -13,6 +18,7 @@ import sys
 from .common import PipelineError, check_target, load_settings, now_iso, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
+from .next_in_line import contacts_by_company, decide, last_campaign, lead_for
 
 # Higher number wins.
 RANK = {
@@ -100,10 +106,55 @@ def run(target, settings, hs, instantly, log=print):
                     company_updates[company_id] = props
             hs.batch_update("companies", list(company_updates.items()))
 
+    moved = advance(hs, instantly, settings, log)
     out_dir = run_dir("sync")
-    write_json(out_dir / "changes.json", {"contacts": changed, "companies": company_updates})
+    write_json(out_dir / "changes.json", {"contacts": changed, "companies": company_updates,
+                                          "next_in_line": moved})
     log(f"Updated {len(contact_updates)} contacts and {len(company_updates)} companies in HubSpot")
-    return {"updated": len(contact_updates), "companies": len(company_updates)}
+    return {"updated": len(contact_updates), "companies": len(company_updates), **moved}
+
+
+def advance(hs, instantly, settings, log=print, now=None):
+    """Move each company in outreach on to its next person when it is due."""
+    gap = int(settings["send"].get("next_contact_after_days", 4))
+    companies = hs.search(
+        "companies", [{"propertyName": "diablo_outreach_status", "operator": "EQ", "value": "in_outreach"}],
+        ["name", "domain", "diablo_market", "diablo_outreach_status", "diablo_suppress_reason"],
+        max_results=5000)
+    if not companies:
+        return {"next_contacts_added": 0, "no_reply": 0}
+    everyone = contacts_by_company(hs, [c["id"] for c in companies])
+    added, no_reply, contact_updates, company_updates = 0, 0, [], []
+    for company in companies:
+        props = company.get("properties", {})
+        if props.get("diablo_suppress_reason"):
+            continue
+        contacts = everyone.get(company["id"]) or []
+        due, why = decide(contacts, props.get("diablo_outreach_status"), gap, now)
+        if why == "no_reply":
+            if not company_updates and hs.ensure_option("companies", "diablo_outreach_status", "No reply", "no_reply"):
+                log("Added 'No reply' to the Outreach company status dropdown")
+            company_updates.append((company["id"], {"diablo_outreach_status": "no_reply"}))
+            no_reply += 1
+            continue
+        campaign = last_campaign(contacts)
+        if not due or not campaign or not due["properties"].get("diablo_personal_line"):
+            continue
+        lead = lead_for(due, props, props.get("diablo_market") or "Unknown")
+        results = instantly.add_leads(campaign, [lead])
+        if sum(r.get("leads_uploaded") or 0 for r in results):
+            contact_updates.append((due["id"], {"diablo_contact_status": "queued",
+                                                "diablo_instantly_campaign_id": campaign}))
+            added += 1
+            log(f"{props.get('name')}: no reply yet, next in line is {due['properties'].get('jobtitle') or 'the next contact'}")
+        else:
+            log(f"{props.get('name')}: {lead['email']} is already in Instantly; not added again")
+    hs.batch_update("contacts", contact_updates)
+    hs.batch_update("companies", company_updates)
+    if added or no_reply:
+        log(f"Next in line: {added} contacts added to their company's campaign, "
+            f"{no_reply} companies marked No reply")
+    return {"next_contacts_added": added, "no_reply": no_reply}
 
 
 def main(argv=None):

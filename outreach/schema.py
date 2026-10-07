@@ -108,6 +108,7 @@ COMPANY_STATUSES = (
     "Contacts found",
     "No contacts found",
     "In outreach",
+    "No reply",
     "Replied",
     "Interested",
     "Not interested",

@@ -103,11 +103,11 @@ def test_find_contacts_assigns_company_and_contacts(settings):
     assert owners == {"buyer@medco.in": "33", "buyer@owned.in": "99"}
 
 
-def test_follow_up_after_a_week(settings):
+def test_follow_up_after_three_days(settings):
     body = send.campaign_body("Diablo | India | X | 2026-10", "India", settings)
     steps = body["sequences"][0]["steps"]
     assert len(steps) == 2
-    assert steps[0]["delay"] == 7 and steps[0]["delay_unit"] == "days"
+    assert steps[0]["delay"] == 3 and steps[0]["delay_unit"] == "days"
     reminder = steps[1]["variants"][0]
     assert reminder["subject"] == ""  # sent in the same thread
     assert "Team at Diablo" in reminder["body"] and "{{privacy_url}}" not in reminder["body"]

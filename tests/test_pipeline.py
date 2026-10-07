@@ -115,7 +115,7 @@ def test_send_and_sync(settings):
     assert "Hi Firstp2," in shown and "Your Reliance range has room for sugar free chocolate." in shown
     assert "distribution partner in India" in shown and "Team at Diablo" in shown
     assert "{{" not in shown and "<br/>" not in shown
-    assert "Email 2 (sent 7 days later if no reply)" in shown
+    assert "Email 2 (sent 3 days later if no reply)" in shown
 
     result = send.run("test", settings, hs, instantly, log=quiet)
     assert result["queued"] == 1
@@ -189,7 +189,7 @@ def test_hierarchy_levels(settings):
     assert level("Sales Executive") == level("Coordinator") == 5
 
 
-def test_find_contacts_collects_top_ten_by_seniority(settings):
+def test_find_contacts_collects_top_three_then_goes_deeper(settings):
     hs = FakeCRM()
     cid = hs.add("companies", name="Big Co", domain="big.in", diablo_company_key="big.in",
                  diablo_market="India", diablo_outreach_status="approved")
@@ -204,17 +204,20 @@ def test_find_contacts_collects_top_ten_by_seniority(settings):
     apollo = FakeApollo({"big.in": people}, emails)
     summary = find_contacts.run("test", settings, hs, apollo, log=quiet)
 
-    contacts = sorted(hs.records["contacts"].values(), key=lambda c: int(c["diablo_hierarchy_rank"]))
-    assert [c["jobtitle"] for c in contacts] == [
-        "Chief Executive Officer", "COO", "Regional Director", "Assistant Director",
-        "Head - Procurement", "Senior Manager", "Category Manager", "Purchase Manager",
-        "Sales Executive", "Accountant",
-    ]  # 10 verified, most senior first (buying titles first within a level); unverified Director skipped
-    assert contacts[0]["diablo_hierarchy_level"] == "Top leadership"
-    assert "p5" not in apollo.revealed  # interns are never collected
-    assert "p6" not in apollo.revealed  # no credit spent on someone Apollo has no email for
-    assert len(apollo.revealed) == 11 and summary["rows"][0]["verified"] == 10
+    def ranked():
+        return [c["jobtitle"] for c in sorted(hs.records["contacts"].values(),
+                                              key=lambda c: int(c["diablo_hierarchy_rank"]))]
+    assert ranked() == ["Chief Executive Officer", "COO", "Regional Director"]  # top 3, most senior first
+    assert summary["rows"][0]["verified"] == 3 and len(apollo.revealed) == 3
     assert hs.records["companies"][cid]["diablo_outreach_status"] == "contacts_found"
+
+    # Nobody replied: set the company back to Approved and run again for the next three.
+    hs.records["companies"][cid]["diablo_outreach_status"] = "approved"
+    find_contacts.run("test", settings, hs, apollo, log=quiet)
+    assert ranked() == ["Chief Executive Officer", "COO", "Regional Director", "Assistant Director",
+                        "Head - Procurement", "Senior Manager"]  # ranks 4 to 6
+    assert len(apollo.revealed) == len(set(apollo.revealed)) == 7  # nobody paid for twice (incl. one unverified)
+    assert "p5" not in apollo.revealed and "p6" not in apollo.revealed  # interns; no email in Apollo
 
 
 def test_send_reports_leads_instantly_skipped(settings):

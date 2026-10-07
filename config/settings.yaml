@@ -6,12 +6,14 @@
 # skills/outreachResearch/settings.yaml, next to the skill that uses them.
 
 contacts:
-  # How many people to collect per company, most senior first (see hierarchy below).
-  # Each approved person gets their own email.
-  per_company: 10
+  # How many people to collect per company in one "Find contacts" run, most senior first
+  # (see hierarchy below). They are emailed one at a time, most senior first (see send).
+  # To go deeper after all of them got no reply, set the company back to Approved and run
+  # "Find contacts" again: it reveals the next ones and never pays for the same person twice.
+  per_company: 3
   # Most emails to reveal per company while trying to reach per_company verified ones.
   # Apollo charges about 1 credit per email revealed, verified or not.
-  max_reveals_per_company: 15
+  max_reveals_per_company: 5
   # Most companies to process in one run.
   companies_per_run: 25
   # Stop revealing emails once this many Apollo credits are used in one run.
@@ -121,7 +123,11 @@ send:
   # Anyone who replies, or whose colleague replies, gets no reminder.
   follow_up:
     enabled: true
-    delay_days: 7
+    delay_days: 3
+  # One person per company at a time, most senior first. If nobody at the company has
+  # replied this many days after the current person's first email, the next person in
+  # line (already approved at gate 2) gets their own email. The sync job does this by itself.
+  next_contact_after_days: 4
   # Privacy notice link shown in every email footer. Check it before sending.
   privacy_url: https://www.diablosugarfree.com/policies/privacy-policy
   # Sending hours per market, in that market's time zone. A market can be a

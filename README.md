@@ -37,12 +37,21 @@ You approve work in HubSpot by changing one dropdown:
 | 2d. Approve a repeat | Lets an On hold repeat run |
 | 2e. Import research into HubSpot | Runs by itself when new research is saved; can be pressed by hand |
 | 2f. Save the HubSpot company list | Runs every night; saves the companies already in HubSpot so research skips them |
-| 3. Find contacts | For Approved companies: Apollo finds up to 10 verified buyer emails, most senior first |
-| 4b. Send to Instantly | Adds Approved to send contacts to a paused campaign per Location and Channel |
-| 5. Sync Instantly to HubSpot | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot |
+| 3. Find contacts | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
+| 4b. Send to Instantly | Starts each company with its most senior Approved to send contact, in a paused campaign per Location and Channel |
+| 5. Sync Instantly to HubSpot | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
 
 Step 4a (writing each subject line and personal line) becomes its own Claude skill and is
 switched on once its code is written. Until then no contact reaches *Copy ready*.
+
+## One person per company at a time
+
+- The most senior approved contact gets the first email, and a reminder 3 days later if they have not replied.
+- On day 4 with no reply from anyone at the company, the next person in line gets their own email
+  (the sync job does this by itself). Each person must still be approved at gate 2.
+- The moment anyone at the company replies, nobody else there is emailed.
+- When everyone found has been emailed without a reply, the company becomes **No reply**. To go
+  deeper, set it back to **Approved** and press **3. Find contacts** for the next 3.
 
 ## The queue
 

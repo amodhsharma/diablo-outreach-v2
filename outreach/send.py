@@ -1,7 +1,9 @@
 """Job 4b: add approved contacts to an Instantly campaign.
 
-Only contacts whose Outreach contact status is Approved to send are sent (gate 2).
-Campaigns are created paused; you press Start in Instantly for each new campaign.
+Only contacts whose Outreach contact status is Approved to send are sent (gate 2), and only
+one person per company at a time, most senior first (see next_in_line.py). The sync job
+moves each company on to its next person by itself. Campaigns are created paused; you
+press Start in Instantly for each new campaign.
 Usage:
     python -m outreach.send --target test --dry-run
     python -m outreach.send --target test
@@ -16,9 +18,11 @@ from collections import defaultdict
 from .common import ROOT, PipelineError, category_label, check_target, load_settings, market_matches, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
+from .next_in_line import contacts_by_company, decide, last_campaign, lead_for
 
 CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", "diablo_subject_line", "diablo_personal_line"]
-COMPANY_PROPS = ["name", "domain", "diablo_market", "diablo_channel_category", "diablo_suppress_reason"]
+COMPANY_PROPS = ["name", "domain", "diablo_market", "diablo_channel_category", "diablo_suppress_reason",
+                 "diablo_outreach_status"]
 
 
 MONTHS = ("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
@@ -140,7 +144,9 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
 
     prefix = settings["sync"]["campaign_prefix"]
     labels = hs.option_labels("companies", "diablo_channel_category")
-    groups, skipped = defaultdict(list), []
+    gap = int(settings["send"].get("next_contact_after_days", 4))
+    everyone = contacts_by_company(hs, company_ids)
+    groups, skipped, waiting = defaultdict(list), [], 0
     for c in contacts:
         company_id = (links.get(c["id"]) or [None])[0]
         comp = companies.get(company_id)
@@ -148,33 +154,36 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         if not comp or comp.get("diablo_suppress_reason") or not p.get("diablo_personal_line"):
             skipped.append(c["id"])
             continue
+        # One person per company at a time: only the one next in line goes now.
+        company_contacts = everyone.get(company_id) or [c]
+        due, _ = decide(company_contacts, comp.get("diablo_outreach_status"), gap)
+        if not due or due["id"] != c["id"]:
+            waiting += 1
+            continue
         market = comp.get("diablo_market") or "Unknown"
-        groups[(market, comp.get("diablo_channel_category") or "")].append((c, company_id, comp))
+        earlier = last_campaign(company_contacts)
+        key = ("campaign", earlier) if earlier else (market, comp.get("diablo_channel_category") or "")
+        groups[key].append((c, company_id, comp))
+    if waiting:
+        log(f"{waiting} approved contacts wait their turn (one person per company at a time)")
 
     existing = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
     plan, contact_updates, company_updates, previews = [], [], {}, []
-    for (market, category), members in groups.items():
-        name = campaign_name(prefix, market, category, labels=labels)
-        leads = [{
-            "email": c["properties"]["email"],
-            "first_name": c["properties"].get("firstname") or "",
-            "last_name": c["properties"].get("lastname") or "",
-            "company_name": comp.get("name") or "",
-            "job_title": c["properties"].get("jobtitle") or "",
-            "website": comp.get("domain") or "",
-            "custom_variables": {
-                "subject_line": c["properties"]["diablo_subject_line"],
-                "personal_line": c["properties"]["diablo_personal_line"],
-                "market": market,
-            },
-        } for c, _, comp in members]
-        plan.append({"campaign": name, "leads": len(leads), "new_campaign": name not in existing})
+    for key, members in groups.items():
+        if key[0] == "campaign":  # the company's earlier contacts went here: keep it together
+            campaign_id = key[1]
+            name = next((n for n, i in existing.items() if i == campaign_id), f"campaign {campaign_id}")
+        else:
+            market, category = key
+            name = campaign_name(prefix, market, category, labels=labels)
+            campaign_id = existing.get(name)
+        leads = [lead_for(c, comp, comp.get("diablo_market") or "Unknown") for c, _, comp in members]
+        plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})
         previews.append(preview(name, leads, settings))
         if dry_run:
             continue
-        campaign_id = existing.get(name)
         if not campaign_id:
-            campaign_id = instantly.create_campaign(campaign_body(name, market, settings))["id"]
+            campaign_id = instantly.create_campaign(campaign_body(name, key[0], settings))["id"]
             log(f"Created paused campaign: {name}")
         results = instantly.add_leads(campaign_id, leads)
         uploaded = sum(r.get("leads_uploaded") or 0 for r in results)
@@ -208,7 +217,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     for row in plan:
         log(f"{'[dry run] ' if dry_run else ''}{row['campaign']}: {row['leads']} leads"
             + (" (new campaign, created paused)" if row["new_campaign"] else ""))
-    return {"queued": len(contact_updates), "campaigns": plan, "skipped": len(skipped)}
+    return {"queued": len(contact_updates), "campaigns": plan, "skipped": len(skipped), "waiting": waiting}
 
 
 def main(argv=None):

@@ -94,6 +94,20 @@ def opted_out_emails(hs, emails):
     return existing
 
 
+def known_apollo_ranks(hs, apollo_ids):
+    """{Apollo person ID: hierarchy rank} for the people already saved as HubSpot contacts."""
+    out, ids = {}, sorted({i for i in apollo_ids if i})
+    for i in range(0, len(ids), 100):
+        rows = hs.search("contacts",
+                         [{"propertyName": "diablo_apollo_id", "operator": "IN", "values": ids[i:i + 100]}],
+                         ["diablo_apollo_id", "diablo_hierarchy_rank"], max_results=500)
+        for r in rows:
+            p = r.get("properties", {})
+            rank = str(p.get("diablo_hierarchy_rank") or "0")
+            out[p.get("diablo_apollo_id")] = int(rank) if rank.isdigit() else 0
+    return out
+
+
 def run(target, settings, hs, apollo, log=print):
     check_target(hs, target)
     cfg = settings["contacts"]
@@ -140,6 +154,11 @@ def run(target, settings, hs, apollo, log=print):
         )
         # Apollo says up front whether it holds an email; revealing the others wastes credits.
         candidates = [x for x in people if x.get("has_email", True)]
+        # People already in HubSpot (from an earlier run for this company) are skipped, so going
+        # deeper reveals the next ones in line and never pays for the same person twice.
+        known_ranks = known_apollo_ranks(hs, [x["id"] for x in candidates])
+        candidates = [x for x in candidates if x["id"] not in known_ranks]
+        base_rank = max(known_ranks.values(), default=0)
         level_of = {x["id"]: x["_level"] for x in people}
         keep, revealed, batches = [], 0, 0
         while candidates and len(keep) < cfg["per_company"] and credits < cfg["max_credits_per_run"]:
@@ -160,7 +179,7 @@ def run(target, settings, hs, apollo, log=print):
                     keep.append(m)
         existing = opted_out_emails(hs, [m["email"] for m in keep]) if keep else {}
         new_contacts = []
-        for rank, m in enumerate(keep, start=1):
+        for rank, m in enumerate(keep, start=base_rank + 1):
             email = m["email"].lower()
             if email in existing:
                 continue  # already in HubSpot (and possibly opted out): never re-add or reset

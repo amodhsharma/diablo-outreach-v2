@@ -82,6 +82,8 @@ class FakeCRM:
             self.links.setdefault(str(a), []).append(str(b))
 
     def associated_ids(self, from_type, to_type, ids):
+        if from_type == "companies":  # links are stored contact -> companies
+            return {str(i): [c for c, cos in self.links.items() if str(i) in cos] for i in ids}
         return {str(i): self.links.get(str(i), []) for i in ids}
 
 
