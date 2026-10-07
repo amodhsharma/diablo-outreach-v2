@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Bash(python3 skills/outreachResearch/scripts/prepare_run.py:*)",
+      "Bash(python3 skills/outreachResearch/scripts/check_output.py:*)",
+      "Bash(python3 skills/outreachResearch/scripts/finalise.py:*)",
+      "Bash(git clone https://github.com/amodhsharma/diablo-outreach-v2:*)",
+      "Bash(git pull:*)",
+      "Bash(git status:*)",
+      "Bash(git add research/:*)",
+      "Bash(git add -A research/:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
