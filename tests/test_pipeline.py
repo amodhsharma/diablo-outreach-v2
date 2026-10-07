@@ -121,7 +121,8 @@ def test_send_and_sync(settings):
     assert result["queued"] == 1
     camp_id, body = next(iter(instantly.campaigns.items()))
     assert body["name"].startswith("Diablo | India | Grocery wholesaler | ")
-    assert body["campaign_schedule"]["schedules"][0]["timezone"] == "Asia/Kolkata"
+    assert body["campaign_schedule"]["schedules"][0]["timezone"] == "Europe/Isle_of_Man"  # any time, every day
+    assert body["campaign_schedule"]["schedules"][0]["timing"] == {"from": "00:00", "to": "23:59"}
     email = body["sequences"][0]["steps"][0]["variants"][0]["body"]
     assert "Best,<br/>Team at Diablo" in email and "{{privacy_url}}" not in email
     lead = instantly.leads[camp_id][0]

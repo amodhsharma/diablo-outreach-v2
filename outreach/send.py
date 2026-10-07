@@ -52,6 +52,18 @@ def schedule_for(market, schedules):
     return best
 
 
+DAY_NUMBERS = {"sun": "0", "mon": "1", "tue": "2", "wed": "3", "thu": "4", "fri": "5", "sat": "6"}
+
+
+def schedule_days(sched):
+    """Instantly's day switches (0 = Sunday). Monday to Friday unless the schedule lists days."""
+    days = [str(d).lower()[:3] for d in sched.get("days") or ["mon", "tue", "wed", "thu", "fri"]]
+    unknown = [d for d in days if d not in DAY_NUMBERS]
+    if unknown:
+        raise PipelineError(f"Unknown day(s) in send.schedule: {', '.join(unknown)}; use mon, tue ... sun")
+    return {num: name in days for name, num in DAY_NUMBERS.items()}
+
+
 def _template(name, s):
     template = json.loads((ROOT / "templates" / name).read_text(encoding="utf-8"))
     return template["subject"], template["body"].replace("{{privacy_url}}", s["privacy_url"])
@@ -111,7 +123,7 @@ def campaign_body(name, market, settings):
             "schedules": [{
                 "name": f"{market} working hours",
                 "timing": {"from": sched["from"], "to": sched["to"]},
-                "days": {"0": False, "1": True, "2": True, "3": True, "4": True, "5": True, "6": False},
+                "days": schedule_days(sched),
                 "timezone": instantly_timezone(sched["timezone"]),
             }]
         },

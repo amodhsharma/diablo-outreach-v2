@@ -37,12 +37,19 @@ def test_market_helpers():
 
 
 def test_schedule_and_stop_for_company(settings):
+    assert settings["send"]["schedule"]["default"]["from"] == "00:00"  # agreed: any time, every day
+    body = send.campaign_body("Diablo | Dublin, Ireland | X | OCT2026", "Dublin, Ireland", settings)
+    assert all(body["campaign_schedule"]["schedules"][0]["days"].values())
+    settings["send"]["schedule"]["India"] = {"timezone": "Asia/Kolkata", "from": "10:00", "to": "17:00",
+                                             "days": ["mon", "tue", "wed", "thu", "fri"]}
     settings["send"]["schedule"]["Mumbai"] = {"timezone": "Asia/Kolkata", "from": "11:00", "to": "16:00"}
     assert send.schedule_for("Pune, India", settings["send"]["schedule"])["from"] == "10:00"
     assert send.schedule_for("Mumbai, India", settings["send"]["schedule"])["from"] == "11:00"
     assert send.schedule_for("Kenya", settings["send"]["schedule"])["timezone"] == "Europe/London"
     body = send.campaign_body("Diablo | Pune, India | X | 2026-10", "Pune, India", settings)
     assert body["stop_for_company"] is True and body["stop_on_reply"] is True
+    assert body["campaign_schedule"]["schedules"][0]["days"] == {
+        "0": False, "1": True, "2": True, "3": True, "4": True, "5": True, "6": False}
 
 
 def assignment_settings(settings):

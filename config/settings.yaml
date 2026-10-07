@@ -130,18 +130,18 @@ send:
   next_contact_after_days: 4
   # Privacy notice link shown in every email footer. Check it before sending.
   privacy_url: https://www.diablosugarfree.com/policies/privacy-policy
-  # Sending hours per market, in that market's time zone. A market can be a
-  # country, region or city; "Mumbai, India" uses the India entry unless a
+  # When Instantly may send. Agreed 7 Oct 2026: any time of day, every day, as soon as a
+  # campaign is started (not limited to each country's working hours). Instantly still spaces
+  # the emails out and keeps to daily_limit. To limit a market again, add an entry such as:
+  #   India: {timezone: Asia/Kolkata, from: "10:00", to: "17:00", days: [mon, tue, wed, thu, fri]}
+  # A market can be a country, region or city; "Mumbai, India" uses an India entry unless a
   # "Mumbai" entry exists.
   schedule:
     default:
       timezone: Europe/London
-      from: "09:00"
-      to: "17:00"
-    India:
-      timezone: Asia/Kolkata
-      from: "10:00"
-      to: "17:00"
+      from: "00:00"
+      to: "23:59"
+      days: [mon, tue, wed, thu, fri, sat, sun]
 
 sync:
   # Only Instantly campaigns whose name starts with this are synced.
