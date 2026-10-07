@@ -6,11 +6,15 @@
       "Bash(python3 skills/outreachResearch/scripts/prepare_run.py:*)",
       "Bash(python3 skills/outreachResearch/scripts/check_output.py:*)",
       "Bash(python3 skills/outreachResearch/scripts/finalise.py:*)",
+      "Bash(python3 skills/outreachMailWriting/scripts/prepare_lines.py:*)",
+      "Bash(python3 skills/outreachMailWriting/scripts/finalise_lines.py:*)",
+      "Bash(python3 skills/outreachMailWriting/scripts/check_lines.py:*)",
       "Bash(git clone https://github.com/amodhsharma/diablo-outreach-v2:*)",
       "Bash(git pull:*)",
       "Bash(git status:*)",
       "Bash(git add research/:*)",
       "Bash(git add -A research/:*)",
+      "Bash(git add mail/lines/:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)"
     ]

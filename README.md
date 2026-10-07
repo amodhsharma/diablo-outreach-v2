@@ -5,7 +5,8 @@ HubSpot for approval, finds buyer contacts with Apollo and queues emails in Inst
 
 Version 2 uses **no Claude API**. The research is done by Claude through the
 **outreachResearch skill** (`skills/outreachResearch`), every 6 hours (about 2 AM, 8 AM, 2 PM and 8 PM IST) or as a manual
-run. Everything else runs from buttons in the **Actions** tab. Keys live only in GitHub secrets.
+run. The subject line and personal opening for each contact are written by Claude through the
+**outreach-mail-writing skill** (`skills/outreachMailWriting`), every 2 hours or as a manual run. Everything else runs from buttons in the **Actions** tab. Keys live only in GitHub secrets.
 
 Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
 
@@ -38,11 +39,21 @@ You approve work in HubSpot by changing one dropdown:
 | 2e. Import research into HubSpot | Runs by itself when new research is saved; can be pressed by hand |
 | 2f. Save the HubSpot company list | Runs every night; saves the companies already in HubSpot so research skips them |
 | 3. Find contacts | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
+| 4a. Refresh contacts needing email lines | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Runs by itself after 3 and 4c; press it after editing contacts in HubSpot |
+| 4c. Import email lines into HubSpot | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
 | 4b. Send to Instantly | Starts each company with its most senior Approved to send contact, in a paused campaign per Location and Channel |
 | 5. Sync Instantly to HubSpot | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
 
-Step 4a (writing each subject line and personal line) becomes its own Claude skill and is
-switched on once its code is written. Until then no contact reaches *Copy ready*.
+## How the email lines get written
+
+1. **3. Find contacts** saves the new contacts (job title and company research only, no names or
+   emails) to `mail/pending.json`.
+2. Every 2 hours Claude runs the outreach-mail-writing skill: it writes a subject line and a
+   personal opening for up to 60 contacts, checks them and saves one file to `mail/lines/<date>/`.
+   A manual run does the same at any time: `/outreach-mail-writing` in a Claude chat.
+3. **4c. Import email lines into HubSpot** starts by itself, checks the file again and puts the
+   lines on each contact as *Copy ready*. Gate 2 is yours: read them and change the status to
+   *Approved to send*. To change a line, edit it in HubSpot before approving.
 
 ## One person per company at a time
 
@@ -78,11 +89,14 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
 | `skills/outreachResearch/settings.yaml` | Companies wanted, floor and search limits |
 | `skills/outreachResearch/output_format.md` | The JSON format and what the strict check rejects |
 | `research/<date>/` | Each run's report (`_report.md`) and JSON |
+| `skills/outreachMailWriting/` | The steps, writing rules and strict check for the email lines |
+| `mail/pending.json` | Contacts waiting for email lines |
+| `mail/lines/<date>/` | Each writing run's lines; `mail/imported.txt` records which were imported |
 | `data/known_companies.csv` | Companies already in HubSpot (nightly) |
 | `data/company_notes.json` | What each company distributes and why it fits, for email writing |
 | `config/exclude.txt` | Companies that must never be researched or contacted |
 | `config/settings.yaml` | Contacts, salesperson assignment, sending and sync settings |
-| `templates/` | The first email and the reminder |
+| `templates/` | The first email and the reminder; `email_templates_for_approval.md` holds the per-Channel drafts |
 
 ## Secrets
 

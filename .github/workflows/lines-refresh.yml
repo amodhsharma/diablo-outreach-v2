@@ -1,0 +1,32 @@
+name: 4a. Refresh contacts needing email lines
+
+# Saves the contacts whose status is "Contact found" to mail/pending.json, for the
+# outreach-mail-writing skill. This also happens by itself after "3. Find contacts"
+# and after every lines import; press it by hand after editing contacts in HubSpot.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: List the contacts
+        env:
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: python -m outreach.export_for_lines --target "$TARGET"
+      - name: Save the list
+        run: |
+          bash .github/scripts/save_changes.sh "Contacts needing email lines" mail/pending.json

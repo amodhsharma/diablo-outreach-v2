@@ -1,0 +1,4 @@
+# outreach-mail-writing settings. Change a number, commit, and the next run uses it.
+
+# Most contacts written in one run. The rest wait for the next run (every 2 hours).
+max_contacts_per_run: 60

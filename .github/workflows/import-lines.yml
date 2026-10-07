@@ -1,0 +1,41 @@
+name: 4c. Import email lines into HubSpot
+
+# Runs by itself when the outreach-mail-writing skill saves a new file to mail/lines/.
+# Checks the file again, puts each subject line and personal line on the contact in
+# HubSpot and moves it to Copy ready (gate 2). Then saves the list of contacts still
+# needing lines. Can also be started by hand to import any file not yet imported.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "mail/lines/*/*.json"
+  workflow_dispatch:
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Import into HubSpot
+        env:
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: |
+          git pull --rebase
+          python -m outreach.import_lines --target "$TARGET"
+      - name: Save what was imported
+        if: always()
+        run: |
+          bash .github/scripts/save_changes.sh "Import email lines" mail/imported.txt mail/pending.json

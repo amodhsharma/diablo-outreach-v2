@@ -16,6 +16,8 @@ jobs:
   contacts:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write  # to save mail/pending.json for the email lines skill
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,6 +29,13 @@ jobs:
           APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY }}
           HUBSPOT_TOKEN: ${{ inputs.target == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
         run: python -m outreach.find_contacts --target "${{ inputs.target }}"
+      - name: List the contacts that need email lines
+        env:
+          HUBSPOT_TOKEN: ${{ inputs.target == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: python -m outreach.export_for_lines --target "${{ inputs.target }}"
+      - name: Save the list
+        run: |
+          bash .github/scripts/save_changes.sh "Contacts needing email lines" mail/pending.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
