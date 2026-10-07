@@ -28,9 +28,10 @@ Also used for any Channel that matches none of the templates.
 >
 > {{personal_line}}
 >
-> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company. We make
-> 117+ products across chocolate, biscuits, sweets, spreads and syrups, sold in 126 countries, and we
-> are looking for the right distribution partner in {{market}}.
+> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company. We give
+> shoppers the taste and indulgence they expect from confectionery, just without the sugar. Our 117+
+> products span chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and protein bars, sold in
+> 126 countries, and we are looking for the right distribution partner in {{market}}.
 >
 > Would you be open to a short call to see whether our range fits your portfolio?
 >
@@ -42,7 +43,7 @@ Also used for any Channel that matches none of the templates.
 > Hi {{firstName}},
 >
 > Following up on our note from a few days ago about Diablo Sugar Free. We would be glad to send our
-> range overview and trade terms so you can judge the fit for {{market}}.
+> range overview, pricing, logistics details and samples so you can judge the fit for {{market}}.
 >
 > Is a short call worthwhile, or is there someone else on your team we should speak to?
 >
@@ -59,9 +60,11 @@ Also used for any Channel that matches none of the templates.
 >
 > {{personal_line}}
 >
-> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company. Our range of
-> 117+ products covers chocolate, biscuits, sweets, spreads and syrups and is sold in 126 countries. We
-> would like to explore listing a selection of it in your stores in {{market}}.
+> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company, sold in 126
+> countries. We give shoppers the taste and indulgence they expect from confectionery, just without the
+> sugar. With 117+ products across chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and
+> protein bars, your stores in {{market}} could offer a full sugar free destination rather than a few
+> scattered items.
 >
 > Could we arrange a short call with whoever looks after confectionery or free from buying?
 >
@@ -73,7 +76,8 @@ Also used for any Channel that matches none of the templates.
 > Hi {{firstName}},
 >
 > Following up on our note from a few days ago about Diablo Sugar Free. We would be glad to send a short
-> product selection, our price list and listing terms so you can judge the fit for your shelves.
+> product selection, pricing, logistics details and samples straight away so you can judge the fit for
+> your shelves.
 >
 > Is a short call worthwhile, or should we speak to someone else in your buying team?
 >
@@ -90,10 +94,11 @@ Also used for any Channel that matches none of the templates.
 >
 > {{personal_line}}
 >
-> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company, with 117+
-> products across chocolate, biscuits, sweets, spreads and syrups, sold in 126 countries. We are looking
-> for established online sellers in {{market}} to stock and resell our range on the marketplaces they
-> already trade on.
+> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company, sold in 126
+> countries. We give shoppers the taste and indulgence they expect from confectionery, just without the
+> sugar, across 117+ products: chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and protein
+> bars. We are looking for established online sellers in {{market}} to stock and resell our range on the
+> marketplaces they already trade on.
 >
 > Would you be open to a short call about trade pricing and supply?
 >
@@ -105,7 +110,7 @@ Also used for any Channel that matches none of the templates.
 > Hi {{firstName}},
 >
 > Following up on our note from a few days ago about Diablo Sugar Free. We would be glad to send our
-> range overview and reseller trade terms so you can judge the fit for your store.
+> range overview, reseller pricing, logistics details and samples so you can judge the fit for your store.
 >
 > Is a short call worthwhile, or is there someone else on your team we should speak to?
 >
@@ -140,7 +145,13 @@ person's job title.
 
 1. Sign-off: keep "Team at Diablo", or use the assigned salesperson's name (each company already gets
    a HubSpot owner)?
-2. Should any version offer samples? It is left out for now because we have not agreed a samples policy.
+2. Samples: the reminders now offer samples, as Aryeh's own emails already do. Is that agreed for
+   every Channel, including marketplace sellers?
 3. Retailers: is "whoever looks after confectionery or free from buying" the right person to ask for?
 4. Marketplace sellers: should we first decide whether resellers on Amazon or Noon would undercut
    Diablo's own listings, before emailing them?
+5. The facts differ between emails: Aryeh writes "Europe's leading no added sugar confectionery
+   brand", "over 120 countries" and "close to 100 SKUs"; these drafts say "Europe's largest no added
+   sugar and sugar free snacks company", "126 countries" and "117+ products". Which are current?
+6. Attachments: Aryeh attaches the catalogue. We suggest no attachment in a first cold email, since
+   attachments from a new address often land in spam; offer it instead, or link to it. Agreed?
