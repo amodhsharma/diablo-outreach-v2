@@ -41,6 +41,9 @@ Also used for any Channel that matches none of the templates.
 > with stevia and inulin and never aspartame, and sold in more than 124 countries. We are looking for
 > the right distribution partner in {{market}}.
 >
+> We are listed with Carrefour, Lidl, Tesco and Holland & Barrett, and in the Nordics we supply SOK in
+> Finland.
+>
 > Would this be worth a look for your portfolio?
 >
 > You can see the full range in our 2026 catalogue: [Diablo catalogue 2026]({{catalogue_link}})
@@ -81,6 +84,9 @@ Also used for any Channel that matches none of the templates.
 > without the sugar, sweetened with stevia and inulin and never aspartame. With 117+ products across
 > chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and protein bars, your stores in
 > {{market}} could offer a full sugar free destination rather than a few scattered items.
+>
+> We are listed with Carrefour, Lidl, Tesco and Holland & Barrett, and in the Nordics we supply SOK in
+> Finland.
 >
 > Would this be worth a look for your stores? If someone else looks after confectionery or free from
 > buying, a pointer to them would be very welcome.
@@ -124,6 +130,9 @@ Also used for any Channel that matches none of the templates.
 > without the sugar, across 117+ products: chocolate, biscuits, wafers, sweets, cakes, spreads, syrups
 > and protein bars, sweetened with stevia and inulin and never aspartame. We are looking for established
 > online sellers in {{market}} to stock and resell our range on the marketplaces they already trade on.
+>
+> We are listed with Carrefour, Lidl, Tesco and Holland & Barrett, and in the Nordics we supply SOK in
+> Finland.
 >
 > Would this be worth a look for your store?
 >
@@ -186,7 +195,8 @@ Diablo, where it is based, and the person's job title.
 3. Retailers: is "whoever looks after confectionery or free from buying" the right person to ask for?
 4. Marketplace sellers: should we first decide whether resellers on Amazon or Noon would undercut
    Diablo's own listings, before emailing them?
-5. Facts (decided by Ariel on 7 Oct 2026): "more than 124 countries" and "sweetened with stevia and
+5. Facts (decided by Ariel on 7 Oct 2026): the retailer line (Carrefour, Lidl, Tesco, Holland & Barrett
+   and SOK in Finland), "more than 124 countries" and "sweetened with stevia and
    inulin, never aspartame". Still to confirm: "Europe's largest" and "117+ products".
 6. Catalogue: the emails link to it rather than attach it, because a 2.3 MB attachment in a first cold
    email from a new address often lands in spam. It needs a public web link (for example on the
