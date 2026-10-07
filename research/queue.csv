@@ -2,3 +2,5 @@ job_id,location,channel,languages,companies_wanted,added_by,added_on,status,reas
 J0001,"Dublin, Ireland",distributors,,30,amodhsharma,2026-10-07,Done,36 found,,2026-10-07,research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json,
 J0001,"Dublin, Ireland",wholesalers,,30,amodhsharma,2026-10-07,Done,34 found,,2026-10-07,research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json,
 J0001,"Dublin, Ireland",retailers,,30,amodhsharma,2026-10-07,Done,40 found,,2026-10-07,research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json,
+J0002,"Dublin, Ireland",distributors,,30,amodhsharma,2026-10-07,On hold: already covered,"Already covered by J0001 (Done, 2026-10-07)",,,,
+J0002,"Dublin, Ireland",wholesalers,,30,amodhsharma,2026-10-07,On hold: already covered,"Already covered by J0001 (Done, 2026-10-07)",,,,
