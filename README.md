@@ -41,7 +41,7 @@ You approve work in HubSpot by changing one dropdown:
 | 3. Find contacts | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
 | 4a. Refresh contacts needing email lines | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Runs by itself after 3 and 4c; press it after editing contacts in HubSpot |
 | 4c. Import email lines into HubSpot | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
-| 4b. Send to Instantly | Starts each company with its most senior Approved to send contact, in a paused campaign per Location and Channel |
+| 4b. Send to Instantly | Every hour by itself (or pressed by hand): starts each company with its most senior Approved to send contact. A new Location and Channel gets a paused campaign; press Start on it in Instantly once |
 | 5. Sync Instantly to HubSpot | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
 
 ## How the email lines get written

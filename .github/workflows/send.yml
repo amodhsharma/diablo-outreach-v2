@@ -1,7 +1,14 @@
 name: 4b. Send to Instantly
 
-# Adds contacts set to Approved to send (gate 2) to paused Instantly campaigns.
+# Adds contacts set to Approved to send (gate 2) to Instantly campaigns.
+# Runs by itself every hour (agreed 7 Oct 2026), and can still be pressed by hand.
+# With nobody approved it stops in seconds. A new Location and Channel gets a new
+# campaign, created paused: press Start on it in Instantly once. Contacts added to a
+# campaign that is already running are emailed by themselves.
+# The hourly run uses the account in the repository variable PIPELINE_TARGET (test if not set).
 on:
+  schedule:
+    - cron: "47 * * * *"
   workflow_dispatch:
     inputs:
       target:
@@ -20,6 +27,9 @@ jobs:
   send:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      TARGET: ${{ inputs.target || vars.PIPELINE_TARGET || 'test' }}
+      DRY_RUN: ${{ inputs.dry_run == true && 'true' || 'false' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,10 +39,10 @@ jobs:
       - name: Send
         env:
           INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
-          HUBSPOT_TOKEN: ${{ inputs.target == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+          HUBSPOT_TOKEN: ${{ (inputs.target || vars.PIPELINE_TARGET) == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
         run: |
-          ARGS="--target ${{ inputs.target }}"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          ARGS="--target $TARGET"
+          if [ "$DRY_RUN" = "true" ]; then ARGS="$ARGS --dry-run"; fi
           python -m outreach.send $ARGS
       - uses: actions/upload-artifact@v4
         if: always()
