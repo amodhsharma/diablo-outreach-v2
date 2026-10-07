@@ -49,6 +49,9 @@ class Instantly:
     def create_campaign(self, body):
         return self.request("POST", "/campaigns", json=body)
 
+    def update_campaign(self, campaign_id, body):
+        return self.request("PATCH", f"/campaigns/{campaign_id}", json=body)
+
     def add_leads(self, campaign_id, leads):
         """Add up to 1,000 leads. Leads already anywhere in the workspace are skipped."""
         results = []

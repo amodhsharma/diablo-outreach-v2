@@ -249,3 +249,19 @@ def test_time_zones_instantly_accepts():
     assert instantly_timezone("Europe/Athens") in ALLOWED
     for tz in ("Asia/Tokyo", "America/New_York", "Asia/Riyadh", "Asia/Singapore"):
         assert instantly_timezone(tz) in ALLOWED
+
+
+def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
+    from .fakes import FakeInstantly
+    steps = send.sequence_steps(settings["send"])
+    body = steps[0]["variants"][0]["body"]
+    assert body.startswith("<p>Hi {{firstName}},</p><p>{{personal_line}}</p>")
+    assert "<br/><br/>" not in body and "<p>Best,<br/>Team at Diablo</p>" in body
+    assert "\n\nWould you" in send.render(body, {"first_name": "Ann"})
+    instantly = FakeInstantly()
+    old = instantly.create_campaign({"name": "Diablo | Dublin, Ireland | Retailers | OCT2026",
+                                     "sequences": [{"steps": [{"variants": [{"subject": "{{subject_line}}", "body": ""}]}]}]})
+    instantly.create_campaign({"name": "Someone else's campaign", "sequences": []})
+    assert send.refresh_campaign_content(instantly, settings, log=quiet) == 1
+    assert instantly.campaigns[old["id"]]["sequences"][0]["steps"][0]["variants"][0]["body"] == body
+    assert send.refresh_campaign_content(instantly, settings, log=quiet) == 0  # already up to date

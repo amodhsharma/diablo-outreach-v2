@@ -124,7 +124,12 @@ class FakeInstantly:
         self.leads = {}
 
     def list_campaigns(self):
-        return [{"id": cid, "name": c["name"]} for cid, c in self.campaigns.items()]
+        return [{"id": cid, "name": c["name"], "sequences": c.get("sequences")} for cid, c in self.campaigns.items()]
+
+    def update_campaign(self, campaign_id, body):
+        self.campaigns[campaign_id].update(body)
+        self.updates = getattr(self, "updates", 0) + 1
+        return {"id": campaign_id}
 
     def create_campaign(self, body):
         cid = f"camp{len(self.campaigns) + 1}"

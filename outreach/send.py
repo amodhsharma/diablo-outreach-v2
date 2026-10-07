@@ -69,19 +69,26 @@ def _template(name, s):
     return template["subject"], template["body"].replace("{{privacy_url}}", s["privacy_url"])
 
 
+def html_paragraphs(body):
+    """Instantly shows (and sends) an empty email when the body is bare text with <br/> breaks,
+    so each paragraph (text between blank lines) is wrapped in <p>...</p>."""
+    parts = [part.strip() for part in body.split("<br/><br/>") if part.strip()]
+    return "".join(f"<p>{part}</p>" for part in parts)
+
+
 def sequence_steps(s):
     """First email, plus one reminder for anyone who has not replied (Instantly's `delay` is
     the wait before the NEXT email, so it sits on the first step)."""
     follow = s.get("follow_up") or {}
     subject, body = _template("first_email.json", s)
     first = {"type": "email", "delay": 0, "delay_unit": "days",
-             "variants": [{"subject": subject, "body": body}]}
+             "variants": [{"subject": subject, "body": html_paragraphs(body)}]}
     if not follow.get("enabled"):
         return [first]
     first["delay"] = int(follow.get("delay_days", 7))
     f_subject, f_body = _template("follow_up.json", s)
     second = {"type": "email", "delay": 0, "delay_unit": "days",
-              "variants": [{"subject": f_subject, "body": f_body}]}
+              "variants": [{"subject": f_subject, "body": html_paragraphs(f_body)}]}
     return [first, second]
 
 
@@ -91,6 +98,7 @@ def render(text, lead):
               "companyName": lead.get("company_name") or "", **lead.get("custom_variables", {})}
     for key, value in values.items():
         text = text.replace("{{" + key + "}}", str(value))
+    text = text.replace("</p><p>", "\n\n").replace("<p>", "").replace("</p>", "")
     return text.replace("<br/>", "\n")
 
 
@@ -138,9 +146,33 @@ def campaign_body(name, market, settings):
     }
 
 
+def _content(steps):
+    return [[(v.get("subject") or "", v.get("body") or "") for v in step.get("variants") or []]
+            for step in steps or []]
+
+
+def refresh_campaign_content(instantly, settings, log=print):
+    """Bring every Diablo campaign's emails in line with the templates, so a template change
+    (or a fix such as the empty-body one) also reaches campaigns created earlier."""
+    prefix = settings["sync"]["campaign_prefix"]
+    steps = sequence_steps(settings["send"])
+    fixed = 0
+    for camp in instantly.list_campaigns():
+        if not str(camp.get("name") or "").startswith(prefix):
+            continue
+        current = (camp.get("sequences") or [{}])[0].get("steps")
+        if _content(current) != _content(steps):
+            instantly.update_campaign(camp["id"], {"sequences": [{"steps": steps}]})
+            fixed += 1
+            log(f"Updated the emails in campaign: {camp['name']}")
+    return fixed
+
+
 def run(target, settings, hs, instantly, dry_run=False, log=print):
     check_target(hs, target)
     out_dir = run_dir("send")
+    if not dry_run:
+        refresh_campaign_content(instantly, settings, log=log)
     contacts = hs.search(
         "contacts",
         [{"propertyName": "diablo_contact_status", "operator": "EQ", "value": "approved_to_send"}],
