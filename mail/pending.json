@@ -1,0 +1,1878 @@
+{
+  "generated_at": "2026-10-07T12:37:38+00:00",
+  "target": "test",
+  "contacts": [
+    {
+      "contact_id": "885964395760",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885966725325",
+      "job_title": "Director & Superintendent Pharmacist",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "CarePlus Pharmacy",
+        "domain": "careplus.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Community pharmacy, health, beauty and wellness.",
+        "channels_supplied": "Franchise network of local pharmacies across Ireland including several in Dublin (Ballyfermot, Clonsilla, Cabinteely, the Liberties); total count not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Franchise group with a central support office, so a recommended range could reach many owner-run pharmacies. No confectionery range seen and store count is unverified; head office city inferred from its Dublin support office number."
+      }
+    },
+    {
+      "contact_id": "885978307822",
+      "job_title": "Commercial Fuels & Lubricants Business Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969101000",
+      "job_title": "Senior Product Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885976791231",
+      "job_title": "Director of Operations",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Elliotts Cash & Carry",
+        "domain": "elliottscashandcarry.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Cash and carry and delivered wholesale: confectionery, soft drinks, tobacco, beverages, alcohol and catering supplies.",
+        "channels_supplied": "City-centre retailers, convenience stores and foodservice businesses from Camden Row, Dublin 8, with next-day delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A long-standing Dublin 8 cash and carry and Stonehouse member that lists confectionery and delivers next day across the city. Good access to inner-city newsagents and convenience stores."
+      }
+    },
+    {
+      "contact_id": "885984508104",
+      "job_title": "Chief Executive Officer, Euro Food Brands",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885974335711",
+      "job_title": "Telesales Executive",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Europa Foods",
+        "domain": "europafoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Rathcoole, Ireland",
+        "distributes": "Irish and international chilled, ambient and frozen brands plus own label; sales, distribution and logistics.",
+        "channels_supplied": "Multiples, independents and the butcher shop network.",
+        "sf_brands_carried": "Candy Kittens, Califia Farms and Strong Roots; no sugar-free brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Co. Dublin distributor that takes on challenger international brands and already handles Candy Kittens confectionery. It holds stock in its own distribution centre; fit depends on appetite for more ambient confectionery."
+      }
+    },
+    {
+      "contact_id": "885977163975",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "M&D Marketing & Distribution",
+        "domain": "mandd.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Imported snacks, confectionery, drinks and preserves, which it sources, imports and warehouses itself.",
+        "channels_supplied": "Multiples and independents; about 3,000 customers nationwide according to trade press.",
+        "sf_brands_carried": "Loacker, Weider, Bonne Maman, Takis, Arizona, Koh Coconut; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "A Dublin 6W importer that brings in continental European brands and holds stock, which matches Diablo's profile well. Weider shows some sports and better-for-you interest and there is no direct competitor in the portfolio."
+      }
+    },
+    {
+      "contact_id": "885978305744",
+      "job_title": "Commercial Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Mr Price Branded Bargains",
+        "domain": "mrprice.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Discount variety: grocery, sweets, chocolate, crisps and snacks, household and toys.",
+        "channels_supplied": "Own discount stores across Ireland (39 reported in 2017, more now; current count not verified) and online at mrprice.online.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Has an open Suppliers page stating all suppliers are welcome, with a buying office in Tallaght and one in Manchester for UK and overseas suppliers. Branded confectionery is a core category, so it suits volume lines and promotional packs. Head office location is inferred from the Dublin buying office."
+      }
+    },
+    {
+      "contact_id": "885991512311",
+      "job_title": "Area Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902008",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885961616598",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Shelton Distributors",
+        "domain": "shelton.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Rathcoole, Ireland",
+        "distributes": "Specialist confectionery and snacking distributor with 40+ brands: sugar confectionery, chocolate, toffee, protein bars, novelties.",
+        "channels_supplied": "Symbol groups, convenience, forecourts, independents, foodservice and leisure; its site names Gala, Barry Group, BWG, Musgrave, Carrolls, Lidl, Woodie's, Aramark and Compass. Over 2,000 customers.",
+        "sf_brands_carried": "Sante healthier options and Go On protein bars, Hamlet and Belfine chocolate, plus a 'Free From' store section. No dedicated sugar-free chocolate brand seen.",
+        "what_they_do_well": [],
+        "fit_rationale": "Family-run confectionery specialist in Co. Dublin that already imports European brands (Trolli, PEZ, Zaini, Look-O-Look, Hamlet) with its own fleet. It has a healthier-options gap that a full sugar-free range would fill and all-island coverage since a 2024 acquisition."
+      }
+    },
+    {
+      "contact_id": "885991193811",
+      "job_title": "Area Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "totalhealth Pharmacy",
+        "domain": "totalhealth.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Community pharmacy, health and beauty; online store.",
+        "channels_supplied": "Network of independent member pharmacies across Ireland with a support office in Santry, Dublin 9; count not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Member-owned symbol group, so central listing is a recommendation and not a mandate. Its site links it with the Haven brand, which suggests the two groups are combining; confirm structure before approaching."
+      }
+    },
+    {
+      "contact_id": "885966729434",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334872",
+      "job_title": "Commercial Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395761",
+      "job_title": "Director of Marketing, Creative & Buying",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885966725324",
+      "job_title": "Head of Merchandising",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "CarePlus Pharmacy",
+        "domain": "careplus.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Community pharmacy, health, beauty and wellness.",
+        "channels_supplied": "Franchise network of local pharmacies across Ireland including several in Dublin (Ballyfermot, Clonsilla, Cabinteely, the Liberties); total count not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Franchise group with a central support office, so a recommended range could reach many owner-run pharmacies. No confectionery range seen and store count is unverified; head office city inferred from its Dublin support office number."
+      }
+    },
+    {
+      "contact_id": "885978307820",
+      "job_title": "Retail Manager Dublin Port",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969100995",
+      "job_title": "Chief Digital Officer (CDO)",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885976791230",
+      "job_title": "Operations Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Elliotts Cash & Carry",
+        "domain": "elliottscashandcarry.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Cash and carry and delivered wholesale: confectionery, soft drinks, tobacco, beverages, alcohol and catering supplies.",
+        "channels_supplied": "City-centre retailers, convenience stores and foodservice businesses from Camden Row, Dublin 8, with next-day delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A long-standing Dublin 8 cash and carry and Stonehouse member that lists confectionery and delivers next day across the city. Good access to inner-city newsagents and convenience stores."
+      }
+    },
+    {
+      "contact_id": "885984508105",
+      "job_title": "Chairman of the Board",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885978305746",
+      "job_title": "Marketing Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Mr Price Branded Bargains",
+        "domain": "mrprice.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Discount variety: grocery, sweets, chocolate, crisps and snacks, household and toys.",
+        "channels_supplied": "Own discount stores across Ireland (39 reported in 2017, more now; current count not verified) and online at mrprice.online.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Has an open Suppliers page stating all suppliers are welcome, with a buying office in Tallaght and one in Manchester for UK and overseas suppliers. Branded confectionery is a core category, so it suits volume lines and promotional packs. Head office location is inferred from the Dublin buying office."
+      }
+    },
+    {
+      "contact_id": "885991512310",
+      "job_title": "Marketing Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902973",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885961616604",
+      "job_title": "Business Analyst",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Shelton Distributors",
+        "domain": "shelton.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Rathcoole, Ireland",
+        "distributes": "Specialist confectionery and snacking distributor with 40+ brands: sugar confectionery, chocolate, toffee, protein bars, novelties.",
+        "channels_supplied": "Symbol groups, convenience, forecourts, independents, foodservice and leisure; its site names Gala, Barry Group, BWG, Musgrave, Carrolls, Lidl, Woodie's, Aramark and Compass. Over 2,000 customers.",
+        "sf_brands_carried": "Sante healthier options and Go On protein bars, Hamlet and Belfine chocolate, plus a 'Free From' store section. No dedicated sugar-free chocolate brand seen.",
+        "what_they_do_well": [],
+        "fit_rationale": "Family-run confectionery specialist in Co. Dublin that already imports European brands (Trolli, PEZ, Zaini, Look-O-Look, Hamlet) with its own fleet. It has a healthier-options gap that a full sugar-free range would fill and all-island coverage since a 2024 acquisition."
+      }
+    },
+    {
+      "contact_id": "885991193812",
+      "job_title": "Pharmacist",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "totalhealth Pharmacy",
+        "domain": "totalhealth.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Community pharmacy, health and beauty; online store.",
+        "channels_supplied": "Network of independent member pharmacies across Ireland with a support office in Santry, Dublin 9; count not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Member-owned symbol group, so central listing is a recommendation and not a mandate. Its site links it with the Haven brand, which suggests the two groups are combining; confirm structure before approaching."
+      }
+    },
+    {
+      "contact_id": "885966729431",
+      "job_title": "Business Owner",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334873",
+      "job_title": "Commercial Sales Manager - Pharmacy & Health Stores",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395763",
+      "job_title": "Financial Director",
+      "seniority": "Directors",
+      "rank": 3,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885978307825",
+      "job_title": "Dealer Area Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969100992",
+      "job_title": "Recruitment Business Partner - Head Office",
+      "seniority": "C-suite",
+      "rank": 3,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885976791232",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Elliotts Cash & Carry",
+        "domain": "elliottscashandcarry.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Cash and carry and delivered wholesale: confectionery, soft drinks, tobacco, beverages, alcohol and catering supplies.",
+        "channels_supplied": "City-centre retailers, convenience stores and foodservice businesses from Camden Row, Dublin 8, with next-day delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A long-standing Dublin 8 cash and carry and Stonehouse member that lists confectionery and delivers next day across the city. Good access to inner-city newsagents and convenience stores."
+      }
+    },
+    {
+      "contact_id": "885984508109",
+      "job_title": "Hershey Commercial Manager",
+      "seniority": "C-suite",
+      "rank": 3,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885978305748",
+      "job_title": "Area Support Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Mr Price Branded Bargains",
+        "domain": "mrprice.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Discount variety: grocery, sweets, chocolate, crisps and snacks, household and toys.",
+        "channels_supplied": "Own discount stores across Ireland (39 reported in 2017, more now; current count not verified) and online at mrprice.online.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Has an open Suppliers page stating all suppliers are welcome, with a buying office in Tallaght and one in Manchester for UK and overseas suppliers. Branded confectionery is a core category, so it suits volume lines and promotional packs. Head office location is inferred from the Dublin buying office."
+      }
+    },
+    {
+      "contact_id": "885991513274",
+      "job_title": "Marketing Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902971",
+      "job_title": "Talent Partner",
+      "seniority": "C-suite",
+      "rank": 3,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885961616600",
+      "job_title": "Customer & Operations Support Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Shelton Distributors",
+        "domain": "shelton.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Rathcoole, Ireland",
+        "distributes": "Specialist confectionery and snacking distributor with 40+ brands: sugar confectionery, chocolate, toffee, protein bars, novelties.",
+        "channels_supplied": "Symbol groups, convenience, forecourts, independents, foodservice and leisure; its site names Gala, Barry Group, BWG, Musgrave, Carrolls, Lidl, Woodie's, Aramark and Compass. Over 2,000 customers.",
+        "sf_brands_carried": "Sante healthier options and Go On protein bars, Hamlet and Belfine chocolate, plus a 'Free From' store section. No dedicated sugar-free chocolate brand seen.",
+        "what_they_do_well": [],
+        "fit_rationale": "Family-run confectionery specialist in Co. Dublin that already imports European brands (Trolli, PEZ, Zaini, Look-O-Look, Hamlet) with its own fleet. It has a healthier-options gap that a full sugar-free range would fill and all-island coverage since a 2024 acquisition."
+      }
+    },
+    {
+      "contact_id": "885991193810",
+      "job_title": "OTC",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "totalhealth Pharmacy",
+        "domain": "totalhealth.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Community pharmacy, health and beauty; online store.",
+        "channels_supplied": "Network of independent member pharmacies across Ireland with a support office in Santry, Dublin 9; count not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Member-owned symbol group, so central listing is a recommendation and not a mandate. Its site links it with the Haven brand, which suggests the two groups are combining; confirm structure before approaching."
+      }
+    },
+    {
+      "contact_id": "885966729429",
+      "job_title": "Executive Director",
+      "seniority": "C-suite",
+      "rank": 3,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334874",
+      "job_title": "Business Unit Manager - Grocery",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395762",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 4,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885978307827",
+      "job_title": "Manager",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969100996",
+      "job_title": "Chief Technology Officer",
+      "seniority": "C-suite",
+      "rank": 4,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885976791229",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Elliotts Cash & Carry",
+        "domain": "elliottscashandcarry.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Cash and carry and delivered wholesale: confectionery, soft drinks, tobacco, beverages, alcohol and catering supplies.",
+        "channels_supplied": "City-centre retailers, convenience stores and foodservice businesses from Camden Row, Dublin 8, with next-day delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A long-standing Dublin 8 cash and carry and Stonehouse member that lists confectionery and delivers next day across the city. Good access to inner-city newsagents and convenience stores."
+      }
+    },
+    {
+      "contact_id": "885984508103",
+      "job_title": "Sales Director",
+      "seniority": "Directors",
+      "rank": 4,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885978305743",
+      "job_title": "Assistant Manager",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Mr Price Branded Bargains",
+        "domain": "mrprice.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Discount variety: grocery, sweets, chocolate, crisps and snacks, household and toys.",
+        "channels_supplied": "Own discount stores across Ireland (39 reported in 2017, more now; current count not verified) and online at mrprice.online.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Has an open Suppliers page stating all suppliers are welcome, with a buying office in Tallaght and one in Manchester for UK and overseas suppliers. Branded confectionery is a core category, so it suits volume lines and promotional packs. Head office location is inferred from the Dublin buying office."
+      }
+    },
+    {
+      "contact_id": "885991513279",
+      "job_title": "Store Manager",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902007",
+      "job_title": "Talent Partner (Maternity Cover Contract)",
+      "seniority": "C-suite",
+      "rank": 4,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885961616603",
+      "job_title": "Office Manager",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Shelton Distributors",
+        "domain": "shelton.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Rathcoole, Ireland",
+        "distributes": "Specialist confectionery and snacking distributor with 40+ brands: sugar confectionery, chocolate, toffee, protein bars, novelties.",
+        "channels_supplied": "Symbol groups, convenience, forecourts, independents, foodservice and leisure; its site names Gala, Barry Group, BWG, Musgrave, Carrolls, Lidl, Woodie's, Aramark and Compass. Over 2,000 customers.",
+        "sf_brands_carried": "Sante healthier options and Go On protein bars, Hamlet and Belfine chocolate, plus a 'Free From' store section. No dedicated sugar-free chocolate brand seen.",
+        "what_they_do_well": [],
+        "fit_rationale": "Family-run confectionery specialist in Co. Dublin that already imports European brands (Trolli, PEZ, Zaini, Look-O-Look, Hamlet) with its own fleet. It has a healthier-options gap that a full sugar-free range would fill and all-island coverage since a 2024 acquisition."
+      }
+    },
+    {
+      "contact_id": "885966729432",
+      "job_title": "Consumer Director",
+      "seniority": "Directors",
+      "rank": 4,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334871",
+      "job_title": "Key Account Manager- Pharmacy",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395756",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 5,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885978307824",
+      "job_title": "Retail Store Manager",
+      "seniority": "Managers",
+      "rank": 5,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969100998",
+      "job_title": "Recruiting Operations Partner – Head Office",
+      "seniority": "C-suite",
+      "rank": 5,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885984508110",
+      "job_title": "Account Director",
+      "seniority": "Directors",
+      "rank": 5,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885978305749",
+      "job_title": "Sales Assistant",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "Mr Price Branded Bargains",
+        "domain": "mrprice.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Discount variety: grocery, sweets, chocolate, crisps and snacks, household and toys.",
+        "channels_supplied": "Own discount stores across Ireland (39 reported in 2017, more now; current count not verified) and online at mrprice.online.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Has an open Suppliers page stating all suppliers are welcome, with a buying office in Tallaght and one in Manchester for UK and overseas suppliers. Branded confectionery is a core category, so it suits volume lines and promotional packs. Head office location is inferred from the Dublin buying office."
+      }
+    },
+    {
+      "contact_id": "885991512312",
+      "job_title": "Webstore Manager",
+      "seniority": "Managers",
+      "rank": 5,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902009",
+      "job_title": "Director of People & Culture",
+      "seniority": "Directors",
+      "rank": 5,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885961616599",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 5,
+      "company": {
+        "name": "Shelton Distributors",
+        "domain": "shelton.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Rathcoole, Ireland",
+        "distributes": "Specialist confectionery and snacking distributor with 40+ brands: sugar confectionery, chocolate, toffee, protein bars, novelties.",
+        "channels_supplied": "Symbol groups, convenience, forecourts, independents, foodservice and leisure; its site names Gala, Barry Group, BWG, Musgrave, Carrolls, Lidl, Woodie's, Aramark and Compass. Over 2,000 customers.",
+        "sf_brands_carried": "Sante healthier options and Go On protein bars, Hamlet and Belfine chocolate, plus a 'Free From' store section. No dedicated sugar-free chocolate brand seen.",
+        "what_they_do_well": [],
+        "fit_rationale": "Family-run confectionery specialist in Co. Dublin that already imports European brands (Trolli, PEZ, Zaini, Look-O-Look, Hamlet) with its own fleet. It has a healthier-options gap that a full sugar-free range would fill and all-island coverage since a 2024 acquisition."
+      }
+    },
+    {
+      "contact_id": "885966729437",
+      "job_title": "Director, Operations & Quality",
+      "seniority": "Directors",
+      "rank": 5,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334875",
+      "job_title": "Area Sales Manager & Health Care Advisor",
+      "seniority": "Managers",
+      "rank": 5,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395754",
+      "job_title": "General Manager Powerscourt Avoca",
+      "seniority": "Directors",
+      "rank": 6,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885978307826",
+      "job_title": "Finance Manager",
+      "seniority": "Managers",
+      "rank": 6,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969100991",
+      "job_title": "Finance Business Partner",
+      "seniority": "C-suite",
+      "rank": 6,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885984508106",
+      "job_title": "Brand Director",
+      "seniority": "Directors",
+      "rank": 6,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885978305745",
+      "job_title": "Warehouse Supervisor",
+      "seniority": "Everyone else",
+      "rank": 6,
+      "company": {
+        "name": "Mr Price Branded Bargains",
+        "domain": "mrprice.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Discount variety: grocery, sweets, chocolate, crisps and snacks, household and toys.",
+        "channels_supplied": "Own discount stores across Ireland (39 reported in 2017, more now; current count not verified) and online at mrprice.online.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Has an open Suppliers page stating all suppliers are welcome, with a buying office in Tallaght and one in Manchester for UK and overseas suppliers. Branded confectionery is a core category, so it suits volume lines and promotional packs. Head office location is inferred from the Dublin buying office."
+      }
+    },
+    {
+      "contact_id": "885991513277",
+      "job_title": "L&D Manager",
+      "seniority": "Managers",
+      "rank": 6,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902970",
+      "job_title": "Commercial Director",
+      "seniority": "Directors",
+      "rank": 6,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885961616602",
+      "job_title": "Sales Representative",
+      "seniority": "Everyone else",
+      "rank": 6,
+      "company": {
+        "name": "Shelton Distributors",
+        "domain": "shelton.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Rathcoole, Ireland",
+        "distributes": "Specialist confectionery and snacking distributor with 40+ brands: sugar confectionery, chocolate, toffee, protein bars, novelties.",
+        "channels_supplied": "Symbol groups, convenience, forecourts, independents, foodservice and leisure; its site names Gala, Barry Group, BWG, Musgrave, Carrolls, Lidl, Woodie's, Aramark and Compass. Over 2,000 customers.",
+        "sf_brands_carried": "Sante healthier options and Go On protein bars, Hamlet and Belfine chocolate, plus a 'Free From' store section. No dedicated sugar-free chocolate brand seen.",
+        "what_they_do_well": [],
+        "fit_rationale": "Family-run confectionery specialist in Co. Dublin that already imports European brands (Trolli, PEZ, Zaini, Look-O-Look, Hamlet) with its own fleet. It has a healthier-options gap that a full sugar-free range would fill and all-island coverage since a 2024 acquisition."
+      }
+    },
+    {
+      "contact_id": "885966729430",
+      "job_title": "Director - Electrical Controls & Systems Engineering",
+      "seniority": "Directors",
+      "rank": 6,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334870",
+      "job_title": "Finance Manager",
+      "seniority": "Managers",
+      "rank": 6,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395758",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 7,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885978307823",
+      "job_title": "Store Manager",
+      "seniority": "Managers",
+      "rank": 7,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969100993",
+      "job_title": "Recruitment Business Partner",
+      "seniority": "C-suite",
+      "rank": 7,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885984508111",
+      "job_title": "Account Director",
+      "seniority": "Directors",
+      "rank": 7,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885978305747",
+      "job_title": "Sales Assistant",
+      "seniority": "Everyone else",
+      "rank": 7,
+      "company": {
+        "name": "Mr Price Branded Bargains",
+        "domain": "mrprice.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Discount variety: grocery, sweets, chocolate, crisps and snacks, household and toys.",
+        "channels_supplied": "Own discount stores across Ireland (39 reported in 2017, more now; current count not verified) and online at mrprice.online.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Has an open Suppliers page stating all suppliers are welcome, with a buying office in Tallaght and one in Manchester for UK and overseas suppliers. Branded confectionery is a core category, so it suits volume lines and promotional packs. Head office location is inferred from the Dublin buying office."
+      }
+    },
+    {
+      "contact_id": "885991513278",
+      "job_title": "Store Manager",
+      "seniority": "Managers",
+      "rank": 7,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902974",
+      "job_title": "Red Bull Marketing Director",
+      "seniority": "Directors",
+      "rank": 7,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885961616601",
+      "job_title": "Purchasing Buyer",
+      "seniority": "Everyone else",
+      "rank": 7,
+      "company": {
+        "name": "Shelton Distributors",
+        "domain": "shelton.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Rathcoole, Ireland",
+        "distributes": "Specialist confectionery and snacking distributor with 40+ brands: sugar confectionery, chocolate, toffee, protein bars, novelties.",
+        "channels_supplied": "Symbol groups, convenience, forecourts, independents, foodservice and leisure; its site names Gala, Barry Group, BWG, Musgrave, Carrolls, Lidl, Woodie's, Aramark and Compass. Over 2,000 customers.",
+        "sf_brands_carried": "Sante healthier options and Go On protein bars, Hamlet and Belfine chocolate, plus a 'Free From' store section. No dedicated sugar-free chocolate brand seen.",
+        "what_they_do_well": [],
+        "fit_rationale": "Family-run confectionery specialist in Co. Dublin that already imports European brands (Trolli, PEZ, Zaini, Look-O-Look, Hamlet) with its own fleet. It has a healthier-options gap that a full sugar-free range would fill and all-island coverage since a 2024 acquisition."
+      }
+    },
+    {
+      "contact_id": "885966729436",
+      "job_title": "Director Business Development",
+      "seniority": "Directors",
+      "rank": 7,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334869",
+      "job_title": "Brand Activation Manager",
+      "seniority": "Managers",
+      "rank": 7,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395759",
+      "job_title": "Head of Ambient Food Buying",
+      "seniority": "Heads and junior directors",
+      "rank": 8,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885978307828",
+      "job_title": "Senior Systems Administrator",
+      "seniority": "Everyone else",
+      "rank": 8,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969100994",
+      "job_title": "HR Business Partner",
+      "seniority": "C-suite",
+      "rank": 8,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885984508112",
+      "job_title": "Brand Director",
+      "seniority": "Directors",
+      "rank": 8,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885991512313",
+      "job_title": "Retail Store Manager",
+      "seniority": "Managers",
+      "rank": 8,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902972",
+      "job_title": "Marketing Director",
+      "seniority": "Directors",
+      "rank": 8,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885966729433",
+      "job_title": "Operations Director",
+      "seniority": "Directors",
+      "rank": 8,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334867",
+      "job_title": "Marketing Manager",
+      "seniority": "Managers",
+      "rank": 8,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395755",
+      "job_title": "Head of E-commerce",
+      "seniority": "Heads and junior directors",
+      "rank": 9,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885978307821",
+      "job_title": "Retail Sales Supervisor",
+      "seniority": "Everyone else",
+      "rank": 9,
+      "company": {
+        "name": "Circle K Ireland",
+        "domain": "circlek.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Forecourt convenience: confectionery, snacks, food to go, drinks.",
+        "channels_supplied": "About 420 service stations on the island of Ireland (356 Republic sites in the 2024 fuel report), many in Dublin.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest forecourt network in Ireland, where impulse confectionery is a core category. Space is tight and dominated by major brands, so a small sugar-free bay or till-point trial is the realistic ask. Head office city is my understanding and not confirmed in the sources."
+      }
+    },
+    {
+      "contact_id": "885969100997",
+      "job_title": "HR Business Partner",
+      "seniority": "C-suite",
+      "rank": 9,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885984508107",
+      "job_title": "Brand Director",
+      "seniority": "Directors",
+      "rank": 9,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885991513275",
+      "job_title": "Retail Sales Manager",
+      "seniority": "Managers",
+      "rank": 9,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902006",
+      "job_title": "Marketing Director",
+      "seniority": "Directors",
+      "rank": 9,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885966729435",
+      "job_title": "Head of Operations",
+      "seniority": "Heads and junior directors",
+      "rank": 9,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334876",
+      "job_title": "A.Vogel Territory Training Manager and Health Advisor",
+      "seniority": "Managers",
+      "rank": 9,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    },
+    {
+      "contact_id": "885964395757",
+      "job_title": "Head of Buying - Retail",
+      "seniority": "Heads and junior directors",
+      "rank": 10,
+      "company": {
+        "name": "Avoca",
+        "domain": "avoca.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Kilmacanogue, Ireland",
+        "distributes": "Food markets, confectionery and gifting, cafes, clothing and homeware.",
+        "channels_supplied": "Avoca stores and food markets in Dublin and Wicklow; owned by Aramark since 2015.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Premium gifting destination where boxed chocolate sells well, but the food range leans heavily to own label and Irish artisan suppliers. Store list and head office town were not confirmed from its site, so treat details as provisional."
+      }
+    },
+    {
+      "contact_id": "885969100999",
+      "job_title": "Human Resources Business Partner",
+      "seniority": "C-suite",
+      "rank": 10,
+      "company": {
+        "name": "Dunnes Stores",
+        "domain": "dunnesstores.com",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Full grocery including confectionery, biscuits, spreads and free-from, plus textiles and homeware.",
+        "channels_supplied": "118 stores in the Republic of Ireland with a dense Dublin estate, and online grocery at dunnesstoresgrocery.com.",
+        "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest grocer in Ireland by share (about 25%) with 118 stores and head office in Dublin 2. It already hosts Nourish health concessions and has listed sugar-free confectionery before, so the category is understood. No public supplier portal was found, so approach is through the confectionery buying team."
+      }
+    },
+    {
+      "contact_id": "885984508108",
+      "job_title": "Brand Director",
+      "seniority": "Directors",
+      "rank": 10,
+      "company": {
+        "name": "Euro Food Brands Ireland",
+        "domain": "eurofoodbrands.co.uk",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
+        "distributes": "Imported ambient food brands: confectionery, biscuits, world foods, meal solutions and a 'Free From & Wellbeing' category.",
+        "channels_supplied": "Dunnes Stores, Tesco Ireland, SuperValu, Centra, Musgrave MarketPlace, Circle K, Spar, Mace, Londis, Value Centre, Stonehouse, Gala, Costcutter and Applegreen.",
+        "sf_brands_carried": "Loacker, Hershey, Reese's, Galaxy Vegan, Yogi Tea; no sugar-free confectionery brand identified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Official Irish distributor for Hershey and Loacker with an Irish account team, field sales and a dedicated Irish warehouse partner. It gives named access to every major Irish grocery and convenience banner and has no visible sugar-free competitor."
+      }
+    },
+    {
+      "contact_id": "885991513276",
+      "job_title": "Store Manager",
+      "seniority": "Managers",
+      "rank": 10,
+      "company": {
+        "name": "Nourish",
+        "domain": "nourish.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Retailers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Health foods, wholefoods, chocolate and sweet snacks, supplements, natural skincare.",
+        "channels_supplied": "Own health stores (22 listed, 14 of them in Dublin), concessions inside Dunnes Stores and nourish.ie online.",
+        "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
+        "what_they_do_well": [],
+        "fit_rationale": "Largest Dublin-centred health store chain with 14 Dublin stores out of 22 and a central buying function. Health-led shoppers and a dedicated sweet snacks category make a no-added-sugar range a natural listing, and the Dunnes concessions add reach."
+      }
+    },
+    {
+      "contact_id": "885974902975",
+      "job_title": "NI Commercial Director",
+      "seniority": "Directors",
+      "rank": 10,
+      "company": {
+        "name": "Richmond Marketing",
+        "domain": "richmondmarketing.com",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Premium drinks, snacks, chocolate and beauty brands across Ireland and Northern Ireland.",
+        "channels_supplied": "All key retail channels with particular strength in convenience and forecourt, plus large format grocery.",
+        "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
+        "what_they_do_well": [],
+        "fit_rationale": "Citywest distributor that built Fulfil in Irish convenience and was appointed exclusive Irish distributor for Ritter Sport in 2025. It is strong in chocolate and better-for-you impulse, though Ritter Sport and Tony's may limit appetite for another chocolate brand."
+      }
+    },
+    {
+      "contact_id": "885966729438",
+      "job_title": "Head of Sales & Retail Solutions",
+      "seniority": "Heads and junior directors",
+      "rank": 10,
+      "company": {
+        "name": "United Drug",
+        "domain": "united-drug.com",
+        "location": "Dublin, Ireland",
+        "channel": "Wholesalers",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Pharmaceutical wholesale plus a consumer division for over-the-counter medicines, cosmetics and fragrances.",
+        "channels_supplied": "Pharmacies, hospitals, nursing homes and GPs across Ireland with twice-daily delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "The largest pharmacy wholesaler in Ireland, part of the PHOENIX group, and the second pharmacy route after Uniphar. Food and confectionery are not confirmed in its consumer range, so fit depends on a pharmacy-led pitch."
+      }
+    },
+    {
+      "contact_id": "885963334868",
+      "job_title": "IS Manager",
+      "seniority": "Managers",
+      "rank": 10,
+      "company": {
+        "name": "Wholefoods Wholesale",
+        "domain": "wholefoods.ie",
+        "location": "Dublin, Ireland",
+        "channel": "Distributors",
+        "based_out_of": "Dublin, Ireland",
+        "distributes": "Natural and health foods, snacks, chocolate, supplements, body care; over 8,000 lines.",
+        "channels_supplied": "Health stores, pharmacies and grocery; its site names Holland & Barrett, Boots, SuperValu, Dunnes Stores, Tesco and Centra; 2,500+ retail points.",
+        "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
+        "what_they_do_well": [],
+        "fit_rationale": "Ireland's largest natural products wholesaler, based in Dublin 10 and part of the Total Produce (Dole) consumer health division. It reaches the health store and pharmacy channels where sugar-free confectionery sells best. Check whether the Lillys line overlaps with Diablo before pitching."
+      }
+    }
+  ]
+}
