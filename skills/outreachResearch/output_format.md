@@ -25,7 +25,7 @@ again before importing. A file that fails is rejected whole; nothing half reache
 **Each Channel:** channel, template, status (done, failed or on_hold), reason (why failed or
 on hold), companies_wanted, companies_found, searches_used.
 
-**Each company (13 fields):**
+**Each company (14 fields):**
 
 | Field | Shown to people as | Rule |
 |---|---|---|
@@ -40,6 +40,7 @@ on hold), companies_wanted, companies_found, searches_used.
 | sf_brands_carried | Sugar free brands carried | Text or null |
 | competing_brand_flag | Carries a direct competitor | true, false or null |
 | fit_rationale | Why they fit Diablo | Not empty |
+| what_they_do_well | What they do well | One or two specific, sourced points (25 words or fewer each), or an empty list |
 | confidence | Confidence | high, medium or low |
 | source_urls | Found the company from | At least one web link |
 

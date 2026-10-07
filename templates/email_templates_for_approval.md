@@ -37,10 +37,11 @@ Also used for any Channel that matches none of the templates.
 >
 > We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company. We give
 > shoppers the taste and indulgence they expect from confectionery, just without the sugar. Our 117+
-> products span chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and protein bars, sold in
-> 126 countries, and we are looking for the right distribution partner in {{market}}.
+> products span chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and protein bars, sweetened
+> with stevia and inulin and never aspartame, and sold in more than 124 countries. We are looking for
+> the right distribution partner in {{market}}.
 >
-> Would you be open to a short call to see whether our range fits your portfolio?
+> Would this be worth a look for your portfolio?
 >
 > You can see the full range in our 2026 catalogue: [Diablo catalogue 2026]({{catalogue_link}})
 >
@@ -75,13 +76,14 @@ Also used for any Channel that matches none of the templates.
 >
 > {{personal_line}}
 >
-> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company, sold in 126
-> countries. We give shoppers the taste and indulgence they expect from confectionery, just without the
-> sugar. With 117+ products across chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and
-> protein bars, your stores in {{market}} could offer a full sugar free destination rather than a few
-> scattered items.
+> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company, sold in more
+> than 124 countries. We give shoppers the taste and indulgence they expect from confectionery, just
+> without the sugar, sweetened with stevia and inulin and never aspartame. With 117+ products across
+> chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and protein bars, your stores in
+> {{market}} could offer a full sugar free destination rather than a few scattered items.
 >
-> Could we arrange a short call with whoever looks after confectionery or free from buying?
+> Would this be worth a look for your stores? If someone else looks after confectionery or free from
+> buying, a pointer to them would be very welcome.
 >
 > You can see the full range in our 2026 catalogue: [Diablo catalogue 2026]({{catalogue_link}})
 >
@@ -117,13 +119,13 @@ Also used for any Channel that matches none of the templates.
 >
 > {{personal_line}}
 >
-> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company, sold in 126
-> countries. We give shoppers the taste and indulgence they expect from confectionery, just without the
-> sugar, across 117+ products: chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and protein
-> bars. We are looking for established online sellers in {{market}} to stock and resell our range on the
-> marketplaces they already trade on.
+> We are Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company, sold in more
+> than 124 countries. We give shoppers the taste and indulgence they expect from confectionery, just
+> without the sugar, across 117+ products: chocolate, biscuits, wafers, sweets, cakes, spreads, syrups
+> and protein bars, sweetened with stevia and inulin and never aspartame. We are looking for established
+> online sellers in {{market}} to stock and resell our range on the marketplaces they already trade on.
 >
-> Would you be open to a short call about trade pricing and supply?
+> Would this be worth a look for your store?
 >
 > You can see the full range in our 2026 catalogue: [Diablo catalogue 2026]({{catalogue_link}})
 >
@@ -160,15 +162,17 @@ The reminder's footer leaves out the "We found your business details..." sentenc
 ## Rules for the subject line and personal line
 
 What the skill uses for each person: the company name, what it distributes or sells, the retailers or
-channels it supplies, the sugar free brands it carries, why it fits Diablo, where it is based, and the
-person's job title.
+channels it supplies, the sugar free brands it carries, what it does well (1 or 2 true, sourced points
+from the research, e.g. brands it has launched or how it gets products onto shelves), why it fits
+Diablo, where it is based, and the person's job title.
 
 - **Subject line:** 3 to 7 words, specific to their company. No clickbait, no emojis, no question marks.
-- **Personal line:** one sentence of 30 words or fewer that opens the email and shows why their
-  company in particular fits, using only the facts above.
+- **Personal opening:** one or two sentences, 50 words or fewer, that open the email. It starts with
+  something true and specific the company does well (from "what it does well"), then why that makes it
+  a fit for Diablo. Specific appreciation is welcome; generic praise is not.
 - **By role:** a director's line leans on partnership and growth; a buyer's or category manager's line
   leans on range and shelf fit.
-- **Never:** invented facts, numbers or names; flattery ("I was impressed"); health claims or the words
+- **Never:** invented facts, numbers or names; empty flattery ("I was impressed"); health claims or the words
   "diabetic", "diabetes" or "healthy"; exclamation marks; the company name more than once.
 - **Writing:** British English, no em dashes or en dashes, no Oxford commas.
 
@@ -182,9 +186,8 @@ person's job title.
 3. Retailers: is "whoever looks after confectionery or free from buying" the right person to ask for?
 4. Marketplace sellers: should we first decide whether resellers on Amazon or Noon would undercut
    Diablo's own listings, before emailing them?
-5. The facts differ between emails: Aryeh writes "Europe's leading no added sugar confectionery
-   brand", "over 120 countries" and "close to 100 SKUs"; these drafts say "Europe's largest no added
-   sugar and sugar free snacks company", "126 countries" and "117+ products". Which are current?
+5. Facts (decided by Ariel on 7 Oct 2026): "more than 124 countries" and "sweetened with stevia and
+   inulin, never aspartame". Still to confirm: "Europe's largest" and "117+ products".
 6. Catalogue: the emails link to it rather than attach it, because a 2.3 MB attachment in a first cold
    email from a new address often lands in spam. It needs a public web link (for example on the
    website); where should it live?

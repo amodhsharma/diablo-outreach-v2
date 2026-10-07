@@ -58,6 +58,8 @@ def _read_helper(entry, exclusions):
                 c["domain"] = clean_domain(c.get("domain"))
                 for key in TEXT_FIELDS:
                     c[key] = tidy_text(c.get(key))
+                if isinstance(c.get("what_they_do_well"), list):
+                    c["what_they_do_well"] = [tidy_text(x) for x in c["what_they_do_well"]]
                 if isinstance(c.get("confidence"), str):
                     c["confidence"] = c["confidence"].strip().lower()
     # Excluded companies are dropped here rather than failing the Channel.
@@ -162,6 +164,7 @@ def merge(work):
                 "tier": c["tier"], "tier_rank": c["tier_rank"], "distributes": c["distributes"],
                 "channels_supplied": c["channels_supplied"], "sf_brands_carried": c["sf_brands_carried"],
                 "competing_brand_flag": c["competing_brand_flag"], "fit_rationale": c["fit_rationale"],
+                "what_they_do_well": list(c["what_they_do_well"]),
                 "confidence": c["confidence"], "source_urls": list(c["source_urls"]),
                 "_order": (index, c["tier"], c["tier_rank"]),
             }

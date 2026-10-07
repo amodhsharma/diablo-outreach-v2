@@ -25,13 +25,14 @@ FORMAT = "outreachResearch v1"
 # The fields every company must have in a helper's file, in this order.
 PART_COMPANY_KEYS = [
     "name", "based_out_of", "domain", "tier", "tier_rank", "distributes", "channels_supplied",
-    "sf_brands_carried", "competing_brand_flag", "fit_rationale", "confidence", "source_urls",
+    "sf_brands_carried", "competing_brand_flag", "fit_rationale", "what_they_do_well", "confidence",
+    "source_urls",
 ]
-# The final file adds channel_category: 13 fields per company.
+# The final file adds channel_category: 14 fields per company.
 FINAL_COMPANY_KEYS = [
     "name", "based_out_of", "domain", "channel_category", "tier", "tier_rank", "distributes",
-    "channels_supplied", "sf_brands_carried", "competing_brand_flag", "fit_rationale", "confidence",
-    "source_urls",
+    "channels_supplied", "sf_brands_carried", "competing_brand_flag", "fit_rationale", "what_they_do_well",
+    "confidence", "source_urls",
 ]
 PART_KEYS = ["channel", "searches_used", "tier_logic", "checked_and_excluded", "shortfall_note", "companies"]
 FINAL_KEYS = ["format", "job_id", "location", "run_date", "run_type", "replaces", "channels", "companies"]
@@ -52,6 +53,7 @@ LABELS = {
     "sf_brands_carried": "Sugar free brands carried",
     "competing_brand_flag": "Carries a direct competitor",
     "fit_rationale": "Why they fit Diablo",
+    "what_they_do_well": "What they do well",
     "confidence": "Confidence",
     "source_urls": "Found the company from",
 }
@@ -189,6 +191,12 @@ def check_company(errors, where, c, keys, channels=None):
             errors.append(f"{where}: {LABELS[key]} must be text or null")
     if not (c["fit_rationale"] or "").strip():
         errors.append(f"{where}: Why they fit Diablo is empty")
+    points = c["what_they_do_well"]
+    if (not isinstance(points, list) or len(points) > 2
+            or not all(isinstance(x, str) and x.strip() for x in points)):
+        errors.append(f"{where}: What they do well must be a list of one or two points, or an empty list")
+    elif any(len(x.split()) > 25 for x in points):
+        errors.append(f"{where}: each What they do well point must be 25 words or fewer")
     if c["competing_brand_flag"] not in (True, False, None):
         errors.append(f"{where}: Carries a direct competitor must be true, false or null")
     urls = c["source_urls"]

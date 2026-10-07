@@ -97,6 +97,7 @@ def hubspot_records(data):
                 "name": c["name"], "based_out_of": c["based_out_of"] or "",
                 "market": data["location"], "category": clean_category(channel),
                 "channels": c["channel_category"], "fit_rationale": c["fit_rationale"] or "",
+                "what_they_do_well": c["what_they_do_well"],
                 "distributes": c["distributes"] or "", "channels_supplied": c["channels_supplied"] or "",
                 "sf_brands_carried": c["sf_brands_carried"] or "", "added": now_iso()[:10],
                 "research_file": data.get("_file", ""),

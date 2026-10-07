@@ -8,7 +8,7 @@ OBJECTIVE
 Produce a ranked shortlist of companies in this channel that an outreach team can contact this month.
 
 CLIENT CONTEXT
-The client is Diablo Sugar Free, Europe's largest no-added-sugar and sugar-free snacks company. 117+ SKUs across 11 categories including chocolate, biscuits, sweets, spreads and syrups, sweetened mainly with polyols such as maltitol and erythritol. Currently selling in 126 countries. Exporting entity: B Healthy Ltd (UK). Looking for route to market partners in {{MARKET}}.
+The client is Diablo Sugar Free, Europe's largest no-added-sugar and sugar-free snacks company. 117+ SKUs across 11 categories including chocolate, biscuits, sweets, spreads and syrups, sweetened with stevia and inulin, never aspartame. Currently selling in more than 124 countries. Exporting entity: B Healthy Ltd (UK). Looking for route to market partners in {{MARKET}}.
 
 WHAT THIS CHANNEL MEANS
 {{CHANNEL_RULES}}
@@ -36,8 +36,9 @@ OUTPUT FIELDS (one entry per company, company level only)
 5. Which retailers, marketplaces or channels they supply or sell through, named where possible
 6. Whether they already carry sugar-free, no-added-sugar, diabetic or better-for-you ranges, and which brands; flag any that compete directly with Diablo
 7. Fit rationale for Diablo, two or three sentences, specific not generic
-8. Confidence: high (two or more independent sources), medium (one solid source), low (directory, storefront or import record only)
-9. Found the company from: the source URL(s)
+8. What they do well: one or two specific, true points about their track record that the company would be proud of, each backed by one of the source URLs. For example brands they have launched or built in the market, how they get products onto shelves (own field sales, in-store merchandising), which chains they supply, or how long they have been trading. Never generic praise ("a great company"); leave the list empty if nothing specific can be verified
+9. Confidence: high (two or more independent sources), medium (one solid source), low (directory, storefront or import record only)
+10. Found the company from: the source URL(s)
 
 TIERING AND RANKING
 - Tier 1: best fit, prioritise for outreach. Tier 2: viable, approach after tier 1. Tier 3: possible but lower priority or conditional.
@@ -71,6 +72,7 @@ Save one JSON file at {{OUTPUT_FILE}} with exactly this shape and these keys (us
       "sf_brands_carried": "Sugar free or better-for-you brands they carry, or null",
       "competing_brand_flag": false,
       "fit_rationale": "Two or three specific sentences.",
+      "what_they_do_well": ["One specific, sourced point.", "An optional second point."],
       "confidence": "high",
       "source_urls": ["https://..."]
     }
@@ -78,6 +80,7 @@ Save one JSON file at {{OUTPUT_FILE}} with exactly this shape and these keys (us
 }
 
 - tier is 1, 2 or 3; tier_rank starts at 1 in each tier; confidence is high, medium or low.
+- what_they_do_well: a list of one or two short points (25 words or fewer each), or an empty list.
 - shortfall_note: null when you found at least {{FLOOR}} companies; otherwise the real count and what limits the market.
 - Then run this check and fix the file until it prints PASSED (at most three tries):
   {{CHECK_COMMAND}}

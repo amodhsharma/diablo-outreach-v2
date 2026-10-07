@@ -87,7 +87,8 @@ def test_queue_file_round_trip(tmp_path):
 def company(name="Alpha Foods", domain="alphafoods.in", tier=1, rank=1, **extra):
     c = {"name": name, "based_out_of": "Mumbai, India", "domain": domain, "tier": tier, "tier_rank": rank, "distributes": "Chocolate",
          "channels_supplied": "Pharmacies", "sf_brands_carried": None, "competing_brand_flag": False,
-         "fit_rationale": "Imports European chocolate.", "confidence": "high",
+         "fit_rationale": "Imports European chocolate.", "what_they_do_well": ["Took two German brands into Musgrave."],
+         "confidence": "high",
          "source_urls": ["https://example.org/a"]}
     c.update(extra)
     return c
@@ -337,3 +338,14 @@ def test_retry_replaces_the_earlier_file(repo):
     assert [c["status"] for c in final["channels"]] == ["done", "done", "done"]
     assert {c["name"] for c in final["companies"]} == {"Alpha Foods", "Seller One", "Shop One"}
     assert final["replaces"] == [first]
+
+
+def test_what_they_do_well_rules():
+    assert check_output.check_part(part([company(what_they_do_well=[])])) == []  # nothing verifiable: empty
+    too_many = check_output.check_part(part([company(what_they_do_well=["a", "b", "c"])]))
+    assert "one or two points" in too_many[0]
+    too_long = check_output.check_part(part([company(what_they_do_well=["word " * 26])]))
+    assert "25 words or fewer" in too_long[0]
+    missing = company()
+    del missing["what_they_do_well"]
+    assert "missing field(s): what_they_do_well" in check_output.check_part(part([missing]))[0]

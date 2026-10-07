@@ -5,7 +5,7 @@ TASK
 Write two short sections about how packaged confectionery and snacks reach consumers in {{MARKET}}, with these channels in mind: {{CHANNEL_LIST}}.
 
 CLIENT CONTEXT
-The client is Diablo Sugar Free, Europe's largest no-added-sugar and sugar-free snacks company. 117+ SKUs across 11 categories including chocolate, biscuits, sweets, spreads and syrups, sweetened mainly with polyols such as maltitol and erythritol. Currently selling in 126 countries. Exporting entity: B Healthy Ltd (UK). Looking for route to market partners in {{MARKET}}.
+The client is Diablo Sugar Free, Europe's largest no-added-sugar and sugar-free snacks company. 117+ SKUs across 11 categories including chocolate, biscuits, sweets, spreads and syrups, sweetened with stevia and inulin, never aspartame. Currently selling in more than 124 countries. Exporting entity: B Healthy Ltd (UK). Looking for route to market partners in {{MARKET}}.
 
 SECTIONS
 1. MARKET STRUCTURE: maximum 200 words on how product actually reaches shelf (and online orders, where marketplaces matter) in {{COUNTRY}} and where the real gatekeepers sit.
