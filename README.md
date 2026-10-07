@@ -52,6 +52,9 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
 
 - A repeat is the same Location with the same Channel. Capitals, spaces and singular or plural
   are ignored ("Wholesaler" matches "wholesalers"); any other wording is new.
+- The country must be real: a typo such as "Mumbai, Infia" stops the button with "Did you mean
+  India?" and nothing is added. Short forms like UK, USA and UAE are accepted, and a Location typed
+  in lower case gets capitals ("dublin, ireland" is saved as "Dublin, Ireland").
 - Locations match as written: "UK" and "United Kingdom" are different.
 - A repeat goes On hold until someone presses **2d. Approve a repeat**.
 - A failed Channel runs again by itself once, at the next run, and the new files replace the

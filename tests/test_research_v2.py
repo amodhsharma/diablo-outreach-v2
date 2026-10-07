@@ -60,6 +60,20 @@ def test_queue_buttons_and_oldest_job_first():
         rq.add(rows, "India", " , ")
 
 
+def test_country_check_and_capitals():
+    with pytest.raises(rq.QueueError) as err:
+        rq.add([], "Mumbai, Infia", "distributors")
+    assert "Did you mean India?" in str(err.value) and "Nothing was added" in str(err.value)
+    with pytest.raises(rq.QueueError):
+        rq.add([], "Paris", "distributors")  # a city with no country
+    rows = []
+    for typed, saved in (("dublin, ireland", "Dublin, Ireland"), ("new york, usa", "New York, USA"),
+                         ("Dubai, uae", "Dubai, UAE"), ("UK", "UK"), ("Côte d’Ivoire", "Cote d'Ivoire")):
+        assert rq.add(rows, typed, "distributors")[1][0]["location"] == saved
+    # UK and United Kingdom stay different Locations (matched as written).
+    assert rq.add(rows, "United Kingdom", "distributors")[1][0]["status"] == rq.WAITING
+
+
 def test_queue_file_round_trip(tmp_path):
     rows = []
     rq.add(rows, "Mumbai ,India", "health food stores", languages="Hindi,  Marathi", wanted="8", added_by="ariel")

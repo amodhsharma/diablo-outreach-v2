@@ -23,6 +23,8 @@ import re
 import sys
 from pathlib import Path
 
+from . import countries
+
 ROOT = Path(__file__).resolve().parent.parent
 QUEUE_FILE = ROOT / "research" / "queue.csv"
 SETTINGS_FILE = ROOT / "skills" / "outreachResearch" / "settings.yaml"
@@ -72,6 +74,37 @@ def tidy(text):
     """Single spaces and tidy commas: "  Mumbai ,India " -> "Mumbai, India"."""
     parts = [" ".join(p.split()) for p in str(text or "").split(",")]
     return ", ".join(p for p in parts if p)
+
+
+_SMALL_WORDS = {"and", "of", "the", "de", "da", "del", "la", "le", "upon", "on"}
+
+
+def capitalise(text):
+    """Capitals for a Location typed all in lower case: "dublin, ireland" -> "Dublin, Ireland".
+    Parts typed with capitals are kept, and the country is written the usual way for the
+    name typed ("usa" -> "USA"; UK stays UK, it is not changed to United Kingdom)."""
+    parts = []
+    for part in tidy(text).split(", "):
+        if part == part.lower():
+            words = part.split(" ")
+            part = " ".join(w if (i and w in _SMALL_WORDS) else w[:1].upper() + w[1:]
+                            for i, w in enumerate(words))
+        parts.append(part)
+    if parts and countries.spelling(parts[-1]):
+        parts[-1] = countries.spelling(parts[-1])
+    return ", ".join(parts)
+
+
+def check_country(location):
+    """Stop if the last part of a Location is not a country we know, suggesting the closest."""
+    country = tidy(location).split(", ")[-1]
+    if countries.find(country):
+        return
+    close = countries.suggest(country)
+    hint = f" Did you mean {' or '.join(close)}?" if close else ""
+    raise QueueError(
+        f'"{country}" is not a country I know.{hint} Type the Location with the country last, '
+        'after a comma, e.g. "Mumbai, India". Nothing was added.')
 
 
 def norm_location(text):
@@ -148,9 +181,10 @@ def _cover_reason(other):
 
 def add(rows, location, channels, languages="", wanted="", added_by="", on=None, default_wanted=60):
     """Add one job (one line per Channel). Returns (job_id, new lines, warnings)."""
-    location = tidy(location)
+    location = capitalise(location)
     if not re.search(r"[A-Za-z]", location):
         raise QueueError('Location is empty: type a country, region or city, country last, e.g. "Mumbai, India"')
+    check_country(location)
     names = [" ".join(c.split()) for c in str(channels or "").split(",")]
     names = [c for c in names if c]
     if not names:

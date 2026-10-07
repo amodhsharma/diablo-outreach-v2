@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       location:
-        description: "Location: a country, region or city, country last (e.g. India, or Mumbai, India)"
+        description: "Location: a country, region or city, country last (e.g. India, or Mumbai, India). A misspelt country stops the button"
         required: true
       channels:
         description: "Channels: the types of company to find, separated by commas (e.g. distributors, wholesalers, retailers, marketplace sellers)"
