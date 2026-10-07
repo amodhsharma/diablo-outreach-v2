@@ -188,3 +188,33 @@ def test_import_moves_contacts_to_copy_ready(tmp_path, monkeypatch):
     assert [r["contact_id"] for r in json.loads(pending.read_text())["contacts"]] == [b]
     assert imported.read_text().count("\n") == 2
     assert import_lines.run("test", hs, log=quiet, imported_path=imported, pending_path=pending) == []
+
+
+def test_search_lag_does_not_put_contacts_back_on_the_list(tmp_path, monkeypatch):
+    """HubSpot's search lags behind updates; the list must use the real status."""
+    monkeypatch.setattr(import_lines, "LINES_DIR", tmp_path / "lines")
+    monkeypatch.setattr(common, "NOTES_FILE", tmp_path / "notes.json")
+    hs, (a, b, _c, _d) = crm_with_contacts()
+    stale = {rid: dict(p) for rid, p in hs.records["contacts"].items()}
+    real_search = hs.search
+
+    def lagging_search(object_type, filters, properties, **kw):
+        if object_type != "contacts":
+            return real_search(object_type, filters, properties, **kw)
+        live = hs.records["contacts"]
+        hs.records["contacts"] = stale
+        try:
+            return real_search(object_type, filters, properties, **kw)
+        finally:
+            hs.records["contacts"] = live
+
+    hs.search = lagging_search
+    folder = tmp_path / "lines" / "2026-10-07"
+    folder.mkdir(parents=True)
+    (folder / "2026-10-07_1400_1.json").write_text(json.dumps(lines_file([dict(GOOD, contact_id=a)])))
+    pending = tmp_path / "pending.json"
+    import_lines.run("test", hs, log=quiet, imported_path=tmp_path / "imported.txt", pending_path=pending)
+    assert [r["contact_id"] for r in json.loads(pending.read_text())["contacts"]] == [b]
+    hs.records["contacts"][b]["diablo_contact_status"] = "copy_ready"  # e.g. lines typed in HubSpot by hand
+    rows = export_for_lines.run("test", hs, pending, log=quiet)
+    assert rows == []

@@ -26,10 +26,17 @@ COMPANY_PROPS = ["name", "domain", "diablo_market", "diablo_channel_category", "
                  "diablo_suppress_reason"]
 
 
-def collect(hs, max_results=5000):
-    contacts = hs.search(
+def collect(hs, max_results=5000, exclude=()):
+    """HubSpot's search can lag a few seconds behind an update, so every status is read again
+    directly before a contact is listed; `exclude` drops contacts just updated by the caller."""
+    props = ["jobtitle", "diablo_hierarchy_rank", "diablo_hierarchy_level", "diablo_contact_status"]
+    found = hs.search(
         "contacts", [{"propertyName": "diablo_contact_status", "operator": "EQ", "value": "contact_found"}],
-        ["jobtitle", "diablo_hierarchy_rank", "diablo_hierarchy_level"], max_results=max_results)
+        props, max_results=max_results)
+    exclude = {str(i) for i in exclude}
+    ids = [c["id"] for c in found if str(c["id"]) not in exclude]
+    contacts = [c for c in hs.batch_read("contacts", ids, props)
+                if (c.get("properties", {}).get("diablo_contact_status") or "") == "contact_found"] if ids else []
     if not contacts:
         return []
     links = hs.associated_ids("contacts", "companies", [c["id"] for c in contacts])
@@ -78,9 +85,9 @@ def save(rows, target, path=None):
     return data
 
 
-def run(target, hs, path=None, log=print):
+def run(target, hs, path=None, log=print, exclude=()):
     check_target(hs, target)
-    rows = collect(hs)
+    rows = collect(hs, exclude=exclude)
     save(rows, target, path)
     log(f"{len(rows)} contacts need email lines; saved to mail/pending.json")
     return rows

@@ -67,8 +67,8 @@ def pending_files(lines_dir=None, imported_path=None):
     return [f for f in files if relative(f) not in done]
 
 
-def import_file(path, hs):
-    """Import one file. Returns a short result line."""
+def import_file(path, hs, done_ids=None):
+    """Import one file. Returns a short result line. IDs set to Copy ready are added to done_ids."""
     try:
         data = json.loads(Path(path).read_text(encoding="utf-8"))
     except (OSError, ValueError) as err:
@@ -93,6 +93,8 @@ def import_file(path, hs):
                 "diablo_contact_status": "copy_ready",
             }))
     hs.batch_update("contacts", updates)
+    if done_ids is not None:
+        done_ids.update(cid for cid, _ in updates)
     result = f"{len(updates)} contacts now Copy ready"
     if moved_on:
         result += f", {moved_on} skipped (no longer Contact found)"
@@ -108,14 +110,14 @@ def run(target, hs, files=None, log=print, imported_path=None, pending_path=None
         log("No new email lines files to import.")
         return []
     check_target(hs, target)
-    results = []
+    results, done_ids = [], set()
     for f in files:
-        result = import_file(f, hs)
+        result = import_file(f, hs, done_ids)
         record(relative(f), result, imported_path)
         line = f"{relative(f)}: {result}"
         log(line)
         results.append(line)
-    export_for_lines.run(target, hs, pending_path, log=log)
+    export_for_lines.run(target, hs, pending_path, log=log, exclude=done_ids)
     return results
 
 
