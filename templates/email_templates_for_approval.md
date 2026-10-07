@@ -11,10 +11,17 @@ Status: **draft, not in use yet.** Emails still use `templates/first_email.json`
 | Opening personal line | The outreach-mail-writing skill, per person | No |
 | Body | This page, one version per Channel | Yes, within a Channel |
 | Reminder (3 days later, same thread) | This page, one version per Channel | Yes, within a Channel |
-| Sign-off and footer | This page | Yes |
+| Signature (name, title, phone, booking link) | The sending person's details | Per sender |
+| Catalogue link | This page | Yes |
+| Footer | This page | Yes |
 
 Placeholders filled in for each person: `{{firstName}}`, `{{subject_line}}`, `{{personal_line}}`
-and `{{market}}` (the Location, e.g. "Dublin, Ireland").
+and `{{market}}` (the Location, e.g. "Dublin, Ireland"). Filled in per sender: `{{sender_name}}`,
+`{{sender_title}}` and `{{sender_phone}}`. Filled in once: `{{catalogue_link}}`, a public web link to
+the 2026 catalogue.
+
+The signature follows the team's current emails (name, title, phone and a link to book a call). The
+2026 catalogue is kept in the repository at `templates/catalogue/CATALOGUE_2026_NEW_Launch.pdf`.
 
 ## 1. Distributors and wholesalers
 
@@ -35,8 +42,13 @@ Also used for any Channel that matches none of the templates.
 >
 > Would you be open to a short call to see whether our range fits your portfolio?
 >
-> Best,
-> Team at Diablo
+> You can see the full range in our 2026 catalogue: [Diablo catalogue 2026]({{catalogue_link}})
+>
+> Best regards,
+> {{sender_name}}
+> {{sender_title}}, Diablo Sugar Free
+> {{sender_phone}}
+> [Book a call with me](https://bookings.cloud.microsoft/bookwithme/user/1be42f64d7824cfca27d03769363c674%40diablosugarfree.com?anonymous&ismsaljsauthenabled=true)
 
 **Reminder (3 days later, same thread)**
 
@@ -47,8 +59,11 @@ Also used for any Channel that matches none of the templates.
 >
 > Is a short call worthwhile, or is there someone else on your team we should speak to?
 >
-> Best,
-> Team at Diablo
+> Best regards,
+> {{sender_name}}
+> {{sender_title}}, Diablo Sugar Free
+> {{sender_phone}}
+> [Book a call with me](https://bookings.cloud.microsoft/bookwithme/user/1be42f64d7824cfca27d03769363c674%40diablosugarfree.com?anonymous&ismsaljsauthenabled=true)
 
 ## 2. Retailers
 
@@ -68,8 +83,13 @@ Also used for any Channel that matches none of the templates.
 >
 > Could we arrange a short call with whoever looks after confectionery or free from buying?
 >
-> Best,
-> Team at Diablo
+> You can see the full range in our 2026 catalogue: [Diablo catalogue 2026]({{catalogue_link}})
+>
+> Best regards,
+> {{sender_name}}
+> {{sender_title}}, Diablo Sugar Free
+> {{sender_phone}}
+> [Book a call with me](https://bookings.cloud.microsoft/bookwithme/user/1be42f64d7824cfca27d03769363c674%40diablosugarfree.com?anonymous&ismsaljsauthenabled=true)
 
 **Reminder (3 days later, same thread)**
 
@@ -81,8 +101,11 @@ Also used for any Channel that matches none of the templates.
 >
 > Is a short call worthwhile, or should we speak to someone else in your buying team?
 >
-> Best,
-> Team at Diablo
+> Best regards,
+> {{sender_name}}
+> {{sender_title}}, Diablo Sugar Free
+> {{sender_phone}}
+> [Book a call with me](https://bookings.cloud.microsoft/bookwithme/user/1be42f64d7824cfca27d03769363c674%40diablosugarfree.com?anonymous&ismsaljsauthenabled=true)
 
 ## 3. Marketplace sellers
 
@@ -102,8 +125,13 @@ Also used for any Channel that matches none of the templates.
 >
 > Would you be open to a short call about trade pricing and supply?
 >
-> Best,
-> Team at Diablo
+> You can see the full range in our 2026 catalogue: [Diablo catalogue 2026]({{catalogue_link}})
+>
+> Best regards,
+> {{sender_name}}
+> {{sender_title}}, Diablo Sugar Free
+> {{sender_phone}}
+> [Book a call with me](https://bookings.cloud.microsoft/bookwithme/user/1be42f64d7824cfca27d03769363c674%40diablosugarfree.com?anonymous&ismsaljsauthenabled=true)
 
 **Reminder (3 days later, same thread)**
 
@@ -114,8 +142,11 @@ Also used for any Channel that matches none of the templates.
 >
 > Is a short call worthwhile, or is there someone else on your team we should speak to?
 >
-> Best,
-> Team at Diablo
+> Best regards,
+> {{sender_name}}
+> {{sender_title}}, Diablo Sugar Free
+> {{sender_phone}}
+> [Book a call with me](https://bookings.cloud.microsoft/bookwithme/user/1be42f64d7824cfca27d03769363c674%40diablosugarfree.com?anonymous&ismsaljsauthenabled=true)
 
 ## Footer (every email)
 
@@ -143,8 +174,9 @@ person's job title.
 
 ## Questions for the team
 
-1. Sign-off: keep "Team at Diablo", or use the assigned salesperson's name (each company already gets
-   a HubSpot owner)?
+1. Signature: emails now sign off with the sender's name, title, phone and a booking link, as the team
+   does today. Whose details go on emails sent from sales@diablosnosugar.com, and is the booking link
+   above theirs?
 2. Samples: the reminders now offer samples, as Aryeh's own emails already do. Is that agreed for
    every Channel, including marketplace sellers?
 3. Retailers: is "whoever looks after confectionery or free from buying" the right person to ask for?
@@ -153,5 +185,6 @@ person's job title.
 5. The facts differ between emails: Aryeh writes "Europe's leading no added sugar confectionery
    brand", "over 120 countries" and "close to 100 SKUs"; these drafts say "Europe's largest no added
    sugar and sugar free snacks company", "126 countries" and "117+ products". Which are current?
-6. Attachments: Aryeh attaches the catalogue. We suggest no attachment in a first cold email, since
-   attachments from a new address often land in spam; offer it instead, or link to it. Agreed?
+6. Catalogue: the emails link to it rather than attach it, because a 2.3 MB attachment in a first cold
+   email from a new address often lands in spam. It needs a public web link (for example on the
+   website); where should it live?
