@@ -17,7 +17,7 @@ again before importing. A file that fails is rejected whole; nothing half reache
 | job_id | The queue job, e.g. J0001 |
 | location | The Location as queued, e.g. "Mumbai, India" |
 | run_date | The run's date in India time, e.g. 2026-10-09 |
-| run_type | scheduled (8 AM) or manual |
+| run_type | scheduled (every 6 hours) or manual |
 | replaces | On a retry, the earlier files this run replaces (empty otherwise) |
 | channels | One entry per Channel in the job (below) |
 | companies | One entry per company (below), each company once |

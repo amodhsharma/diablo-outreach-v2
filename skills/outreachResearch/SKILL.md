@@ -1,6 +1,6 @@
 ---
 name: outreach-research
-description: Run Diablo's distributor outreach research for the next job in the queue (research/queue.csv in amodhsharma/diablo-outreach-v2) and save one report and one JSON to the repo. Use for the 8 AM scheduled run, and when someone asks to "run outreach research", "run the next job", or names a Location or job ID to research now.
+description: Run Diablo's distributor outreach research for the next job in the queue (research/queue.csv in amodhsharma/diablo-outreach-v2) and save one report and one JSON to the repo. Use for the scheduled run (every 6 hours), and when someone asks to "run outreach research", "run the next job", or names a Location or job ID to research now.
 ---
 
 # outreachResearch
@@ -29,7 +29,7 @@ problem into the report and the final summary instead.
 
 ## Step 2: pick the job and write the prompts
 
-Scheduled 8 AM run:
+Scheduled run (every 6 hours):
 `python3 skills/outreachResearch/scripts/prepare_run.py`
 
 Manual run (someone asked in a chat or pressed Run now):
@@ -98,7 +98,7 @@ say so plainly in the summary; the files are lost when this session ends.
 ## Step 7: summary
 
 Finish with three lines:
-1. The job, Location and Channels, and whether this was the 8 AM run or a manual run.
+1. The job, Location and Channels, and whether this was a scheduled run or a manual run.
 2. Companies found per Channel, and any Channel on hold, failed or below the floor.
 3. Where the files are (research/<date>/...) and that GitHub will now import them into HubSpot.
 

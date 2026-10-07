@@ -8,7 +8,7 @@ config/exclude.txt, then writes into the work folder:
   channel_N_prompt.md  one per Channel, for the helpers
 
 Usage (from the repository's top folder):
-    python3 skills/outreachResearch/scripts/prepare_run.py                    # 8 AM run
+    python3 skills/outreachResearch/scripts/prepare_run.py                    # scheduled run
     python3 skills/outreachResearch/scripts/prepare_run.py --manual           # oldest waiting job
     python3 skills/outreachResearch/scripts/prepare_run.py --manual --location "Mumbai, India"
     python3 skills/outreachResearch/scripts/prepare_run.py --manual --job J0003
@@ -223,7 +223,7 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
 
 def main(argv=None):
     p = argparse.ArgumentParser(description="Pick the next research job and write its prompts")
-    p.add_argument("--manual", action="store_true", help="a manual run (not the 8 AM run)")
+    p.add_argument("--manual", action="store_true", help="a manual run (not the scheduled run)")
     p.add_argument("--job", default="", help="run this job ID instead of the oldest")
     p.add_argument("--location", default="", help="run the oldest waiting job for this Location")
     p.add_argument("--work", default="", help="work folder (default: work/ in the repository)")

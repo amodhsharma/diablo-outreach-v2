@@ -4,7 +4,7 @@ Finds distributors, wholesalers, retailers and marketplace sellers in a Location
 HubSpot for approval, finds buyer contacts with Apollo and queues emails in Instantly.
 
 Version 2 uses **no Claude API**. The research is done by Claude through the
-**outreachResearch skill** (`skills/outreachResearch`), every day at 8 AM IST or as a manual
+**outreachResearch skill** (`skills/outreachResearch`), every 6 hours (about 2 AM, 8 AM, 2 PM and 8 PM IST) or as a manual
 run. Everything else runs from buttons in the **Actions** tab. Keys live only in GitHub secrets.
 
 Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
@@ -13,7 +13,7 @@ Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
 
 1. Press **2a. Add research to the queue**: type the Location, the Channels (separated by
    commas), languages and companies wanted per Channel.
-2. At 8 AM IST Claude takes the oldest waiting job, researches the Location once and sends one
+2. Every 6 hours Claude takes the oldest waiting job (one job per run), researches the Location once and sends one
    helper per Channel at the same time, then saves one report and one JSON to `research/<date>/`.
    A manual run does the same at any time: "Run now" on the scheduled task, or `/outreach-research`
    in a Claude chat (name a Location or job ID to run that one).
