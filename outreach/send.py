@@ -18,6 +18,7 @@ from collections import defaultdict
 from .common import ROOT, PipelineError, category_label, check_target, load_settings, market_matches, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
+from .instantly_timezones import instantly_timezone
 from .next_in_line import contacts_by_company, decide, last_campaign, lead_for
 
 CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", "diablo_subject_line", "diablo_personal_line"]
@@ -111,7 +112,7 @@ def campaign_body(name, market, settings):
                 "name": f"{market} working hours",
                 "timing": {"from": sched["from"], "to": sched["to"]},
                 "days": {"0": False, "1": True, "2": True, "3": True, "4": True, "5": True, "6": False},
-                "timezone": sched["timezone"],
+                "timezone": instantly_timezone(sched["timezone"]),
             }]
         },
         "sequences": [{"steps": steps}],
@@ -180,10 +181,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         leads = [lead_for(c, comp, comp.get("diablo_market") or "Unknown") for c, _, comp in members]
         plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})
         previews.append(preview(name, leads, settings))
+        body = campaign_body(name, key[0], settings) if not campaign_id else None  # a dry run checks it too
         if dry_run:
             continue
         if not campaign_id:
-            campaign_id = instantly.create_campaign(campaign_body(name, key[0], settings))["id"]
+            campaign_id = instantly.create_campaign(body)["id"]
             log(f"Created paused campaign: {name}")
         results = instantly.add_leads(campaign_id, leads)
         uploaded = sum(r.get("leads_uploaded") or 0 for r in results)

@@ -235,3 +235,16 @@ def test_send_reports_leads_instantly_skipped(settings):
     assert result["queued"] == 0
     assert hs.records["contacts"][contact]["diablo_contact_status"] == "approved_to_send"
     assert any("0 leads added, 1 skipped" in line for line in logs)
+
+
+def test_time_zones_instantly_accepts():
+    from outreach.instantly_timezones import ALLOWED, instantly_timezone
+    assert instantly_timezone("Europe/London") == "Europe/Isle_of_Man"
+    assert instantly_timezone("Europe/Dublin") == "Europe/Isle_of_Man"
+    assert instantly_timezone("Asia/Kolkata") == "Asia/Kolkata"
+    assert instantly_timezone("Europe/Paris") == "Europe/Belgrade"
+    assert instantly_timezone("Europe/Copenhagen") == "Europe/Belgrade"
+    assert instantly_timezone("Africa/Nairobi") == "Africa/Addis_Ababa"
+    assert instantly_timezone("Europe/Athens") in ALLOWED
+    for tz in ("Asia/Tokyo", "America/New_York", "Asia/Riyadh", "Asia/Singapore"):
+        assert instantly_timezone(tz) in ALLOWED
