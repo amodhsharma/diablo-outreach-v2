@@ -1,4 +1,4 @@
-name: 5. Sync Instantly to HubSpot
+name: "5 - Sync results: Instantly to HubSpot (timer)"
 
 # Pressed every 3 hours (1, 4, 7 and 10, AM and PM IST) by the outside timer, cron-job.org
 # (see docs/outside_timer.md), and can be started by hand.

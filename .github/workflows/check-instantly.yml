@@ -1,4 +1,4 @@
-name: 6. Check why Instantly is or is not sending
+name: "6 - Instantly health check"
 
 # Asks Instantly, campaign by campaign, whether it is sending and if not why (its own
 # diagnosis), and counts the leads by status. Also lists the contacts set to Approved to send in

@@ -1,7 +1,7 @@
-name: 4a. Refresh contacts needing email lines
+name: "4a - HubSpot contacts to email writer (automatic)"
 
 # Saves the contacts whose status is "Contact found" to mail/pending.json, for the
-# outreach-mail-writing skill. This also happens by itself after "3. Find contacts"
+# outreach-mail-writing skill. This also happens by itself after "3 - Find contacts: Apollo to HubSpot"
 # and after every lines import; press it by hand after editing contacts in HubSpot.
 on:
   workflow_dispatch:

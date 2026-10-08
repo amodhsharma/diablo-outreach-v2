@@ -1,4 +1,4 @@
-name: 3. Find contacts
+name: "3 - Find contacts: Apollo to HubSpot"
 
 # Finds contacts for companies set to Approved in HubSpot (gate 1).
 on:

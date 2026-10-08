@@ -1,6 +1,6 @@
 # Outside timer: pressing the GitHub buttons on time
 
-GitHub's own timer is best effort: on 7 and 8 Oct 2026 it ran "4b. Send to Instantly" twice
+GitHub's own timer is best effort: on 7 and 8 Oct 2026 it ran "4b - Send approved contacts: HubSpot to Instantly (timer)" twice
 overnight instead of about seven times, and "5. Sync" three times instead of five. So a free
 outside timer, cron-job.org, presses those buttons on time through the GitHub API (agreed with
 Ariel on 8 Oct 2026).
@@ -10,9 +10,9 @@ turn, so each button runs 8 times a day, every 3 hours:
 
 | Time (IST) | Button |
 |---|---|
-| 12, 3, 6 and 9, AM and PM | 4b. Send to Instantly |
-| 1, 4, 7 and 10, AM and PM | 5. Sync Instantly to HubSpot |
-| 2, 5, 8 and 11, AM and PM | 2f. Save the HubSpot company list |
+| 12, 3, 6 and 9, AM and PM | 4b - Send approved contacts: HubSpot to Instantly (timer) |
+| 1, 4, 7 and 10, AM and PM | 5 - Sync results: Instantly to HubSpot (timer) |
+| 2, 5, 8 and 11, AM and PM | 2f - HubSpot company list to research (timer) |
 
 Send comes first, so the sync an hour later already sees the emails that went out. The three
 jobs passed their test runs on 8 Oct 2026 and GitHub's own timer was then switched off, so

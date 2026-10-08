@@ -1,4 +1,4 @@
-name: 4b. Send to Instantly
+name: "4b - Send approved contacts: HubSpot to Instantly (timer)"
 
 # Adds contacts set to Approved to send (gate 2) to Instantly campaigns.
 # Pressed every 3 hours (12, 3, 6 and 9, AM and PM IST) by the outside timer, cron-job.org,

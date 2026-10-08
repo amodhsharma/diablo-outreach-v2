@@ -1,6 +1,6 @@
-name: 1. Set up HubSpot fields
+name: "1 - Set up HubSpot fields (once per account)"
 
-# Start it from the Actions tab: "1. Set up HubSpot fields" > Run workflow.
+# Start it from the Actions tab: "1 - Set up HubSpot fields (once per account)" > Run workflow.
 on:
   workflow_dispatch:
     inputs:

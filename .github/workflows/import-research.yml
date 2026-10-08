@@ -1,4 +1,4 @@
-name: 2e. Import research into HubSpot
+name: "2e - Research results to HubSpot (automatic)"
 
 # Runs by itself when the outreachResearch skill saves new files to research/.
 # Checks each new file again, adds its companies to HubSpot as Awaiting review

@@ -94,7 +94,7 @@ contacts:
 
 assignment:
   # Gives each approved company a salesperson (its HubSpot company owner) when
-  # "3. Find contacts" runs. Contacts get the same owner. Companies that already
+  # "3 - Find contacts: Apollo to HubSpot" runs. Contacts get the same owner. Companies that already
   # have an owner keep it. Leave rules and default_owners empty to switch this off.
   #
   # Each rule: market (a country, region or city), optional category, and the

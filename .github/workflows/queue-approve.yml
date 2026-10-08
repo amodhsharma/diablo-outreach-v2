@@ -1,4 +1,4 @@
-name: 2d. Approve a repeat
+name: "2d - Research queue: approve a repeat"
 
 # Lets an On hold repeat run: the job (or one Channel of it) goes back to Waiting.
 # The job ID is the first column of research/queue.csv (e.g. J0003).
