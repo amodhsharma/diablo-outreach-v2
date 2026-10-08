@@ -1,17 +1,15 @@
 name: 4b. Send to Instantly
 
 # Adds contacts set to Approved to send (gate 2) to Instantly campaigns.
-# Runs by itself every 2 hours (agreed 7 Oct 2026), and can still be pressed by hand.
+# Pressed every 3 hours (12, 3, 6 and 9, AM and PM IST) by the outside timer, cron-job.org,
+# and can still be pressed by hand.
 # With nobody approved it stops in seconds. Each month gets one new campaign for every
 # Location and Channel, created paused: press Start on it in Instantly once a month.
 # Contacts added to a campaign that is already running are emailed by themselves.
-# The scheduled run uses the account in the repository variable PIPELINE_TARGET (test if not set).
-# GitHub's own timer is best effort and often skips runs, so an outside timer (cron-job.org)
-# also presses this button every 2 hours through the GitHub API with dry_run=false; see
+# The timer's run uses the account in the repository variable PIPELINE_TARGET (test if not set).
+# GitHub's own timer was switched off on 8 Oct 2026 because it skipped runs; see
 # docs/outside_timer.md.
 on:
-  schedule:
-    - cron: "47 */2 * * *"
   workflow_dispatch:
     inputs:
       target:

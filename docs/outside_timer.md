@@ -14,9 +14,9 @@ turn, so each button runs 8 times a day, every 3 hours:
 | 1, 4, 7 and 10, AM and PM | 5. Sync Instantly to HubSpot |
 | 2, 5, 8 and 11, AM and PM | 2f. Save the HubSpot company list |
 
-Send comes first, so the sync an hour later already sees the emails that went out. GitHub's
-own timer stays on only until the three jobs below pass their test run; after that it is
-switched off, so there is one timer to manage.
+Send comes first, so the sync an hour later already sees the emails that went out. The three
+jobs passed their test runs on 8 Oct 2026 and GitHub's own timer was then switched off, so
+cron-job.org is the only timer to manage.
 
 The timer uses one GitHub key. This is the one key that does not live in GitHub's secrets:
 cron-job.org has to hold it to press the buttons. It is limited so that it can only start the
@@ -74,5 +74,5 @@ touch any other repository. To cut it off at any time, delete it on the same Git
 
 - **Renewing:** before the key expires, make a new one (step 1) and paste it into the three
   jobs' Authorization headers, then delete the old key.
-- **Pausing everything:** switch the jobs off in cron-job.org. GitHub's own backup timer keeps
-  running unless it is also turned off.
+- **Pausing everything:** switch the jobs off in cron-job.org. Nothing else presses these
+  buttons by itself.
