@@ -167,6 +167,36 @@ def refresh_campaign_content(instantly, settings, log=print):
     return fixed
 
 
+WAIT_REASONS = {
+    "stopped": "someone at the company has replied, opted out or been marked, so nobody else there is emailed",
+    "waiting": "an earlier person at the company is still in their 4 days",
+    "next": "a more senior approved person at the company goes first",
+}
+
+
+def mask(email):
+    """a***@company.com, so logs and files never hold a full address."""
+    email = email or ""
+    if "@" not in email:
+        return "(no email)"
+    name, domain = email.split("@", 1)
+    return f"{name[:1]}***@{domain}"
+
+
+def skip_reason(contact, company):
+    """Why an Approved to send contact cannot be sent at all, or None."""
+    p = contact["properties"]
+    if not p.get("email"):
+        return "it has no email address"
+    if not company:
+        return "it is not linked to a company in HubSpot (link it to its company record)"
+    if company.get("diablo_suppress_reason"):
+        return f"its company has an Outreach suppress reason ({company['diablo_suppress_reason']})"
+    if not p.get("diablo_personal_line"):
+        return "its Outreach personal line is empty"
+    return None
+
+
 def created_emails(results, leads):
     """Emails of the leads Instantly actually created. Instantly may leave `email` empty in
     created_leads, so its `index` (position in what was sent) is used first."""
@@ -214,14 +244,18 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         company_id = (links.get(c["id"]) or [None])[0]
         comp = companies.get(company_id)
         p = c["properties"]
-        if not comp or comp.get("diablo_suppress_reason") or not p.get("diablo_personal_line"):
-            skipped.append(c["id"])
+        reason = skip_reason(c, comp)
+        if reason:
+            skipped.append({"contact_id": c["id"], "email": mask(p.get("email")), "reason": reason})
+            log(f"Skipped contact {c['id']} ({mask(p.get('email'))}): {reason}")
             continue
         # One person per company at a time: only the one next in line goes now.
         company_contacts = everyone.get(company_id) or [c]
-        due, _ = decide(company_contacts, comp.get("diablo_outreach_status"), gap)
+        due, why = decide(company_contacts, comp.get("diablo_outreach_status"), gap)
         if not due or due["id"] != c["id"]:
             waiting += 1
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "
+                + WAIT_REASONS.get(why, "a more senior approved person at the company goes first"))
             continue
         earlier = last_campaign(company_contacts)
         # A company stays in the campaign of its first email, so a reply there stops the others.

@@ -1,4 +1,5 @@
-"""Button 6: explain why Instantly is or is not sending, campaign by campaign.
+"""Button 6: explain why Instantly is or is not sending, campaign by campaign, and what 4b
+would do now with the contacts set to Approved to send in HubSpot.
 
 Asks Instantly for each Diablo campaign's sending status (its own diagnosis, with a short
 plain-English summary) and counts the leads by status. Writes the answer to
@@ -69,6 +70,24 @@ def run(instantly, prefix):
     return "\n".join(lines) + "\n"
 
 
+KEEP = ("Skipped", "Waiting", "[dry run]", "Instantly")
+
+
+def hubspot_section(settings, target):
+    """What 4b would do right now with the contacts set to Approved to send, and why."""
+    from . import send
+    from .hubspot_client import HubSpot
+    lines = []
+
+    def collect(text):
+        for line in str(text).splitlines():
+            if line.startswith(KEEP) or "contacts approved to send" in line or "wait their turn" in line:
+                lines.append(f"- {line}")
+
+    send.run(target, settings, HubSpot(), None, dry_run=True, log=collect)
+    return "## Approved to send in HubSpot (what 4b would do now)\n\n" + ("\n".join(lines) or "- Nothing") + "\n"
+
+
 def main(argv=None):
     settings = load_settings()
     try:
@@ -76,6 +95,11 @@ def main(argv=None):
     except InstantlyError as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1
+    if os.environ.get("HUBSPOT_TOKEN"):
+        try:
+            text += "\n" + hubspot_section(settings, os.environ.get("TARGET") or "test")
+        except Exception as err:  # the Instantly part is still useful on its own
+            text += f"\n## Approved to send in HubSpot\n\n- Could not be read: {err}\n"
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(text, encoding="utf-8")
     print(text)

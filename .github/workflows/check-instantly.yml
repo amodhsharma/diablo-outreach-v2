@@ -1,7 +1,8 @@
 name: 6. Check why Instantly is or is not sending
 
 # Asks Instantly, campaign by campaign, whether it is sending and if not why (its own
-# diagnosis), and counts the leads by status. The answer is on this run's summary page and in
+# diagnosis), and counts the leads by status. Also lists the contacts set to Approved to send in
+# HubSpot and what 4b would do with each, and why. The answer is on this run's summary page and in
 # diagnostics/instantly_status.md. Changes nothing in Instantly or HubSpot.
 on:
   workflow_dispatch:
@@ -22,9 +23,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - name: Ask Instantly
+      - name: Ask Instantly and HubSpot
         env:
           INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+          TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
         run: python -m outreach.check_instantly
       - name: Save the answer
         run: bash .github/scripts/save_changes.sh "Instantly sending status" diagnostics/instantly_status.md

@@ -274,3 +274,13 @@ def test_created_leads_matched_by_position():
     assert send.created_emails(results, leads) == {"b@y.com"}
     assert send.created_emails([{"leads_uploaded": 2, "created_leads": []}], leads) == {"a@x.com", "b@y.com"}
     assert send.created_emails([{"leads_uploaded": 0, "skipped_count": 2, "created_leads": []}], leads) == set()
+
+
+def test_send_says_why_a_contact_is_skipped(settings):
+    hs, apollo = FakeCRM(), None
+    lone = hs.add("contacts", email="solo@x.com", diablo_contact_status="approved_to_send",
+                  diablo_personal_line="Line.", diablo_subject_line="Hi there friend")
+    messages = []
+    send.run("test", settings, hs, None, dry_run=True, log=messages.append)
+    assert any("not linked to a company" in m and "s***@x.com" in m for m in messages)
+    assert send.mask("buyer@shop.ie") == "b***@shop.ie"
