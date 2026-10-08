@@ -1,4 +1,4 @@
-name: "2b - Research queue: cancel a job"
+name: '2b - Manual - Research: cancel a market not yet researched'
 
 # Stops a Waiting or On hold job (or one Channel of it) so it never runs.
 # The job ID is the first column of research/queue.csv (e.g. J0003).

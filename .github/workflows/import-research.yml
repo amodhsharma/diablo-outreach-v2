@@ -1,4 +1,4 @@
-name: "2e - Research results to HubSpot (automatic)"
+name: '2e - Automatic - Put new companies into HubSpot for review'
 
 # Runs by itself when the outreachResearch skill saves new files to research/.
 # Checks each new file again, adds its companies to HubSpot as Awaiting review

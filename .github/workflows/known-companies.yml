@@ -1,4 +1,4 @@
-name: "2f - HubSpot company list to research (timer)"
+name: '2f - Timer - Refresh the "already in HubSpot" list so research skips them'
 
 # Pressed every 3 hours (2, 5, 8 and 11, AM and PM IST) by the outside timer, cron-job.org
 # (see docs/outside_timer.md), and can be started by hand.

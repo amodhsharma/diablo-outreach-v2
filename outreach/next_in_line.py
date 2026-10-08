@@ -7,7 +7,7 @@ moment anyone replies, everyone else at the company stops. When everyone found h
 emailed without a reply, the company is marked "No reply"; set it back to Approved and
 run "Find contacts" to go deeper.
 
-"4b - Send approved contacts: HubSpot to Instantly (timer)" starts each company with its first person; "5. Sync" (every
+"4b - Timer - Send approved contacts to Instantly to be emailed" starts each company with its first person; "5. Sync" (every
 3 hours) moves companies on to the next person by itself.
 """
 

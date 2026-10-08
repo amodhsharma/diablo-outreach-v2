@@ -1,4 +1,4 @@
-name: "2c - Research queue: retry a failed job"
+name: '2c - Manual - Research: try a failed market again'
 
 # Puts a Failed job (or one Channel of it) back to Waiting.
 # The job ID is the first column of research/queue.csv (e.g. J0003).

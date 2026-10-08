@@ -5,8 +5,8 @@ file holds the HubSpot contact ID, job title and seniority, plus what the resear
 its company (from data/company_notes.json). No names, emails or phone numbers are saved: the
 email template fills in the first name itself, so the skill never needs them.
 
-Runs after "3 - Find contacts: Apollo to HubSpot", after every lines import, and from the button
-"4a - HubSpot contacts to email writer (automatic)".
+Runs after "3 - Manual - Find the top 3 people at each approved company", after every lines import, and from the button
+"4a - Manual/Automatic - List new contacts that still need email lines".
 
 Usage:
     python -m outreach.export_for_lines --target test

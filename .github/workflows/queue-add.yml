@@ -1,6 +1,6 @@
-name: "2a - Research queue: add a job"
+name: '2a - Manual - Research: add a new market to the queue'
 
-# Actions tab > "2a - Research queue: add a job" > Run workflow.
+# Actions tab > "2a - Manual - Research: add a new market to the queue" > Run workflow.
 # Adds one job: one Location and one or more Channels. The research runs at the next scheduled run
 # (every 6 hours: about 2 AM, 8 AM, 2 PM and 8 PM IST)
 # (oldest job first), or straight away as a manual run from Claude.

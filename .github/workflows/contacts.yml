@@ -1,4 +1,4 @@
-name: "3 - Find contacts: Apollo to HubSpot"
+name: '3 - Manual - Find the top 3 people at each approved company'
 
 # Finds contacts for companies set to Approved in HubSpot (gate 1).
 on:

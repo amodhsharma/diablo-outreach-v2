@@ -1,6 +1,6 @@
 """Step 1 of an outreach-mail-writing run: pick the contacts that need lines.
 
-Reads mail/pending.json (saved by GitHub after "3 - Find contacts: Apollo to HubSpot" and after every lines import)
+Reads mail/pending.json (saved by GitHub after "3 - Manual - Find the top 3 people at each approved company" and after every lines import)
 and leaves out contacts that already have lines waiting to be imported. Writes:
   work_mail/batch.json    the contacts for this run, with what the research found about each company
   work_mail/prompt.md     the full writing prompt, with the batch filled in
@@ -68,8 +68,8 @@ def main(argv=None):
     args = p.parse_args(argv)
 
     if not PENDING.exists():
-        print("NOTHING TO DO: mail/pending.json does not exist yet. Run \"3 - Find contacts: Apollo to HubSpot\" or "
-              "\"4a - HubSpot contacts to email writer (automatic)\" on GitHub first.")
+        print("NOTHING TO DO: mail/pending.json does not exist yet. Run \"3 - Manual - Find the top 3 people at each approved company\" or "
+              "\"4a - Manual/Automatic - List new contacts that still need email lines\" on GitHub first.")
         return NOTHING_TO_DO
     pending = json.loads(PENDING.read_text(encoding="utf-8"))
     generated_from = pending.get("generated_at", "")

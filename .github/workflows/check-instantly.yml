@@ -1,4 +1,4 @@
-name: "6 - Instantly health check"
+name: '6 - Manual - Health check: why isn''t someone being emailed?'
 
 # Asks Instantly, campaign by campaign, whether it is sending and if not why (its own
 # diagnosis), and counts the leads by status. Also lists the contacts set to Approved to send in

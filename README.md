@@ -12,13 +12,13 @@ Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
 
 ## How a Location gets researched
 
-1. Press **2a - Research queue: add a job**: type the Location, the Channels (separated by
+1. Press **2a - Manual - Research: add a new market to the queue**: type the Location, the Channels (separated by
    commas), languages and companies wanted per Channel.
 2. Every 6 hours Claude takes the oldest waiting job (one job per run), researches the Location once and sends one
    helper per Channel at the same time, then saves one report and one JSON to `research/<date>/`.
    A manual run does the same at any time: "Run now" on the scheduled task, or `/outreach-research`
    in a Claude chat (name a Location or job ID to run that one).
-3. **2e - Research results to HubSpot (automatic)** starts by itself, checks the file again and adds the
+3. **2e - Automatic - Put new companies into HubSpot for review** starts by itself, checks the file again and adds the
    companies to HubSpot as *Awaiting review*. The queue line is marked Done.
 
 You approve work in HubSpot by changing one dropdown:
@@ -31,27 +31,27 @@ You approve work in HubSpot by changing one dropdown:
 
 | Button | What it does |
 |---|---|
-| 1 - Set up HubSpot fields (once per account) | Creates the 17 Diablo outreach fields (once per account) |
-| 2a - Research queue: add a job | Adds a job: one Location, one or more Channels |
-| 2b - Research queue: cancel a job | Stops a Waiting or On hold job (or one Channel of it) |
-| 2c - Research queue: retry a failed job | Puts a Failed job (or one Channel of it) back to Waiting |
-| 2d - Research queue: approve a repeat | Lets an On hold repeat run |
-| 2e - Research results to HubSpot (automatic) | Runs by itself when new research is saved; can be pressed by hand |
-| 2f - HubSpot company list to research (timer) | Runs every 3 hours; saves the companies already in HubSpot so research skips them |
-| 3 - Find contacts: Apollo to HubSpot | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
-| 4a - HubSpot contacts to email writer (automatic) | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Runs by itself after 3 and 4c; press it after editing contacts in HubSpot |
-| 4c - Email lines to HubSpot (automatic) | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
-| 4b - Send approved contacts: HubSpot to Instantly (timer) | Every 3 hours by itself (or pressed by hand): starts each company with its most senior Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
-| 5 - Sync results: Instantly to HubSpot (timer) | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
+| 1 - Manual - One-time setup: create the Outreach fields in HubSpot | Creates the 17 Diablo outreach fields (once per account) |
+| 2a - Manual - Research: add a new market to the queue | Adds a job: one Location, one or more Channels |
+| 2b - Manual - Research: cancel a market not yet researched | Stops a Waiting or On hold job (or one Channel of it) |
+| 2c - Manual - Research: try a failed market again | Puts a Failed job (or one Channel of it) back to Waiting |
+| 2d - Manual - Research: allow a market we have done before | Lets an On hold repeat run |
+| 2e - Automatic - Put new companies into HubSpot for review | Runs by itself when new research is saved; can be pressed by hand |
+| 2f - Timer - Refresh the "already in HubSpot" list so research skips them | Runs every 3 hours; saves the companies already in HubSpot so research skips them |
+| 3 - Manual - Find the top 3 people at each approved company | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
+| 4a - Manual/Automatic - List new contacts that still need email lines | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Runs by itself after 3 and 4c; press it after editing contacts in HubSpot |
+| 4c - Automatic - Put written email lines into HubSpot for approval | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
+| 4b - Timer - Send approved contacts to Instantly to be emailed | Every 3 hours by itself (or pressed by hand): starts each company with its most senior Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
+| 5 - Timer - Update HubSpot with who was emailed, replied or bounced, and line up the next person | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
 
 ## How the email lines get written
 
-1. **3 - Find contacts: Apollo to HubSpot** saves the new contacts (job title and company research only, no names or
+1. **3 - Manual - Find the top 3 people at each approved company** saves the new contacts (job title and company research only, no names or
    emails) to `mail/pending.json`.
 2. Every 2 hours Claude runs the outreach-mail-writing skill: it writes a subject line and a
    personal opening for up to 60 contacts, checks them and saves one file to `mail/lines/<date>/`.
    A manual run does the same at any time: `/outreach-mail-writing` in a Claude chat.
-3. **4c - Email lines to HubSpot (automatic)** starts by itself, checks the file again and puts the
+3. **4c - Automatic - Put written email lines into HubSpot for approval** starts by itself, checks the file again and puts the
    lines on each contact as *Copy ready*. Gate 2 is yours: read them and change the status to
    *Approved to send*. To change a line, edit it in HubSpot before approving.
 
@@ -69,7 +69,7 @@ renewal: `docs/outside_timer.md`.
   (the sync job does this by itself). Each person must still be approved at gate 2.
 - The moment anyone at the company replies, nobody else there is emailed.
 - When everyone found has been emailed without a reply, the company becomes **No reply**. To go
-  deeper, set it back to **Approved** and press **3 - Find contacts: Apollo to HubSpot** for the next 3.
+  deeper, set it back to **Approved** and press **3 - Manual - Find the top 3 people at each approved company** for the next 3.
 
 ## The queue
 
@@ -83,9 +83,9 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
   India?" and nothing is added. Short forms like UK, USA and UAE are accepted, and a Location typed
   in lower case gets capitals ("dublin, ireland" is saved as "Dublin, Ireland").
 - Locations match as written: "UK" and "United Kingdom" are different.
-- A repeat goes On hold until someone presses **2d - Research queue: approve a repeat**.
+- A repeat goes On hold until someone presses **2d - Manual - Research: allow a market we have done before**.
 - A failed Channel runs again by itself once, at the next run, and the new files replace the
-  earlier ones. If it fails again it is marked Failed until someone presses **2c - Research queue: retry a failed job**.
+  earlier ones. If it fails again it is marked Failed until someone presses **2c - Manual - Research: try a failed market again**.
 
 ## Where things are
 
