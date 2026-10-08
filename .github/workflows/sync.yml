@@ -1,4 +1,4 @@
-name: '5 - Timer - Update HubSpot with who was emailed, replied or bounced, and line up the next person'
+name: '5 - Timer/Manual - Update HubSpot with who was emailed, replied or bounced, and line up the next person'
 
 # Pressed every 3 hours (1, 4, 7 and 10, AM and PM IST) by the outside timer, cron-job.org
 # (see docs/outside_timer.md), and can be started by hand.

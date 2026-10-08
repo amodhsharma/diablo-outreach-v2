@@ -1,4 +1,4 @@
-name: '4a - Manual/Automatic - List new contacts that still need email lines'
+name: '4a - Manual - Refresh the list of contacts that still need email lines'
 
 # Saves the contacts whose status is "Contact found" to mail/pending.json, for the
 # outreach-mail-writing skill. This also happens by itself after "3 - Manual - Find the top 3 people at each approved company"

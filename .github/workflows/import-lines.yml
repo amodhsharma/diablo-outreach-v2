@@ -1,4 +1,4 @@
-name: '4c - Automatic - Put written email lines into HubSpot for approval'
+name: '4c - Automatic/Manual - Put written email lines into HubSpot for approval'
 
 # Runs by itself when the outreach-mail-writing skill saves a new file to mail/lines/.
 # Checks the file again, puts each subject line and personal line on the contact in

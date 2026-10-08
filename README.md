@@ -18,7 +18,7 @@ Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
    helper per Channel at the same time, then saves one report and one JSON to `research/<date>/`.
    A manual run does the same at any time: "Run now" on the scheduled task, or `/outreach-research`
    in a Claude chat (name a Location or job ID to run that one).
-3. **2e - Automatic - Put new companies into HubSpot for review** starts by itself, checks the file again and adds the
+3. **2e - Automatic/Manual - Put new companies into HubSpot for review** starts by itself, checks the file again and adds the
    companies to HubSpot as *Awaiting review*. The queue line is marked Done.
 
 You approve work in HubSpot by changing one dropdown:
@@ -36,13 +36,13 @@ You approve work in HubSpot by changing one dropdown:
 | 2b - Manual - Research: cancel a market not yet researched | Stops a Waiting or On hold job (or one Channel of it) |
 | 2c - Manual - Research: try a failed market again | Puts a Failed job (or one Channel of it) back to Waiting |
 | 2d - Manual - Research: allow a market we have done before | Lets an On hold repeat run |
-| 2e - Automatic - Put new companies into HubSpot for review | Runs by itself when new research is saved; can be pressed by hand |
-| 2f - Timer - Refresh the "already in HubSpot" list so research skips them | Runs every 3 hours; saves the companies already in HubSpot so research skips them |
+| 2e - Automatic/Manual - Put new companies into HubSpot for review | Runs by itself when new research is saved; can be pressed by hand |
+| 2f - Timer/Manual - Refresh the "already in HubSpot" list so research skips them | Runs every 3 hours; saves the companies already in HubSpot so research skips them |
 | 3 - Manual - Find the top 3 people at each approved company | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
-| 4a - Manual/Automatic - List new contacts that still need email lines | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Runs by itself after 3 and 4c; press it after editing contacts in HubSpot |
-| 4c - Automatic - Put written email lines into HubSpot for approval | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
-| 4b - Timer - Send approved contacts to Instantly to be emailed | Every 3 hours by itself (or pressed by hand): starts each company with its most senior Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
-| 5 - Timer - Update HubSpot with who was emailed, replied or bounced, and line up the next person | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
+| 4a - Manual - Refresh the list of contacts that still need email lines | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Buttons 3 and 4c already refresh this list themselves at the end of their run; press 4a only after editing contacts in HubSpot by hand |
+| 4c - Automatic/Manual - Put written email lines into HubSpot for approval | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
+| 4b - Timer/Manual - Send approved contacts to Instantly to be emailed | Every 3 hours by itself (or pressed by hand): starts each company with its most senior Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
+| 5 - Timer/Manual - Update HubSpot with who was emailed, replied or bounced, and line up the next person | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
 
 ## How the email lines get written
 
@@ -51,9 +51,29 @@ You approve work in HubSpot by changing one dropdown:
 2. Every 2 hours Claude runs the outreach-mail-writing skill: it writes a subject line and a
    personal opening for up to 60 contacts, checks them and saves one file to `mail/lines/<date>/`.
    A manual run does the same at any time: `/outreach-mail-writing` in a Claude chat.
-3. **4c - Automatic - Put written email lines into HubSpot for approval** starts by itself, checks the file again and puts the
+3. **4c - Automatic/Manual - Put written email lines into HubSpot for approval** starts by itself, checks the file again and puts the
    lines on each contact as *Copy ready*. Gate 2 is yours: read them and change the status to
    *Approved to send*. To change a line, edit it in HubSpot before approving.
+
+## How each button runs
+
+After each number, the name says how the button runs; where two are given, the first is the
+usual way.
+
+- **Manual:** only when someone presses it.
+- **Automatic:** by itself straight after the step before it (2e when research is saved, 4c when
+  email lines are saved). Pressing it by hand imports anything not yet imported; nothing is done
+  twice.
+- **Timer:** cron-job.org presses it 8 times a day. Pressing it by hand as well is safe: if a run
+  is already going, the second one waits and then finds nothing left to do.
+- **4b by hand starts as a dry run** (it only shows the plan). Untick "Dry run" to really send. The
+  timer always sends for real.
+- **4a is Manual only**, but 3 and 4c refresh the same list themselves at the end of their run.
+- **The two Claude tasks are not GitHub buttons:** research runs at 1:58 and 7:58 (AM and PM IST)
+  and email lines every 2 hours, and both can be started by hand in a Claude chat
+  (`/outreach-research`, `/outreach-mail-writing`).
+- **If cron-job.org stops** (for example when its GitHub key expires), the Timer buttons stop until
+  it is fixed; cron-job.org emails a failure notice, and the buttons can still be pressed by hand.
 
 ## The outside timer
 

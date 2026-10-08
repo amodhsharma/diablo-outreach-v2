@@ -69,7 +69,7 @@ def main(argv=None):
 
     if not PENDING.exists():
         print("NOTHING TO DO: mail/pending.json does not exist yet. Run \"3 - Manual - Find the top 3 people at each approved company\" or "
-              "\"4a - Manual/Automatic - List new contacts that still need email lines\" on GitHub first.")
+              "\"4a - Manual - Refresh the list of contacts that still need email lines\" on GitHub first.")
         return NOTHING_TO_DO
     pending = json.loads(PENDING.read_text(encoding="utf-8"))
     generated_from = pending.get("generated_at", "")

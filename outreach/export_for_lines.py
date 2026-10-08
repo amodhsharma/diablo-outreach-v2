@@ -6,7 +6,7 @@ its company (from data/company_notes.json). No names, emails or phone numbers ar
 email template fills in the first name itself, so the skill never needs them.
 
 Runs after "3 - Manual - Find the top 3 people at each approved company", after every lines import, and from the button
-"4a - Manual/Automatic - List new contacts that still need email lines".
+"4a - Manual - Refresh the list of contacts that still need email lines".
 
 Usage:
     python -m outreach.export_for_lines --target test
