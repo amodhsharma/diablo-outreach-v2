@@ -120,7 +120,7 @@ def test_send_and_sync(settings):
     result = send.run("test", settings, hs, instantly, log=quiet)
     assert result["queued"] == 1
     camp_id, body = next(iter(instantly.campaigns.items()))
-    assert body["name"].startswith("Diablo | India | Grocery wholesaler | ")
+    assert body["name"] == "Diablo | " + send.month_label()  # one campaign per month
     assert body["campaign_schedule"]["schedules"][0]["timezone"] == "Europe/Isle_of_Man"  # any time, every day
     assert body["campaign_schedule"]["schedules"][0]["timing"] == {"from": "00:00", "to": "23:59"}
     email = body["sequences"][0]["steps"][0]["variants"][0]["body"]
@@ -265,3 +265,12 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     assert send.refresh_campaign_content(instantly, settings, log=quiet) == 1
     assert instantly.campaigns[old["id"]]["sequences"][0]["steps"][0]["variants"][0]["body"] == body
     assert send.refresh_campaign_content(instantly, settings, log=quiet) == 0  # already up to date
+
+
+def test_created_leads_matched_by_position():
+    leads = [{"email": "A@x.com"}, {"email": "b@y.com"}]
+    # Instantly may return created_leads without the email filled in.
+    results = [{"leads_uploaded": 1, "total_sent": 2, "created_leads": [{"index": 1, "id": "u1", "email": None}]}]
+    assert send.created_emails(results, leads) == {"b@y.com"}
+    assert send.created_emails([{"leads_uploaded": 2, "created_leads": []}], leads) == {"a@x.com", "b@y.com"}
+    assert send.created_emails([{"leads_uploaded": 0, "skipped_count": 2, "created_leads": []}], leads) == set()

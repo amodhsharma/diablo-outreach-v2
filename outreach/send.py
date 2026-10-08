@@ -15,7 +15,7 @@ import json
 import sys
 from collections import defaultdict
 
-from .common import ROOT, PipelineError, category_label, check_target, load_settings, market_matches, run_dir, write_json
+from .common import ROOT, PipelineError, check_target, load_settings, market_matches, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .instantly_timezones import instantly_timezone
@@ -35,11 +35,10 @@ def month_label(day=None):
     return f"{MONTHS[day.month - 1]}{day.year}"
 
 
-def campaign_name(prefix, market, category_value, month=None, labels=None):
-    """e.g. "Diablo | Delhi, India | Health food distributor | OCT2026"."""
-    month = month or month_label()
-    label = category_label(category_value, labels) or "Other"
-    return f"{prefix} {market} | {label} | {month}"
+def campaign_name(prefix, month=None):
+    """One campaign per month for every Location and Channel (agreed 8 Oct 2026), e.g.
+    "Diablo | OCT2026". Location and Channel stay on each lead and in HubSpot."""
+    return f"{prefix} {month or month_label()}"
 
 
 def schedule_for(market, schedules):
@@ -168,6 +167,26 @@ def refresh_campaign_content(instantly, settings, log=print):
     return fixed
 
 
+def created_emails(results, leads):
+    """Emails of the leads Instantly actually created. Instantly may leave `email` empty in
+    created_leads, so its `index` (position in what was sent) is used first."""
+    created = set()
+    offset = 0
+    for r in results:
+        for item in r.get("created_leads") or []:
+            idx = item.get("index")
+            if isinstance(idx, int) and 0 <= offset + idx < len(leads):
+                created.add(leads[offset + idx]["email"].lower())
+            elif item.get("email"):
+                created.add(item["email"].lower())
+        sent = r.get("total_sent")
+        offset += sent if isinstance(sent, int) else min(1000, len(leads) - offset)
+    uploaded = sum(r.get("leads_uploaded") or 0 for r in results)
+    if not created and uploaded == len(leads):
+        created = {l["email"].lower() for l in leads}
+    return created
+
+
 def run(target, settings, hs, instantly, dry_run=False, log=print):
     check_target(hs, target)
     out_dir = run_dir("send")
@@ -188,7 +207,6 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     companies = {c["id"]: c["properties"] for c in hs.batch_read("companies", company_ids, COMPANY_PROPS)}
 
     prefix = settings["sync"]["campaign_prefix"]
-    labels = hs.option_labels("companies", "diablo_channel_category")
     gap = int(settings["send"].get("next_contact_after_days", 4))
     everyone = contacts_by_company(hs, company_ids)
     groups, skipped, waiting = defaultdict(list), [], 0
@@ -205,9 +223,9 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         if not due or due["id"] != c["id"]:
             waiting += 1
             continue
-        market = comp.get("diablo_market") or "Unknown"
         earlier = last_campaign(company_contacts)
-        key = ("campaign", earlier) if earlier else (market, comp.get("diablo_channel_category") or "")
+        # A company stays in the campaign of its first email, so a reply there stops the others.
+        key = ("campaign", earlier) if earlier else ("month",)
         groups[key].append((c, company_id, comp))
     if waiting:
         log(f"{waiting} approved contacts wait their turn (one person per company at a time)")
@@ -219,13 +237,12 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             campaign_id = key[1]
             name = next((n for n, i in existing.items() if i == campaign_id), f"campaign {campaign_id}")
         else:
-            market, category = key
-            name = campaign_name(prefix, market, category, labels=labels)
+            name = campaign_name(prefix)
             campaign_id = existing.get(name)
         leads = [lead_for(c, comp, comp.get("diablo_market") or "Unknown") for c, _, comp in members]
         plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})
         previews.append(preview(name, leads, settings))
-        body = campaign_body(name, key[0], settings) if not campaign_id else None  # a dry run checks it too
+        body = campaign_body(name, "", settings) if not campaign_id else None  # a dry run checks it too
         if dry_run:
             continue
         if not campaign_id:
@@ -237,9 +254,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         invalid = sum(r.get("invalid_email_count") or 0 for r in results)
         log(f"Instantly: {uploaded} leads added, {skipped_n} skipped (already in your Instantly "
             f"workspace), {invalid} invalid")
-        created = {(l.get("email") or "").lower() for r in results for l in (r.get("created_leads") or [])}
-        if not created and uploaded == len(leads):
-            created = {l["email"].lower() for l in leads}
+        created = created_emails(results, leads)
         for c, company_id, _ in members:
             if c["properties"]["email"].lower() not in created:
                 log(f"Not added (already in Instantly): {c['properties']['email']}. "

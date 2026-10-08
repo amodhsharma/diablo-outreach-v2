@@ -2,9 +2,9 @@ name: 4b. Send to Instantly
 
 # Adds contacts set to Approved to send (gate 2) to Instantly campaigns.
 # Runs by itself every 2 hours (agreed 7 Oct 2026), and can still be pressed by hand.
-# With nobody approved it stops in seconds. A new Location and Channel gets a new
-# campaign, created paused: press Start on it in Instantly once. Contacts added to a
-# campaign that is already running are emailed by themselves.
+# With nobody approved it stops in seconds. Each month gets one new campaign for every
+# Location and Channel, created paused: press Start on it in Instantly once a month.
+# Contacts added to a campaign that is already running are emailed by themselves.
 # The scheduled run uses the account in the repository variable PIPELINE_TARGET (test if not set).
 on:
   schedule:

@@ -154,13 +154,12 @@ def test_typed_channel_end_to_end(settings):
     hs.links[contact] = [cid]
     inst = FakeInstantly()
     send.run("test", settings, hs, inst, log=quiet)
-    assert [c["name"] for c in inst.campaigns.values()][0].startswith("Diablo | India | Sugar free distributor | ")
+    assert [c["name"] for c in inst.campaigns.values()][0] == "Diablo | " + send.month_label()
 
 
-def test_campaign_name_uses_month_and_year():
+def test_one_campaign_per_month():
     import datetime as dt
     assert send.month_label(dt.date(2026, 9, 6)) == "SEP2026"
-    assert send.campaign_name("Diablo |", "Delhi, India", "health_food_distributor",
-                              month="OCT2026") == "Diablo | Delhi, India | Health food distributor | OCT2026"
+    assert send.campaign_name("Diablo |", month="OCT2026") == "Diablo | OCT2026"
 
 
