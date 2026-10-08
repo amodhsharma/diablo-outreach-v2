@@ -1,9 +1,9 @@
 # Outside timer: pressing the GitHub buttons on time
 
-GitHub's own timer is best effort: on 7 and 8 Oct 2026 it ran "4b - Timer/Manual - Send approved contacts to Instantly to be emailed" twice
-overnight instead of about seven times, and "5. Sync" three times instead of five. So a free
-outside timer, cron-job.org, presses those buttons on time through the GitHub API (agreed with
-Ariel on 8 Oct 2026).
+GitHub's own timer is best effort: on 7 and 8 Oct 2026 it ran button 4b twice overnight instead
+of about seven times, and button 5 three times instead of five. So a free outside timer,
+cron-job.org, presses those buttons on time through the GitHub API (agreed with Ariel on
+8 Oct 2026).
 
 **One rhythm for all three (agreed 8 Oct 2026):** the timer presses one button every hour, in
 turn, so each button runs 8 times a day, every 3 hours:
