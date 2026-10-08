@@ -55,6 +55,13 @@ You approve work in HubSpot by changing one dropdown:
    lines on each contact as *Copy ready*. Gate 2 is yours: read them and change the status to
    *Approved to send*. To change a line, edit it in HubSpot before approving.
 
+## The outside timer
+
+GitHub's own timer often skips runs, so cron-job.org also presses 4b (every 2 hours), 5 (every
+3 hours) and 2f (nightly) through the GitHub API, using one key limited to starting this
+repository's buttons. GitHub's timer stays on as a backup. Set-up and renewal:
+`docs/outside_timer.md`.
+
 ## One person per company at a time
 
 - The most senior approved contact gets the first email, and a reminder 3 days later if they have not replied.

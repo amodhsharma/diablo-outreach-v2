@@ -6,16 +6,19 @@ name: 4b. Send to Instantly
 # Location and Channel, created paused: press Start on it in Instantly once a month.
 # Contacts added to a campaign that is already running are emailed by themselves.
 # The scheduled run uses the account in the repository variable PIPELINE_TARGET (test if not set).
+# GitHub's own timer is best effort and often skips runs, so an outside timer (cron-job.org)
+# also presses this button every 2 hours through the GitHub API with dry_run=false; see
+# docs/outside_timer.md.
 on:
   schedule:
     - cron: "47 */2 * * *"
   workflow_dispatch:
     inputs:
       target:
-        description: "Which HubSpot account"
+        description: "Which HubSpot account (auto = the repository variable PIPELINE_TARGET, else test)"
         type: choice
-        options: [test, live]
-        default: test
+        options: [auto, test, live]
+        default: auto
       dry_run:
         description: "Dry run (show the plan, send nothing)"
         type: boolean
@@ -28,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      TARGET: ${{ inputs.target || vars.PIPELINE_TARGET || 'test' }}
+      TARGET: ${{ (inputs.target != '' && inputs.target != 'auto') && inputs.target || vars.PIPELINE_TARGET || 'test' }}
       DRY_RUN: ${{ inputs.dry_run == true && 'true' || 'false' }}
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +42,7 @@ jobs:
       - name: Send
         env:
           INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
-          HUBSPOT_TOKEN: ${{ (inputs.target || vars.PIPELINE_TARGET) == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+          HUBSPOT_TOKEN: ${{ ((inputs.target != '' && inputs.target != 'auto') && inputs.target || vars.PIPELINE_TARGET) == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
         run: |
           ARGS="--target $TARGET"
           if [ "$DRY_RUN" = "true" ]; then ARGS="$ARGS --dry-run"; fi
