@@ -37,11 +37,11 @@ You approve work in HubSpot by changing one dropdown:
 | 2c. Retry a failed job | Puts a Failed job (or one Channel of it) back to Waiting |
 | 2d. Approve a repeat | Lets an On hold repeat run |
 | 2e. Import research into HubSpot | Runs by itself when new research is saved; can be pressed by hand |
-| 2f. Save the HubSpot company list | Runs every night; saves the companies already in HubSpot so research skips them |
+| 2f. Save the HubSpot company list | Runs every 3 hours; saves the companies already in HubSpot so research skips them |
 | 3. Find contacts | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
 | 4a. Refresh contacts needing email lines | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Runs by itself after 3 and 4c; press it after editing contacts in HubSpot |
 | 4c. Import email lines into HubSpot | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
-| 4b. Send to Instantly | Every 2 hours by itself (or pressed by hand): starts each company with its most senior Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
+| 4b. Send to Instantly | Every 3 hours by itself (or pressed by hand): starts each company with its most senior Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
 | 5. Sync Instantly to HubSpot | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
 
 ## How the email lines get written
@@ -57,10 +57,10 @@ You approve work in HubSpot by changing one dropdown:
 
 ## The outside timer
 
-GitHub's own timer often skips runs, so cron-job.org also presses 4b (every 2 hours), 5 (every
-3 hours) and 2f (nightly) through the GitHub API, using one key limited to starting this
-repository's buttons. GitHub's timer stays on as a backup. Set-up and renewal:
-`docs/outside_timer.md`.
+GitHub's own timer often skips runs, so cron-job.org presses one button every hour in turn:
+4b at 12, 3, 6 and 9 (AM and PM, IST), 5 at 1, 4, 7 and 10, and 2f at 2, 5, 8 and 11. Each
+runs 8 times a day. It uses one key limited to starting this repository's buttons. Set-up and
+renewal: `docs/outside_timer.md`.
 
 ## One person per company at a time
 

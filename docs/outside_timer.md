@@ -3,8 +3,20 @@
 GitHub's own timer is best effort: on 7 and 8 Oct 2026 it ran "4b. Send to Instantly" twice
 overnight instead of about seven times, and "5. Sync" three times instead of five. So a free
 outside timer, cron-job.org, presses those buttons on time through the GitHub API (agreed with
-Ariel on 8 Oct 2026). GitHub's own timer stays on as a backup; running a button twice does no
-harm, because each one only does work that is still waiting.
+Ariel on 8 Oct 2026).
+
+**One rhythm for all three (agreed 8 Oct 2026):** the timer presses one button every hour, in
+turn, so each button runs 8 times a day, every 3 hours:
+
+| Time (IST) | Button |
+|---|---|
+| 12, 3, 6 and 9, AM and PM | 4b. Send to Instantly |
+| 1, 4, 7 and 10, AM and PM | 5. Sync Instantly to HubSpot |
+| 2, 5, 8 and 11, AM and PM | 2f. Save the HubSpot company list |
+
+Send comes first, so the sync an hour later already sees the emails that went out. GitHub's
+own timer stays on only until the three jobs below pass their test run; after that it is
+switched off, so there is one timer to manage.
 
 The timer uses one GitHub key. This is the one key that does not live in GitHub's secrets:
 cron-job.org has to hold it to press the buttons. It is limited so that it can only start the
@@ -47,9 +59,9 @@ touch any other repository. To cut it off at any time, delete it on the same Git
 
 | Job title | URL | Schedule | Request body |
 |---|---|---|---|
-| Diablo 4b Send to Instantly | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send.yml/dispatches` | Minute 17 of every even hour (0, 2, 4 ... 22) | `{"ref":"main","inputs":{"target":"auto","dry_run":false}}` |
-| Diablo 5 Sync | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/sync.yml/dispatches` | Minute 47 of hours 2, 5, 8, 11, 14, 17, 20 and 23 | `{"ref":"main"}` |
-| Diablo 2f Company list | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/known-companies.yml/dispatches` | Every day at 02:03 | `{"ref":"main"}` |
+| Diablo 4b Send to Instantly | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send.yml/dispatches` | Every 3 hours from midnight, on the hour: 0, 3, 6, 9, 12, 15, 18, 21 | `{"ref":"main","inputs":{"target":"auto","dry_run":false}}` |
+| Diablo 5 Sync | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/sync.yml/dispatches` | Every 3 hours from 1 AM, on the hour: 1, 4, 7, 10, 13, 16, 19, 22 | `{"ref":"main"}` |
+| Diablo 2f Company list | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/known-companies.yml/dispatches` | Every 3 hours from 2 AM, on the hour: 2, 5, 8, 11, 14, 17, 20, 23 | `{"ref":"main"}` |
 
 4. Use **Test run** on each job. A good answer is **204 No Content**, and a new run appears in
    the repository's **Actions** tab within a minute. A 401 or 403 means the key was copied
