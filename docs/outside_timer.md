@@ -47,8 +47,8 @@ touch any other repository. To cut it off at any time, delete it on the same Git
 
 | Job title | URL | Schedule | Request body |
 |---|---|---|---|
-| Diablo 4b Send to Instantly | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send.yml/dispatches` | Every 2 hours, at minute 17 | `{"ref":"main","inputs":{"target":"auto","dry_run":false}}` |
-| Diablo 5 Sync | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/sync.yml/dispatches` | Every 3 hours, at minute 47 | `{"ref":"main"}` |
+| Diablo 4b Send to Instantly | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send.yml/dispatches` | Minute 17 of every even hour (0, 2, 4 ... 22) | `{"ref":"main","inputs":{"target":"auto","dry_run":false}}` |
+| Diablo 5 Sync | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/sync.yml/dispatches` | Minute 47 of hours 2, 5, 8, 11, 14, 17, 20 and 23 | `{"ref":"main"}` |
 | Diablo 2f Company list | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/known-companies.yml/dispatches` | Every day at 02:03 | `{"ref":"main"}` |
 
 4. Use **Test run** on each job. A good answer is **204 No Content**, and a new run appears in
