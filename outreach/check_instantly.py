@@ -156,8 +156,12 @@ def mailboxes(instantly, campaigns, settings):
     try:
         accounts = instantly.list_accounts()
     except InstantlyError as err:
-        return ("## Mailboxes\n\n- Could not be read. If the message mentions permission or scope, the "
-                f"Instantly key needs read access to accounts. Instantly said: {err}\n")
+        hint = ""
+        if "scope" in str(err).lower():
+            hint = ("The Instantly key cannot read mailboxes. Make a read-only Instantly key with the "
+                    "scope accounts:read and save it as the GitHub secret INSTANTLY_ACCOUNTS_KEY "
+                    "(steps in docs/instantly_accounts_key.md). ")
+        return f"## Mailboxes\n\n- Could not be read. {hint}Instantly said: {err}\n"
     try:
         analytics = instantly.warmup_analytics([a["email"] for a in accounts if a.get("email")]) if accounts else {}
     except InstantlyError:
@@ -206,10 +210,13 @@ def campaigns_section(instantly, campaigns):
     return "\n".join(lines) + "\n"
 
 
-def run(instantly, settings):
+def run(instantly, settings, accounts_api=None):
+    """accounts_api reads the mailboxes: a separate read-only key (INSTANTLY_ACCOUNTS_KEY) when
+    set, so the key that sends emails never needs more access than it has."""
     campaigns = diablo_campaigns(instantly, settings["sync"]["campaign_prefix"])
     head = f"# Instantly health check\n\nChecked {now_iso()} (UTC).\n\n"
-    return head + mailboxes(instantly, campaigns, settings) + "\n" + campaigns_section(instantly, campaigns)
+    return (head + mailboxes(accounts_api or instantly, campaigns, settings) + "\n"
+            + campaigns_section(instantly, campaigns))
 
 
 # ---- 3. HubSpot ------------------------------------------------------------
@@ -235,7 +242,8 @@ def hubspot_section(settings, target):
 def main(argv=None):
     settings = load_settings()
     try:
-        text = run(Instantly(), settings)
+        key = os.environ.get("INSTANTLY_ACCOUNTS_KEY")
+        text = run(Instantly(), settings, Instantly(api_key=key) if key else None)
     except InstantlyError as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1

@@ -57,7 +57,7 @@ class FakeApi:
 
     def list_accounts(self):
         if self.fail_accounts:
-            raise ci.InstantlyError("GET /accounts failed with 401: missing scope")
+            raise ci.InstantlyError("GET /accounts failed with 401: Invalid scope. Required: accounts:read")
         return [acc("sales@diablosnosugar.com")]
 
     def warmup_analytics(self, emails):
@@ -67,4 +67,5 @@ class FakeApi:
 def test_mailboxes_survives_instantly_errors():
     text = ci.mailboxes(FakeApi(), [], SETTINGS)
     assert "1 mailbox: 1 ready" in text and "could not be read" in text
-    assert "Could not be read" in ci.mailboxes(FakeApi(fail_accounts=True), [], SETTINGS)
+    failed = ci.mailboxes(FakeApi(fail_accounts=True), [], SETTINGS)
+    assert "Could not be read" in failed and "INSTANTLY_ACCOUNTS_KEY" in failed

@@ -28,6 +28,8 @@ jobs:
       - name: Ask Instantly and HubSpot
         env:
           INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+          # Read-only key (scope accounts:read) for the Mailboxes section.
+          INSTANTLY_ACCOUNTS_KEY: ${{ secrets.INSTANTLY_ACCOUNTS_KEY }}
           TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
           HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
         run: python -m outreach.check_instantly

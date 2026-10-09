@@ -134,7 +134,8 @@ Settings > Secrets and variables > Actions > New repository secret.
 |---|---|
 | `HUBSPOT_TOKEN_TEST` | Outreach Test account > Development > Legacy apps > the private app |
 | `APOLLO_API_KEY` | Apollo > Settings > Integrations > API keys |
-| `INSTANTLY_API_KEY` | Instantly > Settings > Integrations > API keys |
+| `INSTANTLY_API_KEY` | Instantly > Settings > Integrations > API keys (scopes: campaigns and leads) |
+| `INSTANTLY_ACCOUNTS_KEY` | A second, read-only Instantly key with the scope `accounts:read`, used only by button 6 to check the mailboxes (`docs/instantly_accounts_key.md`) |
 | `HUBSPOT_TOKEN_LIVE` | Only when testing is finished |
 
 To use the live HubSpot account for the automatic jobs, add a repository variable
