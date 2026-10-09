@@ -1,8 +1,12 @@
-# Instantly sending status
+# Instantly health check
 
-Checked 2026-10-08T09:33:16+00:00 (UTC).
+Checked 2026-10-09T09:04:02+00:00 (UTC).
 
-## Diablo | Dublin, Ireland | Retailers | OCT2026
+## Mailboxes
+
+- Could not be read. If the message mentions permission or scope, the Instantly key needs read access to accounts. Instantly said: GET /accounts failed with 401: {"statusCode":401,"error":"Unauthorized","message":"Invalid scope. Required: accounts:read. Found: campaigns:all, leads:all"}
+
+## Campaign: Diablo | Dublin, Ireland | Retailers | OCT2026
 
 - Campaign status: Completed
 - Instantly says: **campaign_completed**. Campaign has completed
@@ -13,25 +17,26 @@ Checked 2026-10-08T09:33:16+00:00 (UTC).
 - leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
 - issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-08T09:07:46.825Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 0
 - Emails in the sequence: 2 (characters in each body: [726, 545])
 
-## Diablo | OCT2026
+## Campaign: Diablo | OCT2026
 
 - Campaign status: Active
-- Instantly says: **healthy**. Campaign is sending normally
-- Instantly's explanation: The campaign is currently healthy, running within its schedule, and has an available sending account. It is not sending emails because there are no new leads or follow-ups currently waiting or ready to be sent. To resume sending, add more leads to the campaign or verify that existing leads meet the criteria for their next scheduled email.
-- Last healthy send: 2026-10-08T09:25:46.462Z
+- Instantly says: **follow_up_delay_not_met**. Follow-up delays have not been met yet
+- Instantly's explanation: Your campaign is currently waiting to send follow-up emails. It has 4 follow-ups scheduled, but they are not yet ready to be sent as their defined waiting periods have not passed. No action is required; the campaign will automatically resume sending once these delays are met.
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 30, "sent": 0, "limit_hit": false}`
 - new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
-- leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
-- follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": null, "issue_first_seen_at": null, "consecutive_loops_with_issue": 0, "last_healthy_send_at": "2026-10-08T09:25:46.462Z"}`
+- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 4}`
+- follow_ups_waiting: `{"count": 4, "earliest_wait_time_seconds": null}`
+- issue_tracking: `{"current_status_code": "follow_up_delay_not_met", "issue_first_seen_at": "2026-10-09T09:02:56.289Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 4
-  - 3 Active, not yet emailed
-  - 1 Active, emailed
+  - 2 Completed, emailed, replied
+  - 2 Completed, emailed
 - Emails in the sequence: 2 (characters in each body: [726, 545])
 
 
