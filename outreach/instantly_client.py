@@ -64,6 +64,29 @@ class Instantly:
             results.append(self.request("POST", "/leads/add", json=body))
         return results
 
+    def list_accounts(self):
+        """Every sending mailbox connected to Instantly (read only)."""
+        items, cursor = [], None
+        while True:
+            params = {"limit": 100}
+            if cursor:
+                params["starting_after"] = cursor
+            data = self.request("GET", "/accounts", params=params)
+            batch = data.get("items", [])
+            items.extend(batch)
+            cursor = data.get("next_starting_after")
+            if not cursor or not batch:
+                return items
+
+    def warmup_analytics(self, emails):
+        """Warm-up totals per mailbox: sent, landed in inbox, landed in spam, health score."""
+        out = {}
+        emails = list(emails)
+        for i in range(0, len(emails), 100):
+            data = self.request("POST", "/accounts/warmup-analytics", json={"emails": emails[i : i + 100]})
+            out.update(data.get("aggregate_data") or {})
+        return out
+
     def list_leads(self, campaign_id):
         items, cursor = [], None
         while True:

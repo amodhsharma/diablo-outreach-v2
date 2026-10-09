@@ -43,6 +43,7 @@ You approve work in HubSpot by changing one dropdown:
 | 4c - Automatic/Manual - Put written email lines into HubSpot for approval | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
 | 4b - Timer/Manual - Send approved contacts to Instantly to be emailed | Every 3 hours by itself (or pressed by hand): starts each company with its most senior Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
 | 5 - Timer/Manual - Update HubSpot with who was emailed, replied or bounced, and line up the next person | Every 3 hours: Sent, Replied, Interested, Bounced and Opted out back to HubSpot, and moves companies on to their next person |
+| 6 - Manual - Health check: mailboxes, campaigns and why someone isn't being emailed | Changes nothing. **Mailboxes:** every sending mailbox in Instantly marked Ready, Warming up or Problem (sending on or not, warm-up score, warm-up emails landing in inbox or spam, sender name, daily limit, campaigns using it), with a "Needs attention" list. **Campaigns:** whether each is sending and if not why. **HubSpot:** what 4b would do now with each Approved to send contact. Answer on the run's summary page and in `diagnostics/instantly_status.md` |
 
 ## How the email lines get written
 

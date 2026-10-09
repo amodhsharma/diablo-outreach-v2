@@ -1,6 +1,8 @@
-name: '6 - Manual - Health check: why isn''t someone being emailed?'
+name: '6 - Manual - Health check: mailboxes, campaigns and why someone isn''t being emailed'
 
-# Asks Instantly, campaign by campaign, whether it is sending and if not why (its own
+# Lists every sending mailbox in Instantly with its health (sending on or not, warm-up score,
+# warm-up emails landing in inbox or spam, sender name, daily limit, campaigns using it) and
+# what needs attention. Then asks Instantly, campaign by campaign, whether it is sending and if not why (its own
 # diagnosis), and counts the leads by status. Also lists the contacts set to Approved to send in
 # HubSpot and what 4b would do with each, and why. The answer is on this run's summary page and in
 # diagnostics/instantly_status.md. Changes nothing in Instantly or HubSpot.
