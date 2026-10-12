@@ -8,7 +8,7 @@ Channel. The emails sent are built from `templates/first_email.json` and
 
 | Part | Where it comes from |
 |---|---|
-| Subject | Fixed: "Potential Partnership: Bringing Diablo Sugar Free to {{market}}" |
+| Subject | Fixed: "Partnering to establish Diablo Sugar Free in the {{market_short}} sugar free snacks landscape", where {{market_short}} is the first part of the Location (Dublin for "Dublin, Ireland") |
 | Personal line | The outreach-mail-writing skill, per person (its own paragraph after the introduction) |
 | Partner type | The company's Channel in one word: distributor, wholesaler, retailer, online seller |
 | Catalogue link | `send.catalogue_link` in `config/settings.yaml` (a dummy link until the catalogue is live) |
@@ -20,7 +20,7 @@ Accounts. It is set there, not here.
 
 ## First email
 
-> Subject: Potential Partnership: Bringing Diablo Sugar Free to {{market}}
+> Subject: Partnering to establish Diablo Sugar Free in the {{market_short}} sugar free snacks landscape
 >
 > Hi {{firstName}},
 >
@@ -56,6 +56,7 @@ Accounts. It is set there, not here.
 > Initial Outreach Team
 > Diablo Sugar Free
 > www.diablosugarfree.com
+> XXXXXX (phone, placeholder)
 
 ## Reminder (3 days later, same thread, only if nobody at the company has replied)
 
@@ -73,6 +74,7 @@ Accounts. It is set there, not here.
 > Initial Outreach Team
 > Diablo Sugar Free
 > www.diablosugarfree.com
+> XXXXXX (phone, placeholder)
 
 ## Footer (every email)
 
@@ -86,7 +88,7 @@ The reminder's footer leaves out the "We found your business details..." sentenc
 ## Still to do
 
 - Replace the dummy catalogue link once the 2026 catalogue is online.
-- A phone number for the signature (optional: leave `send.signature.phone` empty to leave it out).
+- Replace the placeholder phone number XXXXXX (`send.signature.phone`) with Joshua's real number.
 - A booking link, once chosen.
 
 ## Rules for the personal line

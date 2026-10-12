@@ -111,9 +111,9 @@ def test_send_and_sync(settings):
     plan = send.run("test", settings, hs, None, dry_run=True, log=logs.append)
     assert plan["queued"] == 0 and plan["campaigns"][0]["leads"] == 1
     shown = "\n".join(logs)  # the whole email, filled in, is printed in the job log
-    assert "Subject: Potential Partnership: Bringing Diablo Sugar Free to India" in shown
+    assert "Subject: Partnering to establish Diablo Sugar Free in the India sugar free snacks landscape" in shown
     assert "Hi Firstp2," in shown and "Your Reliance range has room for sugar free chocolate." in shown
-    assert "Bringing Diablo Sugar Free to" in shown and "Joshua\nInitial Outreach Team" in shown
+    assert "XXXXXX" in shown and "Joshua\nInitial Outreach Team" in shown
     assert "\u2022 Market fit:" in shown and "send you samples" in shown
     assert "{{" not in shown and "<br/>" not in shown
     assert "Email 2 (sent 3 days later if no reply)" in shown

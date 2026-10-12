@@ -14,7 +14,8 @@ turn, so each button runs 8 times a day, every 3 hours:
 | 1, 4, 7 and 10, AM and PM | 5 - Timer/Manual - Update HubSpot with who was emailed, replied or bounced, and line up the next person |
 | 2, 5, 8 and 11, AM and PM | 2f - Timer/Manual - Refresh the "already in HubSpot" list so research skips them |
 
-Send comes first, so the sync an hour later already sees the emails that went out. The three
+Send comes first, so the sync an hour later already sees the emails that went out. Button 2g (the
+automatic city list) needs no job of its own: it starts by itself after every 2f run. The three
 jobs passed their test runs on 8 Oct 2026 and GitHub's own timer was then switched off, so
 cron-job.org is the only timer to manage.
 

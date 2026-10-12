@@ -134,13 +134,14 @@ send:
   # replace it before going live.
   catalogue_link: https://www.diablosugarfree.com/pages/catalogue-2026
   # Signature on every email (agreed 12 Oct 2026). Leave phone empty to leave that line out.
+  # The phone is a placeholder (XXXXXX) until the real number is given: replace it before going live.
   # Set the same name as each mailbox's sender name in Instantly (Email Accounts), so the
   # inbox shows "Joshua".
   signature:
     name: Joshua
     title: Initial Outreach Team
     website: www.diablosugarfree.com
-    phone: ""
+    phone: XXXXXX
   # When Instantly may send. Agreed 7 Oct 2026: any time of day, every day, as soon as a
   # campaign is started (not limited to each country's working hours). Instantly still spaces
   # the emails out and keeps to daily_limit. To limit a market again, add an entry such as:
@@ -153,6 +154,21 @@ send:
       from: "00:00"
       to: "23:59"
       days: [mon, tue, wed, thu, fri, sat, sun]
+
+# Automatic city list (agreed 12 Oct 2026): keeps research going without anyone adding a market.
+# Button 2g adds the next city from data/auto_markets.csv (UK, EU, Canada and South America in a
+# random order that takes turns between regions) when the research queue is empty. Adding a
+# market by hand with 2a still works, and those always run first.
+auto_markets:
+  enabled: true
+  channels: distributors, wholesalers, retailers
+  companies_wanted: 30          # per Channel
+  max_per_day: 1
+  # No city is added while this many companies (or more) wait for review in HubSpot.
+  pause_when_awaiting_review: 100
+  # Left out until a lawyer has checked the cold email rules there (12 Oct 2026):
+  # Canada (CASL), Germany and Austria (consent needed even between businesses).
+  exclude_countries: [Canada, Germany, Austria]
 
 sync:
   # Only Instantly campaigns whose name starts with this are synced.

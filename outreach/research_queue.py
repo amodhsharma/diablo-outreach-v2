@@ -45,6 +45,10 @@ STATUSES = (WAITING, ON_HOLD, DONE, DONE_FEWER, FAILED, CANCELLED)
 # A Location and Channel counts as covered once a line for it is waiting or done.
 COVERED = (WAITING, DONE, DONE_FEWER)
 
+# Jobs added by the automatic city list (outreach/auto_markets.py) carry this in added_by.
+# A market added by hand always runs before them.
+AUTO_BY = "automatic city list"
+
 # A failed Channel is retried once by itself at the next run; after that it stays Failed
 # until someone presses "Retry a failed job".
 AUTO_RETRIES = 1
@@ -272,7 +276,7 @@ def is_retry(row):
 
 def waiting_job(rows, job_id=None, location=None):
     """The job to research: the one named, else a retry first, else the oldest with a Waiting
-    line (optionally only for one Location). Returns (job_id, its Waiting lines) or (None, [])."""
+    line, markets added by hand before automatic ones (optionally only for one Location). Returns (job_id, its Waiting lines) or (None, [])."""
     waiting = [r for r in rows if r["status"] == WAITING]
     if job_id:
         job_id = job_id.strip().upper()
@@ -281,7 +285,7 @@ def waiting_job(rows, job_id=None, location=None):
         waiting = [r for r in waiting if norm_location(r["location"]) == norm_location(location)]
     if not waiting:
         return None, []
-    first = min(waiting, key=lambda r: (not is_retry(r), r["added_on"], r["job_id"]))
+    first = min(waiting, key=lambda r: (not is_retry(r), r["added_by"] == AUTO_BY, r["added_on"], r["job_id"]))
     return first["job_id"], [r for r in waiting if r["job_id"] == first["job_id"]]
 
 

@@ -102,6 +102,11 @@ def partner_type(channel):
     return channel or "partner"
 
 
+def market_short(market):
+    """The first part of the Location for the subject line: "Dublin, Ireland" gives "Dublin"."""
+    return (market or "").split(",")[0].strip() or market or ""
+
+
 def lead_for(contact, company, market):
     p = contact["properties"]
     return {
@@ -115,6 +120,7 @@ def lead_for(contact, company, market):
             "subject_line": p.get("diablo_subject_line") or "",
             "personal_line": p.get("diablo_personal_line") or "",
             "market": market,
+            "market_short": market_short(market),
             "partner_type": partner_type(company.get("diablo_channel_category")),
         },
     }

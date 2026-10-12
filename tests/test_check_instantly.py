@@ -77,3 +77,8 @@ def test_partner_type_for_the_email():
     assert partner_type("Marketplace sellers") == "online seller"
     assert partner_type("importers") == "importer"
     assert partner_type("") == "partner"
+
+
+def test_market_short_for_the_subject():
+    from outreach.next_in_line import market_short
+    assert market_short("Dublin, Ireland") == "Dublin" and market_short("India") == "India"
