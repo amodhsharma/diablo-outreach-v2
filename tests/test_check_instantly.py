@@ -69,3 +69,11 @@ def test_mailboxes_survives_instantly_errors():
     assert "1 mailbox: 1 ready" in text and "could not be read" in text
     failed = ci.mailboxes(FakeApi(fail_accounts=True), [], SETTINGS)
     assert "Could not be read" in failed and "INSTANTLY_ACCOUNTS_KEY" in failed
+
+
+def test_partner_type_for_the_email():
+    from outreach.next_in_line import partner_type
+    assert partner_type("distributors") == "distributor"
+    assert partner_type("Marketplace sellers") == "online seller"
+    assert partner_type("importers") == "importer"
+    assert partner_type("") == "partner"

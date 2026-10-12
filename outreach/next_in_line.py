@@ -88,6 +88,20 @@ def last_campaign(contacts):
     return None
 
 
+PARTNER_TYPES = {"distributors": "distributor", "wholesalers": "wholesaler", "retailers": "retailer",
+                 "marketplace sellers": "online seller", "importers": "importer"}
+
+
+def partner_type(channel):
+    """The Channel as one word for the email ("your reputation as a premier distributor")."""
+    channel = (channel or "").strip().lower()
+    if channel in PARTNER_TYPES:
+        return PARTNER_TYPES[channel]
+    if channel.endswith("s") and len(channel) > 3:
+        return channel[:-1]
+    return channel or "partner"
+
+
 def lead_for(contact, company, market):
     p = contact["properties"]
     return {
@@ -101,5 +115,6 @@ def lead_for(contact, company, market):
             "subject_line": p.get("diablo_subject_line") or "",
             "personal_line": p.get("diablo_personal_line") or "",
             "market": market,
+            "partner_type": partner_type(company.get("diablo_channel_category")),
         },
     }

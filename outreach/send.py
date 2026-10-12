@@ -12,6 +12,7 @@ Usage:
 import argparse
 import datetime as dt
 import json
+import re
 import sys
 from collections import defaultdict
 
@@ -64,15 +65,26 @@ def schedule_days(sched):
 
 
 def _template(name, s):
+    """A template with the same-for-everyone parts filled in: privacy link, catalogue link and
+    the signature. Lines left empty (e.g. no phone number) are dropped."""
     template = json.loads((ROOT / "templates" / name).read_text(encoding="utf-8"))
-    return template["subject"], template["body"].replace("{{privacy_url}}", s["privacy_url"])
+    sig = s.get("signature") or {}
+    fixed = {"privacy_url": s["privacy_url"], "catalogue_link": s.get("catalogue_link") or "",
+             "sender_name": sig.get("name") or "", "sender_title": sig.get("title") or "",
+             "sender_website": sig.get("website") or "", "sender_phone": sig.get("phone") or ""}
+    body = template["body"]
+    for key, value in fixed.items():
+        if not str(value).strip():
+            body = body.replace("<br/>{{" + key + "}}", "").replace("{{" + key + "}}", "")
+        body = body.replace("{{" + key + "}}", str(value))
+    return template["subject"], body
 
 
 def html_paragraphs(body):
     """Instantly shows (and sends) an empty email when the body is bare text with <br/> breaks,
     so each paragraph (text between blank lines) is wrapped in <p>...</p>."""
     parts = [part.strip() for part in body.split("<br/><br/>") if part.strip()]
-    return "".join(f"<p>{part}</p>" for part in parts)
+    return "".join(part if part.startswith("<ul") else f"<p>{part}</p>" for part in parts)
 
 
 def sequence_steps(s):
@@ -97,8 +109,10 @@ def render(text, lead):
               "companyName": lead.get("company_name") or "", **lead.get("custom_variables", {})}
     for key, value in values.items():
         text = text.replace("{{" + key + "}}", str(value))
+    text = text.replace("<ul>", "\n\n").replace("</ul>", "\n\n").replace("<li>", "\u2022 ").replace("</li>", "\n")
     text = text.replace("</p><p>", "\n\n").replace("<p>", "").replace("</p>", "")
-    return text.replace("<br/>", "\n")
+    text = re.sub(r"\n{3,}", "\n\n", text.replace("<br/>", "\n"))
+    return text.strip("\n") + "\n"
 
 
 def preview(name, leads, settings):
@@ -109,9 +123,9 @@ def preview(name, leads, settings):
         out.append(f"=== {name}\nTo: {lead['email']} ({lead.get('job_title') or ''}, {lead.get('company_name') or ''})")
         for i, step in enumerate(steps, start=1):
             v = step["variants"][0]
-            subject = render(v["subject"], lead) or "(same thread as email 1)"
+            subject = render(v["subject"], lead).strip() or "(same thread as email 1)"
             label = "Email 1" if i == 1 else f"Email {i} (sent {steps[i - 2]['delay']} days later if no reply)"
-            out.append(f"--- {label}\nSubject: {subject}\n\n{render(v['body'], lead)}\n")
+            out.append(f"--- {label}\nSubject: {subject}\n\n{render(v['body'], lead)}")
     return "\n".join(out)
 
 

@@ -117,7 +117,8 @@ def test_follow_up_after_three_days(settings):
     assert steps[0]["delay"] == 3 and steps[0]["delay_unit"] == "days"
     reminder = steps[1]["variants"][0]
     assert reminder["subject"] == ""  # sent in the same thread
-    assert "Team at Diablo" in reminder["body"] and "{{privacy_url}}" not in reminder["body"]
+    assert "Joshua<br/>Initial Outreach Team" in reminder["body"] and "{{privacy_url}}" not in reminder["body"]
+    assert "samples" in reminder["body"]
     assert "\u2014" not in reminder["body"]
 
     settings["send"]["follow_up"]["enabled"] = False

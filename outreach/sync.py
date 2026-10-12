@@ -119,7 +119,8 @@ def advance(hs, instantly, settings, log=print, now=None):
     gap = int(settings["send"].get("next_contact_after_days", 4))
     companies = hs.search(
         "companies", [{"propertyName": "diablo_outreach_status", "operator": "EQ", "value": "in_outreach"}],
-        ["name", "domain", "diablo_market", "diablo_outreach_status", "diablo_suppress_reason"],
+        ["name", "domain", "diablo_market", "diablo_channel_category", "diablo_outreach_status",
+         "diablo_suppress_reason"],
         max_results=5000)
     if not companies:
         return {"next_contacts_added": 0, "no_reply": 0}

@@ -111,9 +111,10 @@ def test_send_and_sync(settings):
     plan = send.run("test", settings, hs, None, dry_run=True, log=logs.append)
     assert plan["queued"] == 0 and plan["campaigns"][0]["leads"] == 1
     shown = "\n".join(logs)  # the whole email, filled in, is printed in the job log
-    assert "Subject: Swiss chocolate, and sugar free" in shown or "Subject: Swiss chocolate" in shown
+    assert "Subject: Potential Partnership: Bringing Diablo Sugar Free to India" in shown
     assert "Hi Firstp2," in shown and "Your Reliance range has room for sugar free chocolate." in shown
-    assert "distribution partner in India" in shown and "Team at Diablo" in shown
+    assert "Bringing Diablo Sugar Free to" in shown and "Joshua\nInitial Outreach Team" in shown
+    assert "\u2022 Market fit:" in shown and "send you samples" in shown
     assert "{{" not in shown and "<br/>" not in shown
     assert "Email 2 (sent 3 days later if no reply)" in shown
 
@@ -124,7 +125,9 @@ def test_send_and_sync(settings):
     assert body["campaign_schedule"]["schedules"][0]["timezone"] == "Europe/Isle_of_Man"  # any time, every day
     assert body["campaign_schedule"]["schedules"][0]["timing"] == {"from": "00:00", "to": "23:59"}
     email = body["sequences"][0]["steps"][0]["variants"][0]["body"]
-    assert "Best,<br/>Team at Diablo" in email and "{{privacy_url}}" not in email
+    assert "Best regards,<br/>Joshua<br/>Initial Outreach Team" in email and "{{privacy_url}}" not in email
+    assert "{{catalogue_link}}" not in email and "{{sender_phone}}" not in email
+    assert "<ul><li>Market fit" in email and "<p><ul>" not in email
     lead = instantly.leads[camp_id][0]
     assert lead["custom_variables"]["personal_line"].startswith("Your Reliance")
     assert c["diablo_contact_status"] == "queued"
@@ -255,9 +258,10 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     from .fakes import FakeInstantly
     steps = send.sequence_steps(settings["send"])
     body = steps[0]["variants"][0]["body"]
-    assert body.startswith("<p>Hi {{firstName}},</p><p>{{personal_line}}</p>")
-    assert "<br/><br/>" not in body and "<p>Best,<br/>Team at Diablo</p>" in body
-    assert "\n\nWould you" in send.render(body, {"first_name": "Ann"})
+    assert body.startswith("<p>Hi {{firstName}},</p><p>I hope this email finds you well.</p>")
+    assert "<p>{{personal_line}}</p>" in body and "<br/><br/>" not in body
+    assert "Best regards,<br/>Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in body
+    assert "\n\nAre you open" in send.render(body, {"first_name": "Ann"})
     instantly = FakeInstantly()
     old = instantly.create_campaign({"name": "Diablo | Dublin, Ireland | Retailers | OCT2026",
                                      "sequences": [{"steps": [{"variants": [{"subject": "{{subject_line}}", "body": ""}]}]}]})
