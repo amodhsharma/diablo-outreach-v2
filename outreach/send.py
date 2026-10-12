@@ -117,7 +117,10 @@ def render(text, lead):
     for key, value in values.items():
         text = text.replace("{{" + key + "}}", str(value))
     text = text.replace("<ul>", "\n\n").replace("</ul>", "\n\n").replace("<li>", "\u2022 ").replace("</li>", "\n")
-    text = text.replace(GAP, "\n\n").replace("</div>", "\n").replace("<div>", "")
+    text = text.replace(GAP, "\n\n")
+    text = re.sub(r'<div style="border-left[^"]*">(.*?)</div>',  # the signature block, shown with a bar
+                  lambda m: "\n" + "\n".join("| " + line for line in m.group(1).split("<br/>")), text)
+    text = text.replace("</div>", "\n").replace("<div>", "")
     text = text.replace("</p><p>", "\n\n").replace("<p>", "").replace("</p>", "")
     text = re.sub(r"\n{3,}", "\n\n", text.replace("<br/>", "\n"))
     return text.strip("\n") + "\n"

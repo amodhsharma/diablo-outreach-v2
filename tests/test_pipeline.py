@@ -113,7 +113,7 @@ def test_send_and_sync(settings):
     shown = "\n".join(logs)  # the whole email, filled in, is printed in the job log
     assert "Subject: Partnering to establish Diablo Sugar Free in the India sugar free snacks landscape" in shown
     assert "Hi Firstp2," in shown and "Your Reliance range has room for sugar free chocolate." in shown
-    assert "XXXXXX" in shown and "Joshua\nInitial Outreach Team" in shown
+    assert "XXXXXX" in shown and "| Joshua\n| Initial Outreach Team" in shown
     assert "\u2022 Market fit:" in shown and "send you samples" in shown
     assert "{{" not in shown and "<br/>" not in shown
     assert "Email 2 (sent 3 days later if no reply)" in shown
@@ -125,7 +125,8 @@ def test_send_and_sync(settings):
     assert body["campaign_schedule"]["schedules"][0]["timezone"] == "Europe/Isle_of_Man"  # any time, every day
     assert body["campaign_schedule"]["schedules"][0]["timing"] == {"from": "00:00", "to": "23:59"}
     email = body["sequences"][0]["steps"][0]["variants"][0]["body"]
-    assert "Best regards,<br/>Joshua<br/>Initial Outreach Team" in email and "{{privacy_url}}" not in email
+    assert 'Best regards,<div style="border-left:3px solid #cccccc' in email and "{{privacy_url}}" not in email
+    assert "Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in email
     assert "{{catalogue_link}}" not in email and "{{sender_phone}}" not in email
     assert "<ul><li>Market fit" in email and "<div><ul>" not in email
     lead = instantly.leads[camp_id][0]
@@ -261,7 +262,7 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     gap = "<div><br></div>"
     assert body.startswith(f"<div>Hi {{{{firstName}}}},</div>{gap}<div>I hope this email finds you well.</div>{gap}")
     assert f"{gap}<div>{{{{personal_line}}}}</div>{gap}" in body and "<br/><br/>" not in body
-    assert "Best regards,<br/>Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in body
+    assert "Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in body and "border-left" in body
     assert "\n\nAre you open" in send.render(body, {"first_name": "Ann"})
     instantly = FakeInstantly()
     old = instantly.create_campaign({"name": "Diablo | Dublin, Ireland | Retailers | OCT2026",
