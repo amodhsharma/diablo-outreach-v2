@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-12T08:01:34+00:00 (UTC).
+Checked 2026-10-12T08:34:33+00:00 (UTC).
 
 ## Mailboxes
 
@@ -30,7 +30,7 @@ Checked 2026-10-12T08:01:34+00:00 (UTC).
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (66 of 66) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Info Account | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (47 of 47) | Joshua | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
@@ -45,7 +45,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Instantly says: **campaign_completed**. Campaign has completed
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 0
-- Emails in the sequence: 2 (characters in each body: [2109, 807])
+- Emails in the sequence: 2 (characters in each body: [2503, 1201])
 
 ## Campaign: Diablo | OCT2026
 
@@ -55,7 +55,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Leads: 4
   - 2 Completed, emailed, replied
   - 2 Completed, emailed
-- Emails in the sequence: 2 (characters in each body: [2109, 807])
+- Emails in the sequence: 2 (characters in each body: [2503, 1201])
 
 
 ## Approved to send in HubSpot (what 4b would do now)
