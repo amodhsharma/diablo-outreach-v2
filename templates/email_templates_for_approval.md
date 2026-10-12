@@ -79,12 +79,17 @@ Accounts. It is set there, not here.
 
 ## Footer (every email)
 
-> --
-> Diablo Sugar Free (B Healthy Ltd, London). We found your business details in public and commercial
-> sources. If you would rather not hear from us, reply "no thanks" and we will not contact you again.
-> Privacy notice: https://www.diablosugarfree.com/policies/privacy-policy
+Grey (#888888), slightly smaller text (12px), under a thin full-width grey line (agreed 12 Oct 2026):
 
-The reminder's footer leaves out the "We found your business details..." sentence.
+> ---
+> [Diablo Sugar Free](https://www.diablosugarfree.com) (B Healthy Ltd, London)
+> We found your business details in public and commercial sources. If you would rather not hear
+> from us, reply "no thanks" and we will not contact you again.
+>
+> Privacy notice: [https://www.diablosugarfree.com/policies/privacy-policy](https://www.diablosugarfree.com/policies/privacy-policy)
+
+"Diablo Sugar Free" links to the website and the privacy notice link is clickable. The reminder's
+footer leaves out the "We found your business details..." sentence.
 
 ## Still to do
 

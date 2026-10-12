@@ -120,9 +120,14 @@ def render(text, lead):
     text = text.replace(GAP, "\n\n")
     text = re.sub(r'<div style="border-left[^"]*">(.*?)</div>',  # the signature block, shown with a bar
                   lambda m: "\n" + "\n".join("| " + line for line in m.group(1).split("<br/>")), text)
+    text = re.sub(r"<hr[^>]*>", "\n" + "-" * 60 + "\n", text)       # the footer's full-width line
+    text = re.sub(r'<a href="([^"]*)"[^>]*>(.*?)</a>',                 # links: text, plus the address if different
+                  lambda m: m.group(2) if m.group(2) == m.group(1) else f"{m.group(2)} [{m.group(1)}]", text)
     text = text.replace("</div>", "\n").replace("<div>", "")
     text = text.replace("</p><p>", "\n\n").replace("<p>", "").replace("</p>", "")
-    text = re.sub(r"\n{3,}", "\n\n", text.replace("<br/>", "\n"))
+    text = text.replace("<br/>", "\n").replace("<br>", "\n")
+    text = re.sub(r"<[^>]+>", "", text)                                # any other tag (styled blocks)
+    text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip("\n") + "\n"
 
 

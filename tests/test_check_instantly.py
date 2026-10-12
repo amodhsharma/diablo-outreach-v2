@@ -91,3 +91,19 @@ def test_booking_link_only_when_set():
     assert "{{booking_sentence}}" not in body and "book a time" not in body
     _, body = send._template("first_email.json", dict(base, booking_link="https://book.example/diablo"))
     assert "works best for you. You can also book a time directly here: https://book.example/diablo<br/>" in body
+
+
+def test_footer_is_grey_small_with_clickable_links():
+    from outreach import send
+    base = {"privacy_url": "https://www.diablosugarfree.com/policies/privacy-policy", "signature": {"name": "Joshua"}}
+    for name in ("first_email.json", "follow_up.json"):
+        _, body = send._template(name, base)
+        html = send.html_paragraphs(body)
+        assert "--<br/>" not in body and "<hr " in html and "font-size:12px" in html and "color:#888888" in html
+        assert '<a href="https://www.diablosugarfree.com" style="color:#888888">Diablo Sugar Free</a> (B Healthy Ltd, London)<br>' in html
+        assert ('Privacy notice: <a href="https://www.diablosugarfree.com/policies/privacy-policy" '
+                'style="color:#888888">https://www.diablosugarfree.com/policies/privacy-policy</a>') in html
+        assert 'contact you again.<br><br>Privacy notice' in html
+        text = send.render(html, {"first_name": "Ann"})
+        assert "Diablo Sugar Free [https://www.diablosugarfree.com] (B Healthy Ltd, London)\n" in text
+        assert "contact you again.\n\nPrivacy notice: https://www.diablosugarfree.com/policies/privacy-policy" in text
