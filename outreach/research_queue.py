@@ -27,6 +27,7 @@ from . import countries
 
 ROOT = Path(__file__).resolve().parent.parent
 QUEUE_FILE = ROOT / "research" / "queue.csv"
+EXCLUDED_FILE = ROOT / "data" / "excluded_countries.txt"
 SETTINGS_FILE = ROOT / "skills" / "outreachResearch" / "settings.yaml"
 
 COLUMNS = [
@@ -111,6 +112,30 @@ def check_country(location):
         'after a comma, e.g. "Mumbai, India". Nothing was added.')
 
 
+def excluded_countries(path=None):
+    """Countries Diablo does not look for leads in (data/excluded_countries.txt), as the
+    standard country names."""
+    path = Path(path or EXCLUDED_FILE)
+    if not path.exists():
+        return set()
+    names = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.split("#")[0].strip()
+        if line:
+            names.add(countries.find(line) or line)
+    return names
+
+
+def check_not_excluded(location, excluded=None):
+    """Stop if the Location is in a country on the do-not-research list."""
+    country = tidy(location).split(", ")[-1]
+    name = countries.find(country) or country
+    if name in (excluded if excluded is not None else excluded_countries()):
+        raise QueueError(
+            f"{name} is on the list of countries we do not look for leads in "
+            "(data/excluded_countries.txt). Nothing was added.")
+
+
 def norm_location(text):
     """Locations match as written, ignoring capitals and spaces only.
     "UK" and "United Kingdom" stay different."""
@@ -189,6 +214,7 @@ def add(rows, location, channels, languages="", wanted="", added_by="", on=None,
     if not re.search(r"[A-Za-z]", location):
         raise QueueError('Location is empty: type a country, region or city, country last, e.g. "Mumbai, India"')
     check_country(location)
+    check_not_excluded(location)
     names = [" ".join(c.split()) for c in str(channels or "").split(",")]
     names = [c for c in names if c]
     if not names:

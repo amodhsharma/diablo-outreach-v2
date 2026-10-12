@@ -38,7 +38,7 @@ You approve work in HubSpot by changing one dropdown:
 | 2d - Manual - Research: allow a market we have done before | Lets an On hold repeat run |
 | 2e - Automatic/Manual - Put new companies into HubSpot for review | Runs by itself when new research is saved; can be pressed by hand |
 | 2f - Timer/Manual - Refresh the "already in HubSpot" list so research skips them | Runs every 3 hours; saves the companies already in HubSpot so research skips them |
-| 2g - Automatic/Manual - Research: add the next city from the automatic list | Runs by itself after every 2f run. Adds the next city from `data/auto_markets.csv` (UK, EU, Canada and South America, in a random order that takes turns between regions) to the queue: at most one a day, only when nothing is waiting in the queue and fewer than 100 companies wait for review in HubSpot. Canada, Germany and Austria are left out until a lawyer has checked the cold email rules there. Markets added by hand with 2a always run first. Settings: `auto_markets` in `config/settings.yaml` |
+| 2g - Automatic/Manual - Research: add the next city from the automatic list | Runs by itself after every 2f run. Adds the next city from `data/auto_markets.csv` (UK, EU, Canada and South America, in a random order that takes turns between regions) to the queue: at most one a day, only when nothing is waiting in the queue and fewer than 100 companies wait for review in HubSpot. Canada, Germany and Austria are left out until a lawyer has checked the cold email rules there, and so is every country in `data/excluded_countries.txt`. Markets added by hand with 2a always run first. Settings: `auto_markets` in `config/settings.yaml` |
 | 3 - Manual - Find the top 3 people at each approved company | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
 | 4a - Manual - Refresh the list of contacts that still need email lines | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Buttons 3 and 4c already refresh this list themselves at the end of their run; press 4a only after editing contacts in HubSpot by hand |
 | 4c - Automatic/Manual - Put written email lines into HubSpot for approval | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
@@ -92,6 +92,12 @@ renewal: `docs/outside_timer.md`.
 - The moment anyone at the company replies, nobody else there is emailed.
 - When everyone found has been emailed without a reply, the company becomes **No reply**. To go
   deeper, set it back to **Approved** and press **3 - Manual - Find the top 3 people at each approved company** for the next 3.
+
+## Countries we never research
+
+`data/excluded_countries.txt` lists the countries Diablo does not look for leads in (set 12 Oct
+2026), one per line. Button 2a refuses a market in any of them, and the automatic city list (2g)
+skips them. To allow a country again, delete its line.
 
 ## The queue
 

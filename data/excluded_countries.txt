@@ -1,0 +1,43 @@
+# Countries Diablo does not look for leads in (set by Ariel on 12 Oct 2026).
+# Research is never queued for these: the automatic city list skips them and button 2a
+# ("Research: add a new market") refuses them. One country per line; lines starting with #
+# are notes. To allow a country again, delete its line.
+
+Malta
+Canada
+Hungary
+Romania
+Cyprus
+Qatar
+Kuwait
+Jordan
+Palestine
+Lebanon
+Oman
+Iraq
+Mauritius
+South Korea
+Saudi Arabia
+United Arab Emirates
+Azerbaijan
+Bulgaria
+Greece
+Belgium
+
+# Baltic states
+Estonia
+Latvia
+Lithuania
+
+# Former Soviet (ex-CIS) republics
+Armenia
+Belarus
+Georgia
+Kazakhstan
+Kyrgyzstan
+Moldova
+Russia
+Tajikistan
+Turkmenistan
+Ukraine
+Uzbekistan

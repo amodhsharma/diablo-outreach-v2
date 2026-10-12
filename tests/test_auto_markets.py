@@ -58,3 +58,20 @@ def test_the_real_list_is_valid():
     for line in pool:
         rq.check_country(rq.capitalise(line["location"]))
     assert {line["region"] for line in pool} == {"UK", "EU", "Canada", "South America"}
+
+
+def test_excluded_countries_are_never_researched(tmp_path, monkeypatch):
+    import pytest
+    from outreach import countries
+    real = rq.excluded_countries()
+    for name in ("Belgium", "Canada", "United Arab Emirates", "Lithuania", "Uzbekistan", "South Korea", "Palestine"):
+        assert name in real
+    assert all(countries.find(n) for n in real)  # every line is a country we know
+    with pytest.raises(rq.QueueError, match="do not look for leads"):
+        rq.add([], "Ghent, Belgium", "distributors")
+    with pytest.raises(rq.QueueError):
+        rq.add([], "Dubai, UAE", "retailers")
+    rows = []
+    rq.add(rows, "Paris, France", "retailers")  # others still fine
+    pool = [{"location": "Ghent, Belgium"}, {"location": "Riga, Latvia"}, {"location": "Porto, Portugal"}]
+    assert am.next_city([], pool) == "Porto, Portugal"

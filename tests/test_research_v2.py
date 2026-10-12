@@ -68,7 +68,7 @@ def test_country_check_and_capitals():
         rq.add([], "Paris", "distributors")  # a city with no country
     rows = []
     for typed, saved in (("dublin, ireland", "Dublin, Ireland"), ("new york, usa", "New York, USA"),
-                         ("Dubai, uae", "Dubai, UAE"), ("UK", "UK"), ("Côte d’Ivoire", "Cote d'Ivoire")):
+                         ("amsterdam, holland", "Amsterdam, Holland"), ("UK", "UK"), ("Côte d’Ivoire", "Cote d'Ivoire")):
         assert rq.add(rows, typed, "distributors")[1][0]["location"] == saved
     # UK and United Kingdom stay different Locations (matched as written).
     assert rq.add(rows, "United Kingdom", "distributors")[1][0]["status"] == rq.WAITING

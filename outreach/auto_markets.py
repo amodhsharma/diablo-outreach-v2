@@ -38,12 +38,13 @@ def country_of(location):
 
 
 def next_city(rows, pool, exclude=()):
-    """The first city on the list that is not left out and has never been in the queue."""
-    excluded = {rq.norm_location(c) for c in exclude}
+    """The first city on the list that has never been in the queue and is not in a left-out
+    country (auto_markets.exclude_countries, or data/excluded_countries.txt)."""
+    excluded = {rq.countries.find(c) or c for c in exclude} | rq.excluded_countries()
     used = {rq.norm_location(r["location"]) for r in rows}
     for line in pool:
         location = rq.capitalise(line["location"])
-        if rq.norm_location(country_of(location)) in excluded:
+        if (rq.countries.find(country_of(location)) or country_of(location)) in excluded:
             continue
         if rq.norm_location(location) in used:
             continue

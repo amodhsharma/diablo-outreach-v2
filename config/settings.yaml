@@ -172,6 +172,8 @@ auto_markets:
   pause_when_awaiting_review: 100
   # Left out until a lawyer has checked the cold email rules there (12 Oct 2026):
   # Canada (CASL), Germany and Austria (consent needed even between businesses).
+  # Countries Diablo never looks for leads in are listed separately, for every research
+  # job (automatic or added by hand), in data/excluded_countries.txt.
   exclude_countries: [Canada, Germany, Austria]
 
 sync:
