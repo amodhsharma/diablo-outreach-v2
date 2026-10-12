@@ -1,0 +1,26 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-12",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-12T08:41:30+00:00",
+  "lines": [
+    {
+      "contact_id": "888601407721",
+      "company_name": "Inish Pharmacy",
+      "subject_line": "Inish Pharmacy and Diablo Sugar Free",
+      "personal_line": "Your online pharmacy already delivers sugar free sweets nationwide from your Donegal base. Adding sugar free chocolate, biscuits and spreads alongside them could be a strong next step for growth, and we would value a partnership with your team."
+    },
+    {
+      "contact_id": "888807099589",
+      "company_name": "Balkania",
+      "subject_line": "Sugar free confectionery for Balkania",
+      "personal_line": "Your team supplies international foods to independent retailers, supermarkets and caterers across Ireland and Northern Ireland. Our sugar free range could give those customers a new confectionery category to stock alongside the rest of your offer."
+    },
+    {
+      "contact_id": "888601407720",
+      "company_name": "Inish Pharmacy",
+      "subject_line": "Sugar free range for Inish Pharmacy",
+      "personal_line": "Your online shop already gives customers a choice of sugar free sweets. Our range of sugar free chocolate, biscuits, wafers and spreads could round out that section with categories you do not list yet."
+    }
+  ]
+}
