@@ -12,7 +12,7 @@ Channel. The emails sent are built from `templates/first_email.json` and
 | Personal line | The outreach-mail-writing skill, per person (its own paragraph after the introduction) |
 | Partner type | The company's Channel in one word: distributor, wholesaler, retailer, online seller |
 | Catalogue link | `send.catalogue_link` in `config/settings.yaml` (a dummy link until the catalogue is live) |
-| Signature | `send.signature` in `config/settings.yaml`: Joshua, Initial Outreach Team |
+| Signature | `send.signature` in `config/settings.yaml`: Joshua, Initial Outreach Team. Shown after "Best regards," as an indented block with a thin grey bar on the left, like a quote |
 | Footer | Fixed, with the opt-out and privacy notice |
 
 The sender name shown in the inbox ("Joshua") is each mailbox's sender name in Instantly, Email
