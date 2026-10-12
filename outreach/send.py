@@ -82,11 +82,16 @@ def _template(name, s):
     return template["subject"], body
 
 
+GAP = "<div><br></div>"
+
+
 def html_paragraphs(body):
     """Instantly shows (and sends) an empty email when the body is bare text with <br/> breaks,
-    so each paragraph (text between blank lines) is wrapped in <p>...</p>."""
+    and its editor shows <p> paragraphs with no space between them. So each paragraph (text
+    between blank lines) becomes a <div>, with an empty line (<div><br></div>) between
+    paragraphs, the same way Instantly's own editor stores a gap (changed 12 Oct 2026)."""
     parts = [part.strip() for part in body.split("<br/><br/>") if part.strip()]
-    return "".join(part if part.startswith("<ul") else f"<p>{part}</p>" for part in parts)
+    return GAP.join(part if part.startswith("<ul") else f"<div>{part}</div>" for part in parts)
 
 
 def sequence_steps(s):
@@ -112,6 +117,7 @@ def render(text, lead):
     for key, value in values.items():
         text = text.replace("{{" + key + "}}", str(value))
     text = text.replace("<ul>", "\n\n").replace("</ul>", "\n\n").replace("<li>", "\u2022 ").replace("</li>", "\n")
+    text = text.replace(GAP, "\n\n").replace("</div>", "\n").replace("<div>", "")
     text = text.replace("</p><p>", "\n\n").replace("<p>", "").replace("</p>", "")
     text = re.sub(r"\n{3,}", "\n\n", text.replace("<br/>", "\n"))
     return text.strip("\n") + "\n"

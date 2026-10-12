@@ -127,7 +127,7 @@ def test_send_and_sync(settings):
     email = body["sequences"][0]["steps"][0]["variants"][0]["body"]
     assert "Best regards,<br/>Joshua<br/>Initial Outreach Team" in email and "{{privacy_url}}" not in email
     assert "{{catalogue_link}}" not in email and "{{sender_phone}}" not in email
-    assert "<ul><li>Market fit" in email and "<p><ul>" not in email
+    assert "<ul><li>Market fit" in email and "<div><ul>" not in email
     lead = instantly.leads[camp_id][0]
     assert lead["custom_variables"]["personal_line"].startswith("Your Reliance")
     assert c["diablo_contact_status"] == "queued"
@@ -258,8 +258,9 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     from .fakes import FakeInstantly
     steps = send.sequence_steps(settings["send"])
     body = steps[0]["variants"][0]["body"]
-    assert body.startswith("<p>Hi {{firstName}},</p><p>I hope this email finds you well.</p>")
-    assert "<p>{{personal_line}}</p>" in body and "<br/><br/>" not in body
+    gap = "<div><br></div>"
+    assert body.startswith(f"<div>Hi {{{{firstName}}}},</div>{gap}<div>I hope this email finds you well.</div>{gap}")
+    assert f"{gap}<div>{{{{personal_line}}}}</div>{gap}" in body and "<br/><br/>" not in body
     assert "Best regards,<br/>Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in body
     assert "\n\nAre you open" in send.render(body, {"first_name": "Ann"})
     instantly = FakeInstantly()
