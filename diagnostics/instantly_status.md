@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-12T08:34:33+00:00 (UTC).
+Checked 2026-10-12T08:59:47+00:00 (UTC).
 
 ## Mailboxes
 
@@ -30,7 +30,7 @@ Checked 2026-10-12T08:34:33+00:00 (UTC).
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (66 of 66) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (67 of 67) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Info Account | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (47 of 47) | Joshua | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
@@ -49,21 +49,26 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Active
+- Instantly says: **healthy**. Campaign is sending normally
+- Instantly's explanation: The campaign is currently healthy, within its scheduled sending window, and has one available email account with no limits hit. However, it hasn't sent any emails today and has no follow-ups pending, indicating there are likely no new leads assigned or ready to be contacted by this campaign. To resume sending, add more leads to the campaign or ensure existing leads meet the campaign's starting criteria.
+- Last healthy send: 2026-10-12T08:52:22.835Z
+- schedule_status: `{"in_schedule": true}`
+- campaign_daily_limit: `{"limit": 30, "sent": 0, "limit_hit": false}`
+- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
+- accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
+- leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
+- follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
+- issue_tracking: `{"current_status_code": null, "issue_first_seen_at": null, "consecutive_loops_with_issue": 0, "last_healthy_send_at": "2026-10-12T08:52:22.835Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
-- Leads: 4
+- Leads: 10
+  - 5 Active, not yet emailed
   - 2 Completed, emailed, replied
   - 2 Completed, emailed
+  - 1 Active, emailed
 - Emails in the sequence: 2 (characters in each body: [2503, 1201])
 
 
 ## Approved to send in HubSpot (what 4b would do now)
 
-- 6 contacts approved to send
-- Skipped contact 888826777844 (a***@diablosugarfree.com): its Outreach personal line is empty
-- Skipped contact 888807045330 (h***@diablosugarfree.com): its Outreach personal line is empty
-- Skipped contact 888829078717 (a***@gmail.com): its Outreach personal line is empty
-- Skipped contact 888601407708 (a***@diablosugarfree.com): its Outreach personal line is empty
-- Skipped contact 888807099590 (a***@diablosugarfree.com): its Outreach personal line is empty
-- Skipped contact 888601407722 (r***@diablosugarfree.com): its Outreach personal line is empty
+- 0 contacts approved to send
