@@ -133,6 +133,10 @@ send:
   # The 2026 catalogue's public web link. DUMMY until the catalogue is live (agreed 12 Oct 2026):
   # replace it before going live.
   catalogue_link: https://www.diablosugarfree.com/pages/catalogue-2026
+  # Microsoft Bookings link for the team's shared booking page, shown in the first email after
+  # "Please let me know what day and time works best for you." (agreed 12 Oct 2026). Leave empty
+  # until the page is live: the sentence is then left out.
+  booking_link: ""
   # Signature on every email (agreed 12 Oct 2026). Leave phone empty to leave that line out.
   # The phone is a placeholder (XXXXXX) until the real number is given: replace it before going live.
   # Set the same name as each mailbox's sender name in Instantly (Email Accounts), so the

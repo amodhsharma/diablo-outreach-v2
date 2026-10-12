@@ -82,3 +82,12 @@ def test_partner_type_for_the_email():
 def test_market_short_for_the_subject():
     from outreach.next_in_line import market_short
     assert market_short("Dublin, Ireland") == "Dublin" and market_short("India") == "India"
+
+
+def test_booking_link_only_when_set():
+    from outreach import send
+    base = {"privacy_url": "https://x/p", "signature": {"name": "Joshua"}}
+    _, body = send._template("first_email.json", base)
+    assert "{{booking_sentence}}" not in body and "book a time" not in body
+    _, body = send._template("first_email.json", dict(base, booking_link="https://book.example/diablo"))
+    assert "works best for you. You can also book a time directly here: https://book.example/diablo<br/>" in body

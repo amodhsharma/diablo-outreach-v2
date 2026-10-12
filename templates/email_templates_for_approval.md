@@ -47,7 +47,8 @@ Accounts. It is set there, not here.
 > you samples.
 >
 > Are you open to a brief 10-minute introductory call next week to discuss how we can introduce
-> Diablo Sugar Free to your network? Please let me know what day and time works best for you.
+> Diablo Sugar Free to your network? Please let me know what day and time works best for you. You
+> can also book a time directly here: {{booking_link}}
 >
 > Thank you for your time and consideration.
 >
@@ -89,7 +90,8 @@ The reminder's footer leaves out the "We found your business details..." sentenc
 
 - Replace the dummy catalogue link once the 2026 catalogue is online.
 - Replace the placeholder phone number XXXXXX (`send.signature.phone`) with Joshua's real number.
-- A booking link, once chosen.
+- The Microsoft Bookings link (`send.booking_link`): until it is set, the "You can also book a time
+  directly here" sentence is left out of the first email.
 
 ## Rules for the personal line
 

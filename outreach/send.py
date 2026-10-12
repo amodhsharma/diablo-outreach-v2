@@ -69,7 +69,9 @@ def _template(name, s):
     the signature. Lines left empty (e.g. no phone number) are dropped."""
     template = json.loads((ROOT / "templates" / name).read_text(encoding="utf-8"))
     sig = s.get("signature") or {}
+    link = (s.get("booking_link") or "").strip()
     fixed = {"privacy_url": s["privacy_url"], "catalogue_link": s.get("catalogue_link") or "",
+             "booking_sentence": f" You can also book a time directly here: {link}" if link else "",
              "sender_name": sig.get("name") or "", "sender_title": sig.get("title") or "",
              "sender_website": sig.get("website") or "", "sender_phone": sig.get("phone") or ""}
     body = template["body"]
