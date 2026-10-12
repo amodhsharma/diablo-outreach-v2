@@ -1,0 +1,44 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-12",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-12T08:44:47+00:00",
+  "lines": [
+    {
+      "contact_id": "888807099590",
+      "company_name": "Balkania",
+      "subject_line": "Balkania and Diablo Sugar Free",
+      "personal_line": "Your range of international foods reaches independent retailers, supermarkets and caterers across Ireland and Northern Ireland. Sugar free confectionery would be a new category for you, and we would welcome a partnership that grows it through that network."
+    },
+    {
+      "contact_id": "888601407708",
+      "company_name": "Conaty Catering",
+      "subject_line": "Sugar free range for Conaty Catering",
+      "personal_line": "You supply restaurants, cafes, hotels and caterers six days a week with no minimum order. Our sugar free syrups and spreads could give your cafe customers something new, and we would like to grow that together."
+    },
+    {
+      "contact_id": "888826777844",
+      "company_name": "Barry Group",
+      "subject_line": "Barry Group and Diablo Sugar Free",
+      "personal_line": "Your wholesale network supplies Costcutter, Carry Out and Quik Pick stores across Ireland. A sugar free snack range moving through that supply chain could reach a wide base of independent shoppers, and we would welcome a partnership."
+    },
+    {
+      "contact_id": "888829078717",
+      "company_name": "Chemist Warehouse Ireland",
+      "subject_line": "Sugar free snacks for Chemist Warehouse",
+      "personal_line": "Your large format stores across Dublin, Cork, Limerick and other counties, with five more planned for 2026, show real momentum. A sugar free snack range could sit well alongside your health foods as you grow."
+    },
+    {
+      "contact_id": "888601407722",
+      "company_name": "Inish Pharmacy",
+      "subject_line": "Inish Pharmacy and Diablo Sugar Free",
+      "personal_line": "You already offer sugar free sweets from Sula to customers across Ireland. Our chocolate, biscuits and spreads could extend that into a fuller sugar free range, and we would welcome a partnership as you grow online."
+    },
+    {
+      "contact_id": "888807045330",
+      "company_name": "Lynas Foodservice",
+      "subject_line": "Lynas Foodservice and Diablo Sugar Free",
+      "personal_line": "You supply over 5,000 foodservice customers across Northern Ireland, Ireland and Scotland. Adding a sugar free range to that offer could give your customers a new choice, and we would welcome a partnership that grows with you."
+    }
+  ]
+}
