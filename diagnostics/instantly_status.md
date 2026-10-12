@@ -1,45 +1,69 @@
 # Instantly health check
 
-Checked 2026-10-09T09:04:02+00:00 (UTC).
+Checked 2026-10-12T08:01:34+00:00 (UTC).
 
 ## Mailboxes
 
-- Could not be read. If the message mentions permission or scope, the Instantly key needs read access to accounts. Instantly said: GET /accounts failed with 401: {"statusCode":401,"error":"Unauthorized","message":"Invalid scope. Required: accounts:read. Found: campaigns:all, leads:all"}
+9 mailboxes: 9 ready, 0 warming up, 0 with a problem.
+
+### Needs attention
+
+- **admin@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **admin@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **admin@nosugardiablo.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
+- **admin@nosugardiablo.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **info@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
+- **info@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **info@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **info@nosugardiablo.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
+- **info@nosugardiablo.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **sales@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
+- **sales@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **sales@nosugardiablo.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
+- **sales@nosugardiablo.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+
+### Every mailbox
+
+| Mailbox | Verdict | Sending | Warm-up | Warm-up score | Warm-up emails landing in inbox | Sender name | Daily limit | Campaigns using it |
+|---|---|---|---|---|---|---|---|---|
+| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
+| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
+| admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
+| info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Diablo Info | 30 | none |
+| info@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Info Account | 30 | none |
+| sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (47 of 47) | Joshua | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
+| sales@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Sales Account | 30 | none |
+
+Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
+
 
 ## Campaign: Diablo | Dublin, Ireland | Retailers | OCT2026
 
 - Campaign status: Completed
 - Instantly says: **campaign_completed**. Campaign has completed
-- schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 0, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
-- accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
-- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
-- follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-08T09:07:46.825Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 0
-- Emails in the sequence: 2 (characters in each body: [726, 545])
+- Emails in the sequence: 2 (characters in each body: [2109, 807])
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Active
-- Instantly says: **follow_up_delay_not_met**. Follow-up delays have not been met yet
-- Instantly's explanation: Your campaign is currently waiting to send follow-up emails. It has 4 follow-ups scheduled, but they are not yet ready to be sent as their defined waiting periods have not passed. No action is required; the campaign will automatically resume sending once these delays are met.
-- schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 0, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
-- accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
-- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 4}`
-- follow_ups_waiting: `{"count": 4, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "follow_up_delay_not_met", "issue_first_seen_at": "2026-10-09T09:02:56.289Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 4
   - 2 Completed, emailed, replied
   - 2 Completed, emailed
-- Emails in the sequence: 2 (characters in each body: [726, 545])
+- Emails in the sequence: 2 (characters in each body: [2109, 807])
 
 
 ## Approved to send in HubSpot (what 4b would do now)
 
-- 0 contacts approved to send
+- 6 contacts approved to send
+- Skipped contact 888826777844 (a***@diablosugarfree.com): its Outreach personal line is empty
+- Skipped contact 888807045330 (h***@diablosugarfree.com): its Outreach personal line is empty
+- Skipped contact 888829078717 (a***@gmail.com): its Outreach personal line is empty
+- Skipped contact 888601407708 (a***@diablosugarfree.com): its Outreach personal line is empty
+- Skipped contact 888807099590 (a***@diablosugarfree.com): its Outreach personal line is empty
+- Skipped contact 888601407722 (r***@diablosugarfree.com): its Outreach personal line is empty
