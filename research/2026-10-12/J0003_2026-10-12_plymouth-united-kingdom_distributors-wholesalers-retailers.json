@@ -1,0 +1,1714 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0003",
+  "location": "Plymouth, United Kingdom",
+  "run_date": "2026-10-12",
+  "run_type": "manual",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 31,
+      "searches_used": 56
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 26,
+      "searches_used": 60
+    },
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 30,
+      "searches_used": 57
+    }
+  ],
+  "companies": [
+    {
+      "name": "Redmoor",
+      "based_out_of": "Gunnislake, United Kingdom",
+      "domain": "redmoor.net",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Dried fruit, nuts, seeds, sweet and savoury confectionery, organic and gluten free lines, local Devon and Cornish produce.",
+      "channels_supplied": "Health food shops, farm shops, delis, refill stores and garden centres via own vehicle fleet plus UK pallet and courier.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family owned health food wholesaler about 15 miles from Plymouth that already sells confectionery into independent health and farm shops. Its own fleet reaches Plymouth retailers directly, making it a natural first local partner for a sugar free range.",
+      "what_they_do_well": [
+        "Grew from one person selling at Cornish markets in 1990 to a family wholesaler with over 30 staff.",
+        "Runs a free own label service used by over 200 wholesale customers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.redmoorwholesale.net/about",
+        "https://www.redmoor.net/",
+        "https://www.tasteofthewest.co.uk/members/redmoor-ltd"
+      ]
+    },
+    {
+      "name": "Hunt's Food Group",
+      "based_out_of": "Sherborne, United Kingdom",
+      "domain": "huntsfoodgroup.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Catering and retail grocery wholesale; now also health food wholesale through the acquired Health Stores (Wholesale) brand and assets.",
+      "channels_supplied": "Caterers and retailers across the South of England from six hubs including Redruth in Cornwall; health food retailers via the acquired wholesale business.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A regional wholesaler with a Cornish hub that has bought the brand and assets of a national health food wholesaler, giving it reach into independent health stores. Exact Plymouth delivery coverage is not stated on its site, so confirm.",
+      "what_they_do_well": [
+        "Trading for over 110 years with six distribution hubs delivering five days a week.",
+        "Rescued the brand and assets of Health Stores (Wholesale) Ltd from administration."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://huntsfoodgroup.co.uk/distribution-area/",
+        "https://www.thegrocer.co.uk/news/hunts-food-group-steps-in-to-rescue-tree-of-life-sister-the-health-store-from-administration/671016.article",
+        "https://wholesalemanager.co.uk/hunts-foodservice-catering-to-the-regions-requirements/"
+      ]
+    },
+    {
+      "name": "Essential Trading Co-operative",
+      "based_out_of": "Bristol, United Kingdom",
+      "domain": "essential-trading.coop",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Organic, vegetarian and vegan wholefoods, snacks, chocolate and household goods.",
+      "channels_supplied": "Independent health food shops, wholefood stores and food co-ops across England and Wales.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The closest major wholefood wholesaler to Plymouth, delivering across England and Wales into exactly the independent health stores that suit a stevia sweetened range. Its ethical positioning suits a no added sugar story; check its stance on non organic lines.",
+      "what_they_do_well": [
+        "Named by Sustain as a wholefood wholesaler delivering across England and Wales."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.essential-trading.coop/",
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers/",
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers",
+        "https://saltoftheearthnatural.com/blogs/nope/wholesaler-list"
+      ]
+    },
+    {
+      "name": "CLF Wholesale",
+      "based_out_of": "Southampton, United Kingdom",
+      "domain": "clfwholesale.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Health, natural and lifestyle food and drink, over 18,000 products including exclusive brands such as Gimber and Organic Kitchen.",
+      "channels_supplied": "Thousands of UK retailers, mainly independent health food stores and natural grocers.",
+      "sf_brands_carried": "Wide better for you range; no sugar free confectionery brand identified on its about page.",
+      "competing_brand_flag": false,
+      "fit_rationale": "National health food wholesaler that supplies independent health stores in Plymouth and the South West, with no visible sugar free chocolate competitor. Its exclusive brand model means it actively builds new brands.",
+      "what_they_do_well": [
+        "Trading since 1998 from a purpose built Southampton distribution centre with over 18,000 products.",
+        "Introduced Truly Nuts flavoured Brazil nut snacks to the UK."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.clfwholesale.com/clf/about",
+        "https://www.foodanddrinktechnology.com/news/51442/truly-nuts-and-clf-distribution-introduce-flavoured-brazil-nut-snack-to-the-uk/",
+        "https://cressuk.com/services/distribution-channels/"
+      ]
+    },
+    {
+      "name": "Suma Wholefoods",
+      "based_out_of": "Elland, United Kingdom",
+      "domain": "suma.coop",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Vegetarian, vegan, organic and natural wholefoods, snacks and household goods.",
+      "channels_supplied": "Mainly independent health food shops across mainland UK, served largely by its own vehicle fleet.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national health food wholesaler that reaches Plymouth independents from its own fleet. Listing would give Diablo coverage of health stores across the whole South West in one step; vegetarian only policy suits Diablo.",
+      "what_they_do_well": [
+        "Serves most of mainland UK from its own fleet of vehicles."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.suma.coop/wholesale/faq/",
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers/",
+        "https://cressuk.com/services/distribution-channels/",
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers",
+        "https://www.thenews.coop/?p=160290"
+      ]
+    },
+    {
+      "name": "Cotswold Fayre",
+      "based_out_of": "Reading, United Kingdom",
+      "domain": "cotswold-fayre.co.uk",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 6,
+      "distributes": "Ambient fine food and drink including confectionery, fudge, snacks and biscuits.",
+      "channels_supplied": "About 1,700 customers: farm shops, delis, independent retailers and foodservice.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The leading ambient wholesaler to farm shops and delis, a channel well represented around Plymouth and Dartmoor. Its curated range and confectionery category suit premium sugar free chocolate and biscuits.",
+      "what_they_do_well": [
+        "Among the first UK companies certified as a B Corporation, in 2015.",
+        "Grew from a small start up in 1999 to around 1,700 customers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.cotswold-fayre.co.uk/our-history",
+        "https://www.cotswold-fayre.co.uk/products/business-type/farm-shop/",
+        "https://bfff.co.uk/cotswold-fayre-crowned-specialist-wholesaler-of-the-year-at-the-grocer-gold-awards-2026/",
+        "https://www.specialityfoodmagazine.com/directory/wholesalers-distributors-pf/c"
+      ]
+    },
+    {
+      "name": "Orchard Lea Foods",
+      "based_out_of": "Exeter, United Kingdom",
+      "domain": "orchardleafoods.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 7,
+      "distributes": "Chilled, dairy, deli, dry goods, beverages, pies and local South West produce.",
+      "channels_supplied": "Independent retailers, delis, farm shops, cafes and community shops in Devon, Cornwall and Somerset, with Plymouth on its delivery round.",
+      "sf_brands_carried": "Carries Chunk gluten free range; no sugar free confectionery seen.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family run Devon wholesaler that delivers to Plymouth weekly and specialises in farm shops and delis. Adding an ambient sugar free range would fill a gap in its largely chilled offer.",
+      "what_they_do_well": [
+        "Delivers weekly to Plymouth, Torpoint and Ivybridge among Devon and Cornwall routes."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://orchardleafoods.co.uk/"
+      ]
+    },
+    {
+      "name": "Holleys Fine Foods",
+      "based_out_of": "Bristol, United Kingdom",
+      "domain": "holleysfinefoods.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Fine food and grocery: bakery, snacking, confectionery, world foods, pantry and drinks, with around 588 brands.",
+      "channels_supplied": "Independent retailers; delivery area to Plymouth not stated, so confirm.",
+      "sf_brands_carried": "Has a sugar free dietary filter; brands not verified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Bristol fine food wholesaler with a large confectionery and snacking range and a sugar free filter, already listing South West brands such as Devon Cottage fudge. Coverage of Plymouth is likely but unconfirmed.",
+      "what_they_do_well": [
+        "Lists Devon Cottage fudge among hundreds of third party brands."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.holleysfinefoods.com/brands/devon-cottage/",
+        "https://supplier-directory.betterretailing.com/suppliers/holleys-fine-foods/"
+      ]
+    },
+    {
+      "name": "Springvale Foods",
+      "based_out_of": "Suffolk, United Kingdom",
+      "domain": "springvalefoods.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Speciality and fine foods, gluten free products, nuts, dried fruit and confectionery, over 3,000 lines.",
+      "channels_supplied": "Delis, farm shops, garden centres and independent retailers nationwide, including former Hider Foods customers.",
+      "sf_brands_carried": "Gluten free specialist; sugar free brands not verified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A national fine food and free from wholesaler that took over the Hider branded wholesale business, so it already moves imported confectionery into independents. Free from focus aligns with a sugar free proposition.",
+      "what_they_do_well": [
+        "Acquired the Hider Foods branded wholesale business in 2021, absorbing its customers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.asiantrader.biz/fine-food-distributor-springvale-acquires-wholesale-business-of-hider-foods",
+        "https://www.specialityfoodmagazine.com/news/springvale-foods-acquires-hider-foods"
+      ]
+    },
+    {
+      "name": "Taste Merchants",
+      "based_out_of": "Newtown, United Kingdom",
+      "domain": "tastemerchants.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "About 2,500 grocery and confectionery lines including a dedicated sugar free category.",
+      "channels_supplied": "Small businesses and shops across the UK with free delivery.",
+      "sf_brands_carried": "Monmore and Simpkins sugar free sweets, Farmhouse sugar free biscuits, Tiptree reduced sugar jams.",
+      "competing_brand_flag": true,
+      "fit_rationale": "Already runs a sugar free category, proving demand from its small shop customers, but carries sugar free sweets that compete with Diablo's. Diablo's sugar free chocolate would fill a gap it does not cover.",
+      "what_they_do_well": [
+        "Trading for 35 years with around 2,500 products."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://tastemerchants.co.uk/product-category/sugar-free/"
+      ]
+    },
+    {
+      "name": "PW Fine Foods (Samways)",
+      "based_out_of": "Andover, United Kingdom",
+      "domain": "pwfinefoods.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Confectionery, snacks, bakery, world food, wholefoods and store cupboard lines.",
+      "channels_supplied": "Farm shops, delis, butchers, fishmongers and coffee shops; listed by REKKI as serving Plymouth.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Specialist farm shop and deli wholesaler with a confectionery category. Plymouth coverage depends on its van or pallet maps, so confirm.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://pwfinefoods.co.uk/",
+        "https://rekki.com/food-wholesalers/gb/plymouth/general?page=6"
+      ]
+    },
+    {
+      "name": "Xlent Foods",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "xlentfoods.com",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Frozen, chilled and ambient food plus confectionery and snacks, packaging and disposables.",
+      "channels_supplied": "Cafes, schools, caterers, restaurants, hotels, care homes and retailers in Devon and Cornwall.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The main Plymouth based food wholesaler, with over 20 years serving the city. Best for cafe and school snacking routes rather than shelf retail.",
+      "what_they_do_well": [
+        "Plymouth based customer service team serving Devon and Cornwall for over 20 years."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.xlentfoods.com/",
+        "https://bestfoodimporters.com/company/xlent-foods-limited/",
+        "https://www.xlentfoods.com"
+      ]
+    },
+    {
+      "name": "Alliance Healthcare",
+      "based_out_of": "Chessington, United Kingdom",
+      "domain": "alliance-healthcare.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Medicines, over the counter health products and pharmacy retail lines.",
+      "channels_supplied": "Over 17,000 pharmacies, doctors, hospitals and health centres across the UK.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Pharmacy wholesaler reaching every Plymouth pharmacy, including Boots. Diabetic friendly confectionery is a natural pharmacy line, though food listings are a small part of its range.",
+      "what_they_do_well": [
+        "Fleet of 1,600 vehicles making about 21,000 deliveries a day across the UK."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cencora.com/global-reach/europe/united-kingdom",
+        "https://hdauk.com/our-members/"
+      ]
+    },
+    {
+      "name": "Youings Wholesale",
+      "based_out_of": "Barnstaple, United Kingdom",
+      "domain": "youings.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Tobacco, confectionery, crisps, snacks, groceries, soft drinks and alcohol.",
+      "channels_supplied": "Independent retailers; delivery coverage of Plymouth not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Devon confectionery and tobacco wholesaler that serves independent shops. Plymouth coverage is uncertain so it sits behind local options.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/suppliers/youings/",
+        "https://www.youings.com/about-us"
+      ]
+    },
+    {
+      "name": "AAH Pharmaceuticals",
+      "based_out_of": "Warwick, United Kingdom",
+      "domain": "aah.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 8,
+      "distributes": "Medicines and pharmacy products.",
+      "channels_supplied": "Pharmacies and NHS customers nationwide.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Full line pharmacy wholesaler serving independent pharmacies in Plymouth. A route for diabetic friendly products, though confectionery listings are uncommon.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://hdauk.com/our-members/"
+      ]
+    },
+    {
+      "name": "WestCountry Foodservice",
+      "based_out_of": "St Austell, United Kingdom",
+      "domain": "westcountry.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Multi temperature foodservice products and local produce.",
+      "channels_supplied": "Independent, care, education and hospitality customers across Devon and Cornwall, six days a week.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Leading regional foodservice distributor with depots in Cornwall and Newton Abbot. Fit is limited to cafes and care settings.",
+      "what_they_do_well": [
+        "Works with over 100 local producers, including 30 farms."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://countryrange.co.uk/stockists/westcountry-foodservice/"
+      ]
+    },
+    {
+      "name": "J&R Food Service",
+      "based_out_of": "Exeter, United Kingdom",
+      "domain": "jrfoodservice.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Fresh, frozen, ambient and cleaning supplies; over 5,000 products.",
+      "channels_supplied": "Over 1,000 kitchens including pubs, cafes, hotels and care homes across five counties; also Chadd's cash and carry in Bude.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Westcountry foodservice group that owns Chadd's cash and carry, giving some retail reach. Plymouth delivery is not explicitly stated.",
+      "what_they_do_well": [
+        "Delivering to the Westcountry for more than three decades, six days a week."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.jrfoodservice.co.uk/",
+        "https://www.jrfoodservice.co.uk/about/chadds/"
+      ]
+    },
+    {
+      "name": "Caterfood",
+      "based_out_of": "Paignton, United Kingdom",
+      "domain": "caterfood.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Chilled, frozen and ambient food including vegan and gluten free ranges.",
+      "channels_supplied": "Care homes, schools, cafes and restaurants across Devon and Cornwall.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "South Devon foodservice wholesaler with a free from range. Fit is limited to catering outlets.",
+      "what_they_do_well": [
+        "Serving the South West since 1971."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.caterfood.co.uk/"
+      ]
+    },
+    {
+      "name": "Friars Pride",
+      "based_out_of": "Peterborough, United Kingdom",
+      "domain": "friarspride.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Fats, oils, frozen, ambient and fish for fish and chip shops, caterers and bakeries.",
+      "channels_supplied": "Fish and chip shops, caterers and bakeries from a Plymouth depot at Langage Business Park.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Has a depot in Plymouth and serves takeaways and bakeries. Only a confectionery add on route for counter snacks.",
+      "what_they_do_well": [
+        "Runs seven depots including Plymouth."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://friarspride.com/information/locations",
+        "https://gb.kompass.com/c/friars-pride/gb99072007/"
+      ]
+    },
+    {
+      "name": "Rogers Wholesale Foods",
+      "based_out_of": "Poole, United Kingdom",
+      "domain": "rogerswholesalefoods.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Surplus and short dated drinks, biscuits, snacks, sweets and chocolate.",
+      "channels_supplied": "Trade and public buyers through warehouses including Plympton, Plymouth.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Has a Plymouth warehouse moving confectionery, but as a clearance outlet it suits only surplus stock. Not a brand building partner.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.rogerswholesalefoods.co.uk/"
+      ]
+    },
+    {
+      "name": "Redmoor Snacks",
+      "based_out_of": "Gunnislake, United Kingdom",
+      "domain": "redmoorsnacks.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Pub and bar snacks: crisps, pork scratchings and nuts.",
+      "channels_supplied": "Pubs and bars in the South West.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Local snack wholesaler into pubs near Plymouth. Possible route for sugar free snacks at bars, but narrow.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://redmoorsnacks.co.uk/",
+        "https://find-and-update.company-information.service.gov.uk/company/12691180"
+      ]
+    },
+    {
+      "name": "SJB Foods",
+      "based_out_of": "Sidmouth, United Kingdom",
+      "domain": "sjbfoods.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Fresh, frozen and ambient food and drinks.",
+      "channels_supplied": "Pubs, restaurants, cafes and hospitality in Devon, Dorset and Somerset; Plymouth coverage unconfirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "East Devon foodservice wholesaler. Low fit and uncertain Plymouth reach.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.sjbfoods.com/"
+      ]
+    },
+    {
+      "name": "Chaffins Country Range Foodservice",
+      "based_out_of": "Redruth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Cash and carry and catering foodservice products.",
+      "channels_supplied": "Caterers and trade in Cornwall.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Cornish cash and carry and Country Range member found only in directories. Current status and Plymouth reach unverified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.icornwall.co.uk/local/cash-and-carry-wholesalers/",
+        "https://gb.kompass.com/c/chaffins-foodservice/gb76031236/"
+      ]
+    },
+    {
+      "name": "A.F. Blakemore and Son",
+      "based_out_of": "Tipton, United Kingdom",
+      "domain": "afblakemore.com",
+      "channel_category": [
+        "wholesalers",
+        "distributors",
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Ambient grocery, confectionery, crisps, snacks, soft drinks, chilled and fresh food, vending supplies.",
+      "channels_supplied": "SPAR stores in the South West via the former Appleby Westward Saltash depot, independent SPAR partner stores, vending operators and wholesale customers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Since May 2026 Blakemore controls the Saltash (Plymouth) SPAR depot serving 71 company stores and more than 130 independent SPAR stores in the South West, the densest convenience route into Plymouth. A single listing could put Diablo into SPAR forecourts and neighbourhood stores across Devon and Cornwall. Its sugar free range is not documented, so this should be checked.",
+      "what_they_do_well": [
+        "Agreed in May 2026 to take over Appleby Westward's SPAR retail and Saltash logistics, taking its SPAR estate past 1,000 stores."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.betterwholesaling.com/af-blakemore-agrees-appleby-westward-deal/",
+        "https://www.afblakemore.com/wholesale-distribution/vending",
+        "https://supplier-directory.betterretailing.com/suppliers/category/national-regional-specialist-deliveries-cash-carry/",
+        "https://www.asiantrader.biz/af-blakemore-acquires-appleby-westward",
+        "https://afblakemore.com/node/109"
+      ]
+    },
+    {
+      "name": "Booker",
+      "based_out_of": "Wellingborough, United Kingdom",
+      "domain": "booker.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Full grocery, confectionery, snacks, drinks, tobacco, catering and non-food.",
+      "channels_supplied": "Independent convenience retailers, symbol stores (Premier, Londis, Budgens) and caterers through its cash and carry branch at Burrington Way, Honicknowle, Plymouth, plus delivered service.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Booker runs a licensed cash and carry branch in Plymouth itself, so independent convenience and catering buyers in the city already shop there weekly. A central listing would give Diablo immediate local availability. The sugar free brands it carries are not verified.",
+      "what_they_do_well": [
+        "Operates a cash and carry branch at Burrington Way, Honicknowle Industrial Estate in Plymouth."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/298",
+        "https://supplier-directory.betterretailing.com/suppliers/category/national-regional-specialist-deliveries-cash-carry/",
+        "https://www.yell.com/biz/booker-plymouth-plymouth-10081995/",
+        "https://bookergroupjobs.co.uk/index.php/about-us"
+      ]
+    },
+    {
+      "name": "Hancocks",
+      "based_out_of": "Loughborough, United Kingdom",
+      "domain": "hancocks.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Confectionery, sweets, pick and mix, chocolate, snacks, soft drinks and seasonal lines.",
+      "channels_supplied": "Independent retailers, sweet shops, ice cream vendors and market traders through cash and carry depots including Bristol, plus online ordering and delivery.",
+      "sf_brands_carried": "Lists premium and better for you chocolate such as Willie's Cacao; specific sugar free brands not verified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "Hancocks is the UK's specialist confectionery cash and carry and its Bristol depot is the nearest specialist source for Plymouth sweet shops and seaside retailers. A sugar free confectionery range sits naturally next to its vegan and halal signposted lines. Check whether it already lists a sugar free sweets brand.",
+      "what_they_do_well": [
+        "Confectionery wholesaler trading since 1962, owned by World of Sweets, with depots across the Midlands, south of England and Wales.",
+        "Refreshed its Bristol depot in 2023 with clearer vegan and halal signposting."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://betterretailing.com/hancocks-cash-and-carry-confectionery-wholesaler-loughborough-bristol-depots",
+        "https://www.hancocks.co.uk/blog/hancocks-trusted-confectionery-wholesalers-since-1962",
+        "https://www.hancocks.co.uk/chocolate?brand=2267",
+        "https://www.yell.com/biz/hancocks-cash-and-carry-ltd-bristol-16071/",
+        "https://thegrocer.co.uk/news/wholesaler-profile-hancocks-finding-the-sweet-spot/125860.article"
+      ]
+    },
+    {
+      "name": "C.T.C. Wholesalers",
+      "based_out_of": "Exeter, United Kingdom",
+      "domain": "ctcwholesalers.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Food, drinks, confectionery, protein bars, cereal bars, health care, smoking and vaping, household and car care; about 3,500 lines.",
+      "channels_supplied": "Trade customers across the south of England, including convenience stores and forecourts, with field sales and nationwide delivery.",
+      "sf_brands_carried": "Protein and better for you lines such as Grenade, Applied Nutrition, Ufit and Eat Real; no direct sugar free confectionery competitor seen.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Devon based trade wholesaler that already carries protein bars and better for you snacks, so sugar free chocolate and biscuits fit an existing shelf. Its field team and Exeter base give regular reach into Plymouth convenience and forecourt accounts.",
+      "what_they_do_well": [
+        "Describes itself as a trusted trade supplier for over 40 years with in-house and field sales support."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.ctcwholesalers.co.uk",
+        "https://bestfoodimporters.com/company/ctc-wholesalers-limited/"
+      ]
+    },
+    {
+      "name": "Epicurium",
+      "based_out_of": "Durham, United Kingdom",
+      "domain": "epicurium.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Healthy snacks, crisps, bars, functional drinks and independent better for you brands.",
+      "channels_supplied": "Convenience stores, especially commuter locations, and independent retailers across the UK by national delivery.",
+      "sf_brands_carried": "Low sugar, vegan and protein brands including Plenish, Nooro, Huel, Vit Hit, Pipers and Eat Natural.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A specialist healthy snacking wholesaler whose whole proposition is low sugar and better for you brands for convenience stores, which matches Diablo closely. It serves the UK nationally, so Plymouth stores can order, but local depth is unverified.",
+      "what_they_do_well": [
+        "Added 25 independent brand lines in one expansion, a 20% range increase, to help convenience stores sell healthy food on the go."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://conveniencestore.co.uk/products/wholesaler-epicurium-adds-indie-brands-to-its-product-mix/599780.article",
+        "https://supplier-directory.betterretailing.com/suppliers/category/national-regional-specialist-deliveries-cash-carry/page/2"
+      ]
+    },
+    {
+      "name": "CLF Distribution",
+      "based_out_of": "Southampton, United Kingdom",
+      "domain": "clfshop.com",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 6,
+      "distributes": "Sports nutrition, organic and natural foods, vitamins, personal care, household and pet care; over 16,000 lines.",
+      "channels_supplied": "More than 1,200 independent health food and high street retailers across the UK with next day delivery.",
+      "sf_brands_carried": "Sports nutrition and organic own brands such as Just Natural; sugar free confectionery brands not verified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "CLF is a main supplier to independent health food stores, the shops in Plymouth most likely to range sugar free chocolate and syrups. Next day delivery up to seven days a week means Plymouth stores are covered.",
+      "what_they_do_well": [
+        "Started in 1998 as the UK importer for AST Sports Science and now lists over 16,000 lines.",
+        "Employee owned since 2022."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://retail-merchandiser.com/news/with-hundreds-of-leading-lifestyle-brands-clf-distribution-offers-uk-retailers-a-comprehensive-choice/",
+        "https://saltoftheearthnatural.com/blogs/nope/wholesaler-list"
+      ]
+    },
+    {
+      "name": "Bestway Wholesale",
+      "based_out_of": "London, United Kingdom",
+      "domain": "bestway.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 7,
+      "distributes": "Grocery, confectionery, snacks, drinks, tobacco, chilled and catering.",
+      "channels_supplied": "Independent and symbol convenience retailers (Costcutter, Best-one) and caterers; Plymouth customers are served from the Matford Park depot in Exeter and by direct delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Bestway is a leading supplier to independent convenience stores and serves Plymouth from Exeter after closing its Honicknowle depot in 2020. A listing would reach Plymouth symbol stores by delivery. Sugar free range unverified.",
+      "what_they_do_well": [
+        "Consolidated South West operations into Exeter in 2020 and expanded direct delivery to Plymouth retailers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.asiantrader.biz/bestway-wholesale-to-close-plymouth-depot",
+        "https://supplier-directory.betterretailing.com/suppliers/category/national-regional-specialist-deliveries-cash-carry/"
+      ]
+    },
+    {
+      "name": "Infinity Foods Wholesale",
+      "based_out_of": "Brighton, United Kingdom",
+      "domain": "infinityfoodswholesale.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Vegetarian, vegan, organic and specialist diet foods and drinks.",
+      "channels_supplied": "Health food shops and independent retailers across the UK and Ireland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national specialist diet wholesaler listed under specialist diet foods, delivering across the UK including Devon. Diablo's vegan and sugar free lines suit its customer base, but it has no local depot.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers",
+        "https://supplier-directory.betterretailing.com/suppliers/category/specialist-diet-foods/",
+        "https://www.infinityfoodswholesale.coop/delivery-types/",
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers/"
+      ]
+    },
+    {
+      "name": "Co-op Wholesale (Nisa)",
+      "based_out_of": "Manchester, United Kingdom",
+      "domain": "coopwholesale.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Grocery, confectionery, snacks, drinks, chilled and frozen for symbol convenience stores.",
+      "channels_supplied": "Nisa independent retailers nationwide, including stores in Devon and Cornwall.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Nisa supplies thousands of independent convenience stores, including in the Plymouth area. A listing would give wide reach but central range reviews take time, so it ranks below more specialist routes.",
+      "what_they_do_well": [
+        "Nisa reached 5,000 stores in a year of double digit growth."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.coopwholesale.co.uk/corporate/news-press-office/nisa-announces-unprecedented-recruitment/",
+        "https://theretailbulletin.com/grocery/nisa-reaches-5000-stores-in-a-year-of-double-digit-growth-30-09-2021",
+        "https://www.coopwholesale.co.uk/store-options/",
+        "https://www.nisalocally.co.uk/stores/cornwall"
+      ]
+    },
+    {
+      "name": "Bidfood",
+      "based_out_of": "Slough, United Kingdom",
+      "domain": "bidfood.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Foodservice ambient, chilled and frozen foods, snacks, confectionery and non-food.",
+      "channels_supplied": "Restaurants, cafes, schools, care homes and public sector caterers in Devon and Cornwall from its Lee Mill depot near Plymouth and its Bodmin depot.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Bidfood's Lee Mill depot near Ivybridge sits next to Plymouth, giving deep coverage of cafes, schools and care homes. Sugar free snacks fit care home and education menus, though foodservice ranging is slower than retail.",
+      "what_they_do_well": [
+        "Opened a Bodmin depot in 2024 to cut delivery miles for customers furthest from its Lee Mill depot."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.betterwholesaling.com/bidfood-opens-new-depot-in-cornwall/",
+        "https://foodmanufacture.co.uk/Article/2024/09/03/bidfood-creates-30-jobs-at-new-cornish-depot",
+        "https://www.bidfood.co.uk/get-in-touch/depot/bidfood-lee-mill/"
+      ]
+    },
+    {
+      "name": "Kitwave Group",
+      "based_out_of": "North Shields, United Kingdom",
+      "domain": "kitwave.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Confectionery, snacks, soft drinks, grocery, frozen and chilled foods, alcohol and fresh produce.",
+      "channels_supplied": "Convenience retailers and foodservice customers; in the South West through MJ Baker Foodservice and WestCountry (Newton Abbot area), about 6,000 customers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Kitwave started as a confectionery and impulse wholesaler and now has a South West foodservice hub near Newton Abbot serving around 6,000 customers. MJ Baker already sells confectionery, so Diablo could join an existing impulse range.",
+      "what_they_do_well": [
+        "Bought Devon based MJ Baker Foodservice, which carries over 3,500 products including confectionery.",
+        "Built an 80,000 sq ft South West warehouse near Newton Abbot."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://thegrocer.co.uk/news/kitwave-acquires-devon-based-foodservice-supplier-mj-baker/664434.article",
+        "https://www.thegrocer.co.uk/wholesalers/kitwave-begins-construction-of-80000-sq-ft-warehouse-in-south-west/680894.article"
+      ]
+    },
+    {
+      "name": "R D Johns",
+      "based_out_of": "Newton Abbot, United Kingdom",
+      "domain": "rdjohns.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Foodservice ambient, chilled, frozen, non-food and butchery products.",
+      "channels_supplied": "Catering businesses across four South West counties, including Cornwall through the former WG Chaffins.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family delivered foodservice wholesaler covering Devon and Cornwall, including Plymouth caterers. Ambient snacks for cafes and care homes are a possible fit but it is butchery led.",
+      "what_they_do_well": [
+        "Over 40 years in foodservice and bought WG Chaffins of Cornwall in 2017."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://barandkitchenmagazine.com/members/r-d-johns-foodservice"
+      ]
+    },
+    {
+      "name": "Albert Harrison and Co (Harrisons Direct)",
+      "based_out_of": "Padiham, United Kingdom",
+      "domain": "harrisonsdirect.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Sweets and snacks, health and beauty, medicines, toys, gifts, stationery and household.",
+      "channels_supplied": "Independent shops, pharmacies, newsagents and market traders across the UK and Ireland with next day delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national delivered wholesaler that mixes confectionery with medicines and health lines, which suits sugar free sweets for pharmacies and newsagents in Plymouth. No local depot.",
+      "what_they_do_well": [
+        "Founded in 1919 by Hilda Coupe in Accrington and still trading over a century later."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.harrisonsdirect.co.uk/about/",
+        "https://supplier-directory.betterretailing.com/suppliers/albert-harrison-co-ltd/"
+      ]
+    },
+    {
+      "name": "Unitas Wholesale",
+      "based_out_of": "United Kingdom",
+      "domain": "unitaswholesale.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Buying group for foodservice and convenience wholesale across all grocery and impulse categories.",
+      "channels_supplied": "172 independent member wholesalers that supply convenience stores and caterers, including in the South West.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A buying group, not a stockholder itself, but one central agreement reaches many independent wholesalers, and its Brand Box pilot gives new products access to 1,000 stores. Members in Devon and Cornwall are not confirmed.",
+      "what_they_do_well": [
+        "Runs Brand Box, an NPD pilot giving supplier partners access to 1,000 stores at launch."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.betterwholesaling.com/unitas-wholesale-interview/",
+        "https://wholesalemanager.co.uk/unitas-bringing-independent-wholesalers-together/"
+      ]
+    },
+    {
+      "name": "Today's Group",
+      "based_out_of": "United Kingdom",
+      "domain": "todays.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 8,
+      "distributes": "Buying group across grocery, impulse, licensed, foodservice and on-trade wholesale.",
+      "channels_supplied": "About 145 independent wholesale members on 186 sites nationwide, plus the Today's retail club.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Hancocks is a member, and a central deal could open several independent wholesalers serving the South West at once. South West membership beyond Hancocks is not verified.",
+      "what_they_do_well": [
+        "Combined buying power of 5.7 billion pounds across 145 members (2017)."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.betterwholesaling.com/todays-buying-group/",
+        "https://www.betterretailing.com/hancocks-cash-and-carry-expands-range-and-access/"
+      ]
+    },
+    {
+      "name": "Brakes",
+      "based_out_of": "Ashford, United Kingdom",
+      "domain": "brake.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Foodservice ambient, chilled and frozen foods, snacks and non-food.",
+      "channels_supplied": "Restaurants, pubs, schools, care homes and public sector caterers nationwide.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "National foodservice wholesaler that covers the South West, but no Plymouth depot was verified. A route for care home and school snacks rather than retail.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://betterwholesaling.com/?p=4251",
+        "https://www.publicsectorcatering.co.uk/suppliers/brakes",
+        "https://uk.indeed.com/cmp/Brakes-Group/locations/ENG/Bodmin",
+        "https://www.brake.co.uk/inspirational-food/health-and-nutrition/free-from/gluten-free"
+      ]
+    },
+    {
+      "name": "JJ Foodservice",
+      "based_out_of": "London, United Kingdom",
+      "domain": "jjfoodservice.com",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Foodservice and grocery wholesale, including snacks, confectionery and drinks.",
+      "channels_supplied": "Takeaways, restaurants and caterers through branches including Bristol, with delivery and collection.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "JJ has a Bristol branch, but delivery reach into Plymouth is not confirmed. Its takeaway customers are a weaker fit for premium sugar free confectionery.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://thegrocer.co.uk/news/jj-food-service-buys-up-bristol-warehouse-/219410.article"
+      ]
+    },
+    {
+      "name": "Philip Dennis Foodservice",
+      "based_out_of": "Ilfracombe, United Kingdom",
+      "domain": "philipdennis.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Foodservice frozen, chilled and ambient foods, butchery, fish and non-food.",
+      "channels_supplied": "Pubs, schools, hotels, cafes, restaurants and large sites across the South West, Oxfordshire and the Midlands.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A large Devon family foodservice wholesaler; ambient is a stated growth area but it is protein led and based in North Devon, so Plymouth depth is uncertain.",
+      "what_they_do_well": [
+        "Fourth generation family business that began as a Braunton butcher in the 1900s.",
+        "Agreed to supply the Hinkley Point C construction site."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://erudus.com/editorial/erudus-community/wholesaler-up-close-phillip-dennis-foodservice",
+        "https://find-and-update.company-information.service.gov.uk/company/00571334"
+      ]
+    },
+    {
+      "name": "Costco Wholesale UK",
+      "based_out_of": "Watford, United Kingdom",
+      "domain": "costco.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Membership warehouse selling bulk grocery, confectionery, snacks and drinks.",
+      "channels_supplied": "Business and individual members, with the nearest warehouse in Bristol.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Small Plymouth retailers and caterers buy from Costco Bristol, but listings are centrally controlled and the distance makes it a weak local route. The Watford head office location is from memory and should be checked.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.costco.com/w/-/gb/bristol/616"
+      ]
+    },
+    {
+      "name": "Confex",
+      "based_out_of": "United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Wholesale buying group negotiating across a wide range of grocery and impulse categories.",
+      "channels_supplied": "Independent member wholesalers in the UK and Ireland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A buying group route to independent wholesalers; South West members are not verified, so it is conditional.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/suppliers/category/national-regional-specialist-deliveries-cash-carry/page/2"
+      ]
+    },
+    {
+      "name": "Caterforce",
+      "based_out_of": "United Kingdom",
+      "domain": "caterforce.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Foodservice consortium covering ambient, chilled and frozen foods.",
+      "channels_supplied": "Member foodservice wholesalers serving caterers in the UK and Ireland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A large foodservice consortium; whether a member serves Plymouth is not verified, and foodservice is a lower priority channel for Diablo.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/suppliers/category/national-regional-specialist-deliveries-cash-carry/page/2"
+      ]
+    },
+    {
+      "name": "Select Vending",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "selectvending.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Coffee machines, impulse snack dispensers, water dispensers and refreshment supplies.",
+      "channels_supplied": "Workplaces and businesses in the Plymouth area.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Plymouth vending business with a wholesale company registered; impulse dispensers could carry sugar free bars, but it is more an operator than a wholesaler, so it is conditional.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/select-vending-ltd/",
+        "https://pay.company-information.service.gov.uk/company/03622079"
+      ]
+    },
+    {
+      "name": "Holland & Barrett",
+      "based_out_of": "Nuneaton, United Kingdom",
+      "domain": "hollandandbarrett.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Vitamins, supplements, health foods, free-from and better-for-you snacks and confectionery.",
+      "channels_supplied": "Own stores including Unit 13 Drake Circus, Plymouth, plus national online store.",
+      "sf_brands_carried": "Carries free-from and reduced sugar snacks; specific sugar-free confectionery brands in the Plymouth store not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "The UK's main health food chain has a city-centre Plymouth store in Drake Circus and national online reach. Its shoppers already seek better-for-you snacks, so stevia-sweetened chocolate and sweets fit the core shelf.",
+      "what_they_do_well": [
+        "Trades from Drake Circus, Plymouth's main shopping centre, with extended Thursday and Saturday hours."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.storelocators.com/store-lists/holland_and_barrett/devon"
+      ]
+    },
+    {
+      "name": "Tesco",
+      "based_out_of": "Welwyn Garden City, United Kingdom",
+      "domain": "tesco.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Full-range grocery including confectionery, biscuits, free-from and health food aisles.",
+      "channels_supplied": "Own superstores, Express convenience stores and online home delivery; Plymouth Roborough Extra plus Express stores on Mutley Plain and Discovery Heights.",
+      "sf_brands_carried": "Free-from and sugar-free confectionery sections exist nationally; brands stocked in Plymouth not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Tesco has the largest grocery footprint in Plymouth, from the Roborough Extra to several Express stores. A central buying team and national free-from range make it the highest-volume route, although listings are decided nationally rather than locally.",
+      "what_they_do_well": [
+        "Operates Plymouth Roborough Extra at Woolwell Crescent, with Express stores serving students on Mutley Plain."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.tesco.com/store-locator/plymouth/2-woolwell-crescent",
+        "https://www.upsu.com/news/article/costofliving/Local-Supermarkets"
+      ]
+    },
+    {
+      "name": "Sainsbury's",
+      "based_out_of": "London, United Kingdom",
+      "domain": "sainsburys.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Full-range grocery including confectionery, biscuits, free-from and health food.",
+      "channels_supplied": "Own superstores and convenience stores plus online delivery; Plymouth Marsh Mills superstore and Armada Centre store.",
+      "sf_brands_carried": "Free-from range nationally; Plymouth-specific sugar-free brands not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Sainsbury's runs the Marsh Mills superstore and the Armada Centre store in central Plymouth. Its free-from and health aisles suit a stevia-sweetened range, with national buying deciding listings.",
+      "what_they_do_well": [
+        "Marsh Mills, Plymouth branch has traded since 1994 according to the Sainsbury Archive."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://sainsburyarchive.org.uk/catalogue/search/branch/ref/p858-plymouth-marsh-mills-plymouth-road-crabtree-1994-present-sainsburys-branch",
+        "https://www.upsu.com/news/article/costofliving/Local-Supermarkets"
+      ]
+    },
+    {
+      "name": "Asda",
+      "based_out_of": "Leeds, United Kingdom",
+      "domain": "asda.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Full-range grocery, confectionery, free-from, health food and pharmacy.",
+      "channels_supplied": "Own supercentres and online delivery; Asda Plymouth Supercentre at Estover with in-store pharmacy.",
+      "sf_brands_carried": "Free-from range nationally; Plymouth-specific sugar-free brands not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Asda's Estover Supercentre is one of Plymouth's largest food stores and includes a pharmacy counter, a natural spot for diabetic-friendly lines. Value positioning suits Diablo's accessible price points.",
+      "what_they_do_well": [
+        "Runs the Plymouth Supercentre at Estover with an in-store pharmacy and petrol station."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.plymouthonlinedirectory.com/housingandcarehomes/helpinyourhome/foodandshopping/asda",
+        "https://www.nhs.uk/services/pharmacy/asda-pharmacy/FXW37/facilities"
+      ]
+    },
+    {
+      "name": "Morrisons",
+      "based_out_of": "Bradford, United Kingdom",
+      "domain": "morrisons.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Full-range grocery, confectionery, free-from and convenience.",
+      "channels_supplied": "Own supermarkets in Plymouth including Crownhill, Outland Road and Plymstock, Morrisons Daily convenience and online delivery.",
+      "sf_brands_carried": "Free-from range nationally; Plymouth-specific sugar-free brands not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Morrisons has several Plymouth supermarkets and has used the Plymstock store for online store-picking. Multiple local outlets plus online give good reach for a sugar-free range.",
+      "what_they_do_well": [
+        "Chose its Plymstock store to launch store-picked online delivery, according to The Grocer."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.openingtimesin.uk/morrisons-crownhill-plymouth",
+        "https://thegrocer.co.uk/news/morrisons-to-kick-off-store-picking-in-plymstock-next-week/594859.article"
+      ]
+    },
+    {
+      "name": "Planet Organic",
+      "based_out_of": "London, United Kingdom",
+      "domain": "planetorganic.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 6,
+      "distributes": "Organic and natural grocery, health foods, snacks, confectionery and supplements.",
+      "channels_supplied": "London stores plus nationwide online delivery that reaches Plymouth.",
+      "sf_brands_carried": "Sells its own No Added Sugar Dark 75% chocolate, which competes with Diablo's chocolate.",
+      "competing_brand_flag": true,
+      "fit_rationale": "A specialist health grocer that delivers its full range UK-wide, including to Plymouth. It already stocks no-added-sugar chocolate, so the category is proven, though its own label is a direct competitor.",
+      "what_they_do_well": [
+        "Expanded online delivery of its full range from London to the whole UK in 2020."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.retailgazette.co.uk/blog/2020/11/planet-organic-goes-nationwide-with-online-expansion/",
+        "https://us.britishessentials.com/collections/planet-organic/5-10"
+      ]
+    },
+    {
+      "name": "Boots UK",
+      "based_out_of": "Nottingham, United Kingdom",
+      "domain": "boots.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 7,
+      "distributes": "Pharmacy, health and beauty, meal deals, snacks and confectionery.",
+      "channels_supplied": "Own stores in Plymouth including New George Street, Drake Circus, Cornwall Street and Mutley, plus online.",
+      "sf_brands_carried": "Health and diabetic-friendly snacks nationally; specific brands not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Boots has several Plymouth pharmacies, including city-centre and Mutley stores, and its pharmacy shoppers include diabetics. Sugar-free snacks fit near the pharmacy counter and in health ranges.",
+      "what_they_do_well": [
+        "Operates multiple Plymouth stores, including New George Street, Drake Circus and Cornwall Street."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.openingtimesin.uk/boots-plymouth-new-george-street",
+        "https://www.nhs.uk/services/pharmacy/boots/FLF65"
+      ]
+    },
+    {
+      "name": "Superdrug",
+      "based_out_of": "Croydon, United Kingdom",
+      "domain": "superdrug.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 8,
+      "distributes": "Health and beauty, pharmacy and impulse snacks and confectionery.",
+      "channels_supplied": "Own stores including Drake Circus, Plymouth, plus online.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Superdrug has a Drake Circus store and around 800 UK and Ireland stores under A.S. Watson. Its health positioning and till-point snacking suit small-format sugar-free sweets.",
+      "what_they_do_well": [
+        "Part of A.S. Watson, with around 800 UK and Ireland stores including Drake Circus, Plymouth."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://media.superdrug.com/custom-content/documents/press-release/new-store-plymouth.pdf"
+      ]
+    },
+    {
+      "name": "Co-op Group",
+      "based_out_of": "Manchester, United Kingdom",
+      "domain": "coop.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Convenience grocery, confectionery, snacks and food to go.",
+      "channels_supplied": "Over 30 Co-op stores in or very close to Plymouth, plus rapid delivery apps.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "With over 30 Co-op stores in and around Plymouth, the Co-op has the densest local convenience network. Listings are national, so it suits a later, proven range rather than first entry.",
+      "what_they_do_well": [
+        "Has over 30 stores in or very close to Plymouth, according to Plymouth Online Directory."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.plymouthonlinedirectory.com/housingandcarehomes/helpinyourhome/foodandshopping/coop"
+      ]
+    },
+    {
+      "name": "Waitrose",
+      "based_out_of": "Bracknell, United Kingdom",
+      "domain": "waitrose.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Premium grocery, confectionery, free-from and health food.",
+      "channels_supplied": "Saltash store serving Plymouth, with delivery and click-and-collect.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Waitrose's Saltash store across the Tamar is the nearest to Plymouth and offers delivery into the city. Premium shoppers fit a European better-for-you brand, though there is only one local store.",
+      "what_they_do_well": [
+        "Serves Plymouth from its Saltash store with home delivery and click-and-collect."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.plymouthonlinedirectory.com/housingandcarehomes/helpinyourhome/foodandshopping/waitrose"
+      ]
+    },
+    {
+      "name": "The Range (CDS Superstores, including Wilko)",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "therange.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Homewares, garden, crafts, toiletries, pet and cleaning; Wilko stores also sell confectionery and snacks.",
+      "channels_supplied": "The Range stores including the Derriford flagship, Wilko stores reopened from Plymouth, and Iceland frozen concessions in about 50 stores.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Head office is in Derriford, Plymouth, and its Wilko brand reopened its first store in Plymouth. Food is a minor category, so confectionery listings are worth testing via Wilko first.",
+      "what_they_do_well": [
+        "Founded in Plymouth in 1989 as a single store; head office moved to Derriford in 2019.",
+        "Bought the Wilko brand in 2023 and reopened Wilko stores from December 2023, starting in Plymouth and Exeter."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://en.wikipedia.org/wiki/The_Range_(retailer)",
+        "https://www.retailgazette.co.uk/blog/2019/03/ranges-new-plymouth-hq-create-450-jobs/"
+      ]
+    },
+    {
+      "name": "B&M",
+      "based_out_of": "Liverpool, United Kingdom",
+      "domain": "bmstores.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Discount groceries, confectionery, household, toys and gifts.",
+      "channels_supplied": "Own stores including Plymstock Broadway, Plymouth, opened March 2026.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "B&M opened a 13,514 sq ft store at Plymstock Broadway in 2026, with groceries in the range. Discounters buy branded confectionery opportunistically, which suits clearance of seasonal lines or price-marked packs.",
+      "what_they_do_well": [
+        "Opened a 13,514 sq ft Plymstock store in March 2026, creating 42 jobs."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.insightdiy.co.uk/news/new-plymstock-plymouth-store-for-bm/16274.htm",
+        "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4466"
+      ]
+    },
+    {
+      "name": "Riverford Organic Farmers",
+      "based_out_of": "Buckfastleigh, United Kingdom",
+      "domain": "riverford.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Organic veg boxes plus a grocery range of dairy, meat, pantry and snacks.",
+      "channels_supplied": "Home delivery across Devon including Plymouth and the rest of the UK.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Devon-based and employee-owned, Riverford delivers organic boxes into Plymouth homes. A healthy-living customer base suits better-for-you snacks as add-ons, though its range focuses on fresh organic food.",
+      "what_they_do_well": [
+        "Employee-owned since June 2018 and delivered over 500,000 boxes in seven weeks at the start of lockdown."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.thegrocer.co.uk/results/riverford-organic-farmers-revenues-rise-on-phenomenal-surge-in-demand/655887.article"
+      ]
+    },
+    {
+      "name": "Iceland Foods",
+      "based_out_of": "Deeside, United Kingdom",
+      "domain": "iceland.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Frozen and chilled food, grocery, confectionery and snacks.",
+      "channels_supplied": "Own stores in Plymouth including Mayflower Street, Food Warehouse format, and online delivery.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Iceland has Plymouth stores including Mayflower Street, as well as concessions inside The Range. Branded ambient confectionery is a secondary category, so fit is moderate.",
+      "what_they_do_well": [
+        "Reached 900 UK stores in 2017, according to the company."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.plymouthonlinedirectory.com/housingandcarehomes/helpinyourhome/foodandshopping/iceland",
+        "https://www.upsu.com/news/article/costofliving/Local-Supermarkets",
+        "https://about.iceland.co.uk/wp-content/uploads/2017/12/The-Iceland-Group-reaches-new-milestone-of-900-UK-stores-9.11.17.pdf"
+      ]
+    },
+    {
+      "name": "Aldi UK",
+      "based_out_of": "Atherstone, United Kingdom",
+      "domain": "aldi.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Discount grocery, mostly own label, with some branded confectionery.",
+      "channels_supplied": "Own stores in Plymouth including Greenbank Road, Mutley.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Aldi has several Plymouth stores but is mostly own label. Branded listings usually come through Specialbuys, so it is a secondary target.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.upsu.com/news/article/costofliving/Local-Supermarkets",
+        "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4555"
+      ]
+    },
+    {
+      "name": "Lidl GB",
+      "based_out_of": "London, United Kingdom",
+      "domain": "lidl.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 8,
+      "distributes": "Discount grocery, mostly own label, with themed European weeks and some brands.",
+      "channels_supplied": "Own stores in Plymouth including Plymstock and Plympton.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Lidl GB runs Plymstock and Plympton stores and often lists European brands in themed promotions. It is mostly own label, so it is a promotional rather than core listing target.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.openingtimesin.uk/lidl-plymstock/amp",
+        "https://www.openingtimesin.uk/lidl-plympton-plymouth-road"
+      ]
+    },
+    {
+      "name": "Well Pharmacy",
+      "based_out_of": "Manchester, United Kingdom",
+      "domain": "well.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 9,
+      "distributes": "Community pharmacy, health products and a small range of snacks.",
+      "channels_supplied": "Own pharmacies in Plymouth including Old Laira Road, St Budeaux Wolseley Road and Plympton Ridgeway.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Well has at least three Plymouth pharmacies serving patients including diabetics. Sugar-free sweets fit a small counter range, though pharmacy food ranges are limited.",
+      "what_they_do_well": [
+        "Runs several Plymouth pharmacies including Old Laira Road, St Budeaux and Plympton."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://finder.well.co.uk/store/plymouth-old-laira-road",
+        "https://finder.well.co.uk/store/st-budeaux-wolseley-road",
+        "https://www.npn.org.uk/pharmacies/1030865-well-plympton-the-ridgeway-31-ridgeway-plympton-plymouth-plymouth-devon-pl7-2aw-england"
+      ]
+    },
+    {
+      "name": "Rickard Lanes",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 10,
+      "distributes": "Health foods, supplements, herbal teas, dried fruit, pulses, low-sugar and wheat-free products.",
+      "channels_supplied": "Single independent health food store at Mayflower Street, Plymouth.",
+      "sf_brands_carried": "Stocks low-sugar and wheat-free products; brands not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "A long-standing city-centre health food store that already sells low-sugar products and orders in lines for customers. Small but a direct buyer and a good showcase for the range.",
+      "what_they_do_well": [
+        "Has traded locally for decades and orders in products on customer request."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://wanderlog.com/place/details/4571767/rickard-lanes"
+      ]
+    },
+    {
+      "name": "Trago Mills",
+      "based_out_of": "Liskeard, United Kingdom",
+      "domain": "trago.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 11,
+      "distributes": "Discount department stores selling homewares, DIY, garden, gifts and food lines.",
+      "channels_supplied": "Stores at Liskeard (near Plymouth on the A38), Newton Abbot, Falmouth and Merthyr Tydfil.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Regional discount chain whose Liskeard and Newton Abbot stores draw Plymouth shoppers. It buys a wide variety of discounted stock, but confectionery range and buying route are unverified.",
+      "what_they_do_well": [
+        "Grew from a small shed at Liskeard in the 1960s into four large stores."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://en.wikipedia.org/wiki/Trago_Mills"
+      ]
+    },
+    {
+      "name": "Costcutter",
+      "based_out_of": "Leicester, United Kingdom",
+      "domain": "costcutter.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Convenience grocery, confectionery, alcohol and food to go through franchised stores.",
+      "channels_supplied": "Franchised symbol stores including Costcutter North Prospect, Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Costcutter's Plymouth store reports confectionery as a top seller, with novelty sweets bringing in about 200 pounds a day. The symbol group buys centrally, so a listing would come through the group rather than the store.",
+      "what_they_do_well": [
+        "Its North Prospect, Plymouth store lists confectionery among its top-selling categories."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://conveniencestore.co.uk/store-development/costcutter-north-prospect-plymouth/549813.article"
+      ]
+    },
+    {
+      "name": "Premier Stores (Booker)",
+      "based_out_of": "Wellingborough, United Kingdom",
+      "domain": "premier-stores.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Convenience grocery, confectionery and snacks via independent symbol stores.",
+      "channels_supplied": "Independent Premier stores supplied by Booker, including 45 Mutley Plain, Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Premier is a large independent symbol network with at least one Plymouth store on Mutley Plain. Access is via Booker's wholesale listings, so it is a downstream rather than direct target.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.eatible.co.uk/south-west/plymouth-city/premier-store-45-mutley-plain-plymouth-devon-pl4-6jg"
+      ]
+    },
+    {
+      "name": "Plymouth Vegan Company",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Vegan pantry staples, treats, cheeses and household products.",
+      "channels_supplied": "Single independent shop at Faraday Mill, Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "A specialist vegan grocer whose shoppers favour plant-based treats. Fit depends on which Diablo lines are vegan; still trading status is unverified since the 2019 opening report.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://fatgayvegan.com/tag/vegan-plymouth/"
+      ]
+    },
+    {
+      "name": "JAR Plymouth",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Zero waste refill groceries, eco products and locally made goods.",
+      "channels_supplied": "Single independent refill shop in Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "A community refill shop with an eco-conscious, health-minded clientele. Packaged confectionery fits less well with a refill model, so it is low priority.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://hartstongue.co.uk/index.php/business/1074-jar-plymouth-s-zero-waste-shop",
+        "https://www.crowdfunder.co.uk/p/jar-plymouth-20-1"
+      ]
+    },
+    {
+      "name": "Asia Oriental Stores",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Asian groceries, snacks and imported confectionery.",
+      "channels_supplied": "Single store at Cornwall Street, Plymouth city centre.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "A city-centre international grocer used by students, buying imported snacks from importers and distributors. Fit for European sugar-free lines is speculative.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.upsu.com/news/article/costofliving/Local-Supermarkets",
+        "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/2547"
+      ]
+    },
+    {
+      "name": "Asian Food & Organic Shop",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Asian groceries and organic foods.",
+      "channels_supplied": "Single shop at Holborn Street, Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Combines ethnic grocery with organic lines, giving some overlap with health-minded shoppers. Very small scale and range unverified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3840"
+      ]
+    },
+    {
+      "name": "Polish Shop (Western Approach)",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Polish and Eastern European groceries and confectionery.",
+      "channels_supplied": "Single shop at Western Approach, Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Eastern European shoppers know European sweet brands, and such shops buy from importers of continental confectionery. Trading name and buying route are unverified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/2376"
+      ]
+    },
+    {
+      "name": "Continental Food Centre & Deli",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Continental groceries and deli products.",
+      "channels_supplied": "Single shop at Cornwall Street, Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "A city-centre continental grocer likely to stock European packaged foods. Small scale and range are unverified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/61"
+      ]
+    },
+    {
+      "name": "So Sweet",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Retail; listed as a sweet and confectionery shop, range not verified.",
+      "channels_supplied": "Single shop at the Armada Centre, Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "A confectionery-led shop in the Armada Centre next to Sainsbury's. A sugar-free pick of sweets could sit beside standard lines, but the range and ownership are unverified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.eatible.co.uk/south-west/plymouth-city/so-sweet"
+      ]
+    },
+    {
+      "name": "Fry's Farm Shop",
+      "based_out_of": "Plymouth, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 10,
+      "distributes": "Farm shop groceries; range not verified.",
+      "channels_supplied": "Single shop at Cornwall Street, Plymouth.",
+      "sf_brands_carried": "Not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "A city-centre farm shop that may carry ambient treats alongside local produce. Fit is speculative and the range is unverified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3918"
+      ]
+    }
+  ]
+}
