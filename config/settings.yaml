@@ -130,8 +130,9 @@ send:
   rotation:
     rounds: 3
     min_days_same_person: 7
-    # The email for round 2 and round 3 (follow_up_2.json is a draft for approval, 13 Oct 2026).
-    follow_up_templates: [templates/follow_up.json, templates/follow_up_2.json]
+    # The email for round 2 and round 3: one template for both (agreed 14 Oct 2026). It names the
+    # colleague emailed most recently before them who has not replied, when there is one.
+    follow_up_templates: [templates/follow_up.json]
   # Used only when rotation.rounds is 1: Instantly then sends one reminder itself.
   follow_up:
     enabled: true

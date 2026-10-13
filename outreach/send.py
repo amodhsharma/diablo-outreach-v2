@@ -139,6 +139,8 @@ def sequence_steps(s):
         return [first]
     first["delay"] = int(follow.get("delay_days", 7))
     f_subject, f_body = _template(paths.get("follow_up") or "templates/follow_up.json", s)
+    # Instantly cannot know which colleague was emailed before, so its own reminder leaves that out.
+    f_body = f_body.replace("{{colleague_sentence}}<br/><br/>", "").replace("{{colleague_sentence}}", "")
     second = {"type": "email", "delay": 0, "delay_unit": "days",
               "variants": [{"subject": f_subject, "body": html_paragraphs(f_body)}]}
     return [first, second]

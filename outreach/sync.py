@@ -118,8 +118,29 @@ def _sent_time(email):
     return parse_time(email.get("timestamp_email") or email.get("timestamp_created"))
 
 
-def follow_up_email(round_no, person, company, settings, notes=None):
-    """(html, text) of a later-round email for one person, filled in."""
+COLLEAGUE_SENTENCE = ("In case our earlier note to your colleague {name} did not reach the right desk, "
+                      "we wanted to share it with you as well.")
+
+
+def previous_colleague(person, contacts, touches):
+    """Full name of the colleague at the same company who was emailed most recently and has not
+    replied (agreed 14 Oct 2026), or "". Only people whose state is "sent" count: anyone who
+    replied or opted out stops the whole company, and a bounced or skipped person is never named."""
+    best, best_time = "", None
+    for c in contacts:
+        if str(c["id"]) == str(person["id"]) or c.get("state") != "sent":
+            continue
+        times = (touches or {}).get(c["id"]) or []
+        p = c.get("properties") or {}
+        name = " ".join(x.strip() for x in (p.get("firstname") or "", p.get("lastname") or "") if x and x.strip())
+        if name and times and (best_time is None or max(times) > best_time):
+            best, best_time = name, max(times)
+    return best
+
+
+def follow_up_email(round_no, person, company, settings, notes=None, colleague=""):
+    """(html, text) of a later-round email for one person, filled in. Rounds 2 and 3 use the same
+    template (agreed 14 Oct 2026); it names the colleague emailed before them when there is one."""
     from . import send
     rot = settings["send"].get("rotation") or {}
     paths = rot.get("follow_up_templates") or ["templates/follow_up.json"]
@@ -127,7 +148,10 @@ def follow_up_email(round_no, person, company, settings, notes=None):
     _, body = send._template(path, settings["send"])
     lead = lead_for(person, company, notes)
     values = {"firstName": lead.get("first_name") or "", "lastName": lead.get("last_name") or "",
-              "companyName": lead.get("company_name") or "", **lead["custom_variables"]}
+              "companyName": lead.get("company_name") or "", **lead["custom_variables"],
+              "colleague_sentence": COLLEAGUE_SENTENCE.format(name=colleague) if colleague else ""}
+    if not colleague:  # nobody to name: the sentence and its paragraph are left out
+        body = body.replace("{{colleague_sentence}}<br/><br/>", "").replace("{{colleague_sentence}}", "")
     html = send.html_paragraphs(body)
     for key, value in values.items():
         html = html.replace("{{" + key + "}}", html_lib.escape(str(value)))
@@ -177,7 +201,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 log(f"{props.get('name')}: could not find the earlier email to reply to; will try again next run")
                 continue
             round_no = len(past) + 1
-            html, text = follow_up_email(round_no, due, props, settings, notes)
+            colleague = previous_colleague(due, contacts, touches)
+            html, text = follow_up_email(round_no, due, props, settings, notes, colleague=colleague)
             emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
             sent += 1
             log(f"{props.get('name')}: round {round_no} email sent to {due['properties'].get('jobtitle') or 'the contact'}, "

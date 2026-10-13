@@ -64,16 +64,18 @@ Accounts. It is set there, not here.
 > www.diablosugarfree.com
 > XXXXXX (phone, placeholder)
 
-## Reminder (round 2: sent as a reply in the person's own thread, see the README for timing)
+## Reminder (rounds 2 and 3: one template, sent as a reply in the person's own thread; agreed 14 Oct 2026)
 
 > Hi {{firstName}},
 >
-> I wanted to follow up on my note from a few days ago about bringing Diablo Sugar Free to
-> {{market}}. We would be glad to send you samples, along with our pricing and logistics details, so
-> you can judge the fit for your customers.
+> In case our earlier note to your colleague [full name] did not reach the right desk, we wanted to
+> share it with you as well.
 >
-> Would a brief 10-minute call next week work for you, or is there someone else on your team I
-> should speak to?
+> We wanted to follow up on our note about bringing Diablo Sugar Free to {{market}}. We would be
+> glad to send you samples, along with our pricing and logistics details, so you can judge the fit
+> for your customers.
+>
+> Would a brief 10-minute call with our outreach lead work for you at a time of your convenience?
 >
 > Best regards,
 > Joshua
@@ -81,6 +83,12 @@ Accounts. It is set there, not here.
 > Diablo Sugar Free
 > www.diablosugarfree.com
 > XXXXXX (phone, placeholder)
+
+The colleague sentence names the person at the same company who was emailed most recently before
+this email and has not replied. A bounced person is never named, and nobody is named when the
+company has no such colleague: the sentence is then left out. The name is filled in only when the
+email is sent; it is never stored in GitHub. Round 3 uses the same template (the separate last
+note was dropped on 14 Oct 2026).
 
 ## Footer (every email)
 
@@ -171,13 +179,3 @@ booking sentences were reworded as above. The 126 countries figure stays as it i
 
 Which file is used is set in `config/settings.yaml` under `send.templates`. To go back to
 `templates/template_1.json`, change that path; nothing else needs to change.
-
-## Last note (round 3, `templates/follow_up_2.json`): DRAFT for approval, 13 Oct 2026
-
-> Hi {{firstName}},
->
-> One last note from me about Diablo Sugar Free for {{market}}. If sugar free confectionery is not
-> a priority for you right now, just let me know and I will not follow up again. If it is, I would
-> be glad to send samples and set up a short call with our Strategy Director.
->
-> Best regards, then the Joshua signature block and the reminder's footer.

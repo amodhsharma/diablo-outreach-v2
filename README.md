@@ -117,7 +117,7 @@ gate 2. Then, with one email to the company every 3 days:
 |---|---|
 | 0, 3, 6, 9 | Person 1, 2, 3 and 4 get their first email (from Instantly) |
 | 12, 15, 18, 21 | Round 2: each gets the reminder (`templates/follow_up.json`) as a reply in their own thread |
-| 24, 27, 30, 33 | Round 3: each gets the last note (`templates/follow_up_2.json`) the same way |
+| 24, 27, 30, 33 | Round 3: each gets the same reminder again the same way (one template for both rounds, agreed 14 Oct 2026) |
 
 - Nobody gets another email less than 7 days after their previous one: with fewer people, the
   next email waits until the week is up (2 people: days 0, 3, 7, 10, 14, 17).

@@ -199,5 +199,29 @@ def test_sync_sends_the_second_round_as_a_reply(settings):
     sent = emails.replies[0]
     assert sent["to"]["id"] == "e0" and sent["subject"] == "Partnering to establish Diablo"
     assert "Hi P1," in sent["text"] and "samples" in sent["text"] and "{{" not in sent["html"]
+    # The colleague emailed most recently before them (P3, three days ago) is named politely.
+    assert ("Hi P1,\n\nIn case our earlier note to your colleague P3 did not reach the right desk, we wanted "
+            "to share it with you as well.\n\nWe wanted to follow up on our note") in sent["text"]
+    assert "Would a brief 10-minute call with our outreach lead work for you at a time of your convenience?" in sent["text"]
     # Straight after, the company waits 3 days before anyone else.
     assert sync.advance(hs, instantly, settings, log=quiet, emails_api=emails)["follow_ups_sent"] == 0
+
+
+def test_follow_up_names_only_a_colleague_who_was_emailed_and_did_not_reply(settings):
+    def c(cid, state, first="", last=""):
+        return {"id": cid, "state": state, "properties": {"firstname": first, "lastname": last}}
+    t = dt.datetime(2026, 10, 1, tzinfo=dt.timezone.utc)
+    touches = {"a": [t], "b": [t + dt.timedelta(days=3)], "c": [t + dt.timedelta(days=6)],
+               "d": [t + dt.timedelta(days=9)]}
+    people = [c("a", "sent", "Anna", "Keller"), c("b", "sent", "Ben", "Roth"), c("c", "bounced", "Cara"),
+              c("d", "sent")]
+    assert sync.previous_colleague(people[0], people, touches) == "Ben Roth"  # c bounced, d has no name
+    assert sync.previous_colleague(people[1], people, touches) == "Anna Keller"
+    assert sync.previous_colleague(people[0], people[:1], touches) == ""  # nobody else at the company
+    company = {"name": "Turn Co", "city": "Zurich", "country": "Switzerland"}
+    person = {"id": "a", "properties": {"firstname": "Anna", "email": "a@turn.ch"}}
+    html, text = sync.follow_up_email(2, person, company, settings, colleague="")
+    assert "colleague" not in text and "{{" not in html and "Hi Anna,\n\nWe wanted to follow up" in text
+    html3, _ = sync.follow_up_email(3, person, company, settings, colleague="Ben Roth")
+    assert "your colleague Ben Roth did not reach the right desk" in html3  # round 3 uses the same template
+    assert " I " not in text and "I'd" not in text
