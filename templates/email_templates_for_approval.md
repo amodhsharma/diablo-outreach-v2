@@ -20,44 +20,35 @@ Accounts. It is set there, not here.
 
 ## First email
 
+The team's version, used from 13 Oct 2026 (it replaced the 12 Oct "Potential Partnership" layout).
+
 > Subject: Partnering to establish Diablo Sugar Free in the {{market_short}} sugar free snacks landscape
 >
 > Hi {{firstName}},
 >
-> I hope this email finds you well.
+> I'm writing from the office of the Strategy Director at Diablo Sugar Free, where I look after
+> international partners.
 >
-> I am reaching out from Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks
-> brand, based in the United Kingdom. We have been closely following the growth of the sugar free
-> sector in {{market}}, and your reputation as a premier {{partner_type}} makes you an ideal partner
-> for our international expansion.
+> {{personal_line}} We are a UK brand looking for the right partner in {{market_short}}.
 >
-> {{personal_line}}
+> By way of introduction, we are the largest sugar free confectionery company in Europe. Chocolate
+> bars and boxed chocolates, biscuits, wafers, sweets, spreads and jams, eleven categories in all.
+> As you'll know, sugar free carries a better margin than standard confectionery, because the
+> shopper accepts a higher price point. We supply more than 124 countries and are listed with
+> Carrefour, Lidl, Tesco and Holland & Barrett.
 >
-> We believe Diablo Sugar Free will resonate strongly with your customers because:
+> You can see our catalogue here: {{catalogue_link}}
 >
-> - Market fit: our 117+ products, sweetened with stevia and inulin and never aspartame, directly
->   address the rising consumer demand for sugar free and lower sugar treats in your region.
-> - Proven track record: we sell in more than 124 countries and are listed with Carrefour, Lidl,
->   Tesco and Holland & Barrett. We are fully equipped to support international logistics.
-> - Marketing support: we don't just sell products; we build brands. We provide robust marketing
->   budgets, localised digital campaigns and in-store promotional assets to ensure a successful
->   launch.
+> I'd love to set up a call between myself, your team and our Strategy Director, so we can look at
+> what the range would need to earn properly for your customers.
 >
-> You can view our latest product catalogue here: {{catalogue_link}}. We would also be happy to send
-> you samples.
+> Would this week work, or would next week be better suited? (+ booking link sentence once set)
 >
-> Are you open to a brief 10-minute introductory call next week to discuss how we can introduce
-> Diablo Sugar Free to your network? Please let me know what day and time works best for you. You
-> can also book a time directly here: {{booking_link}}
->
-> Thank you for your time and consideration.
->
-> Best regards,
-> Joshua
-> Initial Outreach Team
-> Diablo Sugar Free
-> www.diablosugarfree.com
-> XXXXXX (phone, placeholder)
+> Best regards, then the Joshua signature block
+
+The personal line is written per company by Claude and starts "I thought I'd reach out as we
+noticed...", for example: "I thought I'd reach out as we noticed Makro already runs a
+dieet-voeding category alongside its grocery range."
 
 ## Reminder (3 days later, same thread, only if nobody at the company has replied)
 

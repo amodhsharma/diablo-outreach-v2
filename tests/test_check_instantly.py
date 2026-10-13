@@ -90,7 +90,7 @@ def test_booking_link_only_when_set():
     _, body = send._template("first_email.json", base)
     assert "{{booking_sentence}}" not in body and "book a time" not in body
     _, body = send._template("first_email.json", dict(base, booking_link="https://book.example/diablo"))
-    assert "works best for you. You can also book a time directly here: https://book.example/diablo<br/>" in body
+    assert "better suited? You can also book a time directly here: https://book.example/diablo<br/>" in body
 
 
 def test_footer_is_grey_small_with_clickable_links():

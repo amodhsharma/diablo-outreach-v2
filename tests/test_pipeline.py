@@ -114,7 +114,7 @@ def test_send_and_sync(settings):
     assert "Subject: Partnering to establish Diablo Sugar Free in the India sugar free snacks landscape" in shown
     assert "Hi Firstp2," in shown and "Your Reliance range has room for sugar free chocolate." in shown
     assert "XXXXXX" in shown and "| Joshua\n| Initial Outreach Team" in shown
-    assert "\u2022 Market fit:" in shown and "send you samples" in shown
+    assert "office of the Strategy Director" in shown and "right partner in India" in shown
     assert "{{" not in shown and "<br/>" not in shown
     assert "Email 2 (sent 3 days later if no reply)" in shown
 
@@ -128,7 +128,7 @@ def test_send_and_sync(settings):
     assert 'Best regards,<div style="border-left:3px solid #cccccc' in email and "{{privacy_url}}" not in email
     assert "Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in email
     assert "{{catalogue_link}}" not in email and "{{sender_phone}}" not in email
-    assert "<ul><li>Market fit" in email and "<div><ul>" not in email
+    assert "eleven categories in all" in email and "<ul>" not in email
     lead = instantly.leads[camp_id][0]
     assert lead["custom_variables"]["personal_line"].startswith("Your Reliance")
     assert c["diablo_contact_status"] == "queued"
@@ -260,10 +260,10 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     steps = send.sequence_steps(settings["send"])
     body = steps[0]["variants"][0]["body"]
     gap = "<div><br></div>"
-    assert body.startswith(f"<div>Hi {{{{firstName}}}},</div>{gap}<div>I hope this email finds you well.</div>{gap}")
-    assert f"{gap}<div>{{{{personal_line}}}}</div>{gap}" in body and "<br/><br/>" not in body
+    assert body.startswith(f"<div>Hi {{{{firstName}}}},</div>{gap}<div>I'm writing from the office of the Strategy Director")
+    assert f"{gap}<div>{{{{personal_line}}}} We are a UK brand" in body and "<br/><br/>" not in body
     assert "Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in body and "border-left" in body
-    assert "\n\nAre you open" in send.render(body, {"first_name": "Ann"})
+    assert "\n\nWould this week work" in send.render(body, {"first_name": "Ann"})
     instantly = FakeInstantly()
     old = instantly.create_campaign({"name": "Diablo | Dublin, Ireland | Retailers | OCT2026",
                                      "sequences": [{"steps": [{"variants": [{"subject": "{{subject_line}}", "body": ""}]}]}]})
