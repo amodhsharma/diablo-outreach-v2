@@ -3,7 +3,8 @@
 Reads research/queue.csv (never changes it), data/known_companies.csv and
 config/exclude.txt, then writes into the work folder:
   plan.json            what this run will do
-  exclusions.txt       the companies the prompts tell Claude to leave out
+  exclusions.txt       every company already in HubSpot, for the checks (the prompts list
+                       the nearest ones, at most max_exclusions_in_prompt)
   location_prompt.md   for the manager: market structure and barriers to entry
   channel_N_prompt.md  one per Channel, for the helpers
 
@@ -81,37 +82,50 @@ def country_of(location):
 
 
 def exclusion_lines(country, limit):
-    """Companies to leave out: config/exclude.txt first, then HubSpot companies for the same
-    country, then every other company already in the pipeline, suppressed or a customer."""
+    """(lines for the prompt, every line for the checks, how many known).
+
+    The prompt names at most `limit` companies: config/exclude.txt first, then HubSpot companies
+    for the same country, then every company the pipeline itself added or that is a customer.
+    The checks (work/exclusions.txt, used by each helper's own check and by the merge) hold
+    every company in HubSpot: same-country companies by name and website, all others by
+    website, so a company already in HubSpot is dropped even when the prompt could not list it."""
     lines, seen = [], set()
 
-    def add(name, domain=""):
+    def add(out, name, domain=""):
         domain = clean_domain(domain) if domain else NO_DOMAIN
         key = (name.strip().lower(), domain)
         if key in seen or not (name.strip() or domain != NO_DOMAIN):
             return
         seen.add(key)
         if name.strip() and domain != NO_DOMAIN:
-            lines.append(f"- {name.strip()} ({domain})")
+            out.append(f"- {name.strip()} ({domain})")
+        elif name.strip():
+            out.append(f"- {name.strip()}")
         else:
-            lines.append(f"- {name.strip() or domain}")
+            out.append(f"- {domain}")
 
     exclude_file = ROOT / "config" / "exclude.txt"
     if exclude_file.exists():
         for line in exclude_file.read_text(encoding="utf-8").splitlines():
             line = line.strip()
             if line and not line.startswith("#"):
-                add(line)
+                add(lines, line)
     known_file = ROOT / "data" / "known_companies.csv"
     known = []
     if known_file.exists():
         with open(known_file, newline="", encoding="utf-8") as fh:
             known = list(csv.DictReader(fh))
     same_country = [k for k in known if k.get("country", "").strip().lower() == country.lower()]
-    in_pipeline = [k for k in known if k.get("why") in ("pipeline", "suppressed", "customer")]
+    in_pipeline = [k for k in known if k.get("why") in ("auto-outreach", "pipeline", "suppressed", "customer")
+                   and k.get("country", "").strip().lower() != country.lower()]
     for k in same_country + in_pipeline:
-        add(k.get("name", ""), k.get("domain", ""))
-    return lines[:limit], len(lines)
+        add(lines, k.get("name", ""), k.get("domain", ""))
+    prompt = lines[:limit]
+    full = list(lines)
+    for k in known:  # every other company, by its website
+        if k.get("domain"):
+            add(full, "", k["domain"])
+    return prompt, full, len(lines)
 
 
 def output_paths(run_date, job_id, location, channels):
@@ -141,8 +155,8 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
     country = country_of(job_location)
     languages = lines[0]["languages"] or "the main local languages"
     max_searches = int(settings.get("max_searches_per_channel", 60))
-    excl, total_known = exclusion_lines(country, int(settings.get("max_exclusions_in_prompt", 500)))
-    (work / "exclusions.txt").write_text("\n".join(excl) + ("\n" if excl else ""), encoding="utf-8")
+    excl, full, total_known = exclusion_lines(country, int(settings.get("max_exclusions_in_prompt", 500)))
+    (work / "exclusions.txt").write_text("\n".join(full) + ("\n" if full else ""), encoding="utf-8")
     exclude_text = "\n".join(excl) or "none"
 
     base_prompt = (SKILL / "prompts" / "channel_prompt.md").read_text(encoding="utf-8")

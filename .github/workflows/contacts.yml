@@ -35,7 +35,7 @@ jobs:
         run: python -m outreach.export_for_lines --target "${{ inputs.target }}"
       - name: Save the list
         run: |
-          bash .github/scripts/save_changes.sh "Contacts needing email lines" mail/pending.json data/apollo_skipped.json
+          bash .github/scripts/save_changes.sh "Contacts needing email lines" mail/pending.json data/apollo_skipped.json data/apollo_kept.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

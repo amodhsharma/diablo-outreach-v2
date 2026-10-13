@@ -1,6 +1,6 @@
 name: '4a - Manual - Refresh the list of contacts that still need email lines'
 
-# Saves the contacts whose status is "Contact found" to mail/pending.json, for the
+# Saves the AUTO-OUTREACH contacts whose Lead Status is New to mail/pending.json, for the
 # outreach-mail-writing skill. This also happens by itself after "3 - Manual - Find the top 4 people at each approved company"
 # and after every lines import; press it by hand after editing contacts in HubSpot.
 on:

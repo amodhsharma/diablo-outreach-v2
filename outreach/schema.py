@@ -1,191 +1,93 @@
-"""The data contract: every HubSpot field the outreach pipeline reads or writes.
+"""The data contract: every HubSpot field the outreach pipeline reads or writes (agreed 13 Oct 2026).
 
-All fields live in one property group ("Diablo outreach") on companies and
-contacts, and every internal name starts with "diablo_" so they never clash
-with fields other people already use. HubSpot's own fields (Company name,
-Domain, City, Country) are filled too. Research details used to write the
-emails are kept in data/company_notes.json in the repository, not in HubSpot.
+The pipeline uses the live account's own fields wherever one fits, and adds only two:
+
+    Contacts: Outreach personal line, Outreach order.
+
+Everything else is an existing field:
+
+    Lead Source     "AUTO-OUTREACH" on every company and contact the pipeline creates. The
+                    pipeline never changes a record without it (see hubspot_client.TagGuard).
+    Lead Status     where the record is in the pipeline (see stages.py). Three choices are added:
+                    companies "Approved for outreach" (gate 1); contacts "Copy ready" and
+                    "Approved to send" (gate 2). The existing choices are never changed.
+    Industry Type   the company's Channel, using its existing choices.
+    Ideal Customer Profile Tier, Company name, Domain, City, Country, Company owner,
+    First name, Last name, Email, Job title.
+
+In the live account Lead Source and Industry Type already exist. In a test account they are
+created to match live exactly, so tests behave as live will.
 """
 
 GROUP_NAME = "diablo_outreach"
 GROUP_LABEL = "Diablo outreach"
 
+# The tag. Every record the pipeline creates carries it; nothing without it is ever changed.
+TAG_PROPERTY = "lead_source"
+TAG = "AUTO-OUTREACH"
 
-def _options(*labels):
-    """Turn display labels into HubSpot enumeration options."""
-    return [
-        {
-            "label": label,
-            "value": label.lower().replace(" ", "_"),
-            "displayOrder": i,
-        }
-        for i, label in enumerate(labels)
-    ]
+LEAD_STATUS = "hs_lead_status"
+INDUSTRY_TYPE = "industry_type"
+TIER = "hs_ideal_customer_profile"
+PERSONAL_LINE = "diablo_personal_line"
+ORDER = "diablo_outreach_order"
 
 
-def text(name, label, description, unique=False):
-    return {
-        "name": name,
-        "label": label,
-        "type": "string",
-        "fieldType": "text",
-        "description": description,
-        "hasUniqueValue": unique,
-    }
+def text(name, label, description, group=GROUP_NAME):
+    return {"name": name, "label": label, "type": "string", "fieldType": "text",
+            "description": description, "groupName": group}
 
 
 def long_text(name, label, description):
-    return {
-        "name": name,
-        "label": label,
-        "type": "string",
-        "fieldType": "textarea",
-        "description": description,
-    }
+    return {"name": name, "label": label, "type": "string", "fieldType": "textarea",
+            "description": description, "groupName": GROUP_NAME}
 
 
 def number(name, label, description):
-    return {
-        "name": name,
-        "label": label,
-        "type": "number",
-        "fieldType": "number",
-        "description": description,
-    }
+    return {"name": name, "label": label, "type": "number", "fieldType": "number",
+            "description": description, "groupName": GROUP_NAME}
 
 
-def choice(name, label, description, *labels):
-    return {
-        "name": name,
-        "label": label,
-        "type": "enumeration",
-        "fieldType": "select",
-        "description": description,
-        "options": _options(*labels),
-    }
+def dropdown(name, label, description, options, group):
+    return {"name": name, "label": label, "type": "enumeration", "fieldType": "select",
+            "description": description, "groupName": group,
+            "options": [{"label": lab, "value": val, "displayOrder": i} for i, (val, lab) in enumerate(options)]}
 
 
-def yes_no(name, label, description):
-    return {
-        "name": name,
-        "label": label,
-        "type": "bool",
-        "fieldType": "booleancheckbox",
-        "description": description,
-        "options": [
-            {"label": "Yes", "value": "true", "displayOrder": 0},
-            {"label": "No", "value": "false", "displayOrder": 1},
-        ],
-    }
-
-
-def date_time(name, label, description):
-    return {
-        "name": name,
-        "label": label,
-        "type": "datetime",
-        "fieldType": "date",
-        "description": description,
-    }
-
-
-# Starting options for the dropdown. Research accepts any typed category and adds it.
-CHANNEL_CATEGORIES = (
-    "Health food distributor",
-    "Convenience and impulse distributor",
-    "Grocery wholesaler",
-    "Pharmacy distributor",
+# Industry Type exactly as in the live account (value, label).
+INDUSTRY_TYPES = (
+    ("Grocery Retail", "Grocery Retail (e.g. Tesco/Aldi)"),
+    ("Convenience Impulse", "Convenience & Impulse (E.g. BP, Spar)"),
+    ("Specialist retail", "Specialist retail (E.g Pharmacy, health shop)"),
+    ("Distributor Wholesaler", "Distributor / Wholesaler"),
+    ("Foodservice Catering", "Foodservice & Catering (E.g Café, Airline, Hotel)"),
+    ("Online Retailer", "Online Retailer"),
+    ("Other", "Other"),
 )
 
-# Gate 1 happens on the company status: research sets "Awaiting review",
-# a person changes it to "Approved" or "Rejected".
-COMPANY_STATUSES = (
-    "Awaiting review",
-    "Approved",
-    "Rejected",
-    "No domain",
-    "Suppressed",
-    "Contacts found",
-    "No contacts found",
-    "In outreach",
-    "No reply",
-    "Replied",
-    "Interested",
-    "Not interested",
-)
-
-# Gate 2 happens on the contact status: personalisation sets "Copy ready",
-# a person changes it to "Approved to send".
-CONTACT_STATUSES = (
-    "Contact found",
-    "Copy ready",
-    "Approved to send",
-    "Queued",
-    "Sent",
-    "Replied",
-    "Interested",
-    "Not interested",
-    "Bounced",
-    "Opted out",
-)
-
-SUPPRESS_REASONS = (
-    "Existing partner",
-    "In negotiation",
-    "Customer",
-    "Opted out",
-    "Competitor",
-    "Other",
-)
-
-COMPANY_PROPERTIES = [
-    text("diablo_market", "Outreach market", "Market the company was researched for: a country, region or city, e.g. India or Mumbai, India."),
-    choice(
-        "diablo_channel_category",
-        "Outreach channel category",
-        "Channel category typed into the research job. New categories are added to this dropdown automatically.",
-        *CHANNEL_CATEGORIES,
-    ),
-    choice("diablo_tier", "Outreach tier", "Fit tier from the research run.", "Tier 1", "Tier 2", "Tier 3"),
-    choice(
-        "diablo_outreach_status",
-        "Outreach company status",
-        "Where the company is in the pipeline. Change Awaiting review to Approved or Rejected (gate 1).",
-        *COMPANY_STATUSES,
-    ),
-    choice(
-        "diablo_suppress_reason",
-        "Outreach suppress reason",
-        "Set this to stop all outreach to the company.",
-        *SUPPRESS_REASONS,
-    ),
-]
-
-CONTACT_PROPERTIES = [
-    text("diablo_market", "Outreach market", "Market of the company this contact works for."),
-    choice(
-        "diablo_contact_status",
-        "Outreach contact status",
-        "Where the contact is in the pipeline. Change Copy ready to Approved to send (gate 2).",
-        *CONTACT_STATUSES,
-    ),
-    text("diablo_email_status", "Outreach email status", "Email verification status from Apollo. Only Verified is sent."),
-    text("diablo_apollo_id", "Outreach Apollo ID", "Apollo person ID, used to avoid duplicates on reruns."),
-    number(
-        "diablo_hierarchy_rank",
-        "Outreach hierarchy rank",
-        "Seniority rank inside the company, 1 = most senior found.",
-    ),
-    text("diablo_hierarchy_level", "Outreach hierarchy level", "Seniority level from settings, e.g. Top leadership, Directors."),
-    text("diablo_subject_line", "Outreach subject line", "Personalised subject line, approved at gate 2."),
-    long_text("diablo_personal_line", "Outreach personal line", "Personalised opening line, approved at gate 2."),
-    text("diablo_instantly_campaign_id", "Outreach Instantly campaign ID", "Instantly campaign the contact was added to."),
-    text("diablo_instantly_lead_id", "Outreach Instantly lead ID", "Instantly lead ID, used to match events."),
-    text("diablo_last_event", "Outreach last event", "Latest Instantly event, e.g. reply_received."),
-    date_time("diablo_last_event_at", "Outreach last event at", "When the latest Instantly event happened."),
-]
-
-PROPERTIES = {
-    "companies": COMPANY_PROPERTIES,
-    "contacts": CONTACT_PROPERTIES,
+# The two new fields (contacts only), created in the "Diablo outreach" group.
+NEW_PROPERTIES = {
+    "companies": [],
+    "contacts": [
+        long_text(PERSONAL_LINE, "Outreach personal line",
+                  "The tailored opening line for this person's first email. Read it before setting "
+                  "Lead Status to Approved to send (gate 2)."),
+        number(ORDER, "Outreach order",
+               "Who at the company is emailed first: 1 = most senior found, then 2, 3 and 4."),
+    ],
 }
+
+# Fields the live account already has. In a test account they are created to match live;
+# where they exist they are only checked, never changed (missing dropdown choices are added).
+MIRRORED_PROPERTIES = {
+    "companies": [
+        text(TAG_PROPERTY, "Lead Source", "", group="companyinformation"),
+        dropdown(INDUSTRY_TYPE, "Industry Type", "", INDUSTRY_TYPES, group="companyinformation"),
+    ],
+    "contacts": [
+        text(TAG_PROPERTY, "Lead source", "", group="contactinformation"),
+    ],
+}
+
+# Every field created or checked, per object (used by the setup and its dry run).
+PROPERTIES = {obj: MIRRORED_PROPERTIES[obj] + NEW_PROPERTIES[obj] for obj in ("companies", "contacts")}

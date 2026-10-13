@@ -23,7 +23,6 @@ def quiet(_):
 
 
 GOOD = {"contact_id": "1001", "company_name": "Alpha Foods",
-        "subject_line": "Sugar free range for Alpha Foods",
         "personal_line": "Your work taking European snack brands into pharmacies across Mumbai stood out to us. "
                          "A partner with that reach is what we are looking for in India."}
 
@@ -41,6 +40,7 @@ def test_check_accepts_a_good_line_and_rejects_what_was_agreed():
     def problems(**change):
         return check_lines.check_file(lines_file([dict(GOOD, **change)]))
 
+    assert check_lines.check_file(lines_file([dict(GOOD, subject_line="Sugar free range for Alpha")])) == []  # older files
     assert problems(subject_line="Hello there")  # 2 words
     assert problems(subject_line="Sugar free for you?")
     assert problems(subject_line="Re: sugar free range")
@@ -63,18 +63,21 @@ def test_check_accepts_a_good_line_and_rejects_what_was_agreed():
 
 # ---- the list of contacts needing lines ------------------------------------
 
+LS = "hs_lead_status"
+
+
 def crm_with_contacts():
     hs = FakeCRM()
-    co = hs.add("companies", name="Alpha Foods", domain="alphafoods.in", diablo_market="Mumbai, India",
-                diablo_channel_category="distributors", diablo_outreach_status="approved")
-    stopped = hs.add("companies", name="Done Co", domain="done.in", diablo_outreach_status="replied")
-    a = hs.add("contacts", jobtitle="Purchasing Manager", diablo_hierarchy_rank="2",
-               diablo_hierarchy_level="Manager", diablo_contact_status="contact_found")
-    b = hs.add("contacts", jobtitle="Managing Director", diablo_hierarchy_rank="1",
-               diablo_hierarchy_level="Director", diablo_contact_status="contact_found")
-    c = hs.add("contacts", jobtitle="Owner", diablo_hierarchy_rank="1", diablo_contact_status="copy_ready")
-    d = hs.add("contacts", jobtitle="Owner", diablo_hierarchy_rank="1", diablo_contact_status="contact_found")
-    hs.associate_default("contacts", "companies", [(a, co), (b, co), (c, co), (d, stopped)])
+    co = hs.add("companies", name="Alpha Foods", domain="alphafoods.in", city="Mumbai", country="India",
+                industry_type="Distributor Wholesaler", **{LS: "Approved for outreach"})
+    stopped = hs.add("companies", name="Done Co", domain="done.in", **{LS: "In Progress"})
+    a = hs.add("contacts", jobtitle="Purchasing Manager", diablo_outreach_order="2", **{LS: "NEW"})
+    b = hs.add("contacts", jobtitle="Managing Director", diablo_outreach_order="1", **{LS: "NEW"})
+    c = hs.add("contacts", jobtitle="Owner", diablo_outreach_order="1", **{LS: "COPY_READY"})
+    d = hs.add("contacts", jobtitle="Owner", diablo_outreach_order="1", **{LS: "NEW"})
+    team = hs.add("contacts", tagged=False, jobtitle="Owner", **{LS: "NEW"})  # the team's own contact
+    hs.associate_tagged("contacts", "companies", [(a, co), (b, co), (c, co), (d, stopped)])
+    hs.links[team] = [co]
     return hs, (a, b, c, d)
 
 
@@ -86,9 +89,10 @@ def test_export_lists_only_contacts_needing_lines(tmp_path, monkeypatch):
     monkeypatch.setattr(common, "NOTES_FILE", notes)
     hs, (a, b, _c, _d) = crm_with_contacts()
     rows = export_for_lines.run("test", hs, tmp_path / "pending.json", log=quiet)
-    assert [r["contact_id"] for r in rows] == [b, a]  # most senior first; copy ready and stopped left out
+    assert [r["contact_id"] for r in rows] == [b, a]  # most senior first; copy ready, stopped and untagged left out
     assert rows[0]["company"]["what_they_do_well"] == ["Pharmacy reach"]
     assert rows[0]["company"]["location"] == "Mumbai, India"
+    assert rows[0]["seniority"] == "Top leadership" and rows[1]["seniority"] == "Managers"
     saved = json.loads((tmp_path / "pending.json").read_text())
     assert "email" not in json.dumps(saved) and len(saved["contacts"]) == 2
 
@@ -116,7 +120,7 @@ def run_script(repo, name, *args):
 
 
 def draft_line(cid, n):
-    return {"contact_id": cid, "subject_line": f"Sugar free range for Company {n}",
+    return {"contact_id": cid,
             "personal_line": "Your snack distribution across Mumbai stood out to us — it is the reach we "
                              "are looking for in India."}
 
@@ -180,11 +184,13 @@ def test_import_moves_contacts_to_copy_ready(tmp_path, monkeypatch):
     imported, pending = tmp_path / "imported.txt", tmp_path / "pending.json"
 
     results = import_lines.run("test", hs, log=quiet, imported_path=imported, pending_path=pending)
-    assert "1 contacts now Copy ready, 1 skipped (no longer Contact found), 1 skipped (not in HubSpot)" in results[0]
+    assert ("1 contacts now Copy ready, 1 skipped (Lead Status no longer New), "
+            "1 skipped (not an AUTO-OUTREACH contact in HubSpot)") in results[0]
     assert "REJECTED" in results[1]
-    assert hs.records["contacts"][a]["diablo_contact_status"] == "copy_ready"
-    assert hs.records["contacts"][a]["diablo_subject_line"] == GOOD["subject_line"]
-    assert hs.records["contacts"][b]["diablo_contact_status"] == "contact_found"  # rejected file
+    assert hs.records["contacts"][a][LS] == "COPY_READY"
+    assert hs.records["contacts"][a]["diablo_personal_line"] == GOOD["personal_line"]
+    assert "diablo_subject_line" not in hs.records["contacts"][a]
+    assert hs.records["contacts"][b][LS] == "NEW"  # rejected file
     assert [r["contact_id"] for r in json.loads(pending.read_text())["contacts"]] == [b]
     assert imported.read_text().count("\n") == 2
     assert import_lines.run("test", hs, log=quiet, imported_path=imported, pending_path=pending) == []
@@ -215,6 +221,6 @@ def test_search_lag_does_not_put_contacts_back_on_the_list(tmp_path, monkeypatch
     pending = tmp_path / "pending.json"
     import_lines.run("test", hs, log=quiet, imported_path=tmp_path / "imported.txt", pending_path=pending)
     assert [r["contact_id"] for r in json.loads(pending.read_text())["contacts"]] == [b]
-    hs.records["contacts"][b]["diablo_contact_status"] = "copy_ready"  # e.g. lines typed in HubSpot by hand
+    hs.records["contacts"][b][LS] = "COPY_READY"  # e.g. lines typed in HubSpot by hand
     rows = export_for_lines.run("test", hs, pending, log=quiet)
     assert rows == []

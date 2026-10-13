@@ -1,6 +1,6 @@
 """Save the contacts that need email lines to mail/pending.json, for the outreach-mail-writing skill.
 
-A contact needs lines when its Outreach contact status is "Contact found". For each one the
+A contact needs lines when it is an AUTO-OUTREACH contact whose Lead Status is "New". For each one the
 file holds the HubSpot contact ID, job title and seniority, plus what the research found about
 its company (from data/company_notes.json). No names, emails or phone numbers are saved: the
 email template fills in the first name itself, so the skill never needs them.
@@ -17,53 +17,54 @@ import json
 import os
 import sys
 
-from .common import ROOT, PipelineError, category_label, check_target, load_company_notes, now_iso
+from .common import ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_of, now_iso
+from .find_contacts import hierarchy_level
 from .hubspot_client import HubSpot, HubSpotError
-from .next_in_line import STOPPED
+from .next_in_line import COMPANY_PROPS
+from .schema import LEAD_STATUS, ORDER
+from .stages import COMPANY_STOPPED, LeadStatus
 
 PENDING_FILE = ROOT / "mail" / "pending.json"
-COMPANY_PROPS = ["name", "domain", "diablo_market", "diablo_channel_category", "diablo_outreach_status",
-                 "diablo_suppress_reason"]
 
 
-def collect(hs, max_results=5000, exclude=()):
+def collect(hs, max_results=5000, exclude=(), settings=None):
     """HubSpot's search can lag a few seconds behind an update, so every status is read again
     directly before a contact is listed; `exclude` drops contacts just updated by the caller."""
-    props = ["jobtitle", "diablo_hierarchy_rank", "diablo_hierarchy_level", "diablo_contact_status"]
-    found = hs.search(
-        "contacts", [{"propertyName": "diablo_contact_status", "operator": "EQ", "value": "contact_found"}],
-        props, max_results=max_results)
+    statuses = LeadStatus(hs)
+    hierarchy = ((settings or load_settings()).get("contacts") or {}).get("hierarchy") or []
+    props = ["jobtitle", ORDER, LEAD_STATUS]
+    found = hs.tagged_search("contacts", [statuses.filter("contacts", "found")], props, max_results=max_results)
     exclude = {str(i) for i in exclude}
     ids = [c["id"] for c in found if str(c["id"]) not in exclude]
-    contacts = [c for c in hs.batch_read("contacts", ids, props)
-                if (c.get("properties", {}).get("diablo_contact_status") or "") == "contact_found"] if ids else []
+    contacts = [c for c in hs.tagged_read("contacts", ids, props)
+                if statuses.of("contacts", c) == "found"] if ids else []
     if not contacts:
         return []
     links = hs.associated_ids("contacts", "companies", [c["id"] for c in contacts])
     company_ids = sorted({ids[0] for ids in links.values() if ids})
-    companies = {c["id"]: c["properties"] for c in hs.batch_read("companies", company_ids, COMPANY_PROPS)}
-    labels = hs.option_labels("companies", "diablo_channel_category")
+    companies = {c["id"]: c for c in hs.tagged_read("companies", company_ids, COMPANY_PROPS)}
     notes = load_company_notes()
     rows = []
     for c in contacts:
         company_id = (links.get(c["id"]) or [None])[0]
-        comp = companies.get(company_id)
-        if not comp or comp.get("diablo_suppress_reason") or (comp.get("diablo_outreach_status") or "") in STOPPED:
+        company = companies.get(company_id)
+        if not company or statuses.of("companies", company) in COMPANY_STOPPED:
             continue
+        comp = company["properties"]
         p = c.get("properties", {})
         domain = (comp.get("domain") or "").lower()
         note = notes.get(domain, {})
-        rank = str(p.get("diablo_hierarchy_rank") or "")
+        rank = str(p.get(ORDER) or "")
         rows.append({
             "contact_id": str(c["id"]),
             "job_title": p.get("jobtitle") or "",
-            "seniority": p.get("diablo_hierarchy_level") or "",
-            "rank": int(rank) if rank.isdigit() else 99,
+            "seniority": hierarchy_level(p.get("jobtitle"), hierarchy)[1] if hierarchy else "",
+            "rank": int(float(rank)) if rank.replace(".", "", 1).isdigit() else 99,
             "company": {
                 "name": comp.get("name") or note.get("name") or "",
                 "domain": domain,
-                "location": comp.get("diablo_market") or note.get("market") or "",
-                "channel": category_label(comp.get("diablo_channel_category"), labels) or note.get("category") or "",
+                "location": market_of(comp) or note.get("market") or "",
+                "channel": channel_of(comp, notes),
                 "based_out_of": note.get("based_out_of") or "",
                 "distributes": note.get("distributes") or "",
                 "channels_supplied": note.get("channels_supplied") or "",

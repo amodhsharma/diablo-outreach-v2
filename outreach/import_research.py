@@ -2,8 +2,10 @@
 
 Runs by itself when the outreachResearch skill saves files to research/<date>/. Each new
 JSON file is checked again with the skill's strict check: a file that fails is rejected
-whole (nothing reaches HubSpot). A file that passes is added to HubSpot as "Awaiting
-review" (gate 1) and the email details go into data/company_notes.json. Each Channel's line
+whole (nothing reaches HubSpot). A file that passes is added to HubSpot with Lead Source
+AUTO-OUTREACH and Lead Status "New", waiting for a person to set "Approved for outreach"
+(gate 1); the email details go into data/company_notes.json. Companies already in HubSpot
+are never added again. Each Channel's line
 in research/queue.csv is marked Done, Done fewer than wanted or On hold. A failed Channel
 goes back to Waiting once, so the next run tries it again by itself; a second failure
 marks it Failed.
@@ -21,12 +23,15 @@ import re
 import sys
 from pathlib import Path
 
+from . import known_companies
 from . import research_queue as rq
 from .common import (
-    ROOT, PipelineError, check_target, clean_category, country_of, enum_value, now_iso,
-    save_company_notes,
+    ROOT, PipelineError, check_target, clean_category, clean_domain, industry_type, now_iso,
+    save_company_notes, split_location,
 )
 from .hubspot_client import HubSpot, HubSpotError
+from .schema import INDUSTRY_TYPE, TIER
+from .stages import LeadStatus
 
 SKILL = ROOT / "skills" / "outreachResearch"
 
@@ -61,36 +66,62 @@ def job_of(path):
     return match.group(1) if match else None
 
 
-def already_in_hubspot(hs, domains, names=()):
-    """Domains and names (lower case) that already belong to a HubSpot company."""
-    found_domains, found_names = set(), set()
-    for prop, values, out in (("domain", domains, found_domains), ("name", names, found_names)):
-        values = sorted({v for v in values if v})
-        for i in range(0, len(values), 50):
-            rows = hs.search("companies",
-                             [{"propertyName": prop, "operator": "IN", "values": values[i:i + 50]}],
-                             ["domain", "name"], max_results=500)
-            for r in rows:
-                v = r["properties"].get(prop)
-                if v:
-                    out.add(v.lower())
-    return found_domains, found_names
+def already_in_hubspot(hs, records):
+    """Indexes of the records that already exist in HubSpot. Two checks:
+    1. the full "already in HubSpot" list (data/known_companies.csv, every company in the account,
+       refreshed every 3 hours) with websites and names cleaned up, so "www.", "Ltd" or "PLC"
+       never hide a match (names only count within the same country);
+    2. a live look-up in HubSpot of each website and name, which catches anything added since."""
+    known = known_companies.load_index()
+    found = set()
+    for i, r in enumerate(records):
+        if known_companies.matches(known, r.get("domain"), r.get("name"), r.get("country")):
+            found.add(i)
+    domains = {}
+    names = {}
+    for i, r in enumerate(records):
+        if r.get("domain"):
+            d = r["domain"].lower()
+            for v in (d, "www." + d):
+                domains.setdefault(v, []).append(i)
+        names.setdefault(r["name"], []).append(i)
+    for prop, index in (("domain", domains), ("website", domains), ("name", names)):
+        values = sorted(index)
+        for j in range(0, len(values), 50):
+            chunk = values[j:j + 50]
+            if prop == "website":
+                chunk = [f"{scheme}{v}" for v in chunk for scheme in ("http://", "https://")]
+            rows = hs.search("companies", [{"propertyName": prop, "operator": "IN", "values": chunk}],
+                             ["domain", "name", "website"], max_results=500)
+            for row in rows:
+                p = row["properties"]
+                hits = set()
+                d = clean_domain(p.get("domain")) or clean_domain(p.get("website"))
+                if d:
+                    hits.update(domains.get(d, []))
+                if p.get("name"):
+                    hits.update(i for n, ids in names.items() if n.lower() == p["name"].lower() for i in ids)
+                found.update(hits)
+    return found
 
 
-def hubspot_records(data):
-    """(HubSpot company properties, email notes keyed by domain) for every company."""
+def hubspot_records(data, statuses):
+    """(HubSpot company properties, email notes keyed by domain) for every company. The
+    AUTO-OUTREACH tag is added when the records are created (hubspot_client.TagGuard)."""
     records, notes = [], {}
+    city, country = split_location(data["location"])
     for c in data["companies"]:
         channel = c["channel_category"][0]
         has_domain = c["domain"] != check_output.NO_DOMAIN
         props = {
             "name": c["name"],
-            "country": country_of(data["location"]),
-            "diablo_market": data["location"],
-            "diablo_channel_category": enum_value(clean_category(channel)),
-            "diablo_tier": enum_value(f"Tier {c['tier']}"),
-            "diablo_outreach_status": "awaiting_review" if has_domain else "no_domain",
+            "country": country,
+            INDUSTRY_TYPE: industry_type(channel),
+            TIER: f"tier_{c['tier']}",
+            **statuses.props("companies", "found" if has_domain else "missing_info"),
         }
+        if city:
+            props["city"] = city
         if has_domain:
             props["domain"] = c["domain"]
             notes[c["domain"]] = {
@@ -139,18 +170,11 @@ def import_file(path, rows, hs, settings, log=print):
 
     data["_file"] = name
     created = existing = 0
-    done = [ch for ch in data["channels"] if ch["status"] == "done"]
     if data["companies"]:
-        for ch in done:
-            label = clean_category(ch["channel"])
-            if hs.ensure_option("companies", "diablo_channel_category", label, enum_value(label)):
-                log(f"New Channel '{label}' added to the HubSpot dropdown")
-        records, notes = hubspot_records(data)
-        domains, names = already_in_hubspot(
-            hs, [r.get("domain") for r in records], [r["name"] for r in records if not r.get("domain")])
-        new = [r for r in records if (r["domain"].lower() not in domains if r.get("domain")
-                                      else r["name"].lower() not in names)]
-        hs.batch_create("companies", new)
+        records, notes = hubspot_records(data, LeadStatus(hs))
+        known = already_in_hubspot(hs, records)
+        new = [r for i, r in enumerate(records) if i not in known]
+        hs.create_tagged("companies", new)
         save_company_notes({r["domain"]: notes[r["domain"]] for r in new if r.get("domain")})
         created, existing = len(new), len(records) - len(new)
 
@@ -177,8 +201,8 @@ def import_file(path, rows, hs, settings, log=print):
                               output_file=name)
             continue
         rq.set_status(rows, job_id, line["channel"], status, reason, ran_on=data["run_date"], output_file=name)
-    return (f"{name}: {created} companies added to HubSpot as Awaiting review or No domain, "
-            f"{existing} already in HubSpot")
+    return (f"{name}: {created} companies added to HubSpot (Lead Status New, or Missing Info when there "
+            f"is no website), {existing} already in HubSpot")
 
 
 def run(target, hs, files=None, log=print):

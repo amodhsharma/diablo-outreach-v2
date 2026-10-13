@@ -17,6 +17,7 @@ def tmp_runs(tmp_path, monkeypatch):
     monkeypatch.setattr(common, "RUNS_DIR", tmp_path)
     from outreach import find_contacts as _fc
     monkeypatch.setattr(_fc, "SKIPPED_FILE", tmp_path / "apollo_skipped.json")
+    monkeypatch.setattr(_fc, "KEPT_FILE", tmp_path / "apollo_kept.json")
     monkeypatch.setattr(common, "NOTES_FILE", tmp_path / "company_notes.json")
 
 
@@ -43,13 +44,20 @@ def test_target_guard():
     assert common.check_target(FakeCRM(portal=5), "test") == 5
 
 
+CO = "hs_lead_status"  # Lead Status, as stored (the live account's own values)
+
+
+def approved_company(hs, **extra):
+    props = dict(name="Noble Foods", domain="noblefoods.in", country="India",
+                 industry_type="Distributor Wholesaler", hs_ideal_customer_profile="tier_1",
+                 **{CO: "Approved for outreach"})
+    props.update(extra)
+    return hs.add("companies", **props)
+
+
 def full_pipeline(settings):
     hs = FakeCRM()
-    # As the research import adds it, then gate 1 approved.
-    noble = hs.add("companies", name="Noble Foods", domain="noblefoods.in", country="India",
-                   diablo_market="India", diablo_channel_category="grocery_wholesaler",
-                   diablo_tier="tier_1", diablo_outreach_status="approved")
-
+    noble = approved_company(hs)  # as the research import adds it, then gate 1 approved
     apollo = FakeApollo(
         {"noblefoods.in": [{"id": "p1", "title": "Sales Executive"}, {"id": "p2", "title": "Purchasing Manager"},
                            {"id": "p3", "title": "Category Manager"}, {"id": "p4", "title": "Intern"}]},
@@ -61,54 +69,55 @@ def full_pipeline(settings):
 
 def test_find_contacts_keeps_only_verified_and_ranks_titles(settings):
     hs, noble, apollo = full_pipeline(settings)
-    assert apollo.revealed == ["p2", "p3", "p1"]  # best titles first, 3 per company
+    assert apollo.revealed == ["p2", "p3", "p1"]  # best titles first
     contacts = list(hs.records["contacts"].values())
     assert [c["email"] for c in contacts] == ["buyer@noblefoods.in"]
-    assert contacts[0]["diablo_contact_status"] == "contact_found"
-    assert hs.records["companies"][noble]["diablo_outreach_status"] == "contacts_found"
+    assert contacts[0][CO] == "NEW" and contacts[0]["lead_source"] == "AUTO-OUTREACH"
+    assert contacts[0]["diablo_outreach_order"] == "1"
+    assert not any(k.startswith("diablo_") and k not in ("diablo_outreach_order",) for k in contacts[0])
+    assert hs.records["companies"][noble][CO] == "Approved for outreach"  # waits for gate 2 and the emails
+    assert find_contacts.load_skipped(find_contacts.KEPT_FILE) == {"p2": next(iter(hs.records["contacts"]))}
 
 
-def test_find_contacts_never_readds_opted_out(settings):
+def test_find_contacts_never_adds_or_touches_an_existing_email(settings):
     hs = FakeCRM()
-    company = hs.add("companies", name="Noble Foods", domain="noblefoods.in", diablo_company_key="noblefoods.in",
-                     diablo_outreach_status="approved", diablo_channel_category="grocery_wholesaler")
-    hs.add("contacts", email="buyer@noblefoods.in", diablo_contact_status="opted_out")
+    company = approved_company(hs)
+    team = hs.add("contacts", tagged=False, email="buyer@noblefoods.in", **{CO: "WON"})
     apollo = FakeApollo({"noblefoods.in": [{"id": "p2", "title": "Buyer"}]}, {"p2": ("buyer@noblefoods.in", "verified")})
     find_contacts.run("test", settings, hs, apollo, log=quiet)
-    statuses = [c["diablo_contact_status"] for c in hs.records["contacts"].values()]
-    assert statuses == ["opted_out"]
-    assert hs.records["companies"][company]["diablo_outreach_status"] == "contacts_found"
+    assert list(hs.records["contacts"]) == [team]
+    assert hs.records["contacts"][team] == {"email": "buyer@noblefoods.in", CO: "WON"}
+    assert hs.records["companies"][company][CO] == "Missing Info"  # nobody new to email there
+    assert all(team not in ids for _, _, ids in hs.writes)
 
 
-def test_find_contacts_suppressed_and_credit_cap(settings):
+def test_find_contacts_no_domain_credit_cap_and_untagged(settings):
     hs = FakeCRM()
-    sup = hs.add("companies", name="S", domain="s.in", diablo_company_key="s.in",
-                 diablo_outreach_status="approved", diablo_suppress_reason="customer")
-    a = hs.add("companies", name="A", domain="a.in", diablo_company_key="a.in", diablo_outreach_status="approved")
-    b = hs.add("companies", name="B", domain="b.in", diablo_company_key="b.in", diablo_outreach_status="approved")
+    nodomain = approved_company(hs, name="S", domain="")
+    a = approved_company(hs, name="A", domain="a.in")
+    b = approved_company(hs, name="B", domain="b.in")
+    team = hs.add("companies", tagged=False, name="T", domain="t.in", **{CO: "Approved for outreach"})
     settings["contacts"]["max_credits_per_run"] = 1
-    apollo = FakeApollo({"a.in": [{"id": "x"}], "b.in": [{"id": "y"}]},
-                        {"x": ("x@a.in", "verified"), "y": ("y@b.in", "verified")})
+    apollo = FakeApollo({"a.in": [{"id": "x"}], "b.in": [{"id": "y"}], "t.in": [{"id": "z"}]},
+                        {"x": ("x@a.in", "verified"), "y": ("y@b.in", "verified"), "z": ("z@t.in", "verified")})
     find_contacts.run("test", settings, hs, apollo, log=quiet)
-    assert hs.records["companies"][sup]["diablo_outreach_status"] == "suppressed"
-    assert hs.records["companies"][a]["diablo_outreach_status"] == "contacts_found"
-    assert hs.records["companies"][b]["diablo_outreach_status"] == "approved"  # waits for next run
+    assert hs.records["companies"][nodomain][CO] == "Missing Info"
+    assert len(hs.links) == 1 and hs.links[next(iter(hs.links))] == [a]
+    assert hs.records["companies"][b][CO] == "Approved for outreach"  # waits for next run
+    assert "z" not in apollo.revealed and hs.records["companies"][team] == {
+        "name": "T", "domain": "t.in", CO: "Approved for outreach"}  # the team's record: never touched
 
 
 def test_send_and_sync(settings):
     hs, noble, _ = full_pipeline(settings)
     contact_id = next(iter(hs.records["contacts"]))
-
-    # The email lines skill is not built yet: set the lines as it will.
     c = hs.records["contacts"][contact_id]
-    c.update({"diablo_subject_line": "Swiss chocolate, and sugar free",
-              "diablo_personal_line": "Your Reliance range has room for sugar free chocolate.",
-              "diablo_contact_status": "copy_ready"})
+    c.update({"diablo_personal_line": "Your Reliance range has room for sugar free chocolate.", CO: "COPY_READY"})
 
     instantly = FakeInstantly()
     assert send.run("test", settings, hs, instantly, log=quiet)["queued"] == 0  # gate 2 not passed yet
 
-    c["diablo_contact_status"] = "approved_to_send"  # gate 2
+    c[CO] = "APPROVED_TO_SEND"  # gate 2
     logs = []
     plan = send.run("test", settings, hs, None, dry_run=True, log=logs.append)
     assert plan["queued"] == 0 and plan["campaigns"][0]["leads"] == 1
@@ -133,32 +142,41 @@ def test_send_and_sync(settings):
     assert "eleven categories in all" in email and "<div><ul>" not in email
     lead = instantly.leads[camp_id][0]
     assert lead["custom_variables"]["personal_line"].startswith("Your Reliance")
-    assert c["diablo_contact_status"] == "queued"
-    assert hs.records["companies"][noble]["diablo_outreach_status"] == "in_outreach"
+    assert lead["custom_variables"]["partner_type"] == "distributor"
+    assert c[CO] == "ATTEMPTED_TO_CONTACT"
+    assert hs.records["companies"][noble][CO] == "Attempted to Contact"
 
     # Sending again does not create a second campaign.
-    c["diablo_contact_status"] = "approved_to_send"
+    c[CO] = "APPROVED_TO_SEND"
     send.run("test", settings, hs, instantly, log=quiet)
     assert len(instantly.campaigns) == 1
+    c[CO] = "ATTEMPTED_TO_CONTACT"
 
     lead["timestamp_last_contact"] = "2026-10-05T05:00:00Z"
     sync.run("test", settings, hs, instantly, log=quiet)
-    assert c["diablo_contact_status"] == "sent"
+    assert c[CO] == "ATTEMPTED_TO_CONTACT"
 
     lead["email_reply_count"] = 1
     lead["timestamp_last_reply"] = "2026-10-06T05:00:00Z"
     sync.run("test", settings, hs, instantly, log=quiet)
-    assert c["diablo_contact_status"] == "replied"
-    assert hs.records["companies"][noble]["diablo_outreach_status"] == "replied"
+    assert c[CO] == "IN_PROGRESS"
+    assert hs.records["companies"][noble][CO] == "In Progress"
 
     lead["status"] = -2
     sync.run("test", settings, hs, instantly, log=quiet)
-    assert c["diablo_contact_status"] == "opted_out"
-    assert hs.records["companies"][noble]["diablo_suppress_reason"] == "opted_out"
+    assert c[CO] == "UNQUALIFIED"
+    assert hs.records["companies"][noble][CO] == "Unqualified"
 
     lead["status"] = 1  # nothing moves backwards
     sync.run("test", settings, hs, instantly, log=quiet)
-    assert c["diablo_contact_status"] == "opted_out"
+    assert c[CO] == "UNQUALIFIED"
+
+    # A person takes the company over (a Lead Status the pipeline does not use): never changed again.
+    hs.records["companies"][noble][CO] = "Won"
+    c[CO] = "IN_PROGRESS"
+    lead["status"] = -2
+    sync.run("test", settings, hs, instantly, log=quiet)
+    assert hs.records["companies"][noble][CO] == "Won"
 
 
 def test_send_needs_sending_accounts(settings):
@@ -168,21 +186,23 @@ def test_send_needs_sending_accounts(settings):
 
 
 def test_lead_status_mapping():
-    assert sync.lead_status({"status": -1}) == ("bounced", "bounced")
-    assert sync.lead_status({"lt_interest_status": 1}) == ("interested", "marked_interested")
-    assert sync.lead_status({"email_reply_count": 2}) == ("replied", "reply_received")
-    assert sync.lead_status({}) == ("queued", "queued")
+    assert sync.lead_result({"status": -1}) == ("closed", None, "bounced")  # the others carry on
+    assert sync.lead_result({"status": -2}) == ("closed", "closed", "unsubscribed")
+    assert sync.lead_result({"lt_interest_status": 1}) == ("replied", "replied", "marked interested")
+    assert sync.lead_result({"lt_interest_status": -1}) == ("closed", "closed", "marked not interested")
+    assert sync.lead_result({"email_reply_count": 2}) == ("replied", "replied", "replied")
+    assert sync.lead_result({}) == ("in_outreach", None, "queued")
 
 
-def test_all_status_values_exist_in_schema():
-    from outreach.schema import COMPANY_STATUSES, CONTACT_STATUSES, SUPPRESS_REASONS
-    from outreach.common import enum_value
-
-    contact = {enum_value(s) for s in CONTACT_STATUSES}
-    company = {enum_value(s) for s in COMPANY_STATUSES}
-    assert {k for k in sync.RANK if k} <= contact
-    assert set(sync.COMPANY_RANK) <= company
-    assert "opted_out" in {enum_value(s) for s in SUPPRESS_REASONS}
+def test_every_stage_has_a_live_lead_status_choice():
+    from outreach.stages import LeadStatus, STAGES
+    statuses = LeadStatus(FakeCRM())
+    for obj, stages in STAGES.items():
+        for stage in stages:
+            assert statuses.stage(obj, statuses.value(obj, stage)) == stage
+    assert statuses.stage("companies", "Won") == "team" and statuses.stage("contacts", "Emailed") == "team"
+    assert statuses.value("contacts", "approved") == "APPROVED_TO_SEND"
+    assert statuses.value("companies", "approved") == "Approved for outreach"
 
 
 def test_hierarchy_levels(settings):
@@ -196,10 +216,9 @@ def test_hierarchy_levels(settings):
     assert level("Sales Executive") == level("Coordinator") == 5
 
 
-def test_find_contacts_collects_top_three_then_goes_deeper(settings):
+def test_find_contacts_collects_the_top_four_once(settings):
     hs = FakeCRM()
-    cid = hs.add("companies", name="Big Co", domain="big.in", diablo_company_key="big.in",
-                 diablo_market="India", diablo_outreach_status="approved")
+    cid = approved_company(hs, name="Big Co", domain="big.in")
     titles = ["Sales Executive", "Purchase Manager", "Assistant Director", "Regional Director",
               "Chief Executive Officer", "Intern", "Area Sales Manager", "COO", "Accountant",
               "Head - Procurement", "Category Manager", "Director", "Senior Manager", "Store Keeper"]
@@ -213,26 +232,21 @@ def test_find_contacts_collects_top_three_then_goes_deeper(settings):
 
     def ranked():
         return [c["jobtitle"] for c in sorted(hs.records["contacts"].values(),
-                                              key=lambda c: int(c["diablo_hierarchy_rank"]))]
+                                              key=lambda c: int(c["diablo_outreach_order"]))]
     assert ranked() == ["Chief Executive Officer", "COO", "Regional Director", "Assistant Director"]  # top 4
     assert summary["rows"][0]["verified"] == 4 and len(apollo.revealed) == 5  # one revealed was unverified
-    assert hs.records["companies"][cid]["diablo_outreach_status"] == "contacts_found"
+    assert hs.records["companies"][cid][CO] == "Approved for outreach"
 
-    # Nobody replied: set the company back to Approved and run again for the next four.
-    hs.records["companies"][cid]["diablo_outreach_status"] = "approved"
+    # A second run leaves a company that already has its contacts alone (no Apollo spend).
     find_contacts.run("test", settings, hs, apollo, log=quiet)
-    assert ranked() == ["Chief Executive Officer", "COO", "Regional Director", "Assistant Director",
-                        "Head - Procurement", "Senior Manager", "Category Manager", "Purchase Manager"]  # ranks 5 to 8
-    assert len(apollo.revealed) == len(set(apollo.revealed)) == 9  # nobody paid for twice (incl. the unverified one)
-    assert "p5" not in apollo.revealed and "p6" not in apollo.revealed  # interns; no email in Apollo
+    assert len(hs.records["contacts"]) == 4 and len(apollo.revealed) == 5
 
 
 def test_send_reports_leads_instantly_skipped(settings):
     hs = FakeCRM()
-    cid = hs.add("companies", name="Co", domain="co.in", diablo_market="India",
-                 diablo_channel_category="grocery_wholesaler", diablo_outreach_status="contacts_found")
-    contact = hs.add("contacts", email="old@co.in", firstname="A", diablo_contact_status="approved_to_send",
-                     diablo_subject_line="S", diablo_personal_line="L")
+    cid = approved_company(hs, name="Co", domain="co.in")
+    contact = hs.add("contacts", email="old@co.in", firstname="A", diablo_personal_line="L",
+                     **{CO: "APPROVED_TO_SEND"})
     hs.links[contact] = [cid]
     inst = FakeInstantly()
     inst.create_campaign({"name": "Older test"})
@@ -240,7 +254,7 @@ def test_send_reports_leads_instantly_skipped(settings):
     logs = []
     result = send.run("test", settings, hs, inst, log=logs.append)
     assert result["queued"] == 0
-    assert hs.records["contacts"][contact]["diablo_contact_status"] == "approved_to_send"
+    assert hs.records["contacts"][contact][CO] == "APPROVED_TO_SEND"
     assert any("0 leads added, 1 skipped" in line for line in logs)
 
 
@@ -285,10 +299,67 @@ def test_created_leads_matched_by_position():
 
 
 def test_send_says_why_a_contact_is_skipped(settings):
-    hs, apollo = FakeCRM(), None
-    lone = hs.add("contacts", email="solo@x.com", diablo_contact_status="approved_to_send",
-                  diablo_personal_line="Line.", diablo_subject_line="Hi there friend")
+    hs = FakeCRM()
+    hs.add("contacts", email="solo@x.com", diablo_personal_line="Line.", **{CO: "APPROVED_TO_SEND"})
+    team_co = hs.add("companies", tagged=False, name="Team Co", domain="team.in", **{CO: "In Progress"})
+    linked = hs.add("contacts", email="at@team.in", diablo_personal_line="Line.", **{CO: "APPROVED_TO_SEND"})
+    hs.links[linked] = [team_co]
     messages = []
     send.run("test", settings, hs, None, dry_run=True, log=messages.append)
-    assert any("not linked to a company" in m and "s***@x.com" in m for m in messages)
+    assert any("not linked to an AUTO-OUTREACH company" in m and "s***@x.com" in m for m in messages)
+    assert any("not linked to an AUTO-OUTREACH company" in m and "a***@team.in" in m for m in messages)
     assert send.mask("buyer@shop.ie") == "b***@shop.ie"
+
+
+# ---- the AUTO-OUTREACH safety rule ---------------------------------------------------------
+
+def test_guard_refuses_to_change_untagged_records():
+    from outreach.hubspot_client import TagGuardError
+    hs = FakeCRM()
+    ours = hs.add("companies", name="Ours", **{CO: "New"})
+    theirs = hs.add("companies", tagged=False, name="Theirs", **{CO: "New"})
+    with pytest.raises(TagGuardError, match="SAFETY STOP"):
+        hs.update_tagged("companies", [(ours, {CO: "Unqualified"}), (theirs, {CO: "Unqualified"})])
+    assert hs.records["companies"][ours][CO] == "New"  # nothing at all was saved
+    assert hs.records["companies"][theirs][CO] == "New"
+    with pytest.raises(TagGuardError):
+        hs.update_tagged("companies", [(ours, {"lead_source": "Apollo"})])  # the tag itself never changes
+    with pytest.raises(TagGuardError):
+        hs.update_tagged("companies", [("424242", {CO: "New"})])  # a record that does not exist
+    contact = hs.add("contacts", tagged=False, email="x@y.com")
+    with pytest.raises(TagGuardError):
+        hs.associate_tagged("contacts", "companies", [(contact, ours)])
+    assert hs.writes == []
+    made = hs.create_tagged("companies", [{"name": "New Co", "lead_source": "Apollo"}])
+    assert hs.records["companies"][made[0]["id"]]["lead_source"] == "AUTO-OUTREACH"
+    assert [r["id"] for r in hs.tagged_search("companies", [], ["name"])] == [ours, made[0]["id"]]
+
+
+def test_sync_ignores_the_teams_contacts(settings):
+    hs = FakeCRM()
+    team = hs.add("contacts", tagged=False, email="theirs@shop.ie", **{CO: "NEW"})
+    instantly = FakeInstantly()
+    camp = instantly.create_campaign({"name": "Diablo | OCT2026"})["id"]
+    instantly.leads[camp].append({"email": "theirs@shop.ie", "status": -2, "email_reply_count": 1})
+    sync.run("test", settings, hs, instantly, log=quiet)
+    assert hs.records["contacts"][team] == {"email": "theirs@shop.ie", CO: "NEW"}
+    assert hs.writes == []
+
+
+def test_no_job_can_write_to_hubspot_without_the_guard():
+    """Only hubspot_client.py (the guard) and setup_hubspot.py (fields, never records) may call
+    HubSpot's write endpoints; every job finds its work with tagged_search."""
+    import re
+    from pathlib import Path
+    root = Path(__file__).resolve().parent.parent / "outreach"
+    raw_writes = re.compile(r"\._batch_update\(|\._batch_create\(|\._associate_default\(|hs\.request\(|ensure_option")
+    plain_search = re.compile(r"\bhs\.search\(")
+    for path in root.glob("*.py"):
+        text = path.read_text(encoding="utf-8")
+        if path.name in ("hubspot_client.py", "setup_hubspot.py"):
+            continue
+        assert not raw_writes.search(text), f"{path.name} calls HubSpot directly"
+        if path.name not in ("import_research.py", "known_companies.py"):  # duplicate checks: read only
+            assert not plain_search.search(text), f"{path.name} searches without the AUTO-OUTREACH filter"
+        for name in ("batch_update(", "batch_create(", "associate_default("):
+            assert f"hs.{name}" not in text, f"{path.name} uses hs.{name}"

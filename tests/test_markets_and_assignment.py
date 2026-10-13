@@ -19,6 +19,7 @@ def tmp_runs(tmp_path, monkeypatch):
     monkeypatch.setattr(common, "RUNS_DIR", tmp_path)
     from outreach import find_contacts as _fc
     monkeypatch.setattr(_fc, "SKIPPED_FILE", tmp_path / "apollo_skipped.json")
+    monkeypatch.setattr(_fc, "KEPT_FILE", tmp_path / "apollo_kept.json")
     monkeypatch.setattr(common, "NOTES_FILE", tmp_path / "company_notes.json")
 
 
@@ -79,7 +80,9 @@ def test_assigner_rules_and_even_sharing(settings):
 def test_assigner_counts_existing_load(settings):
     hs = FakeCRM()
     for _ in range(3):
-        hs.add("companies", hubspot_owner_id="11", diablo_market="India")
+        hs.add("companies", hubspot_owner_id="11", country="India")
+    for _ in range(5):  # the team's own companies never count
+        hs.add("companies", tagged=False, hubspot_owner_id="22", country="India")
     a = Assigner(hs, assignment_settings(settings), log=quiet)
     assert a.pick("India", "Grocery wholesaler") == "22"
 
@@ -97,11 +100,11 @@ def test_assigner_off_when_empty(settings):
 
 def test_find_contacts_assigns_company_and_contacts(settings):
     hs = FakeCRM()
-    cid = hs.add("companies", name="Med Co", domain="medco.in", diablo_company_key="medco.in",
-                 diablo_market="Mumbai, India", diablo_channel_category="pharmacy_distributor",
-                 diablo_outreach_status="approved")
-    kept = hs.add("companies", name="Owned Co", domain="owned.in", diablo_company_key="owned.in",
-                  diablo_market="India", diablo_outreach_status="approved", hubspot_owner_id="99")
+    common.save_company_notes({"medco.in": {"category": "Pharmacy distributor"}})
+    cid = hs.add("companies", name="Med Co", domain="medco.in", city="Mumbai", country="India",
+                 industry_type="Distributor Wholesaler", hs_lead_status="Approved for outreach")
+    kept = hs.add("companies", name="Owned Co", domain="owned.in", country="India",
+                  hs_lead_status="Approved for outreach", hubspot_owner_id="99")
     apollo = FakeApollo({"medco.in": [{"id": "m1"}], "owned.in": [{"id": "o1"}]},
                         {"m1": ("buyer@medco.in", "verified"), "o1": ("buyer@owned.in", "verified")})
     find_contacts.run("test", assignment_settings(settings), hs, apollo, log=quiet)
@@ -133,34 +136,40 @@ def test_follow_up_after_three_days(settings):
 
 def test_typed_channel_end_to_end(settings):
     assert common.clean_category("  sugar   free distributor ") == "Sugar free distributor"
-    assert common.enum_value("Sugar Free Distributor") == "sugar_free_distributor"
     assert common.clean_category("OTC pharmacy distributors") == "OTC pharmacy distributors"
-    assert common.enum_value("Fruit & nut distributor") == "fruit_nut_distributor"
+    # Research Channels map onto the live account's Industry Type.
+    assert common.industry_type("Sugar free distributor") == "Distributor Wholesaler"
+    assert common.industry_type("Health food distributor") == "Distributor Wholesaler"
+    assert common.industry_type("Marketplace sellers") == "Online Retailer"
+    assert common.industry_type("Online retailers") == "Online Retailer"
+    assert common.industry_type("Pharmacy chains") == "Specialist retail"
+    assert common.industry_type("Supermarkets") == "Grocery Retail"
+    assert common.industry_type("retailers") == "Grocery Retail"
+    assert common.industry_type("Hotels and cafés") == "Foodservice Catering"
+    assert common.industry_type("Petrol station shops") == "Convenience Impulse"
+    assert common.industry_type("Gift shops") == "Other"
+    from outreach.next_in_line import partner_type
+    assert partner_type("Distributor Wholesaler") == "distributor" and partner_type("Online Retailer") == "online seller"
 
     # A company as the research import adds it (the import tests cover the import itself).
     hs = FakeCRM()
-    label = common.clean_category("sugar free  distributor")
-    hs.ensure_option("companies", "diablo_channel_category", label, common.enum_value(label))
-    hs.add("companies", name="Noble Foods", domain="noblefoods.in", country="India", diablo_market="India",
-           diablo_channel_category=common.enum_value(label), diablo_outreach_status="approved")
-    rec = next(iter(hs.records["companies"].values()))
+    common.save_company_notes({"noblefoods.in": {"category": "Sugar free distributor"}})
+    cid = hs.add("companies", name="Noble Foods", domain="noblefoods.in", country="India",
+                 industry_type="Distributor Wholesaler", hs_lead_status="Approved for outreach")
 
     # Unknown categories use the default job titles; known ones keep their own.
     titles = settings["contacts"]["titles"]
     assert find_contacts.titles_for("Sugar free distributor", titles) == titles["default"]
     assert find_contacts.titles_for("pharmacy DISTRIBUTOR", titles) == titles["Pharmacy distributor"]
 
-    # The campaign is named with the typed category.
-    key = rec["domain"]
-    cid = next(iter(hs.records["companies"]))
-    hs.records["companies"][cid]["diablo_outreach_status"] = "contacts_found"
-    contact = hs.add("contacts", email="buyer@" + key, firstname="Asha",
-                     diablo_contact_status="approved_to_send",
-                     diablo_subject_line="Hello", diablo_personal_line="Line.")
+    contact = hs.add("contacts", email="buyer@noblefoods.in", firstname="Asha",
+                     hs_lead_status="APPROVED_TO_SEND", diablo_personal_line="Line.")
     hs.links[contact] = [cid]
     inst = FakeInstantly()
     send.run("test", settings, hs, inst, log=quiet)
     assert [c["name"] for c in inst.campaigns.values()][0] == "Diablo | " + send.month_label()
+    lead = next(iter(inst.leads.values()))[0]
+    assert lead["custom_variables"]["partner_type"] == "sugar free distributor"
 
 
 def test_one_campaign_per_month():

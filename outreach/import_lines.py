@@ -2,9 +2,11 @@
 
 Runs by itself when the outreach-mail-writing skill saves a file to mail/lines/. Each new file
 is checked again with the skill's strict check: a file that fails is rejected whole (nothing
-reaches HubSpot). For a file that passes, each contact whose status is still "Contact found"
-gets its subject line and personal line and moves to "Copy ready" (gate 2). Contacts that have
-moved on in the meantime (for example someone already wrote lines by hand) are left alone.
+reaches HubSpot). For a file that passes, each AUTO-OUTREACH contact whose Lead Status is still
+"New" gets its Outreach personal line and moves to "Copy ready", ready for a person to read it
+and set "Approved to send" (gate 2). Contacts that have moved on in the meantime, and any
+contact without the AUTO-OUTREACH tag, are left alone. (The subject line is fixed in the
+template, so any subject line in an older file is ignored.)
 
 Every file handled is recorded in mail/imported.txt so it is never imported twice, and the
 list of contacts still needing lines (mail/pending.json) is saved again afterwards.
@@ -23,6 +25,8 @@ from pathlib import Path
 from . import export_for_lines
 from .common import ROOT, PipelineError, check_target, now_iso
 from .hubspot_client import HubSpot, HubSpotError
+from .schema import LEAD_STATUS, PERSONAL_LINE
+from .stages import LeadStatus
 
 SKILL = ROOT / "skills" / "outreachMailWriting"
 LINES_DIR = ROOT / "mail" / "lines"
@@ -77,29 +81,26 @@ def import_file(path, hs, done_ids=None):
     if errors:
         shown = "; ".join(errors[:3]) + (f"; and {len(errors) - 3} more" if len(errors) > 3 else "")
         return f"REJECTED by the strict check, nothing added to HubSpot. {shown}"
+    statuses = LeadStatus(hs)
     ids = [str(l["contact_id"]) for l in data["lines"]]
-    current = {c["id"]: c["properties"] for c in hs.batch_read("contacts", ids, ["diablo_contact_status"])}
+    current = {str(c["id"]): c for c in hs.tagged_read("contacts", ids, [LEAD_STATUS])}
     updates, moved_on, missing = [], 0, 0
     for line in data["lines"]:
         cid = str(line["contact_id"])
         if cid not in current:
             missing += 1
-        elif (current[cid].get("diablo_contact_status") or "") != "contact_found":
+        elif statuses.of("contacts", current[cid]) != "found":
             moved_on += 1
         else:
-            updates.append((cid, {
-                "diablo_subject_line": line["subject_line"],
-                "diablo_personal_line": line["personal_line"],
-                "diablo_contact_status": "copy_ready",
-            }))
-    hs.batch_update("contacts", updates)
+            updates.append((cid, {PERSONAL_LINE: line["personal_line"], **statuses.props("contacts", "copy_ready")}))
+    hs.update_tagged("contacts", updates)
     if done_ids is not None:
         done_ids.update(cid for cid, _ in updates)
     result = f"{len(updates)} contacts now Copy ready"
     if moved_on:
-        result += f", {moved_on} skipped (no longer Contact found)"
+        result += f", {moved_on} skipped (Lead Status no longer New)"
     if missing:
-        result += f", {missing} skipped (not in HubSpot)"
+        result += f", {missing} skipped (not an AUTO-OUTREACH contact in HubSpot)"
     return result
 
 
@@ -136,8 +137,8 @@ def main(argv=None):
     if summary:
         with open(summary, "a", encoding="utf-8") as fh:
             fh.write("## Email lines import\n\n" + "\n".join(f"- {l}" for l in lines or ["Nothing to import."])
-                     + "\n\nNext: in HubSpot, check each Copy ready contact's subject and personal line, "
-                       "then change the status to Approved to send (gate 2).\n")
+                     + "\n\nNext: in HubSpot, read each Copy ready contact's Outreach personal line, "
+                       "then change their Lead Status to Approved to send (gate 2).\n")
     return code
 
 

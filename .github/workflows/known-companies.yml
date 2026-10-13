@@ -2,9 +2,12 @@ name: '2f - Timer/Manual - Refresh the "already in HubSpot" list so research ski
 
 # Pressed every 3 hours (2, 5, 8 and 11, AM and PM IST) by the outside timer, cron-job.org
 # (see docs/outside_timer.md), and can be started by hand.
-# Saves every company already in HubSpot to data/known_companies.csv, so the
-# morning research skips them. To use the live account, add a repository
-# variable PIPELINE_TARGET = live (Settings > Secrets and variables > Actions > Variables).
+# Keeps data/known_companies.csv, every company already in HubSpot, so research and the import
+# never add one again. Most runs only read the companies added or changed since the last run
+# (seconds); Sundays, the first run and a run after switching account read all of them (about
+# 2 minutes for the live account's 46,000). Read only: it never changes HubSpot. To use the live
+# account, add a repository variable PIPELINE_TARGET = live (Settings > Secrets and variables >
+# Actions > Variables).
 on:
   workflow_dispatch:
 
@@ -32,4 +35,4 @@ jobs:
         run: python -m outreach.known_companies --target "$TARGET" --skip-if-not-configured
       - name: Save the list
         run: |
-          bash .github/scripts/save_changes.sh "Nightly HubSpot company list" data/known_companies.csv
+          bash .github/scripts/save_changes.sh "HubSpot company list" data/known_companies.csv data/known_companies_state.json

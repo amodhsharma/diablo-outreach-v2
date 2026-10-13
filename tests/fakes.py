@@ -2,23 +2,41 @@
 
 import itertools
 
+from outreach.hubspot_client import TagGuard
+from outreach.schema import TAG, TAG_PROPERTY
 
-class FakeCRM:
-    """Implements the HubSpot client methods the jobs use, in memory."""
+# Lead Status choices as in the live account (value: label), plus the three the setup adds.
+LIVE_COMPANY_STATUS = {"New": "New", "Missing Info": "Missing Info", "Emailed": "Emailed",
+                       "In Progress": "In Progress", "Unqualified": "Unqualified",
+                       "Attempted to Contact": "Attempted to Contact", "Won": "Won",
+                       "Approved for outreach": "Approved for outreach"}
+LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": "Emailed",
+                       "IN_PROGRESS": "In Progress", "UNQUALIFIED": "Unqualified",
+                       "ATTEMPTED_TO_CONTACT": "Attempted to Contact", "WON": "WON",
+                       "COPY_READY": "Copy ready", "APPROVED_TO_SEND": "Approved to send"}
+
+
+class FakeCRM(TagGuard):
+    """Implements the HubSpot client methods the jobs use, in memory. The real TagGuard runs on
+    top of it, so the tests check the safety rules themselves."""
 
     def __init__(self, portal=999):
         self.portal = portal
         self.records = {"companies": {}, "contacts": {}}
         self.links = {}  # contact id -> [company id]
         self._ids = itertools.count(1000)
-        self.options = {}  # (object, property) -> {value: label}
+        self.options = {("companies", "hs_lead_status"): dict(LIVE_COMPANY_STATUS),
+                        ("contacts", "hs_lead_status"): dict(LIVE_CONTACT_STATUS)}
+        self.writes = []  # (action, object, ids) for every change, to check what was touched
 
     def portal_id(self):
         return self.portal
 
-    def add(self, object_type, **props):
+    def add(self, object_type, tagged=True, **props):
+        """Put a record straight in (as research or a person would). tagged=False makes it one
+        of the team's own records."""
         rid = str(next(self._ids))
-        self.records[object_type][rid] = dict(props)
+        self.records[object_type][rid] = dict(props, **({TAG_PROPERTY: TAG} if tagged else {}))
         return rid
 
     def _match(self, props, f):
@@ -28,11 +46,13 @@ class FakeCRM:
             return val not in (None, "")
         if op == "EQ":
             return str(val).lower() == str(f["value"]).lower()
+        if op == "GTE":
+            return val is not None and int(val) >= int(f["value"])
         if op == "IN":
             return val is not None and str(val).lower() in {v.lower() for v in f["values"]}
         raise AssertionError(op)
 
-    def search(self, object_type, filters, properties, limit=100, max_results=1000):
+    def search(self, object_type, filters, properties, limit=100, max_results=1000, sorts=None):
         out = []
         for rid, props in self.records[object_type].items():
             if all(self._match(props, f) for f in filters):
@@ -47,12 +67,8 @@ class FakeCRM:
     def option_labels(self, object_type, name):
         return dict(self.options.get((object_type, name), {}))
 
-    def ensure_option(self, object_type, name, label, value):
-        opts = self.options.setdefault((object_type, name), {})
-        if value in opts:
-            return False
-        opts[value] = label
-        return True
+    def list_all(self, object_type, properties):
+        return [{"id": rid, "properties": dict(p)} for rid, p in self.records[object_type].items()]
 
     def owner_id(self, email):
         return self.owners.get(email.lower())
@@ -66,18 +82,22 @@ class FakeCRM:
                     out.append({"id": rid, "properties": dict(props)})
         return out
 
-    def batch_create(self, object_type, records):
+    def _batch_create(self, object_type, records):
         if object_type == "companies":
             domains = {r["domain"] for r in records if r.get("domain")}
             existing = {p.get("domain") for p in self.records["companies"].values()}
             assert not (domains & existing), "company with this domain already exists"
-        return [{"id": self.add(object_type, **r), "properties": r} for r in records]
+        out = [{"id": self.add(object_type, tagged=False, **r), "properties": r} for r in records]
+        self.writes.append(("create", object_type, [o["id"] for o in out]))
+        return out
 
-    def batch_update(self, object_type, updates):
+    def _batch_update(self, object_type, updates):
+        self.writes.append(("update", object_type, [str(rid) for rid, _ in updates]))
         for rid, props in updates:
             self.records[object_type][str(rid)].update(props)
 
-    def associate_default(self, from_type, to_type, pairs):
+    def _associate_default(self, from_type, to_type, pairs):
+        self.writes.append(("link", from_type, [str(a) for a, _ in pairs]))
         for a, b in pairs:
             self.links.setdefault(str(a), []).append(str(b))
 

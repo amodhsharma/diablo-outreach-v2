@@ -75,3 +75,12 @@ def test_excluded_countries_are_never_researched(tmp_path, monkeypatch):
     rq.add(rows, "Paris, France", "retailers")  # others still fine
     pool = [{"location": "Ghent, Belgium"}, {"location": "Riga, Latvia"}, {"location": "Porto, Portugal"}]
     assert am.next_city([], pool) == "Porto, Portugal"
+
+
+def test_awaiting_review_counts_only_auto_outreach_companies():
+    from .fakes import FakeCRM
+    hs = FakeCRM()
+    hs.add("companies", name="A", hs_lead_status="New")
+    hs.add("companies", name="B", hs_lead_status="Approved for outreach")
+    hs.add("companies", tagged=False, name="Team", hs_lead_status="New")  # the team's own lead
+    assert am.awaiting_review_count("test", hs) == 1

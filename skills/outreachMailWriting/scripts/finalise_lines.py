@@ -49,7 +49,6 @@ def build(batch, draft):
         lines.append({
             "contact_id": cid,
             "company_name": names.get(cid, ""),
-            "subject_line": tidy(item.get("subject_line")),
             "personal_line": tidy(item.get("personal_line")),
         })
     return {

@@ -1,9 +1,18 @@
-"""Small HubSpot API client with retries. Only uses the private app token."""
+"""Small HubSpot API client with retries. Only uses the private app token.
+
+Safety (agreed 13 Oct 2026): the pipeline only ever changes companies and contacts whose Lead
+Source is AUTO-OUTREACH. Jobs never call HubSpot's write endpoints directly: they go through
+TagGuard below, whose create, update and associate methods check the tag on every record first
+and stop the whole job if any record lacks it. Reading untagged records is allowed (the
+duplicate checks must see every company), changing them is not.
+"""
 
 import os
 import time
 
 import requests
+
+from .schema import TAG, TAG_PROPERTY
 
 API = "https://api.hubapi.com"
 
@@ -12,7 +21,81 @@ class HubSpotError(RuntimeError):
     pass
 
 
-class HubSpot:
+class TagGuardError(HubSpotError):
+    """A job tried to change a record that does not carry the AUTO-OUTREACH tag."""
+
+
+def tagged(props):
+    return str((props or {}).get(TAG_PROPERTY) or "").strip() == TAG
+
+
+TAG_FILTER = {"propertyName": TAG_PROPERTY, "operator": "EQ", "value": TAG}
+
+
+class TagGuard:
+    """The only way jobs change HubSpot. Needs the raw methods search, batch_read,
+    _batch_create, _batch_update and _associate_default from the class it is mixed into."""
+
+    # ---- reading pipeline records ------------------------------------------
+
+    def tagged_search(self, object_type, filters, properties, max_results=1000):
+        """Search AUTO-OUTREACH records only: the tag is always one of the filters, and every
+        result is checked again before it is returned."""
+        props = sorted(set(properties) | {TAG_PROPERTY})
+        rows = self.search(object_type, list(filters) + [TAG_FILTER], props, max_results=max_results)
+        return [r for r in rows if tagged(r.get("properties"))]
+
+    def tagged_read(self, object_type, ids, properties, id_property=None):
+        """Read records by id (or email); records without the tag are left out."""
+        props = sorted(set(properties) | {TAG_PROPERTY})
+        rows = self.batch_read(object_type, ids, props, id_property=id_property) if ids else []
+        return [r for r in rows if tagged(r.get("properties"))]
+
+    def tagged_count(self, object_type, filters):
+        return self.count(object_type, list(filters) + [TAG_FILTER])
+
+    # ---- changing pipeline records -----------------------------------------
+
+    def _check_tags(self, object_type, ids, action):
+        ids = sorted({str(i) for i in ids})
+        if not ids:
+            return
+        found = {str(r["id"]): r.get("properties") for r in self.batch_read(object_type, ids, [TAG_PROPERTY])}
+        bad = [i for i in ids if not tagged(found.get(i))]
+        if bad:
+            raise TagGuardError(
+                f"SAFETY STOP: tried to {action} {len(bad)} {object_type} without Lead Source "
+                f"{TAG} (record IDs {', '.join(bad[:10])}). Nothing was saved. The pipeline only "
+                f"changes records it created itself.")
+
+    def create_tagged(self, object_type, records):
+        """Create records, always with Lead Source = AUTO-OUTREACH."""
+        records = [dict(r, **{TAG_PROPERTY: TAG}) for r in records]
+        return self._batch_create(object_type, records) if records else []
+
+    def update_tagged(self, object_type, updates):
+        """updates: list of (record_id, properties). Every record is read again first; if any
+        lacks the tag, nothing is saved and the job stops."""
+        updates = [(str(i), p) for i, p in updates if p]
+        if not updates:
+            return
+        for _, p in updates:
+            if TAG_PROPERTY in p:
+                raise TagGuardError(f"SAFETY STOP: the pipeline never changes {TAG_PROPERTY}.")
+        self._check_tags(object_type, [i for i, _ in updates], "change")
+        self._batch_update(object_type, updates)
+
+    def associate_tagged(self, from_type, to_type, pairs):
+        """Link records; both sides must carry the tag."""
+        pairs = [(str(a), str(b)) for a, b in pairs]
+        if not pairs:
+            return
+        self._check_tags(from_type, [a for a, _ in pairs], "link")
+        self._check_tags(to_type, [b for _, b in pairs], "link")
+        self._associate_default(from_type, to_type, pairs)
+
+
+class HubSpot(TagGuard):
     def __init__(self, token=None, session=None):
         self.token = token or os.environ.get("HUBSPOT_TOKEN")
         if not self.token:
@@ -57,8 +140,9 @@ class HubSpot:
 
     # ---- CRM records -------------------------------------------------------
 
-    def search(self, object_type, filters, properties, limit=100, max_results=1000):
-        """Search records. filters: list of HubSpot filter dicts (ANDed)."""
+    def search(self, object_type, filters, properties, limit=100, max_results=1000, sorts=None):
+        """Search records. filters: list of HubSpot filter dicts (ANDed). HubSpot's search
+        never returns more than 10,000 records; use list_all for everything."""
         results, after = [], None
         while len(results) < max_results:
             body = {
@@ -66,6 +150,8 @@ class HubSpot:
                 "properties": properties,
                 "limit": min(limit, 100, max_results - len(results)),
             }
+            if sorts:
+                body["sorts"] = sorts
             if after:
                 body["after"] = after
             data = self.request("POST", f"/crm/v3/objects/{object_type}/search", json=body)
@@ -100,7 +186,21 @@ class HubSpot:
             out.extend(data.get("results", []))
         return out
 
-    def batch_create(self, object_type, records):
+    def list_all(self, object_type, properties):
+        """Every record of a type, with no 10,000 limit (HubSpot's plain list, 100 at a time)."""
+        out, after = [], None
+        while True:
+            params = {"limit": 100, "properties": ",".join(properties), "archived": "false"}
+            if after:
+                params["after"] = after
+            data = self.request("GET", f"/crm/v3/objects/{object_type}", params=params)
+            out.extend(data.get("results", []))
+            after = (data.get("paging") or {}).get("next", {}).get("after")
+            if not after:
+                return out
+            time.sleep(0.11)  # stay under 10 requests a second
+
+    def _batch_create(self, object_type, records):
         """records: list of property dicts. Returns created records in order."""
         out = []
         for chunk in _chunks(records, 100):
@@ -109,7 +209,7 @@ class HubSpot:
             out.extend(data.get("results", []))
         return out
 
-    def batch_update(self, object_type, updates):
+    def _batch_update(self, object_type, updates):
         """updates: list of (record_id, properties)."""
         for chunk in _chunks(updates, 100):
             body = {"inputs": [{"id": str(i), "properties": p} for i, p in chunk]}
@@ -120,17 +220,7 @@ class HubSpot:
         prop = self.request("GET", f"/crm/v3/properties/{object_type}/{name}")
         return {o["value"]: o["label"] for o in prop.get("options", [])}
 
-    def ensure_option(self, object_type, name, label, value):
-        """Add a dropdown option if it is missing. Returns True when it was added."""
-        prop = self.request("GET", f"/crm/v3/properties/{object_type}/{name}")
-        options = prop.get("options", [])
-        if any(o["value"] == value for o in options):
-            return False
-        options = options + [{"label": label, "value": value, "displayOrder": len(options)}]
-        self.request("PATCH", f"/crm/v3/properties/{object_type}/{name}", json={"options": options})
-        return True
-
-    def associate_default(self, from_type, to_type, pairs):
+    def _associate_default(self, from_type, to_type, pairs):
         """pairs: list of (from_id, to_id). Creates HubSpot's default association."""
         for chunk in _chunks(pairs, 100):
             body = {"inputs": [{"from": {"id": str(a)}, "to": {"id": str(b)}} for a, b in chunk]}

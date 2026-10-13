@@ -151,12 +151,14 @@ def test_skill_scripts_end_to_end(repo):
     assert "Known Foods Pvt Ltd (knownfoods.in)" in prompt  # same country
     assert "Lead Elsewhere" in prompt  # in the pipeline anywhere
     assert "Other Kenya" not in prompt  # another country, not in the pipeline
+    assert "- otherkenya.com" in (repo / "work" / "exclusions.txt").read_text()  # but the checks know it
     assert "storefront page is not a domain" in prompt
     assert (repo / "research" / "queue.csv").read_text().count("Waiting") == 3  # the skill never edits it
 
     work = repo / "work"
     (work / "channel_1.json").write_text(json.dumps(part(
-        [company(), company(name="Beta", domain="beta.in", rank=2, fit_rationale="Strong — pharmacy reach.")])))
+        [company(), company(name="Beta", domain="beta.in", rank=2, fit_rationale="Strong — pharmacy reach."),
+         company(name="Kenya Cousin", domain="otherkenya.com", rank=3)])))  # already in HubSpot: dropped
     (work / "channel_2.json").write_text(json.dumps(part(
         [company(name="Alpha Foods", domain="https://www.alphafoods.in/shop"),
          company(name="Known Foods", domain="knownfoods.in", rank=2),
@@ -208,13 +210,58 @@ def test_nothing_to_do_and_on_hold(repo):
 # ---- the nightly list and the import ---------------------------------------
 
 def test_known_companies(tmp_path):
+    import datetime as dt
     hs = FakeCRM()
-    hs.add("companies", name="In Pipeline", domain="inpipe.in", country="India", diablo_outreach_status="approved")
-    hs.add("companies", name="Customer", country="Kenya", lifecyclestage="customer")
-    hs.add("companies", name="Plain", domain="plain.ae", country="United Arab Emirates")
-    rows = known_companies.run("test", hs, tmp_path / "k.csv", log=quiet)
-    assert {(r["name"], r["why"]) for r in rows} == {("In Pipeline", "pipeline"), ("Customer", "customer"),
-                                                     ("Plain", "other")}
+    hs.add("companies", name="In Pipeline", domain="inpipe.in", country="India")  # AUTO-OUTREACH
+    hs.add("companies", tagged=False, name="Customer", country="Kenya", lifecyclestage="customer")
+    plain = hs.add("companies", tagged=False, name="Plain", website="https://www.plain.ae/", country="United Arab Emirates")
+    paths = dict(path=tmp_path / "k.csv", state_path=tmp_path / "state.json", log=quiet)
+    tuesday = dt.datetime(2026, 10, 13, 9, 0, tzinfo=dt.timezone.utc)
+    for rec in hs.records["companies"].values():
+        rec["hs_lastmodifieddate"] = str(int((tuesday - dt.timedelta(days=30)).timestamp() * 1000))
+    rows = known_companies.run("test", hs, now=tuesday, **paths)  # first run: everything
+    assert {(r["name"], r["why"]) for r in rows.values()} == {("In Pipeline", "auto-outreach"),
+                                                              ("Customer", "customer"), ("Plain", "other")}
+    assert rows[plain]["domain"] == "plain.ae"  # from the website when Domain is empty
+    state = json.loads((tmp_path / "state.json").read_text())
+    assert state["last_full"] == "2026-10-13" and state["portal"] == "999"
+
+    # Three hours later only the changes are read: a new company and a renamed one.
+    later = tuesday + dt.timedelta(hours=3)
+    new = hs.add("companies", tagged=False, name="Fresh Ltd", domain="fresh.co.uk", country="United Kingdom",
+                 hs_lastmodifieddate=str(int((later - dt.timedelta(hours=1)).timestamp() * 1000)))
+    hs.records["companies"][plain].update(name="Plain Trading",
+                                          hs_lastmodifieddate=str(int(later.timestamp() * 1000)))
+    del hs.records["companies"][next(iter(hs.records["companies"]))]  # deleted: stays until a full read
+    called = []
+    real = hs.list_all
+    hs.list_all = lambda *a: called.append(1) or real(*a)
+    rows = known_companies.run("test", hs, now=later, **paths)
+    assert not called and len(rows) == 4 and rows[new]["name"] == "Fresh Ltd"
+    assert rows[plain]["name"] == "Plain Trading"
+
+    # Sunday (India time): a full read, which also drops the deleted company.
+    sunday = dt.datetime(2026, 10, 18, 3, 0, tzinfo=dt.timezone.utc)
+    rows = known_companies.run("test", hs, now=sunday, **paths)
+    assert called and len(rows) == 3
+    # A different account (e.g. moving from test to live): a full read straight away.
+    called.clear()
+    hs.portal = 1234
+    known_companies.run("test", hs, now=sunday + dt.timedelta(hours=3), **paths)
+    assert called
+
+
+def test_known_company_matching():
+    idx = known_companies.index([
+        {"name": "WM MORRISON SUPERMARKETS P L C", "domain": "", "country": "United Kingdom"},
+        {"name": "Kilargo Sp. z o.o.", "domain": "kilargo.pl", "country": "Poland"},
+        {"name": "Metro", "domain": "", "country": "Germany"},
+    ])
+    assert known_companies.matches(idx, "", "Wm Morrison Supermarkets PLC", "United Kingdom")
+    assert known_companies.matches(idx, "https://www.kilargo.pl/en", "Something else", "India")
+    assert known_companies.matches(idx, "", "Kilargo", "Poland")
+    assert not known_companies.matches(idx, "", "Metro", "United Kingdom")  # names only within a country
+    assert not known_companies.matches(idx, "newco.com", "New Co", "Germany")
 
 
 def final_file(job="J0001"):
@@ -237,6 +284,7 @@ def import_env(tmp_path, monkeypatch):
     monkeypatch.setattr(import_research, "ROOT", tmp_path)
     monkeypatch.setattr(rq, "QUEUE_FILE", tmp_path / "research" / "queue.csv")
     monkeypatch.setattr(common, "NOTES_FILE", tmp_path / "company_notes.json")
+    monkeypatch.setattr(known_companies, "KNOWN_FILE", tmp_path / "known_companies.csv")
     rows = []
     rq.add(rows, "Mumbai, India", "distributors, retailers", wanted="2", on="2026-10-08")
     rq.save(rows)
@@ -250,13 +298,15 @@ def test_import_adds_companies_and_marks_the_queue(import_env):
     path = folder / "J0001_mumbai-india_distributors-retailers.json"
     path.write_text(json.dumps(final_file()))
     hs = FakeCRM()
-    hs.add("companies", name="Old", domain="alphafoods.in")  # already in HubSpot
+    hs.add("companies", tagged=False, name="Old", domain="alphafoods.in")  # already in HubSpot
     import_research.run("test", hs, log=quiet)
     names = {p["name"]: p for p in hs.records["companies"].values()}
     assert set(names) == {"Old", "No Site Traders"}
     added = names["No Site Traders"]
-    assert added["diablo_outreach_status"] == "no_domain" and added["diablo_channel_category"] == "distributors"
-    assert added["country"] == "India" and added["diablo_tier"] == "tier_1" and "city" not in added
+    assert added["hs_lead_status"] == "Missing Info" and added["industry_type"] == "Distributor Wholesaler"
+    assert added["country"] == "India" and added["city"] == "Mumbai" and added["hs_ideal_customer_profile"] == "tier_1"
+    assert added["lead_source"] == "AUTO-OUTREACH" and not any(k.startswith("diablo_") for k in added)
+    assert names["Old"] == {"name": "Old", "domain": "alphafoods.in"}  # the team's record: untouched
     assert hs.records["companies"] and common.load_company_notes() == {}  # no domain: no email notes
     rows = rq.load()
     # The failed Channel goes back to Waiting for one automatic retry.
@@ -349,3 +399,15 @@ def test_what_they_do_well_rules():
     missing = company()
     del missing["what_they_do_well"]
     assert "missing field(s): what_they_do_well" in check_output.check_part(part([missing]))[0]
+
+
+def test_import_skips_companies_on_the_full_list_and_by_website(import_env):
+    root, folder = import_env
+    (root / "known_companies.csv").write_text(
+        "id,name,domain,country,why\n7,No Site Traders Pvt. Ltd.,,India,other\n", encoding="utf-8")
+    (folder / "J0001_mumbai-india_z.json").write_text(json.dumps(final_file()))
+    hs = FakeCRM()
+    hs.add("companies", tagged=False, name="Alpha Foods India", website="https://www.alphafoods.in")
+    lines = import_research.run("test", hs, log=quiet)
+    assert "0 companies added to HubSpot" in lines[0] and "2 already in HubSpot" in lines[0]
+    assert len(hs.records["companies"]) == 1

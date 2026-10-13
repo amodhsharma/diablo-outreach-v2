@@ -83,6 +83,58 @@ def country_of(market):
     return str(market).split(",")[-1].strip()
 
 
+def split_location(location):
+    """(city, country) for a research Location: "Plymouth, United Kingdom" gives
+    ("Plymouth", "United Kingdom"); "India" gives ("", "India")."""
+    parts = [p.strip() for p in str(location or "").split(",") if p.strip()]
+    if not parts:
+        return "", ""
+    return ", ".join(parts[:-1]), parts[-1]
+
+
+def market_of(props):
+    """The Location again from HubSpot's own City and Country: "Plymouth, United Kingdom"."""
+    props = props.get("properties", props)
+    return ", ".join(x for x in ((props.get("city") or "").strip(), (props.get("country") or "").strip()) if x)
+
+
+# Research Channel -> the live account's Industry Type (first match wins, so "Health food
+# distributor" is a distributor and "Online retailers" an online retailer).
+INDUSTRY_RULES = (
+    ("Distributor Wholesaler", ("distribut", "wholesal", "import", "cash and carry", "cash & carry", "broker")),
+    ("Online Retailer", ("online", "marketplace", "e-commerce", "ecommerce", "internet")),
+    ("Foodservice Catering", ("foodservice", "food service", "catering", "café", "cafe", "hotel", "airline",
+                              "restaurant", "hospitality", "vending")),
+    ("Convenience Impulse", ("convenience", "impulse", "forecourt", "petrol", "news", "kiosk")),
+    ("Specialist retail", ("pharma", "chemist", "drugstore", "health", "specialist", "organic", "gym",
+                           "sport", "diabetic", "wellness", "nutrition")),
+    ("Grocery Retail", ("supermarket", "grocer", "hypermarket", "retail")),
+)
+
+# Industry Type -> the partner word used in the email when the research Channel is unknown.
+INDUSTRY_PARTNER = {"Distributor Wholesaler": "distributor", "Online Retailer": "online seller",
+                    "Grocery Retail": "retailer", "Specialist retail": "retailer",
+                    "Convenience Impulse": "retailer", "Foodservice Catering": "foodservice partner",
+                    "Other": "partner"}
+
+
+def industry_type(channel):
+    """Industry Type value for a research Channel such as "distributors" or "Marketplace sellers"."""
+    text = str(channel or "").lower()
+    for value, words in INDUSTRY_RULES:
+        if any(w in text for w in words):
+            return value
+    return "Other"
+
+
+def channel_of(props, notes=None):
+    """The research Channel of a company (from data/company_notes.json), else its Industry Type."""
+    props = props.get("properties", props)
+    notes = load_company_notes() if notes is None else notes
+    note = notes.get((props.get("domain") or "").lower()) or {}
+    return note.get("category") or props.get("industry_type") or ""
+
+
 def market_matches(rule_market, market):
     """True if a settings entry such as "India" or "Mumbai" applies to a market such as
     "Mumbai, India". Matches whole comma-separated parts, ignoring case."""

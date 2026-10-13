@@ -9,8 +9,8 @@ A city is added only when all of these hold (settings: auto_markets in config/se
   - the automatic list is switched on;
   - nothing is Waiting in the research queue (markets added by hand with 2a always come first);
   - fewer than `max_per_day` automatic cities were added today;
-  - fewer than `pause_when_awaiting_review` companies are waiting for review in HubSpot, so the
-    team is never buried in companies nobody has looked at.
+  - fewer than `pause_when_awaiting_review` AUTO-OUTREACH companies are waiting for review in
+    HubSpot (Lead Status New), so the team is never buried in companies nobody has looked at.
 
 Usage:
     python -m outreach.auto_markets --target test
@@ -74,13 +74,14 @@ def top_up(rows, pool, cfg, awaiting_review, today=None):
     return job_id, f"Added {job_id}: {location} ({', '.join(r['channel'] for r in new)})."
 
 
-def awaiting_review_count(target):
+def awaiting_review_count(target, hs=None):
+    """AUTO-OUTREACH companies still waiting for gate 1 (Lead Status New)."""
     from .common import check_target
     from .hubspot_client import HubSpot
-    hs = HubSpot()
+    from .stages import LeadStatus
+    hs = hs or HubSpot()
     check_target(hs, target)
-    return hs.count("companies", [{"propertyName": "diablo_outreach_status", "operator": "EQ",
-                                   "value": "awaiting_review"}])
+    return hs.tagged_count("companies", [LeadStatus(hs).filter("companies", "found")])
 
 
 def main(argv=None):

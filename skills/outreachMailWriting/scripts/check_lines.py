@@ -16,7 +16,10 @@ from pathlib import Path
 
 FORMAT = "outreachMailWriting v1"
 FILE_KEYS = ["format", "run_date", "run_type", "generated_from", "lines"]
-LINE_KEYS = ["contact_id", "company_name", "subject_line", "personal_line"]
+LINE_KEYS = ["contact_id", "company_name", "personal_line"]
+# Older files also carried a subject line; it is still checked if present but no longer used
+# (the subject is fixed in the template, agreed 13 Oct 2026).
+OPTIONAL_KEYS = ["subject_line"]
 
 SUBJECT_WORDS = (3, 7)
 PERSONAL_MAX_WORDS = 50
@@ -53,7 +56,7 @@ def check_line(errors, line, pending_ids=None):
         errors.append(f"{where}: must be an object")
         return
     missing = [k for k in LINE_KEYS if k not in line]
-    extra = [k for k in line if k not in LINE_KEYS]
+    extra = [k for k in line if k not in LINE_KEYS + OPTIONAL_KEYS]
     if missing or extra:
         errors.append(f"{where}: fields must be exactly {', '.join(LINE_KEYS)}")
         return
@@ -62,12 +65,12 @@ def check_line(errors, line, pending_ids=None):
     if pending_ids is not None and cid not in pending_ids:
         errors.append(f"{where}: is not in the list of contacts that need lines")
     company = (line["company_name"] or "").strip()
-    subject, personal = line["subject_line"], line["personal_line"]
+    subject, personal = line.get("subject_line") or "", line["personal_line"]
     if not isinstance(subject, str) or not isinstance(personal, str):
-        errors.append(f"{where}: subject_line and personal_line must be text")
+        errors.append(f"{where}: personal_line must be text")
         return
     n = len(_words(subject))
-    if not SUBJECT_WORDS[0] <= n <= SUBJECT_WORDS[1]:
+    if subject and not SUBJECT_WORDS[0] <= n <= SUBJECT_WORDS[1]:
         errors.append(f"{where}: subject line must be {SUBJECT_WORDS[0]} to {SUBJECT_WORDS[1]} words (found {n})")
     if "?" in subject or "!" in subject:
         errors.append(f"{where}: no question marks or exclamation marks in the subject line")

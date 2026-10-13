@@ -3,7 +3,13 @@
 # Usage: save_changes.sh "commit message" file [file ...]
 set -euo pipefail
 message="$1"; shift
-if [ -z "$(git status --porcelain -- "$@")" ]; then
+# Leave out files the job did not create this time (e.g. no Apollo file yet).
+files=()
+for f in "$@"; do
+  if [ -e "$f" ] || git ls-files --error-unmatch -- "$f" >/dev/null 2>&1; then files+=("$f"); fi
+done
+set -- "${files[@]}"
+if [ "$#" -eq 0 ] || [ -z "$(git status --porcelain -- "$@")" ]; then
   echo "Nothing changed, nothing to save."
   exit 0
 fi

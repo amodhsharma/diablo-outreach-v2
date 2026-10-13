@@ -4,10 +4,10 @@ Rules live in config/settings.yaml under `assignment`. For each company the most
 specific matching rule wins (a rule naming the category beats one that does not; a
 longer market such as "Mumbai, India" beats "India"). Within a rule, the company goes
 to the salesperson who currently owns the fewest pipeline companies in that market,
-so work is shared evenly. Companies that already have an owner keep it.
+so work is shared evenly (counted per country, AUTO-OUTREACH companies only). Companies that already have an owner keep it.
 """
 
-from .common import PipelineError, market_matches
+from .common import PipelineError, country_of, market_matches
 
 
 class Assigner:
@@ -56,11 +56,12 @@ class Assigner:
         return [e.strip() for e in (owners or []) if e and e.strip()]
 
     def _current_load(self, owner_id, market):
+        """How many AUTO-OUTREACH companies this person owns in the market's country."""
         key = (owner_id, market)
         if key not in self._load:
-            self._load[key] = self.hs.count("companies", [
+            self._load[key] = self.hs.tagged_count("companies", [
                 {"propertyName": "hubspot_owner_id", "operator": "EQ", "value": owner_id},
-                {"propertyName": "diablo_market", "operator": "EQ", "value": market},
+                {"propertyName": "country", "operator": "EQ", "value": country_of(market)},
             ])
         return self._load[key]
 

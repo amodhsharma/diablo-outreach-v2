@@ -10,7 +10,7 @@ on:
         options: [test, live]
         default: test
       dry_run:
-        description: "Dry run (show the plan, change nothing)"
+        description: "Dry run (read the account and list what would be added, change nothing)"
         type: boolean
         default: true
 

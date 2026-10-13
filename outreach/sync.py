@@ -1,116 +1,100 @@
-"""Job 5: copy Instantly lead statuses back to HubSpot. Runs every 3 hours.
+"""Job 5: copy Instantly results back to HubSpot's Lead Status. Runs every 3 hours.
 
-Statuses only move forward (Sent never goes back to Queued, Interested never back to
-Replied). An opt-out also stops all outreach to that company.
+Only AUTO-OUTREACH companies and contacts are ever changed (hubspot_client.TagGuard); an
+Instantly lead whose HubSpot contact lacks the tag is ignored. Statuses only move forward
+(Attempted to Contact, then In Progress, then Unqualified) and a Lead Status set by a person
+(for example Emailed or Won) is never changed.
+
+    Instantly                          Contact               Company
+    replied or marked interested       In Progress           In Progress
+    marked not interested              Unqualified           Unqualified
+    unsubscribed (opted out)           Unqualified           Unqualified (nobody else is emailed)
+    bounced                            Unqualified           unchanged (the others carry on)
 
 It then moves companies on in turn (see next_in_line.py): one email per company every 3 days,
 Person 1 to 4 first, then back to Person 1 for a reminder in their own thread, for 3 rounds.
 First emails: the next approved contact is added to the company's campaign. Later emails: sent
 here as a reply in the person's thread (needs INSTANTLY_EMAILS_KEY). A company that gets no
-reply after the last round is marked "No reply".
+reply after the last round becomes Unqualified.
 Usage:
     python -m outreach.sync --target test
 """
 
 import argparse
+import html as html_lib
 import os
 import sys
 
-from .common import PipelineError, check_target, load_settings, now_iso, run_dir, write_json
+from .common import PipelineError, check_target, load_company_notes, load_settings, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
-import datetime as dt
-import html as html_lib
-
-from .next_in_line import NOT_YET_APPROVED, contacts_by_company, decide, last_campaign, lead_for, parse_time
-
-# Higher number wins.
-RANK = {
-    "": 0, "contact_found": 0, "copy_ready": 0, "approved_to_send": 0,
-    "queued": 1, "sent": 2, "replied": 3, "not_interested": 4, "interested": 4,
-    "bounced": 5, "opted_out": 6,
-}
-COMPANY_RANK = {"in_outreach": 1, "replied": 2, "not_interested": 3, "interested": 3, "suppressed": 9}
+from .next_in_line import (
+    COMPANY_PROPS, annotate, contacts_by_company, decide, instantly_view, last_campaign, lead_for, parse_time,
+)
+from .schema import LEAD_STATUS, PERSONAL_LINE
+from .stages import LeadStatus, forward
 
 
-def lead_status(lead):
-    """Map an Instantly lead to our contact status and a short event name."""
+def lead_result(lead):
+    """(contact stage, company stage or None, short event) for an Instantly lead."""
     status = lead.get("status")
     interest = lead.get("lt_interest_status")
     if status == -2:
-        return "opted_out", "unsubscribed"
+        return "closed", "closed", "unsubscribed"
     if status == -1:
-        return "bounced", "bounced"
+        return "closed", None, "bounced"
     if interest in (1, 2, 3, 4):
-        return "interested", "marked_interested"
+        return "replied", "replied", "marked interested"
     if interest in (-1, -2, -3):
-        return "not_interested", "marked_not_interested"
+        return "closed", "closed", "marked not interested"
     if (lead.get("email_reply_count") or 0) > 0:
-        return "replied", "reply_received"
-    if lead.get("timestamp_last_contact"):
-        return "sent", "email_sent"
-    return "queued", "queued"
+        return "replied", "replied", "replied"
+    return "in_outreach", None, "emailed" if lead.get("timestamp_last_contact") else "queued"
 
 
 def run(target, settings, hs, instantly, log=print, emails_api=None):
     check_target(hs, target)
-    prefix = settings["sync"]["campaign_prefix"]
-    campaigns = [c for c in instantly.list_campaigns() if (c.get("name") or "").startswith(prefix)]
-    leads = []
-    for c in campaigns:
-        for lead in instantly.list_leads(c["id"]):
-            lead["_campaign_id"] = c["id"]
-            leads.append(lead)
-    log(f"{len(campaigns)} campaigns, {len(leads)} leads in Instantly")
+    statuses = LeadStatus(hs)
+    leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
+    log(f"{len(leads)} leads in the Diablo campaigns in Instantly")
     if not leads:
         return {"updated": 0}
 
-    by_email = {l["email"].lower(): l for l in leads if l.get("email")}
-    rows = hs.batch_read("contacts", list(by_email), ["email", "diablo_contact_status"], id_property="email")
+    # Only AUTO-OUTREACH contacts come back from tagged_read; any other email is ignored.
+    rows = hs.tagged_read("contacts", list(leads), ["email", LEAD_STATUS], id_property="email")
     contact_updates, changed = [], []
     for r in rows:
         p = r.get("properties", {})
-        lead = by_email.get((p.get("email") or "").lower())
+        lead = leads.get((p.get("email") or "").lower())
         if not lead:
             continue
-        new, event = lead_status(lead)
-        old = p.get("diablo_contact_status") or ""
-        if RANK.get(new, 0) <= RANK.get(old, 0):
+        new, company_stage, event = lead_result(lead)
+        old = statuses.of("contacts", r)
+        if not forward(old, new):
             continue
-        when = lead.get("timestamp_last_reply") or lead.get("timestamp_last_contact") or now_iso()
-        contact_updates.append((r["id"], {
-            "diablo_contact_status": new,
-            "diablo_last_event": event,
-            "diablo_last_event_at": when,
-            "diablo_instantly_lead_id": lead.get("id") or "",
-        }))
-        changed.append({"contact_id": r["id"], "email": p.get("email"), "from": old, "to": new})
-    hs.batch_update("contacts", contact_updates)
+        contact_updates.append((r["id"], statuses.props("contacts", new)))
+        changed.append({"contact_id": r["id"], "from": old, "to": new, "event": event,
+                        "company_to": company_stage})
+    hs.update_tagged("contacts", contact_updates)
 
-    # Roll contact changes up to their companies.
+    # Roll replies and opt-outs up to their companies.
     company_updates = {}
-    if changed:
-        links = hs.associated_ids("contacts", "companies", [c["contact_id"] for c in changed])
+    ups = [c for c in changed if c["company_to"]]
+    if ups:
+        links = hs.associated_ids("contacts", "companies", [c["contact_id"] for c in ups])
         targets = {}
-        for ch in changed:
+        for ch in ups:
             for company_id in links.get(ch["contact_id"], [])[:1]:
-                if ch["to"] == "opted_out":
-                    targets[company_id] = {"diablo_outreach_status": "suppressed",
-                                           "diablo_suppress_reason": "opted_out"}
-                elif ch["to"] in ("replied", "interested", "not_interested"):
-                    cur = targets.get(company_id, {}).get("diablo_outreach_status", "")
-                    if COMPANY_RANK.get(ch["to"], 0) > COMPANY_RANK.get(cur, 0):
-                        targets[company_id] = {"diablo_outreach_status": ch["to"]}
-        if targets:
-            current = {c["id"]: c["properties"] for c in hs.batch_read(
-                "companies", list(targets), ["diablo_outreach_status"])}
-            for company_id, props in targets.items():
-                cur = (current.get(company_id) or {}).get("diablo_outreach_status") or ""
-                if COMPANY_RANK.get(props["diablo_outreach_status"], 0) > COMPANY_RANK.get(cur, 0):
-                    company_updates[company_id] = props
-            hs.batch_update("companies", list(company_updates.items()))
+                cur = targets.get(company_id)
+                if cur is None or forward(cur, ch["company_to"]):
+                    targets[company_id] = ch["company_to"]
+        current = {c["id"]: c for c in hs.tagged_read("companies", list(targets), [LEAD_STATUS])}
+        for company_id, stage in targets.items():
+            if company_id in current and forward(statuses.of("companies", current[company_id]), stage):
+                company_updates[company_id] = statuses.props("companies", stage)
+        hs.update_tagged("companies", list(company_updates.items()))
 
-    moved = advance(hs, instantly, settings, log, emails_api=emails_api)
+    moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads)
     out_dir = run_dir("sync")
     write_json(out_dir / "changes.json", {"contacts": changed, "companies": company_updates,
                                           "next_in_line": moved})
@@ -122,14 +106,14 @@ def _sent_time(email):
     return parse_time(email.get("timestamp_email") or email.get("timestamp_created"))
 
 
-def follow_up_email(round_no, person, company, settings):
+def follow_up_email(round_no, person, company, settings, notes=None):
     """(html, text) of a later-round email for one person, filled in."""
     from . import send
     rot = settings["send"].get("rotation") or {}
     paths = rot.get("follow_up_templates") or ["templates/follow_up.json"]
     path = paths[min(round_no - 2, len(paths) - 1)]
     _, body = send._template(path, settings["send"])
-    lead = lead_for(person, company, company.get("diablo_market") or "Unknown")
+    lead = lead_for(person, company, notes)
     values = {"firstName": lead.get("first_name") or "", "lastName": lead.get("last_name") or "",
               "companyName": lead.get("company_name") or "", **lead["custom_variables"]}
     html = send.html_paragraphs(body)
@@ -138,41 +122,38 @@ def follow_up_email(round_no, person, company, settings):
     return html, send.render(html, {})
 
 
-def advance(hs, instantly, settings, log=print, now=None, emails_api=None):
-    """Move each company in outreach on to its next email when it is due."""
+def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statuses=None, leads=None):
+    """Move each AUTO-OUTREACH company in outreach on to its next email when it is due."""
+    statuses = statuses or LeadStatus(hs)
+    if leads is None:
+        leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
     gap = int(settings["send"].get("next_contact_after_days", 3))
     rot = settings["send"].get("rotation") or {}
     rounds, min_same = int(rot.get("rounds", 1)), int(rot.get("min_days_same_person", 7))
-    companies = hs.search(
-        "companies", [{"propertyName": "diablo_outreach_status", "operator": "EQ", "value": "in_outreach"}],
-        ["name", "domain", "diablo_market", "diablo_channel_category", "diablo_outreach_status",
-         "diablo_suppress_reason"],
-        max_results=5000)
+    companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
+                                 COMPANY_PROPS, max_results=5000)
     if not companies:
         return {"next_contacts_added": 0, "follow_ups_sent": 0, "no_reply": 0}
     everyone = contacts_by_company(hs, [c["id"] for c in companies])
+    notes = load_company_notes()
     added, sent, no_reply, need_key, contact_updates, company_updates = 0, 0, 0, 0, [], []
     for company in companies:
         props = company.get("properties", {})
-        if props.get("diablo_suppress_reason"):
-            continue
-        contacts = everyone.get(company["id"]) or []
-        statuses = [c["properties"].get("diablo_contact_status") or "" for c in contacts]
-        later_rounds = (rounds > 1 and "sent" in statuses and "queued" not in statuses
-                        and not any(s in NOT_YET_APPROVED or s == "approved_to_send" for s in statuses))
+        contacts = annotate(everyone.get(company["id"]) or [], statuses, leads)
+        states = [c["state"] for c in contacts]
+        later_rounds = (rounds > 1 and "sent" in states and "queued" not in states
+                        and not any(s in ("pending", "approved") for s in states))
         touches, history = None, {}
         if later_rounds and emails_api is not None:
             touches = {}
             for c in contacts:
-                if (c["properties"].get("diablo_contact_status") or "") == "sent":
+                if c["state"] == "sent":
                     history[c["id"]] = emails_api.sent_emails(c["properties"].get("email") or "")
                     touches[c["id"]] = [t for t in (_sent_time(e) for e in history[c["id"]]) if t]
-        due, why = decide(contacts, props.get("diablo_outreach_status"), gap, now,
+        due, why = decide(contacts, statuses.of("companies", company), gap, now,
                           touches=touches, rounds=rounds, min_same_days=min_same)
         if why == "no_reply":
-            if not company_updates and hs.ensure_option("companies", "diablo_outreach_status", "No reply", "no_reply"):
-                log("Added 'No reply' to the Outreach company status dropdown")
-            company_updates.append((company["id"], {"diablo_outreach_status": "no_reply"}))
+            company_updates.append((company["id"], statuses.props("companies", "closed")))
             no_reply += 1
             continue
         if why == "waiting_for_emails_key":
@@ -184,34 +165,31 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None):
                 log(f"{props.get('name')}: could not find the earlier email to reply to; will try again next run")
                 continue
             round_no = len(past) + 1
-            html, text = follow_up_email(round_no, due, props, settings)
+            html, text = follow_up_email(round_no, due, props, settings, notes)
             emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
-            contact_updates.append((due["id"], {"diablo_last_event": f"email_{round_no}_sent",
-                                                "diablo_last_event_at": (now or dt.datetime.now(dt.timezone.utc)).isoformat()}))
             sent += 1
             log(f"{props.get('name')}: round {round_no} email sent to {due['properties'].get('jobtitle') or 'the contact'}, "
                 "as a reply in their thread")
             continue
         campaign = last_campaign(contacts)
-        if not due or why != "next" or not campaign or not due["properties"].get("diablo_personal_line"):
+        if not due or why != "next" or not campaign or not due["properties"].get(PERSONAL_LINE):
             continue
-        lead = lead_for(due, props, props.get("diablo_market") or "Unknown")
+        lead = lead_for(due, props, notes)
         results = instantly.add_leads(campaign, [lead])
         if sum(r.get("leads_uploaded") or 0 for r in results):
-            contact_updates.append((due["id"], {"diablo_contact_status": "queued",
-                                                "diablo_instantly_campaign_id": campaign}))
+            contact_updates.append((due["id"], statuses.props("contacts", "in_outreach")))
             added += 1
             log(f"{props.get('name')}: no reply yet, next in line is {due['properties'].get('jobtitle') or 'the next contact'}")
         else:
             log(f"{props.get('name')}: {lead['email']} is already in Instantly; not added again")
-    hs.batch_update("contacts", contact_updates)
-    hs.batch_update("companies", company_updates)
+    hs.update_tagged("contacts", contact_updates)
+    hs.update_tagged("companies", company_updates)
     if need_key:
         log(f"{need_key} companies are ready for their next round, but the GitHub secret INSTANTLY_EMAILS_KEY "
             "(Instantly key with scope emails:all) is not set, so those emails wait")
     if added or sent or no_reply:
         log(f"Next in line: {added} first emails added, {sent} later-round emails sent, "
-            f"{no_reply} companies marked No reply")
+            f"{no_reply} companies with no reply after the last round set to Unqualified")
     return {"next_contacts_added": added, "follow_ups_sent": sent, "no_reply": no_reply,
             "waiting_for_emails_key": need_key}
 

@@ -1,7 +1,8 @@
 """Job 4b: add approved contacts to an Instantly campaign.
 
-Only contacts whose Outreach contact status is Approved to send are sent (gate 2), and only
-one person per company at a time, most senior first (see next_in_line.py). The sync job
+Only AUTO-OUTREACH contacts whose Lead Status is Approved to send are sent (gate 2), only at
+AUTO-OUTREACH companies, and only one person per company at a time, most senior first (see
+next_in_line.py). The sync job
 moves each company on to its next person by itself. Campaigns are created paused; you
 press Start in Instantly for each new campaign.
 Usage:
@@ -12,20 +13,23 @@ Usage:
 import argparse
 import datetime as dt
 import json
+import os
 import re
 import sys
 from collections import defaultdict
 from pathlib import Path
 
-from .common import ROOT, PipelineError, check_target, load_settings, market_matches, run_dir, write_json
+from .common import (
+    ROOT, PipelineError, check_target, load_company_notes, load_settings, market_matches, run_dir, write_json,
+)
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .instantly_timezones import instantly_timezone
-from .next_in_line import contacts_by_company, decide, last_campaign, lead_for
-
-CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", "diablo_subject_line", "diablo_personal_line"]
-COMPANY_PROPS = ["name", "domain", "diablo_market", "diablo_channel_category", "diablo_suppress_reason",
-                 "diablo_outreach_status"]
+from .next_in_line import (
+    COMPANY_PROPS, CONTACT_PROPS, annotate, contacts_by_company, decide, instantly_view, last_campaign, lead_for,
+)
+from .schema import PERSONAL_LINE
+from .stages import COMPANY_STOPPED, LeadStatus, forward
 
 
 MONTHS = ("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
@@ -221,16 +225,19 @@ def mask(email):
     return f"{name[:1]}***@{domain}"
 
 
-def skip_reason(contact, company):
+def skip_reason(contact, company, company_stage):
     """Why an Approved to send contact cannot be sent at all, or None."""
     p = contact["properties"]
     if not p.get("email"):
         return "it has no email address"
     if not company:
-        return "it is not linked to a company in HubSpot (link it to its company record)"
-    if company.get("diablo_suppress_reason"):
-        return f"its company has an Outreach suppress reason ({company['diablo_suppress_reason']})"
-    if not p.get("diablo_personal_line"):
+        return ("it is not linked to an AUTO-OUTREACH company in HubSpot (the pipeline only emails people "
+                "at companies it added itself)")
+    if company_stage in COMPANY_STOPPED:
+        return "its company's Lead Status says outreach has ended or a person has taken it over"
+    if company_stage not in ("approved", "in_outreach"):
+        return "its company is not Approved for outreach (gate 1)"
+    if not p.get(PERSONAL_LINE):
         return "its Outreach personal line is empty"
     return None
 
@@ -256,40 +263,42 @@ def created_emails(results, leads):
 
 
 def run(target, settings, hs, instantly, dry_run=False, log=print):
+    """instantly may be None in a dry run; it is then not read, so everyone looks not yet emailed."""
     check_target(hs, target)
+    statuses = LeadStatus(hs)
     out_dir = run_dir("send")
     if not dry_run:
         refresh_campaign_content(instantly, settings, log=log)
-    contacts = hs.search(
-        "contacts",
-        [{"propertyName": "diablo_contact_status", "operator": "EQ", "value": "approved_to_send"}],
-        CONTACT_PROPS,
-        max_results=settings["send"]["contacts_per_run"],
-    )
+    contacts = hs.tagged_search("contacts", [statuses.filter("contacts", "approved")], CONTACT_PROPS,
+                                max_results=settings["send"]["contacts_per_run"])
     log(f"{len(contacts)} contacts approved to send")
     if not contacts:
         return {"queued": 0}
 
     links = hs.associated_ids("contacts", "companies", [c["id"] for c in contacts])
     company_ids = sorted({ids[0] for ids in links.values() if ids})
-    companies = {c["id"]: c["properties"] for c in hs.batch_read("companies", company_ids, COMPANY_PROPS)}
+    companies = {c["id"]: c for c in hs.tagged_read("companies", company_ids, COMPANY_PROPS)}
 
     prefix = settings["sync"]["campaign_prefix"]
     gap = int(settings["send"].get("next_contact_after_days", 4))
-    everyone = contacts_by_company(hs, company_ids)
+    in_instantly = instantly_view(instantly, prefix)
+    notes = load_company_notes()
+    everyone = contacts_by_company(hs, list(companies))
     groups, skipped, waiting = defaultdict(list), [], 0
     for c in contacts:
         company_id = (links.get(c["id"]) or [None])[0]
-        comp = companies.get(company_id)
+        company = companies.get(company_id)
+        comp = company["properties"] if company else None
+        company_stage = statuses.of("companies", company) if company else ""
         p = c["properties"]
-        reason = skip_reason(c, comp)
+        reason = skip_reason(c, comp, company_stage)
         if reason:
             skipped.append({"contact_id": c["id"], "email": mask(p.get("email")), "reason": reason})
             log(f"Skipped contact {c['id']} ({mask(p.get('email'))}): {reason}")
             continue
         # One person per company at a time: only the one next in line goes now.
-        company_contacts = everyone.get(company_id) or [c]
-        due, why = decide(company_contacts, comp.get("diablo_outreach_status"), gap)
+        company_contacts = annotate(everyone.get(company_id) or [c], statuses, in_instantly)
+        due, why = decide(company_contacts, company_stage, gap)
         if not due or due["id"] != c["id"]:
             waiting += 1
             log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "
@@ -298,7 +307,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         earlier = last_campaign(company_contacts)
         # A company stays in the campaign of its first email, so a reply there stops the others.
         key = ("campaign", earlier) if earlier else ("month",)
-        groups[key].append((c, company_id, comp))
+        groups[key].append((c, company_id, comp, company_stage))
     if waiting:
         log(f"{waiting} approved contacts wait their turn (one person per company at a time)")
 
@@ -311,7 +320,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         else:
             name = campaign_name(prefix)
             campaign_id = existing.get(name)
-        leads = [lead_for(c, comp, comp.get("diablo_market") or "Unknown") for c, _, comp in members]
+        leads = [lead_for(c, comp, notes) for c, _, comp, _ in members]
         plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})
         previews.append(preview(name, leads, settings))
         body = campaign_body(name, "", settings) if not campaign_id else None  # a dry run checks it too
@@ -327,20 +336,18 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         log(f"Instantly: {uploaded} leads added, {skipped_n} skipped (already in your Instantly "
             f"workspace), {invalid} invalid")
         created = created_emails(results, leads)
-        for c, company_id, _ in members:
+        for c, company_id, _, company_stage in members:
             if c["properties"]["email"].lower() not in created:
-                log(f"Not added (already in Instantly): {c['properties']['email']}. "
+                log(f"Not added (already in Instantly): {mask(c['properties']['email'])}. "
                     "It stays Approved to send in HubSpot.")
                 continue
-            contact_updates.append((c["id"], {
-                "diablo_contact_status": "queued",
-                "diablo_instantly_campaign_id": campaign_id,
-            }))
-            company_updates[company_id] = {"diablo_outreach_status": "in_outreach"}
+            contact_updates.append((c["id"], statuses.props("contacts", "in_outreach")))
+            if forward(company_stage, "in_outreach"):
+                company_updates[company_id] = statuses.props("companies", "in_outreach")
 
     if not dry_run:
-        hs.batch_update("contacts", contact_updates)
-        hs.batch_update("companies", list(company_updates.items()))
+        hs.update_tagged("contacts", contact_updates)
+        hs.update_tagged("companies", list(company_updates.items()))
     write_json(out_dir / "plan.json", {"dry_run": dry_run, "campaigns": plan, "skipped": skipped})
     if previews:
         (out_dir / "email_preview.txt").write_text("\n\n".join(previews), encoding="utf-8")
@@ -359,7 +366,8 @@ def main(argv=None):
     p.add_argument("--dry-run", action="store_true")
     args = p.parse_args(argv)
     try:
-        instantly = None if args.dry_run else Instantly()
+        # A dry run still reads Instantly (who was already emailed) when the key is there.
+        instantly = Instantly() if (not args.dry_run or os.environ.get("INSTANTLY_API_KEY")) else None
         run(args.target, load_settings(), HubSpot(), instantly, dry_run=args.dry_run)
     except (PipelineError, HubSpotError, InstantlyError) as err:
         print(f"ERROR: {err}", file=sys.stderr)

@@ -1,12 +1,12 @@
 ---
 name: outreach-mail-writing
-description: Write the personalised subject line and opening line for Diablo outreach contacts waiting for them (mail/pending.json in amodhsharma/diablo-outreach-v2) and save one lines file to the repo, which GitHub imports into HubSpot as Copy ready. Use for the scheduled run (every 2 hours), and when someone asks to "write the email lines", "run outreach mail writing" or "write lines for the new contacts".
+description: Write the personalised opening line for Diablo outreach contacts waiting for them (mail/pending.json in amodhsharma/diablo-outreach-v2) and save one lines file to the repo, which GitHub imports into HubSpot as Copy ready. Use for the scheduled run (every 2 hours), and when someone asks to "write the email lines", "run outreach mail writing" or "write lines for the new contacts".
 ---
 
 # outreach-mail-writing
 
-You write two short pieces of text for each contact that needs them: a **subject line** and a
-**personal opening line**. The rest of the email is a fixed template. The scripts in `scripts/` do
+You write one short piece of text for each contact that needs it: a **personal opening line**.
+The rest of the email, the subject line included, is a fixed template. The scripts in `scripts/` do
 every mechanical step; follow them exactly.
 
 Work without asking questions: a scheduled run has nobody to answer. Write any problem into the

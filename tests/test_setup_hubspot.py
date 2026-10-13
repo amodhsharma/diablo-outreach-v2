@@ -4,7 +4,8 @@ import pytest
 
 from outreach import setup_hubspot
 from outreach.hubspot_client import HubSpotError
-from outreach.schema import GROUP_NAME, PROPERTIES
+from outreach.schema import GROUP_NAME, INDUSTRY_TYPES, NEW_PROPERTIES, ORDER, PERSONAL_LINE
+from outreach.stages import STAGES
 
 
 class FakeHubSpot:
@@ -44,60 +45,108 @@ def quiet(_):
     pass
 
 
-def test_creates_everything_once_then_is_idempotent():
+def options(pairs):
+    return [{"label": label, "value": value, "displayOrder": i, "hidden": False}
+            for i, (value, label) in enumerate(pairs)]
+
+
+LIVE_COMPANY = [("New", "New"), ("Missing Info", "Missing Info"), ("Emailed", "Emailed"),
+                ("In Progress", "In Progress"), ("Unqualified", "Unqualified"),
+                ("Attempted to Contact", "Attempted to Contact"), ("Won", "Won")]
+LIVE_CONTACT = [("NEW", "New"), ("MISSING INFO", "Missing Info"), ("Emailed", "Emailed"),
+                ("IN_PROGRESS", "In Progress"), ("UNQUALIFIED", "Unqualified"),
+                ("ATTEMPTED_TO_CONTACT", "Attempted to Contact"), ("WON", "WON")]
+FRESH_CONTACT = [("NEW", "New"), ("OPEN", "Open"), ("IN_PROGRESS", "In Progress"), ("OPEN_DEAL", "Open Deal"),
+                 ("UNQUALIFIED", "Unqualified"), ("ATTEMPTED_TO_CONTACT", "Attempted to Contact"),
+                 ("CONNECTED", "Connected"), ("BAD_TIMING", "Bad Timing")]
+
+
+def live_like(portal=setup_hubspot.PRODUCTION_PORTAL_ID):
+    hs = FakeHubSpot(portal)
+    hs.props["companies"] = {
+        "hs_lead_status": {"name": "hs_lead_status", "type": "enumeration", "options": options(LIVE_COMPANY)},
+        "lead_source": {"name": "lead_source", "type": "string"},
+        "industry_type": {"name": "industry_type", "type": "enumeration",
+                          "options": options(INDUSTRY_TYPES[:6])},  # one choice short, on purpose
+    }
+    hs.props["contacts"] = {
+        "hs_lead_status": {"name": "hs_lead_status", "type": "enumeration", "options": options(LIVE_CONTACT)},
+        "lead_source": {"name": "lead_source", "type": "string"},
+    }
+    return hs
+
+
+def fresh_test():
     hs = FakeHubSpot()
-    first = setup_hubspot.run(hs, log=quiet)
-    total = sum(len(v) for v in PROPERTIES.values())
-    assert first == {"created": total}
-    assert all(g[0]["name"] == GROUP_NAME for g in hs.groups.values())
-
-    second = setup_hubspot.run(hs, log=quiet)
-    assert second == {"unchanged": total}
-    assert all(len(g) == 1 for g in hs.groups.values())
+    hs.props["companies"] = {"hs_lead_status": {"name": "hs_lead_status", "type": "enumeration",
+                                                "options": options(FRESH_CONTACT)}}
+    hs.props["contacts"] = {"hs_lead_status": {"name": "hs_lead_status", "type": "enumeration",
+                                               "options": options(FRESH_CONTACT)}}
+    return hs
 
 
-def test_adds_missing_dropdown_options_without_removing_existing():
-    hs = FakeHubSpot()
+def labels(hs, obj):
+    return [o["label"] for o in hs.props[obj]["hs_lead_status"]["options"]]
+
+
+def test_live_gets_exactly_two_fields_and_three_choices():
+    hs = live_like()
+    before = {obj: [dict(o) for o in hs.props[obj]["hs_lead_status"]["options"]] for obj in ("companies", "contacts")}
+    summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
+    assert summary["created"] == 3  # the contacts group and the two contact fields
+    assert summary["updated"] == 3  # Approved for outreach; Copy ready and Approved to send
+    assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, ORDER}
+    assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type"}
+    assert labels(hs, "companies")[-1:] == ["Approved for outreach"]
+    assert labels(hs, "contacts")[-2:] == ["Copy ready", "Approved to send"]
+    for obj in ("companies", "contacts"):  # the team's choices are sent back exactly as they were
+        assert hs.props[obj]["hs_lead_status"]["options"][:len(before[obj])] == before[obj]
+    assert len(hs.props["companies"]["industry_type"]["options"]) == 6  # live's own field: untouched
+    assert hs.groups["companies"] == [] and hs.groups["contacts"][0]["name"] == GROUP_NAME
+
+    again = setup_hubspot.run(hs, allow_production=True, log=quiet)
+    assert set(again) == {"unchanged"}
+
+
+def test_fresh_test_account_is_made_to_match_live():
+    hs = fresh_test()
     setup_hubspot.run(hs, log=quiet)
-    status = hs.props["companies"]["diablo_outreach_status"]
-    status["options"] = status["options"][:2] + [{"label": "Custom", "value": "custom", "displayOrder": 99}]
-    summary = setup_hubspot.run(hs, log=quiet)
-    assert summary["updated"] == 1
-    values = {o["value"] for o in hs.props["companies"]["diablo_outreach_status"]["options"]}
-    assert "custom" in values and "interested" in values
+    assert hs.props["companies"]["lead_source"]["type"] == "string"
+    assert hs.props["contacts"]["lead_source"]["type"] == "string"
+    assert [o["value"] for o in hs.props["companies"]["industry_type"]["options"]] == [v for v, _ in INDUSTRY_TYPES]
+    for obj, stages in STAGES.items():
+        have = {x.lower() for x in labels(hs, obj)}
+        assert all(label.lower() in have for label in stages.values()), obj
+    assert labels(hs, "contacts")[:8] == [label for _, label in FRESH_CONTACT]  # existing ones first, unchanged
+    assert set(setup_hubspot.run(hs, log=quiet)) == {"unchanged"}
 
 
-def test_refuses_live_account_without_flag():
-    hs = FakeHubSpot(portal=setup_hubspot.PRODUCTION_PORTAL_ID)
+def test_refuses_live_account_without_flag_but_a_dry_run_only_reads():
+    hs = live_like()
     with pytest.raises(HubSpotError):
         setup_hubspot.run(hs, log=quiet)
     assert hs.calls == []  # nothing was touched
-    setup_hubspot.run(hs, allow_production=True, log=quiet)
+    shown = []
+    summary = setup_hubspot.run(hs, dry_run=True, log=shown.append)
+    assert all(method == "GET" for method, _ in hs.calls)
+    assert summary["updated"] == 3 and any("[would add]" in line for line in shown)
+    assert "Copy ready" not in labels(hs, "contacts")
 
 
 def test_type_conflict_is_reported_not_overwritten():
-    hs = FakeHubSpot()
-    hs.props["contacts"]["diablo_market"] = {"name": "diablo_market", "type": "number"}
+    hs = live_like(portal=5)
+    hs.props["contacts"][ORDER] = {"name": ORDER, "type": "string"}
     summary = setup_hubspot.run(hs, log=quiet)
     assert summary["conflict"] == 1
-    assert hs.props["contacts"]["diablo_market"]["type"] == "number"
+    assert hs.props["contacts"][ORDER]["type"] == "string"
 
 
 def test_schema_rules():
-    for obj, specs in PROPERTIES.items():
-        names = [s["name"] for s in specs]
-        assert len(names) == len(set(names)), obj
-        for s in specs:
-            assert s["name"].startswith("diablo_")
-            assert len(s["name"]) <= 100
-            if s["type"] in ("enumeration", "bool"):
-                values = [o["value"] for o in s["options"]]
-                assert len(values) == len(set(values)), s["name"]
-    uniques = [s for s in PROPERTIES["companies"] if s.get("hasUniqueValue")]
-    assert uniques == []  # companies are matched on HubSpot's own Domain field
-    assert sum(len(v) for v in PROPERTIES.values()) == 17
+    assert [s["name"] for s in NEW_PROPERTIES["contacts"]] == [PERSONAL_LINE, ORDER]
+    assert NEW_PROPERTIES["companies"] == []
+    assert all(s["name"].startswith("diablo_") for s in NEW_PROPERTIES["contacts"])
 
 
 def test_dry_run_needs_no_key():
     summary = setup_hubspot.run(None, dry_run=True, log=quiet)
-    assert summary == {"planned": sum(len(v) for v in PROPERTIES.values())}
+    assert summary == {"planned": 1}

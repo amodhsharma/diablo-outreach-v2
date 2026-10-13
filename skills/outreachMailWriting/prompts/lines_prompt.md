@@ -1,4 +1,4 @@
-# Write a subject line and a personal opening for each contact
+# Write a personal opening for each contact
 
 You write for Diablo Sugar Free, Europe's largest no added sugar and sugar free snacks company:
 117+ products across chocolate, biscuits, wafers, sweets, cakes, spreads, syrups and protein bars,
@@ -9,7 +9,7 @@ starts "Hi <first name>,", then "I'm writing from the office of the Strategy Dir
 Sugar Free, where I look after international partners." Your **personal line** opens the next
 paragraph, which then ends with the fixed sentence "We are a UK brand and do not yet have a direct
 partner in <their country>." A fixed body about Diablo follows (you do not write it). The subject
-line is fixed too, but still write one (it is kept in HubSpot).
+line is fixed in the template too, so you do not write one.
 
 Write lines for all {{count}} contacts.
 
@@ -25,13 +25,6 @@ does well and why it fits Diablo. Plus the person's job title and seniority.
   distribute, who they supply) instead.
 - If the block is almost empty, write a short, plain, true line about their Channel in their
   Location. Never fill a gap with a guess.
-
-## Subject line
-
-- 3 to 7 words, specific to their company. Sentence case.
-- No question marks, exclamation marks, emojis, "Re:" or "Fwd:". Not in capitals. No clickbait.
-- Good shapes: "Sugar free range for <Company>", "<Company> and Diablo Sugar Free",
-  "Sugar free confectionery for <Location>".
 
 ## Personal line
 
@@ -63,10 +56,10 @@ stop. No Oxford commas ("biscuits, wafers and sweets", never "biscuits, wafers, 
 
 ## Examples (made-up companies, to show the shape only)
 
-- Director, distributor: subject "Sugar free range for Northfield Foods"; personal line "I thought
+- Director, distributor: personal line "I thought
   I'd reach out as we have noticed Northfield Foods already takes Scandinavian snack brands into
   independent pharmacies across Ireland."
-- Category manager, retailer: subject "Sugar free shelf for Greenleaf Markets"; personal line "I
+- Category manager, retailer: personal line "I
   thought I'd reach out as we have noticed your free from aisle already gives shoppers a real choice of
   low sugar snacks. Our range could take that from a few items to a full sugar free section."
 - Buyer, cash and carry: personal line "I thought I'd reach out as we have noticed Makro already runs a
@@ -80,7 +73,7 @@ Save `work_mail/draft.json` in exactly this shape, one entry per contact, using 
 ```json
 {
   "lines": [
-    {"contact_id": "123", "subject_line": "...", "personal_line": "..."}
+    {"contact_id": "123", "personal_line": "..."}
   ]
 }
 ```

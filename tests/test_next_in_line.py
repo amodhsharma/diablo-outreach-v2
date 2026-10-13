@@ -31,14 +31,16 @@ def ago(days):
     return (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)).isoformat()
 
 
+LS = "hs_lead_status"
+
+
 def company_with_three(hs, name, domain):
-    cid = hs.add("companies", name=name, domain=domain, diablo_market="India",
-                 diablo_channel_category="grocery_wholesaler", diablo_outreach_status="contacts_found")
+    cid = hs.add("companies", name=name, domain=domain, country="India", industry_type="Distributor Wholesaler",
+                 **{LS: "Approved for outreach"})
     people = []
     for rank, title in enumerate(("Managing Director", "Head of Buying", "Category Manager"), start=1):
         pid = hs.add("contacts", email=f"p{rank}@{domain}", firstname=f"P{rank}", jobtitle=title,
-                     diablo_hierarchy_rank=str(rank), diablo_contact_status="approved_to_send",
-                     diablo_subject_line="Hello", diablo_personal_line="Line.")
+                     diablo_outreach_order=str(rank), diablo_personal_line="Line.", **{LS: "APPROVED_TO_SEND"})
         hs.links[pid] = [cid]
         people.append(pid)
     return cid, people
@@ -53,61 +55,68 @@ def test_one_person_at_a_time_then_the_next_on_day_three(settings):
     cid, (first, second, third) = company_with_three(hs, "Noble Foods", "noble.in")
     result = send.run("test", settings, hs, instantly, log=quiet)
     assert result["queued"] == 1 and result["waiting"] == 2  # only the most senior goes
-    status = lambda pid: hs.records["contacts"][pid]["diablo_contact_status"]
-    assert [status(first), status(second), status(third)] == ["queued", "approved_to_send", "approved_to_send"]
+    status = lambda pid: hs.records["contacts"][pid][LS]
+    assert [status(first), status(second), status(third)] == ["ATTEMPTED_TO_CONTACT", "APPROVED_TO_SEND",
+                                                              "APPROVED_TO_SEND"]
     assert send.run("test", settings, hs, instantly, log=quiet)["queued"] == 0  # pressing again sends nobody new
 
     # Day 2: first email went out two days ago, no reply. Nobody else yet.
     lead(instantly, "p1@noble.in")["timestamp_last_contact"] = ago(2)
     sync.run("test", settings, hs, instantly, log=quiet)
-    assert status(first) == "sent" and status(second) == "approved_to_send"
+    assert status(first) == "ATTEMPTED_TO_CONTACT" and status(second) == "APPROVED_TO_SEND"
 
     # Day 3 and still no reply: the next person gets their own email in the same campaign.
-    hs.records["contacts"][first]["diablo_last_event_at"] = ago(3)
+    lead(instantly, "p1@noble.in")["timestamp_last_contact"] = ago(3)
     moved = sync.run("test", settings, hs, instantly, log=quiet)
-    assert moved["next_contacts_added"] == 1 and status(second) == "queued"
-    camp_id = hs.records["contacts"][first]["diablo_instantly_campaign_id"]
+    assert moved["next_contacts_added"] == 1 and status(second) == "ATTEMPTED_TO_CONTACT"
+    camp_id = next(iter(instantly.campaigns))
     assert [l["email"] for l in instantly.leads[camp_id]] == ["p1@noble.in", "p2@noble.in"]
 
     # The second person replies: everyone stops, the third is never emailed.
-    lead(instantly, "p2@noble.in").update(timestamp_last_contact=ago(1), email_reply_count=1,
+    lead(instantly, "p2@noble.in").update(timestamp_last_contact=ago(9), email_reply_count=1,
                                            timestamp_last_reply=ago(0))
     sync.run("test", settings, hs, instantly, log=quiet)
-    assert hs.records["companies"][cid]["diablo_outreach_status"] == "replied"
-    hs.records["contacts"][second]["diablo_last_event_at"] = ago(9)
+    assert hs.records["companies"][cid][LS] == "In Progress" and status(second) == "IN_PROGRESS"
     sync.run("test", settings, hs, instantly, log=quiet)
-    assert status(third) == "approved_to_send"
+    assert status(third) == "APPROVED_TO_SEND"
     assert len(instantly.leads[camp_id]) == 2
 
 
 def test_no_reply_from_everyone_marks_the_company(settings):
     settings["send"]["rotation"]["rounds"] = 1  # one round only: no later emails
     hs, instantly = FakeCRM(), FakeInstantly()
-    cid = hs.add("companies", name="Quiet Co", domain="quiet.in", diablo_market="India",
-                 diablo_channel_category="grocery_wholesaler", diablo_outreach_status="contacts_found")
-    only = hs.add("contacts", email="boss@quiet.in", diablo_hierarchy_rank="1",
-                  diablo_contact_status="approved_to_send", diablo_subject_line="Hi", diablo_personal_line="Line.")
+    cid = hs.add("companies", name="Quiet Co", domain="quiet.in", country="India", **{LS: "Approved for outreach"})
+    only = hs.add("contacts", email="boss@quiet.in", diablo_outreach_order="1", diablo_personal_line="Line.",
+                  **{LS: "APPROVED_TO_SEND"})
     hs.links[only] = [cid]
     send.run("test", settings, hs, instantly, log=quiet)
     lead(instantly, "boss@quiet.in")["timestamp_last_contact"] = ago(5)
-    result = sync.run("test", settings, hs, instantly, log=quiet)  # Sent 5 days ago, nobody left
+    result = sync.run("test", settings, hs, instantly, log=quiet)  # emailed 5 days ago, nobody left
     assert result["no_reply"] == 1
-    assert hs.records["companies"][cid]["diablo_outreach_status"] == "no_reply"
+    assert hs.records["companies"][cid][LS] == "Unqualified"
 
 
 def test_waits_for_gate_two_before_moving_on(settings):
     hs, instantly = FakeCRM(), FakeInstantly()
     cid, (first, second, third) = company_with_three(hs, "Slow Co", "slow.in")
-    hs.records["contacts"][second]["diablo_contact_status"] = "copy_ready"  # not approved yet
-    hs.records["contacts"][third]["diablo_contact_status"] = "copy_ready"
+    hs.records["contacts"][second][LS] = "COPY_READY"  # not approved yet
+    hs.records["contacts"][third][LS] = "COPY_READY"
     send.run("test", settings, hs, instantly, log=quiet)
     lead(instantly, "p1@slow.in")["timestamp_last_contact"] = ago(6)
-    sync.run("test", settings, hs, instantly, log=quiet)
-    hs.records["contacts"][first]["diablo_last_event_at"] = ago(6)
     result = sync.run("test", settings, hs, instantly, log=quiet)
     assert result["next_contacts_added"] == 0 and result["no_reply"] == 0
-    assert hs.records["companies"][cid]["diablo_outreach_status"] == "in_outreach"
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
 
+
+def test_a_bounce_does_not_stop_the_company(settings):
+    hs, instantly = FakeCRM(), FakeInstantly()
+    cid, (first, second, third) = company_with_three(hs, "Bounce Co", "bounce.in")
+    send.run("test", settings, hs, instantly, log=quiet)
+    lead(instantly, "p1@bounce.in").update(status=-1, timestamp_last_contact=ago(4))
+    moved = sync.run("test", settings, hs, instantly, log=quiet)
+    assert hs.records["contacts"][first][LS] == "UNQUALIFIED"
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
+    assert moved["next_contacts_added"] == 1 and hs.records["contacts"][second][LS] == "ATTEMPTED_TO_CONTACT"
 
 
 # ---- the rotation agreed on 13 Oct 2026 -------------------------------------
@@ -115,9 +124,9 @@ def test_waits_for_gate_two_before_moving_on(settings):
 from outreach.next_in_line import decide  # noqa: E402
 
 
-def person(pid, rank, status="sent"):
-    return {"id": pid, "properties": {"diablo_hierarchy_rank": str(rank), "diablo_contact_status": status,
-                                      "diablo_last_event_at": ago(20)}}
+def person(pid, rank, state="sent"):
+    return {"id": pid, "properties": {"diablo_outreach_order": str(rank)}, "state": state,
+            "sent_at": dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=20), "campaign": "c1"}
 
 
 def days_ago(*days):
@@ -144,17 +153,18 @@ def test_rotation_order_and_week_rule():
     assert decide(two, "in_outreach", 3, touches=touches, **kw) == (None, "waiting_same_person")
     touches = {"p1": days_ago(7), "p2": days_ago(4)}
     assert decide(two, "in_outreach", 3, touches=touches, **kw)[0]["id"] == "p1"
-    # Everyone had 3 emails and 3 days passed: No reply.
+    # Everyone had 3 emails and 3 days passed: no reply.
     touches = {p["id"]: days_ago(30, 20, 10 - i) for i, p in enumerate(four)}
     assert decide(four, "in_outreach", 3, touches=touches, **kw) == (None, "no_reply")
-    # Later rounds without the emails key: wait, never mark No reply.
+    # Later rounds without the emails key: wait, never give up.
     assert decide(four, "in_outreach", 3, touches=None, **kw) == (None, "waiting_for_emails_key")
-    # A bounced person is skipped; a reply anywhere stops everyone.
+    # A bounced person is skipped; a reply anywhere stops everyone; so does a person's own status.
     bounced = [person("p1", 1, "bounced")] + four[1:]
     touches = {"p2": days_ago(12), "p3": days_ago(9), "p4": days_ago(6)}
     assert decide(bounced, "in_outreach", 3, touches=touches, **kw)[0]["id"] == "p2"
-    replied = [person("p1", 1, "replied")] + four[1:]
+    replied = [person("p1", 1, "stop")] + four[1:]
     assert decide(replied, "in_outreach", 3, touches=touches, **kw) == (None, "stopped")
+    assert decide(four, "team", 3, touches=touches, **kw) == (None, "stopped")
 
 
 class FakeEmails:
@@ -174,10 +184,11 @@ class FakeEmails:
 def test_sync_sends_the_second_round_as_a_reply(settings):
     hs, instantly, emails = FakeCRM(), FakeInstantly(), FakeEmails()
     cid, people = company_with_three(hs, "Turn Co", "turn.in")
-    hs.records["companies"][cid]["diablo_outreach_status"] = "in_outreach"
+    hs.records["companies"][cid][LS] = "Attempted to Contact"
+    camp = instantly.create_campaign({"name": "Diablo | OCT2026"})["id"]
     for i, pid in enumerate(people):
-        hs.records["contacts"][pid].update(diablo_contact_status="sent", firstname=f"P{i + 1}",
-                                           diablo_last_event_at=ago(9 - 3 * i))
+        hs.records["contacts"][pid].update(firstname=f"P{i + 1}", **{LS: "ATTEMPTED_TO_CONTACT"})
+        instantly.leads[camp].append({"email": f"p{i + 1}@turn.in", "timestamp_last_contact": ago(9 - 3 * i)})
         emails.sent[f"p{i + 1}@turn.in"] = [{"id": f"e{i}", "eaccount": "sales@diablosnosugar.com",
                                              "subject": "Partnering to establish Diablo", "timestamp_email": ago(9 - 3 * i)}]
     moved = sync.advance(hs, instantly, settings, log=quiet)  # no key: the emails wait
@@ -187,6 +198,5 @@ def test_sync_sends_the_second_round_as_a_reply(settings):
     sent = emails.replies[0]
     assert sent["to"]["id"] == "e0" and sent["subject"] == "Partnering to establish Diablo"
     assert "Hi P1," in sent["text"] and "samples" in sent["text"] and "{{" not in sent["html"]
-    assert hs.records["contacts"][people[0]]["diablo_last_event"] == "email_2_sent"
     # Straight after, the company waits 3 days before anyone else.
     assert sync.advance(hs, instantly, settings, log=quiet, emails_api=emails)["follow_ups_sent"] == 0

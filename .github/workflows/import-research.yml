@@ -1,7 +1,7 @@
 name: '2e - Automatic/Manual - Put new companies into HubSpot for review'
 
 # Runs by itself when the outreachResearch skill saves new files to research/.
-# Checks each new file again, adds its companies to HubSpot as Awaiting review
+# Checks each new file again, adds its companies to HubSpot (Lead Source AUTO-OUTREACH, Lead Status New)
 # (gate 1) and marks the queue. Can also be started by hand to import any file
 # not yet imported. To use the live account, add a repository variable
 # PIPELINE_TARGET = live (Settings > Secrets and variables > Actions > Variables).

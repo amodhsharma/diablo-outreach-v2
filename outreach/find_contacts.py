@@ -1,9 +1,15 @@
 """Job 3: find contacts at approved companies with Apollo and add them to HubSpot.
 
-Only companies whose Outreach company status is Approved are processed (gate 1).
-For each company it looks at everyone Apollo holds there, ranks them by seniority
-(settings: contacts.hierarchy) and keeps up to contacts.per_company verified emails,
-most senior first. Each contact gets an Outreach hierarchy rank (1 = most senior).
+Only AUTO-OUTREACH companies whose Lead Status is "Approved for outreach" are processed (gate 1),
+and only those with no contacts yet. For each company it looks at everyone Apollo holds there,
+ranks them by seniority (settings: contacts.hierarchy) and keeps up to contacts.per_company
+verified emails, most senior first. Each contact is created with Lead Source AUTO-OUTREACH,
+Lead Status "New" and an Outreach order (1 = most senior). A company where nobody usable is
+found becomes "Missing Info". An email already anywhere in HubSpot is never added again.
+
+Apollo charges for each email revealed. Every person revealed is remembered in GitHub
+(data/apollo_kept.json and data/apollo_skipped.json, by Apollo's person ID), so nobody is ever
+paid for twice. Apollo IDs are not stored in HubSpot.
 Usage:
     python -m outreach.find_contacts --target test
 """
@@ -16,13 +22,15 @@ from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
 import json
 
-from .common import ROOT, PipelineError, category_label, check_target, clean_domain, load_settings, run_dir, write_json
+from .common import (
+    ROOT, PipelineError, channel_of, check_target, clean_domain, load_company_notes, load_settings, market_of,
+    run_dir, write_json,
+)
 from .hubspot_client import HubSpot, HubSpotError
+from .schema import LEAD_STATUS, ORDER
+from .stages import LeadStatus
 
-COMPANY_PROPS = [
-    "name", "domain", "diablo_market", "diablo_channel_category",
-    "diablo_suppress_reason", "diablo_outreach_status", "hubspot_owner_id",
-]
+COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS, "hubspot_owner_id"]
 
 
 def titles_for(category, titles):
@@ -86,18 +94,10 @@ def find_people(apollo, domain, seniorities=None, per_page=100):
     return people
 
 
-def opted_out_emails(hs, emails):
-    rows = hs.batch_read("contacts", emails, ["email", "diablo_contact_status"], id_property="email")
-    existing = {}
-    for r in rows:
-        p = r.get("properties", {})
-        if p.get("email"):
-            existing[p["email"].lower()] = p.get("diablo_contact_status") or ""
-    return existing
-
-
 # People whose email was revealed (and paid for) but not kept, e.g. unverified: never revealed again.
 SKIPPED_FILE = ROOT / "data" / "apollo_skipped.json"
+# People whose email was revealed and kept as a HubSpot contact: never revealed again either.
+KEPT_FILE = ROOT / "data" / "apollo_kept.json"
 
 
 def load_skipped(path=None):
@@ -114,35 +114,22 @@ def save_skipped(skipped, path=None):
     path.write_text(json.dumps(dict(sorted(skipped.items())), indent=1) + "\n", encoding="utf-8")
 
 
-def known_apollo_ranks(hs, apollo_ids):
-    """{Apollo person ID: hierarchy rank} for the people already saved as HubSpot contacts."""
-    out, ids = {}, sorted({i for i in apollo_ids if i})
-    for i in range(0, len(ids), 100):
-        rows = hs.search("contacts",
-                         [{"propertyName": "diablo_apollo_id", "operator": "IN", "values": ids[i:i + 100]}],
-                         ["diablo_apollo_id", "diablo_hierarchy_rank"], max_results=500)
-        for r in rows:
-            p = r.get("properties", {})
-            rank = str(p.get("diablo_hierarchy_rank") or "0")
-            out[p.get("diablo_apollo_id")] = int(rank) if rank.isdigit() else 0
-    return out
-
-
 def run(target, settings, hs, apollo, log=print):
     check_target(hs, target)
     cfg = settings["contacts"]
+    statuses = LeadStatus(hs)
     assigner = Assigner(hs, settings, log)
     out_dir = run_dir("contacts")
-    companies = hs.search(
-        "companies",
-        [{"propertyName": "diablo_outreach_status", "operator": "EQ", "value": "approved"}],
-        COMPANY_PROPS,
-        max_results=cfg["companies_per_run"],
-    )
+    approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")], COMPANY_PROPS,
+                                max_results=cfg["companies_per_run"] * 3)
+    # Companies that already have their contacts wait for gate 2 and their emails, not for Apollo.
+    links = hs.associated_ids("companies", "contacts", [c["id"] for c in approved]) if approved else {}
+    companies = [c for c in approved if not links.get(str(c["id"]))][:cfg["companies_per_run"]]
     log(f"{len(companies)} approved companies to process")
-    labels = hs.option_labels("companies", "diablo_channel_category") if companies else {}
+    notes = load_company_notes()
     skipped = load_skipped()
-    skipped_before = len(skipped)
+    kept = load_skipped(KEPT_FILE)
+    before = (len(skipped), len(kept))
 
     credits, log_rows = 0, []
     for company in companies:
@@ -150,24 +137,19 @@ def run(target, settings, hs, apollo, log=print):
         name, domain = p.get("name"), clean_domain(p.get("domain"))
         row = {"company": name, "domain": domain, "contacts": 0}
 
-        if p.get("diablo_suppress_reason"):
-            hs.batch_update("companies", [(cid, {"diablo_outreach_status": "suppressed"})])
-            row["result"] = "suppressed"
-            log_rows.append(row)
-            continue
         if not domain:
-            hs.batch_update("companies", [(cid, {"diablo_outreach_status": "no_domain"})])
+            hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
             row["result"] = "no domain"
             log_rows.append(row)
             continue
         if credits >= cfg["max_credits_per_run"]:
-            log("Credit cap reached for this run; remaining companies stay Approved for next time")
+            log("Credit cap reached for this run; remaining companies stay Approved for outreach for next time")
             break
 
-        category = category_label(p.get("diablo_channel_category"), labels)
-        owner = p.get("hubspot_owner_id") or assigner.pick(p.get("diablo_market") or "", category)
+        category = channel_of(p, notes)
+        owner = p.get("hubspot_owner_id") or assigner.pick(market_of(p), category)
         if owner and not p.get("hubspot_owner_id"):
-            hs.batch_update("companies", [(cid, {"hubspot_owner_id": owner})])
+            hs.update_tagged("companies", [(cid, {"hubspot_owner_id": owner})])
             row["owner_id"] = owner
         titles = titles_for(category, cfg["titles"])
         people = rank_people(
@@ -175,13 +157,9 @@ def run(target, settings, hs, apollo, log=print):
             cfg["hierarchy"], titles, cfg.get("exclude_words", []), cfg.get("include_everyone_else", True),
         )
         # Apollo says up front whether it holds an email; revealing the others wastes credits.
-        candidates = [x for x in people if x.get("has_email", True)]
-        # People already in HubSpot (from an earlier run for this company) are skipped, so going
-        # deeper reveals the next ones in line and never pays for the same person twice.
-        known_ranks = known_apollo_ranks(hs, [x["id"] for x in candidates])
-        candidates = [x for x in candidates if x["id"] not in known_ranks and x["id"] not in skipped]
-        base_rank = max(known_ranks.values(), default=0)
-        level_of = {x["id"]: x["_level"] for x in people}
+        # Anyone already revealed before (kept or not) is skipped, so nobody is paid for twice.
+        candidates = [x for x in people if x.get("has_email", True)
+                      and x["id"] not in kept and x["id"] not in skipped]
         keep, revealed, batches = [], 0, 0
         while candidates and len(keep) < cfg["per_company"] and credits < cfg["max_credits_per_run"]:
             size = min(10, cfg["per_company"] - len(keep),
@@ -201,33 +179,35 @@ def run(target, settings, hs, apollo, log=print):
                     keep.append(m)
                 elif m and m.get("email"):
                     skipped[x["id"]] = m.get("email_status") or "unknown"
-        existing = opted_out_emails(hs, [m["email"] for m in keep]) if keep else {}
-        new_contacts = []
-        for rank, m in enumerate(keep, start=base_rank + 1):
+        # Any email already in HubSpot (the team's own contacts included) is never added or changed.
+        existing = {(r.get("properties", {}).get("email") or "").lower()
+                    for r in hs.batch_read("contacts", [m["email"] for m in keep], ["email"], id_property="email")
+                    } if keep else set()
+        new_contacts, new_ids = [], []
+        for m in keep:
             email = m["email"].lower()
             if email in existing:
-                continue  # already in HubSpot (and possibly opted out): never re-add or reset
+                skipped[m["id"]] = "already in HubSpot"
+                continue
+            new_ids.append(m["id"])
             new_contacts.append({
-                "diablo_hierarchy_rank": str(rank),
-                "diablo_hierarchy_level": level_of.get(m.get("id"), ""),
+                ORDER: str(len(new_contacts) + 1),
                 "email": email,
                 "firstname": m.get("first_name") or "",
                 "lastname": m.get("last_name") or "",
                 "jobtitle": m.get("title") or "",
                 "company": name or "",
-                "diablo_market": p.get("diablo_market") or "",
-                "diablo_contact_status": "contact_found",
-                "diablo_email_status": m.get("email_status") or "",
-                "diablo_apollo_id": m.get("id") or "",
+                **statuses.props("contacts", "found"),
                 **({"hubspot_owner_id": owner} if owner else {}),
             })
-        created = hs.batch_create("contacts", new_contacts) if new_contacts else []
+        created = hs.create_tagged("contacts", new_contacts) if new_contacts else []
         if created:
-            hs.associate_default("contacts", "companies", [(c["id"], cid) for c in created])
-
-        found = len(created) + sum(1 for m in keep if m["email"].lower() in existing)
-        status = "contacts_found" if found else "no_contacts_found"
-        hs.batch_update("companies", [(cid, {"diablo_outreach_status": status})])
+            hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
+            for apollo_id, c in zip(new_ids, created):
+                kept[apollo_id] = str(c["id"])
+        if not created:
+            hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
+        status = "contacts found" if created else "no contacts found"
         with_email = sum(1 for x in people if x.get("has_email", True))
         row.update(result=status, contacts=len(created), people_found=len(people),
                    with_email=with_email, emails_revealed=revealed, verified=len(keep),
@@ -235,13 +215,16 @@ def run(target, settings, hs, apollo, log=print):
         log_rows.append(row)
         log(f"{name}: {len(people)} people, {with_email} with an email in Apollo, "
             f"{revealed} revealed, {len(keep)} verified, {len(created)} added"
-            + (f" (most senior: {keep[0].get('title')})" if keep else ""))
+            + (f" (most senior: {keep[0].get('title')})" if keep else "")
+            + ("" if created else "; Lead Status set to Missing Info"))
 
     summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows}
     write_json(out_dir / "summary.json", summary)
     log(f"Apollo credits used (approx.): {credits}")
-    if len(skipped) != skipped_before:
+    if len(skipped) != before[0]:
         save_skipped(skipped)
+    if len(kept) != before[1]:
+        save_skipped(kept, KEPT_FILE)
     return summary
 
 
