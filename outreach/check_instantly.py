@@ -210,6 +210,18 @@ def campaigns_section(instantly, campaigns):
     return "\n".join(lines) + "\n"
 
 
+def keys_section(emails_key_set, emails_api):
+    """Whether the key for rounds 2 and 3 (INSTANTLY_EMAILS_KEY) is set and works."""
+    if not emails_key_set:
+        return ("## Keys\n\n- INSTANTLY_EMAILS_KEY is not set: rounds 2 and 3 (replies in each person's thread) "
+                "wait until it is added.\n")
+    try:
+        emails_api.request("GET", "/emails", params={"limit": 1})
+        return "## Keys\n\n- INSTANTLY_EMAILS_KEY works: Sync can send rounds 2 and 3.\n"
+    except InstantlyError as err:
+        return f"## Keys\n\n- INSTANTLY_EMAILS_KEY is set but Instantly refused it: {err}\n"
+
+
 def run(instantly, settings, accounts_api=None):
     """accounts_api reads the mailboxes: a separate read-only key (INSTANTLY_ACCOUNTS_KEY) when
     set, so the key that sends emails never needs more access than it has."""
@@ -244,6 +256,8 @@ def main(argv=None):
     try:
         key = os.environ.get("INSTANTLY_ACCOUNTS_KEY")
         text = run(Instantly(), settings, Instantly(api_key=key) if key else None)
+        emails_key = os.environ.get("INSTANTLY_EMAILS_KEY")
+        text += "\n" + keys_section(bool(emails_key), Instantly(api_key=emails_key) if emails_key else None)
     except InstantlyError as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1
