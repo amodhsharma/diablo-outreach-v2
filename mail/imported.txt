@@ -4,3 +4,4 @@ mail/lines/2026-10-12/2026-10-12_1410_35.json	2026-10-12T08:41:27+00:00	31 conta
 mail/lines/2026-10-12/2026-10-12_1414_3.json	2026-10-12T08:44:46+00:00	3 contacts now Copy ready
 mail/lines/2026-10-12/2026-10-12_1614_6.json	2026-10-12T10:45:10+00:00	0 contacts now Copy ready, 6 skipped (not in HubSpot)
 mail/lines/2026-10-14/2026-10-14_0141_3.json	2026-10-13T20:12:25+00:00	3 contacts now on 'New, Personal line filled'
+mail/lines/2026-10-14/2026-10-14_0224_3.json	2026-10-13T20:55:02+00:00	3 contacts now on 'New, Personal line filled'
