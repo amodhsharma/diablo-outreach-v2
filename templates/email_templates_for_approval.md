@@ -64,7 +64,7 @@ Accounts. It is set there, not here.
 > www.diablosugarfree.com
 > XXXXXX (phone, placeholder)
 
-## Reminder (3 days later, same thread, only if nobody at the company has replied)
+## Reminder (round 2: sent as a reply in the person's own thread, see the README for timing)
 
 > Hi {{firstName}},
 >
@@ -120,3 +120,13 @@ booking link sentence. It ends with the same sign-off and privacy footer as the 
 
 Which file is used is set in `config/settings.yaml` under `send.templates`. To go back to
 `templates/template_1.json`, change that path; nothing else needs to change.
+
+## Last note (round 3, `templates/follow_up_2.json`): DRAFT for approval, 13 Oct 2026
+
+> Hi {{firstName}},
+>
+> One last note from me about Diablo Sugar Free for {{market}}. If sugar free confectionery is not
+> a priority for you right now, just let me know and I will not follow up again. If it is, I would
+> be glad to send samples and set up a short call with our Strategy Director.
+>
+> Best regards, then the Joshua signature block and the reminder's footer.

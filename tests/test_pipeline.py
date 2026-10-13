@@ -15,6 +15,8 @@ def quiet(_):
 @pytest.fixture(autouse=True)
 def tmp_runs(tmp_path, monkeypatch):
     monkeypatch.setattr(common, "RUNS_DIR", tmp_path)
+    from outreach import find_contacts as _fc
+    monkeypatch.setattr(_fc, "SKIPPED_FILE", tmp_path / "apollo_skipped.json")
     monkeypatch.setattr(common, "NOTES_FILE", tmp_path / "company_notes.json")
 
 
@@ -116,7 +118,7 @@ def test_send_and_sync(settings):
     assert "XXXXXX" in shown and "| Joshua\n| Initial Outreach Team" in shown
     assert "office of the Strategy Director" in shown and "direct partner in India" in shown
     assert "{{" not in shown and "<br/>" not in shown
-    assert "Email 2 (sent 3 days later if no reply)" in shown
+    assert "--- Email 2" not in shown  # later emails are sent by Sync, in rounds
 
     result = send.run("test", settings, hs, instantly, log=quiet)
     assert result["queued"] == 1
@@ -212,16 +214,16 @@ def test_find_contacts_collects_top_three_then_goes_deeper(settings):
     def ranked():
         return [c["jobtitle"] for c in sorted(hs.records["contacts"].values(),
                                               key=lambda c: int(c["diablo_hierarchy_rank"]))]
-    assert ranked() == ["Chief Executive Officer", "COO", "Regional Director"]  # top 3, most senior first
-    assert summary["rows"][0]["verified"] == 3 and len(apollo.revealed) == 3
+    assert ranked() == ["Chief Executive Officer", "COO", "Regional Director", "Assistant Director"]  # top 4
+    assert summary["rows"][0]["verified"] == 4 and len(apollo.revealed) == 5  # one revealed was unverified
     assert hs.records["companies"][cid]["diablo_outreach_status"] == "contacts_found"
 
-    # Nobody replied: set the company back to Approved and run again for the next three.
+    # Nobody replied: set the company back to Approved and run again for the next four.
     hs.records["companies"][cid]["diablo_outreach_status"] = "approved"
     find_contacts.run("test", settings, hs, apollo, log=quiet)
     assert ranked() == ["Chief Executive Officer", "COO", "Regional Director", "Assistant Director",
-                        "Head - Procurement", "Senior Manager"]  # ranks 4 to 6
-    assert len(apollo.revealed) == len(set(apollo.revealed)) == 7  # nobody paid for twice (incl. one unverified)
+                        "Head - Procurement", "Senior Manager", "Category Manager", "Purchase Manager"]  # ranks 5 to 8
+    assert len(apollo.revealed) == len(set(apollo.revealed)) == 9  # nobody paid for twice (incl. the unverified one)
     assert "p5" not in apollo.revealed and "p6" not in apollo.revealed  # interns; no email in Apollo
 
 

@@ -17,6 +17,8 @@ def quiet(_):
 @pytest.fixture(autouse=True)
 def tmp_runs(tmp_path, monkeypatch):
     monkeypatch.setattr(common, "RUNS_DIR", tmp_path)
+    from outreach import find_contacts as _fc
+    monkeypatch.setattr(_fc, "SKIPPED_FILE", tmp_path / "apollo_skipped.json")
     monkeypatch.setattr(common, "NOTES_FILE", tmp_path / "company_notes.json")
 
 
@@ -111,6 +113,9 @@ def test_find_contacts_assigns_company_and_contacts(settings):
 
 
 def test_follow_up_after_three_days(settings):
+    # With rounds of emails (agreed 13 Oct 2026) Instantly sends only the first email.
+    assert len(send.campaign_body("Diablo | X", "India", settings)["sequences"][0]["steps"]) == 1
+    settings["send"]["rotation"]["rounds"] = 1  # the earlier way: Instantly sends the reminder itself
     body = send.campaign_body("Diablo | India | X | 2026-10", "India", settings)
     steps = body["sequences"][0]["steps"]
     assert len(steps) == 2

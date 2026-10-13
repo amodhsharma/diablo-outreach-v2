@@ -87,6 +87,29 @@ class Instantly:
             out.update(data.get("aggregate_data") or {})
         return out
 
+    def sent_emails(self, lead_email, campaign_id=None):
+        """Emails already sent to one lead (from the campaign or as replies), oldest first."""
+        items, cursor = [], None
+        while True:
+            params = {"lead": lead_email, "limit": 100, "sort_order": "asc"}
+            if campaign_id:
+                params["campaign_id"] = campaign_id
+            if cursor:
+                params["starting_after"] = cursor
+            data = self.request("GET", "/emails", params=params)
+            batch = data.get("items", [])
+            items.extend(e for e in batch if e.get("ue_type") in (1, 3))
+            cursor = data.get("next_starting_after")
+            if not cursor or not batch:
+                return items
+
+    def reply(self, email, subject, html, text):
+        """Send a reply in the thread of an email we sent, from the same mailbox."""
+        subject = subject if subject.lower().startswith("re:") else f"Re: {subject}"
+        return self.request("POST", "/emails/reply", json={
+            "reply_to_uuid": email["id"], "eaccount": email["eaccount"], "subject": subject,
+            "body": {"html": html, "text": text}})
+
     def list_leads(self, campaign_id):
         items, cursor = [], None
         while True:

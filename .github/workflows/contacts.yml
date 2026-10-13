@@ -1,4 +1,4 @@
-name: '3 - Manual - Find the top 3 people at each approved company'
+name: '3 - Manual - Find the top 4 people at each approved company'
 
 # Finds contacts for companies set to Approved in HubSpot (gate 1).
 on:
@@ -35,7 +35,7 @@ jobs:
         run: python -m outreach.export_for_lines --target "${{ inputs.target }}"
       - name: Save the list
         run: |
-          bash .github/scripts/save_changes.sh "Contacts needing email lines" mail/pending.json
+          bash .github/scripts/save_changes.sh "Contacts needing email lines" mail/pending.json data/apollo_skipped.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

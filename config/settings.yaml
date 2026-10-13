@@ -10,7 +10,7 @@ contacts:
   # (see hierarchy below). They are emailed one at a time, most senior first (see send).
   # To go deeper after all of them got no reply, set the company back to Approved and run
   # "Find contacts" again: it reveals the next ones and never pays for the same person twice.
-  per_company: 3
+  per_company: 4
   # Most emails to reveal per company while trying to reach per_company verified ones.
   # Apollo charges about 1 credit per email revealed, verified or not.
   max_reveals_per_company: 5
@@ -94,7 +94,7 @@ contacts:
 
 assignment:
   # Gives each approved company a salesperson (its HubSpot company owner) when
-  # "3 - Manual - Find the top 3 people at each approved company" runs. Contacts get the same owner. Companies that already
+  # "3 - Manual - Find the top 4 people at each approved company" runs. Contacts get the same owner. Companies that already
   # have an owner keep it. Leave rules and default_owners empty to switch this off.
   #
   # Each rule: market (a country, region or city), optional category, and the
@@ -119,15 +119,23 @@ send:
   # Example: ["ariel@getdiablo.com", "ariel@diablosnacks.com"]
   sending_accounts: [sales@diablosnosugar.com]
   daily_limit: 30
-  # One reminder email for anyone who has not replied (text in templates/follow_up.json).
-  # Anyone who replies, or whose colleague replies, gets no reminder.
+  # Order of emails at each company (agreed 13 Oct 2026). Up to 4 contacts, most senior first,
+  # one email every next_contact_after_days days: Person 1, 2, 3, 4 (first emails), then back
+  # to Person 1 for a reminder in their own thread, Person 2, ... for `rounds` rounds. Nobody gets
+  # another email less than min_days_same_person days after their previous one; if a company has
+  # fewer people, the next email waits until then. Any reply or opt-out stops the company.
+  # First emails go through Instantly; later emails are sent by Sync (button 5) as replies in
+  # the person's thread, using the GitHub secret INSTANTLY_EMAILS_KEY (scope emails:all).
+  next_contact_after_days: 3
+  rotation:
+    rounds: 3
+    min_days_same_person: 7
+    # The email for round 2 and round 3 (follow_up_2.json is a draft for approval, 13 Oct 2026).
+    follow_up_templates: [templates/follow_up.json, templates/follow_up_2.json]
+  # Used only when rotation.rounds is 1: Instantly then sends one reminder itself.
   follow_up:
     enabled: true
     delay_days: 3
-  # One person per company at a time, most senior first. If nobody at the company has
-  # replied this many days after the current person's first email, the next person in
-  # line (already approved at gate 2) gets their own email. The sync job does this by itself.
-  next_contact_after_days: 4
   # Privacy notice link shown in every email footer. Check it before sending.
   privacy_url: https://www.diablosugarfree.com/policies/privacy-policy
   # The 2026 catalogue's public web link. DUMMY until the catalogue is live (agreed 12 Oct 2026):

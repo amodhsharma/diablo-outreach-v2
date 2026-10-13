@@ -1,14 +1,19 @@
-"""One person per company at a time, most senior first.
+"""One person per company at a time, in turn (agreed 13 Oct 2026).
 
-The most senior approved contact at a company gets the first email and the reminder
-3 days later. If nobody at the company has replied 4 days after that first email
-(send.next_contact_after_days), the next approved contact gets their own email. The
-moment anyone replies, everyone else at the company stops. When everyone found has been
-emailed without a reply, the company is marked "No reply"; set it back to Approved and
-run "Find contacts" to go deeper.
+Up to 4 approved contacts per company, most senior first. Every email to a company is at
+least 3 days after the previous one (send.next_contact_after_days):
 
-"4b - Timer/Manual - Send approved contacts to Instantly to be emailed" starts each company with its first person; "5. Sync" (every
-3 hours) moves companies on to the next person by itself.
+    Person 1, Person 2, Person 3, Person 4 (first emails), then back to Person 1 for a
+    reminder in the same thread, Person 2, ... and so on for send.rotation.rounds rounds.
+
+Nobody gets a second or third email less than 7 days after their previous one
+(send.rotation.min_days_same_person): if the company has fewer people, the next email simply
+waits until the 7 days are up. The moment anyone at the company replies or opts out, everyone
+there stops. After the last round with no reply the company is marked "No reply".
+
+First emails go through Instantly (4b adds the lead; Sync adds the next person). The 2nd and
+3rd emails are sent by Sync as replies in the person's own thread (Instantly's reply feature,
+key INSTANTLY_EMAILS_KEY).
 """
 
 import datetime as dt
@@ -52,9 +57,21 @@ def contacts_by_company(hs, company_ids):
     return {cid: [records[c] for c in cs if c in records] for cid, cs in links.items()}
 
 
-def decide(contacts, company_status, gap_days, now=None):
+def touch_times(contact, touches=None):
+    """When this contact was emailed: the sent times from Instantly if known, else the time of
+    their first email recorded in HubSpot."""
+    if touches is not None and touches.get(contact["id"]):
+        return sorted(touches[contact["id"]])
+    first = parse_time(contact["properties"].get("diablo_last_event_at"))
+    return [first] if first else []
+
+
+def decide(contacts, company_status, gap_days, now=None, touches=None, rounds=1, min_same_days=7):
     """(the contact to email next or None, why). why is one of:
-    next, stopped, waiting, waiting_for_gate_2, no_reply, nothing."""
+    next (their first email), follow_up (their next email, a reply in their thread), stopped,
+    waiting, waiting_for_gate_2, waiting_same_person, waiting_for_emails_key, no_reply, nothing.
+
+    touches: {contact id: [times they were emailed]} from Instantly, or None when unknown."""
     now = now or dt.datetime.now(dt.timezone.utc)
     if (company_status or "") in STOPPED:
         return None, "stopped"
@@ -63,20 +80,31 @@ def decide(contacts, company_status, gap_days, now=None):
         return None, "stopped"
     if "queued" in statuses:
         return None, "waiting"
-    for c in contacts:
-        if (c["properties"].get("diablo_contact_status") or "") == "sent":
-            first = parse_time(c["properties"].get("diablo_last_event_at"))
-            if first is None or now - first < dt.timedelta(days=gap_days):
-                return None, "waiting"
+    emailed = sorted((c for c in contacts if (c["properties"].get("diablo_contact_status") or "") == "sent"),
+                     key=rank_of)
+    times = [t for c in emailed for t in touch_times(c, touches)]
+    if emailed and (not times or now - max(times) < dt.timedelta(days=gap_days)):
+        return None, "waiting"
     approved = sorted((c for c in contacts if c["properties"].get("diablo_contact_status") == "approved_to_send"),
                       key=rank_of)
     if approved:
         return approved[0], "next"
     if any(s in NOT_YET_APPROVED for s in statuses):
         return None, "waiting_for_gate_2"
-    if any(s in TRIED for s in statuses):
+    if not emailed:
+        return (None, "no_reply") if any(s in TRIED for s in statuses) else (None, "nothing")
+    if rounds <= 1:
         return None, "no_reply"
-    return None, "nothing"
+    if touches is None:
+        return None, "waiting_for_emails_key"
+    counts = {c["id"]: max(len(touch_times(c, touches)), 1) for c in emailed}
+    lowest = min(counts.values())
+    if lowest >= rounds:
+        return None, "no_reply"
+    person = next(c for c in emailed if counts[c["id"]] == lowest)
+    if now - touch_times(person, touches)[-1] < dt.timedelta(days=min_same_days):
+        return None, "waiting_same_person"
+    return person, "follow_up"
 
 
 def last_campaign(contacts):

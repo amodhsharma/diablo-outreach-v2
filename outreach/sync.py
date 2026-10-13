@@ -3,10 +3,11 @@
 Statuses only move forward (Sent never goes back to Queued, Interested never back to
 Replied). An opt-out also stops all outreach to that company.
 
-It then moves companies on to their next person (one person per company at a time, see
-next_in_line.py): if nobody at a company has replied 4 days after the current person's
-first email, the next approved contact is added to the same campaign. A company whose
-contacts have all been emailed without a reply is marked "No reply".
+It then moves companies on in turn (see next_in_line.py): one email per company every 3 days,
+Person 1 to 4 first, then back to Person 1 for a reminder in their own thread, for 3 rounds.
+First emails: the next approved contact is added to the company's campaign. Later emails: sent
+here as a reply in the person's thread (needs INSTANTLY_EMAILS_KEY). A company that gets no
+reply after the last round is marked "No reply".
 Usage:
     python -m outreach.sync --target test
 """
@@ -18,7 +19,10 @@ import sys
 from .common import PipelineError, check_target, load_settings, now_iso, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
-from .next_in_line import contacts_by_company, decide, last_campaign, lead_for
+import datetime as dt
+import html as html_lib
+
+from .next_in_line import NOT_YET_APPROVED, contacts_by_company, decide, last_campaign, lead_for, parse_time
 
 # Higher number wins.
 RANK = {
@@ -48,7 +52,7 @@ def lead_status(lead):
     return "queued", "queued"
 
 
-def run(target, settings, hs, instantly, log=print):
+def run(target, settings, hs, instantly, log=print, emails_api=None):
     check_target(hs, target)
     prefix = settings["sync"]["campaign_prefix"]
     campaigns = [c for c in instantly.list_campaigns() if (c.get("name") or "").startswith(prefix)]
@@ -106,7 +110,7 @@ def run(target, settings, hs, instantly, log=print):
                     company_updates[company_id] = props
             hs.batch_update("companies", list(company_updates.items()))
 
-    moved = advance(hs, instantly, settings, log)
+    moved = advance(hs, instantly, settings, log, emails_api=emails_api)
     out_dir = run_dir("sync")
     write_json(out_dir / "changes.json", {"contacts": changed, "companies": company_updates,
                                           "next_in_line": moved})
@@ -114,32 +118,82 @@ def run(target, settings, hs, instantly, log=print):
     return {"updated": len(contact_updates), "companies": len(company_updates), **moved}
 
 
-def advance(hs, instantly, settings, log=print, now=None):
-    """Move each company in outreach on to its next person when it is due."""
-    gap = int(settings["send"].get("next_contact_after_days", 4))
+def _sent_time(email):
+    return parse_time(email.get("timestamp_email") or email.get("timestamp_created"))
+
+
+def follow_up_email(round_no, person, company, settings):
+    """(html, text) of a later-round email for one person, filled in."""
+    from . import send
+    rot = settings["send"].get("rotation") or {}
+    paths = rot.get("follow_up_templates") or ["templates/follow_up.json"]
+    path = paths[min(round_no - 2, len(paths) - 1)]
+    _, body = send._template(path, settings["send"])
+    lead = lead_for(person, company, company.get("diablo_market") or "Unknown")
+    values = {"firstName": lead.get("first_name") or "", "lastName": lead.get("last_name") or "",
+              "companyName": lead.get("company_name") or "", **lead["custom_variables"]}
+    html = send.html_paragraphs(body)
+    for key, value in values.items():
+        html = html.replace("{{" + key + "}}", html_lib.escape(str(value)))
+    return html, send.render(html, {})
+
+
+def advance(hs, instantly, settings, log=print, now=None, emails_api=None):
+    """Move each company in outreach on to its next email when it is due."""
+    gap = int(settings["send"].get("next_contact_after_days", 3))
+    rot = settings["send"].get("rotation") or {}
+    rounds, min_same = int(rot.get("rounds", 1)), int(rot.get("min_days_same_person", 7))
     companies = hs.search(
         "companies", [{"propertyName": "diablo_outreach_status", "operator": "EQ", "value": "in_outreach"}],
         ["name", "domain", "diablo_market", "diablo_channel_category", "diablo_outreach_status",
          "diablo_suppress_reason"],
         max_results=5000)
     if not companies:
-        return {"next_contacts_added": 0, "no_reply": 0}
+        return {"next_contacts_added": 0, "follow_ups_sent": 0, "no_reply": 0}
     everyone = contacts_by_company(hs, [c["id"] for c in companies])
-    added, no_reply, contact_updates, company_updates = 0, 0, [], []
+    added, sent, no_reply, need_key, contact_updates, company_updates = 0, 0, 0, 0, [], []
     for company in companies:
         props = company.get("properties", {})
         if props.get("diablo_suppress_reason"):
             continue
         contacts = everyone.get(company["id"]) or []
-        due, why = decide(contacts, props.get("diablo_outreach_status"), gap, now)
+        statuses = [c["properties"].get("diablo_contact_status") or "" for c in contacts]
+        later_rounds = (rounds > 1 and "sent" in statuses and "queued" not in statuses
+                        and not any(s in NOT_YET_APPROVED or s == "approved_to_send" for s in statuses))
+        touches, history = None, {}
+        if later_rounds and emails_api is not None:
+            touches = {}
+            for c in contacts:
+                if (c["properties"].get("diablo_contact_status") or "") == "sent":
+                    history[c["id"]] = emails_api.sent_emails(c["properties"].get("email") or "")
+                    touches[c["id"]] = [t for t in (_sent_time(e) for e in history[c["id"]]) if t]
+        due, why = decide(contacts, props.get("diablo_outreach_status"), gap, now,
+                          touches=touches, rounds=rounds, min_same_days=min_same)
         if why == "no_reply":
             if not company_updates and hs.ensure_option("companies", "diablo_outreach_status", "No reply", "no_reply"):
                 log("Added 'No reply' to the Outreach company status dropdown")
             company_updates.append((company["id"], {"diablo_outreach_status": "no_reply"}))
             no_reply += 1
             continue
+        if why == "waiting_for_emails_key":
+            need_key += 1
+            continue
+        if why == "follow_up":
+            past = history.get(due["id"]) or []
+            if not past:
+                log(f"{props.get('name')}: could not find the earlier email to reply to; will try again next run")
+                continue
+            round_no = len(past) + 1
+            html, text = follow_up_email(round_no, due, props, settings)
+            emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
+            contact_updates.append((due["id"], {"diablo_last_event": f"email_{round_no}_sent",
+                                                "diablo_last_event_at": (now or dt.datetime.now(dt.timezone.utc)).isoformat()}))
+            sent += 1
+            log(f"{props.get('name')}: round {round_no} email sent to {due['properties'].get('jobtitle') or 'the contact'}, "
+                "as a reply in their thread")
+            continue
         campaign = last_campaign(contacts)
-        if not due or not campaign or not due["properties"].get("diablo_personal_line"):
+        if not due or why != "next" or not campaign or not due["properties"].get("diablo_personal_line"):
             continue
         lead = lead_for(due, props, props.get("diablo_market") or "Unknown")
         results = instantly.add_leads(campaign, [lead])
@@ -152,10 +206,14 @@ def advance(hs, instantly, settings, log=print, now=None):
             log(f"{props.get('name')}: {lead['email']} is already in Instantly; not added again")
     hs.batch_update("contacts", contact_updates)
     hs.batch_update("companies", company_updates)
-    if added or no_reply:
-        log(f"Next in line: {added} contacts added to their company's campaign, "
+    if need_key:
+        log(f"{need_key} companies are ready for their next round, but the GitHub secret INSTANTLY_EMAILS_KEY "
+            "(Instantly key with scope emails:all) is not set, so those emails wait")
+    if added or sent or no_reply:
+        log(f"Next in line: {added} first emails added, {sent} later-round emails sent, "
             f"{no_reply} companies marked No reply")
-    return {"next_contacts_added": added, "no_reply": no_reply}
+    return {"next_contacts_added": added, "follow_ups_sent": sent, "no_reply": no_reply,
+            "waiting_for_emails_key": need_key}
 
 
 def main(argv=None):
@@ -168,7 +226,8 @@ def main(argv=None):
         print("Sync skipped: HubSpot or Instantly key not added yet.")
         return 0
     try:
-        run(args.target, load_settings(), HubSpot(), Instantly())
+        key = os.environ.get("INSTANTLY_EMAILS_KEY")
+        run(args.target, load_settings(), HubSpot(), Instantly(), emails_api=Instantly(api_key=key) if key else None)
     except (PipelineError, HubSpotError, InstantlyError) as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1

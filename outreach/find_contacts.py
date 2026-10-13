@@ -14,7 +14,9 @@ import sys
 
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
-from .common import PipelineError, category_label, check_target, clean_domain, load_settings, run_dir, write_json
+import json
+
+from .common import ROOT, PipelineError, category_label, check_target, clean_domain, load_settings, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
 
 COMPANY_PROPS = [
@@ -94,6 +96,24 @@ def opted_out_emails(hs, emails):
     return existing
 
 
+# People whose email was revealed (and paid for) but not kept, e.g. unverified: never revealed again.
+SKIPPED_FILE = ROOT / "data" / "apollo_skipped.json"
+
+
+def load_skipped(path=None):
+    path = path or SKIPPED_FILE
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def save_skipped(skipped, path=None):
+    path = path or SKIPPED_FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(dict(sorted(skipped.items())), indent=1) + "\n", encoding="utf-8")
+
+
 def known_apollo_ranks(hs, apollo_ids):
     """{Apollo person ID: hierarchy rank} for the people already saved as HubSpot contacts."""
     out, ids = {}, sorted({i for i in apollo_ids if i})
@@ -121,6 +141,8 @@ def run(target, settings, hs, apollo, log=print):
     )
     log(f"{len(companies)} approved companies to process")
     labels = hs.option_labels("companies", "diablo_channel_category") if companies else {}
+    skipped = load_skipped()
+    skipped_before = len(skipped)
 
     credits, log_rows = 0, []
     for company in companies:
@@ -157,7 +179,7 @@ def run(target, settings, hs, apollo, log=print):
         # People already in HubSpot (from an earlier run for this company) are skipped, so going
         # deeper reveals the next ones in line and never pays for the same person twice.
         known_ranks = known_apollo_ranks(hs, [x["id"] for x in candidates])
-        candidates = [x for x in candidates if x["id"] not in known_ranks]
+        candidates = [x for x in candidates if x["id"] not in known_ranks and x["id"] not in skipped]
         base_rank = max(known_ranks.values(), default=0)
         level_of = {x["id"]: x["_level"] for x in people}
         keep, revealed, batches = [], 0, 0
@@ -177,6 +199,8 @@ def run(target, settings, hs, apollo, log=print):
                 m = by_id.get(x["id"])
                 if m and m.get("email") and (m.get("email_status") or "") in cfg["keep_email_statuses"]:
                     keep.append(m)
+                elif m and m.get("email"):
+                    skipped[x["id"]] = m.get("email_status") or "unknown"
         existing = opted_out_emails(hs, [m["email"] for m in keep]) if keep else {}
         new_contacts = []
         for rank, m in enumerate(keep, start=base_rank + 1):
@@ -216,6 +240,8 @@ def run(target, settings, hs, apollo, log=print):
     summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows}
     write_json(out_dir / "summary.json", summary)
     log(f"Apollo credits used (approx.): {credits}")
+    if len(skipped) != skipped_before:
+        save_skipped(skipped)
     return summary
 
 

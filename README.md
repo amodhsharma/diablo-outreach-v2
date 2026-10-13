@@ -39,7 +39,7 @@ You approve work in HubSpot by changing one dropdown:
 | 2e - Automatic/Manual - Put new companies into HubSpot for review | Runs by itself when new research is saved; can be pressed by hand |
 | 2f - Timer/Manual - Refresh the "already in HubSpot" list so research skips them | Runs every 3 hours; saves the companies already in HubSpot so research skips them |
 | 2g - Automatic/Manual - Research: add the next city from the automatic list | Runs by itself after every 2f run. Adds the next city from `data/auto_markets.csv` (UK, EU, Canada and South America, in a random order that takes turns between regions) to the queue: at most one a day, only when nothing is waiting in the queue and fewer than 100 companies wait for review in HubSpot. Canada, Germany and Austria are left out until a lawyer has checked the cold email rules there, and so is every country in `data/excluded_countries.txt`. Markets added by hand with 2a always run first. Settings: `auto_markets` in `config/settings.yaml` |
-| 3 - Manual - Find the top 3 people at each approved company | For Approved companies: Apollo finds the top 3 verified buyer emails, most senior first. Run it again on a company set back to Approved to get the next 3 (nobody is paid for twice) |
+| 3 - Manual - Find the top 4 people at each approved company | For Approved companies: Apollo finds the top 4 verified buyer emails, most senior first (4 since 13 Oct 2026). Run it again on a company set back to Approved to get the next 4 (nobody is paid for twice) |
 | 4a - Manual - Refresh the list of contacts that still need email lines | Saves the Contact found contacts to `mail/pending.json` for the writing skill. Buttons 3 and 4c already refresh this list themselves at the end of their run; press 4a only after editing contacts in HubSpot by hand |
 | 4c - Automatic/Manual - Put written email lines into HubSpot for approval | Runs by itself when new lines are saved: puts them on the contacts and moves them to Copy ready |
 | 4b - Timer/Manual - Send approved contacts to Instantly to be emailed | Every 3 hours by itself (or pressed by hand): starts each company with its most senior Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
@@ -48,7 +48,7 @@ You approve work in HubSpot by changing one dropdown:
 
 ## How the email lines get written
 
-1. **3 - Manual - Find the top 3 people at each approved company** saves the new contacts (job title and company research only, no names or
+1. **3 - Manual - Find the top 4 people at each approved company** saves the new contacts (job title and company research only, no names or
    emails) to `mail/pending.json`.
 2. Every 2 hours Claude runs the outreach-mail-writing skill: it writes a subject line and a
    personal opening for up to 60 contacts, checks them and saves one file to `mail/lines/<date>/`.
@@ -84,14 +84,29 @@ GitHub's own timer often skips runs, so cron-job.org presses one button every ho
 runs 8 times a day. It uses one key limited to starting this repository's buttons. Set-up and
 renewal: `docs/outside_timer.md`.
 
-## One person per company at a time
+## One person per company at a time, in turn
 
-- The most senior approved contact gets the first email, and a reminder 3 days later if they have not replied.
-- On day 4 with no reply from anyone at the company, the next person in line gets their own email
-  (the sync job does this by itself). Each person must still be approved at gate 2.
-- The moment anyone at the company replies, nobody else there is emailed.
-- When everyone found has been emailed without a reply, the company becomes **No reply**. To go
-  deeper, set it back to **Approved** and press **3 - Manual - Find the top 3 people at each approved company** for the next 3.
+Agreed 13 Oct 2026. Button 3 finds the top 4 people at each company. Each must be approved at
+gate 2. Then, with one email to the company every 3 days:
+
+| Day | Email |
+|---|---|
+| 0, 3, 6, 9 | Person 1, 2, 3 and 4 get their first email (from Instantly) |
+| 12, 15, 18, 21 | Round 2: each gets the reminder (`templates/follow_up.json`) as a reply in their own thread |
+| 24, 27, 30, 33 | Round 3: each gets the last note (`templates/follow_up_2.json`) the same way |
+
+- Nobody gets another email less than 7 days after their previous one: with fewer people, the
+  next email waits until the week is up (2 people: days 0, 3, 7, 10, 14, 17).
+- The moment anyone at the company replies or opts out, nobody else there is emailed. A bounced
+  person is skipped.
+- After round 3 with no reply, the company becomes **No reply**. To go deeper, set it back to
+  **Approved** and press button 3 for the next 4 people.
+- Rounds 2 and 3 are sent by button 5 (Sync) using Instantly's reply feature. That needs the
+  GitHub secret `INSTANTLY_EMAILS_KEY` (an Instantly key with the scope `emails:all`); until it
+  is added, those emails wait and nothing is marked No reply.
+- Settings: `send.next_contact_after_days` and `send.rotation` in `config/settings.yaml`.
+- People whose email Apollo revealed but who were not kept (e.g. unverified) are listed in
+  `data/apollo_skipped.json`, so they are never paid for again.
 
 ## Countries we never research
 
@@ -142,6 +157,7 @@ Settings > Secrets and variables > Actions > New repository secret.
 | `HUBSPOT_TOKEN_TEST` | Outreach Test account > Development > Legacy apps > the private app |
 | `APOLLO_API_KEY` | Apollo > Settings > Integrations > API keys |
 | `INSTANTLY_API_KEY` | Instantly > Settings > Integrations > API keys (scopes: campaigns and leads) |
+| `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 5 to send rounds 2 and 3 as replies in each person's thread |
 | `INSTANTLY_ACCOUNTS_KEY` | A second, read-only Instantly key with the scope `accounts:read`, used only by button 6 to check the mailboxes (`docs/instantly_accounts_key.md`) |
 | `HUBSPOT_TOKEN_LIVE` | Only when testing is finished |
 
