@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-13T20:09:22+00:00 (UTC).
+Checked 2026-10-13T20:52:35+00:00 (UTC).
 
 ## Mailboxes
 
@@ -33,7 +33,7 @@ Checked 2026-10-13T20:09:22+00:00 (UTC).
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Info Account | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (62 of 62) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (64 of 64) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
 | sales@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Sales Account | 30 | none |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
