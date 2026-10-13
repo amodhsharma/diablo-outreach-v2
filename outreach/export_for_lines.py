@@ -20,7 +20,7 @@ import sys
 from .common import ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_of, now_iso
 from .find_contacts import hierarchy_level
 from .hubspot_client import HubSpot, HubSpotError
-from .next_in_line import COMPANY_PROPS
+from .next_in_line import COMPANY_PROPS, tagged_company_of
 from .schema import LEAD_STATUS, ORDER
 from .stages import COMPANY_STOPPED, LeadStatus
 
@@ -40,14 +40,11 @@ def collect(hs, max_results=5000, exclude=(), settings=None):
                 if statuses.of("contacts", c) == "found"] if ids else []
     if not contacts:
         return []
-    links = hs.associated_ids("contacts", "companies", [c["id"] for c in contacts])
-    company_ids = sorted({ids[0] for ids in links.values() if ids})
-    companies = {c["id"]: c for c in hs.tagged_read("companies", company_ids, COMPANY_PROPS)}
+    owner_of, companies = tagged_company_of(hs, [c["id"] for c in contacts], COMPANY_PROPS)
     notes = load_company_notes()
     rows = []
     for c in contacts:
-        company_id = (links.get(c["id"]) or [None])[0]
-        company = companies.get(company_id)
+        company = companies.get(owner_of.get(str(c["id"])))
         if not company or statuses.of("companies", company) in COMPANY_STOPPED:
             continue
         comp = company["properties"]

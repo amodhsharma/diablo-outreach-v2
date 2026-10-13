@@ -55,7 +55,15 @@ choices are never changed.
 
 Any other Lead Status (for example Emailed or Won) means a person has taken the record over:
 the pipeline stops there and never changes it. To reject a company at gate 1, set it to
-Unqualified.
+Unqualified; to reject one person at gate 2, set them to Unqualified (the others carry on).
+
+**To take a company over from the pipeline**, set its Lead Status to In Progress, Emailed or Won,
+or clear its Lead Source. "Attempted to Contact" is the pipeline's own "still emailing" status, so
+setting it by hand does not stop the emails. A colleague unsubscribing does not turn a company
+Unqualified while someone else there is still talking to us (In Progress).
+
+If HubSpot links a new contact to a second company by itself (by email domain), the pipeline
+only ever uses and changes the AUTO-OUTREACH one.
 
 ## The buttons
 

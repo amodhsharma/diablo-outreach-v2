@@ -411,3 +411,9 @@ def test_import_skips_companies_on_the_full_list_and_by_website(import_env):
     lines = import_research.run("test", hs, log=quiet)
     assert "0 companies added to HubSpot" in lines[0] and "2 already in HubSpot" in lines[0]
     assert len(hs.records["companies"]) == 1
+
+
+def test_country_short_forms_match():
+    idx = known_companies.index([{"name": "Noble Foods Ltd", "domain": "", "country": "UK"}])
+    assert known_companies.matches(idx, "", "Noble Foods", "United Kingdom")
+    assert known_companies.matches(idx, "", "noble foods limited", "England")

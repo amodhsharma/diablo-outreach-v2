@@ -30,6 +30,7 @@ from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .next_in_line import (
     COMPANY_PROPS, annotate, contacts_by_company, decide, instantly_view, last_campaign, lead_for, parse_time,
+    tagged_company_of,
 )
 from .schema import LEAD_STATUS, PERSONAL_LINE
 from .stages import LeadStatus, forward
@@ -81,16 +82,27 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
     company_updates = {}
     ups = [c for c in changed if c["company_to"]]
     if ups:
-        links = hs.associated_ids("contacts", "companies", [c["contact_id"] for c in ups])
+        owner_of, current = tagged_company_of(hs, [c["contact_id"] for c in ups], [LEAD_STATUS])
         targets = {}
         for ch in ups:
-            for company_id in links.get(ch["contact_id"], [])[:1]:
-                cur = targets.get(company_id)
-                if cur is None or forward(cur, ch["company_to"]):
-                    targets[company_id] = ch["company_to"]
-        current = {c["id"]: c for c in hs.tagged_read("companies", list(targets), [LEAD_STATUS])}
+            company_id = owner_of.get(str(ch["contact_id"]))
+            if not company_id:
+                continue
+            cur = targets.get(company_id)
+            if cur is None or forward(cur, ch["company_to"]):
+                targets[company_id] = ch["company_to"]
         for company_id, stage in targets.items():
-            if company_id in current and forward(statuses.of("companies", current[company_id]), stage):
+            now_stage = statuses.of("companies", current[company_id])
+            # Someone else at the company has replied and is still talking to us: a colleague
+            # unsubscribing does not make the company Unqualified.
+            closing = {str(c["contact_id"]) for c in ups
+                       if owner_of.get(str(c["contact_id"])) == company_id and c["company_to"] == "closed"}
+            if now_stage == "replied" and stage == "closed" and all(
+                    c["event"] == "unsubscribed" for c in ups if str(c["contact_id"]) in closing):
+                others = contacts_by_company(hs, [company_id]).get(company_id) or []
+                if any(str(o["id"]) not in closing and statuses.of("contacts", o) == "replied" for o in others):
+                    continue
+            if forward(now_stage, stage):
                 company_updates[company_id] = statuses.props("companies", stage)
         hs.update_tagged("companies", list(company_updates.items()))
 

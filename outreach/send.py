@@ -27,6 +27,7 @@ from .instantly_client import Instantly, InstantlyError
 from .instantly_timezones import instantly_timezone
 from .next_in_line import (
     COMPANY_PROPS, CONTACT_PROPS, annotate, contacts_by_company, decide, instantly_view, last_campaign, lead_for,
+    tagged_company_of,
 )
 from .schema import PERSONAL_LINE
 from .stages import COMPANY_STOPPED, LeadStatus, forward
@@ -275,9 +276,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     if not contacts:
         return {"queued": 0}
 
-    links = hs.associated_ids("contacts", "companies", [c["id"] for c in contacts])
-    company_ids = sorted({ids[0] for ids in links.values() if ids})
-    companies = {c["id"]: c for c in hs.tagged_read("companies", company_ids, COMPANY_PROPS)}
+    owner_of, companies = tagged_company_of(hs, [c["id"] for c in contacts], COMPANY_PROPS)
 
     prefix = settings["sync"]["campaign_prefix"]
     gap = int(settings["send"].get("next_contact_after_days", 4))
@@ -286,7 +285,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     everyone = contacts_by_company(hs, list(companies))
     groups, skipped, waiting = defaultdict(list), [], 0
     for c in contacts:
-        company_id = (links.get(c["id"]) or [None])[0]
+        company_id = owner_of.get(str(c["id"]))
         company = companies.get(company_id)
         comp = company["properties"] if company else None
         company_stage = statuses.of("companies", company) if company else ""

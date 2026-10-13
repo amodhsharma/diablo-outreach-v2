@@ -26,7 +26,8 @@ class TagGuardError(HubSpotError):
 
 
 def tagged(props):
-    return str((props or {}).get(TAG_PROPERTY) or "").strip() == TAG
+    """True only when Lead Source is exactly AUTO-OUTREACH."""
+    return (props or {}).get(TAG_PROPERTY) == TAG
 
 
 TAG_FILTER = {"propertyName": TAG_PROPERTY, "operator": "EQ", "value": TAG}
@@ -76,7 +77,11 @@ class TagGuard:
     def update_tagged(self, object_type, updates):
         """updates: list of (record_id, properties). Every record is read again first; if any
         lacks the tag, nothing is saved and the job stops."""
-        updates = [(str(i), p) for i, p in updates if p]
+        merged = {}
+        for i, p in updates:  # one change per record (HubSpot refuses a batch naming a record twice)
+            if p:
+                merged.setdefault(str(i), {}).update(p)
+        updates = list(merged.items())
         if not updates:
             return
         for _, p in updates:

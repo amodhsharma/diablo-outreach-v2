@@ -57,16 +57,20 @@ def add_options(hs, object_type, name, current, missing, plan):
     if not missing:
         return
     if not plan.dry_run:
-        start = len(current)
+        start = max([int(o.get("displayOrder") or 0) for o in current] + [len(current) - 1]) + 1
         new = [dict(o, displayOrder=start + i) for i, o in enumerate(missing)]
         hs.request("PATCH", f"/crm/v3/properties/{object_type}/{name}", json={"options": current + new})
     for o in missing:
         plan.note("updated", f"{object_type}: {name}: add the choice \"{o['label']}\"")
 
 
-def ensure_property(hs, object_type, spec, existing, plan, add_missing_options=True):
+def ensure_property(hs, object_type, spec, existing, plan, add_missing_options=True, may_create=True):
     name = spec["name"]
     current = existing.get(name)
+    if current is None and not may_create:
+        plan.note("conflict", f"{object_type}: {spec['label']} ({name}) is missing in the live account. It belongs "
+                              "to the team, so it is not created here; check it by hand.")
+        return
     if current is None:
         if not plan.dry_run:
             hs.request("POST", f"/crm/v3/properties/{object_type}", json=dict(spec, formField=False))
@@ -85,8 +89,13 @@ def ensure_property(hs, object_type, spec, existing, plan, add_missing_options=T
     plan.note("unchanged", f"{object_type}: field {name} already exists")
 
 
-def ensure_lead_status(hs, object_type, existing, plan):
-    """Add the Lead Status choices the pipeline needs, matched by their label."""
+# The only Lead Status choices the live account may receive (agreed 13 Oct 2026).
+LIVE_NEW_CHOICES = {"companies": {"Approved for outreach"}, "contacts": {"Copy ready", "Approved to send"}}
+
+
+def ensure_lead_status(hs, object_type, existing, plan, live=False):
+    """Add the Lead Status choices the pipeline needs, matched by their label. In the live account
+    only the three agreed choices can be added; anything else missing is reported instead."""
     current = existing.get(LEAD_STATUS)
     if current is None:
         plan.note("conflict", f"{object_type}: HubSpot's Lead Status field is missing in this account; "
@@ -98,6 +107,10 @@ def ensure_lead_status(hs, object_type, existing, plan):
     missing = []
     for label in STAGES[object_type].values():
         if label.lower() in labels:
+            continue
+        if live and label not in LIVE_NEW_CHOICES[object_type]:
+            plan.note("conflict", f'{object_type}: the live Lead Status has no "{label}" choice. Only the three '
+                                  "agreed choices are ever added to live, so this one was not; check it by hand.")
             continue
         value = NEW_OPTION_VALUES[object_type][label]
         if value in values:
@@ -135,12 +148,12 @@ def run(hs, dry_run=False, allow_production=False, log=print):
         existing = {p["name"]: p for p in hs.request("GET", f"/crm/v3/properties/{object_type}")["results"]}
         for spec in MIRRORED_PROPERTIES[object_type]:
             # In live these fields belong to the team: only checked, never given new choices.
-            ensure_property(hs, object_type, spec, existing, plan, add_missing_options=not live)
+            ensure_property(hs, object_type, spec, existing, plan, add_missing_options=not live, may_create=not live)
         if NEW_PROPERTIES[object_type]:
             ensure_group(hs, object_type, plan)
             for spec in NEW_PROPERTIES[object_type]:
                 ensure_property(hs, object_type, spec, existing, plan)
-        ensure_lead_status(hs, object_type, existing, plan)
+        ensure_lead_status(hs, object_type, existing, plan, live=live)
     log("Summary: " + json.dumps(plan.summary))
     return plan.summary
 

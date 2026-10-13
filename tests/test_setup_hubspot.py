@@ -150,3 +150,13 @@ def test_schema_rules():
 def test_dry_run_needs_no_key():
     summary = setup_hubspot.run(None, dry_run=True, log=quiet)
     assert summary == {"planned": 1}
+
+
+def test_live_never_gets_other_choices_or_fields():
+    hs = live_like()
+    hs.props["companies"]["hs_lead_status"]["options"] = options([v for v in LIVE_COMPANY if v[1] != "Missing Info"])
+    del hs.props["contacts"]["lead_source"]
+    summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
+    assert summary["conflict"] == 2  # reported, not added
+    assert "Missing Info" not in labels(hs, "companies") and "lead_source" not in hs.props["contacts"]
+    assert labels(hs, "companies")[-1] == "Approved for outreach"

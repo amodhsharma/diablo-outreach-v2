@@ -123,8 +123,11 @@ def run(target, settings, hs, apollo, log=print):
     approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")], COMPANY_PROPS,
                                 max_results=cfg["companies_per_run"] * 3)
     # Companies that already have their contacts wait for gate 2 and their emails, not for Apollo.
+    # Only AUTO-OUTREACH contacts count (HubSpot may link a team contact by itself).
     links = hs.associated_ids("companies", "contacts", [c["id"] for c in approved]) if approved else {}
-    companies = [c for c in approved if not links.get(str(c["id"]))][:cfg["companies_per_run"]]
+    linked = sorted({x for xs in links.values() for x in xs})
+    ours = {str(r["id"]) for r in hs.tagged_read("contacts", linked, ["email"])} if linked else set()
+    companies = [c for c in approved if not ours & set(links.get(str(c["id"])) or [])][:cfg["companies_per_run"]]
     log(f"{len(companies)} approved companies to process")
     notes = load_company_notes()
     skipped = load_skipped()
@@ -132,6 +135,39 @@ def run(target, settings, hs, apollo, log=print):
     before = (len(skipped), len(kept))
 
     credits, log_rows = 0, []
+    try:
+        credits = _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kept, log_rows, log)
+    finally:  # whatever happens, never lose the record of who was already paid for
+        if len(skipped) != before[0]:
+            save_skipped(skipped)
+        if len(kept) != before[1]:
+            save_skipped(kept, KEPT_FILE)
+    summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows}
+    write_json(out_dir / "summary.json", summary)
+    log(f"Apollo credits used (approx.): {credits}")
+    return summary
+
+
+def _create_contacts(hs, records, log):
+    """Create contacts in one go; if HubSpot refuses the batch (e.g. an email it already holds as
+    someone's second address), create them one by one and skip the ones it refuses."""
+    try:
+        return hs.create_tagged("contacts", records)
+    except HubSpotError as err:
+        log(f"HubSpot refused the batch ({str(err)[:200]}); adding the contacts one by one")
+    created = []
+    for r in records:
+        try:
+            created.extend(hs.create_tagged("contacts", [r]))
+        except HubSpotError as err:
+            log(f"Skipped one contact HubSpot refused: {str(err)[:200]}")
+            created.append(None)
+            continue
+    return created
+
+
+def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kept, log_rows, log):
+    credits = 0
     for company in companies:
         cid, p = company["id"], company.get("properties", {})
         name, domain = p.get("name"), clean_domain(p.get("domain"))
@@ -200,11 +236,12 @@ def run(target, settings, hs, apollo, log=print):
                 **statuses.props("contacts", "found"),
                 **({"hubspot_owner_id": owner} if owner else {}),
             })
-        created = hs.create_tagged("contacts", new_contacts) if new_contacts else []
+        made = _create_contacts(hs, new_contacts, log) if new_contacts else []
+        for apollo_id, c in zip(new_ids, made):
+            kept[apollo_id] = str(c["id"]) if c else "not added"
+        created = [c for c in made if c]
         if created:
             hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
-            for apollo_id, c in zip(new_ids, created):
-                kept[apollo_id] = str(c["id"])
         if not created:
             hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
         status = "contacts found" if created else "no contacts found"
@@ -217,15 +254,7 @@ def run(target, settings, hs, apollo, log=print):
             f"{revealed} revealed, {len(keep)} verified, {len(created)} added"
             + (f" (most senior: {keep[0].get('title')})" if keep else "")
             + ("" if created else "; Lead Status set to Missing Info"))
-
-    summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows}
-    write_json(out_dir / "summary.json", summary)
-    log(f"Apollo credits used (approx.): {credits}")
-    if len(skipped) != before[0]:
-        save_skipped(skipped)
-    if len(kept) != before[1]:
-        save_skipped(kept, KEPT_FILE)
-    return summary
+    return credits
 
 
 def main(argv=None):

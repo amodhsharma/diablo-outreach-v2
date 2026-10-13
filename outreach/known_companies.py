@@ -165,15 +165,22 @@ def run(target, hs, path=None, state_path=None, log=print, force_full=False, now
 
 # ---- matching, used by research and the research import ----------------------------------
 
+def country_key(country):
+    """"UK", "England" and "United Kingdom" are the same country."""
+    from .countries import find
+    text = (country or "").strip()
+    return (find(text) or text).lower() if text else ""
+
+
 def index(rows):
-    """{"domains": set, "names": {country lower: set of cleaned names}} for fast matching."""
+    """{"domains": set, "names": {country: set of cleaned names}} for fast matching."""
     domains, names = set(), {}
     for r in rows:
         if r.get("domain"):
             domains.add(r["domain"].lower())
         n = norm_name(r.get("name"))
         if n:
-            names.setdefault((r.get("country") or "").strip().lower(), set()).add(n)
+            names.setdefault(country_key(r.get("country")), set()).add(n)
     return {"domains": domains, "names": names}
 
 
@@ -190,8 +197,7 @@ def matches(idx, domain, name, country):
     n = norm_name(name)
     if not n:
         return False
-    c = (country or "").strip().lower()
-    return n in idx["names"].get(c, set()) or n in idx["names"].get("", set())
+    return n in idx["names"].get(country_key(country), set()) or n in idx["names"].get("", set())
 
 
 def main(argv=None):

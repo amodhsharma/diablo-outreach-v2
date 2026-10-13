@@ -35,6 +35,7 @@ COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STAT
 #   queued    in Instantly, first email not sent yet
 #   sent      emailed, no reply
 #   bounced   the email bounced (the company carries on with the others)
+#   skipped   set to Unqualified before being emailed (rejected at gate 2): left out
 #   stop      replied, opted out, not interested, or taken over by a person: the company stops
 STOP = "stop"
 
@@ -85,6 +86,8 @@ def contact_state(contact, statuses, leads):
         return "bounced"
     if stage == "in_outreach":
         return "sent" if lead and lead.get("timestamp_last_contact") else "queued"
+    if stage == "closed" and lead is None:
+        return "skipped"
     return STOP  # replied, closed (opted out or not interested) or a person's own Lead Status
 
 
@@ -96,6 +99,21 @@ def annotate(contacts, statuses, leads):
         c["sent_at"] = parse_time(lead.get("timestamp_last_contact"))
         c["campaign"] = lead.get("_campaign_id")
     return contacts
+
+
+def tagged_company_of(hs, contact_ids, properties):
+    """({contact id: company id}, {company id: company record}) using, for each contact, the first
+    linked company that carries the AUTO-OUTREACH tag. HubSpot may also link a contact to another
+    company by itself (by email domain); that company is ignored and never changed."""
+    links = hs.associated_ids("contacts", "companies", list(contact_ids)) if contact_ids else {}
+    ids = sorted({c for cs in links.values() for c in cs})
+    companies = {str(c["id"]): c for c in hs.tagged_read("companies", ids, properties)} if ids else {}
+    chosen = {}
+    for contact_id, cs in links.items():
+        ours = [c for c in cs if c in companies]
+        if ours:
+            chosen[str(contact_id)] = ours[0]
+    return chosen, companies
 
 
 def contacts_by_company(hs, company_ids):

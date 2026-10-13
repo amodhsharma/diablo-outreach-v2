@@ -363,3 +363,57 @@ def test_no_job_can_write_to_hubspot_without_the_guard():
             assert not plain_search.search(text), f"{path.name} searches without the AUTO-OUTREACH filter"
         for name in ("batch_update(", "batch_create(", "associate_default("):
             assert f"hs.{name}" not in text, f"{path.name} uses hs.{name}"
+
+
+def test_a_colleague_unsubscribing_keeps_a_warm_company_warm(settings):
+    hs = FakeCRM()
+    co = approved_company(hs, **{CO: "In Progress"})
+    talker = hs.add("contacts", email="a@noblefoods.in", **{CO: "IN_PROGRESS"})
+    other = hs.add("contacts", email="b@noblefoods.in", **{CO: "ATTEMPTED_TO_CONTACT"})
+    hs.links[talker], hs.links[other] = [co], [co]
+    instantly = FakeInstantly()
+    camp = instantly.create_campaign({"name": "Diablo | OCT2026"})["id"]
+    instantly.leads[camp] += [{"email": "a@noblefoods.in", "email_reply_count": 1},
+                              {"email": "b@noblefoods.in", "status": -2}]
+    sync.run("test", settings, hs, instantly, log=quiet)
+    assert hs.records["contacts"][other][CO] == "UNQUALIFIED"
+    assert hs.records["companies"][co][CO] == "In Progress"
+
+
+def test_the_auto_outreach_company_is_used_when_hubspot_links_another(settings):
+    hs = FakeCRM()
+    team = hs.add("companies", tagged=False, name="Parent Group", domain="group.com", **{CO: "Won"})
+    ours = approved_company(hs)
+    contact = hs.add("contacts", email="buyer@group.com", diablo_personal_line="Line.", **{CO: "APPROVED_TO_SEND"})
+    hs.links[contact] = [team, ours]  # HubSpot linked the email's domain by itself, first
+    instantly = FakeInstantly()
+    assert send.run("test", settings, hs, instantly, log=quiet)["queued"] == 1
+    assert hs.records["companies"][ours][CO] == "Attempted to Contact"
+    assert hs.records["companies"][team] == {"name": "Parent Group", "domain": "group.com", CO: "Won"}
+
+
+def test_a_contact_rejected_at_gate_two_is_skipped_not_a_stop():
+    from outreach.next_in_line import decide
+    person = lambda pid, rank, state: {"id": pid, "properties": {"diablo_outreach_order": str(rank)},
+                                       "state": state, "sent_at": None, "campaign": None}
+    due, why = decide([person("a", 1, "skipped"), person("b", 2, "approved")], "approved", 3)
+    assert why == "next" and due["id"] == "b"
+
+
+def test_paid_lookups_are_saved_even_when_hubspot_refuses_a_contact(settings, monkeypatch):
+    from outreach.hubspot_client import HubSpotError
+    hs = FakeCRM()
+    approved_company(hs)
+    real = hs._batch_create
+
+    def picky(object_type, records):
+        if object_type == "contacts" and any(r["email"].startswith("dup") for r in records):
+            raise HubSpotError("409 Conflict")
+        return real(object_type, records)
+    hs._batch_create = picky
+    apollo = FakeApollo({"noblefoods.in": [{"id": "p1", "title": "CEO"}, {"id": "p2", "title": "Director"}]},
+                        {"p1": ("dup@noblefoods.in", "verified"), "p2": ("ok@noblefoods.in", "verified")})
+    find_contacts.run("test", settings, hs, apollo, log=quiet)
+    assert [c["email"] for c in hs.records["contacts"].values()] == ["ok@noblefoods.in"]
+    kept = find_contacts.load_skipped(find_contacts.KEPT_FILE)
+    assert kept["p1"] == "not added" and kept["p2"] in hs.records["contacts"]
