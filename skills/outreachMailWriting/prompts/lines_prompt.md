@@ -39,7 +39,7 @@ does well and why it fits Diablo. Plus the person's job title and seniority.
 - Start with "I thought I'd reach out as we have noticed" followed by something true and specific about
   their business from the research, ideally something showing they already sell, or have room for,
   sugar free, free from or confectionery lines: a category they run, brands they carry, who they
-  supply (agreed 13 Oct 2026, for templates/template_1.json). A short second sentence on why that fits Diablo is optional.
+  supply (agreed 13 Oct 2026, for templates/template_2.json). A short second sentence on why that fits Diablo is optional.
 - Do not mention Diablo's partners in their market and do not repeat "we are a UK brand": the
   sentence after yours already covers that.
 - By role: for a director, owner or head of the business, lean on partnership and growth. For a

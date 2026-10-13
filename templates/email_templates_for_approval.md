@@ -1,8 +1,13 @@
 # Outreach email template
 
-Status: **final, in use** (agreed by Ariel on 12 Oct 2026). One template for every Location and
-Channel. The emails sent are built from `templates/first_email.json` and
-`templates/follow_up.json`; this page shows them in plain words.
+Two first-email templates, both for every Location and Channel:
+
+- **Template 1** (`templates/template_1.json`), agreed by Ariel on 12 Oct 2026, shown first below.
+- **Template 2** (`templates/template_2.json`), the team's version, at the end of this page. **The
+  first email currently uses template 2.**
+
+Which file is used is set in `config/settings.yaml` under `send.templates`. The reminder is
+`templates/follow_up.json`. This page shows them in plain words.
 
 ## How an email is put together
 
@@ -106,12 +111,12 @@ footer leaves out the "We found your business details..." sentence.
   "diabetes" or "healthy"; exclamation marks; the company name more than once.
 - British English, no em dashes or en dashes, no Oxford commas.
 
-## Template 1 (in use for the first email from 13 Oct 2026)
+## Template 2 (in use for the first email from 13 Oct 2026)
 
-`templates/template_1.json` holds the team's version of the first email, with placeholders:
+`templates/template_2.json` holds the team's version of the first email, with placeholders:
 `{{firstName}}`, `{{personal_line}}` (written per company, starting "I thought I'd reach out as we
 have noticed..."), `{{market_country}}` (e.g. "the Netherlands"), `{{catalogue_link}}` and the
 booking link sentence. It ends with the same sign-off and privacy footer as the template above.
 
 Which file is used is set in `config/settings.yaml` under `send.templates`. To go back to
-`templates/first_email.json`, change that path; nothing else needs to change.
+`templates/template_1.json`, change that path; nothing else needs to change.

@@ -103,7 +103,7 @@ def sequence_steps(s):
     the wait before the NEXT email, so it sits on the first step)."""
     follow = s.get("follow_up") or {}
     paths = s.get("templates") or {}
-    subject, body = _template(paths.get("first_email") or "templates/first_email.json", s)
+    subject, body = _template(paths.get("first_email") or "templates/template_1.json", s)
     first = {"type": "email", "delay": 0, "delay_unit": "days",
              "variants": [{"subject": subject, "body": html_paragraphs(body)}]}
     if not follow.get("enabled"):
