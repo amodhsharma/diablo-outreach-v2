@@ -16,6 +16,10 @@ name: '3 - Outreach'
 #   6. Update the list of people Claude still has to write personal lines for.
 # Also runs by itself the moment Claude saves personal lines, for step 3 only.
 #
+# Testing only: type CONFIRM in "TEST ONLY" and the gaps between emails (3 days between people at a
+# company, 7 days before the same person is emailed again) become 30 minutes for that run. It is
+# refused for the live account, and the automatic runs always use the normal gaps.
+#
 # Before: the automatic tests. After: the lists are saved, and the run fails (GitHub emails you) if
 # any step failed. Only records with Lead Source AUTO-OUTREACH are ever changed.
 on:
@@ -29,6 +33,9 @@ on:
         description: "Check only: the health report, nothing sent or changed"
         type: boolean
         default: false
+      test_gaps:
+        description: "TEST ONLY: type CONFIRM for 30-minute gaps instead of 3 and 7 days, this run only (refused on live). Leave empty normally"
+        default: ""
 
 concurrency:
   group: outreach-writes
@@ -43,6 +50,7 @@ jobs:
     env:
       TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
       MODE: ${{ github.event_name == 'push' && 'lines' || (inputs.check_only == true || inputs.check_only == 'true') && 'check' || 'full' }}
+      TEST_GAPS: ${{ inputs.test_gaps }}
       HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
       INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
     steps:
@@ -56,13 +64,22 @@ jobs:
           git pull --rebase
           python -m pytest -q
 
+      - name: "Before: test gaps (only when CONFIRM is typed, never on live)"
+        if: env.TEST_GAPS != ''
+        run: |
+          if [ "$TEST_GAPS" != "CONFIRM" ]; then
+            echo "::error::Test gaps: type CONFIRM exactly (in capitals), or leave the box empty. Nothing was done."; exit 1; fi
+          if [ "$TARGET" != "test" ]; then
+            echo "::error::Test gaps are refused for the live HubSpot account. Nothing was done."; exit 1; fi
+          echo "TEST GAPS ON: 30 minutes instead of 3 and 7 days, for this run only (test account)."
+
       - name: "1. Instantly results to HubSpot, next person in line, rounds 2 and 3"
         id: sync
         if: env.MODE == 'full'
         continue-on-error: true
         env:
           INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
-        run: python -m outreach.sync --target "$TARGET" --skip-if-not-configured
+        run: python -m outreach.sync --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
 
       - name: "2. Find people at GATE1 companies (Apollo)"
         id: people
@@ -82,7 +99,7 @@ jobs:
         id: send
         if: env.MODE == 'full'
         continue-on-error: true
-        run: python -m outreach.send --target "$TARGET" --skip-if-not-configured
+        run: python -m outreach.send --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
 
       - name: "5. Health check: mailboxes, campaigns, who is waiting and why"
         id: health

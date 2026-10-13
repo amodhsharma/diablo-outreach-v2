@@ -29,7 +29,7 @@ from .common import PipelineError, check_target, load_company_notes, load_settin
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .next_in_line import (
-    COMPANY_PROPS, annotate, contacts_by_company, decide, instantly_view, last_campaign, lead_for, parse_time,
+    COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign, lead_for, parse_time,
     tagged_company_of,
 )
 from .schema import LEAD_STATUS, PERSONAL_LINE
@@ -163,9 +163,9 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     statuses = statuses or LeadStatus(hs)
     if leads is None:
         leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
-    gap = int(settings["send"].get("next_contact_after_days", 3))
+    gap = float(settings["send"].get("next_contact_after_days", 3))
     rot = settings["send"].get("rotation") or {}
-    rounds, min_same = int(rot.get("rounds", 1)), int(rot.get("min_days_same_person", 7))
+    rounds, min_same = int(rot.get("rounds", 1)), float(rot.get("min_days_same_person", 7))
     companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
                                  COMPANY_PROPS, max_results=5000)
     if not companies:
@@ -236,13 +236,21 @@ def main(argv=None):
     p.add_argument("--target", default="test", choices=["test", "live"])
     p.add_argument("--skip-if-not-configured", action="store_true",
                    help="exit quietly when keys are missing (used by the timer)")
+    p.add_argument("--test-gaps", default="", help='type CONFIRM for 30-minute gaps (test account only)')
     args = p.parse_args(argv)
+    try:
+        settings = load_settings()
+        if apply_test_gaps(settings, args.target, args.test_gaps):
+            print("TEST GAPS ON: 30 minutes instead of 3 and 7 days, for this run only (test account).")
+    except PipelineError as err:
+        print(f"ERROR: {err}", file=sys.stderr)
+        return 1
     if args.skip_if_not_configured and not (os.environ.get("HUBSPOT_TOKEN") and os.environ.get("INSTANTLY_API_KEY")):
         print("Sync skipped: HubSpot or Instantly key not added yet.")
         return 0
     try:
         key = os.environ.get("INSTANTLY_EMAILS_KEY")
-        run(args.target, load_settings(), HubSpot(), Instantly(), emails_api=Instantly(api_key=key) if key else None)
+        run(args.target, settings, HubSpot(), Instantly(), emails_api=Instantly(api_key=key) if key else None)
     except (PipelineError, HubSpotError, InstantlyError) as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1

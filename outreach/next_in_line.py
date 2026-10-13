@@ -124,6 +124,30 @@ def contacts_by_company(hs, company_ids):
     return {cid: [records[c] for c in cs if c in records] for cid, cs in links.items()}
 
 
+TEST_GAP_MINUTES = 30
+
+
+def apply_test_gaps(settings, target, typed):
+    """Button 3's test box (agreed 14 Oct 2026): when "CONFIRM" is typed, the gaps between emails
+    (3 days between people, 7 days for the same person) become 30 minutes for this one run.
+    Refused for the live account. Returns True when the test gaps are on."""
+    from .common import PipelineError
+    typed = (typed or "").strip()
+    if not typed:
+        return False
+    if typed != "CONFIRM":
+        raise PipelineError(f'Test gaps: type CONFIRM exactly (in capitals) to use them; "{typed}" was typed. '
+                            "Nothing was done.")
+    if target != "test":
+        raise PipelineError("Test gaps are refused for the live HubSpot account. Nothing was done.")
+    gap = TEST_GAP_MINUTES / (24 * 60)
+    send = settings["send"]
+    send["next_contact_after_days"] = gap
+    send.setdefault("rotation", {})["min_days_same_person"] = gap
+    send["test_gaps"] = True
+    return True
+
+
 def touch_times(contact, touches=None):
     """When this contact was emailed: every sent time from Instantly's email history if known,
     else the time of their latest email from the campaign."""

@@ -26,7 +26,7 @@ from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .instantly_timezones import instantly_timezone
 from .next_in_line import (
-    COMPANY_PROPS, CONTACT_PROPS, annotate, contacts_by_company, decide, instantly_view, last_campaign, lead_for,
+    COMPANY_PROPS, CONTACT_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign, lead_for,
     tagged_company_of,
 )
 from .schema import PERSONAL_LINE
@@ -293,6 +293,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     statuses = LeadStatus(hs)
     out_dir = run_dir("send")
     missing_link = booking_link_problem(settings)
+    test_gaps = bool(settings["send"].get("test_gaps"))
+    if missing_link and test_gaps:
+        # Test runs (test account only, typed CONFIRM) may send with the placeholder link.
+        log("TEST: the booking link is still a placeholder; it is sent as it is in this test run.")
+        missing_link = ""
     if missing_link:
         log(f"WARNING: {missing_link}")
     elif not dry_run:
@@ -308,7 +313,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     owner_of, companies = tagged_company_of(hs, [c["id"] for c in contacts], COMPANY_PROPS)
 
     prefix = settings["sync"]["campaign_prefix"]
-    gap = int(settings["send"].get("next_contact_after_days", 4))
+    gap = float(settings["send"].get("next_contact_after_days", 4))
     in_instantly = instantly_view(instantly, prefix)
     notes = load_company_notes()
     everyone = contacts_by_company(hs, list(companies))
@@ -394,14 +399,22 @@ def main(argv=None):
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--skip-if-not-configured", action="store_true",
                    help="exit quietly when a key is missing (used by the automatic runs)")
+    p.add_argument("--test-gaps", default="", help='type CONFIRM for 30-minute gaps (test account only)')
     args = p.parse_args(argv)
+    try:
+        settings = load_settings()
+        if apply_test_gaps(settings, args.target, args.test_gaps):
+            print("TEST GAPS ON: 30 minutes instead of 3 and 7 days, for this run only (test account).")
+    except PipelineError as err:
+        print(f"ERROR: {err}", file=sys.stderr)
+        return 1
     if args.skip_if_not_configured and not (os.environ.get("HUBSPOT_TOKEN") and os.environ.get("INSTANTLY_API_KEY")):
         print("Send skipped: a key it needs is not added yet.")
         return 0
     try:
         # A dry run still reads Instantly (who was already emailed) when the key is there.
         instantly = Instantly() if (not args.dry_run or os.environ.get("INSTANTLY_API_KEY")) else None
-        run(args.target, load_settings(), HubSpot(), instantly, dry_run=args.dry_run)
+        run(args.target, settings, HubSpot(), instantly, dry_run=args.dry_run)
     except (PipelineError, HubSpotError, InstantlyError) as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1
