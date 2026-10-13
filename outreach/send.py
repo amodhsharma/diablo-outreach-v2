@@ -79,8 +79,10 @@ def _template(path, s):
     template = json.loads(path.read_text(encoding="utf-8"))
     sig = s.get("signature") or {}
     link = (s.get("booking_link") or "").strip()
+    real_link = link if link.lower().startswith(("http://", "https://")) else ""  # not the "xxx" placeholder
     fixed = {"privacy_url": s["privacy_url"], "catalogue_link": s.get("catalogue_link") or "",
-             "booking_sentence": f" You can also book a time directly here: {link}" if link else "",
+             "booking_sentence": f" You can also book a time directly here: {real_link}" if real_link else "",
+             "booking_link": link,
              "sender_name": sig.get("name") or "", "sender_title": sig.get("title") or "",
              "sender_website": sig.get("website") or "", "sender_phone": sig.get("phone") or ""}
     body = template["body"]
@@ -89,6 +91,26 @@ def _template(path, s):
             body = body.replace("<br/>{{" + key + "}}", "").replace("{{" + key + "}}", "")
         body = body.replace("{{" + key + "}}", str(value))
     return template["subject"], body
+
+
+def booking_link_problem(settings):
+    """Why the first email cannot go out yet, or "". Template 2 ends with "you can do it from the
+    link below" followed by the booking link (agreed 14 Oct 2026), so it must never be sent while
+    the link is empty or still the placeholder "xxx"."""
+    s = settings["send"]
+    path = Path((s.get("templates") or {}).get("first_email") or "templates/template_1.json")
+    if not path.is_absolute():
+        path = ROOT / path if path.parent != Path(".") else ROOT / "templates" / path
+    try:
+        body = json.loads(path.read_text(encoding="utf-8")).get("body", "")
+    except (OSError, ValueError):
+        return ""
+    link = (s.get("booking_link") or "").strip()
+    if "{{booking_link}}" in body and not link.lower().startswith(("http://", "https://")):
+        return ("The booking link is missing: the first email ends with \"you can do it from the link "
+                f"below\", but send.booking_link in config/settings.yaml is \"{link or 'empty'}\". "
+                "Nothing was sent and no campaign was changed. Put the real booking link there first.")
+    return ""
 
 
 GAP = "<div><br></div>"
@@ -268,13 +290,18 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     check_target(hs, target)
     statuses = LeadStatus(hs)
     out_dir = run_dir("send")
-    if not dry_run:
+    missing_link = booking_link_problem(settings)
+    if missing_link:
+        log(f"WARNING: {missing_link}")
+    elif not dry_run:
         refresh_campaign_content(instantly, settings, log=log)
     contacts = hs.tagged_search("contacts", [statuses.filter("contacts", "approved")], CONTACT_PROPS,
                                 max_results=settings["send"]["contacts_per_run"])
     log(f"{len(contacts)} contacts approved to send")
     if not contacts:
         return {"queued": 0}
+    if missing_link and not dry_run:
+        raise PipelineError(missing_link)
 
     owner_of, companies = tagged_company_of(hs, [c["id"] for c in contacts], COMPANY_PROPS)
 

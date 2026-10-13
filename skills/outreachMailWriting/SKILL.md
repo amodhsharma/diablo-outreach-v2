@@ -1,13 +1,15 @@
 ---
 name: outreach-mail-writing
-description: Write the personalised opening line for Diablo outreach contacts waiting for them (mail/pending.json in amodhsharma/diablo-outreach-v2) and save one lines file to the repo, which GitHub imports into HubSpot as "New, Personal line filled". Use for the scheduled run (every 2 hours), and when someone asks to "write the email lines", "run outreach mail writing" or "write lines for the new contacts".
+description: Write the personal line (one of four styles) for Diablo outreach contacts waiting for them (mail/pending.json in amodhsharma/diablo-outreach-v2) and save one lines file to the repo, which GitHub imports into HubSpot as "New, Personal line filled". Use for the scheduled run (every 2 hours), and when someone asks to "write the email lines", "run outreach mail writing" or "write lines for the new contacts".
 ---
 
 # outreach-mail-writing
 
-You write one short piece of text for each contact that needs it: a **personal opening line**.
-The rest of the email, the subject line included, is a fixed template. The scripts in `scripts/` do
-every mechanical step; follow them exactly.
+You write one short piece of text for each contact that needs it: a **personal line**, the
+paragraph after the email's introduction. Each contact is given one of four styles at random
+(agreed 14 Oct 2026); you fill that style's [brackets] from the company's research. The rest of the
+email, the subject line included, is a fixed template. The scripts in `scripts/` do every
+mechanical step; follow them exactly.
 
 Work without asking questions: a scheduled run has nobody to answer. Write any problem into the
 final summary instead.
@@ -71,7 +73,8 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt.md`: the writing rules, agreed in `templates/email_templates_for_approval.md`.
+- `prompts/lines_prompt.md`: the writing rules and the four styles, agreed in
+  `templates/email_templates_for_approval.md`.
 - `settings.yaml`: how many contacts one run writes for.
-- `scripts/`: prepare_lines.py (Step 2), finalise_lines.py (Step 4), check_lines.py (the strict
-  check, also used by GitHub before importing).
+- `scripts/`: prepare_lines.py (Step 2, also picks each contact's style), finalise_lines.py (Step 4),
+  check_lines.py (the strict check and the four styles, also used by GitHub before importing).

@@ -100,23 +100,74 @@ footer leaves out the "We found your business details..." sentence.
 
 - Replace the dummy catalogue link once the 2026 catalogue is online.
 - Replace the placeholder phone number XXXXXX (`send.signature.phone`) with Joshua's real number.
-- The Microsoft Bookings link (`send.booking_link`): until it is set, the "You can also book a time
-  directly here" sentence is left out of the first email.
+- The booking link (`send.booking_link`) is the placeholder "xxx" until Ariel gives the real link.
+  Template 2 ends with "you can do it from the link below", so until a real web address is there,
+  Send sends nothing and changes no campaign (it stops with a "booking link is missing" message).
+  Template 1 simply leaves its "You can also book a time directly here" sentence out.
 
-## Rules for the personal line
+## Rules for the personal line (agreed 14 Oct 2026)
 
-- One or two sentences, 50 words or fewer, starting with something true and specific the company
-  does well, then why that makes it a fit for Diablo.
-- Never: invented facts, numbers or names; empty flattery; health claims or the words "diabetic",
-  "diabetes" or "healthy"; exclamation marks; the company name more than once.
-- British English, no em dashes or en dashes, no Oxford commas.
+The personal line is its own paragraph, after the introduction. Each contact is given one of four
+styles at random, so not every email reads the same. Every style is used about equally, and
+people at the same company always get different styles. The parts in [brackets] are filled from
+that company's own research; every other word is fixed.
 
-## Template 2 (in use for the first email from 13 Oct 2026)
+- **A. Respect for their reach:** "We have great respect for the way your team [what they do and
+  for whom]. With such established reach [across their channels], we would be honoured if you would
+  consider whether a sugar free range could have a place in your portfolio."
+- **B. Their track record:** "Your team's work in [a specific achievement from the research] speaks
+  for itself. We would value the opportunity to present our sugar free range and to hear whether
+  you feel it could sit alongside [the brands you already represent / the products you already
+  offer]."
+- **C. Their range:** "Your range, [from X to Y], reflects a careful choice of [brands or products]
+  for [their market]. We would welcome the chance to present our sugar free range for your
+  consideration, should you see a place for it."
+- **D. Partnership:** "We hold your team in high regard for [a specific achievement or position
+  from the research]. We would be grateful for the opportunity to discuss whether our sugar free
+  range could be a worthwhile addition to your business."
 
-`templates/template_2.json` holds the team's version of the first email, with placeholders:
-`{{firstName}}`, `{{personal_line}}` (written per company, starting "I thought I'd reach out as we
-have noticed..."), `{{market_country}}` (e.g. "the Netherlands"), `{{catalogue_link}}` and the
-booking link sentence. It ends with the same sign-off and privacy footer as the template above.
+The tone: we are pitching to them and they have the upper hand, so the line is respectful and
+formal, proposes the idea and leaves the decision with them. It says "we", never "I" (the
+email's opening sentence keeps "I", as it speaks for the single sender).
+
+- Two sentences, 60 words or fewer; the company name at most once.
+- Never: invented facts, numbers or names; casual words (fun, enjoy, lovely, love, chat,
+  exciting); over-the-top praise (incredible, amazing, outstanding, wonderful, world-class);
+  guesses about what they lack or have not considered; health claims or the words "diabetic",
+  "diabetes" or "healthy"; exclamation marks.
+- British English, no em dashes or en dashes, no Oxford commas, "sugar free" without a hyphen.
+
+## Template 2 (in use for the first email from 13 Oct 2026; wording agreed 14 Oct 2026)
+
+> Hi {{firstName}},
+>
+> I'm writing from the office of the Strategy Director at Diablo Sugar Free, where I look after
+> international partners.
+>
+> By way of introduction, we are the largest sugar-free confectionery company in Europe. Chocolate
+> bars and boxed chocolates, biscuits, wafers, sweets, spreads and jams, eleven categories in all.
+> As you'll know, sugar-free carries a better margin than standard confectionery, because the
+> shopper accepts a higher price point. We supply more than 126 countries and are listed with
+> Carrefour, Lidl, Tesco and Holland & Barrett.
+>
+> {{personal_line}}
+>
+> Attaching a catalogue for your reference: {{catalogue_link}}
+>
+> We would be more than glad to set up a call between your team and our outreach or strategy team
+> leads, so we can look at what the range would need to earn properly for your professional
+> customers.
+>
+> Let us know what day and time suits your team's schedule. Or if you would want to set up a call
+> directly, you can do it from the link below.
+> {{booking_link}}
+>
+> Best regards,
+> (signature and footer, the same as template 1)
+
+Changed on 14 Oct 2026: the introduction now comes before the personal line; the sentence "We are
+a UK brand and do not yet have a direct partner in ..." was removed; the catalogue, call and
+booking sentences were reworded as above. The 126 countries figure stays as it is.
 
 Which file is used is set in `config/settings.yaml` under `send.templates`. To go back to
 `templates/template_1.json`, change that path; nothing else needs to change.

@@ -45,7 +45,7 @@ def test_check_accepts_a_good_line_and_rejects_what_was_agreed():
     assert problems(subject_line="Sugar free for you?")
     assert problems(subject_line="Re: sugar free range")
     assert problems(subject_line="SUGAR FREE RANGE NOW")
-    assert problems(personal_line="word " * 51)
+    assert problems(personal_line="word " * 61)
     assert problems(personal_line="One. Two. Three.")
     assert problems(personal_line="A great range for diabetic shoppers.")
     assert problems(personal_line="I was impressed by your stores.")
@@ -59,6 +59,52 @@ def test_check_accepts_a_good_line_and_rejects_what_was_agreed():
     bad = lines_file([GOOD])
     bad["extra"] = 1
     assert check_lines.check_file(bad)
+
+
+def test_styles_and_tone_agreed_14_oct():
+    def problems(line, style=None):
+        item = dict(GOOD, personal_line=line)
+        if style:
+            item["style"] = style
+        return check_lines.check_file(lines_file([item]))
+
+    for letter, line in STYLE_LINES.items():
+        line = line.replace(" —", ",")
+        assert problems(line, letter) == [], (letter, problems(line, letter))
+        assert problems(line, "D" if letter != "D" else "A")  # written in the wrong style
+    assert problems(STYLE_LINES["B"].replace("the brands you already represent", "the products you already offer"), "B") == []
+    assert problems(STYLE_LINES["C"], "E")  # no such style
+    assert problems(STYLE_LINES["D"].replace("We hold", "We hold").replace("’", "'"), "D") == []
+    # "we", never "I"
+    assert problems("I hold your team in high regard. I would be grateful.")
+    assert problems("We think my range suits you.")
+    # casual words, over-the-top praise and guesses about what they lack
+    for word in ("fun", "enjoyed", "lovely", "love", "chat", "incredibly", "wonderful", "world-class"):
+        assert problems(f"Your stores are {word} places. We would value a call.")
+    assert problems("Your range has a gap for sugar free. We would value a call.")
+    assert problems("Your customers have started asking for sugar free. We would value a call.")
+    # 60 words is the limit; "R.C." is not a sentence end
+    assert not problems(" ".join(["word"] * 59) + ".")
+    assert problems(" ".join(["word"] * 61) + ".")
+    assert problems("We hold R.C. Andreae in high regard for its reach. We would be grateful for a call.") == []
+
+
+def test_styles_are_random_but_spread_and_differ_within_a_company(tmp_path):
+    import random
+    import prepare_lines
+    contacts = [{"contact_id": str(i), "company": {"name": f"Co {i // 3}"}} for i in range(12)]
+    prepare_lines.assign_styles(contacts, lines_dir=tmp_path, rng=random.Random(1))
+    letters = [c["style"]["letter"] for c in contacts]
+    assert sorted(letters) == sorted("ABCD" * 3)  # every style used equally
+    for start in range(0, 12, 3):
+        assert len(set(letters[start:start + 3])) == 3  # colleagues get different styles
+    # Earlier files count: a company that already had A, B and C gets D next.
+    folder = tmp_path / "2026-10-14"
+    folder.mkdir()
+    (folder / "x.json").write_text(json.dumps({"lines": [
+        {"contact_id": "a", "company_name": "Beta", "personal_line": "x", "style": s} for s in "ABC"]}))
+    more = prepare_lines.assign_styles([{"contact_id": "z", "company": {"name": "beta"}}], lines_dir=tmp_path)
+    assert more[0]["style"]["letter"] == "D"
 
 
 # ---- the list of contacts needing lines ------------------------------------
@@ -119,10 +165,23 @@ def run_script(repo, name, *args):
                           cwd=repo, capture_output=True, text=True)
 
 
-def draft_line(cid, n):
-    return {"contact_id": cid,
-            "personal_line": "Your snack distribution across Mumbai stood out to us — it is the reach we "
-                             "are looking for in India."}
+STYLE_LINES = {
+    "A": "We have great respect for the way your team takes snacks across Mumbai — with such established "
+         "reach across pharmacies, we would be honoured if you would consider whether a sugar free range "
+         "could have a place in your portfolio.",
+    "B": "Your team's work in building snack distribution across Mumbai speaks for itself. We would value the "
+         "opportunity to present our sugar free range and to hear whether you feel it could sit alongside "
+         "the brands you already represent.",
+    "C": "Your range, from crisps to biscuits, reflects a careful choice of brands for Mumbai. We would welcome "
+         "the chance to present our sugar free range for your consideration, should you see a place for it.",
+    "D": "We hold your team in high regard for its snack distribution across Mumbai. We would be grateful for "
+         "the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+}
+
+
+def draft_line(cid, batch):
+    style = next(c["style"]["letter"] for c in batch["contacts"] if c["contact_id"] == cid)
+    return {"contact_id": cid, "personal_line": STYLE_LINES[style]}
 
 
 def test_skill_scripts_end_to_end(repo):
@@ -137,8 +196,10 @@ def test_skill_scripts_end_to_end(repo):
     assert "{{contacts_json}}" not in prompt and "Company 1" in prompt and "all 2 contacts" in prompt
 
     work = repo / "work_mail"
-    (work / "draft.json").write_text(json.dumps({"lines": [draft_line("1000", 0),
-                                                           dict(draft_line("1001", 1), personal_line="Amazing!")]}))
+    assert all(c["style"]["letter"] in check_lines.STYLES and "[" in c["style"]["shape"] for c in batch["contacts"])
+    assert "The four styles" in prompt and '"letter"' in prompt
+    (work / "draft.json").write_text(json.dumps({"lines": [draft_line("1000", batch),
+                                                           dict(draft_line("1001", batch), personal_line="Amazing!")]}))
     out = run_script(repo, "finalise_lines.py")
     assert out.returncode == 1 and "Contact 1001" in out.stdout
     assert not (repo / "mail" / "lines").exists()  # nothing saved on a failure
@@ -150,6 +211,7 @@ def test_skill_scripts_end_to_end(repo):
     data = json.loads(saved[0].read_text())
     assert data["lines"][0]["company_name"] == "Company 0"
     assert "—" not in data["lines"][0]["personal_line"]  # the dash became a comma
+    assert data["lines"][0]["style"] == batch["contacts"][0]["style"]["letter"]
     assert check_lines.check_file(data) == []
 
     # The next run leaves out 1000 (lines waiting for import) and picks up the rest.

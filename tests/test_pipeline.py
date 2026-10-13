@@ -25,6 +25,7 @@ def tmp_runs(tmp_path, monkeypatch):
 def settings():
     s = load_settings()
     s["send"]["sending_accounts"] = ["ariel@getdiablo-test.com"]
+    s["send"]["booking_link"] = "https://book.example/diablo"  # the real link is not set yet ("xxx")
     return s
 
 
@@ -125,7 +126,7 @@ def test_send_and_sync(settings):
     assert "Subject: Partnering to establish Diablo Sugar Free in the India sugar free snacks landscape" in shown
     assert "Hi Firstp2," in shown and "Your Reliance range has room for sugar free chocolate." in shown
     assert "XXXXXX" in shown and "| Joshua\n| Initial Outreach Team" in shown
-    assert "office of the Strategy Director" in shown and "direct partner in India" in shown
+    assert "office of the Strategy Director" in shown and "By way of introduction" in shown
     assert "{{" not in shown and "<br/>" not in shown
     assert "--- Email 2" not in shown  # later emails are sent by Sync, in rounds
 
@@ -277,9 +278,12 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     body = steps[0]["variants"][0]["body"]
     gap = "<div><br></div>"
     assert body.startswith(f"<div>Hi {{{{firstName}}}},</div>{gap}<div>I'm writing from the office of the Strategy Director")
-    assert f"{gap}<div>{{{{personal_line}}}} We are a UK brand" in body and "<br/><br/>" not in body
+    assert f"Holland & Barrett.</div>{gap}<div>{{{{personal_line}}}}</div>{gap}<div>Attaching" in body
+    assert "<br/><br/>" not in body
     assert "Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in body and "border-left" in body
-    assert "\n\nWould this week work" in send.render(body, {"first_name": "Ann"})
+    shown = send.render(body, {"first_name": "Ann"})
+    assert "\n\nLet us know what day and time suits your team's schedule." in shown
+    assert "from the link below.\nhttps://book.example/diablo\n\nBest regards," in shown
     instantly = FakeInstantly()
     old = instantly.create_campaign({"name": "Diablo | Dublin, Ireland | Retailers | OCT2026",
                                      "sequences": [{"steps": [{"variants": [{"subject": "{{subject_line}}", "body": ""}]}]}]})

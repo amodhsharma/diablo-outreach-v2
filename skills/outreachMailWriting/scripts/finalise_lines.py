@@ -1,8 +1,8 @@
 """Step 3 of an outreach-mail-writing run: check the draft and save the lines file.
 
 Reads work_mail/batch.json and work_mail/draft.json (the lines Claude wrote), adds the company
-names and the run details, swaps any em or en dash for a comma, runs the strict check and, if it
-passes, saves mail/lines/<date>/<date>_<time>_<number of contacts>.json.
+names, each contact's style and the run details, swaps any em or en dash for a comma, runs the
+strict check and, if it passes, saves mail/lines/<date>/<date>_<time>_<number of contacts>.json.
 
 Usage (from the repository's top folder):
     python3 skills/outreachMailWriting/scripts/finalise_lines.py
@@ -39,6 +39,7 @@ def tidy(text):
 def build(batch, draft):
     """The lines file, from the batch and Claude's draft."""
     names = {str(c["contact_id"]): c["company"]["name"] for c in batch["contacts"]}
+    styles = {str(c["contact_id"]): (c.get("style") or {}).get("letter") for c in batch["contacts"]}
     raw = draft.get("lines", draft) if isinstance(draft, dict) else draft
     lines = []
     for item in raw if isinstance(raw, list) else []:
@@ -46,11 +47,14 @@ def build(batch, draft):
             lines.append(item)
             continue
         cid = str(item.get("contact_id", ""))
-        lines.append({
+        line = {
             "contact_id": cid,
             "company_name": names.get(cid, ""),
             "personal_line": tidy(item.get("personal_line")),
-        })
+        }
+        if styles.get(cid):
+            line["style"] = styles[cid]  # the style prepare_lines.py gave this contact
+        lines.append(line)
     return {
         "format": FORMAT,
         "run_date": batch["run_date"],

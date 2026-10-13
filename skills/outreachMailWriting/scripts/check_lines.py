@@ -18,19 +18,64 @@ FORMAT = "outreachMailWriting v1"
 FILE_KEYS = ["format", "run_date", "run_type", "generated_from", "lines"]
 LINE_KEYS = ["contact_id", "company_name", "personal_line"]
 # Older files also carried a subject line; it is still checked if present but no longer used
-# (the subject is fixed in the template, agreed 13 Oct 2026).
-OPTIONAL_KEYS = ["subject_line"]
+# (the subject is fixed in the template, agreed 13 Oct 2026). Files from 14 Oct 2026 also say
+# which style each line was written in.
+OPTIONAL_KEYS = ["subject_line", "style"]
 
 SUBJECT_WORDS = (3, 7)
-PERSONAL_MAX_WORDS = 50
+PERSONAL_MAX_WORDS = 60
 PERSONAL_MAX_SENTENCES = 2
 
-# Words and phrases the lines must never use (health claims, empty flattery, pushy sales talk).
+# The four styles of personal line (agreed 14 Oct 2026). Each contact is given one at random
+# (prepare_lines.py). The parts in [brackets] are filled from that company's research; the rest
+# is fixed. A line must start with its style's opening and contain its style's request.
+STYLES = {
+    "A": {"name": "Respect for their reach",
+          "shape": "We have great respect for the way your team [what they do and for whom]. With such "
+                   "established reach [across their channels], we would be honoured if you would consider "
+                   "whether a sugar free range could have a place in your portfolio.",
+          "opening": "We have great respect for the way your team",
+          "request": ["we would be honoured if you would consider whether a sugar free range could have a "
+                      "place in your portfolio."]},
+    "B": {"name": "Their track record",
+          "shape": "Your team's work in [a specific achievement from the research] speaks for itself. We would "
+                   "value the opportunity to present our sugar free range and to hear whether you feel it could "
+                   "sit alongside [the brands you already represent / the products you already offer].",
+          "opening": "Your team's work in",
+          "request": ["We would value the opportunity to present our sugar free range and to hear whether you "
+                      "feel it could sit alongside the brands you already represent.",
+                      "We would value the opportunity to present our sugar free range and to hear whether you "
+                      "feel it could sit alongside the products you already offer."]},
+    "C": {"name": "Their range",
+          "shape": "Your range, [from X to Y], reflects a careful choice of [brands or products] for [their "
+                   "market]. We would welcome the chance to present our sugar free range for your "
+                   "consideration, should you see a place for it.",
+          "opening": "Your range,",
+          "request": ["We would welcome the chance to present our sugar free range for your consideration, "
+                      "should you see a place for it."]},
+    "D": {"name": "Partnership",
+          "shape": "We hold your team in high regard for [a specific achievement or position from the "
+                   "research]. We would be grateful for the opportunity to discuss whether our sugar free "
+                   "range could be a worthwhile addition to your business.",
+          "opening": "We hold your team in high regard for",
+          "request": ["We would be grateful for the opportunity to discuss whether our sugar free range could "
+                      "be a worthwhile addition to your business."]},
+}
+
+# Words and phrases the lines must never use: health claims, over-the-top praise, casual words,
+# pushy sales talk and guesses about what the company has or has not thought of (14 Oct 2026).
 BANNED = [
     "diabetic", "diabetes", "healthy", "guarantee", "guaranteed", "risk free", "risk-free",
     "act now", "limited time", "special offer", "click here", "i was impressed", "i am impressed",
-    "i'm impressed", "amazing", "incredible", "game changer", "game-changer", "revolutionary",
+    "i'm impressed", "amazing", "incredible", "incredibly", "game changer", "game-changer", "revolutionary",
+    "outstanding", "world-class", "world class", "fantastic", "awesome", "wonderful",
+    "fun", "enjoy", "enjoyed", "enjoying", "lovely", "love", "loved", "chat", "exciting", "excited",
+    "started asking", "doesn't have", "does not have", "don't have", "do not have", "no sugar free",
+    "missing", "lacks", "lacking", "gap",
 ]
+# The personal line pitches Diablo, so it always speaks as "we", never "I" (14 Oct 2026).
+_FIRST_PERSON = re.compile(r"(?<![A-Za-z'’])(i|i'm|i’m|i'd|i’d|i've|i’ve|i'll|i’ll|me|my|myself)(?![A-Za-z'’])",
+                           re.I)
 _EMAIL = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 _PHONE = re.compile(r"\+\d{1,3}[\s.-]?\(?\d[\d\s().-]{6,}\d")
 _URL = re.compile(r"https?://|www\.", re.I)
@@ -42,8 +87,29 @@ def _words(text):
 
 
 def _sentences(text):
-    parts = [p for p in re.split(r"(?<=[.?])\s+", text.strip()) if p.strip()]
+    # A full stop after a single capital letter (the "R.C." in "R.C. Andreae") does not end a sentence.
+    parts = [p for p in re.split(r"(?<=[.?])(?<!\b[A-Z]\.)\s+", text.strip()) if p.strip()]
     return len(parts)
+
+
+def _plain(text):
+    """For comparing with a style: straight apostrophes, single spaces, any case."""
+    return " ".join(str(text).replace("’", "'").split()).lower()
+
+
+def style_problems(style, personal):
+    """What is wrong with a line for its style, as plain sentences (empty when it fits)."""
+    rule = STYLES.get(str(style))
+    if rule is None:
+        return [f'style must be one of {", ".join(STYLES)}, not "{style}"']
+    out = []
+    line = _plain(personal)
+    if not line.startswith(_plain(rule["opening"])):
+        out.append(f'style {style} lines must start "{rule["opening"]}"')
+    if not any(_plain(r) in line for r in rule["request"]):
+        out.append(f'style {style} lines must include "{rule["request"][0]}"' if len(rule["request"]) == 1
+                   else f'style {style} lines must end with one of: ' + " / ".join(f'"{r}"' for r in rule["request"]))
+    return out
 
 
 def _emoji(text):
@@ -88,6 +154,11 @@ def check_line(errors, line, pending_ids=None):
         errors.append(f"{where}: personal line must be one or two sentences")
     if "!" in personal:
         errors.append(f"{where}: no exclamation marks")
+    if _FIRST_PERSON.search(personal):
+        errors.append(f'{where}: the personal line must say "we", never "I", "me" or "my"')
+    if "style" in line:
+        for problem in style_problems(line["style"], personal):
+            errors.append(f"{where}: {problem}")
     if company and len(re.findall(re.escape(company), personal, re.I)) > 1:
         errors.append(f"{where}: the company name appears more than once in the personal line")
     for text, label in ((subject, "subject line"), (personal, "personal line")):

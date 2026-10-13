@@ -27,6 +27,7 @@ def tmp_runs(tmp_path, monkeypatch):
 def settings():
     s = load_settings()
     s["send"]["sending_accounts"] = ["team@getdiablo-test.com"]
+    s["send"]["booking_link"] = "https://book.example/diablo"  # the real link is not set yet ("xxx")
     return s
 
 

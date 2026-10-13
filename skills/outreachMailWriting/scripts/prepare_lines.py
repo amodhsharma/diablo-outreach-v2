@@ -3,6 +3,7 @@
 Reads mail/pending.json (saved by GitHub after "3 - Manual - Find the top 4 people at each approved company" and after every lines import)
 and leaves out contacts that already have lines waiting to be imported. Writes:
   work_mail/batch.json    the contacts for this run, with what the research found about each company
+                          and the style each one's personal line is written in (picked at random)
   work_mail/prompt.md     the full writing prompt, with the batch filled in
 
 Usage (from the repository's top folder):
@@ -15,11 +16,17 @@ Exit code 0 = a batch was written; 3 = nothing to do.
 import argparse
 import datetime as dt
 import json
+import random
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+
+from check_lines import STYLES  # noqa: E402
+
 SKILL = HERE.parent
 ROOT = SKILL.parent.parent
 PENDING = ROOT / "mail" / "pending.json"
@@ -62,6 +69,45 @@ def already_written(generated_from, lines_dir=None):
     return done
 
 
+def _company_key(name):
+    return " ".join(str(name or "").lower().split())
+
+
+def style_history(lines_dir=None):
+    """How often each style has been used, and which styles each company has had, from every
+    lines file saved so far."""
+    used, by_company = Counter(), {}
+    for f in sorted((lines_dir or LINES_DIR).glob("*/*.json")):
+        try:
+            data = json.loads(f.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        for line in data.get("lines", []) if isinstance(data, dict) else []:
+            if isinstance(line, dict) and line.get("style") in STYLES:
+                used[line["style"]] += 1
+                by_company.setdefault(_company_key(line.get("company_name")), set()).add(line["style"])
+    return used, by_company
+
+
+def assign_styles(contacts, lines_dir=None, rng=None):
+    """Give each contact one of the four styles at random (agreed 14 Oct 2026), so that:
+      - over time every style is used about equally (the least used styles are picked first);
+      - people at the same company get different styles, so a forwarded email never looks copied."""
+    rng = rng or random.Random()
+    used, by_company = style_history(lines_dir)
+    for contact in contacts:
+        key = _company_key((contact.get("company") or {}).get("name"))
+        had = by_company.setdefault(key, set())
+        options = [s for s in STYLES if s not in had] or list(STYLES)
+        least = min(used[s] for s in options)
+        choice = rng.choice([s for s in options if used[s] == least])
+        rule = STYLES[choice]
+        contact["style"] = {"letter": choice, "name": rule["name"], "shape": rule["shape"]}
+        used[choice] += 1
+        had.add(choice)
+    return contacts
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description="Pick the contacts that need email lines")
     p.add_argument("--manual", action="store_true")
@@ -81,7 +127,7 @@ def main(argv=None):
         return NOTHING_TO_DO
 
     limit = load_settings().get("max_contacts_per_run", 60)
-    batch = todo[:limit]
+    batch = assign_styles(todo[:limit])
     now = ist_now()
     WORK.mkdir(exist_ok=True)
     for old in WORK.glob("*"):

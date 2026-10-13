@@ -91,8 +91,37 @@ def test_booking_link_only_when_set():
     assert "{{booking_sentence}}" not in body and "book a time" not in body
     _, body = send._template("template_1.json", dict(base, booking_link="https://book.example/diablo"))
     assert "works best for you. You can also book a time directly here: https://book.example/diablo<br/>" in body
+    _, body = send._template("template_1.json", dict(base, booking_link="xxx"))  # the placeholder is never shown
+    assert "book a time" not in body and "xxx" not in body
     _, body = send._template("templates/template_2.json", dict(base, booking_link="https://book.example/diablo"))
-    assert "better suited? You can also book a time directly here: https://book.example/diablo<br/>" in body
+    assert ("you can do it from the link below.<br/>https://book.example/diablo<br/><br/>Best regards,") in body
+
+
+def test_template_2_agreed_14_oct():
+    from outreach import send
+    base = {"privacy_url": "https://x/p", "signature": {"name": "Joshua"}, "catalogue_link": "https://c/x",
+            "booking_link": "xxx"}
+    _, body = send._template("templates/template_2.json", base)
+    intro = body.index("By way of introduction")
+    assert intro < body.index("{{personal_line}}") < body.index("Attaching a catalogue for your reference: https://c/x")
+    assert "We supply more than 126 countries" in body
+    assert "UK brand" not in body and "{{market_country}}" not in body and "I'd love" not in body
+    assert ("We would be more than glad to set up a call between your team and our outreach or strategy team "
+            "leads, so we can") in body
+    assert ("Let us know what day and time suits your team's schedule. Or if you would want to set up a call "
+            "directly, you can do it from the link below.<br/>xxx<br/><br/>Best regards,") in body
+
+
+def test_no_sending_while_the_booking_link_is_a_placeholder():
+    from outreach import send
+    settings = {"send": {"templates": {"first_email": "templates/template_2.json"}, "booking_link": "xxx"}}
+    assert "booking link is missing" in send.booking_link_problem(settings)
+    settings["send"]["booking_link"] = ""
+    assert send.booking_link_problem(settings)
+    settings["send"]["booking_link"] = "https://book.example/diablo"
+    assert send.booking_link_problem(settings) == ""
+    settings = {"send": {"templates": {"first_email": "templates/template_1.json"}, "booking_link": "xxx"}}
+    assert send.booking_link_problem(settings) == ""  # template 1 simply leaves the sentence out
 
 
 def test_footer_is_grey_small_with_clickable_links():
@@ -119,7 +148,7 @@ def test_template_1_is_used_and_filled():
     s = load_settings()["send"]
     assert s["templates"]["first_email"] == "templates/template_2.json"
     body = send.sequence_steps(s)[0]["variants"][0]["body"]
-    assert "office of the Strategy Director" in body and "direct partner in {{market_country}}" in body
+    assert "office of the Strategy Director" in body and "<div>{{personal_line}}</div><div><br></div><div>Attaching a catalogue" in body
     assert "Joshua<br/>Initial Outreach Team" in body and "<hr " in body  # same sign-off and footer
     current = json.loads(open("templates/template_1.json").read())["body"]
     assert "I hope this email finds you well" in current  # the current template is untouched
