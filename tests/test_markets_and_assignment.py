@@ -102,9 +102,9 @@ def test_find_contacts_assigns_company_and_contacts(settings):
     hs = FakeCRM()
     common.save_company_notes({"medco.in": {"category": "Pharmacy distributor"}})
     cid = hs.add("companies", name="Med Co", domain="medco.in", city="Mumbai", country="India",
-                 industry_type="Distributor Wholesaler", hs_lead_status="Approved for outreach")
+                 industry_type="Distributor Wholesaler", hs_lead_status="GATE1: Approved for outreach")
     kept = hs.add("companies", name="Owned Co", domain="owned.in", country="India",
-                  hs_lead_status="Approved for outreach", hubspot_owner_id="99")
+                  hs_lead_status="GATE1: Approved for outreach", hubspot_owner_id="99")
     apollo = FakeApollo({"medco.in": [{"id": "m1"}], "owned.in": [{"id": "o1"}]},
                         {"m1": ("buyer@medco.in", "verified"), "o1": ("buyer@owned.in", "verified")})
     find_contacts.run("test", assignment_settings(settings), hs, apollo, log=quiet)
@@ -155,7 +155,7 @@ def test_typed_channel_end_to_end(settings):
     hs = FakeCRM()
     common.save_company_notes({"noblefoods.in": {"category": "Sugar free distributor"}})
     cid = hs.add("companies", name="Noble Foods", domain="noblefoods.in", country="India",
-                 industry_type="Distributor Wholesaler", hs_lead_status="Approved for outreach")
+                 industry_type="Distributor Wholesaler", hs_lead_status="GATE1: Approved for outreach")
 
     # Unknown categories use the default job titles; known ones keep their own.
     titles = settings["contacts"]["titles"]

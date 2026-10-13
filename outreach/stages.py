@@ -4,15 +4,15 @@ This is the only place that knows the Lead Status wording. Each pipeline step ha
 the table below gives the Lead Status choice for it, by its label. Values are looked up in the
 account itself, so the code works whatever the account calls a choice internally.
 
-    Step                                         Company                 Contact
-    Research found it / contact found            New                     New
-    No website, or no contacts found             Missing Info
-    Gate 1: a person approves the company        Approved for outreach
-    Email lines written                                                  Copy ready
-    Gate 2: a person approves the wording                                Approved to send
-    Emails going out                             Attempted to Contact    Attempted to Contact
-    They replied                                 In Progress             In Progress
-    Any dead end (rejected, not interested,      Unqualified             Unqualified
+    Step                                       Company                       Contact
+    Research found it / contact found          New                           New
+    No website, or no contacts found           Missing Info
+    Gate 1: a person approves the company      GATE1: Approved for outreach
+    Email lines written                                                      Copy ready
+    Gate 2: a person approves the wording                                    GATE2: Approved to send
+    Emails going out                           Attempted to Contact          Attempted to Contact
+    They replied                               In Progress                   In Progress
+    Any dead end (rejected, not interested,    Unqualified                   Unqualified
     no reply, opted out, bounced)
 
 Any other Lead Status (for example Emailed or Won) means a person has taken the record over:
@@ -26,7 +26,7 @@ STAGES = {
     "companies": {
         "found": "New",
         "missing_info": "Missing Info",
-        "approved": "Approved for outreach",
+        "approved": "GATE1: Approved for outreach",
         "in_outreach": "Attempted to Contact",
         "replied": "In Progress",
         "closed": "Unqualified",
@@ -34,7 +34,7 @@ STAGES = {
     "contacts": {
         "found": "New",
         "copy_ready": "Copy ready",
-        "approved": "Approved to send",
+        "approved": "GATE2: Approved to send",
         "in_outreach": "Attempted to Contact",
         "replied": "In Progress",
         "closed": "Unqualified",
@@ -44,10 +44,10 @@ STAGES = {
 # The internal value given to a choice when the setup has to add it (matching the live
 # account's style: companies use the label itself, contacts use capitals).
 NEW_OPTION_VALUES = {
-    "companies": {"Approved for outreach": "Approved for outreach", "Missing Info": "Missing Info",
+    "companies": {"GATE1: Approved for outreach": "GATE1: Approved for outreach", "Missing Info": "Missing Info",
                   "New": "New", "Attempted to Contact": "Attempted to Contact",
                   "In Progress": "In Progress", "Unqualified": "Unqualified"},
-    "contacts": {"Copy ready": "COPY_READY", "Approved to send": "APPROVED_TO_SEND", "New": "NEW",
+    "contacts": {"Copy ready": "COPY_READY", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
                  "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "In Progress": "IN_PROGRESS",
                  "Unqualified": "UNQUALIFIED"},
 }

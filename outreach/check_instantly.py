@@ -5,7 +5,7 @@
    of anything that needs attention.
 2. Campaigns: whether each Diablo campaign is sending and if not why (Instantly's own
    diagnosis), with the leads counted by status.
-3. HubSpot: what 4b would do right now with the contacts set to Approved to send, and why.
+3. HubSpot: what 4b would do right now with the contacts set to GATE2: Approved to send, and why.
 
 Writes the answer to diagnostics/instantly_status.md and to the run's summary page. Changes
 nothing in Instantly or HubSpot. No lead email addresses are written: leads are counts only.
@@ -237,7 +237,7 @@ KEEP = ("Skipped", "Waiting", "[dry run]", "Instantly")
 
 
 def hubspot_section(settings, target, instantly=None):
-    """What 4b would do right now with the contacts set to Approved to send, and why."""
+    """What 4b would do right now with the contacts set to GATE2: Approved to send, and why."""
     from . import send
     from .hubspot_client import HubSpot
     lines = []
@@ -248,7 +248,7 @@ def hubspot_section(settings, target, instantly=None):
                 lines.append(f"- {line}")
 
     send.run(target, settings, HubSpot(), instantly, dry_run=True, log=collect)
-    return "## Approved to send in HubSpot (what 4b would do now)\n\n" + ("\n".join(lines) or "- Nothing") + "\n"
+    return "## GATE2: Approved to send in HubSpot (what 4b would do now)\n\n" + ("\n".join(lines) or "- Nothing") + "\n"
 
 
 def main(argv=None):
@@ -265,7 +265,7 @@ def main(argv=None):
         try:
             text += "\n" + hubspot_section(settings, os.environ.get("TARGET") or "test", Instantly())
         except Exception as err:  # the Instantly part is still useful on its own
-            text += f"\n## Approved to send in HubSpot\n\n- Could not be read: {err}\n"
+            text += f"\n## GATE2: Approved to send in HubSpot\n\n- Could not be read: {err}\n"
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(text, encoding="utf-8")
     print(text)

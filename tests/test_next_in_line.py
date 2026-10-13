@@ -36,7 +36,7 @@ LS = "hs_lead_status"
 
 def company_with_three(hs, name, domain):
     cid = hs.add("companies", name=name, domain=domain, country="India", industry_type="Distributor Wholesaler",
-                 **{LS: "Approved for outreach"})
+                 **{LS: "GATE1: Approved for outreach"})
     people = []
     for rank, title in enumerate(("Managing Director", "Head of Buying", "Category Manager"), start=1):
         pid = hs.add("contacts", email=f"p{rank}@{domain}", firstname=f"P{rank}", jobtitle=title,
@@ -85,7 +85,7 @@ def test_one_person_at_a_time_then_the_next_on_day_three(settings):
 def test_no_reply_from_everyone_marks_the_company(settings):
     settings["send"]["rotation"]["rounds"] = 1  # one round only: no later emails
     hs, instantly = FakeCRM(), FakeInstantly()
-    cid = hs.add("companies", name="Quiet Co", domain="quiet.in", country="India", **{LS: "Approved for outreach"})
+    cid = hs.add("companies", name="Quiet Co", domain="quiet.in", country="India", **{LS: "GATE1: Approved for outreach"})
     only = hs.add("contacts", email="boss@quiet.in", diablo_outreach_order="1", diablo_personal_line="Line.",
                   **{LS: "APPROVED_TO_SEND"})
     hs.links[only] = [cid]

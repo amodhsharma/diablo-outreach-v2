@@ -69,7 +69,7 @@ LS = "hs_lead_status"
 def crm_with_contacts():
     hs = FakeCRM()
     co = hs.add("companies", name="Alpha Foods", domain="alphafoods.in", city="Mumbai", country="India",
-                industry_type="Distributor Wholesaler", **{LS: "Approved for outreach"})
+                industry_type="Distributor Wholesaler", **{LS: "GATE1: Approved for outreach"})
     stopped = hs.add("companies", name="Done Co", domain="done.in", **{LS: "In Progress"})
     a = hs.add("contacts", jobtitle="Purchasing Manager", diablo_outreach_order="2", **{LS: "NEW"})
     b = hs.add("contacts", jobtitle="Managing Director", diablo_outreach_order="1", **{LS: "NEW"})

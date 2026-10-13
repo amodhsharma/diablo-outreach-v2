@@ -1,6 +1,6 @@
 """Job 4b: add approved contacts to an Instantly campaign.
 
-Only AUTO-OUTREACH contacts whose Lead Status is Approved to send are sent (gate 2), only at
+Only AUTO-OUTREACH contacts whose Lead Status is GATE2: Approved to send are sent (gate 2), only at
 AUTO-OUTREACH companies, and only one person per company at a time, most senior first (see
 next_in_line.py). The sync job
 moves each company on to its next person by itself. Campaigns are created paused; you
@@ -227,7 +227,7 @@ def mask(email):
 
 
 def skip_reason(contact, company, company_stage):
-    """Why an Approved to send contact cannot be sent at all, or None."""
+    """Why an GATE2: Approved to send contact cannot be sent at all, or None."""
     p = contact["properties"]
     if not p.get("email"):
         return "it has no email address"
@@ -237,7 +237,7 @@ def skip_reason(contact, company, company_stage):
     if company_stage in COMPANY_STOPPED:
         return "its company's Lead Status says outreach has ended or a person has taken it over"
     if company_stage not in ("approved", "in_outreach"):
-        return "its company is not Approved for outreach (gate 1)"
+        return "its company is not GATE1: Approved for outreach (gate 1)"
     if not p.get(PERSONAL_LINE):
         return "its Outreach personal line is empty"
     return None
@@ -338,7 +338,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         for c, company_id, _, company_stage in members:
             if c["properties"]["email"].lower() not in created:
                 log(f"Not added (already in Instantly): {mask(c['properties']['email'])}. "
-                    "It stays Approved to send in HubSpot.")
+                    "It stays GATE2: Approved to send in HubSpot.")
                 continue
             contact_updates.append((c["id"], statuses.props("contacts", "in_outreach")))
             if forward(company_stage, "in_outreach"):

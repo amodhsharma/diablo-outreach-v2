@@ -9,8 +9,8 @@ Everything else is an existing field:
     Lead Source     "AUTO-OUTREACH" on every company and contact the pipeline creates. The
                     pipeline never changes a record without it (see hubspot_client.TagGuard).
     Lead Status     where the record is in the pipeline (see stages.py). Three choices are added:
-                    companies "Approved for outreach" (gate 1); contacts "Copy ready" and
-                    "Approved to send" (gate 2). The existing choices are never changed.
+                    companies "GATE1: Approved for outreach" (gate 1); contacts "Copy ready" and
+                    "GATE2: Approved to send" (gate 2). The existing choices are never changed.
     Industry Type   the company's Channel, using its existing choices.
     Ideal Customer Profile Tier, Company name, Domain, City, Country, Company owner,
     First name, Last name, Email, Job title.
@@ -71,7 +71,7 @@ NEW_PROPERTIES = {
     "contacts": [
         long_text(PERSONAL_LINE, "Outreach personal line",
                   "The tailored opening line for this person's first email. Read it before setting "
-                  "Lead Status to Approved to send (gate 2)."),
+                  "Lead Status to GATE2: Approved to send (gate 2)."),
         number(ORDER, "Outreach order",
                "Who at the company is emailed first: 1 = most senior found, then 2, 3 and 4."),
     ],

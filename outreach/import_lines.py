@@ -4,7 +4,7 @@ Runs by itself when the outreach-mail-writing skill saves a file to mail/lines/.
 is checked again with the skill's strict check: a file that fails is rejected whole (nothing
 reaches HubSpot). For a file that passes, each AUTO-OUTREACH contact whose Lead Status is still
 "New" gets its Outreach personal line and moves to "Copy ready", ready for a person to read it
-and set "Approved to send" (gate 2). Contacts that have moved on in the meantime, and any
+and set "GATE2: Approved to send" (gate 2). Contacts that have moved on in the meantime, and any
 contact without the AUTO-OUTREACH tag, are left alone. (The subject line is fixed in the
 template, so any subject line in an older file is ignored.)
 
@@ -138,7 +138,7 @@ def main(argv=None):
         with open(summary, "a", encoding="utf-8") as fh:
             fh.write("## Email lines import\n\n" + "\n".join(f"- {l}" for l in lines or ["Nothing to import."])
                      + "\n\nNext: in HubSpot, read each Copy ready contact's Outreach personal line, "
-                       "then change their Lead Status to Approved to send (gate 2).\n")
+                       "then change their Lead Status to GATE2: Approved to send (gate 2).\n")
     return code
 
 

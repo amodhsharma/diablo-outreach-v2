@@ -3,7 +3,7 @@
 What it adds, and nothing else:
   - contacts: the fields "Outreach personal line" and "Outreach order" (group "Diablo outreach");
   - Lead Status: the choices the pipeline needs that the account does not have yet. In the live
-    account that is "Approved for outreach" (companies), "Copy ready" and "Approved to send"
+    account that is "GATE1: Approved for outreach" (companies), "Copy ready" and "GATE2: Approved to send"
     (contacts). Existing choices are never changed, renamed, reordered or removed;
   - in a test account only: Lead Source and Industry Type, created to match the live account.
     The live account already has them, so there they are only checked.
@@ -90,7 +90,7 @@ def ensure_property(hs, object_type, spec, existing, plan, add_missing_options=T
 
 
 # The only Lead Status choices the live account may receive (agreed 13 Oct 2026).
-LIVE_NEW_CHOICES = {"companies": {"Approved for outreach"}, "contacts": {"Copy ready", "Approved to send"}}
+LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach"}, "contacts": {"Copy ready", "GATE2: Approved to send"}}
 
 
 def ensure_lead_status(hs, object_type, existing, plan, live=False):

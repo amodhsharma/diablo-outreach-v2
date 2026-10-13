@@ -50,7 +50,7 @@ CO = "hs_lead_status"  # Lead Status, as stored (the live account's own values)
 def approved_company(hs, **extra):
     props = dict(name="Noble Foods", domain="noblefoods.in", country="India",
                  industry_type="Distributor Wholesaler", hs_ideal_customer_profile="tier_1",
-                 **{CO: "Approved for outreach"})
+                 **{CO: "GATE1: Approved for outreach"})
     props.update(extra)
     return hs.add("companies", **props)
 
@@ -75,7 +75,7 @@ def test_find_contacts_keeps_only_verified_and_ranks_titles(settings):
     assert contacts[0][CO] == "NEW" and contacts[0]["lead_source"] == "AUTO-OUTREACH"
     assert contacts[0]["diablo_outreach_order"] == "1"
     assert not any(k.startswith("diablo_") and k not in ("diablo_outreach_order",) for k in contacts[0])
-    assert hs.records["companies"][noble][CO] == "Approved for outreach"  # waits for gate 2 and the emails
+    assert hs.records["companies"][noble][CO] == "GATE1: Approved for outreach"  # waits for gate 2 and the emails
     assert find_contacts.load_skipped(find_contacts.KEPT_FILE) == {"p2": next(iter(hs.records["contacts"]))}
 
 
@@ -96,16 +96,16 @@ def test_find_contacts_no_domain_credit_cap_and_untagged(settings):
     nodomain = approved_company(hs, name="S", domain="")
     a = approved_company(hs, name="A", domain="a.in")
     b = approved_company(hs, name="B", domain="b.in")
-    team = hs.add("companies", tagged=False, name="T", domain="t.in", **{CO: "Approved for outreach"})
+    team = hs.add("companies", tagged=False, name="T", domain="t.in", **{CO: "GATE1: Approved for outreach"})
     settings["contacts"]["max_credits_per_run"] = 1
     apollo = FakeApollo({"a.in": [{"id": "x"}], "b.in": [{"id": "y"}], "t.in": [{"id": "z"}]},
                         {"x": ("x@a.in", "verified"), "y": ("y@b.in", "verified"), "z": ("z@t.in", "verified")})
     find_contacts.run("test", settings, hs, apollo, log=quiet)
     assert hs.records["companies"][nodomain][CO] == "Missing Info"
     assert len(hs.links) == 1 and hs.links[next(iter(hs.links))] == [a]
-    assert hs.records["companies"][b][CO] == "Approved for outreach"  # waits for next run
+    assert hs.records["companies"][b][CO] == "GATE1: Approved for outreach"  # waits for next run
     assert "z" not in apollo.revealed and hs.records["companies"][team] == {
-        "name": "T", "domain": "t.in", CO: "Approved for outreach"}  # the team's record: never touched
+        "name": "T", "domain": "t.in", CO: "GATE1: Approved for outreach"}  # the team's record: never touched
 
 
 def test_send_and_sync(settings):
@@ -202,7 +202,7 @@ def test_every_stage_has_a_live_lead_status_choice():
             assert statuses.stage(obj, statuses.value(obj, stage)) == stage
     assert statuses.stage("companies", "Won") == "team" and statuses.stage("contacts", "Emailed") == "team"
     assert statuses.value("contacts", "approved") == "APPROVED_TO_SEND"
-    assert statuses.value("companies", "approved") == "Approved for outreach"
+    assert statuses.value("companies", "approved") == "GATE1: Approved for outreach"
 
 
 def test_hierarchy_levels(settings):
@@ -235,7 +235,7 @@ def test_find_contacts_collects_the_top_four_once(settings):
                                               key=lambda c: int(c["diablo_outreach_order"]))]
     assert ranked() == ["Chief Executive Officer", "COO", "Regional Director", "Assistant Director"]  # top 4
     assert summary["rows"][0]["verified"] == 4 and len(apollo.revealed) == 5  # one revealed was unverified
-    assert hs.records["companies"][cid][CO] == "Approved for outreach"
+    assert hs.records["companies"][cid][CO] == "GATE1: Approved for outreach"
 
     # A second run leaves a company that already has its contacts alone (no Apollo spend).
     find_contacts.run("test", settings, hs, apollo, log=quiet)

@@ -1,6 +1,6 @@
 """Job 3: find contacts at approved companies with Apollo and add them to HubSpot.
 
-Only AUTO-OUTREACH companies whose Lead Status is "Approved for outreach" are processed (gate 1),
+Only AUTO-OUTREACH companies whose Lead Status is "GATE1: Approved for outreach" are processed (gate 1),
 and only those with no contacts yet. For each company it looks at everyone Apollo holds there,
 ranks them by seniority (settings: contacts.hierarchy) and keeps up to contacts.per_company
 verified emails, most senior first. Each contact is created with Lead Source AUTO-OUTREACH,
@@ -179,7 +179,7 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
             log_rows.append(row)
             continue
         if credits >= cfg["max_credits_per_run"]:
-            log("Credit cap reached for this run; remaining companies stay Approved for outreach for next time")
+            log("Credit cap reached for this run; remaining companies stay GATE1: Approved for outreach for next time")
             break
 
         category = channel_of(p, notes)

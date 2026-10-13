@@ -3,7 +3,7 @@
 Runs by itself when the outreachResearch skill saves files to research/<date>/. Each new
 JSON file is checked again with the skill's strict check: a file that fails is rejected
 whole (nothing reaches HubSpot). A file that passes is added to HubSpot with Lead Source
-AUTO-OUTREACH and Lead Status "New", waiting for a person to set "Approved for outreach"
+AUTO-OUTREACH and Lead Status "New", waiting for a person to set "GATE1: Approved for outreach"
 (gate 1); the email details go into data/company_notes.json. Companies already in HubSpot
 are never added again. Each Channel's line
 in research/queue.csv is marked Done, Done fewer than wanted or On hold. A failed Channel
