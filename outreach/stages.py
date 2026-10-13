@@ -8,7 +8,7 @@ account itself, so the code works whatever the account calls a choice internally
     Research found it / contact found          New                           New
     No website, or no contacts found           Missing Info
     Gate 1: a person approves the company      GATE1: Approved for outreach
-    Email lines written                                                      Copy ready
+    Email lines written                                                      "New, Personal line filled"
     Gate 2: a person approves the wording                                    GATE2: Approved to send
     Emails going out                           Attempted to Contact          Attempted to Contact
     They replied                               In Progress                   In Progress
@@ -33,7 +33,7 @@ STAGES = {
     },
     "contacts": {
         "found": "New",
-        "copy_ready": "Copy ready",
+        "copy_ready": "New, Personal line filled",
         "approved": "GATE2: Approved to send",
         "in_outreach": "Attempted to Contact",
         "replied": "In Progress",
@@ -47,7 +47,7 @@ NEW_OPTION_VALUES = {
     "companies": {"GATE1: Approved for outreach": "GATE1: Approved for outreach", "Missing Info": "Missing Info",
                   "New": "New", "Attempted to Contact": "Attempted to Contact",
                   "In Progress": "In Progress", "Unqualified": "Unqualified"},
-    "contacts": {"Copy ready": "COPY_READY", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
+    "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
                  "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "In Progress": "IN_PROGRESS",
                  "Unqualified": "UNQUALIFIED"},
 }

@@ -94,11 +94,11 @@ def test_live_gets_exactly_two_fields_and_three_choices():
     before = {obj: [dict(o) for o in hs.props[obj]["hs_lead_status"]["options"]] for obj in ("companies", "contacts")}
     summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
     assert summary["created"] == 3  # the contacts group and the two contact fields
-    assert summary["updated"] == 3  # GATE1: Approved for outreach; Copy ready and GATE2: Approved to send
+    assert summary["updated"] == 3  # GATE1: Approved for outreach; "New, Personal line filled" and GATE2: Approved to send
     assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, ORDER}
     assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type"}
     assert labels(hs, "companies")[-1:] == ["GATE1: Approved for outreach"]
-    assert labels(hs, "contacts")[-2:] == ["Copy ready", "GATE2: Approved to send"]
+    assert labels(hs, "contacts")[-2:] == ["New, Personal line filled", "GATE2: Approved to send"]
     for obj in ("companies", "contacts"):  # the team's choices are sent back exactly as they were
         assert hs.props[obj]["hs_lead_status"]["options"][:len(before[obj])] == before[obj]
     assert len(hs.props["companies"]["industry_type"]["options"]) == 6  # live's own field: untouched
@@ -130,7 +130,7 @@ def test_refuses_live_account_without_flag_but_a_dry_run_only_reads():
     summary = setup_hubspot.run(hs, dry_run=True, log=shown.append)
     assert all(method == "GET" for method, _ in hs.calls)
     assert summary["updated"] == 3 and any("[would add]" in line for line in shown)
-    assert "Copy ready" not in labels(hs, "contacts")
+    assert "New, Personal line filled" not in labels(hs, "contacts")
 
 
 def test_type_conflict_is_reported_not_overwritten():

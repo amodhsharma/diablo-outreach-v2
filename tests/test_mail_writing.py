@@ -73,7 +73,7 @@ def crm_with_contacts():
     stopped = hs.add("companies", name="Done Co", domain="done.in", **{LS: "In Progress"})
     a = hs.add("contacts", jobtitle="Purchasing Manager", diablo_outreach_order="2", **{LS: "NEW"})
     b = hs.add("contacts", jobtitle="Managing Director", diablo_outreach_order="1", **{LS: "NEW"})
-    c = hs.add("contacts", jobtitle="Owner", diablo_outreach_order="1", **{LS: "COPY_READY"})
+    c = hs.add("contacts", jobtitle="Owner", diablo_outreach_order="1", **{LS: "NEW_PERSONAL_LINE_FILLED"})
     d = hs.add("contacts", jobtitle="Owner", diablo_outreach_order="1", **{LS: "NEW"})
     team = hs.add("contacts", tagged=False, jobtitle="Owner", **{LS: "NEW"})  # the team's own contact
     hs.associate_tagged("contacts", "companies", [(a, co), (b, co), (c, co), (d, stopped)])
@@ -184,10 +184,10 @@ def test_import_moves_contacts_to_copy_ready(tmp_path, monkeypatch):
     imported, pending = tmp_path / "imported.txt", tmp_path / "pending.json"
 
     results = import_lines.run("test", hs, log=quiet, imported_path=imported, pending_path=pending)
-    assert ("1 contacts now Copy ready, 1 skipped (Lead Status no longer New), "
+    assert ("1 contacts now on 'New, Personal line filled', 1 skipped (Lead Status no longer New), "
             "1 skipped (not an AUTO-OUTREACH contact in HubSpot)") in results[0]
     assert "REJECTED" in results[1]
-    assert hs.records["contacts"][a][LS] == "COPY_READY"
+    assert hs.records["contacts"][a][LS] == "NEW_PERSONAL_LINE_FILLED"
     assert hs.records["contacts"][a]["diablo_personal_line"] == GOOD["personal_line"]
     assert "diablo_subject_line" not in hs.records["contacts"][a]
     assert hs.records["contacts"][b][LS] == "NEW"  # rejected file
@@ -221,6 +221,6 @@ def test_search_lag_does_not_put_contacts_back_on_the_list(tmp_path, monkeypatch
     pending = tmp_path / "pending.json"
     import_lines.run("test", hs, log=quiet, imported_path=tmp_path / "imported.txt", pending_path=pending)
     assert [r["contact_id"] for r in json.loads(pending.read_text())["contacts"]] == [b]
-    hs.records["contacts"][b][LS] = "COPY_READY"  # e.g. lines typed in HubSpot by hand
+    hs.records["contacts"][b][LS] = "NEW_PERSONAL_LINE_FILLED"  # e.g. lines typed in HubSpot by hand
     rows = export_for_lines.run("test", hs, pending, log=quiet)
     assert rows == []

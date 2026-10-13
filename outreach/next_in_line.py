@@ -30,7 +30,7 @@ CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", PERSONAL_LINE, LE
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS]
 
 # Each contact's state, worked out from its Lead Status and what Instantly holds (instantly_view):
-#   pending   New or Copy ready: not through gate 2 yet
+#   pending   New or "New, Personal line filled": not through gate 2 yet
 #   approved  GATE2: Approved to send: waiting for its turn
 #   queued    in Instantly, first email not sent yet
 #   sent      emailed, no reply

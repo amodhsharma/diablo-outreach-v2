@@ -13,7 +13,7 @@ LIVE_COMPANY_STATUS = {"New": "New", "Missing Info": "Missing Info", "Emailed": 
 LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": "Emailed",
                        "IN_PROGRESS": "In Progress", "UNQUALIFIED": "Unqualified",
                        "ATTEMPTED_TO_CONTACT": "Attempted to Contact", "WON": "WON",
-                       "COPY_READY": "Copy ready", "APPROVED_TO_SEND": "GATE2: Approved to send"}
+                       "NEW_PERSONAL_LINE_FILLED": "New, Personal line filled", "APPROVED_TO_SEND": "GATE2: Approved to send"}
 
 
 class FakeCRM(TagGuard):

@@ -3,7 +3,7 @@
 Runs by itself when the outreach-mail-writing skill saves a file to mail/lines/. Each new file
 is checked again with the skill's strict check: a file that fails is rejected whole (nothing
 reaches HubSpot). For a file that passes, each AUTO-OUTREACH contact whose Lead Status is still
-"New" gets its Outreach personal line and moves to "Copy ready", ready for a person to read it
+"New" gets its Outreach personal line and moves to "New, Personal line filled", ready for a person to read it
 and set "GATE2: Approved to send" (gate 2). Contacts that have moved on in the meantime, and any
 contact without the AUTO-OUTREACH tag, are left alone. (The subject line is fixed in the
 template, so any subject line in an older file is ignored.)
@@ -72,7 +72,7 @@ def pending_files(lines_dir=None, imported_path=None):
 
 
 def import_file(path, hs, done_ids=None):
-    """Import one file. Returns a short result line. IDs set to Copy ready are added to done_ids."""
+    """Import one file. Returns a short result line. IDs set to "New, Personal line filled" are added to done_ids."""
     try:
         data = json.loads(Path(path).read_text(encoding="utf-8"))
     except (OSError, ValueError) as err:
@@ -96,7 +96,7 @@ def import_file(path, hs, done_ids=None):
     hs.update_tagged("contacts", updates)
     if done_ids is not None:
         done_ids.update(cid for cid, _ in updates)
-    result = f"{len(updates)} contacts now Copy ready"
+    result = f"{len(updates)} contacts now on 'New, Personal line filled'"
     if moved_on:
         result += f", {moved_on} skipped (Lead Status no longer New)"
     if missing:
@@ -137,8 +137,8 @@ def main(argv=None):
     if summary:
         with open(summary, "a", encoding="utf-8") as fh:
             fh.write("## Email lines import\n\n" + "\n".join(f"- {l}" for l in lines or ["Nothing to import."])
-                     + "\n\nNext: in HubSpot, read each Copy ready contact's Outreach personal line, "
-                       "then change their Lead Status to GATE2: Approved to send (gate 2).\n")
+                     + "\n\nNext: in HubSpot, read the Outreach personal line of each contact on 'New, Personal line "
+                       "filled', then change their Lead Status to GATE2: Approved to send (gate 2).\n")
     return code
 
 

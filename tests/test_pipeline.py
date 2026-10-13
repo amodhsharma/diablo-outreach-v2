@@ -112,7 +112,7 @@ def test_send_and_sync(settings):
     hs, noble, _ = full_pipeline(settings)
     contact_id = next(iter(hs.records["contacts"]))
     c = hs.records["contacts"][contact_id]
-    c.update({"diablo_personal_line": "Your Reliance range has room for sugar free chocolate.", CO: "COPY_READY"})
+    c.update({"diablo_personal_line": "Your Reliance range has room for sugar free chocolate.", CO: "NEW_PERSONAL_LINE_FILLED"})
 
     instantly = FakeInstantly()
     assert send.run("test", settings, hs, instantly, log=quiet)["queued"] == 0  # gate 2 not passed yet

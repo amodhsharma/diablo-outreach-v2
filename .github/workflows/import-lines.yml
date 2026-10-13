@@ -2,7 +2,7 @@ name: '4c - Automatic/Manual - Put written email lines into HubSpot for approval
 
 # Runs by itself when the outreach-mail-writing skill saves a new file to mail/lines/.
 # Checks the file again, puts each personal line in the contact's Outreach personal line in
-# HubSpot and sets Lead Status to Copy ready (gate 2). Then saves the list of contacts still
+# HubSpot and sets Lead Status to "New, Personal line filled" (gate 2). Then saves the list of contacts still
 # needing lines. Can also be started by hand to import any file not yet imported.
 on:
   push:

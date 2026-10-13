@@ -39,7 +39,7 @@ Removing the tag from a record is a "hands off" switch; nobody should type AUTO-
 their own records.
 
 **Lead Status** says where each record is (`outreach/stages.py`). Three choices are added to it:
-*GATE1: Approved for outreach* (companies), *Copy ready* and *GATE2: Approved to send* (contacts). The existing
+*GATE1: Approved for outreach* (companies), *"New, Personal line filled"* and *GATE2: Approved to send* (contacts). The existing
 choices are never changed.
 
 | Step | Company | Contact |
@@ -47,7 +47,7 @@ choices are never changed.
 | Research found it / contact found | New | New |
 | No website, or no contacts found | Missing Info | |
 | **Gate 1**: a person approves the company | **GATE1: Approved for outreach** | |
-| Email line written | | Copy ready |
+| Email line written | | "New, Personal line filled" |
 | **Gate 2**: a person reads the line and approves it | | **GATE2: Approved to send** |
 | Emails going out | Attempted to Contact | Attempted to Contact |
 | They replied | In Progress | In Progress |
@@ -79,7 +79,7 @@ only ever uses and changes the AUTO-OUTREACH one.
 | 2g - Automatic/Manual - Research: add the next city from the automatic list | Runs by itself after every 2f run. Adds the next city from `data/auto_markets.csv` (UK, EU, Canada and South America, in a random order that takes turns between regions) to the queue: at most one a day, only when nothing is waiting in the queue and fewer than 100 AUTO-OUTREACH companies wait for review (Lead Status New) in HubSpot. Canada, Germany and Austria are left out until a lawyer has checked the cold email rules there, and so is every country in `data/excluded_countries.txt`. Markets added by hand with 2a always run first. Settings: `auto_markets` in `config/settings.yaml` |
 | 3 - Manual - Find the top 4 people at each approved company | For companies set to GATE1: Approved for outreach that have no contacts yet: Apollo finds the top 4 verified buyer emails, most senior first. An email already in HubSpot is never added. Nobody is paid for twice |
 | 4a - Manual - Refresh the list of contacts that still need email lines | Saves the AUTO-OUTREACH contacts with Lead Status New to `mail/pending.json` for the writing skill. Buttons 3 and 4c already refresh this list themselves at the end of their run; press 4a only after editing contacts in HubSpot by hand |
-| 4c - Automatic/Manual - Put written email lines into HubSpot for approval | Runs by itself when new lines are saved: puts them in Outreach personal line and sets Lead Status to Copy ready |
+| 4c - Automatic/Manual - Put written email lines into HubSpot for approval | Runs by itself when new lines are saved: puts them in Outreach personal line and sets Lead Status to "New, Personal line filled" |
 | 4b - Timer/Manual - Send approved contacts to Instantly to be emailed | Every 3 hours by itself (or pressed by hand): starts each company with its most senior GATE2: Approved to send contact. Every Location and Channel shares one campaign per month (e.g. "Diablo | NOV2026"), created paused: press Start on it in Instantly once a month. A company's later contacts stay in the campaign of its first email |
 | 5 - Timer/Manual - Update HubSpot with who was emailed, replied or bounced, and line up the next person | Every 3 hours: replies, interest, bounces and opt-outs back to Lead Status (AUTO-OUTREACH records only), and moves companies on to their next person |
 | 6 - Manual - Health check: mailboxes, campaigns and why someone isn't being emailed | Changes nothing. **Mailboxes:** every sending mailbox in Instantly marked Ready, Warming up or Problem (sending on or not, warm-up score, warm-up emails landing in inbox or spam, sender name, daily limit, campaigns using it), with a "Needs attention" list. **Campaigns:** whether each is sending and if not why. **HubSpot:** what 4b would do now with each GATE2: Approved to send contact. Answer on the run's summary page and in `diagnostics/instantly_status.md` |
@@ -93,7 +93,7 @@ only ever uses and changes the AUTO-OUTREACH one.
    fixed in the template.
    A manual run does the same at any time: `/outreach-mail-writing` in a Claude chat.
 3. **4c - Automatic/Manual - Put written email lines into HubSpot for approval** starts by itself, checks the file again and puts the
-   line in each contact's *Outreach personal line* and sets Lead Status to *Copy ready*. Gate 2 is
+   line in each contact's *Outreach personal line* and sets Lead Status to *"New, Personal line filled"*. Gate 2 is
    yours: read it and change Lead Status to *GATE2: Approved to send*. To change a line, edit it in
    HubSpot before approving.
 

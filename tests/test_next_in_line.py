@@ -99,8 +99,8 @@ def test_no_reply_from_everyone_marks_the_company(settings):
 def test_waits_for_gate_two_before_moving_on(settings):
     hs, instantly = FakeCRM(), FakeInstantly()
     cid, (first, second, third) = company_with_three(hs, "Slow Co", "slow.in")
-    hs.records["contacts"][second][LS] = "COPY_READY"  # not approved yet
-    hs.records["contacts"][third][LS] = "COPY_READY"
+    hs.records["contacts"][second][LS] = "NEW_PERSONAL_LINE_FILLED"  # not approved yet
+    hs.records["contacts"][third][LS] = "NEW_PERSONAL_LINE_FILLED"
     send.run("test", settings, hs, instantly, log=quiet)
     lead(instantly, "p1@slow.in")["timestamp_last_contact"] = ago(6)
     result = sync.run("test", settings, hs, instantly, log=quiet)

@@ -1,6 +1,6 @@
 ---
 name: outreach-mail-writing
-description: Write the personalised opening line for Diablo outreach contacts waiting for them (mail/pending.json in amodhsharma/diablo-outreach-v2) and save one lines file to the repo, which GitHub imports into HubSpot as Copy ready. Use for the scheduled run (every 2 hours), and when someone asks to "write the email lines", "run outreach mail writing" or "write lines for the new contacts".
+description: Write the personalised opening line for Diablo outreach contacts waiting for them (mail/pending.json in amodhsharma/diablo-outreach-v2) and save one lines file to the repo, which GitHub imports into HubSpot as "New, Personal line filled". Use for the scheduled run (every 2 hours), and when someone asks to "write the email lines", "run outreach mail writing" or "write lines for the new contacts".
 ---
 
 # outreach-mail-writing
@@ -67,7 +67,7 @@ Finish with three lines:
 1. Scheduled or manual run, and how many contacts got lines (and how many wait for the next run).
 2. Any contact left out and why.
 3. Where the file is (mail/lines/<date>/...) and that GitHub will now put the lines into HubSpot
-   as Copy ready, ready for gate 2.
+   as "New, Personal line filled", ready for gate 2.
 
 ## What the files are
 
