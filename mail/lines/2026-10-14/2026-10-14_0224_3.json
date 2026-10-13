@@ -1,0 +1,26 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-14",
+  "run_type": "manual",
+  "generated_from": "2026-10-13T20:52:39+00:00",
+  "lines": [
+    {
+      "contact_id": "889991418047",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "We hold your team in high regard for its role as the exclusive Swiss importer for Trolli, serving large retailers and around 3,000 trade customers. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "style": "D"
+    },
+    {
+      "contact_id": "889991418048",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "We have great respect for the way your team brings branded confectionery to large retailers and around 3,000 trade customers across Switzerland. With such established reach across kiosks, petrol stations and gastro businesses, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "style": "A"
+    },
+    {
+      "contact_id": "889991418046",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "Your range, from gummies to chocolate, spreads, tea and coffee, reflects a careful choice of brands for the Swiss trade. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "style": "C"
+    }
+  ]
+}
