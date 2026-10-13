@@ -5,11 +5,9 @@ name: '2e - Automatic/Manual - Put new companies into HubSpot for review'
 # (gate 1) and marks the queue. Can also be started by hand to import any file
 # not yet imported. To use the live account, add a repository variable
 # PIPELINE_TARGET = live (Settings > Secrets and variables > Actions > Variables).
+# Being replaced by the new numbered buttons (14 Oct 2026): it no longer starts by itself (the new
+# button does that), but can still be pressed by hand until the old buttons are removed.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "research/*/*.json"
   workflow_dispatch:
 
 concurrency:

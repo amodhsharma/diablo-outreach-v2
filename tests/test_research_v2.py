@@ -285,6 +285,9 @@ def import_env(tmp_path, monkeypatch):
     monkeypatch.setattr(rq, "QUEUE_FILE", tmp_path / "research" / "queue.csv")
     monkeypatch.setattr(common, "NOTES_FILE", tmp_path / "company_notes.json")
     monkeypatch.setattr(known_companies, "KNOWN_FILE", tmp_path / "known_companies.csv")
+    from outreach.import_checks import Checker
+    monkeypatch.setattr(import_research, "default_checker",
+                        lambda log=print: Checker({"website": False, "apollo": False}))
     rows = []
     rq.add(rows, "Mumbai, India", "distributors, retailers", wanted="2", on="2026-10-08")
     rq.save(rows)

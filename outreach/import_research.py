@@ -26,10 +26,11 @@ from pathlib import Path
 from . import known_companies
 from . import research_queue as rq
 from .common import (
-    ROOT, PipelineError, check_target, clean_category, clean_domain, industry_type, now_iso,
+    ROOT, PipelineError, check_target, clean_category, clean_domain, industry_type, load_settings, now_iso,
     save_company_notes, split_location,
 )
 from .hubspot_client import HubSpot, HubSpotError
+from .import_checks import Checker
 from .schema import INDUSTRY_TYPE, TIER
 from .stages import LeadStatus
 
@@ -144,7 +145,7 @@ def _mark_rejected(rows, job_id, path, reason):
     return changed
 
 
-def import_file(path, rows, hs, settings, log=print):
+def import_file(path, rows, hs, settings, log=print, checker=None):
     """Import one file. Returns a short result line for the summary."""
     path = Path(path)
     name = relative(path)
@@ -169,14 +170,34 @@ def import_file(path, rows, hs, settings, log=print):
         return f"{name}: REJECTED by the strict check, nothing added to HubSpot. {shown}"
 
     data["_file"] = name
-    created = existing = 0
+    created = existing = missing = 0
+    dropped = []
     if data["companies"]:
-        records, notes = hubspot_records(data, LeadStatus(hs))
+        statuses = LeadStatus(hs)
+        records, notes = hubspot_records(data, statuses)
         known = already_in_hubspot(hs, records)
-        new = [r for i, r in enumerate(records) if i not in known]
+        checker = checker or default_checker(log)
+        checker.prefetch(r.get("domain") for i, r in enumerate(records) if i not in known)
+        new = []
+        for i, r in enumerate(records):
+            if i in known:
+                continue
+            # Website and Apollo checks: a company nobody could email never reaches gate 1.
+            decision, reason = checker.check(r.get("domain"), data["companies"][i].get("confidence"))
+            if decision == "drop":
+                dropped.append(f"{r['name']} ({reason})")
+                continue
+            if decision == "missing_info":
+                r.update(statuses.props("companies", "missing_info"))
+                if r.get("domain"):
+                    notes[r["domain"]]["import_check"] = reason
+                missing += 1
+            new.append(r)
         hs.create_tagged("companies", new)
         save_company_notes({r["domain"]: notes[r["domain"]] for r in new if r.get("domain")})
-        created, existing = len(new), len(records) - len(new)
+        created, existing = len(new), len(known)
+        for d in dropped:
+            log(f"Not added (low confidence and {d})")
 
     # A retry's file replaces the earlier one: point finished lines at the new file.
     for r in rows:
@@ -201,11 +222,25 @@ def import_file(path, rows, hs, settings, log=print):
                               output_file=name)
             continue
         rq.set_status(rows, job_id, line["channel"], status, reason, ran_on=data["run_date"], output_file=name)
-    return (f"{name}: {created} companies added to HubSpot (Lead Status New, or Missing Info when there "
-            f"is no website), {existing} already in HubSpot")
+    return (f"{name}: {created} companies added to HubSpot ({created - missing} as New, {missing} as Missing Info: "
+            f"no working website or nobody in Apollo), {existing} already in HubSpot, {len(dropped)} left out "
+            "(low confidence and failed a check)" + (f": {'; '.join(dropped)}" if dropped else ""))
 
 
-def run(target, hs, files=None, log=print):
+def default_checker(log=print):
+    """The website and Apollo checks, as set in config/settings.yaml (import_checks)."""
+    cfg = load_settings().get("import_checks") or {}
+    apollo = None
+    if cfg.get("apollo", True):
+        if os.environ.get("APOLLO_API_KEY"):
+            from .apollo_client import Apollo
+            apollo = Apollo()
+        else:
+            log("APOLLO_API_KEY is not set, so the Apollo pre-check is skipped this time")
+    return Checker(cfg, apollo=apollo, log=log)
+
+
+def run(target, hs, files=None, log=print, checker=None):
     rows = rq.load()
     files = [Path(f) if Path(f).is_absolute() else ROOT / f for f in files] if files else pending_files(rows)
     if not files:
@@ -213,12 +248,13 @@ def run(target, hs, files=None, log=print):
         return []
     check_target(hs, target)
     settings = rq.load_research_settings()
+    checker = checker if checker is not None else default_checker(log)
     results = []
     for f in files:
-        line = import_file(f, rows, hs, settings, log=log)
+        line = import_file(f, rows, hs, settings, log=log, checker=checker)
         log(line)
         results.append(line)
-    rq.save(rows)
+        rq.save(rows)  # after every file, so a run cut short never redoes finished files
     return results
 
 
@@ -226,7 +262,12 @@ def main(argv=None):
     p = argparse.ArgumentParser(description="Import new research files into HubSpot")
     p.add_argument("--target", default="test", choices=["test", "live"])
     p.add_argument("--file", action="append", default=[], help="a research JSON file (default: all new ones)")
+    p.add_argument("--skip-if-not-configured", action="store_true",
+                   help="exit quietly when a key is missing (used by the automatic runs)")
     args = p.parse_args(argv)
+    if args.skip_if_not_configured and not (os.environ.get("HUBSPOT_TOKEN")):
+        print("Research import skipped: a key it needs is not added yet.")
+        return 0
     lines = []
     try:
         hs = HubSpot()

@@ -363,7 +363,12 @@ def main(argv=None):
     p = argparse.ArgumentParser(description="Add approved contacts to Instantly")
     p.add_argument("--target", default="test", choices=["test", "live"])
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--skip-if-not-configured", action="store_true",
+                   help="exit quietly when a key is missing (used by the automatic runs)")
     args = p.parse_args(argv)
+    if args.skip_if_not_configured and not (os.environ.get("HUBSPOT_TOKEN") and os.environ.get("INSTANTLY_API_KEY")):
+        print("Send skipped: a key it needs is not added yet.")
+        return 0
     try:
         # A dry run still reads Instantly (who was already emailed) when the key is there.
         instantly = Instantly() if (not args.dry_run or os.environ.get("INSTANTLY_API_KEY")) else None

@@ -4,11 +4,9 @@ name: '4c - Automatic/Manual - Put written email lines into HubSpot for approval
 # Checks the file again, puts each personal line in the contact's Outreach personal line in
 # HubSpot and sets Lead Status to "New, Personal line filled" (gate 2). Then saves the list of contacts still
 # needing lines. Can also be started by hand to import any file not yet imported.
+# Being replaced by the new numbered buttons (14 Oct 2026): it no longer starts by itself (the new
+# button does that), but can still be pressed by hand until the old buttons are removed.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "mail/lines/*/*.json"
   workflow_dispatch:
 
 concurrency:

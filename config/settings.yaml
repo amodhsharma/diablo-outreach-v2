@@ -191,6 +191,17 @@ auto_markets:
   # job (automatic or added by hand), in data/excluded_countries.txt.
   exclude_countries: [Canada, Germany, Austria]
 
+# Checks on each researched company before it reaches HubSpot (agreed 14 Oct 2026). A company
+# whose website no longer exists or is a "domain for sale" page, or where Apollo holds nobody
+# with an email, arrives as Missing Info instead of New, so nobody reviews it at gate 1. One that
+# also had low confidence in the research is not added at all. Only clear failures count: a
+# slow site, or one that blocks automated visitors, passes.
+import_checks:
+  website: true
+  apollo: true                     # free Apollo search; credits are only spent at "find people"
+  max_apollo_checks_per_run: 300
+  drop_low_confidence_failures: true
+
 sync:
   # Only Instantly campaigns whose name starts with this are synced.
   campaign_prefix: "Diablo |"

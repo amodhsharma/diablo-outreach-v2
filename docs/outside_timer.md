@@ -19,6 +19,19 @@ automatic city list) needs no job of its own: it starts by itself after every 2f
 jobs passed their test runs on 8 Oct 2026 and GitHub's own timer was then switched off, so
 cron-job.org is the only timer to manage.
 
+## From the change-over to the three buttons (14 Oct 2026)
+
+Once the new buttons have passed their tests, cron-job.org presses only two of them:
+
+| Job name | URL | When (Asia/Kolkata) | Request body |
+|---|---|---|---|
+| Outreach (button 3) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/outreach.yml/dispatches` | Every day at 12, 3, 6 and 9, AM and PM | `{"ref":"main","inputs":{"check_only":"false"}}` |
+| Research (button 2) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/research.yml/dispatches` | Every day at 2, 5, 8 and 11, AM and PM | `{"ref":"main","inputs":{"action":"Automatic run"}}` |
+
+Same method (POST), the same four headers and the same GitHub key as below. **Pause** (do not
+delete) the three old jobs (4b, 5 and 2f) at the same moment: un-pausing them is how to go back to
+the frozen version if ever needed.
+
 The timer uses one GitHub key. This is the one key that does not live in GitHub's secrets:
 cron-job.org has to hold it to press the buttons. It is limited so that it can only start the
 buttons of this one repository.

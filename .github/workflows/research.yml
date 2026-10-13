@@ -1,0 +1,142 @@
+name: '2 - Research'
+
+# One button for everything research (agreed 14 Oct 2026). Replaces 2a to 2g.
+#
+# Press it (Actions tab > "2 - Research" > Run workflow) and pick "What to do":
+#   Add a market              type Location and Channels (and, if you like, languages and how many)
+#   Cancel a market           type the Job ID (and a Channel to cancel only that one)
+#   Try a failed market again type the Job ID (and a Channel)
+#   Allow a repeat            type the Job ID (and a Channel) of a market researched before
+#
+# Runs by itself, nothing to press:
+#   - when Claude saves new research: checks it, leaves out companies already in HubSpot, checks each
+#     company's website and asks Apollo whether it holds anyone there, then adds the companies to
+#     HubSpot (Lead Source AUTO-OUTREACH, Lead Status New, or Missing Info when a check fails);
+#   - every 3 hours (cron-job.org, "Automatic run"): refreshes the "already in HubSpot" list,
+#     imports anything still waiting and adds the next city from the automatic list when allowed.
+#
+# Before: the automatic tests. After: the queue and lists are saved, and the run fails (GitHub
+# emails you) if any step failed. To use the live account, add a repository variable
+# PIPELINE_TARGET = live (Settings > Secrets and variables > Actions > Variables).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/*/*.json"
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "What to do"
+        type: choice
+        options: ["Add a market", "Cancel a market", "Try a failed market again", "Allow a repeat", "Automatic run"]
+        default: "Add a market"
+      location:
+        description: "Add a market: Location, a city or country, country last (e.g. Lyon, France). A misspelt country stops the button"
+        default: ""
+      channels:
+        description: "Add a market: Channels, the types of company to find, separated by commas (e.g. distributors, wholesalers, retailers)"
+        default: ""
+      languages:
+        description: "Add a market (optional): languages to also search local sources in (e.g. French). Empty = the main local languages"
+        default: ""
+      wanted:
+        description: "Add a market (optional): companies wanted per Channel. Empty = 60"
+        default: ""
+      job:
+        description: "Cancel, Try again or Allow a repeat: the Job ID, e.g. J0003"
+        default: ""
+      channel:
+        description: "Cancel, Try again or Allow a repeat (optional): only this Channel. Empty = every Channel in the job"
+        default: ""
+
+concurrency:
+  group: research-writes
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+      ACTION: ${{ github.event_name == 'push' && 'Import new research' || inputs.action }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: "Before: up to date and tests pass"
+        run: |
+          git pull --rebase
+          python -m pytest -q
+
+      - name: "Research queue: ${{ env.ACTION }}"
+        if: env.ACTION != 'Automatic run' && env.ACTION != 'Import new research'
+        env:
+          LOCATION: ${{ inputs.location }}
+          CHANNELS: ${{ inputs.channels }}
+          LANGUAGES: ${{ inputs.languages }}
+          WANTED: ${{ inputs.wanted }}
+          JOB: ${{ inputs.job }}
+          CHANNEL: ${{ inputs.channel }}
+          BY: ${{ github.actor }}
+        run: |
+          case "$ACTION" in
+            "Add a market")
+              if [ -z "$LOCATION" ] || [ -z "$CHANNELS" ]; then
+                echo "::error::Type the Location and the Channels to add a market."; exit 1; fi
+              python -m outreach.research_queue add --location "$LOCATION" --channels "$CHANNELS" \
+                --languages "$LANGUAGES" --wanted "$WANTED" --by "$BY" ;;
+            "Cancel a market"|"Try a failed market again"|"Allow a repeat")
+              if [ -z "$JOB" ]; then echo "::error::Type the Job ID, e.g. J0003."; exit 1; fi
+              case "$ACTION" in
+                "Cancel a market") VERB=cancel ;;
+                "Try a failed market again") VERB=retry ;;
+                *) VERB=approve ;;
+              esac
+              python -m outreach.research_queue "$VERB" --job "$JOB" --channel "$CHANNEL" --by "$BY" ;;
+          esac
+
+      - name: "Refresh the 'already in HubSpot' list"
+        id: known
+        if: env.ACTION == 'Automatic run' || env.ACTION == 'Import new research'
+        continue-on-error: true
+        env:
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: python -m outreach.known_companies --target "$TARGET" --skip-if-not-configured
+
+      - name: "Import new research into HubSpot (with website and Apollo checks)"
+        id: import
+        if: env.ACTION == 'Automatic run' || env.ACTION == 'Import new research'
+        continue-on-error: true
+        env:
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+          APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY }}
+        run: python -m outreach.import_research --target "$TARGET" --skip-if-not-configured
+
+      - name: "Add the next city from the automatic list"
+        id: auto
+        if: env.ACTION == 'Automatic run'
+        continue-on-error: true
+        env:
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: python -m outreach.auto_markets --target "$TARGET"
+
+      - name: "After: save the queue and lists"
+        if: always()
+        run: |
+          bash .github/scripts/save_changes.sh "Research: $ACTION" research/queue.csv data/company_notes.json \
+            data/known_companies.csv data/known_companies_state.json
+
+      - name: "After: did every step work?"
+        if: always()
+        run: |
+          failed=""
+          [ "${{ steps.known.outcome }}" = "failure" ] && failed="$failed 'already in HubSpot' list;"
+          [ "${{ steps.import.outcome }}" = "failure" ] && failed="$failed research import;"
+          [ "${{ steps.auto.outcome }}" = "failure" ] && failed="$failed automatic city list;"
+          if [ -n "$failed" ]; then echo "::error::These steps failed:$failed open them above for the reason."; exit 1; fi
+          echo "Every step worked."

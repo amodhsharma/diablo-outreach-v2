@@ -126,7 +126,12 @@ def main(argv=None):
     p = argparse.ArgumentParser(description="Import new email lines into HubSpot")
     p.add_argument("--target", default="test", choices=["test", "live"])
     p.add_argument("--file", action="append", default=[], help="a lines JSON file (default: all new ones)")
+    p.add_argument("--skip-if-not-configured", action="store_true",
+                   help="exit quietly when a key is missing (used by the automatic runs)")
     args = p.parse_args(argv)
+    if args.skip_if_not_configured and not (os.environ.get("HUBSPOT_TOKEN")):
+        print("Personal lines import skipped: a key it needs is not added yet.")
+        return 0
     try:
         lines = run(args.target, HubSpot(), args.file or None)
         code = 0

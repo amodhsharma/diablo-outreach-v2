@@ -21,6 +21,7 @@ for attempt in 1 2 3; do
   if git pull --rebase && git push; then
     exit 0
   fi
+  git rebase --abort 2>/dev/null || true
   sleep 5
 done
 echo "Could not save the changes after 3 tries." >&2

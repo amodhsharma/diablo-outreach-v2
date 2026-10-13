@@ -15,6 +15,7 @@ Usage:
 """
 
 import argparse
+import os
 import re
 import sys
 
@@ -260,7 +261,12 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
 def main(argv=None):
     p = argparse.ArgumentParser(description="Find contacts for approved companies")
     p.add_argument("--target", default="test", choices=["test", "live"])
+    p.add_argument("--skip-if-not-configured", action="store_true",
+                   help="exit quietly when a key is missing (used by the automatic runs)")
     args = p.parse_args(argv)
+    if args.skip_if_not_configured and not (os.environ.get("HUBSPOT_TOKEN") and os.environ.get("APOLLO_API_KEY")):
+        print("Find people skipped: a key it needs is not added yet.")
+        return 0
     try:
         run(args.target, load_settings(), HubSpot(), Apollo())
     except (PipelineError, HubSpotError, ApolloError) as err:
