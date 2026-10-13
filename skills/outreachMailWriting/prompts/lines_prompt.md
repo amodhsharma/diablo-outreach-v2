@@ -7,8 +7,8 @@ sweetened with stevia and inulin, never aspartame, and sold in more than 124 cou
 Each contact below works at a company our research found. They will get a cold email that
 starts "Hi <first name>,", then "I'm writing from the office of the Strategy Director at Diablo
 Sugar Free, where I look after international partners." Your **personal line** opens the next
-paragraph, which then ends with the fixed sentence "We are a UK brand looking for the right partner
-in <their city or country>." A fixed body about Diablo follows (you do not write it). The subject
+paragraph, which then ends with the fixed sentence "We are a UK brand and do not yet have a direct
+partner in <their country>." A fixed body about Diablo follows (you do not write it). The subject
 line is fixed too, but still write one (it is kept in HubSpot).
 
 Write lines for all {{count}} contacts.
@@ -36,12 +36,12 @@ does well and why it fits Diablo. Plus the person's job title and seniority.
 ## Personal line
 
 - One or two sentences, 50 words or fewer. No greeting and no first name (the email already has them).
-- Start with "I thought I'd reach out as we noticed" followed by something true and specific about
+- Start with "I thought I'd reach out as we have noticed" followed by something true and specific about
   their business from the research, ideally something showing they already sell, or have room for,
   sugar free, free from or confectionery lines: a category they run, brands they carry, who they
-  supply (agreed 12 Oct 2026). A short second sentence on why that fits Diablo is optional.
-- Do not say Diablo has no partner in their market and do not repeat "we are a UK brand": the
-  sentence after yours already says that.
+  supply (agreed 13 Oct 2026, for templates/template_1.json). A short second sentence on why that fits Diablo is optional.
+- Do not mention Diablo's partners in their market and do not repeat "we are a UK brand": the
+  sentence after yours already covers that.
 - By role: for a director, owner or head of the business, lean on partnership and growth. For a
   buyer, category manager or purchasing role, lean on range and shelf fit.
 - Use the company name at most once. You may refer to "your team" or "you" instead.
@@ -64,12 +64,12 @@ stop. No Oxford commas ("biscuits, wafers and sweets", never "biscuits, wafers, 
 ## Examples (made-up companies, to show the shape only)
 
 - Director, distributor: subject "Sugar free range for Northfield Foods"; personal line "I thought
-  I'd reach out as we noticed Northfield Foods already takes Scandinavian snack brands into
+  I'd reach out as we have noticed Northfield Foods already takes Scandinavian snack brands into
   independent pharmacies across Ireland."
 - Category manager, retailer: subject "Sugar free shelf for Greenleaf Markets"; personal line "I
-  thought I'd reach out as we noticed your free from aisle already gives shoppers a real choice of
+  thought I'd reach out as we have noticed your free from aisle already gives shoppers a real choice of
   low sugar snacks. Our range could take that from a few items to a full sugar free section."
-- Buyer, cash and carry: personal line "I thought I'd reach out as we noticed Makro already runs a
+- Buyer, cash and carry: personal line "I thought I'd reach out as we have noticed Makro already runs a
   dieet-voeding category alongside its grocery range."
 
 ## Save your answer

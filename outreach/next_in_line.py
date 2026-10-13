@@ -107,6 +107,20 @@ def market_short(market):
     return (market or "").split(",")[0].strip() or market or ""
 
 
+WITH_THE = ("United ", "Netherlands", "Czech Republic", "Philippines", "Dominican Republic", "Bahamas",
+            "Gambia", "Maldives", "Republic of", "Democratic Republic", "Central African Republic",
+            "Solomon Islands", "Marshall Islands", "Cayman Islands", "Faroe Islands", "British Virgin Islands")
+
+
+def market_country(market):
+    """The country of the Location for the email, with "the" where English needs it:
+    "Amsterdam, Netherlands" gives "the Netherlands", "Dublin, Ireland" gives "Ireland"."""
+    country = (market or "").split(",")[-1].strip()
+    if country in ("UK", "USA", "US", "UAE"):
+        return "the " + country
+    return "the " + country if country.startswith(WITH_THE) else country
+
+
 def lead_for(contact, company, market):
     p = contact["properties"]
     return {
@@ -121,6 +135,7 @@ def lead_for(contact, company, market):
             "personal_line": p.get("diablo_personal_line") or "",
             "market": market,
             "market_short": market_short(market),
+            "market_country": market_country(market),
             "partner_type": partner_type(company.get("diablo_channel_category")),
         },
     }

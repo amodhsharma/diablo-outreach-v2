@@ -114,7 +114,7 @@ def test_send_and_sync(settings):
     assert "Subject: Partnering to establish Diablo Sugar Free in the India sugar free snacks landscape" in shown
     assert "Hi Firstp2," in shown and "Your Reliance range has room for sugar free chocolate." in shown
     assert "XXXXXX" in shown and "| Joshua\n| Initial Outreach Team" in shown
-    assert "office of the Strategy Director" in shown and "right partner in India" in shown
+    assert "office of the Strategy Director" in shown and "direct partner in India" in shown
     assert "{{" not in shown and "<br/>" not in shown
     assert "Email 2 (sent 3 days later if no reply)" in shown
 
@@ -128,7 +128,7 @@ def test_send_and_sync(settings):
     assert 'Best regards,<div style="border-left:3px solid #cccccc' in email and "{{privacy_url}}" not in email
     assert "Joshua<br/>Initial Outreach Team<br/>Diablo Sugar Free" in email
     assert "{{catalogue_link}}" not in email and "{{sender_phone}}" not in email
-    assert "eleven categories in all" in email and "<ul>" not in email
+    assert "eleven categories in all" in email and "<div><ul>" not in email
     lead = instantly.leads[camp_id][0]
     assert lead["custom_variables"]["personal_line"].startswith("Your Reliance")
     assert c["diablo_contact_status"] == "queued"

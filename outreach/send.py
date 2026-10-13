@@ -15,6 +15,7 @@ import json
 import re
 import sys
 from collections import defaultdict
+from pathlib import Path
 
 from .common import ROOT, PipelineError, check_target, load_settings, market_matches, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
@@ -64,10 +65,13 @@ def schedule_days(sched):
     return {num: name in days for name, num in DAY_NUMBERS.items()}
 
 
-def _template(name, s):
+def _template(path, s):
     """A template with the same-for-everyone parts filled in: privacy link, catalogue link and
     the signature. Lines left empty (e.g. no phone number) are dropped."""
-    template = json.loads((ROOT / "templates" / name).read_text(encoding="utf-8"))
+    path = Path(path)
+    if not path.is_absolute():
+        path = ROOT / path if path.parent != Path(".") else ROOT / "templates" / path
+    template = json.loads(path.read_text(encoding="utf-8"))
     sig = s.get("signature") or {}
     link = (s.get("booking_link") or "").strip()
     fixed = {"privacy_url": s["privacy_url"], "catalogue_link": s.get("catalogue_link") or "",
@@ -98,13 +102,14 @@ def sequence_steps(s):
     """First email, plus one reminder for anyone who has not replied (Instantly's `delay` is
     the wait before the NEXT email, so it sits on the first step)."""
     follow = s.get("follow_up") or {}
-    subject, body = _template("first_email.json", s)
+    paths = s.get("templates") or {}
+    subject, body = _template(paths.get("first_email") or "templates/first_email.json", s)
     first = {"type": "email", "delay": 0, "delay_unit": "days",
              "variants": [{"subject": subject, "body": html_paragraphs(body)}]}
     if not follow.get("enabled"):
         return [first]
     first["delay"] = int(follow.get("delay_days", 7))
-    f_subject, f_body = _template("follow_up.json", s)
+    f_subject, f_body = _template(paths.get("follow_up") or "templates/follow_up.json", s)
     second = {"type": "email", "delay": 0, "delay_unit": "days",
               "variants": [{"subject": f_subject, "body": html_paragraphs(f_body)}]}
     return [first, second]

@@ -90,13 +90,15 @@ def test_booking_link_only_when_set():
     _, body = send._template("first_email.json", base)
     assert "{{booking_sentence}}" not in body and "book a time" not in body
     _, body = send._template("first_email.json", dict(base, booking_link="https://book.example/diablo"))
+    assert "works best for you. You can also book a time directly here: https://book.example/diablo<br/>" in body
+    _, body = send._template("templates/template_1.json", dict(base, booking_link="https://book.example/diablo"))
     assert "better suited? You can also book a time directly here: https://book.example/diablo<br/>" in body
 
 
 def test_footer_is_grey_small_with_clickable_links():
     from outreach import send
     base = {"privacy_url": "https://www.diablosugarfree.com/policies/privacy-policy", "signature": {"name": "Joshua"}}
-    for name in ("first_email.json", "follow_up.json"):
+    for name in ("first_email.json", "follow_up.json", "templates/template_1.json"):
         _, body = send._template(name, base)
         html = send.html_paragraphs(body)
         assert "--<br/>" not in body and "<hr " in html and "font-size:12px" in html and "color:#888888" in html
@@ -107,3 +109,20 @@ def test_footer_is_grey_small_with_clickable_links():
         text = send.render(html, {"first_name": "Ann"})
         assert "Diablo Sugar Free [https://www.diablosugarfree.com] (B Healthy Ltd, London)\n" in text
         assert "contact you again.\n\nPrivacy notice: https://www.diablosugarfree.com/policies/privacy-policy" in text
+
+
+def test_template_1_is_used_and_filled():
+    import json
+    from outreach import send
+    from outreach.common import load_settings
+    from outreach.next_in_line import market_country
+    s = load_settings()["send"]
+    assert s["templates"]["first_email"] == "templates/template_1.json"
+    body = send.sequence_steps(s)[0]["variants"][0]["body"]
+    assert "office of the Strategy Director" in body and "direct partner in {{market_country}}" in body
+    assert "Joshua<br/>Initial Outreach Team" in body and "<hr " in body  # same sign-off and footer
+    current = json.loads(open("templates/first_email.json").read())["body"]
+    assert "I hope this email finds you well" in current  # the current template is untouched
+    assert market_country("Amsterdam, Netherlands") == "the Netherlands"
+    assert market_country("Dublin, Ireland") == "Ireland"
+    assert market_country("Plymouth, United Kingdom") == "the United Kingdom"

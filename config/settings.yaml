@@ -133,6 +133,13 @@ send:
   # The 2026 catalogue's public web link. DUMMY until the catalogue is live (agreed 12 Oct 2026):
   # replace it before going live.
   catalogue_link: https://www.diablosugarfree.com/pages/catalogue-2026
+  # Which template files the emails are built from (paths from the repository's top folder).
+  # To switch template, change the path here; nothing else needs to change. Set 13 Oct 2026:
+  # the first email uses templates/template_1.json (the team's version); templates/first_email.json
+  # is kept as it was.
+  templates:
+    first_email: templates/template_1.json
+    follow_up: templates/follow_up.json
   # Microsoft Bookings link for the team's shared booking page, shown in the first email after
   # "Please let me know what day and time works best for you." (agreed 12 Oct 2026). Leave empty
   # until the page is live: the sentence is then left out.
