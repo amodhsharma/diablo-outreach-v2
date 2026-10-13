@@ -1,0 +1,23 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-14",
+  "run_type": "manual",
+  "generated_from": "2026-10-13T20:09:26+00:00",
+  "lines": [
+    {
+      "contact_id": "889991418047",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "I thought I'd reach out as we have noticed your team already supplies branded confectionery to large retailers and around 3,000 trade customers, from kiosks to petrol stations. A sugar free range could give those customers something new to order."
+    },
+    {
+      "contact_id": "889991418048",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "I thought I'd reach out as we have noticed your team is the exclusive Swiss importer for Trolli, building it across large retailers, kiosks and petrol stations. We would like to explore whether a sugar free brand could grow the same way with you."
+    },
+    {
+      "contact_id": "889991418046",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "I thought I'd reach out as we have noticed you run a confectionery range from gummies to chocolate, plus spreads, but no sugar free line. Our chocolate, sweets and spreads could fill that gap on the same shelves."
+    }
+  ]
+}
