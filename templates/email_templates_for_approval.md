@@ -114,12 +114,11 @@ the company line moved into the signature on 14 Oct 2026):
 The privacy notice link is clickable. The reminder's
 footer leaves out the "We found your business details..." sentence.
 
-## Still to do
+## Booking link
 
-- The booking link (`send.booking_link`) is the placeholder "xxx" until Ariel gives the real link.
-  Template 2 ends with "you can do it from the link below", so until a real web address is there,
-  Send sends nothing and changes no campaign (it stops with a "booking link is missing" message).
-  Template 1 simply leaves its "You can also book a time directly here" sentence out.
+- The booking link (`send.booking_link`) is the Calendly page
+  https://calendly.com/amodh-diablosugarfree/introductory-call-with-diablo-sugar-free (set on
+  14 Oct 2026). Template 2 shows it on its own line after "you can do it from the link below".
 
 ## Rules for the personal line (agreed 14 Oct 2026)
 
