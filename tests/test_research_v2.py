@@ -420,3 +420,29 @@ def test_country_short_forms_match():
     idx = known_companies.index([{"name": "Noble Foods Ltd", "domain": "", "country": "UK"}])
     assert known_companies.matches(idx, "", "Noble Foods", "United Kingdom")
     assert known_companies.matches(idx, "", "noble foods limited", "England")
+
+
+def test_prompt_versions_side_by_side(repo):
+    """Version 2 (default) uses the _2 prompts; version 1 still uses the untouched originals."""
+    prompts = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "prompts"
+    for name in ["channel_prompt", "channels/distributor", "channels/wholesaler", "channels/retailer",
+                 "channels/general", "channels/marketplace_seller"]:
+        assert (prompts / f"{name}.md").exists() and (prompts / f"{name}_2.md").exists()
+    assert run_script(repo, "prepare_run.py").returncode == 0
+    plan = json.loads((repo / "work" / "plan.json").read_text())
+    new = (repo / "work" / "channel_1_prompt.md").read_text()
+    assert plan["prompt_version"] == 2 and "reason \"agency\"" in new and "bestfoodimporters.com" in new
+    settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    settings.write_text(settings.read_text().replace("prompt_version: 2", "prompt_version: 1"))
+    assert run_script(repo, "prepare_run.py").returncode == 0
+    plan = json.loads((repo / "work" / "plan.json").read_text())
+    old = (repo / "work" / "channel_1_prompt.md").read_text()
+    assert plan["prompt_version"] == 1 and "agency" not in old and "Include import agents only if" in old
+
+
+def test_version_2_numbers(tmp_path):
+    f = tmp_path / "s.yaml"
+    f.write_text("prompt_version: 2\ndefault_companies: 60\nmin_floor: 30\ndefault_companies_2: 30\nmin_floor_2: 15\n")
+    assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (30, 15)
+    f.write_text(f.read_text().replace("prompt_version: 2", "prompt_version: 1"))
+    assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (60, 30)

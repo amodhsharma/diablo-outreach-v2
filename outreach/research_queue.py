@@ -70,7 +70,22 @@ def load_research_settings(path=None):
             key, value = (part.strip() for part in line.split(":", 1))
             if value:
                 values[key] = int(value) if value.isdigit() else value
+    # Prompt version 2 (agreed 14 Oct 2026) has its own numbers; version 1 keeps the originals.
+    if prompt_version(values) == 2:
+        for key in ("default_companies", "min_floor"):
+            if f"{key}_2" in values:
+                values[key] = values[f"{key}_2"]
     return values
+
+
+def prompt_version(settings):
+    """1 = the original research prompts, 2 = the _2 prompts (the default when not set)."""
+    return 1 if str(settings.get("prompt_version", 2)).strip() == "1" else 2
+
+
+def prompt_suffix(settings):
+    """The ending of the research prompt files to use: "" for version 1, "_2" for version 2."""
+    return "" if prompt_version(settings) == 1 else "_2"
 
 
 # ---- matching rules -------------------------------------------------------

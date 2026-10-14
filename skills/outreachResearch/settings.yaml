@@ -1,12 +1,24 @@
 # Settings for the outreachResearch skill and the import job.
 # Edit on GitHub with the pencil icon. One "name: number" per line.
 
+# Which research prompts are used (agreed 14 Oct 2026):
+#   2 = the new prompts (prompts/channel_prompt_2.md and prompts/channels/*_2.md), with
+#       default_companies_2 and min_floor_2 below
+#   1 = the original prompts (prompts/channel_prompt.md and prompts/channels/*.md), with
+#       default_companies and min_floor
+# To go back to the originals, change 2 to 1. Both sets are kept unchanged side by side.
+prompt_version: 2
+
 # Companies wanted per Channel when the "Companies wanted" box is left empty.
 default_companies: 60
 
 # Below this many companies a Channel is marked "Done, fewer than wanted".
 # For small jobs (fewer wanted than this), the number wanted is used instead.
 min_floor: 30
+
+# The same two numbers for prompt version 2 (fewer, better companies).
+default_companies_2: 30
+min_floor_2: 15
 
 # Most web searches each helper may run for one Channel.
 max_searches_per_channel: 60

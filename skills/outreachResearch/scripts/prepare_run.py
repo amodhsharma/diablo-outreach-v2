@@ -53,8 +53,11 @@ def slug(text, limit=60):
     return out[:limit].strip("-") or "unnamed"
 
 
-def read_template(name):
-    text = (SKILL / "prompts" / "channels" / f"{name}.md").read_text(encoding="utf-8")
+def read_template(name, suffix=None):
+    """A Channel template from the prompt version in settings.yaml (suffix "_2" or "")."""
+    if suffix is None:
+        suffix = rq.prompt_suffix(rq.load_research_settings())
+    text = (SKILL / "prompts" / "channels" / f"{name}{suffix}.md").read_text(encoding="utf-8")
     head, _, body = text.partition("---\n")
     words = []
     for line in head.splitlines():
@@ -63,11 +66,11 @@ def read_template(name):
     return words, body.strip()
 
 
-def choose_template(channel):
+def choose_template(channel, suffix=None):
     """The closest of the four templates for a typed Channel, else "general"."""
     text = " " + " ".join(re.findall(r"[a-z0-9&-]+", channel.lower())) + " "
     for name in TEMPLATE_ORDER:
-        words, _ = read_template(name)
+        words, _ = read_template(name, suffix)
         if any(w in text for w in words):
             return name
     return "general"
@@ -159,13 +162,14 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
     (work / "exclusions.txt").write_text("\n".join(full) + ("\n" if full else ""), encoding="utf-8")
     exclude_text = "\n".join(excl) or "none"
 
-    base_prompt = (SKILL / "prompts" / "channel_prompt.md").read_text(encoding="utf-8")
+    suffix = rq.prompt_suffix(settings)  # "_2" for the new prompts, "" for the originals
+    base_prompt = (SKILL / "prompts" / f"channel_prompt{suffix}.md").read_text(encoding="utf-8")
     channels = []
     for i, line in enumerate(lines, 1):
         wanted = int(line["companies_wanted"] or settings.get("default_companies", 60))
         floor = min(int(settings.get("min_floor", 30)), wanted)
         entry = {
-            "index": i, "channel": line["channel"], "template": choose_template(line["channel"]),
+            "index": i, "channel": line["channel"], "template": choose_template(line["channel"], suffix),
             "companies_wanted": wanted, "floor": floor, "status": "run", "reason": "",
             "prompt_file": "", "output_file": str(work / f"channel_{i}.json"),
         }
@@ -175,7 +179,7 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
             entry["reason"] = (f"Already covered by {other['job_id']} ({other['status']}, "
                                f"{other['ran_on'] or other['added_on']}); press Approve a repeat to run it")
         else:
-            _, rules = read_template(entry["template"])
+            _, rules = read_template(entry["template"], suffix)
             check = (f"python3 skills/outreachResearch/scripts/check_output.py part {entry['output_file']} "
                      f"--exclusions {work / 'exclusions.txt'}")
             values = {
@@ -223,6 +227,7 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
     plan = {
         "job_id": job_id, "location": job_location, "country": country, "languages": languages,
         "run_date": run_date, "run_type": "manual" if manual else "scheduled",
+        "prompt_version": rq.prompt_version(settings),
         "max_searches_per_channel": max_searches, "exclusions_listed": len(excl),
         "exclusions_known": total_known, "work": str(work),
         "location_prompt": location_prompt, "location_file": str(work / "location.md"),

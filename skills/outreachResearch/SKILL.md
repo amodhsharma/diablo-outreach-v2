@@ -104,10 +104,16 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/channel_prompt.md`: the research prompt (Ariel's), one per Channel.
-- `prompts/channels/*.md`: the four Channel templates (distributor, wholesaler, retailer,
-  marketplace seller) plus `general.md` for a Channel that matches none. The `matches:` line says
-  which typed words pick each template.
+- Two versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
+  `settings.yaml` picks one, and prepare_run.py writes the chosen version into `work/`:
+  - version 2 (in use): `prompts/channel_prompt_2.md` and `prompts/channels/*_2.md`. No agencies,
+    importer directories and trade press as starting points (confirmed on the company's own
+    website), ranking by fit, importers of European or UK brands first, 30 companies wanted;
+  - version 1 (the originals, kept unchanged): `prompts/channel_prompt.md` and
+    `prompts/channels/*.md`, 60 companies wanted.
+- Each version has the four Channel templates (distributor, wholesaler, retailer, marketplace
+  seller) plus `general` for a Channel that matches none. The `matches:` line says which typed
+  words pick each template.
 - `prompts/location_prompt.md`: market structure and barriers to entry, done once per Location.
 - `output_format.md`: the JSON format, field by field.
 - `settings.yaml`: companies wanted, floor and search limits.
