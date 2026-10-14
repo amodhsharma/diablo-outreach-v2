@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T07:44:51+00:00 (UTC).
+Checked 2026-10-14T07:59:55+00:00 (UTC).
 
 ## Mailboxes
 
@@ -72,4 +72,8 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what 4b would do now)
 
-- 0 contacts approved to send
+- 4 contacts approved to send
+- Skipped contact 890562001127 (a***@diablosugarfree.com): its Outreach personal line is empty
+- Skipped contact 890562001128 (a***@diablosugarfree.com): its Outreach personal line is empty
+- Skipped contact 890562001129 (a***@gmail.com): its Outreach personal line is empty
+- Skipped contact 890562001130 (r***@diablosugarfree.com): its Outreach personal line is empty
