@@ -1,6 +1,6 @@
 ---
 name: outreach-research
-description: Run Diablo's distributor outreach research for the next job in the queue (research/queue.csv in amodhsharma/diablo-outreach-v2) and save one report and one JSON to the repo. Use for the scheduled run (every 6 hours), and when someone asks to "run outreach research", "run the next job", or names a Location or job ID to research now.
+description: Run Diablo's distributor outreach research for the next job in the queue (research/queue.csv in amodhsharma/diablo-outreach-v2) and save one report and one JSON to the repo. Use for the scheduled run (every 3 hours), and when someone asks to "run outreach research", "run the next job", or names a Location or job ID to research now.
 ---
 
 # outreachResearch
@@ -29,7 +29,7 @@ problem into the report and the final summary instead.
 
 ## Step 2: pick the job and write the prompts
 
-Scheduled run (every 6 hours):
+Scheduled run (every 3 hours):
 `python3 skills/outreachResearch/scripts/prepare_run.py`
 
 Manual run (someone asked in a chat or pressed Run now):

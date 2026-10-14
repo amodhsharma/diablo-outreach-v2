@@ -4,9 +4,9 @@ Finds distributors, wholesalers, retailers and marketplace sellers in a Location
 HubSpot for approval, finds buyer contacts with Apollo and queues emails in Instantly.
 
 Version 2 uses **no Claude API**. The research is done by Claude through the
-**outreachResearch skill** (`skills/outreachResearch`), every 6 hours (about 2 AM, 8 AM, 2 PM and 8 PM IST) or as a manual
+**outreachResearch skill** (`skills/outreachResearch`), every 3 hours (2:28, 5:28, 8:28 and 11:28, AM and PM IST) or as a manual
 run. The personal opening line for each contact is written by Claude through the
-**outreach-mail-writing skill** (`skills/outreachMailWriting`), every 2 hours or as a manual run. Everything else runs from buttons in the **Actions** tab. Keys live only in GitHub secrets.
+**outreach-mail-writing skill** (`skills/outreachMailWriting`), every 3 hours (12:28, 3:28, 6:28 and 9:28, AM and PM IST) or as a manual run. Everything else runs from buttons in the **Actions** tab. Keys live only in GitHub secrets.
 
 Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
 
@@ -14,7 +14,7 @@ Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
 
 1. Press **2 - Research** and choose "Add a market": type the Location, the Channels (separated by
    commas), languages and companies wanted per Channel.
-2. Every 6 hours Claude takes the oldest waiting job (one job per run), researches the Location once and sends one
+2. Every 3 hours Claude takes the oldest waiting job (one job per run), researches the Location once and sends one
    helper per Channel at the same time, then saves one report and one JSON to `research/<date>/`.
    A manual run does the same at any time: "Run now" on the scheduled task, or `/outreach-research`
    in a Claude chat (name a Location or job ID to run that one).
@@ -78,8 +78,8 @@ failed, so GitHub emails you). One step failing never stops the others.
 | **2 - Research** | Pick "What to do": Add a market (Location, Channels, optional languages and number), Cancel a market, Try a failed market again, or Allow a repeat (Job ID, optional Channel) | **When Claude saves research:** strict check, duplicate check, **website check and Apollo pre-check**, then the companies arrive as New (or Missing Info when a check fails). **Every 3 hours:** refresh the "already in HubSpot" list, import anything waiting, add the next automatic city |
 | **3 - Outreach** | Nothing: the timer runs it every 3 hours. Press it to run now, or tick "Check only" for the health report. Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first), the next person in line and rounds 2 and 3; Apollo finds the top 4 people at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); GATE2 people sent to Instantly; health check; the list of people Claude still has to write for |
 
-The two Claude scheduled tasks are not GitHub buttons: research runs at 1:58 and 7:58 (AM and PM
-IST) and personal lines every 2 hours. Both can be started by hand in a Claude chat
+The two Claude scheduled tasks are not GitHub buttons: research runs at 2:28, 5:28, 8:28 and 11:28 (AM and PM
+IST) and personal lines at 12:28, 3:28, 6:28 and 9:28 (AM and PM IST), both every 3 hours (agreed 14 Oct 2026). Both can be started by hand in a Claude chat
 (`/outreach-research`, `/outreach-mail-writing`).
 
 **Changing over (14 Oct 2026):** today's version is frozen as the branch `v2-before-revamp`. The
@@ -91,7 +91,7 @@ lines; the old ones only run when pressed or by the old timer jobs.
 
 1. **3 - Outreach** (every 3 hours) finds the top 4 people at each GATE1 company and saves the new contacts (job title and company research only, no names or
    emails) to `mail/pending.json`.
-2. Every 2 hours Claude runs the outreach-mail-writing skill: it writes a personal opening for
+2. Every 3 hours Claude runs the outreach-mail-writing skill: it writes a personal opening for
    up to 60 contacts, checks them and saves one file to `mail/lines/<date>/`. The subject line is
    fixed in the template.
    A manual run does the same at any time: `/outreach-mail-writing` in a Claude chat.

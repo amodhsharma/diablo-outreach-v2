@@ -1,6 +1,6 @@
 ---
 name: outreach-mail-writing
-description: Write the personal line (one of four styles) for Diablo outreach contacts waiting for them (mail/pending.json in amodhsharma/diablo-outreach-v2) and save one lines file to the repo, which GitHub imports into HubSpot as "New, Personal line filled". Use for the scheduled run (every 2 hours), and when someone asks to "write the email lines", "run outreach mail writing" or "write lines for the new contacts".
+description: Write the personal line (one of four styles) for Diablo outreach contacts waiting for them (mail/pending.json in amodhsharma/diablo-outreach-v2) and save one lines file to the repo, which GitHub imports into HubSpot as "New, Personal line filled". Use for the scheduled run (every 3 hours), and when someone asks to "write the email lines", "run outreach mail writing" or "write lines for the new contacts".
 ---
 
 # outreach-mail-writing
@@ -31,7 +31,7 @@ final summary instead.
 
 ## Step 2: pick the contacts
 
-Scheduled run (every 2 hours): `python3 skills/outreachMailWriting/scripts/prepare_lines.py`
+Scheduled run (every 3 hours): `python3 skills/outreachMailWriting/scripts/prepare_lines.py`
 
 Manual run (someone asked in a chat): `python3 skills/outreachMailWriting/scripts/prepare_lines.py --manual`
 
