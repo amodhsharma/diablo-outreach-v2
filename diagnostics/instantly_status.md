@@ -1,10 +1,10 @@
 # Instantly health check
 
-Checked 2026-10-14T09:40:49+00:00 (UTC).
+Checked 2026-10-14T10:30:49+00:00 (UTC).
 
 ## Mailboxes
 
-9 mailboxes: 9 ready, 0 warming up, 0 with a problem.
+9 mailboxes: 8 ready, 0 warming up, 1 with a problem.
 
 ### Needs attention
 
@@ -15,8 +15,8 @@ Checked 2026-10-14T09:40:49+00:00 (UTC).
 - **info@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **info@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **info@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **info@nosugardiablo.com**: Connection error: it cannot send, and replies to it are not picked up. Reconnect it in Instantly, Email Accounts
 - **info@nosugardiablo.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
-- **info@nosugardiablo.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **sales@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **sales@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **sales@nosugardiablo.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
@@ -30,8 +30,8 @@ Checked 2026-10-14T09:40:49+00:00 (UTC).
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Diablo Info | 30 | none |
-| info@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Info Account | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (67 of 67) | Diablo Info | 30 | none |
+| info@nosugardiablo.com | **Problem** | Connection error | Off | 100 | no numbers yet | Info Account | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (59 of 59) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
 | sales@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Sales Account | 30 | none |
@@ -44,6 +44,8 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Campaign status: Completed
 - Instantly says: **campaign_completed**. Campaign has completed
 - Mailboxes it sends from: sales@diablosnosugar.com
+- Link tracking: **ON** (should be off: switch it off in the campaign Options)
+- Open tracking: **ON** (should be off: switch it off in the campaign Options)
 - Leads: 0
 - Emails in the sequence: 1 (characters in each body: [2040])
 
@@ -60,9 +62,11 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
 - issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T08:26:52.824Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T08:17:52.788Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
+- Link tracking: off
+- Open tracking: off
 - Leads: 4
-  - 2 Completed, emailed
-  - 2 Completed, emailed, replied
+  - 3 Completed, emailed, replied
+  - 1 Completed, emailed
 - Emails in the sequence: 1 (characters in each body: [2040])
 
 
