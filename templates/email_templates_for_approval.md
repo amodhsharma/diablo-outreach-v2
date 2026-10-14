@@ -17,7 +17,7 @@ Which file is used is set in `config/settings.yaml` under `send.templates`. The 
 | Personal line | The outreach-mail-writing skill, per person (its own paragraph after the introduction) |
 | Partner type | The company's Channel in one word: distributor, wholesaler, retailer, online seller |
 | Catalogue link | `send.catalogue_link` in `config/settings.yaml` (a dummy link until the catalogue is live) |
-| Signature | `send.signature` in `config/settings.yaml`: Joshua, Initial Outreach Team. Shown after "Best regards," as an indented block with a thin grey bar on the left, like a quote |
+| Signature | Joshua, Initial Outreach Team, then "Diablo Sugar Free" linked to the website and "(B Healthy Ltd, London)" (agreed 14 Oct 2026; no phone, no separate website line). Shown after "Best regards," as an indented block with a thin grey bar on the left, like a quote. Templates 2, forward and reminder |
 | Footer | Fixed, with the opt-out and privacy notice |
 
 The sender name shown in the inbox ("Joshua") is each mailbox's sender name in Instantly, Email
@@ -102,22 +102,20 @@ introduction. Persons 2 to 4 never get a reminder.
 
 ## Footer (every email)
 
-Grey (#888888), slightly smaller text (12px), under a thin full-width grey line (agreed 12 Oct 2026):
+Grey (#888888), slightly smaller text (12px), under a thin full-width grey line (agreed 12 Oct 2026;
+the company line moved into the signature on 14 Oct 2026):
 
 > ---
-> [Diablo Sugar Free](https://www.diablosugarfree.com) (B Healthy Ltd, London)
 > We found your business details in public and commercial sources. If you would rather not hear
 > from us, reply "no thanks" and we will not contact you again.
 >
 > Privacy notice: [https://www.diablosugarfree.com/policies/privacy-policy](https://www.diablosugarfree.com/policies/privacy-policy)
 
-"Diablo Sugar Free" links to the website and the privacy notice link is clickable. The reminder's
+The privacy notice link is clickable. The reminder's
 footer leaves out the "We found your business details..." sentence.
 
 ## Still to do
 
-- Replace the dummy catalogue link once the 2026 catalogue is online.
-- Replace the placeholder phone number XXXXXX (`send.signature.phone`) with Joshua's real number.
 - The booking link (`send.booking_link`) is the placeholder "xxx" until Ariel gives the real link.
   Template 2 ends with "you can do it from the link below", so until a real web address is there,
   Send sends nothing and changes no campaign (it stops with a "booking link is missing" message).
@@ -170,7 +168,7 @@ email's opening sentence keeps "I", as it speaks for the single sender).
 >
 > {{personal_line}}
 >
-> Attaching a catalogue for your reference: {{catalogue_link}}
+> Attaching a catalogue [here]({{catalogue_link}}) for your reference.
 >
 > We would be more than glad to set up a call between your team and our outreach or strategy team
 > leads, so we can look at what the range would need to earn properly for your professional
@@ -181,11 +179,18 @@ email's opening sentence keeps "I", as it speaks for the single sender).
 > {{booking_link}}
 >
 > Best regards,
-> (signature and footer, the same as template 1)
+> Joshua
+> Initial Outreach Team
+> [Diablo Sugar Free](https://www.diablosugarfree.com) (B Healthy Ltd, London)
+>
+> (grey footer: the opt-out sentence and the privacy notice)
 
 Changed on 14 Oct 2026: the introduction now comes before the personal line; the sentence "We are
 a UK brand and do not yet have a direct partner in ..." was removed; the catalogue, call and
-booking sentences were reworded as above. The 126 countries figure stays as it is.
+booking sentences were reworded as above. The 126 countries figure stays as it is. Later the same
+day: "here" in the catalogue sentence became the link to https://www.diablosugarfree.com/pages/catalogue-2026
+(final), the signature gained the linked company name, and the phone and website lines and the
+footer's company line were removed.
 
 Which file is used is set in `config/settings.yaml` under `send.templates`. To go back to
 `templates/template_1.json`, change that path; nothing else needs to change.
