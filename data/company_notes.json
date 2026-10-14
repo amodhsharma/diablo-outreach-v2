@@ -1,4 +1,22 @@
 {
+  "2nabiji.ge": {
+    "name": "Ori Nabiji (2 Nabiji)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "With over 400 stores and about 20.5% of modern grocery it is the second biggest chain group, giving reach across Tbilisi neighbourhoods. The small-box format suits single-serve sugar-free bars and sweets rather than the full range.",
+    "what_they_do_well": [
+      "Founded in 2010 and credited with introducing the convenience store format to Georgia; now over 400 stores."
+    ],
+    "distributes": "Convenience supermarket groceries, snacks, drinks, dairy, bakery and household items.",
+    "channels_supplied": "Own convenience stores nationwide with online ordering and delivery.",
+    "sf_brands_carried": "Not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "aah.co.uk": {
     "name": "AAH Pharmaceuticals",
     "based_out_of": "Warwick, United Kingdom",
@@ -35,6 +53,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "agrohub.com.ge": {
+    "name": "Agrohub",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Health-positioned, premium Tbilisi retailer that imports around 1,500 FMCG lines directly, so it can buy Diablo without a distributor. Several Tbilisi branches (new openings in 2024 and 2025) and an affluent shopper base suit a premium no-added-sugar range.",
+    "what_they_do_well": [
+      "Georgia's first vertically integrated retailer, carrying over 10,000 SKUs including about 1,500 FMCG items imported directly.",
+      "Opened a 3,000 sq m Avchala distribution centre with Bank of Georgia financing."
+    ],
+    "distributes": "Organic, natural and healthy food, fresh produce, own dairy, meat and bakery, confectionery and imported FMCG.",
+    "channels_supplied": "Own hypermarkets and newer smaller branches in Tbilisi and Batumi; online farm products marketplace; own cafes.",
+    "sf_brands_carried": "Positions on organic, natural and healthy food; specific sugar-free confectionery brands not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "aimcashandcarry.ie": {
     "name": "AIM Cash & Carry",
     "based_out_of": "Dublin, Ireland",
@@ -65,6 +103,26 @@
     "sf_brands_carried": "Not verified.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "alfaltd.ge": {
+    "name": "Alfa",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Staples-led wholesaler with regional depots; confectionery is not core, so it is a secondary route.",
+    "what_they_do_well": [
+      "Runs warehouses in Kutaisi and Batumi alongside its Tbilisi base."
+    ],
+    "distributes": "Staples: flour, sugar, oils, rice, beans, canned goods, spreads and dairy (brands Baraka, Ieveria, Goldeni).",
+    "channels_supplied": "Wholesale with warehouses in Kutaisi and Batumi.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "aligro.ch": {
     "name": "Aligro (Demaurex & Cie SA)",
@@ -184,6 +242,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "argo-distribution.ge": {
+    "name": "Argo Distribution",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A focused international brands house with Haribo as its confectionery anchor and named access to every major Georgian chain. A short portfolio leaves room for a sugar-free confectionery line. Its website shows placeholder figures, so scale and any link to Argo JSC brewery are unverified.",
+    "what_they_do_well": [
+      "Lists Carrefour, Nikora, Spar, Smart, Goodwill and 2 Nabiji among its retail partners.",
+      "Represents Haribo, Barilla and Capri-Sun in Georgia."
+    ],
+    "distributes": "International FMCG: packaged confectionery (Haribo), pasta (Barilla), soft drinks (Capri-Sun), hot beverages (MacCoffee), tomato products, ready meals.",
+    "channels_supplied": "Supermarket chains, traditional retail, HoReCa, petrol stations and wholesale; partner logos include Carrefour, Nikora, Magniti, Spar, Smart, Goodwill, 2 Nabiji, Fresco and Agrohub.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "asda.com": {
     "name": "Asda",
     "based_out_of": "Leeds, United Kingdom",
@@ -218,6 +296,45 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "atu.com.tr": {
+    "name": "ATU Duty Free Tbilisi",
+    "based_out_of": "Istanbul, Turkey",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Travel retail could take sugar-free chocolate gifting, but the Tbilisi stores focus on luxury and Georgian wine. Conditional on a confectionery bay.",
+    "what_they_do_well": [
+      "Invested nearly 800,000 euros to expand its Tbilisi Airport stores in 2023."
+    ],
+    "distributes": "Duty free fragrance, cosmetics, luxury goods, Georgian wine, food and souvenirs.",
+    "channels_supplied": "Departure stores at Tbilisi International Airport, including a 430 sq m main store and a 400 sq m Georgian Wine store.",
+    "sf_brands_carried": "Not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
+  "aversi.ge": {
+    "name": "Aversi-Pharma",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers",
+      "retailers"
+    ],
+    "fit_rationale": "A leading pharmaceutical wholesaler and pharmacy chain, the natural route for diabetic friendly sweets in pharmacies. Not yet confirmed to carry food, so pitch as a diabetic and wellness category extension.",
+    "what_they_do_well": [
+      "Operates over 230 pharmacies and runs pharmaceutical wholesale since 1994, per IFC.",
+      "Held about 14.5 percent of pharma imports in 2015, per Transparency International Georgia."
+    ],
+    "distributes": "Pharmaceuticals, food supplements, hygiene and health products.",
+    "channels_supplied": "Own chain of over 230 Aversi pharmacies plus pharmaceutical wholesale to other pharmacies.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "avoca.com": {
     "name": "Avoca",
@@ -561,6 +678,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
+  "carrefour.ge": {
+    "name": "Carrefour Georgia (Majid Al Futtaim Hypermarkets Georgia)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Georgia's international hypermarket operator with 75 stores by November 2022 (5 hypermarkets, 13 supermarkets and more than 50 convenience stores in 2022) and a stated openness to new suppliers, having worked with more than 800. A health and free-from bay in Tbilisi hypermarkets would give Diablo national visibility.",
+    "what_they_do_well": [
+      "Opened its 75th Georgian store in Zugdidi in November 2022, ten years after its first Tbilisi Mall hypermarket.",
+      "Has worked with more than 800 suppliers since entering Georgia in 2012."
+    ],
+    "distributes": "Full grocery hypermarket and supermarket range including confectionery and snacks, organic and health food, imported and private label goods.",
+    "channels_supplied": "Own hypermarkets, supermarkets and Carrefour Express city stores; online orders via Wolt and Glovo; Carrefour app with MyCLUB loyalty.",
+    "sf_brands_carried": "Directory lists organic and health food and sports nutrition among imported categories; specific sugar-free brands not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "caterfood.co.uk": {
     "name": "Caterfood",
     "based_out_of": "Paignton, United Kingdom",
@@ -769,6 +905,25 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "coopoliva.ge": {
+    "name": "Geocoop",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "Already sells an organic and health food category and runs its own online delivery store, giving a direct to consumer test channel. Its 30 plus international brands show it handles imports.",
+    "what_they_do_well": [
+      "Over 130 staff, two branches and a vehicle fleet; online store carries more than 500 items."
+    ],
+    "distributes": "Olives and olive oil, sauces, dairy, snacks, organic and health food, pasta, frozen food and juices.",
+    "channels_supplied": "Retail distribution with own fleet and two branches, plus All4home.ge online store with home delivery across Georgia.",
+    "sf_brands_carried": "Carries organic and health food (brands not named).",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "coopwholesale.co.uk": {
     "name": "Co-op Wholesale (Nisa)",
     "based_out_of": "Manchester, United Kingdom",
@@ -938,6 +1093,27 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "dapna.ge": {
+    "name": "Dapna",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Imports mainly Turkish and Azerbaijani brands (Shokki Mokki, Bizim Sufra, Maryam Tea) into traditional trade. A European sugar-free line would broaden a value-led portfolio; fit depends on price positioning.",
+    "what_they_do_well": [
+      "Distributes brands including Shokki Mokki, Bizim Sufra and Maryam Tea.",
+      "Runs branches in Batumi, Khashuri, Kutaisi and Telavi."
+    ],
+    "distributes": "Chocolate and confectionery, rusks, tea, oils, sugar, salt, mayonnaise, olives and hygiene paper.",
+    "channels_supplied": "Retail across Georgia via branches in Batumi, Khashuri, Kutaisi and Telavi.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "dealz.ie": {
     "name": "Dealz Ireland",
     "based_out_of": "Dublin, Ireland",
@@ -1084,6 +1260,23 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "dls.ge": {
+    "name": "D&L Service",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "Listed both as an importer and as a confectionery import and distribution company in Tbilisi. A mid-size importer with confectionery and snacks as a category is a realistic first partner.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery and snacks, dairy, fruit and vegetables, grains, juices, soft drinks, spices, tea and coffee.",
+    "channels_supplied": "Importer and distributor to Tbilisi retail (named accounts not published).",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "doetschgrether.ch": {
     "name": "Doetsch Grether AG",
@@ -1282,6 +1475,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "eurocaucasus.ge": {
+    "name": "Euro Caucasus Supplies (House of Delicacies)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Delicatessen-style importer serving hotels, restaurants and retail, where premium imported sugar-free sweets and syrups fit. Brand list not published.",
+    "what_they_do_well": [
+      "Reports more than 400 HoReCa and retail clients in Georgia."
+    ],
+    "distributes": "Confectionery and snacks, dairy, fish and seafood, frozen and ready meals, meat, pasta and spices.",
+    "channels_supplied": "HoReCa and retail in Georgia; reported 400+ clients.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "eurofoodbrands.co.uk": {
     "name": "Euro Food Brands Ireland",
     "based_out_of": "Northampton, United Kingdom (Irish operation in Dublin)",
@@ -1297,6 +1510,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "euroinvest.ge": {
+    "name": "Euro Invest",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "Listed in both confectionery import and general food wholesale, suggesting European sourcing. Worth a call to confirm brands and chocolate storage.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery import, dairy, meat, seafood and edible fats.",
+    "channels_supplied": "Wholesale to Tbilisi retail and food service.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "europafoods.ie": {
     "name": "Europa Foods",
     "based_out_of": "Rathcoole, Ireland",
@@ -1311,6 +1542,27 @@
     "sf_brands_carried": "Candy Kittens, Califia Farms and Strong Roots; no sugar-free brand identified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "europroduct.ge": {
+    "name": "Europroduct",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers",
+      "retailers"
+    ],
+    "fit_rationale": "The closest match to Diablo's profile in Tbilisi: an exclusive importer of European confectionery that already merchandises a sugar free range. Its own store network gives a guaranteed shelf while it can wholesale to other outlets. Check which sugar free brands it holds before pitching.",
+    "what_they_do_well": [
+      "Exclusive Georgian importer and distributor for Ritter Sport, Anthon Berg, Cachet, Arla and Valio, per a 2021 profile.",
+      "Built a network of about 30 branches since opening its first Tbilisi supermarket in 2014."
+    ],
+    "distributes": "Premium European packaged food: confectionery, dairy, fish, meat, plus organic, lactose free, gluten free, vegan and sugar free lines.",
+    "channels_supplied": "Own chain of about 30 Europroduct supermarkets in Tbilisi and regions, Duty Free, and historically local shops and chains as a distributor; also on Wolt.",
+    "sf_brands_carried": "Carries a sugar free and gluten free range (brands not named in sources); confectionery brands include Ritter Sport, Anthon Berg, Mozart Reber and Cachet.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "evergreen.ie": {
     "name": "Evergreen Healthfoods",
@@ -1412,6 +1664,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "foodservice.ge": {
+    "name": "Foodservice Ltd",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Owned by the Daily retail group, so a listing here can open the country's largest store network (Daily, Spar, Magniti, Ioli, Kalata). Finspot names it the fastest growing of the six largest distributors.",
+    "what_they_do_well": [
+      "Fastest growth of Georgia's six largest distributors in recent years, per Finspot 2024.",
+      "Sister to the Daily, Spar and Magniti group of 1,600 plus stores."
+    ],
+    "distributes": "Confectionery and snacks, dairy, frozen and ready meals, meat products, spices and specialty foods.",
+    "channels_supplied": "Owned by Daily, which merged with Zedazeni's Magniti and Spar to form a group of over 1,600 stores; also supplies hospitality and catering.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "foodservice.ie": {
     "name": "Fegans Foodservice",
     "based_out_of": "Dublin, Ireland",
@@ -1426,6 +1697,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "fresco.ge": {
+    "name": "Fresco (Fresco Group)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Tbilisi-only chain of ten supermarkets that owns its sites, a compact first listing in the capital. It makes its own confectionery, so position Diablo as the sugar-free alternative.",
+    "what_they_do_well": [
+      "Grew from one Varketili supermarket in 2010 to ten Tbilisi supermarkets on fully owned land and buildings."
+    ],
+    "distributes": "Supermarket groceries, own confectionery and ready meals, medicines, perfumery, household and stationery.",
+    "channels_supplied": "Ten own supermarkets across Tbilisi.",
+    "sf_brands_carried": "Not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "freshthegoodfoodmarket.ie": {
     "name": "Fresh The Good Food Market",
@@ -1493,6 +1782,46 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "gd-holding.com": {
+    "name": "GD Alco (GD Holding)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Already handles Monin syrups for HoReCa, a route for Diablo sugar-free syrups. Sister company of GDM, so approach via GDM first.",
+    "what_they_do_well": [
+      "Represents Tito's vodka, Jameson and Chivas Regal in Georgia."
+    ],
+    "distributes": "Spirits plus some food and soft drinks including Heinz, Coca-Cola HBC and Monin syrups.",
+    "channels_supplied": "Retail and HoReCa.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "gdmco.ge": {
+    "name": "GDM (Georgian Distribution-Marketing Company)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Already runs imported European and Turkish confectionery through modern and traditional trade with in-store merchandising. No sugar-free line seen, so Diablo would fill a gap rather than compete. Part of GD Holding, giving logistics and warehousing depth.",
+    "what_they_do_well": [
+      "Covers about 7,000 outlets nationwide from five branches with its own merchandising and category management.",
+      "Distributes Storck brands Merci and Toffifee plus ETI and Choco Pie in Georgia."
+    ],
+    "distributes": "Confectionery (Storck Merci and Toffifee, ETI, Choco Pie), snacks (Lays, Doritos), baking (Dr. Oetker), coffee, margarine, condensed milk, beverages.",
+    "channels_supplied": "About 7,000 trade outlets across Georgia via 60 crews and 5 branches (Tbilisi, Kutaisi, Batumi, Gurjaani, Akhaltsikhe); offers merchandising and category management.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "the website address no longer exists"
+  },
   "georgeweiss.ch": {
     "name": "George Weiss Lebensmittel AG",
     "based_out_of": "Dietikon, Switzerland",
@@ -1508,6 +1837,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "geostargeorgia.com": {
+    "name": "Geostar",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Mixed food and household distributor that already lists confectionery. Brand-building track record with Golden Brand awards suggests marketing capability.",
+    "what_they_do_well": [
+      "Its Papia and Avedov brands won Golden Brand awards in Georgia."
+    ],
+    "distributes": "Confectionery, edible oils (Avedov), pasta, paper hygiene (Papia), detergents and food products.",
+    "channels_supplied": "Retail across Georgia; specific chains not named.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "gerig.ch": {
     "name": "Gustav Gerig AG",
@@ -1578,6 +1927,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "gurmaniltd.ge": {
+    "name": "Gurmani",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Head office registered in Kutaisi but listed as a Tbilisi chocolate supplier. Low priority because it also manufactures.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery, dairy, meat products, juices and mineral water; also produces some lines.",
+    "channels_supplied": "Wholesale and retail; listed as a chocolate sweets supplier in Tbilisi.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "haecky.ch": {
     "name": "Haecky Import AG",
@@ -1699,6 +2065,22 @@
     "sf_brands_carried": "Carries free-from and reduced sugar snacks; specific sugar-free confectionery brands in the Plymouth store not verified.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "hollandandbarrett.ge": {
+    "name": "Holland & Barrett Georgia",
+    "based_out_of": "Tbilisi, Georgia (franchise of Holland & Barrett, UK)",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A UK health retail banner in Tbilisi aimed at exactly Diablo's shopper, and a UK brand can be pitched through the familiar UK range logic. The operating franchisee and store count were not verified, so confidence is low.",
+    "what_they_do_well": [],
+    "distributes": "Health food, vitamins, supplements, sports nutrition and better-for-you snacks.",
+    "channels_supplied": "Franchise store in Tbilisi listed on Wolt (Old Tbilisi district) and its own Georgian website.",
+    "sf_brands_carried": "Holland & Barrett format typically carries free-from and reduced-sugar snacks; the Georgian range was not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "holleysfinefoods.com": {
     "name": "Holleys Fine Foods",
@@ -1928,6 +2310,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "kanti.ge": {
+    "name": "Kanti",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "A large, broad food and beverage distributor (201 to 500 staff) with its own logistics and confectionery in range. Good fallback national partner if specialists decline.",
+    "what_they_do_well": [
+      "Distribution and logistics company operating in Georgia since 2005.",
+      "Official sponsor of the Georgian national rugby team, supplying energy drinks."
+    ],
+    "distributes": "Confectionery, dairy, meat, seafood, frozen food, pasta, tea, coffee, soft drinks, energy drinks and spirits.",
+    "channels_supplied": "Retail, HoReCa and sports sponsorship channels across Georgia.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "kitwave.co.uk": {
     "name": "Kitwave Group",
     "based_out_of": "North Shields, United Kingdom",
@@ -2151,6 +2553,25 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "master-trade.ge": {
+    "name": "Master Trade",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "A specialist chocolate and confectionery wholesaler since 2007, so its sales team already sells into the impulse and confectionery fixture. A sugar free range would complement rather than duplicate mainstream chocolate brands.",
+    "what_they_do_well": [
+      "Specialist wholesaler of chocolate and sugar confectionery, registered in 2007."
+    ],
+    "distributes": "Chocolate and sugar confectionery, chewing gum, sweets and pet food.",
+    "channels_supplied": "Distribution and dealer network to Georgian retail and traditional trade.",
+    "sf_brands_carried": "None identified; profile links to Snickers, Twix and Orbit pages, suggesting it handles Mars Wrigley lines (unconfirmed).",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "maxela.ie": {
     "name": "Maxela",
     "based_out_of": "Dublin, Ireland",
@@ -2229,6 +2650,27 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "megako.ge": {
+    "name": "Megaco",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "One of Georgia's four largest FMCG distributors with confectionery, biscuits and chocolate at the core of its portfolio. Scale and route to traditional trade would give Diablo national numeric distribution quickly.",
+    "what_they_do_well": [
+      "Ranked 60th in Forbes Georgia's 150 highest revenue companies with GEL 110 million revenue.",
+      "Trading since 1995 and singled out by Finspot for a 48 day cash conversion cycle."
+    ],
+    "distributes": "Confectionery, chocolate, biscuits, chewing gum, chips, coffee, tea, sauces and frozen meat products.",
+    "channels_supplied": "National FMCG distribution to modern and traditional trade (named retail accounts not published).",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "morrisons.com": {
     "name": "Morrisons",
@@ -2324,6 +2766,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "mziuriholding.ge": {
+    "name": "Mziuri",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Distributes both confectionery and baby and personal care, so it reaches grocery and family shoppers who are receptive to no-added-sugar claims. Regional offices add reach beyond Tbilisi.",
+    "what_they_do_well": [
+      "Trading since 2004 with two Tbilisi warehouses and regional offices in Kutaisi, Akhaltsikhe and Batumi."
+    ],
+    "distributes": "Chocolate and confectionery, coffee, tea, pasta, edible oils, baby care and personal care.",
+    "channels_supplied": "Retail across Georgia via a Kutaisi branch, Akhaltsikhe and Batumi offices and two Tbilisi warehouses.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "naturalex.ch": {
     "name": "Naturalex Sàrl",
     "based_out_of": "Geneva, Switzerland",
@@ -2369,6 +2831,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "nikorasupermarket.ge": {
+    "name": "Nikora Trade",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "The largest single-banner chain with about 617 stores and roughly 19% of modern grocery, so a listing gives national reach from Tbilisi. Better as a second-wave target once Diablo has proof of sale in specialist and premium stores.",
+    "what_they_do_well": [
+      "Runs about 617 stores and holds roughly 18.9% of the modern grocery market (2024)."
+    ],
+    "distributes": "Full grocery range, own meat, dairy, bakery and ice cream, imported European goods.",
+    "channels_supplied": "Nikora supermarkets and Nikora XL; the Libre discount banner appears to be operated by Nikora Trade; Wolt and Glovo delivery.",
+    "sf_brands_carried": "Not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "nimbusdistributions.com": {
     "name": "Nimbus Distributions",
@@ -2477,6 +2957,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "orbita.ge": {
+    "name": "Orbita",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "A specialist importer whose model is exclusive representation of foreign brands with confectionery and snacks as a core category. A mid-size portfolio house is more likely to give a 117 SKU sugar free range real focus than the largest generalists.",
+    "what_they_do_well": [
+      "Registered in 2004 and listed as exclusive representative of international brands across confectionery, snacks and grocery."
+    ],
+    "distributes": "Confectionery and snacks, biscuits, chewing gum, nuts, olives and olive oil, pasta, tea and coffee, soft and energy drinks.",
+    "channels_supplied": "Wholesale to Georgian retail and traditional trade; describes itself as exclusive representative of international brands.",
+    "sf_brands_carried": "Viva Energy and Viva Recovery drinks; no sugar free confectionery identified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "orchardleafoods.co.uk": {
     "name": "Orchard Lea Foods",
     "based_out_of": "Exeter, United Kingdom",
@@ -2510,6 +3009,46 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "organika.ge": {
+    "name": "Organika Bio Shop",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers",
+      "wholesalers"
+    ],
+    "fit_rationale": "The closest specialist fit in Tbilisi: an existing diabetic and keto category built mainly on European brands, so Diablo's chocolate, biscuits and spreads fill an obvious gap. Small (two or three stores plus web) but a fast, low-risk launch partner and shop window.",
+    "what_they_do_well": [
+      "Runs a dedicated Diabetic and Keto range of 54 products alongside about 843 bio food lines on its webshop."
+    ],
+    "distributes": "Organic and bio foods, superfoods, diabetic and keto foods, sweeteners, vitamins, plant milks, eco household goods.",
+    "channels_supplied": "Own shops in Tbilisi (Abashidze 61 and Vazha Pshavela 51 listed; a directory mentions three stores) plus its own online shop with delivery.",
+    "sf_brands_carried": "Dedicated Diabetic and Keto category (54 products) and a sweeteners section; brands seen include Batom erythritol, Natumi, Roobar, Bett'r, Kookie Cat, Candy Tree and Bio Planet. No direct sugar-free chocolate rival identified on the home page.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "orientltd.ge": {
+    "name": "Orient",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "Importer and distributor with chocolate and confectionery listed in its range since 2000. Fit depends on whether it holds European chocolate lines.",
+    "what_they_do_well": [
+      "Wholesale food and confectionery distributor registered in 2000."
+    ],
+    "distributes": "Chocolate and confectionery, snacks, preserved foods, juices, soft drinks, tea, coffee, paper and household goods.",
+    "channels_supplied": "Wholesale distribution to Tbilisi retail.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "pedidosya.com.ar": {
     "name": "PedidosYa Market",
     "based_out_of": "Montevideo, Uruguay",
@@ -2528,6 +3067,22 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "ph.ge": {
+    "name": "Pharmhouse",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Tbilisi pharmacy network with a loyalty programme where a diabetic-friendly sweets range could sit at the till. Network size not verified.",
+    "what_they_do_well": [],
+    "distributes": "Medicines, health supplements and beauty products.",
+    "channels_supplied": "Pharmacy network in Tbilisi with a branch locator and loyalty scheme.",
+    "sf_brands_carried": "Not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "philipdennis.co.uk": {
     "name": "Philip Dennis Foodservice",
@@ -2719,6 +3274,25 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "reneco.ge": {
+    "name": "Reneco",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Has a warehouse and delivery set-up already supplying Georgia's main supermarket chains. Confectionery is not its core, so Diablo would be a new category for it.",
+    "what_they_do_well": [
+      "Supplies Carrefour Georgia, Nikora, Goodwill, Agrohub and Spar Georgia from its own warehouse."
+    ],
+    "distributes": "Food distribution including Granini juices, Baskin Robbins, regional foods and spices.",
+    "channels_supplied": "Supermarket chains: Agrohub, Goodwill, Carrefour Georgia, Nikora, Fresco, Universami and Spar Georgia.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "richmondmarketing.com": {
     "name": "Richmond Marketing",
     "based_out_of": "Dublin, Ireland",
@@ -2886,6 +3460,41 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "sera.ge": {
+    "name": "Sera (Marshe wholesale store)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Importer and wholesaler that appears to run Marshe, a Tbilisi wholesale food store, giving a cash and carry style route to small shops. The Sera and Marshe link is inferred from a shared address.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery and snacks, dairy, fruit and vegetables, juices, tea, coffee, meat, groceries and drinks.",
+    "channels_supplied": "Trade buyers through its Marshe wholesale store at the same address; other customers not named.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "sharm.ge": {
+    "name": "Charm Trading (Sharm Trading)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "One of the four largest FMCG distributors with food and health and beauty lines, which could place Diablo in both grocery and drugstore channels. Its lean food focus makes it second wave after confectionery specialists.",
+    "what_they_do_well": [
+      "Among Georgia's four largest FMCG distributors with GEL 150 to 210 million revenue, per Finspot 2021."
+    ],
+    "distributes": "FMCG food wholesale, coffee, cosmetics, hygiene, paper and cleaning products.",
+    "channels_supplied": "National FMCG distribution to supermarkets, drugstores and traditional trade.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "shelton.ie": {
     "name": "Shelton Distributors",
     "based_out_of": "Rathcoole, Ireland",
@@ -2931,6 +3540,42 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "socar.ge": {
+    "name": "SOCAR Georgia Petroleum (WayMart)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "One of the widest fuel networks in Georgia with its own WayMart convenience format, suitable for impulse sugar-free snacks. Store count not verified.",
+    "what_they_do_well": [
+      "Manages its own WayMart convenience store brand alongside a nationwide fuel network since 2007."
+    ],
+    "distributes": "Fuel and WayMart convenience goods.",
+    "channels_supplied": "Nationwide SOCAR fuel station network with WayMart convenience stores.",
+    "sf_brands_carried": "Not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
+  "spargeorgia.com": {
+    "name": "SPAR Georgia (JSC Foodmart)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "More than 380 SPAR stores nationally, with premium VAKE by SPAR stores in Tbilisi that suit an imported better-for-you range. Owned by Daily Group, so buying may be centralised with Daily and Magniti.",
+    "what_they_do_well": [
+      "Grew from three Tbilisi supermarkets in 2014 to more than 380 stores and about 2,700 staff."
+    ],
+    "distributes": "Supermarket and convenience grocery including confectionery, snacks, fresh food to go and SPAR private label.",
+    "channels_supplied": "SPAR, VAKE by SPAR and Ioli stores; webshop sparonline.ge; Wolt delivery. Foodmart is owned by Daily Group since 2024.",
+    "sf_brands_carried": "Not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "springvalefoods.co.uk": {
     "name": "Springvale Foods",
@@ -3073,6 +3718,22 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
+  "supta.ge": {
+    "name": "Supta.ge (AID Group)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Online B2B supplier to HoReCa and offices that sells office foods, a niche route for single-serve sugar-free snacks. Operator link to AID Group comes from a shared directory listing.",
+    "what_they_do_well": [],
+    "distributes": "B2B supplies: hygiene, disposables, stationery and foods for offices.",
+    "channels_supplied": "HoReCa, offices and salons via an online B2B platform with delivery.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
   "svfarma.com.ar": {
     "name": "SVfarma",
     "based_out_of": "Córdoba, Argentina",
@@ -3090,6 +3751,45 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "sweet-country.ge": {
+    "name": "Sweet Country",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A confectionery-first wholesaler with six regional warehouses, so sweets are its core business. Information comes from one directory, so the brand portfolio needs checking.",
+    "what_they_do_well": [
+      "Runs confectionery warehouses in six regions outside Tbilisi.",
+      "Trading since 2005."
+    ],
+    "distributes": "Chocolate and sugar confectionery, pastry goods, pasta, cereals and detergents.",
+    "channels_supplied": "Confectionery wholesale with a Tbilisi retail point and warehouses in Sagarejo, Kutaisi, Akhaltsikhe, Batumi, Gori and Zugdidi.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "sweetcenter.ge": {
+    "name": "Sweet Center",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "B2B supplier to bakeries and cafes that sells syrups and toppings, a possible route for Diablo syrups and spreads into foodservice. Not a route for retail confectionery.",
+    "what_they_do_well": [
+      "Supplying confectionery ingredients since 2010; its Dila margarine has been on the market since 2001."
+    ],
+    "distributes": "Confectionery ingredients: chocolate and cocoa, toppings, cocktail syrups, fillings, creams and margarine (own Dila).",
+    "channels_supplied": "Bakeries, manufacturers and HoReCa across Georgia.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "sweetco.ie": {
     "name": "Sweet Co",
@@ -3139,6 +3839,26 @@
     "sf_brands_carried": "Monmore and Simpkins sugar free sweets, Farmhouse sugar free biscuits, Tiptree reduced sugar jams.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "tbilisiholding.com": {
+    "name": "Tbilisi Holding Company (THC)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Thirty-year importer with five depots (Tbilisi, Kutaisi, Batumi, Telavi, Akhaltsikhe) and a 90-vehicle fleet, built around premium imported brands. Carries Ferrara confectionery but no visible sugar-free range. Listed in directories under its trading entity Everest 2010.",
+    "what_they_do_well": [
+      "Founded 1994; supplies over 5,000 retail and wholesale outlets from five distribution centres.",
+      "Its brands Anchor, Hayleys and Schirnhofer won Golden Brand awards in 2022 and 2023."
+    ],
+    "distributes": "Premium imported food (up to 500 items): confectionery (Ferrara), sauces (Torchin), cheese and dairy (Anchor), canned fish, tea (Hayleys), snacks; plus toys and tableware.",
+    "channels_supplied": "5,000+ retail and wholesale points from small shops to hypermarkets and cafes; own Schirnhofer supermarket chain of 9 stores.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "tesco.com": {
     "name": "Tesco",
@@ -3365,6 +4085,27 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "vg.ge": {
+    "name": "VG Distribution (Veyseloglu Group)",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Georgian arm of Azerbaijan's largest FMCG distributor, with offices in Tbilisi, Gori, Kutaisi and Batumi and warehouses in Tbilisi and Kutaisi. Already handles imported confectionery and would give Diablo regional reach beyond Tbilisi.",
+    "what_they_do_well": [
+      "Operating in Georgia since 2010 and now reaching more than 3,500 outlets nationwide.",
+      "Runs four offices and two warehouses with about 160 staff."
+    ],
+    "distributes": "Confectionery, fats, pasta and general packaged food from 30+ manufacturers in Azerbaijan, Turkey, Russia, Poland and India.",
+    "channels_supplied": "Wholesale to regional traders and direct to more than 3,500 outlets across Georgia, including major outlets.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "voigt.ch": {
     "name": "Voigt AG",
     "based_out_of": "Romanshorn, Switzerland",
@@ -3571,5 +4312,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "zgapari.ge": {
+    "name": "Zgapari",
+    "based_out_of": "Tbilisi, Georgia",
+    "market": "Tbilisi, Georgia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Mid-sized Tbilisi-centred chain (47 stores) with its own online shop, large enough to matter and small enough to take a new imported range quickly. Health range not verified.",
+    "what_they_do_well": [
+      "Founded in 2006 and now runs 47 supermarkets with its own loyalty card and online ordering."
+    ],
+    "distributes": "Full supermarket grocery range, bakery, seafood and organic vegetables.",
+    "channels_supplied": "47 own supermarkets from Tbilisi to Gori and Akhaltsikhe; online orders with delivery or pickup; Qisa discount card.",
+    "sf_brands_carried": "Not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   }
 }
