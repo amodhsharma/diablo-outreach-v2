@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T05:59:43+00:00 (UTC).
+Checked 2026-10-14T06:04:57+00:00 (UTC).
 
 ## Mailboxes
 
@@ -49,19 +49,17 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Paused
-- Instantly says: **campaign_paused**. Campaign is paused
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 30, "sent": 0, "limit_hit": false}`
 - new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
 - leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-13T14:05:14.957Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T06:01:29.390Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
 - Mailboxes it sends from: sales@diablosnosugar.com
-- Leads: 10
-  - 8 Completed, emailed
-  - 2 Completed, emailed, replied
+- Leads: 0
 - Emails in the sequence: 1 (characters in each body: [2040])
 
 
