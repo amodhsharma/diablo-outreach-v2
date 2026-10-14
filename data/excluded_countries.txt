@@ -32,7 +32,6 @@ Lithuania
 # Former Soviet (ex-CIS) republics
 Armenia
 Belarus
-Georgia
 Kazakhstan
 Kyrgyzstan
 Moldova
