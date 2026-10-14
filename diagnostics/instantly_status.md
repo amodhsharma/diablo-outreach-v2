@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-13T20:52:35+00:00 (UTC).
+Checked 2026-10-14T05:59:43+00:00 (UTC).
 
 ## Mailboxes
 
@@ -30,10 +30,10 @@ Checked 2026-10-13T20:52:35+00:00 (UTC).
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (60 of 60) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Info Account | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (64 of 64) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (59 of 59) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
 | sales@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Sales Account | 30 | none |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
@@ -45,7 +45,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Instantly says: **campaign_completed**. Campaign has completed
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 0
-- Emails in the sequence: 1 (characters in each body: [2014])
+- Emails in the sequence: 1 (characters in each body: [2040])
 
 ## Campaign: Diablo | OCT2026
 
@@ -62,7 +62,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Leads: 10
   - 8 Completed, emailed
   - 2 Completed, emailed, replied
-- Emails in the sequence: 1 (characters in each body: [2014])
+- Emails in the sequence: 1 (characters in each body: [2040])
 
 
 ## Keys
