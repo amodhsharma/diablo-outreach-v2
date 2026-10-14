@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T08:25:08+00:00 (UTC).
+Checked 2026-10-14T08:31:03+00:00 (UTC).
 
 ## Mailboxes
 
@@ -49,17 +49,16 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Active
-- Instantly says: **healthy**. Campaign is sending normally
-- Instantly's explanation: The campaign is currently healthy and actively sending emails, with 3 messages sent today and no issues detected. All connected accounts are available, and the campaign is within its daily send limit and schedule. No immediate action is required as the campaign is functioning as expected.
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
 - Last healthy send: 2026-10-14T08:17:52.788Z
 - schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 3, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 3, "limit_hit": false}`
+- campaign_daily_limit: `{"limit": 30, "sent": 4, "limit_hit": false}`
+- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 4, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
-- leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
+- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": null, "issue_first_seen_at": null, "consecutive_loops_with_issue": 0, "last_healthy_send_at": "2026-10-14T08:17:52.788Z"}`
+- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T08:26:52.824Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T08:17:52.788Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 4
   - 3 Completed, emailed
