@@ -1,10 +1,10 @@
 # Instantly health check
 
-Checked 2026-10-14T13:30:46+00:00 (UTC).
+Checked 2026-10-14T16:30:46+00:00 (UTC).
 
 ## Mailboxes
 
-9 mailboxes: 8 ready, 0 warming up, 1 with a problem.
+10 mailboxes: 8 ready, 0 warming up, 2 with a problem.
 
 ### Needs attention
 
@@ -17,6 +17,8 @@ Checked 2026-10-14T13:30:46+00:00 (UTC).
 - **info@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **info@nosugardiablo.com**: Connection error: it cannot send, and replies to it are not picked up. Reconnect it in Instantly, Email Accounts
 - **info@nosugardiablo.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
+- **offers@diablosugarfree.com**: This is the main company domain (diablosugarfree.com): never use it for cold email
+- **offers@diablosugarfree.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **sales@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **sales@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **sales@nosugardiablo.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
@@ -32,6 +34,7 @@ Checked 2026-10-14T13:30:46+00:00 (UTC).
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Problem** | Connection error | Off | 100 | no numbers yet | Info Account | 30 | none |
+| offers@diablosugarfree.com | **Problem** | On | Off | 0 | no numbers yet | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (59 of 59) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
 | sales@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Sales Account | 30 | none |
