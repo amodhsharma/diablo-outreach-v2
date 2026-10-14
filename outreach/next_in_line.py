@@ -124,12 +124,12 @@ def contacts_by_company(hs, company_ids):
     return {cid: [records[c] for c in cs if c in records] for cid, cs in links.items()}
 
 
-TEST_GAP_MINUTES = 30
+TEST_GAP_MINUTES = 15
 
 
 def apply_test_gaps(settings, target, typed):
     """Button 3's test box (agreed 14 Oct 2026): when "CONFIRM" is typed, the gaps between emails
-    (3 days between people, 7 days for the same person) become 30 minutes for this one run.
+    (3 days between people, 7 days for the same person) become 15 minutes for this one run.
     Refused for the live account. Returns True when the test gaps are on."""
     from .common import PipelineError
     typed = (typed or "").strip()

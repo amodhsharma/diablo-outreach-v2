@@ -236,12 +236,12 @@ def main(argv=None):
     p.add_argument("--target", default="test", choices=["test", "live"])
     p.add_argument("--skip-if-not-configured", action="store_true",
                    help="exit quietly when keys are missing (used by the timer)")
-    p.add_argument("--test-gaps", default="", help='type CONFIRM for 30-minute gaps (test account only)')
+    p.add_argument("--test-gaps", default="", help='type CONFIRM for 15-minute gaps (test account only)')
     args = p.parse_args(argv)
     try:
         settings = load_settings()
         if apply_test_gaps(settings, args.target, args.test_gaps):
-            print("TEST GAPS ON: 30 minutes instead of 3 and 7 days, for this run only (test account).")
+            print("TEST GAPS ON: 15 minutes instead of 3 and 7 days, for this run only (test account).")
     except PipelineError as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1

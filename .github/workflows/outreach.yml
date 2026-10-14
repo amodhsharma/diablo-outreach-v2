@@ -17,7 +17,7 @@ name: '3 - Outreach'
 # Also runs by itself the moment Claude saves personal lines, for step 3 only.
 #
 # Testing only: type CONFIRM in "TEST ONLY" and the gaps between emails (3 days between people at a
-# company, 7 days before the same person is emailed again) become 30 minutes for that run. It is
+# company, 7 days before the same person is emailed again) become 15 minutes for that run. It is
 # refused for the live account, and the automatic runs always use the normal gaps.
 #
 # Before: the automatic tests. After: the lists are saved, and the run fails (GitHub emails you) if
@@ -34,7 +34,7 @@ on:
         type: boolean
         default: false
       test_gaps:
-        description: "TEST ONLY: type CONFIRM for 30-minute gaps instead of 3 and 7 days, this run only (refused on live). Leave empty normally"
+        description: "TEST ONLY: type CONFIRM for 15-minute gaps instead of 3 and 7 days, this run only (refused on live). Leave empty normally"
         default: ""
 
 concurrency:
@@ -71,7 +71,7 @@ jobs:
             echo "::error::Test gaps: type CONFIRM exactly (in capitals), or leave the box empty. Nothing was done."; exit 1; fi
           if [ "$TARGET" != "test" ]; then
             echo "::error::Test gaps are refused for the live HubSpot account. Nothing was done."; exit 1; fi
-          echo "TEST GAPS ON: 30 minutes instead of 3 and 7 days, for this run only (test account)."
+          echo "TEST GAPS ON: 15 minutes instead of 3 and 7 days, for this run only (test account)."
 
       - name: "1. Instantly results to HubSpot, next person in line, rounds 2 and 3"
         id: sync

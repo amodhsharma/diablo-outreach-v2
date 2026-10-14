@@ -237,11 +237,11 @@ def test_test_gaps_need_confirm_and_never_run_on_live(settings):
     with pytest.raises(PipelineError, match="refused for the live"):
         apply_test_gaps(settings, "live", "CONFIRM")
     assert apply_test_gaps(settings, "test", "CONFIRM") is True
-    assert settings["send"]["next_contact_after_days"] * 24 * 60 == pytest.approx(30)
-    assert settings["send"]["rotation"]["min_days_same_person"] * 24 * 60 == pytest.approx(30)
+    assert settings["send"]["next_contact_after_days"] * 24 * 60 == pytest.approx(15)
+    assert settings["send"]["rotation"]["min_days_same_person"] * 24 * 60 == pytest.approx(15)
 
 
-def test_with_test_gaps_the_next_email_is_due_after_30_minutes(settings):
+def test_with_test_gaps_the_next_email_is_due_after_15_minutes(settings):
     from outreach.next_in_line import apply_test_gaps
     apply_test_gaps(settings, "test", "CONFIRM")
     hs, instantly, emails = FakeCRM(), FakeInstantly(), FakeEmails()
@@ -251,11 +251,11 @@ def test_with_test_gaps_the_next_email_is_due_after_30_minutes(settings):
     mins = lambda m: (dt.datetime.now(dt.timezone.utc) - dt.timedelta(minutes=m)).isoformat()
     for i, pid in enumerate(people):
         hs.records["contacts"][pid].update(firstname=f"P{i + 1}", **{LS: "ATTEMPTED_TO_CONTACT"})
-        instantly.leads[camp].append({"email": f"p{i + 1}@turn.in", "timestamp_last_contact": mins(100 - 31 * i)})
+        instantly.leads[camp].append({"email": f"p{i + 1}@turn.in", "timestamp_last_contact": mins(60 - 16 * i)})
         emails.sent[f"p{i + 1}@turn.in"] = [{"id": f"e{i}", "eaccount": "sales@diablosnosugar.com",
-                                             "subject": "Partnering", "timestamp_email": mins(100 - 31 * i)}]
-    # The last email went out 38 minutes ago: round 2 for person 1 is due now.
+                                             "subject": "Partnering", "timestamp_email": mins(60 - 16 * i)}]
+    # The last email went out 28 minutes ago: round 2 for person 1 is due now.
     moved = sync.advance(hs, instantly, settings, log=quiet, emails_api=emails)
     assert moved["follow_ups_sent"] == 1 and "your colleague P3" in emails.replies[0]["text"]
-    # Straight after, the company waits another 30 minutes.
+    # Straight after, the company waits another 15 minutes.
     assert sync.advance(hs, instantly, settings, log=quiet, emails_api=emails)["follow_ups_sent"] == 0
