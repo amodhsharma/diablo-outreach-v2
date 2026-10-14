@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T06:51:33+00:00 (UTC).
+Checked 2026-10-14T07:44:51+00:00 (UTC).
 
 ## Mailboxes
 
@@ -49,27 +49,26 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Active
-- Instantly says: **waiting_for_leads**. No leads are ready to receive emails
-- Instantly's explanation: The campaign is currently paused because there are no new leads ready to receive emails. While there's an available sending account and the campaign is within its daily limit and schedule, it cannot send without recipients. To restart sending, you need to add more leads to the campaign.
-- Last healthy send: 2026-10-14T06:33:27.292Z
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
+- Last healthy send: 2026-10-14T06:52:44.825Z
 - schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 2, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 2, "limit_hit": false}`
+- campaign_daily_limit: `{"limit": 30, "sent": 3, "limit_hit": false}`
+- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 3, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
 - leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T06:42:27.352Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T06:33:27.292Z"}`
+- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T07:01:44.858Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T06:52:44.825Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 3
   - 2 Completed, emailed
-  - 1 Active, not yet emailed
+  - 1 Completed, emailed, replied
 - Emails in the sequence: 1 (characters in each body: [2040])
 
 
 ## Keys
 
-- INSTANTLY_EMAILS_KEY works: Sync can send rounds 2 and 3.
+- INSTANTLY_EMAILS_KEY works: Sync can send the forwards and the reminder.
 
 ## GATE2: Approved to send in HubSpot (what 4b would do now)
 

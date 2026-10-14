@@ -1,5 +1,86 @@
 {
-  "generated_at": "2026-10-14T06:51:39+00:00",
+  "generated_at": "2026-10-14T07:44:56+00:00",
   "target": "test",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "890562001130",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Toga Food SA",
+        "domain": "togafood.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Wangen an der Aare, Switzerland",
+        "distributes": "Branded European confectionery and snacks, spreads, gourmet products, pasta, oils and seasonings.",
+        "channels_supplied": "Swiss food retail trade, from very small customers (24 hour delivery from 15 cartons) to full truckloads; named chains not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Holds IFS Logistic and IFS Broker certification with a 5,000 to 6,000 pallet warehouse handling about 5,500 tonnes a year."
+        ],
+        "fit_rationale": "Acts as the full Swiss import, sales and marketing arm for European brand manufacturers, which matches how an exporter like B Healthy would enter. It scouts new brands at ISM and Anuga, where Diablo exhibits its category. National delivery covers Zurich."
+      }
+    },
+    {
+      "contact_id": "890562001127",
+      "job_title": "Head of Sales - Mitglied des Managementteams",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "Toga Food SA",
+        "domain": "togafood.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Wangen an der Aare, Switzerland",
+        "distributes": "Branded European confectionery and snacks, spreads, gourmet products, pasta, oils and seasonings.",
+        "channels_supplied": "Swiss food retail trade, from very small customers (24 hour delivery from 15 cartons) to full truckloads; named chains not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Holds IFS Logistic and IFS Broker certification with a 5,000 to 6,000 pallet warehouse handling about 5,500 tonnes a year."
+        ],
+        "fit_rationale": "Acts as the full Swiss import, sales and marketing arm for European brand manufacturers, which matches how an exporter like B Healthy would enter. It scouts new brands at ISM and Anuga, where Diablo exhibits its category. National delivery covers Zurich."
+      }
+    },
+    {
+      "contact_id": "890562001128",
+      "job_title": "Key Account Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Toga Food SA",
+        "domain": "togafood.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Wangen an der Aare, Switzerland",
+        "distributes": "Branded European confectionery and snacks, spreads, gourmet products, pasta, oils and seasonings.",
+        "channels_supplied": "Swiss food retail trade, from very small customers (24 hour delivery from 15 cartons) to full truckloads; named chains not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Holds IFS Logistic and IFS Broker certification with a 5,000 to 6,000 pallet warehouse handling about 5,500 tonnes a year."
+        ],
+        "fit_rationale": "Acts as the full Swiss import, sales and marketing arm for European brand manufacturers, which matches how an exporter like B Healthy would enter. It scouts new brands at ISM and Anuga, where Diablo exhibits its category. National delivery covers Zurich."
+      }
+    },
+    {
+      "contact_id": "890562001129",
+      "job_title": "Brand Manager",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Toga Food SA",
+        "domain": "togafood.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Wangen an der Aare, Switzerland",
+        "distributes": "Branded European confectionery and snacks, spreads, gourmet products, pasta, oils and seasonings.",
+        "channels_supplied": "Swiss food retail trade, from very small customers (24 hour delivery from 15 cartons) to full truckloads; named chains not verified.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Holds IFS Logistic and IFS Broker certification with a 5,000 to 6,000 pallet warehouse handling about 5,500 tonnes a year."
+        ],
+        "fit_rationale": "Acts as the full Swiss import, sales and marketing arm for European brand manufacturers, which matches how an exporter like B Healthy would enter. It scouts new brands at ISM and Anuga, where Diablo exhibits its category. National delivery covers Zurich."
+      }
+    }
+  ]
 }
