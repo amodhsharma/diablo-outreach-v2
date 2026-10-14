@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T10:30:49+00:00 (UTC).
+Checked 2026-10-14T13:30:46+00:00 (UTC).
 
 ## Mailboxes
 
@@ -30,7 +30,7 @@ Checked 2026-10-14T10:30:49+00:00 (UTC).
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (67 of 67) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Problem** | Connection error | Off | 100 | no numbers yet | Info Account | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (59 of 59) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
@@ -47,7 +47,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Link tracking: **ON** (should be off: switch it off in the campaign Options)
 - Open tracking: **ON** (should be off: switch it off in the campaign Options)
 - Leads: 0
-- Emails in the sequence: 1 (characters in each body: [2040])
+- Emails in the sequence: 1 (characters in each body: [2053])
 
 ## Campaign: Diablo | OCT2026
 
@@ -67,7 +67,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Leads: 4
   - 3 Completed, emailed, replied
   - 1 Completed, emailed
-- Emails in the sequence: 1 (characters in each body: [2040])
+- Emails in the sequence: 1 (characters in each body: [2053])
 
 
 ## Keys
@@ -76,8 +76,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 1 contacts approved to send
-- Skipped contact 890562001129 (a***@gmail.com): its company's Lead Status says outreach has ended or a person has taken it over
+- 0 contacts approved to send
 
 ## Where every company is in its loop
 
