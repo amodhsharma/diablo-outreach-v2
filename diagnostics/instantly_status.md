@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T08:49:45+00:00 (UTC).
+Checked 2026-10-14T09:19:48+00:00 (UTC).
 
 ## Mailboxes
 
@@ -30,7 +30,7 @@ Checked 2026-10-14T08:49:45+00:00 (UTC).
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (62 of 62) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (64 of 64) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Info Account | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (59 of 59) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
@@ -76,3 +76,14 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Waiting: contact 890562001128 (a***@diablosugarfree.com) at Toga Food SA: the company's last email was under 3 days ago (one email every 3 days per company)
 - Waiting: contact 890562001129 (a***@gmail.com) at Toga Food SA: the company's last email was under 3 days ago (one email every 3 days per company)
 - 2 approved contacts wait their turn (one person per company at a time)
+
+## Where every company is in its loop
+
+- **Toga Food SA**: next is the next email, 3 days after the last one, due 17 Oct 14:49 IST
+
+| Company | Order | Person (job title) | Lead Status | Emailed |
+|---|---|---|---|---|
+| Toga Food SA | 1 | CEO | Attempted to Contact | 14 Oct 13:47 IST |
+| Toga Food SA | 2 | Head of Sales - Mitglied des Managementteams | Attempted to Contact | 14 Oct 14:19 IST |
+| Toga Food SA | 3 | Key Account Manager | Attempted to Contact | 14 Oct 14:49 IST |
+| Toga Food SA | 4 | Brand Manager | GATE2: Approved to send | not yet |
