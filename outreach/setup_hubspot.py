@@ -90,12 +90,14 @@ def ensure_property(hs, object_type, spec, existing, plan, add_missing_options=T
 
 
 # The only Lead Status choices the live account may receive (agreed 13 Oct 2026).
-LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach"}, "contacts": {"New, Personal line filled", "GATE2: Approved to send"}}
+LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach"},
+                    "contacts": {"New, Personal line filled", "GATE2: Approved to send",
+                                 "Forward sent", "Reminder sent"}}  # the last two added 14 Oct 2026
 
 
 def ensure_lead_status(hs, object_type, existing, plan, live=False):
     """Add the Lead Status choices the pipeline needs, matched by their label. In the live account
-    only the three agreed choices can be added; anything else missing is reported instead."""
+    only the agreed choices can be added; anything else missing is reported instead."""
     current = existing.get(LEAD_STATUS)
     if current is None:
         plan.note("conflict", f"{object_type}: HubSpot's Lead Status field is missing in this account; "

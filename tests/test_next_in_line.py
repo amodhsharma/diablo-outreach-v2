@@ -80,7 +80,7 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     emails.emails[0]["timestamp_email"] = ago(3.1)
     lead(instantly, "p1@noble.in")["timestamp_last_contact"] = ago(3.1)
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert moved["forwards_sent"] == 1 and status_of(hs, p2) == "ATTEMPTED_TO_CONTACT"
+    assert moved["forwards_sent"] == 1 and status_of(hs, p2) == "FORWARD_SENT"
     fwd = emails.forwards[0]
     assert fwd["to"] == "p2@noble.in" and fwd["of"]["id"] == emails.emails[0]["id"]
     assert fwd["subject"] == "Fwd: Partnering to establish Diablo"
@@ -96,7 +96,7 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     emails.emails[-1]["timestamp_email"] = ago(3.1)
     emails.emails[0]["timestamp_email"] = ago(6.2)
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert moved["forwards_sent"] == 1 and status_of(hs, p3) == "ATTEMPTED_TO_CONTACT"
+    assert moved["forwards_sent"] == 1 and status_of(hs, p3) == "FORWARD_SENT"
     fwd = emails.forwards[1]
     assert fwd["to"] == "p3@noble.in" and fwd["of"]["to_address_email_list"] == "p2@noble.in"
     assert "your colleague P2 L2 did not reach" in fwd["text"]
@@ -108,6 +108,7 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     emails.emails[0]["timestamp_email"] = ago(9.2)
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["reminders_sent"] == 1 and moved["forwards_sent"] == 0
+    assert status_of(hs, p1) == "REMINDER_SENT" and status_of(hs, p2) == "FORWARD_SENT"
     rem = emails.replies[0]
     assert rem["to"]["id"] == emails.emails[0]["id"] and rem["subject"] == "Partnering to establish Diablo"
     assert "Hi P1,\n\nWe wrote to you about a week ago about bringing Diablo Sugar Free to" in rem["text"]
@@ -254,3 +255,29 @@ def test_with_test_gaps_the_next_email_is_due_after_15_minutes(settings):
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["forwards_sent"] == 1 and "your colleague P1 L1" in emails.forwards[0]["text"]
     assert sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)["forwards_sent"] == 0
+
+
+def test_the_run_summary_and_the_overview_say_what_happened(settings, tmp_path, monkeypatch):
+    summary = tmp_path / "summary.md"
+    monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary))
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    text = summary.read_text()
+    assert "## Button 4: what was sent this run" in text
+    assert "| Noble Foods | Head of Buying | Forward sent, naming the Managing Director (Lead Status: Forward sent) |" in text
+    assert "@" not in text and "P2" not in text  # job titles only: no names or email addresses
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert "| Noble Foods | the next email, 3 days after the last one |" in summary.read_text()
+    view = sync.overview(hs, instantly, settings, emails_api=emails)
+    assert "**Noble Foods**: next is the next email, 3 days after the last one, due" in view
+    assert "| Noble Foods | 2 | Head of Buying | Forward sent |" in view
+    assert "| Noble Foods | 3 | Category Manager | GATE2: Approved to send | not yet |" in view
+    assert "@" not in view
+
+
+def test_without_the_new_choices_the_forward_falls_back_to_attempted(settings):
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    for value in ("FORWARD_SENT", "REMINDER_SENT"):  # an account where button 1 has not added them yet
+        hs.options[("contacts", "hs_lead_status")].pop(value)
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert status_of(hs, p2) == "ATTEMPTED_TO_CONTACT"

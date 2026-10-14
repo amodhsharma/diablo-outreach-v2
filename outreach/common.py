@@ -229,3 +229,24 @@ def save_company_notes(new_notes):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(dict(sorted(notes.items())), indent=2, ensure_ascii=False) + "\n",
                     encoding="utf-8")
+
+
+def step_summary(text):
+    """Add text to the GitHub run's summary page (shown at the top of the run), when on GitHub."""
+    path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if path:
+        with open(path, "a", encoding="utf-8") as fh:
+            fh.write(text.rstrip() + "\n\n")
+
+
+def ist(when):
+    """A time as India time for people to read, e.g. "14 Oct 14:31 IST"."""
+    import datetime as _dt
+    if not when:
+        return "unknown"
+    try:
+        from zoneinfo import ZoneInfo
+        local = when.astimezone(ZoneInfo("Asia/Kolkata"))
+    except Exception:
+        local = when.astimezone(_dt.timezone(_dt.timedelta(hours=5, minutes=30)))
+    return local.strftime("%d %b %H:%M IST").lstrip("0")

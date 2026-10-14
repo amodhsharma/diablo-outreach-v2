@@ -28,12 +28,12 @@ import os
 import re
 import sys
 
-from .common import PipelineError, check_target, load_company_notes, load_settings, run_dir, write_json
+from .common import PipelineError, check_target, ist, load_company_notes, load_settings, run_dir, step_summary, write_json
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .next_in_line import (
     COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign,
-    lead_for, mark_sent, parse_time, tagged_company_of,
+    lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import LEAD_STATUS, PERSONAL_LINE
 from .stages import LeadStatus, forward
@@ -215,6 +215,72 @@ def forward_subject(chain):
     return f"Fwd: {subject}"
 
 
+NEXT_STEP = {
+    "next": "the introduction to the next person", "forward": "a forward to the next person",
+    "reminder": "person 1's reminder", "waiting": "the next email, 3 days after the last one",
+    "waiting_same_person": "person 1's reminder, a week after their introduction",
+    "waiting_for_gate_2": "someone to be approved at GATE2", "waiting_for_emails_key":
+    "the GitHub secret INSTANTLY_EMAILS_KEY", "stopped": "nothing (someone replied or a person took over)",
+    "no_reply": "Unqualified (the loop is finished)", "nothing": "nothing (nobody approved)",
+}
+
+
+def due_at(contacts, touches, why, gap_days, min_same_days):
+    """When the company's next email is due, for the waiting reasons, or None."""
+    import datetime as _dt
+    times = [t for c in contacts if c.get("state") in ("sent", "bounced") for t in touch_times(c, touches)]
+    if why == "waiting" and times:
+        return max(times) + _dt.timedelta(days=gap_days)
+    if why == "waiting_same_person":
+        sent = [c for c in contacts if c.get("state") == "sent" and touch_times(c, touches)]
+        if sent:
+            first = min(sent, key=lambda c: touch_times(c, touches)[0])
+            return touch_times(first, touches)[0] + _dt.timedelta(days=min_same_days)
+    return None
+
+
+def progress_rows(name, contacts, touches, statuses):
+    """One line per person at a company: order, job title, Lead Status and when they were emailed.
+    Job titles only: no names or email addresses are written anywhere."""
+    rows = []
+    for c in sorted(contacts, key=rank_of):
+        p = c["properties"]
+        label = statuses.label("contacts", p.get(LEAD_STATUS))
+        times = touch_times(c, touches)
+        emailed = ", ".join(ist(t) for t in times) if times else "not yet"
+        rows.append(f"| {name} | {p.get('diablo_outreach_order') or '?'} | {p.get('jobtitle') or 'contact'} | "
+                    f"{label} | {emailed} |")
+    return rows
+
+
+def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None):
+    """Read only: where every company in outreach is in its loop, for the health report."""
+    statuses = statuses or LeadStatus(hs)
+    leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
+    gap = float(settings["send"].get("next_contact_after_days", 3))
+    min_same = float((settings["send"].get("rotation") or {}).get("min_days_same_person", 7))
+    companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
+                                 COMPANY_PROPS, max_results=5000)
+    if not companies:
+        return "## Where every company is in its loop\n\n- No company is being emailed right now.\n"
+    everyone = contacts_by_company(hs, [c["id"] for c in companies])
+    people, nexts = [], []
+    for company in companies:
+        name = company.get("properties", {}).get("name") or "a company"
+        contacts = annotate(everyone.get(company["id"]) or [], statuses, leads)
+        touches = None
+        if emails_api is not None:
+            touches, _, _ = company_mail(emails_api, contacts)
+            mark_sent(contacts, touches)
+        _, why = decide(contacts, statuses.of("companies", company), gap, now, touches=touches, min_same_days=min_same)
+        when = due_at(contacts, touches, why, gap, min_same)
+        nexts.append(f"- **{name}**: next is {NEXT_STEP.get(why, why)}" + (f", due {ist(when)}" if when else ""))
+        people += progress_rows(name, contacts, touches, statuses)
+    return ("## Where every company is in its loop\n\n" + "\n".join(nexts) + "\n\n"
+            "| Company | Order | Person (job title) | Lead Status | Emailed |\n|---|---|---|---|---|\n"
+            + "\n".join(people) + "\n")
+
+
 def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statuses=None, leads=None):
     """Move each AUTO-OUTREACH company in outreach on through its one loop when the next email is due."""
     statuses = statuses or LeadStatus(hs)
@@ -232,6 +298,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     everyone = contacts_by_company(hs, [c["id"] for c in companies])
     notes = load_company_notes()
     contact_updates, company_updates = [], []
+    sent_rows, waiting_rows = [], []
     for company in companies:
         props = company.get("properties", {})
         name = props.get("name")
@@ -247,6 +314,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             if forward(statuses.of("companies", company), "replied"):
                 company_updates.append((company["id"], statuses.props("companies", "replied")))
             result["replied"] += 1
+            sent_rows.append(f"| {name} | - | Reply received: nobody else there is emailed |")
             log(f"{name}: someone replied; nobody else there is emailed")
             continue
         due, why = decide(contacts, statuses.of("companies", company), gap, now,
@@ -254,10 +322,15 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         if why == "no_reply":
             company_updates.append((company["id"], statuses.props("companies", "closed")))
             result["no_reply"] += 1
+            sent_rows.append(f"| {name} | - | Loop finished with no reply: company set to Unqualified |")
             log(f"{name}: the loop is finished with no reply; the company is now Unqualified")
             continue
+        if why in ("waiting", "waiting_same_person", "waiting_for_gate_2", "nothing", "stopped"):
+            when = due_at(contacts, touches, why, gap, min_same)
+            waiting_rows.append(f"| {name} | {NEXT_STEP.get(why, why)} | {ist(when) if when else '-'} |")
         if why == "waiting_for_emails_key":
             result["waiting_for_emails_key"] += 1
+            waiting_rows.append(f"| {name} | {NEXT_STEP[why]} | - |")
             continue
         if why == "forward":
             prev = previous_colleague(due, contacts, touches)
@@ -270,8 +343,10 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             first = min((e for es in history.values() for e in es),
                         key=lambda e: _sent_time(e) or parse_time("2999-01-01"), default=chain)
             emails_api.forward(chain, due["properties"]["email"], forward_subject(first), html, text)
-            contact_updates.append((due["id"], statuses.props("contacts", "in_outreach")))
+            contact_updates.append((due["id"], statuses.props_or("contacts", "forwarded", "in_outreach")))
             result["forwards_sent"] += 1
+            sent_rows.append(f"| {name} | {due['properties'].get('jobtitle') or 'next contact'} | Forward sent, naming "
+                             f"the {prev['properties'].get('jobtitle') or 'colleague'} (Lead Status: Forward sent) |")
             log(f"{name}: no reply yet; the chain was forwarded to "
                 f"{due['properties'].get('jobtitle') or 'the next contact'}, naming the colleague before them")
             continue
@@ -282,7 +357,11 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 continue
             html, text = reminder_email(due, props, settings, notes)
             emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
+            if statuses.has("contacts", "reminded") and forward(statuses.of("contacts", due), "reminded"):
+                contact_updates.append((due["id"], statuses.props("contacts", "reminded")))
             result["reminders_sent"] += 1
+            sent_rows.append(f"| {name} | {due['properties'].get('jobtitle') or 'person 1'} | Reminder sent, as a reply "
+                             "in their own thread (Lead Status: Reminder sent) |")
             log(f"{name}: the loop is done; person 1 was sent their reminder, as a reply in their thread")
             continue
         campaign = last_campaign(contacts)
@@ -293,6 +372,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         if sum(r.get("leads_uploaded") or 0 for r in results):
             contact_updates.append((due["id"], statuses.props("contacts", "in_outreach")))
             result["next_contacts_added"] += 1
+            sent_rows.append(f"| {name} | {due['properties'].get('jobtitle') or 'next contact'} | Introduction "
+                             "(campaign) |")
             log(f"{name}: the introduction goes to {due['properties'].get('jobtitle') or 'the next contact'}")
         else:
             log(f"{name}: {lead['email']} is already in Instantly; not added again")
@@ -301,6 +382,12 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     if result["waiting_for_emails_key"]:
         log(f"{result['waiting_for_emails_key']} companies are ready for their next email, but the GitHub secret "
             "INSTANTLY_EMAILS_KEY (Instantly key with scope emails:all) is not set, so those emails wait")
+    summary = "## Button 4: what was sent this run\n\n"
+    summary += ("| Company | Person (job title) | What happened |\n|---|---|---|\n" + "\n".join(sent_rows)
+                if sent_rows else "Nothing was due this run.")
+    if waiting_rows:
+        summary += ("\n\n## Waiting\n\n| Company | Next | Due |\n|---|---|---|\n" + "\n".join(waiting_rows))
+    step_summary(summary)
     log(f"Loop: {result['forwards_sent']} forwards, {result['reminders_sent']} reminders, "
         f"{result['next_contacts_added']} introductions added, {result['replied']} companies replied, "
         f"{result['no_reply']} finished with no reply (now Unqualified)")

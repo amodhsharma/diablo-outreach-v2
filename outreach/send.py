@@ -20,7 +20,8 @@ from collections import defaultdict
 from pathlib import Path
 
 from .common import (
-    ROOT, PipelineError, check_target, load_company_notes, load_settings, market_matches, run_dir, write_json,
+    ROOT, PipelineError, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
+    write_json,
 )
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
@@ -346,7 +347,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         log(f"{waiting} approved contacts wait their turn (one person per company at a time)")
 
     existing = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
-    plan, contact_updates, company_updates, previews = [], [], {}, []
+    plan, contact_updates, company_updates, previews, intros = [], [], {}, [], []
     for key, members in groups.items():
         if key[0] == "campaign":  # the company's earlier contacts went here: keep it together
             campaign_id = key[1]
@@ -376,12 +377,18 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                     "It stays GATE2: Approved to send in HubSpot.")
                 continue
             contact_updates.append((c["id"], statuses.props("contacts", "in_outreach")))
+            intros.append(f"| {(companies.get(company_id) or {}).get('properties', {}).get('name') or 'a company'} | "
+                          f"{c['properties'].get('jobtitle') or 'person 1'} | Introduction added to the campaign "
+                          "(Lead Status: Attempted to Contact) |")
             if forward(company_stage, "in_outreach"):
                 company_updates[company_id] = statuses.props("companies", "in_outreach")
 
     if not dry_run:
         hs.update_tagged("contacts", contact_updates)
         hs.update_tagged("companies", list(company_updates.items()))
+        step_summary("## Button 4: introductions this run\n\n" + (
+            "| Company | Person (job title) | What happened |\n|---|---|---|\n" + "\n".join(intros)
+            if intros else "No new introduction was due this run."))
     write_json(out_dir / "plan.json", {"dry_run": dry_run, "campaigns": plan, "skipped": skipped})
     if previews:
         (out_dir / "email_preview.txt").write_text("\n\n".join(previews), encoding="utf-8")

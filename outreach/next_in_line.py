@@ -22,7 +22,7 @@ import datetime as dt
 
 from .common import INDUSTRY_PARTNER
 from .schema import LEAD_STATUS, ORDER, PERSONAL_LINE
-from .stages import COMPANY_STOPPED
+from .stages import COMPANY_STOPPED, EMAILED
 
 CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", PERSONAL_LINE, LEAD_STATUS, ORDER]
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS]
@@ -80,9 +80,9 @@ def contact_state(contact, statuses, leads):
         return "pending"
     if stage == "approved":
         return "approved"
-    if stage in ("in_outreach", "closed") and lead is not None and lead.get("status") == -1:
+    if stage in EMAILED + ("closed",) and lead is not None and lead.get("status") == -1:
         return "bounced"
-    if stage == "in_outreach":
+    if stage in EMAILED:
         return "sent" if lead and lead.get("timestamp_last_contact") else "queued"
     if stage == "closed" and lead is None:
         return "skipped"

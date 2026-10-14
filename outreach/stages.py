@@ -11,6 +11,8 @@ account itself, so the code works whatever the account calls a choice internally
     Email lines written                                                      "New, Personal line filled"
     Gate 2: a person approves the wording                                    GATE2: Approved to send
     Emails going out                           Attempted to Contact          Attempted to Contact
+    Forward sent to a colleague (persons 2-4)                                Forward sent
+    Person 1's one reminder sent                                             Reminder sent
     They replied                               In Progress                   In Progress
     Any dead end (rejected, not interested,    Unqualified                   Unqualified
     no reply, opted out, bounced)
@@ -36,10 +38,15 @@ STAGES = {
         "copy_ready": "New, Personal line filled",
         "approved": "GATE2: Approved to send",
         "in_outreach": "Attempted to Contact",
+        "forwarded": "Forward sent",
+        "reminded": "Reminder sent",
         "replied": "In Progress",
         "closed": "Unqualified",
     },
 }
+# Contact stages that mean "emailed, no reply yet" (agreed 14 Oct 2026: the forward and the
+# reminder get their own Lead Status so they can be checked in HubSpot).
+EMAILED = ("in_outreach", "forwarded", "reminded")
 
 # The internal value given to a choice when the setup has to add it (matching the live
 # account's style: companies use the label itself, contacts use capitals).
@@ -48,13 +55,14 @@ NEW_OPTION_VALUES = {
                   "New": "New", "Attempted to Contact": "Attempted to Contact",
                   "In Progress": "In Progress", "Unqualified": "Unqualified"},
     "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
-                 "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "In Progress": "IN_PROGRESS",
+                 "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "Forward sent": "FORWARD_SENT",
+                 "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
                  "Unqualified": "UNQUALIFIED"},
 }
 
 # Later stages win: a status only ever moves forward.
 ORDER = {"": 0, "found": 0, "missing_info": 0, "copy_ready": 0, "approved": 0,
-         "in_outreach": 1, "replied": 2, "closed": 3}
+         "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3}
 TEAM = "team"
 
 
@@ -64,8 +72,10 @@ class LeadStatus:
     def __init__(self, hs):
         self._value = {}
         self._stage = {}
+        self._labels = {}
         for obj, stages in STAGES.items():
             labels = hs.option_labels(obj, LEAD_STATUS)  # {value: label}
+            self._labels[obj] = {str(v).lower(): l for v, l in labels.items()}
             by_label = {str(label).strip().lower(): value for value, label in labels.items()}
             self._value[obj] = {}
             self._stage[obj] = {}
@@ -94,6 +104,18 @@ class LeadStatus:
     def of(self, obj, record_or_props):
         props = record_or_props.get("properties", record_or_props)
         return self.stage(obj, props.get(LEAD_STATUS))
+
+    def label(self, obj, value):
+        """The label HubSpot shows for a stored Lead Status value (e.g. "Forward sent")."""
+        return self._labels.get(obj, {}).get(str(value or "").lower(), value or "")
+
+    def has(self, obj, stage):
+        return stage in self._value.get(obj, {})
+
+    def props_or(self, obj, stage, fallback):
+        """The props for a stage, or for the fallback stage when the account lacks that choice
+        (for example before button 1 has added "Forward sent")."""
+        return self.props(obj, stage if self.has(obj, stage) else fallback)
 
     def filter(self, obj, stage):
         return {"propertyName": LEAD_STATUS, "operator": "EQ", "value": self.value(obj, stage)}

@@ -38,8 +38,10 @@ allowed only for the duplicate checks. Tests fail if any code writes to HubSpot 
 Removing the tag from a record is a "hands off" switch; nobody should type AUTO-OUTREACH on
 their own records.
 
-**Lead Status** says where each record is (`outreach/stages.py`). Three choices are added to it:
-*GATE1: Approved for outreach* (companies), *"New, Personal line filled"* and *GATE2: Approved to send* (contacts). The existing
+**Lead Status** says where each record is (`outreach/stages.py`). Five choices are added to it:
+*GATE1: Approved for outreach* (companies), *"New, Personal line filled"*, *GATE2: Approved to send*,
+*Forward sent* and *Reminder sent* (contacts; the last two added 14 Oct 2026 so every email can be
+checked in HubSpot). The existing
 choices are never changed.
 
 | Step | Company | Contact |
@@ -49,7 +51,9 @@ choices are never changed.
 | **Gate 1**: a person approves the company | **GATE1: Approved for outreach** | |
 | Email line written | | "New, Personal line filled" |
 | **Gate 2**: a person reads the line and approves it | | **GATE2: Approved to send** |
-| Emails going out | Attempted to Contact | Attempted to Contact |
+| Emails going out | Attempted to Contact | Attempted to Contact (person 1's introduction) |
+| Forward sent to the next person (persons 2 to 4) | | Forward sent |
+| Person 1's one reminder sent | | Reminder sent |
 | They replied | In Progress | In Progress |
 | Rejected, not interested, no reply, opted out or bounced | Unqualified | Unqualified |
 
@@ -77,7 +81,7 @@ failed, so GitHub emails you). One step failing never stops the others.
 | **1 - Setup HubSpot (once per account)** | Press once per account, first with "Dry run" ticked | Adds the two contact fields and the Lead Status choices; reads every company already in that account |
 | **2 - Research** | Pick "What to do": Add a market (Location, Channels, optional languages and number), Cancel a market, Try a failed market again, or Allow a repeat (Job ID, optional Channel) | **When Claude saves research:** strict check, duplicate check, **website check and Apollo pre-check**, then the companies arrive as New (or Missing Info when a check fails). **Every 3 hours:** refresh the "already in HubSpot" list, import anything waiting, add the next automatic city |
 | **3 - Find contacts** | Nothing: the timer runs it every 3 hours (12, 3, 6, 9). Press it to run now | In order: Apollo finds the top 4 people at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); the list of people Claude still has to write for. Never emails anyone |
-| **4 - Send and follow up** | Nothing: the timer runs it every 3 hours (1, 4, 7, 10). Press it to run now, or tick "Check only" for the health report. Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first) and each company's loop (the forward to the next person naming the colleague before them, person 1's reminder, Unqualified at the end); person 1's introduction for GATE2 people at new companies; health check |
+| **4 - Send and follow up** | Nothing: the timer runs it every 3 hours (1, 4, 7, 10). Press it to run now, or tick "Check only" for the health report. Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first) and each company's loop (the forward to the next person naming the colleague before them, person 1's reminder, Unqualified at the end); person 1's introduction for GATE2 people at new companies; health check. The run's page starts with a table of what was sent and what is waiting until when; the health report (`diagnostics/instantly_status.md`) shows where every company is in its loop |
 
 The two Claude scheduled tasks are not GitHub buttons: research runs at 2:28, 5:28, 8:28 and 11:28 (AM and PM
 IST) and personal lines at 12:28, 3:28, 6:28 and 9:28 (AM and PM IST), both every 3 hours (agreed 14 Oct 2026). Both can be started by hand in a Claude chat
