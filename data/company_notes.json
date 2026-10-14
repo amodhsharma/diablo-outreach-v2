@@ -88,6 +88,23 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "albisperu.com": {
+    "name": "Albis Perú",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Pharmacy wholesaler with order by WhatsApp model; only relevant if Diablo pursues the diabetic pharmacy shelf.",
+    "what_they_do_well": [],
+    "distributes": "Medicines and pharmaceutical products.",
+    "channels_supplied": "Boticas and health businesses.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "aldi.co.uk": {
     "name": "Aldi UK",
     "based_out_of": "Atherstone, United Kingdom",
@@ -459,6 +476,23 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "biobodegasfelices.com": {
+    "name": "Biobodegas Felices (Vacas Felices)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A small multi-store healthy grocer with over 550 grocery SKUs, mostly third-party brands. No confectionery category yet, so Diablo would open one.",
+    "what_they_do_well": [],
+    "distributes": "Healthy biobodega: groceries, dairy, fresh, frozen, personal care, home.",
+    "channels_supplied": "4 Lima points (Barranco, San Isidro, Surco and another) plus online.",
+    "sf_brands_carried": "Third party healthy brands such as Pacific, Gutani and La Purita; no sugar free sweets seen.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "biopartner.ch": {
     "name": "Bio Partner Schweiz AG",
     "based_out_of": "Seon, Switzerland",
@@ -566,6 +600,40 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "boticasperu.pe": {
+    "name": "Boticas Peru",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Second-tier pharmacy chain outside InRetail, with about 7 percent of chain locations. A route for diabetic-friendly confectionery away from the dominant group.",
+    "what_they_do_well": [
+      "Runs more than 200 stores with over 1,000 staff, per Kom.pe."
+    ],
+    "distributes": "Pharmacy chain: medicines, OTC, personal care.",
+    "channels_supplied": "More than 200 pharmacies nationwide.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "boticasysalud.com": {
+    "name": "Boticas y Salud",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Independent pharmacy chain holding about 3 percent of chain locations. Suits a diabetic and better-for-you sweets test.",
+    "what_they_do_well": [],
+    "distributes": "Pharmacy chain: medicines, OTC, personal care.",
+    "channels_supplied": "Pharmacy chain; with Boticas Peru about 500 locations combined.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "boynevalley.com": {
     "name": "Boyne Valley Group",
     "based_out_of": "Drogheda, Ireland",
@@ -644,6 +712,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "campograndeperu.com": {
+    "name": "Campo Grande Perú",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Ate based importer and wholesaler with a stevia category and confectionery range, a small but low risk route for trial volumes.",
+    "what_they_do_well": [],
+    "distributes": "Online wholesale food market: confectionery (gummies, marshmallows), sweeteners including stevia, groceries; imported and national.",
+    "channels_supplied": "Businesses and consumers in Lima and provinces with delivery.",
+    "sf_brands_carried": "Stevia sweeteners; no sugar free confectionery listed.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "careplus.ie": {
     "name": "CarePlus Pharmacy",
@@ -852,6 +937,22 @@
     "sf_brands_carried": "Wide better for you range; no sugar free confectionery brand identified on its about page.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "cobefar.com.pe": {
+    "name": "Cobefar",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Pharmaceutical wholesaler to Lima pharmacies; a possible route for diabetic positioning but no food experience found.",
+    "what_they_do_well": [],
+    "distributes": "Pharmaceutical wholesale.",
+    "channels_supplied": "Pharmacies.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "conatycatering.com": {
     "name": "Conaty Catering",
@@ -1129,6 +1230,43 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "deasy-store.com": {
+    "name": "Easy Store Perú E.I.R.L.",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A general wholesaler in north Lima with a small food range; fit is weak and opportunistic.",
+    "what_they_do_well": [],
+    "distributes": "General wholesale: food and beverages, household, personal care and clothing.",
+    "channels_supplied": "Small retailers and consumers; stores in Ancón and shipping across Peru.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "delitalia.pe": {
+    "name": "Delitalia Peru SAC",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "A European food importer with a wholesale arm and gourmet positioning that fits premium sugar free chocolate. Its focus is Italian, so Diablo would be a stretch beyond its core.",
+    "what_they_do_well": [
+      "Listed by the Italian Chamber of Commerce in Peru as an importer selling wholesale and retail."
+    ],
+    "distributes": "Imported Italian gourmet food: pasta, sauces, cheeses, cured meats, coffee, confectionery and snacks; wines.",
+    "channels_supplied": "Wholesale and retail; HORECA and gourmet shoppers.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "delsud.com.ar": {
     "name": "Droguería del Sud S.A.",
     "based_out_of": "Juárez Celman, Argentina (Córdoba distribution centre; head office not verified)",
@@ -1147,6 +1285,41 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "deprodeca.com.pe": {
+    "name": "Distribuidora Exclusiva de Productos de Calidad S.A.C. (Deprodeca)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Grupo Gloria's distribution arm with national reach and a large sales force. Its focus is the group's own brands, so third party confectionery may be a hard sell; worth an approach as a scale option.",
+    "what_they_do_well": [],
+    "distributes": "Dairy, sugar, spreads, tea and coffee and other Grupo Gloria and third party consumer goods.",
+    "channels_supplied": "Wholesalers, modern retail, restaurants, institutions and traveller routes, with warehouses in several Peruvian cities.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "dimexa.com.pe": {
+    "name": "Dimexa S.A.",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Second largest pharmaceutical distributor to Peru's traditional pharmacy channel, which is where diabetic friendly chocolate and sweets find shoppers. It is pushing into personal care, so an added health snack line is plausible but not proven.",
+    "what_they_do_well": [
+      "Over 35 years trading; acquired a 16,000 m2 Lima warehouse and serves around 11,000 clients."
+    ],
+    "distributes": "Pharmaceuticals, medical devices, personal care and health products; mass consumption unit in southern Peru.",
+    "channels_supplied": "About 11,000 clients, mainly independent boticas and small pharmacy chains.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "discountsupplements.ie": {
     "name": "Discount Supplements",
@@ -1261,6 +1434,24 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "dle.pe": {
+    "name": "Distribuidora Lima Este (DLE)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "A confectionery heavy Lima distributor carrying lines such as Gretel, Frac, Grissly and Vizzio, so Diablo sweets and biscuits would sit naturally in its range.",
+    "what_they_do_well": [],
+    "distributes": "Biscuits, caramels, chewing gum, gummies, snacks, wafers, lollipops, marshmallows, groceries, wholegrain products and spirits.",
+    "channels_supplied": "Online B2B ordering with 24 hour delivery; customers not named.",
+    "sf_brands_carried": "Wholegrain (integrales) products; no sugar free brands named.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "dls.ge": {
     "name": "D&L Service",
     "based_out_of": "Tbilisi, Georgia",
@@ -1296,6 +1487,22 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "dollarcity.com": {
+    "name": "Dollarcity Peru",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Large variety discount network with a snacks aisle. Only fits low price-point formats.",
+    "what_they_do_well": [],
+    "distributes": "Variety discount stores including snacks and confectionery.",
+    "channels_supplied": "112 stores in Peru.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "donnybrookfair.ie": {
     "name": "Donnybrook Fair",
     "based_out_of": "Dublin, Ireland",
@@ -1325,6 +1532,22 @@
     "sf_brands_carried": "Torras no-added-sugar chocolate, Plamil no-added-sugar dark chocolate, Good Good no-added-sugar spreads.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "drogueriadicar.com.pe": {
+    "name": "Droguería y Distribuidora Dicar S.A.C.",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "National pharmacy channel distributor with personal care lines; diabetic friendly sweets could fit the counter range but food is not yet carried.",
+    "what_they_do_well": [],
+    "distributes": "Pharmaceuticals, personal care and medical devices.",
+    "channels_supplied": "Pharmacies nationwide.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "dublinandcorkdutyfree.ie": {
     "name": "ARI (Dublin and Cork Duty Free, The Loop)",
@@ -1370,6 +1593,40 @@
     "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "ecoorigen.com": {
+    "name": "Eco Origen (Corporación Andina Latam S.A.C.)",
+    "based_out_of": "Piura, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Wholesales natural products to Lima healthy stores and cafés, but its range is bulk ingredients, so packaged confectionery would be new.",
+    "what_they_do_well": [],
+    "distributes": "Bulk honey, panela, cacao powder, coconut oil, maca, peanut butter and other natural foods.",
+    "channels_supplied": "Healthy stores, minimarkets, cafés, bakeries and HORECA; stock held in Lima and Piura.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "ecotienda.pe": {
+    "name": "Ecotienda",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Dedicated sugar free category and imported brands like Schar and Bob's Red Mill show it buys international better-for-you lines. Diablo would fill a thin sugar free chocolate and biscuit offer.",
+    "what_they_do_well": [],
+    "distributes": "Online health food store: sugar free, gluten free, organic, keto, sweeteners, snacks, supplements.",
+    "channels_supplied": "Own e-shop shipping nationwide; linked to importer Natural Foods Peru, which lists it as official outlet.",
+    "sf_brands_carried": "Sin Azucar category with Koochikoo sugar free candies, Blue Llama keto chocolate, Amazonia xylitol and inulin.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "egli-import.ch": {
     "name": "Egli AG Import & Vertrieb",
@@ -1579,6 +1836,22 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "falabella.com.pe": {
+    "name": "Saga Falabella",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Department store and online platform selling chocolates with gifting peaks. Useful for seasonal gift packs rather than everyday range.",
+    "what_they_do_well": [],
+    "distributes": "Department stores and online marketplace including grocery and chocolate categories.",
+    "channels_supplied": "Saga Falabella stores and falabella.com.pe, which also carries Tottus grocery.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "fallonandbyrne.com": {
     "name": "Fallon & Byrne",
     "based_out_of": "Dublin, Ireland",
@@ -1631,6 +1904,24 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
+  "farmaciauniversal.com": {
+    "name": "Farmacia Universal",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Long-established Lima pharmacy with an upscale shopper and online store. Good fit for premium imported diabetic-friendly chocolates.",
+    "what_they_do_well": [
+      "Trading since 1934, starting as a neighbourhood pharmacy, per Kom.pe."
+    ],
+    "distributes": "Pharmacy chain: medicines, OTC, dermocosmetics, nutrition.",
+    "channels_supplied": "Own pharmacies in Lima and online shop.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "farmacity.com": {
     "name": "Farmacity",
     "based_out_of": "Buenos Aires, Argentina",
@@ -1649,6 +1940,56 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
+  "faroluxurygourmet.com": {
+    "name": "Faro Luxury Gourmet",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Premium gourmet positioning suits Diablo gift chocolate for HORECA, but it is wine led.",
+    "what_they_do_well": [],
+    "distributes": "Imported wines and Italian gourmet products.",
+    "channels_supplied": "HORECA and gourmet consumers.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "ferianativa.com": {
+    "name": "Feria Nativa",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A natural products retailer with a physical store and online reach that already merchandises stevia. Diablo's stevia-sweetened range sits naturally alongside.",
+    "what_they_do_well": [],
+    "distributes": "Natural foods, vitamins, supplements, sweeteners, personal care.",
+    "channels_supplied": "Store in Lince plus nationwide online shop.",
+    "sf_brands_carried": "Stevia sweeteners (Stevia Coronel, Nutrivas); no sugar free sweets seen.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "fitmarketperu.pe": {
+    "name": "FitMarket SAC",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Sells keto and better for you products both wholesale and retail, so its shoppers are already looking for sugar free products. Small scale and it is unclear whether it imports directly.",
+    "what_they_do_well": [],
+    "distributes": "Healthy and fitness foods: protein bars, keto friendly snacks, national and imported brands.",
+    "channels_supplied": "Wholesale and retail via its online store and WhatsApp.",
+    "sf_brands_carried": "Your Goal Twenty's protein bars, BPI Sports Keto Bomb; keto friendly category.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "fitzpatrickwholesale.ie": {
     "name": "Fitzpatrick Wholesale",
     "based_out_of": "Dublin, Ireland",
@@ -1663,6 +2004,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "florayfauna.pe": {
+    "name": "Flora & Fauna",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Lima's leading healthy supermarket with 13 stores, a curated sugar free and diabetic range and imported gluten free and vegan lines. Adds about 30 new products a month, so a natural first listing for Diablo's stevia chocolate and biscuits.",
+    "what_they_do_well": [
+      "Grew from one Miraflores store in 2016 to its 13th store in San Isidro in April 2026.",
+      "Works with more than 400 suppliers, with nutritionists reviewing ingredients."
+    ],
+    "distributes": "Healthy supermarket: organic produce, gluten free, vegan, keto, sugar free and diabetic groceries, snacks, natural personal care.",
+    "channels_supplied": "Own healthy supermarkets in Lima (13 stores incl. San Isidro, Miraflores, Barranco, San Borja) plus online.",
+    "sf_brands_carried": "Sugar free, keto and diabetic ranges confirmed; specific confectionery brands not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "foodservice.ge": {
     "name": "Foodservice Ltd",
@@ -1910,6 +2270,43 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "golosinasari.com": {
+    "name": "AVAC Servicios y Distribución S.A.C. (Golosinas ARI)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "A Rímac confectionery wholesaler carrying Costa, Arcor, Confiteca, Nestlé and Winter's, near Lima's central candy trading area. A good fit for a small trial of imported sugar free sweets.",
+    "what_they_do_well": [
+      "Stocks a broad multi-brand confectionery range including Mondelez, Arcor, Confiteca, Nestlé and Winter's."
+    ],
+    "distributes": "Confectionery, snacks, biscuits, gum, beverages, cereals, dairy, panettone and party supplies.",
+    "channels_supplied": "Wholesale and retail from Rímac with delivery in Lima and shipping to provinces.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "greenmarket.pe": {
+    "name": "Green Low Carb Market",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A pure-play sugar free and keto retailer with chocolate, cookie, spread and syrup categories that mirror Diablo's range. Current offer is mostly small local brands, so an imported range adds depth.",
+    "what_they_do_well": [],
+    "distributes": "Online keto, low carb, gluten free and sugar free store: chocolates, cookies, spreads, syrups, sweeteners.",
+    "channels_supplied": "Own e-commerce and delivery from La Molina, Lima.",
+    "sf_brands_carried": "Keto chocolate almonds and hazelnuts, Keto Bites, Kausana, Vivir Power Snacks, Live Low Carb Bakery.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "grupodinosaurio.com": {
     "name": "Super Mami (Grupo Dinosaurio)",
     "based_out_of": "Córdoba, Argentina",
@@ -1927,6 +2324,40 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "grupojimenez.com.pe": {
+    "name": "Grupo Jimenez SAC",
+    "based_out_of": "Comas, Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A north Lima distributor wholesaler; two directories give different domains (grupojimenez.com.pe and grupojimenez.info), so verify.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery and snacks, baby food, seafood, frozen food, juices and coffee.",
+    "channels_supplied": "Distributor and wholesaler.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "grupojimenez.info": {
+    "name": "Grupo Jiménez (Dacia Trading S.A.C.)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A Lima network of distributors with its own confectionery brand and field sales teams calling on bodegas. A good test route for Diablo sweets in the traditional channel.",
+    "what_they_do_well": [
+      "Operates a network of distributors across Lima with field sales reps and its own Doña Gumi brand."
+    ],
+    "distributes": "Confectionery and snacks, groceries, baby food, beverages and home care; own brand Doña Gumi plus Alicorp, Molitalia, Clorox, Kimberly Clark and Colgate.",
+    "channels_supplied": "Bodegas and traditional trade in Lima via field sales from Comas, San Juan de Lurigancho and Pachacamac.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "gurmaniltd.ge": {
     "name": "Gurmani",
@@ -2182,6 +2613,25 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "ico.pe": {
+    "name": "ICO Food Service",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A HORECA wholesaler supplying Lima cafés and hotels, where single serve sugar free biscuits and chocolates suit coffee service. Confectionery is not yet a visible category.",
+    "what_they_do_well": [
+      "Over 20 years in the Peruvian market, carrying about 85 brands such as Puratos, McCain and Gloria."
+    ],
+    "distributes": "Groceries, beverages, meat and poultry, charcuterie, frozen fruit and vegetables, dairy and eggs; about 85 brands.",
+    "channels_supplied": "Restaurants, hotels, cafés and production centres; also home delivery.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "iihealthfoods.com": {
     "name": "Independent Irish Health Foods",
     "based_out_of": "Ballyvourney, Ireland",
@@ -2229,6 +2679,44 @@
     "sf_brands_carried": "Sula sugar-free sweets.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "inkafarma.pe": {
+    "name": "Inkafarma (InRetail Pharma)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "With Mifarma, Peru's dominant pharmacy group at about 2,495 stores and present in every department. Diabetic shoppers make sugar free confectionery a fit at the till, but category buying for snacks is unconfirmed.",
+    "what_they_do_well": [
+      "Present in every department of Peru with more than 11,000 staff, per Kom.pe."
+    ],
+    "distributes": "Pharmacy chain: medicines, OTC, personal care, nutrition, sweeteners and diabetic care.",
+    "channels_supplied": "Nationwide pharmacy network; with Mifarma about 2,495 stores, InRetail group.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "itn.com.pe": {
+    "name": "ITN SA (I.T.N. S.A.)",
+    "based_out_of": "Chorrillos, Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Already imports Spanish and Swiss better for you biscuits and candy from Europe, so the import and listing model is proven. Gullon's sugar free biscuits overlap Diablo biscuits, but chocolate and spreads are open. Domain taken from a directory, not verified.",
+    "what_they_do_well": [
+      "Imports Gullon biscuits from Spain and Ricola candy, alongside Kraft and Mars products."
+    ],
+    "distributes": "Imported biscuits, confectionery, dairy, juices, organic and health food and pet food.",
+    "channels_supplied": "Importer, distributor and online store; named retail accounts not verified.",
+    "sf_brands_carried": "Imports Gullon sweet biscuits declared with added sweetener (likely its sugar free line) and Ricola candies.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "the website address no longer exists"
   },
   "jjfoodservice.com": {
     "name": "JJ Foodservice",
@@ -2349,6 +2837,24 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "kmcint.com": {
+    "name": "KMC International SAC",
+    "based_out_of": "El Agustino, Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Imports and wholesales branded snacks and desserts (Snack Pack, Swiss Miss) so it knows the import routine for sweet treats. A European sugar free range would diversify its US heavy portfolio.",
+    "what_they_do_well": [
+      "Imports Hunt's, Snack Pack, Van Camp's and Swiss Miss."
+    ],
+    "distributes": "Imported US grocery brands: confectionery and snacks, baby food, dairy, pasta, household and personal care.",
+    "channels_supplied": "Importer, wholesaler and online store (tienda.kmcint.com).",
+    "sf_brands_carried": "Healthy options category mentioned; no sugar free brand named.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "laanonima.com.ar": {
     "name": "La Anónima",
     "based_out_of": "Buenos Aires, Argentina",
@@ -2366,6 +2872,41 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "labnutrition.com": {
+    "name": "Lab Nutrition SAC",
+    "based_out_of": "Miraflores, Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Health conscious customer base, but its focus is supplements rather than confectionery.",
+    "what_they_do_well": [],
+    "distributes": "Sports nutrition, protein and health food.",
+    "channels_supplied": "Own stores, online and wholesale.",
+    "sf_brands_carried": "Own protein ranges (Mass Tech Elite, Premium 100% Whey).",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "labocer.com.pe": {
+    "name": "Labocer SA",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Peru's largest importer of sugar confectionery by value (about 19% of HS 170490 imports), so it already runs import licences and a national confectionery route. No sugar free line was found, which makes Diablo an additive range rather than a clash.",
+    "what_they_do_well": [
+      "Ranked first importer of sugar confectionery into Peru, about US$13.6m FOB (19% share).",
+      "Distributes confectionery nationwide to wholesalers, retailers and supermarkets."
+    ],
+    "distributes": "Imported and local confectionery: sweets, chocolates, biscuits, caramels and chewing gum.",
+    "channels_supplied": "Wholesalers, retailers and supermarkets across Lima and the provinces with its own sales team; its brands are resold by Lima candy wholesalers such as Golosinas ARI.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "lacasadelkioskero.com.ar": {
     "name": "La Casa del Kioskero",
@@ -2386,6 +2927,24 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "lagardere-tr.com": {
+    "name": "Lagardere Travel Retail Peru (Aelia Duty Free)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Runs the only duty free at Lima's main airport, where chocolate is a named core category and European brands are standard. A gifting-format sugar free chocolate assortment is a credible niche listing. Local domain not verified; group site used.",
+    "what_they_do_well": [
+      "Operates about 4,000 square metres of duty free plus 13 food and beverage outlets at Jorge Chavez airport."
+    ],
+    "distributes": "Airport duty free and duty paid: fragrance, liquor, chocolate and confectionery, food and beverage outlets.",
+    "channels_supplied": "Aelia Duty Free and duty paid shops at Jorge Chavez International Airport, Lima (about 4,000 square metres).",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "lagranjadelcentro.com.ar": {
     "name": "La Granja del Centro",
@@ -2437,6 +2996,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "limaorganica.pe": {
+    "name": "Lima Organica",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Online-only health grocer already listing keto and low carb sweet items. Low entry cost for Diablo to test e-commerce demand in Lima.",
+    "what_they_do_well": [],
+    "distributes": "Online organic and natural grocery: produce, grains, keto bakery, natural supplements.",
+    "channels_supplied": "Own e-commerce with Lima delivery.",
+    "sf_brands_carried": "Keto and low carb bakery such as Arilu keto chocolate cake.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "the website address no longer exists"
   },
   "littleitalyltd.com": {
     "name": "Little Italy",
@@ -2536,6 +3112,22 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "marketcapon.com.pe": {
+    "name": "Market Capon (America Capon)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Importer-retailer with three Lima stores and a sweets category, but focused on Chinese products. Niche fit.",
+    "what_they_do_well": [],
+    "distributes": "Asian grocery: imported oriental foods, sweets and snacks.",
+    "channels_supplied": "3 stores in Lima (Cercado, San Borja, Miraflores) plus online and wholesale.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "masonline.com.ar": {
     "name": "ChangoMás (Grupo GDN)",
     "based_out_of": "Buenos Aires, Argentina",
@@ -2587,6 +3179,22 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "maxiahorro.com.pe": {
+    "name": "Maxi Ahorro (SMU)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Small discount chain owned by Chilean SMU with 7 Lima stores. Low priority given price focus.",
+    "what_they_do_well": [],
+    "distributes": "Discount supermarkets: groceries, confectionery.",
+    "channels_supplied": "24 stores in Peru, 7 in Lima.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "maxol.ie": {
     "name": "Maxol",
     "based_out_of": "Dublin, Ireland",
@@ -2620,6 +3228,24 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "mayorsa.com.pe": {
+    "name": "Mayorsa S.A.",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "SMU owned cash and carry chain with six stores serving small traders. Directory data on its head office conflicts (one listing shows Tingo María) so confirm its Lima store footprint before outreach.",
+    "what_they_do_well": [
+      "Part of Chilean retailer SMU, which runs 31 stores in Peru including six Mayorsa cash and carry outlets."
+    ],
+    "distributes": "Cash and carry groceries, confectionery, snacks, dairy and beverages; organic and health food listed in directory.",
+    "channels_supplied": "Trade and institutional buyers through six Mayorsa stores; sister soft discount chain MaxiAhorro.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "mccabespharmacy.com": {
     "name": "McCabes Pharmacy",
@@ -2671,6 +3297,59 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "metro.pe": {
+    "name": "Cencosud Retail Peru (Wong and Metro)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Metro already has a dedicated sugar free chocolate bay, proving shopper demand, but it carries Valor sugar free, a direct Spanish competitor. Wong's premium Lima shopper and strong imported range suit Diablo as a broader 11-category alternative.",
+    "what_they_do_well": [
+      "Recognised by Peruvian suppliers as the best retailer to work with, according to Peru Retail."
+    ],
+    "distributes": "Full-line supermarkets and hypermarkets: grocery, confectionery, imported foods, online grocery via Wong and Metro apps.",
+    "channels_supplied": "Wong (20 stores, mainly Lima) and Metro (70 stores) supermarkets plus Wong and Metro apps.",
+    "sf_brands_carried": "Metro.pe runs a diet and sugar free chocolate bay with Valor, Orquidea, Slender and La Iberica.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "mifarma.com.pe": {
+    "name": "Mifarma",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Second InRetail pharmacy banner, same buying group as Inkafarma, with premium Lima formats that host GNC corners. Good for a diabetic-friendly confectionery test.",
+    "what_they_do_well": [
+      "Started in November 2005 with Quimica Suiza, per Kom.pe."
+    ],
+    "distributes": "Pharmacy chain: medicines, OTC, personal care, nutrition.",
+    "channels_supplied": "Mifarma pharmacies (also Boticas FASA formats with GNC corners), InRetail group.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "mistrosanti.com": {
+    "name": "Mistrosanti SAC",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Gourmet importer listed by the Italian Chamber; possible for premium gift packs only.",
+    "what_they_do_well": [],
+    "distributes": "Imported wines, liquors and gourmet products.",
+    "channels_supplied": "",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "morrisons.com": {
     "name": "Morrisons",
@@ -2927,6 +3606,22 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "nutripoint.com.pe": {
+    "name": "NutriPoint",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A healthy snacks distributor retailer whose shoppers look for low sugar treats. Diablo chocolate and biscuits would extend its bar led range; wholesale reach is unclear.",
+    "what_they_do_well": [],
+    "distributes": "Sports nutrition, vitamins, protein bars and healthy snacks.",
+    "channels_supplied": "Own stores and online store; distributor and retailer.",
+    "sf_brands_carried": "Protein bars and healthy snacks (brands not verified).",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "nutsinbulk.ie": {
     "name": "Nuts in Bulk (Outlet Wholefood Company)",
     "based_out_of": "Navan, Ireland",
@@ -2994,6 +3689,24 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "organa.com.pe": {
+    "name": "Organa",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "With 18 Lima stores across both premium and mid-market districts, Organa is the widest healthy store network in the city and already merchandises sugar free and keto snacks. Diablo's chocolate, biscuits and spreads fit its imported certified range.",
+    "what_they_do_well": [
+      "Named by Arellano research as leading Peruvian healthy store on attendance, frequency and preference indicators."
+    ],
+    "distributes": "Organic and healthy groceries, superfoods, keto snacks and breads, vitamins and supplements, personal care.",
+    "channels_supplied": "18 own stores in Lima (13 organic stores and 5 vitamin stores) plus online shop.",
+    "sf_brands_carried": "Sells sugar free and keto products, national and imported; specific confectionery brands not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "organicsupermarket.ie": {
     "name": "The Organic Supermarket",
     "based_out_of": "Dublin, Ireland",
@@ -3049,6 +3762,24 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "oxxo.pe": {
+    "name": "Oxxo Peru (FEMSA)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "FEMSA-run convenience chain of 200 plus stores, used to multinational supplier processes. Fits impulse formats like chocolate bars and sweets.",
+    "what_they_do_well": [
+      "Opened 56 stores in 2024 alone and approached 200 stores by its sixth anniversary."
+    ],
+    "distributes": "Convenience stores: snacks, confectionery, drinks, ready meals.",
+    "channels_supplied": "About 200 or more convenience stores in Peru, mainly Lima.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "pedidosya.com.ar": {
     "name": "PedidosYa Market",
     "based_out_of": "Montevideo, Uruguay",
@@ -3067,6 +3798,59 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "pedidosya.com.pe": {
+    "name": "PedidosYa Market",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Digital supermarket with own dark stores and about 1,000 SKUs, focused on fresh. Possible for a small snacks listing.",
+    "what_they_do_well": [],
+    "distributes": "Quick commerce dark stores: groceries, fresh, snacks.",
+    "channels_supplied": "12 dark stores in Lima, Trujillo and Arequipa.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "perufarma.com.pe": {
+    "name": "Perufarma S.A.",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "A national multi-category distributor that already imports chocolate and sells into both pharmacies and bodegas, the two channels where diabetic friendly sweets sell best. Its health and nutrition portfolio gives Diablo a natural better-for-you home without a direct sugar free competitor.",
+    "what_they_do_well": [
+      "Covers both traditional channels (boticas, bodegas, mayoristas) and modern channels (pharmacy chains, service stations, self-service) nationwide.",
+      "Ranks among Peru's top eight chocolate importers by FOB value under HS 180690."
+    ],
+    "distributes": "Snacks including chocolates, caramels and gummies, nutrition (Ensure, Pediasure), wines and spirits, personal care, health, baby and pet products.",
+    "channels_supplied": "Boticas, farmacias, bodegas, mayoristas, co-distributors, restaurants, hotels, licorerías, service stations and self-service stores; own online store.",
+    "sf_brands_carried": "Adult and infant nutrition lines (Ensure, Sustagen, Pediasure); no sugar free confectionery brand identified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "petroperu.com.pe": {
+    "name": "VAO (Petroperu)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "State oil company convenience banner growing to about 45 stores. State procurement may slow onboarding.",
+    "what_they_do_well": [],
+    "distributes": "Forecourt convenience stores: snacks, confectionery, drinks.",
+    "channels_supplied": "About 45 VAO stores at Petroperu stations.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "ph.ge": {
     "name": "Pharmhouse",
@@ -3140,6 +3924,24 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "plazavea.com.pe": {
+    "name": "Supermercados Peruanos (plazaVea and Vivanda)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Peru's largest supermarket operator with about 112 plazaVea and Vivanda stores; Vivanda targets upper-income Lima shoppers with imported goods. Sugar free shelf appears thin and mostly local, leaving room for Diablo's range.",
+    "what_they_do_well": [
+      "Largest supermarket chain in Peru per Lima Easy; operates 111 plazaVea and Vivanda stores per InRetail data."
+    ],
+    "distributes": "Supermarkets and premium supermarkets: grocery, confectionery, imported goods; online via plazaVea and Agora apps.",
+    "channels_supplied": "plazaVea (about 104 stores) and Vivanda (8 premium stores), plus Agora app, InRetail group.",
+    "sf_brands_carried": "plazaVea online lists La Iberica Fondy sin azucar; no European sugar free chocolate brand confirmed.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "polonez.ie": {
     "name": "Polonez",
     "based_out_of": "Dublin, Ireland",
@@ -3187,6 +3989,23 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "productosdelimpiezalima.com": {
+    "name": "Prolider Empresarial S.A.C.",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Supplies office pantries in Lima, a channel for single serve sugar free snacks for workplace wellbeing.",
+    "what_they_do_well": [],
+    "distributes": "Cleaning products, office cafeteria supplies, confectionery, biscuits and snacks.",
+    "channels_supplied": "Companies and institutions.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "pwfinefoods.co.uk": {
     "name": "PW Fine Foods (Samways)",
     "based_out_of": "Andover, United Kingdom",
@@ -3202,6 +4021,39 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "quimicasuiza.com": {
+    "name": "Química Suiza S.A.C.",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Pharmaceutical distributor within the Intercorp group, which owns Peru's largest pharmacy chains. Its consumer unit was sold in 2025 (see QS Consumo), so fit for snacks is now indirect.",
+    "what_they_do_well": [],
+    "distributes": "Pharmaceutical products for pharmacies and institutions.",
+    "channels_supplied": "Pharmacies and boticas; part of Intercorp alongside Inkafarma and Mifarma.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "rappi.com.pe": {
+    "name": "Rappi Turbo",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Owns inventory in Lima dark stores, so it buys like a retailer. Useful for a premium urban test, though Rappi's marketplace side is out of scope.",
+    "what_they_do_well": [],
+    "distributes": "Quick commerce dark stores: groceries, snacks, confectionery.",
+    "channels_supplied": "About 20 Rappi Turbo dark stores in Lima plus La Cesta digital supermarket.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "rca.ch": {
     "name": "R.C. Andreae AG",
@@ -3307,6 +4159,22 @@
     "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "ripley.com.pe": {
+    "name": "Ripley Peru",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Online catalogue already lists stevia and diabetic items, suggesting a small health food shelf. Low priority versus grocers.",
+    "what_they_do_well": [],
+    "distributes": "Department stores and online marketplace including food, sweeteners and diabetic products.",
+    "channels_supplied": "Ripley stores and simple.ripley.com.pe online.",
+    "sf_brands_carried": "Online listings include Onza Foods stevia with yacon and diabetic supplements.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "riverford.co.uk": {
     "name": "Riverford Organic Farmers",
@@ -3540,6 +4408,22 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "soanpro.com.pe": {
+    "name": "Sociedad Anonima de Proveedores SAC (Soanpro)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Imports gourmet products including confectionery; channel reach unclear.",
+    "what_they_do_well": [],
+    "distributes": "Gourmet and grocery imports including confectionery and snacks, spreads, oils and meats.",
+    "channels_supplied": "Importer and retailer.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "socar.ge": {
     "name": "SOCAR Georgia Petroleum (WayMart)",
@@ -3822,6 +4706,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "tambo.pe": {
+    "name": "Tambo (Lindcorp)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Peru's largest convenience chain with more than 780 stores, so a single listing of Diablo chocolate bars or sweets reaches impulse shoppers at scale. Space is tight and price sensitive. Domain not opened in this run.",
+    "what_they_do_well": [
+      "Opened about 100 Lima stores in 2025 alone, per Peru Retail."
+    ],
+    "distributes": "Convenience stores: snacks, confectionery, drinks, ready meals.",
+    "channels_supplied": "More than 780 convenience stores, heavily concentrated in Lima.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "tastemerchants.co.uk": {
     "name": "Taste Merchants",
     "based_out_of": "Newtown, United Kingdom",
@@ -3963,6 +4865,25 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "toppartner.pe": {
+    "name": "Top Partner SAC",
+    "based_out_of": "San Juan de Miraflores, Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Covers Lima's most affluent districts, where sugar free premium chocolate sells best, as an authorised chocolate distributor. Import capability is unconfirmed.",
+    "what_they_do_well": [
+      "Authorised Compania Nacional de Chocolates distributor for Miraflores, San Isidro, Surco and La Molina."
+    ],
+    "distributes": "Confectionery and snacks, baby food, spreads, juices, coffee and tea.",
+    "channels_supplied": "Retail and traditional trade in Miraflores, San Isidro, San Borja, Surco, La Molina, San Miguel and Callao.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "totalhealth.ie": {
     "name": "totalhealth Pharmacy",
     "based_out_of": "Dublin, Ireland",
@@ -3977,6 +4898,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "tottus.com.pe": {
+    "name": "Hipermercados Tottus",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Falabella group hypermarket chain with 58 stores and a large app (over 1.5 million monthly visits). Strong Lima reach and an online grocery channel make it a priority if Diablo can offer a better-for-you confectionery block. Domain not opened in this run.",
+    "what_they_do_well": [
+      "Tottus app draws more than 1.5 million monthly visits per El Comercio."
+    ],
+    "distributes": "Hypermarkets and supermarkets: grocery, confectionery, private label; online via Tottus app and falabella.com.pe.",
+    "channels_supplied": "58 Tottus stores in Peru, Tottus app (formerly Fazil) and falabella.com.pe grocery.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "trago.co.uk": {
     "name": "Trago Mills",
@@ -4065,6 +5004,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "vega.pe": {
+    "name": "Grupo Vega",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Lima-rooted group with 66 stores serving both consumers and bodegas, so one listing reaches shoppers and small shops. Value positioning means price-led SKUs only.",
+    "what_they_do_well": [
+      "Built from one sack of sugar sold in Lima Norte into 66 stores, per Gestion."
+    ],
+    "distributes": "Wholesale, cash and carry, neighbourhood markets and supermarket: groceries, confectionery, fresh, liquor.",
+    "channels_supplied": "66 stores (47 Vega Market, 16 cash and carry, 3 wholesale) mainly in Lima, plus first supermarket.",
+    "sf_brands_carried": "Not verified in this run.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "vendordistribuciones.com.ar": {
     "name": "Vendor Distribuciones",
     "based_out_of": "Córdoba, Argentina",
@@ -4083,6 +5040,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "verdenaturalmarket.pe": {
+    "name": "Verde Natural Market",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Four Lima stores with more than 2,000 natural products and an explicit sugar free range, but no sugar free chocolate brand. Diablo would fill that gap directly.",
+    "what_they_do_well": [],
+    "distributes": "Natural and organic market: superfoods, vegan, gluten free and sugar free foods, snacks, panettones, supplements.",
+    "channels_supplied": "4 own stores in Lima (Surco, Miraflores, Magdalena, San Borja) plus online shop.",
+    "sf_brands_carried": "Sugar free panettones, Zero Carbo, Sanissimo no added sugar snacks; no sugar free chocolate brand seen.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "vg.ge": {
@@ -4229,6 +5203,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "wibgus.com": {
+    "name": "Natural Foods Peru (Wibgus SAC)",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "The closest specialist fit in Lima: an importer wholesaler already selling sugar free and better for you lines into the three main supermarket chains. Koochikoo overlaps only in sugar free candy, leaving chocolate, biscuits and spreads open for Diablo.",
+    "what_they_do_well": [
+      "Trading since 2007, with products placed in Wong, Tottus, Plaza Vea, Flora & Fauna and Organa.",
+      "Imports Schar, Bob's Red Mill and Nature's Path and sells a dedicated sugar free range."
+    ],
+    "distributes": "Imported gluten free, organic and special diet foods: snacks, sweets, cereals, flours, pastas, sweeteners, plant drinks and supplements, sourced from the USA and Italy.",
+    "channels_supplied": "Wong, Tottus, Plaza Vea, Flora & Fauna, Organa and the Ecotienda online store (which shares its San Isidro address).",
+    "sf_brands_carried": "Koochikoo sugar free candies, Amazonia erythritol and monk fruit sweeteners, Schar, Bob's Red Mill, Nature's Path; runs a dedicated sugar free category.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
   "wwfoods.ie": {
     "name": "World Wide Foods",
     "based_out_of": "Dublin, Ireland",
@@ -4280,6 +5274,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "yichang.com.pe": {
+    "name": "G.W. Yichang & Cía S.A.",
+    "based_out_of": "Lima, Peru",
+    "market": "Lima, Peru",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Peru's largest chocolate importer by value under HS 180690 and a top five sugar confectionery importer, with more than 150 brands including Bauducco and Hershey's. Its convenience and bodega reach across Lima is exactly the shelf space a sugar free snack range needs.",
+    "what_they_do_well": [
+      "Family company trading for about 95 years, representing over 150 brands with eight distribution centres including a 20,000 m2 site in Lurín.",
+      "Supplies around 2,000 Mass, Oxxo and Tambo convenience outlets beyond its bodega base."
+    ],
+    "distributes": "Imported and local packaged food, confectionery, chocolate, biscuits, tea, canned tuna, wine and pet food, plus some hardware and electronics.",
+    "channels_supplied": "Bodegas and traditional trade plus about 2,000 Mass, Oxxo and Tambo outlets; supermarkets.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
   "youings.com": {
     "name": "Youings Wholesale",
