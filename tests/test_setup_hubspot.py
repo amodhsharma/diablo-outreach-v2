@@ -163,3 +163,26 @@ def test_live_never_gets_other_choices_or_fields():
     assert summary["conflict"] == 2  # reported, not added
     assert "Missing Info" not in labels(hs, "companies") and "lead_source" not in hs.props["contacts"]
     assert labels(hs, "companies")[-1] == "GATE1: Approved for outreach"
+
+
+def test_every_run_shows_the_key_steps_and_a_plain_reason(tmp_path, monkeypatch):
+    summary = tmp_path / "summary.md"
+    monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary))
+    monkeypatch.delenv("HUBSPOT_TOKEN", raising=False)
+    assert setup_hubspot.main([]) == 1  # a real run with no key fails
+    text = summary.read_text()
+    assert "Button 1 result: FAILED" in text and "`HUBSPOT_TOKEN_TEST` is empty" in text
+    assert "Development > Testing > Test accounts" in text and "Development > Legacy apps" in text
+    assert all(scope in text for scope in setup_hubspot.SCOPES) and len(setup_hubspot.SCOPES) == 9
+    summary.write_text("")
+    assert setup_hubspot.main(["--dry-run"]) == 0  # a dry run with no key says it checked nothing
+    assert "NOT CHECKED (no key)" in summary.read_text()
+
+
+def test_errors_are_explained_in_plain_words():
+    assert "did not accept the key" in setup_hubspot.explain(HubSpotError("GET /x failed with 401: bad"))[0]
+    assert "did not accept the key" in setup_hubspot.explain(
+        HubSpotError("Could not work out which HubSpot account this key belongs to."))[0]
+    assert "missing one of the 9 scopes" in setup_hubspot.explain(HubSpotError("PATCH /x failed with 403: no"))[0]
+    assert "HUBSPOT_TOKEN_LIVE" in setup_hubspot.explain(
+        HubSpotError("HUBSPOT_TOKEN is not set."), "HUBSPOT_TOKEN_LIVE")[0]

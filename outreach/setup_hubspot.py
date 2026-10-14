@@ -22,7 +22,7 @@ import argparse
 import json
 import sys
 
-from .common import PRODUCTION_PORTAL_ID  # the live account; refused without --allow-production
+from .common import PRODUCTION_PORTAL_ID, step_summary  # the live account; refused without --allow-production
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import GROUP_LABEL, GROUP_NAME, LEAD_STATUS, MIRRORED_PROPERTIES, NEW_PROPERTIES, PROPERTIES
 from .stages import NEW_OPTION_VALUES, STAGES
@@ -160,24 +160,117 @@ def run(hs, dry_run=False, allow_production=False, log=print):
     return plan.summary
 
 
+# The private app's scopes (the same 9 for the test and the live account).
+SCOPES = [
+    "crm.objects.companies.read", "crm.objects.companies.write",
+    "crm.objects.contacts.read", "crm.objects.contacts.write",
+    "crm.schemas.companies.read", "crm.schemas.companies.write",
+    "crm.schemas.contacts.read", "crm.schemas.contacts.write",
+    "crm.objects.owners.read",
+]
+
+
+def key_guide(secret="HUBSPOT_TOKEN_TEST"):
+    """How to get the right HubSpot key, shown on every button 1 run (agreed 14 Oct 2026)."""
+    scopes = "\n".join(f"   - `{s}`" for s in SCOPES)
+    return f"""### How to get the HubSpot key (the test account's key, never the developer account's)
+
+1. Log in to HubSpot. In your main (developer) account go to **Development > Testing > Test accounts**.
+   Create a new test account only if you need one.
+2. Click the test account to open it. Check the account name at the top left is the test account.
+3. Inside the test account go to **Development > Legacy apps > Create legacy app** and choose **Private**.
+   Give it a name, for example "Outreach pipeline".
+4. On the **Scopes** tab tick exactly these 9:
+{scopes}
+5. Click **Create app**, open the **Auth** tab, click **Show token** and **Copy**.
+6. In GitHub: **Settings > Secrets and variables > Actions**, open **{secret}**, click **Update**,
+   paste the key and save.
+7. Run button 1 again with **Dry run** ticked; when it is green, run it once more unticked.
+
+For the live account (only when testing is finished): steps 3 to 7 in the live Diablo account
+itself, saved as `HUBSPOT_TOKEN_LIVE`."""
+
+
+def explain(err, secret="HUBSPOT_TOKEN_TEST"):
+    """A plain reason and what to do, for a failed button 1 run."""
+    text = str(err)
+    if "HUBSPOT_TOKEN is not set" in text:
+        return (f"The GitHub secret `{secret}` is empty, so there is no key to use.",
+                "Follow the steps below to get the key and save it in GitHub.")
+    if " 401" in text or "Could not work out which HubSpot account" in text:
+        return ("HubSpot did not accept the key. It is wrong, it was copied only in part, or it belongs "
+                "to an account that has been deleted.",
+                f"Get a fresh key with the steps below and replace `{secret}` in GitHub.")
+    if " 403" in text:
+        return ("The key works, but the app is missing one of the 9 scopes.",
+                "In the test account open the legacy app, tick every scope in step 4 below, save, "
+                f"then copy the key again into `{secret}` (it may change).")
+    if "LIVE Diablo Sugar Free account" in text:
+        return ("The key belongs to the LIVE Diablo account, but you chose the test account.",
+                f"Put the test account's key in `{secret}` (steps below). Choose \"live\" only when "
+                "you mean the live account.")
+    return (f"HubSpot replied: {text[:300]}", "If the steps below do not fix it, send this message to Claude.")
+
+
+def write_result(status, reason=None, fix=None, lines=(), secret="HUBSPOT_TOKEN_TEST"):
+    """The box at the top of the run's page: the result, why, what to do, and the key steps."""
+    parts = [f"## Button 1 result: {status}"]
+    if reason:
+        parts.append(f"**Why:** {reason}")
+    if fix:
+        parts.append(f"**What to do:** {fix}")
+    if lines:
+        parts.append("**What it found:**\n\n" + "\n".join(f"- {line}" for line in lines))
+    parts.append(key_guide(secret))
+    step_summary("\n\n".join(parts))
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--dry-run", action="store_true", help="list what would be added, change nothing")
     parser.add_argument("--allow-production", action="store_true",
                         help="allow running against the live Diablo HubSpot account")
     args = parser.parse_args(argv)
+    secret = "HUBSPOT_TOKEN_LIVE" if args.allow_production else "HUBSPOT_TOKEN_TEST"
+    lines = []
+
+    def log(text):
+        print(text)
+        lines.append(text)
+
     try:
+        no_key = False
         try:
             hs = HubSpot()
         except HubSpotError:
             if not args.dry_run:
                 raise
-            hs = None
-        summary = run(hs, dry_run=args.dry_run, allow_production=args.allow_production)
+            hs, no_key = None, True
+        summary = run(hs, dry_run=args.dry_run, allow_production=args.allow_production, log=log)
     except HubSpotError as err:
+        reason, fix = explain(err, secret)
+        print(f"::error::{reason} {fix}")
         print(f"ERROR: {err}", file=sys.stderr)
+        write_result("FAILED", reason, fix, lines, secret)
         return 1
-    return 1 if summary.get("conflict") else 0
+    warnings = [line for line in lines if line.startswith("[warn]")]
+    if warnings:
+        reason = "HubSpot would not take some changes; each one is listed below with what to do."
+        print(f"::error::{reason}")
+        write_result("FAILED", reason, "Do what each [warn] line says, then run button 1 again.", lines, secret)
+        return 1
+    if no_key:
+        reason = (f"There is no key in `{secret}`, so this dry run only listed the plan from the code. "
+                  "It did not check your HubSpot account.")
+        print(f"::warning::{reason}")
+        write_result("NOT CHECKED (no key)", reason, "Save the key with the steps below, then run the dry "
+                     "run again.", lines, secret)
+        return 0
+    status = "worked (dry run: nothing was changed)" if args.dry_run else "worked"
+    fix = ("Run button 1 again with Dry run unticked." if args.dry_run and summary.get("created", 0)
+           + summary.get("updated", 0) else "Nothing more to do for this account.")
+    write_result(status, None, fix, lines, secret)
+    return 0
 
 
 if __name__ == "__main__":

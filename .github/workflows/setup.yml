@@ -8,6 +8,10 @@ name: '1 - Setup HubSpot (once per account)'
 #       choices the pipeline needs. In a test account it also creates Lead Source and Industry
 #       Type to match live. In live it adds only the two fields and the three agreed choices.
 # After: reads every company already in that account, so research never adds one again.
+#
+# Every run, green or red, shows a box at the top of its page: the result, the reason in plain
+# words, what to do, and the steps to get the right HubSpot key (the test account's key, never the
+# developer account's) with its 9 scopes (added 14 Oct 2026).
 on:
   workflow_dispatch:
     inputs:

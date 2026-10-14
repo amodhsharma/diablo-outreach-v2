@@ -197,7 +197,7 @@ Settings > Secrets and variables > Actions > New repository secret.
 
 | Name | Where to get it |
 |---|---|
-| `HUBSPOT_TOKEN_TEST` | The test account > Development > Legacy apps > the private app. Scopes: crm.objects.companies read and write, crm.objects.contacts read and write, crm.schemas.companies read and write, crm.schemas.contacts read and write, crm.objects.owners read |
+| `HUBSPOT_TOKEN_TEST` | The test account's key, never the developer account's: in your main (developer) account go to Development > Testing > Test accounts (create one if needed), open the test account, then inside it Development > Legacy apps > Create legacy app (Private). Scopes: crm.objects.companies read and write, crm.objects.contacts read and write, crm.schemas.companies read and write, crm.schemas.contacts read and write, crm.objects.owners read. Create app > Auth > Show token > Copy. Every button 1 run repeats these steps at the top of its page |
 | `APOLLO_API_KEY` | Apollo > Settings > Integrations > API keys |
 | `INSTANTLY_API_KEY` | Instantly > Settings > Integrations > API keys (scopes: campaigns and leads) |
 | `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 4 to send the forwards and person 1's reminder |
