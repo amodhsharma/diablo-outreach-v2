@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T07:59:55+00:00 (UTC).
+Checked 2026-10-14T08:07:48+00:00 (UTC).
 
 ## Mailboxes
 
@@ -70,10 +70,6 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - INSTANTLY_EMAILS_KEY works: Sync can send the forwards and the reminder.
 
-## GATE2: Approved to send in HubSpot (what 4b would do now)
+## GATE2: Approved to send in HubSpot
 
-- 4 contacts approved to send
-- Skipped contact 890562001127 (a***@diablosugarfree.com): its Outreach personal line is empty
-- Skipped contact 890562001128 (a***@diablosugarfree.com): its Outreach personal line is empty
-- Skipped contact 890562001129 (a***@gmail.com): its Outreach personal line is empty
-- Skipped contact 890562001130 (r***@diablosugarfree.com): its Outreach personal line is empty
+- Could not be read: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
