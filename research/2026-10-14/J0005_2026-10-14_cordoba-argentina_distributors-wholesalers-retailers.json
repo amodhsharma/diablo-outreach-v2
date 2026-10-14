@@ -1,0 +1,1815 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0005",
+  "location": "Cordoba, Argentina",
+  "run_date": "2026-10-14",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 33,
+      "searches_used": 47
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 34,
+      "searches_used": 58
+    },
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 32,
+      "searches_used": 54
+    }
+  ],
+  "companies": [
+    {
+      "name": "Bio-Salud S.R.L.",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "bio-salud.com.ar",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Health food wholesale: supplements, gluten-free foods, bulk goods, dried fruit, baking, vegan products, sweeteners and natural cosmetics.",
+      "channels_supplied": "Dietéticas and independent shops across Córdoba, with nationwide shipping; also advises new dietéticas on opening.",
+      "sf_brands_carried": "Happy Food alfajor sin azúcar, Kony Stevia Life and a stevia-sweetened Trini dulce de leche.",
+      "competing_brand_flag": true,
+      "fit_rationale": "The best-matched specialist in the city: it already sells sugar-free and stevia lines into the dietética channel that suits Diablo's positioning. The Happy Food sugar-free alfajor overlaps with Diablo's biscuit and sweets range, so the pitch should lead with chocolate and spreads.",
+      "what_they_do_well": [
+        "Runs an advisory service that helps clients open new dietéticas, building its own retail network.",
+        "Exhibited as a Córdoba wholesale distributor at the Expo Dieteticactiva trade show."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.bio-salud.com.ar/",
+        "https://www.dieteticactiva.com.ar/catalogo/Catalogo_ExpoDieteticactiva_2015.pdf"
+      ]
+    },
+    {
+      "name": "El Mercadito Natural",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors",
+        "wholesalers",
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Health and natural foods, nuts, cereals, snack bars, sweeteners and dairy alternatives; retail-wholesale format.",
+      "channels_supplied": "Own chain of about 10 health stores in Córdoba plus a wholesale branch serving resellers, dietéticas and online shops in other cities and provinces.",
+      "sf_brands_carried": "Exclusive representative for Granix, Ceral, Cocoon, Kony and Trini, which include diet and stevia lines (2021 article; current status not verified).",
+      "competing_brand_flag": false,
+      "fit_rationale": "Combines exclusive brand representation with its own retail chain, so it can both place and sell through a new range. Its brand portfolio is better-for-you but has no confirmed sugar-free chocolate, leaving room for Diablo.",
+      "what_they_do_well": [
+        "Described in 2021 as the largest healthy-food chain in Córdoba, with 10 own branches.",
+        "Exclusive Córdoba representative for Granix, Ceral, Kony and Trini."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/enfoque/el-mercadito-natural-es-la-cadena-saludable-mas-grande-de-cordoba-con-10-sucursales-propias-a-las-que-pronto-se-sumaran-franquicias",
+        "https://infonegocios.info/nota-principal/el-mercadito-natural-es-la-cadena-saludable-mas-grande-de-cordoba-con-10-sucursales-propias-a-las-que-pronto-se-sumaran-franquicias"
+      ]
+    },
+    {
+      "name": "Distrimay",
+      "based_out_of": "Villa Carlos Paz, Argentina",
+      "domain": "distrimay.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Natural and healthy foods, national and imported, over 2,000 items including vegan and gluten-free lines plus own repacked products.",
+      "channels_supplied": "Dietéticas, almacenes and direct consumers through three branches (Villa Carlos Paz and two in Córdoba Capital) and e-commerce.",
+      "sf_brands_carried": "Healthy, vegan and gluten-free lines; sugar-free brands not named on its site.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family health-food wholesaler already handling imported products and supplying dietéticas around Córdoba and the Punilla tourist corridor. Diablo would add a sugar-free confectionery category it does not visibly offer.",
+      "what_they_do_well": [
+        "Supplies dietéticas and almacenes from three branches across Villa Carlos Paz and Córdoba Capital.",
+        "Trading for over ten years with more than 2,000 products."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://distrimay.com/",
+        "https://lomejordevillacarlospaz.com.ar/las-mejores-distribuidoras-mayoristas-de-villa-carlos-paz/"
+      ]
+    },
+    {
+      "name": "Comer Sano Córdoba",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Own vegan foods plus third-party healthy products, imported or repacked almonds, coconut oil, granolas and cereals.",
+      "channels_supplied": "About 80 points of sale, mainly dietéticas and greengrocers in Córdoba Capital, plus Alta Gracia, Río Cuarto, Villa María and other provinces.",
+      "sf_brands_carried": "Third-party healthy brands such as Prama and Vita Biosa; no sugar-free confectionery confirmed.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A small but active route into Córdoba dietéticas that already sells other makers' healthy brands. Fit depends on whether it can handle chocolate in warm months, which is not confirmed.",
+      "what_they_do_well": [
+        "Reaches around 80 points of sale, mostly dietéticas in Córdoba Capital."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.infogastronomica.com.ar/comer-sano-cordoba-aprovecha-los-nuevos-vientos-80-puntos-de-llegada/",
+        "https://infonegocios.info/y-ademas/comer-sano-cordoba-aprovecha-los-nuevos-vientos-80-puntos-de-llegada-camino-a-los-5-millones-ano"
+      ]
+    },
+    {
+      "name": "Vendor Distribuciones",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "vendordistribuciones.com.ar",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Mass consumption foods, mainly dairy and chilled lines (Milkaut, Citric, Firenze, Don Yeyo, Campo Austral).",
+      "channels_supplied": "More than 4,600 shops and businesses across Córdoba province; online ordering for registered clients.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Its refrigerated fleet and temperature-controlled chamber solve the chocolate heat problem in Córdoba summers. Confectionery is not its core, so Diablo would be a new category.",
+      "what_they_do_well": [
+        "Trading since 2003 with more than 4,600 clients in Córdoba province.",
+        "Runs 15 refrigerated vehicles and a 2,000 m3 temperature-controlled chamber."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vendordistribuciones.com.ar/"
+      ]
+    },
+    {
+      "name": "Golosh",
+      "based_out_of": "Jesús María, Argentina",
+      "domain": "goloshmayorista.com",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Confectionery, chocolates, alfajores and snacks, national and imported; over 500 products.",
+      "channels_supplied": "Kiosks, almacenes, maxikioscos and shops in Córdoba, with shipping across Argentina.",
+      "sf_brands_carried": "None named.",
+      "competing_brand_flag": false,
+      "fit_rationale": "Already sells imported confectionery to kiosks, so a European sugar-free range fits its offer. No sugar-free line is visible, giving Diablo a clear gap.",
+      "what_they_do_well": [
+        "Over 30 years in confectionery wholesale, selling national and imported sweets."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.goloshmayorista.com/"
+      ]
+    },
+    {
+      "name": "Integrall Distribuidora",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "distribuidoraintegrall.com.ar",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Over 1,000 consumer goods: chocolates, confectionery, biscuits, ice cream, flours and gluten-free items.",
+      "channels_supplied": "More than 1,500 shops and kiosks in north-west Córdoba city, Villa Allende and Saldán.",
+      "sf_brands_carried": "Gluten-free range; no sugar-free brands named.",
+      "competing_brand_flag": false,
+      "fit_rationale": "Established confectionery route with a gluten-free category that shows openness to free-from lines. Its Arcor focus may limit room for a rival chocolate brand.",
+      "what_they_do_well": [
+        "Family distributor trading since 1978 with more than 1,500 retail clients."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.distribuidoraintegrall.com.ar/"
+      ]
+    },
+    {
+      "name": "NutriDiet",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "nutridiet.com.ar",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Dried fruit and nuts, flours, gluten-free items, supplements, sweeteners, oils, cereals and snack bars.",
+      "channels_supplied": "Wholesale price list for resellers and online retail from stalls in Mercado Norte, Córdoba.",
+      "sf_brands_carried": "Sweetener and keto lines; brands carried include Granger, EntreNuts and Santa María.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Mercado Norte health wholesaler with sweeteners and keto items already on offer, close to Diablo's buyer. Smaller scale than the tier 1 specialists.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.nutridiet.com.ar/"
+      ]
+    },
+    {
+      "name": "Nueva Era Mayorista",
+      "based_out_of": "Villa Carlos Paz, Argentina",
+      "domain": "webnuevaera.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "High-volume wholesale of food, cleaning products and perfumery.",
+      "channels_supplied": "Cash and carry branches in Villa Carlos Paz, Oncativo and Río Cuarto serving shops and consumers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Multi-branch regional wholesaler that would put Diablo in front of small shopkeepers across the province. Head office location and confectionery depth not verified.",
+      "what_they_do_well": [
+        "Operates wholesale branches in Villa Carlos Paz, Oncativo and Río Cuarto."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://lomejordevillacarlospaz.com.ar/las-mejores-distribuidoras-mayoristas-de-villa-carlos-paz/"
+      ]
+    },
+    {
+      "name": "Juan José Morán",
+      "based_out_of": "Río Cuarto, Argentina",
+      "domain": "jjmoran.com.ar",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Cigarettes and confectionery wholesale.",
+      "channels_supplied": "Kiosks and shops in Río Cuarto and the south of the province.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Covers the south of the province from Río Cuarto, a gap for the Córdoba Capital players. Tobacco-led, so a health range is a newer fit.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://rio-cuarto-cordoba.infoisinfo-ar.com/ficha/juan-jose-moran/209270",
+        "https://www.deriocuarto.ar/distribuidoras-de-golosinas-q.html",
+        "https://www.jjmoran.com.ar/"
+      ]
+    },
+    {
+      "name": "Caterser Distribuidora",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "caterser.com.ar",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Foodservice supplies: sweets and snacks, dairy, frozen, cold meats, grains, drinks and coffee.",
+      "channels_supplied": "Foodservice businesses in Córdoba, Alta Gracia, Villa Carlos Paz, Villa General Belgrano and the Sierras.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Could place Diablo syrups and sweets in cafés and hotels in the tourist sierras. Retail reach is limited.",
+      "what_they_do_well": [
+        "Family business trading since 1995 with weekly deliveries across the Córdoba sierras."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://caterser.com.ar/landing/",
+        "https://bestfoodimporters.com/company/caterser-cordoba/"
+      ]
+    },
+    {
+      "name": "Distribuidora Arcor Córdoba Norte",
+      "based_out_of": "Sinsacate, Argentina",
+      "domain": "cordobanorte.com.ar",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Arcor confectionery, chocolates, biscuits, ice cream and grocery.",
+      "channels_supplied": "Shops across northern Córdoba via sales reps and merchandisers, plus the ArcorCenter outlet in Jesús María.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Strong field sales and cold chain but it describes itself as an exclusive Arcor distributor, which likely blocks a competing chocolate brand.",
+      "what_they_do_well": [
+        "Over 20 years in the region with sales reps and a merchandising team visiting each point of sale."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cordobanorte.com.ar/"
+      ]
+    },
+    {
+      "name": "Distribuidora Pop",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "distribuidorapop.com.ar",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Over 5,000 kiosk products: confectionery, biscuits, snacks, grocery, tobacco and bazaar.",
+      "channels_supplied": "Kiosks, almacenes and mini markets nationally, with a dedicated Córdoba wholesale page and shipping to the interior.",
+      "sf_brands_carried": "A healthy products section; no sugar-free brands named.",
+      "competing_brand_flag": false,
+      "fit_rationale": "National online wholesaler actively targeting Córdoba kiosks. Not based locally, so it is a secondary route.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.distribuidorapop.com.ar/argentina/mayorista-de-golosinas-en-cordoba/"
+      ]
+    },
+    {
+      "name": "Golosinas por Mayor (Alfacentauri S.R.L.)",
+      "based_out_of": "Córdoba province, Argentina (city not confirmed)",
+      "domain": "golosinaspormayor.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "National and imported confectionery and kiosk products.",
+      "channels_supplied": "Kiosks, maxikioscos and drugstores in Córdoba province.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "States it distributes imported confectionery wholesale in Córdoba province. Its base and scale are unverified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.golosinaspormayor.com/Argentina/mayoristas-de-golosinas-en-cordoba.html"
+      ]
+    },
+    {
+      "name": "Almacén de Frutos",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "almacendefrutos.com.ar",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Dried fruit, nuts, granolas, seeds, flours, sweeteners, healthy biscuits and chocolate-coated nuts.",
+      "channels_supplied": "Wholesale accounts for resellers and online retail in Córdoba Capital.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Small health wholesaler with a chocolate-coated range and sweeteners category. Córdoba base inferred from delivery terms, not stated.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.almacendefrutos.com.ar/"
+      ]
+    },
+    {
+      "name": "VITTA Productos Naturales",
+      "based_out_of": "Río Cuarto, Argentina",
+      "domain": "vittaproductosnaturales.com.ar",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Natural products: nuts, flours, teas, chocolates, snacks, bars, biscuits and gluten-free items.",
+      "channels_supplied": "Online shoppers and wholesale buyers in Río Cuarto.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A health store with a wholesale arm in the south of the province. Mainly retail, so distribution scale is limited.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://vittaproductosnaturales.com.ar/"
+      ]
+    },
+    {
+      "name": "Pirani Distribuciones",
+      "based_out_of": "Río Cuarto, Argentina",
+      "domain": "piranidistribuciones.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Food distribution (range not verified).",
+      "channels_supplied": "Trade in Río Cuarto and south Córdoba (not verified).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Appears as a Río Cuarto food distributor in search results but its site could not be read. Needs qualifying before outreach.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "http://www.piranidistribuciones.com/"
+      ]
+    },
+    {
+      "name": "Distribuidora Priotti",
+      "based_out_of": "Villa Carlos Paz, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Kiosk products, especially confectionery and snacks.",
+      "channels_supplied": "Kiosks in Villa Carlos Paz.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Local kiosk confectionery wholesaler in a major tourist town. Small and only directory-sourced.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://lomejordevillacarlospaz.com.ar/las-mejores-distribuidoras-mayoristas-de-villa-carlos-paz/"
+      ]
+    },
+    {
+      "name": "Digacor",
+      "based_out_of": "Villa Carlos Paz, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Food, disposables and cleaning products, wholesale and retail.",
+      "channels_supplied": "Families, almacenes, hotels, bars and restaurants in Villa Carlos Paz.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Serves hotels and almacenes in the Punilla tourist area. Generalist with no confectionery focus.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://lomejordevillacarlospaz.com.ar/las-mejores-distribuidoras-mayoristas-de-villa-carlos-paz/"
+      ]
+    },
+    {
+      "name": "Distribuidora Freyre",
+      "based_out_of": "Villa Carlos Paz, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Dry, fresh and frozen foods, wholesale only.",
+      "channels_supplied": "Trade customers around Villa Carlos Paz.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Wholesale-only food distributor with frozen capability. Fit for confectionery not established.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://lomejordevillacarlospaz.com.ar/las-mejores-distribuidoras-mayoristas-de-villa-carlos-paz/"
+      ]
+    },
+    {
+      "name": "Dulcar",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 10,
+      "distributes": "Confectionery wholesale.",
+      "channels_supplied": "Delivery to shops in several Córdoba neighbourhoods.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Small city confectionery wholesaler with home delivery. Directory-sourced only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://guia-cordoba.miguiaargentina.com.ar/distribuidores-mayoristas/cordoba/empresas-guia.html"
+      ]
+    },
+    {
+      "name": "Hai Golosinas",
+      "based_out_of": "Alta Gracia, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 11,
+      "distributes": "Confectionery, wholesale and retail.",
+      "channels_supplied": "Kiosks and shoppers in Alta Gracia.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Local confectionery wholesaler south of Córdoba city. Directory-sourced only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://guia-cordoba.miguiaargentina.com.ar/distribuidores-mayoristas/cordoba/empresas-guia.html",
+        "https://cordoba.licuo.com.ar/mayoristas_de_golosinas-en_cordoba.htm"
+      ]
+    },
+    {
+      "name": "Distribuidora Marengo",
+      "based_out_of": "Villa María, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 12,
+      "distributes": "Confectionery, wholesale and retail.",
+      "channels_supplied": "Shops in Villa María (not verified).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Listed among Córdoba confectionery wholesalers in Villa María. Directory-sourced only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://cordoba.licuo.com.ar/mayoristas_de_golosinas-en_cordoba.htm"
+      ]
+    },
+    {
+      "name": "Goodiet",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "goodiet.com.ar",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 13,
+      "distributes": "Peeled and washed vegetables, cereals, jams, spices, nuts, bakery supplies and seeds.",
+      "channels_supplied": "Restaurants, caterers, meal providers and health shops, with nationwide shipping.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Sells to dietéticas and foodservice from Córdoba, but its core is prepared vegetables. Low relevance unless it is expanding its dry range.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://goodiet.com.ar/"
+      ]
+    },
+    {
+      "name": "La Granja del Centro",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "lagranjadelcentro.com.ar",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Natural foods, sports nutrition, herbs, cereals and legumes, jams, nut butters, plant drinks, gluten-free snacks.",
+      "channels_supplied": "Wholesale to dietéticas and distributors in Córdoba with shipping across Argentina.",
+      "sf_brands_carried": "Meriendita Light, Savona Fit, BIBA sugar-free almond drink; no direct sugar-free confectionery competitor seen.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A dietética wholesaler that represents manufacturers and already lists light and fit snack brands, but no sugar-free chocolate. Diablo would fill a clear gap in its sweet snack range.",
+      "what_they_do_well": [
+        "Represents and distributes natural food manufacturers to dietéticas, with advice for new dietética openings."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://lagranjadelcentro.com.ar/",
+        "https://lagranjadelcentro.com.ar/atencion-distribuidora.php"
+      ]
+    },
+    {
+      "name": "Distribuidora Mayorista Italia",
+      "based_out_of": "Villa María, Argentina",
+      "domain": "distribuidoramayoristaitalia.com",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Alfajores, chocolates, golosinas, biscuits, beverages, gluten-free products, cleaning goods.",
+      "channels_supplied": "Wholesale to trade customers from Villa María, Córdoba province (named retail customers not stated).",
+      "sf_brands_carried": "Dedicated diet or sugar-free chocolate category including Georgalos sugar-free chocolate; Orieta sugar-free and light jams; Tosti light toasts.",
+      "competing_brand_flag": true,
+      "fit_rationale": "One of few Córdoba confectionery wholesalers with a dedicated sugar-free chocolate section, proving demand among its trade buyers. Georgalos sugar-free chocolate competes directly, so Diablo would need to win on range breadth and European positioning.",
+      "what_they_do_well": [
+        "Runs a dedicated diet or sugar-free chocolate category alongside Arcor, Georgalos and Felfort lines."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.distribuidoramayoristaitalia.com/",
+        "https://bestfoodimporters.com/company/distribuidora-mayorista-italia/",
+        "https://www.distribuidoramayoristaitalia.com/quienes-somos/"
+      ]
+    },
+    {
+      "name": "Almacor (cooperative)",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Dry and fresh grocery products purchased and distributed for member almacenes and supermarkets.",
+      "channels_supplied": "Buying group and distribution centre for associated and non-associated almacenes in Córdoba; also offers cooperative franchises under the Almacor supermarkets name.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A wholesale buying group founded by Córdoba almaceneros with a 16,000 m2 distribution centre, giving one listing access to many independent stores. Listed head office is Las Peñas while the distribution centre is on the southern access to Córdoba city; to be confirmed.",
+      "what_they_do_well": [
+        "Founded in 1984 by 13 Córdoba grocers; operates a 16,000 m2 distribution centre since 1996."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/tarjetero/empresa/almacor-en-las-penas"
+      ]
+    },
+    {
+      "name": "Supermercados Mayoristas Makro S.A.",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "makro.com.ar",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Full cash and carry grocery range including confectionery, snacks, beverages and own brands.",
+      "channels_supplied": "Professional customers in Córdoba (almacenes and foodservice) via three stores in Córdoba province and the Red M&K almacenero network.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The leading cash and carry in Córdoba with three stores and an affinity network of almaceneros. Now owned by Cencosud since 2025, which may centralise buying in Buenos Aires.",
+      "what_they_do_well": [
+        "Built the Red M&K network of affiliated almaceneros in Córdoba, reported at 500 members.",
+        "Opened a LEED-standard Córdoba store in 2016 on Juan B. Justo and Circunvalación."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://infonegocios.info/nota-principal/makro-hace-triplete-en-cordoba-y-apunta-a-duplicar-su-red-de-almaceneros-inversion-de-100-m-en-nueva-sucursal",
+        "https://insiderlatam.com/cencosud-expande-su-presencia-en-argentina-con-la-compra-de-makro-y-basualdo"
+      ]
+    },
+    {
+      "name": "Distribuidora Amiun S.R.L.",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "amiunonline.com",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Golosinas, chocolates and kiosk items, plus some grocery lines.",
+      "channels_supplied": "Kiosks and retailers in Córdoba (named customers not stated).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A long-established Córdoba golosinas and kiosk wholesaler registered in this exact activity since 1993. Kiosk channel reach suits single-serve Diablo bars and sweets.",
+      "what_they_do_well": [
+        "Over 20 years supplying candy and kiosk items in Córdoba, recently moved to a larger facility."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/distribuidora-amiun-srl/",
+        "https://indicadores.ar/empresas/sector/463160/cordoba",
+        "https://cordoba.licuo.com.ar/mayoristas_de_golosinas-en_cordoba.htm"
+      ]
+    },
+    {
+      "name": "Fragueiro S.A. (Distribuidora Fragueiro)",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "distribuidorafragueiro.com.ar",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 6,
+      "distributes": "Groceries, biscuits, golosinas, beverages, cleaning, pet food and batteries.",
+      "channels_supplied": "More than 1,800 almacenes, autoservicios, kiosks and hardware stores in Córdoba city, Villa Allende, Saldán, La Calera and Malvinas Argentinas, plus its own cash and carry.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An established Córdoba distributor with its own field sales force reaching most of the city's small retailers. It carries Arcor and Felfort confectionery but no visible sugar-free line, leaving room for Diablo.",
+      "what_they_do_well": [
+        "Trading since 1988 with more than 1,800 retail clients in Córdoba.",
+        "Eleven sales executives cover about 75% of Córdoba city."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://distribuidorafragueiro.com.ar/",
+        "https://bestfoodimporters.com/company/fragueiro-mayorista-s-a/"
+      ]
+    },
+    {
+      "name": "La Casa del Kioskero",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "lacasadelkioskero.com.ar",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Golosinas, chocolates, alfajores, biscuits, snacks, beverages, groceries, perfumery and kiosk sundries.",
+      "channels_supplied": "Kiosks and almacenes in Córdoba and nationwide via delivery and two branches (Centro and Jardín).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family kiosk wholesaler with two Córdoba branches and delivery to shops. No sugar-free line was seen, so Diablo would be a differentiated addition, though volumes per SKU may be small.",
+      "what_they_do_well": [
+        "Family business with more than 30 years supplying kiosks and almacenes in Córdoba."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://lacasadelkioskero.com.ar/",
+        "https://lacasadelkioskero.com.ar/quienes-somos"
+      ]
+    },
+    {
+      "name": "Supermercados Mayoristas Yaguar S.A.",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "yaguar.com.ar",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Full wholesale grocery range including confectionery, snacks and beverages.",
+      "channels_supplied": "Supermarkets, convenience stores, kiosks, restaurants and hotels through more than 20 branches including Córdoba.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A national cash and carry with a Córdoba branch serving neighbourhood trade. Listing would be decided centrally, so it suits a later stage once an importer is in place. Head office location is assumed from its Buenos Aires base and not verified.",
+      "what_they_do_well": [
+        "Says it serves over 75,000 businesses across Argentina, including kiosks and supermarkets."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://infonegocios.info/tarjetero/empresa/supermercados-mayoristas-yaguar",
+        "https://www.iprofesional.com/actualidad/410262-cuantas-sucursales-tiene-supermercado-mayorista-yaguar-cual-es-mas-barata"
+      ]
+    },
+    {
+      "name": "Droguería del Sud S.A.",
+      "based_out_of": "Juárez Celman, Argentina (Córdoba distribution centre; head office not verified)",
+      "domain": "delsud.com.ar",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Medicines and pharmacy-related products (food lines not confirmed).",
+      "channels_supplied": "About 2,000 pharmacies, clinics and health insurers in Córdoba and eight northern provinces.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Pharmacies are a key channel for diabetic-friendly sweets in Argentina and this droguería reaches 2,000 of them from Córdoba. Whether it handles food or confectionery is not confirmed, so it is conditional.",
+      "what_they_do_well": [
+        "Opened a 16,000 m2 distribution centre near Córdoba in 2025 holding about 25,000 product references."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/nota-principal/drogueria-del-sud-encendio-su-nuevo-centro-de-distribucion-16-000-m2-25-000-productos-para-abastecer-2-000-clientes-farmacias-y-mas",
+        "https://www.pharmabiz.net/drogueria-del-sud-opens-new-facilities/"
+      ]
+    },
+    {
+      "name": "Alonso J. y José A. Redolfi S.R.L.",
+      "based_out_of": "James Craik, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Food, refrigerated goods, beverages, cigarettes, cleaning and perfumery.",
+      "channels_supplied": "Wholesale self-service stores in San Francisco, Río Tercero and Río Cuarto, plus distribution from James Craik, Córdoba capital and other bases.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A regional wholesaler with cash and carry outlets and distribution across the Córdoba interior, extending reach beyond the capital. Source is a 2022 university case study, so current scale should be checked.",
+      "what_they_do_well": [
+        "Runs wholesale self-service stores in San Francisco, Río Tercero and Río Cuarto."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://repositorio.21.edu.ar/handle/ues21/25191"
+      ]
+    },
+    {
+      "name": "San Pablo S.R.L.",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "sanpablomayorista.com",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Food, beverages, personal care, home care, pet food and stationery.",
+      "channels_supplied": "Retailers across Córdoba capital, Sierras Chicas, Punilla, Jesús María, Colonia Caroya and northern Córdoba with 24 to 48 hour delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An official distributor for Unilever, Kimberly Clark and Molino Cañuelas with route coverage of northern Córdoba. Confectionery is not a core line, so Diablo would be a new category for its sales force.",
+      "what_they_do_well": [
+        "Official distributor in Córdoba for Unilever, Kimberly Clark, Grupo Peñaflor and Clorox."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sanpablomayorista.com/"
+      ]
+    },
+    {
+      "name": "MDM Mayorista",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "mayoristamdm.com",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Mass consumption food and grocery products (51 brands).",
+      "channels_supplied": "More than 1,500 shops in Córdoba capital and nearby towns such as Villa Allende, La Calera, Carlos Paz and Río Ceballos, ordering via app.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A mid-sized Córdoba wholesaler with an ordering app and over 1,500 retail clients. Brand list is dairy and grocery led, so confectionery fit is unproven.",
+      "what_they_do_well": [
+        "More than 16 years trading with over 1,500 clients, three branches and an 800 m2 distribution centre."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://mayoristamdm.com/"
+      ]
+    },
+    {
+      "name": "Don Emilio S.R.L. (Don Emilio Mayorista)",
+      "based_out_of": "Villa María, Argentina",
+      "domain": "donemiliomayorista.com.ar",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Wholesale groceries (detailed range not verified); group also produces dulce de leche.",
+      "channels_supplied": "Trade buyers in Villa María and surrounding area (details not verified).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A large Villa María business founded in 1985 that runs a wholesale outlet on the city's southern access. Its range and channels need confirming, so it sits mid-list.",
+      "what_they_do_well": [
+        "Founded in 1985 by the Giraudo brothers of Villa María and now run by the second generation."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://infonegocios.info/tarjetero/empresa/duy-ammis"
+      ]
+    },
+    {
+      "name": "CordobaFood",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "cordobafood.com.ar",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 8,
+      "distributes": "Fresh, dry and canned foods from national brands.",
+      "channels_supplied": "Foodservice (bars, hotels, restaurants, caterers), supermarkets, autoservicios and almacenes, plus distributors and institutions, in Gran Córdoba, Sierras Chicas, Punilla and the south of the province.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Mixed retail and foodservice wholesaler with its own refrigerated fleet across Córdoba province. Confectionery is not a visible line, so Diablo would be an add-on.",
+      "what_they_do_well": [
+        "Delivers within 24 to 48 hours across Gran Córdoba with its own refrigerated fleet."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://cordobafood.com.ar/"
+      ]
+    },
+    {
+      "name": "Hasta el Cielo",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "hastaelcielo.com.ar",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Bulk candy by weight, gummies, marshmallows, lollipops and party combos.",
+      "channels_supplied": "Wholesale buyers with a minimum order and retail customers, shipping nationwide.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Córdoba candy wholesaler and retailer focused on gummies and party candy. Sugar-free gummies could fit, but the business is small and part retail.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://hastaelcielo.com.ar/venta-mayorista-minimo-100-000"
+      ]
+    },
+    {
+      "name": "Gianelli Distribuidora Mayorista",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "gianellidistribuidoramayorista.com.ar",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Cold cuts, cheese, dairy, beverages, pantry goods and snacks.",
+      "channels_supplied": "Food businesses and retail shoppers via several Córdoba branches including Villa Carlos Paz, with wholesale delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A multi-branch Córdoba wholesaler but led by fiambres and dairy, so confectionery fit is weak. Branch count is inconsistent on its site.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://gianellidistribuidoramayorista.com.ar/"
+      ]
+    },
+    {
+      "name": "Distribuidora del Centro",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Cigarettes, tobacco, golosinas, snacks, disposables and pantry goods.",
+      "channels_supplied": "Kiosks and shops in Córdoba Capital (named customers not stated).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A Córdoba Capital kiosk wholesaler; directory and social listings only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://upwayred.com/buscar/mayorista/alimentos-bebidas/snacks-dulces/golosinas/argentina/cordoba"
+      ]
+    },
+    {
+      "name": "José Block Distribuciones",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "joseblockdistribuciones.com",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Golosinas and cigarettes (per site title; site could not be read).",
+      "channels_supplied": "Kiosk trade in Córdoba (not verified).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Appears to be a golosinas and cigarette distributor in Córdoba; site could not be read, so details are unverified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.joseblockdistribuciones.com/"
+      ]
+    },
+    {
+      "name": "Vigil y Cía S.R.L.",
+      "based_out_of": "Córdoba province, Argentina (city not verified)",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Registered as a wholesaler of chocolates, golosinas and kiosk products.",
+      "channels_supplied": "Not verified.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Listed first by size among Córdoba-registered golosinas wholesalers and trading since 1967. Activity and location need confirming.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://indicadores.ar/empresas/sector/463160/cordoba"
+      ]
+    },
+    {
+      "name": "Juan Orpi S.A.",
+      "based_out_of": "Córdoba province, Argentina (city not verified)",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Registered as a wholesaler of chocolates, golosinas and kiosk products.",
+      "channels_supplied": "Not verified.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "One of the larger Córdoba-registered golosinas wholesalers, incorporated in 1986. Registry listing only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://indicadores.ar/empresas/sector/463160/cordoba"
+      ]
+    },
+    {
+      "name": "Distrigolo S.A.",
+      "based_out_of": "Córdoba province, Argentina (city not verified)",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Registered as a wholesaler of chocolates, golosinas and kiosk products.",
+      "channels_supplied": "Not verified.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A Córdoba-registered golosinas wholesaler incorporated in 2001. Registry listing only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://indicadores.ar/empresas/sector/463160/cordoba"
+      ]
+    },
+    {
+      "name": "Sukkar S.R.L.",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Registered as a wholesaler of chocolates, golosinas and kiosk products.",
+      "channels_supplied": "Not verified.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Appears in both the Córdoba golosinas wholesaler registry and a local trade directory. Both are directory sources, so low confidence.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://indicadores.ar/empresas/sector/463160/cordoba",
+        "https://www.telexplorer.com.ar/Golosinas-distribuidores-mayoristas-EN-Cordoba"
+      ]
+    },
+    {
+      "name": "Montecor S.R.L.",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Listed as a golosinas distributor (range not verified).",
+      "channels_supplied": "Not verified.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Listed among Córdoba golosinas wholesale distributors in a phone directory only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.telexplorer.com.ar/Golosinas-distribuidores-mayoristas-EN-Cordoba"
+      ]
+    },
+    {
+      "name": "Mega DAP Distribuidora de Artículos para Kioscos",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 10,
+      "distributes": "Kiosk articles and golosinas (per directory).",
+      "channels_supplied": "Kiosks in Córdoba (not verified).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A kiosk-supply distributor in Córdoba city; directory listing only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.telexplorer.com.ar/Golosinas-distribuidores-mayoristas-EN-Cordoba"
+      ]
+    },
+    {
+      "name": "Distribuidora Margara S.R.L.",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 11,
+      "distributes": "Listed as a golosinas distributor (range not verified).",
+      "channels_supplied": "Not verified.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Listed among Córdoba golosinas wholesale distributors in two directories; activity not confirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.telexplorer.com.ar/Golosinas-distribuidores-mayoristas-EN-Cordoba"
+      ]
+    },
+    {
+      "name": "Distribuidor Mayorista Rodolfo Manzano",
+      "based_out_of": "Río Cuarto, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 12,
+      "distributes": "Cigarettes and golosinas.",
+      "channels_supplied": "Kiosk trade in Río Cuarto (not verified).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A Río Cuarto cigarette and golosinas wholesaler serving the kiosk channel; directory listing only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.deriocuarto.ar/distribuidor-mayorista-rodolfo-manzano-dd1147.html"
+      ]
+    },
+    {
+      "name": "EntreSano",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "entresano.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Healthy supermarket: sugar-free, gluten-free and vegan foods, wholegrain bakery, nuts, cereals, supplements and natural cosmetics.",
+      "channels_supplied": "Own stores in Córdoba city (seven openings by May 2024, one wholesale only) plus own-label yerba mate Entreluna.",
+      "sf_brands_carried": "Sugar-free products listed as a core category; specific brands not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "A Córdoba healthy supermarket chain with seven sites that already lists sugar-free as a category and works with around 400 brands, so a curated imported sugar-free range fits its shelf. Its 600 m2 Recta Martinolli store gives room for a branded block.",
+      "what_they_do_well": [
+        "Opened its seventh site, a 600 m2 store on Recta Martinolli, in May 2024 after starting in 2018.",
+        "Works with about 400 brands and launched its own yerba mate, Entreluna."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://infonegocios.info/tarjetero/empresa/entresano",
+        "https://infonegocios.info/default/entresano-desembarca-en-zona-norte-con-un-localazo-de-600-m2-es-la-septima-apertura-de-la-marca"
+      ]
+    },
+    {
+      "name": "Farmacity",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "farmacity.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Pharmacy and drugstore: OTC, personal care, beauty and a snack and food aisle.",
+      "channels_supplied": "39 stores in Córdoba province (33 in the capital); national chain with beauty arm Get The Look and e-commerce.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The largest pharmacy chain in Córdoba with 39 stores, and pharmacies are a natural home for diabetic-friendly sweets. A national listing would carry Diablo into every Córdoba store at once.",
+      "what_they_do_well": [
+        "Reached 39 Córdoba stores, up from 25 in 2018, per La Voz."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/se-transforma-el-negocio-de-las-farmacias-cadenas-locales-de-hasta-24-sucursales-y-explosion-del-modelo-farmacity",
+        "https://infonegocios.info/default/woow-farmacity-llego-a-las-300-tiendas-y-la-abrio-en-cordoba"
+      ]
+    },
+    {
+      "name": "Eneldo",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Natural food market: dried fruit, flours, pulses, keto, vegan, gluten-free and sugar-free products, supplements and natural cosmetics.",
+      "channels_supplied": "Own stores and franchises across Argentina; first Córdoba franchise in Villa Allende (April 2024).",
+      "sf_brands_carried": "Sugar-free and keto products listed among its 4,000+ items; brands not verified.",
+      "competing_brand_flag": null,
+      "fit_rationale": "Keto and sugar-free are explicit categories at this growing franchise chain, which opened its first Córdoba province store in Villa Allende. A central buying function across 30+ franchises gives reach beyond Córdoba. Own domain not verified.",
+      "what_they_do_well": [
+        "Grew to 9 own stores and 27 franchises by October 2024, targeting 50."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/default/eneldo-el-mercadito-natural-que-aterrizo-en-la-villa-es-el-primero-de-cordoba-y-ya-son-33-las-franquicias-en-todo-el-pais",
+        "https://www.forbesargentina.com/negocios/el-mercado-natural-busca-alcanzar-50-locales-apuesta-expansion-federal-n60801"
+      ]
+    },
+    {
+      "name": "Cencosud Argentina (Disco, Vea, Jumbo)",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "cencosud.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Full grocery including confectionery, biscuits and health food aisles.",
+      "channels_supplied": "Disco (22 stores), Vea (21) and Jumbo (Nuevocentro) in Córdoba as of December 2022; Spid quick commerce via Rappi.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Around 44 supermarkets in Córdoba across three banners, with Jumbo positioned as the premium format where imported European snacks sit best. A Jumbo listing in Córdoba could extend to the national network later.",
+      "what_they_do_well": [
+        "Runs 22 Disco and 21 Vea stores in Córdoba and opened Jumbo at Nuevocentro in 2022."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/nota-principal/jumbo-abrio-la-primera-sucursal-en-cordoba-con-precios-mas-bajos-que-su-primo-disco-en-2023-podrian-llegar-otras-5-mas",
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/cencosud-dueno-de-disco-y-de-vea-trae-a-cordoba-un-nuevo-formato-de-supermercado"
+      ]
+    },
+    {
+      "name": "Carrefour Argentina",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "carrefour.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Hypermarkets, supermarkets and Express convenience stores: full grocery and confectionery.",
+      "channels_supplied": "More than 60 stores in Córdoba province across Hiper, Market, Maxi and Express formats; online store.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The widest supermarket footprint in Córdoba with 60+ stores, many of them Express convenience units where impulse confectionery sells. The parent rejected sale offers in February 2026 but in August 2026 was again reported to be seeking a buyer or partner, so ownership may change.",
+      "what_they_do_well": [
+        "Opened its 400th Express store nationally in Nueva Córdoba and passed 60 stores in the province."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://infonegocios.info/y-ademas/carrefour-argentina-abrio-en-nueva-cordoba-la-tienda-express-no-400-del-pais-vienen-4-mas-en-camino",
+        "https://mercado.com.ar/negocios/carrefour-llega-a-jesus-maria-y-supera-los-60-locales-en-cordoba",
+        "https://www.elancasti.com.ar/politica-y-economia/carrefour-busca-comprador-o-socio-su-negocio-la-filial-argentina-n588110"
+      ]
+    },
+    {
+      "name": "Super Mami (Grupo Dinosaurio)",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "grupodinosaurio.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 6,
+      "distributes": "Supermarkets and hypermarket: full grocery and confectionery.",
+      "channels_supplied": "16 Super Mami stores in Córdoba province after taking over the six A Granel stores in July 2026.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The fastest-growing Córdoba-owned chain, now 16 stores with more planned in El Tropezón and Villa Carlos Paz. A local head office in Córdoba makes buyer access quicker than national chains.",
+      "what_they_do_well": [
+        "Took over operation of all six A Granel supermarkets in July 2026 under a 20-year agreement."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.perfil.com/noticias/cordoba/super-mami-redobla-su-apuesta-en-cordoba-toma-a-granel-y-se-prepara-para-competir-con-la-anonima.phtml",
+        "https://viapais.com.ar/cordoba/historico-supermercado-cordoba-comprado-super-mami-pasara-sucursales_0_16XEOrK8sp.html",
+        "https://infonegocios.info/tarjetero/empresa/dinosaurio"
+      ]
+    },
+    {
+      "name": "Cordiez",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "cordiez.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 7,
+      "distributes": "Neighbourhood supermarkets: full grocery and confectionery; also Mercamax cash and carry stores.",
+      "channels_supplied": "39 stores across Córdoba province (plus earlier presence in Catamarca and Santiago del Estero); own delivery fleet.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The largest Córdoba-born supermarket chain at 39 stores with its own distribution centre and fleet, so it can take product centrally. Its Mercamax cash and carry arm adds a second outlet for the same listing.",
+      "what_they_do_well": [
+        "Trading since 1969 from barrio Ferreyra, now 39 stores across the province.",
+        "Runs its own 18,000 m2 distribution centre and delivery fleet."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://infonegocios.info/tarjetero/empresa/cordiez",
+        "https://infonegocios.info/40-grandes/cordiez-piensa-en-un-almacen-inteligente-de-150-millones-para-continuar-su-expansion"
+      ]
+    },
+    {
+      "name": "La Anónima",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "laanonima.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Supermarkets and hypermarkets: full grocery and confectionery.",
+      "channels_supplied": "Four former Libertad hypermarkets in Córdoba city reopened June 2026; national chain across the interior.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Newly arrived in Córdoba with four large hypermarkets and actively expanding in the province, so it is building its local range now. Large hypermarket formats have space for a dedicated sugar-free block.",
+      "what_they_do_well": [
+        "Took over 12 Libertad hypermarkets in March 2026 and reopened all four Córdoba stores in June 2026."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://hoydia.com.ar/economia/la-anonima-ya-completo-la-apertura-de-sus-sucursales-en-cordoba/",
+        "https://www.perfil.com/noticias/cordoba/cuatro-hipermercados-de-libertad-pasan-a-manos-de-la-anonima-en-cordoba.phtml"
+      ]
+    },
+    {
+      "name": "ChangoMás (Grupo GDN)",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "masonline.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Hypermarkets and supermarkets: full grocery and confectionery.",
+      "channels_supplied": "Hiper ChangoMás stores in Córdoba (former Walmart) and online store Masonline.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Operates the former Walmart hypermarkets in Córdoba and sells online through Masonline, giving national e-commerce reach. A value positioning means Diablo would need a price-led entry pack. Córdoba store count not verified.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/plus/en-octubre-walmart-sera-hiper-changomas-en-cordoba",
+        "https://www.a24.com/actualidad/ya-llego-el-autentico-black-friday-changomas-y-masonline-n1494986"
+      ]
+    },
+    {
+      "name": "Farmacias Sánchez Antoniolli",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Pharmacy and perfumery: OTC, personal care and health products.",
+      "channels_supplied": "24 to 26 pharmacies in Córdoba.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The largest Córdoba-owned pharmacy chain at about 24 stores, a natural outlet for diabetic-friendly confectionery. Own website not verified.",
+      "what_they_do_well": [
+        "Family business in the Córdoba pharmacy market since 1960, now around 26 branches."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/se-transforma-el-negocio-de-las-farmacias-cadenas-locales-de-hasta-24-sucursales-y-explosion-del-modelo-farmacity",
+        "https://www.clodura.ai/directory/company/farmacias-sanchez-antoniolli"
+      ]
+    },
+    {
+      "name": "FarmaPlus",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Pharmacy and perfumery chain.",
+      "channels_supplied": "About 87 pharmacies nationally after buying Farmacias Líder (about 20 to 23 Córdoba stores) in 2024.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Now owns the former Farmacias Líder network in Córdoba, one of the city's top pharmacy chains, plus its own wholesale drugstore. Deal completion was subject to competition approval in 2024; own domain not verified.",
+      "what_they_do_well": [
+        "Agreed to buy Córdoba chain Farmacias Líder in July 2024 for about US$25 million."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/default/farmacias-lider-cambia-de-dueno-en-una-operacion-millonaria-cual-es-la-cadena-que-la-adquirio",
+        "https://americaretail-malls.com/paises/argentina/farmaplus-adquiere-la-cadena-lider-de-cordoba-por-us-25-millones/"
+      ]
+    },
+    {
+      "name": "Mariano Max",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "marianomax.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Supermarkets: full grocery and confectionery.",
+      "channels_supplied": "About 11 stores in Córdoba province including Córdoba city, Jesús María and Cruz del Eje.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A Córdoba-owned supermarket chain of about 11 stores that has shown willingness to give dedicated shelf blocks to themes. Mid-sized buying team should be accessible.",
+      "what_they_do_well": [
+        "Launched a Hecho en Córdoba aisle with more than 1,500 local products."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/tarjetero/empresa/mariano-max",
+        "https://infonegocios.info/nota-principal/mariano-siempre-va-por-max-con-una-inversion-multimillonaria-abre-su-tercera-boca-en-jesus-maria-son-11-en-la-provincia-y-se-consolida-en-la-region-2",
+        "https://infonegocios.info/plus/hecho-en-cordoba-la-primera-gondola-con-tonada-cordobesa-se-estreno-en-mariano-max-con-mas-de-1-500-productos"
+      ]
+    },
+    {
+      "name": "Supermercados Becerra",
+      "based_out_of": "Alta Gracia, Argentina",
+      "domain": "supermercadobecerra.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Supermarkets: full grocery, confectionery and wine.",
+      "channels_supplied": "12 to 13 stores in Alta Gracia, Carlos Paz, Calamuchita valley, Despeñaderos and Río Segundo.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A growing regional chain covering tourist towns such as Villa General Belgrano and Carlos Paz where premium imported snacks sell. Family owned with short decision chains.",
+      "what_they_do_well": [
+        "Trading since 1924, from an Alta Gracia greengrocer to 12 supermarkets."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/desde-alta-gracia-crece-en-cordoba-abrio-su-super-numero-12-y-va-por-su-propio-vinedo",
+        "https://infonegocios.info/tarjetero/empresa/supermercado-becerra"
+      ]
+    },
+    {
+      "name": "Farmacias Red",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "farmaciasred.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Pharmacy and perfumery with online store.",
+      "channels_supplied": "About 15 pharmacies in Córdoba with expansion to the NEA region; online store.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A fast-growing Córdoba pharmacy chain with an online store, giving both shelf and e-commerce outlets for sugar-free sweets. Store count varies by source (9 to 15).",
+      "what_they_do_well": [
+        "Doubled its branches in five years and plans more in Córdoba and the NEA."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/tarjetero/empresa/farmacias-red",
+        "https://infonegocios.info/nota-principal/farmacias-red-la-cadena-que-duplico-sus-sucursales-en-5-anos-y-seguira-sumando-en-cordoba-y-en-el-nea"
+      ]
+    },
+    {
+      "name": "Farmacia General Paz",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "farmaciageneralpaz.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 8,
+      "distributes": "Pharmacy and perfumery with online sales.",
+      "channels_supplied": "About 18 pharmacies in Córdoba; loyalty club.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "One of the largest local pharmacy chains at about 18 stores, with an online store and loyalty club useful for launch promotions.",
+      "what_they_do_well": [
+        "Runs a loyalty club that targeted 40,000 cards."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/se-transforma-el-negocio-de-las-farmacias-cadenas-locales-de-hasta-24-sucursales-y-explosion-del-modelo-farmacity",
+        "https://infonegocios.info/plus/farmacias-general-paz-presenta-su-club-de-beneficios-planea-colocar-40-000-tarjetas"
+      ]
+    },
+    {
+      "name": "SVfarma",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "svfarma.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 9,
+      "distributes": "Pharmacy and perfumery with national e-commerce.",
+      "channels_supplied": "About 10 pharmacies in Córdoba city and Salsipuedes; online store shipping nationally.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A growing local pharmacy chain whose e-commerce ships nationwide, so a listing reaches beyond Córdoba. Smaller scale means a quicker decision.",
+      "what_they_do_well": [
+        "Founded in the 1980s in Alta Córdoba and grew to 10 locations by July 2025."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.perfil.com/noticias/cordoba/salud-svfarma-crece-en-cordoba-y-desembarca-en-pocito-con-una-nueva-sucursal.phtml"
+      ]
+    },
+    {
+      "name": "PedidosYa Market",
+      "based_out_of": "Montevideo, Uruguay",
+      "domain": "pedidosya.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 10,
+      "distributes": "Quick commerce dark stores: about 4,500 grocery items including snacks and beverages.",
+      "channels_supplied": "Four dark stores in Córdoba city and one in Río Cuarto (May 2025); 69 nationally.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Owns its stock in Córdoba dark stores open until 23:00, suited to impulse snacking. Head office location stated as PedidosYa group base and not verified for the Argentine unit.",
+      "what_they_do_well": [
+        "Grew to 69 dark stores in 12 provinces since launching in April 2020."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://infonegocios.info/enfoque/asi-funcionan-los-locales-de-pedidosya-market-el-supermercado-100-digital-con-mas-de-4-500-productos-69-locales-en-el-pais-5-estan-en-cordoba"
+      ]
+    },
+    {
+      "name": "Almacor",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 11,
+      "distributes": "Franchised neighbourhood supermarkets: full grocery.",
+      "channels_supplied": "More than 70 franchised supermarkets in 46 towns across Córdoba, Santiago del Estero, La Rioja, Catamarca, San Luis and Santa Cruz.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A wide franchised network across Córdoba towns gives reach into the interior through one central function. Value positioning; head office city assumed Córdoba and not verified.",
+      "what_they_do_well": [
+        "Opened a 468 m2 store in Calchín in September 2025, part of 70+ locations."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://americaretail-malls.com/paises/argentina/almacor-crece-en-el-interior-y-suma-un-punto-de-venta-en-calchin/",
+        "https://lexpress-franchise.com/latam/franquicia/almacor/"
+      ]
+    },
+    {
+      "name": "Caracol Supermercados",
+      "based_out_of": "Río Tercero, Argentina",
+      "domain": "supercaracol.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 12,
+      "distributes": "Supermarkets: full grocery.",
+      "channels_supplied": "About 10 stores in Río Tercero, Oliva, Embalse, Almafuerte and Hernando; own distribution centre.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A family chain of about 10 stores in the Calamuchita and Tercero Arriba area, including tourist towns, with its own distribution centre.",
+      "what_they_do_well": [
+        "Grew from a 1973 deli in Río Tercero to around 10 supermarkets."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/familia-y-supermercados-la-cadena-de-rio-tercero-que-abre-su-decima-sucursal-en-la-region",
+        "https://infonegocios.info/tarjetero/empresa/caracol-supermercados"
+      ]
+    },
+    {
+      "name": "Supermercados Top (Superimperio)",
+      "based_out_of": "Río Cuarto, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 13,
+      "distributes": "Supermarkets: full grocery, rotisserie and meat.",
+      "channels_supplied": "17 stores in Córdoba province and its zone of influence, five in Río Cuarto.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The leading chain in Río Cuarto, Córdoba's second city, with 17 stores. Relationship between the Top and Superimperio names is not fully clear from sources.",
+      "what_they_do_well": [
+        "Opened its fifth Río Cuarto store, the 17th in the region, adding 100 staff."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/abre-un-nuevo-supermercado-en-rio-cuarto-100-empleados-se-suman-a-la-firma-top",
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/supermercados-inauguro-el-mas-top-de-los-top-en-rio-cuarto"
+      ]
+    },
+    {
+      "name": "HP Farma",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Pharmacy and perfumery.",
+      "channels_supplied": "About 13 pharmacies in Córdoba owned by Hospital Privado.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Hospital-linked pharmacy chain of about 13 stores whose patient base includes people managing diabetes. Mainly a dispensing business, so snacks may be a small range.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/se-transforma-el-negocio-de-las-farmacias-cadenas-locales-de-hasta-24-sucursales-y-explosion-del-modelo-farmacity",
+        "https://infonegocios.info/default/sale-farmacenter-entra-una-hp-farma-recargada"
+      ]
+    },
+    {
+      "name": "YPF (YPF Full convenience stores)",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "ypf.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Fuel station convenience stores: snacks, confectionery, drinks and coffee.",
+      "channels_supplied": "127 YPF stations in Córdoba province (2017), many with Full shops.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The largest forecourt network in Córdoba, strong for single-serve bars and sweets. Buying is national and convenience ranges are tight; Full shop count in Córdoba not verified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://infonegocios.info/amp/nota-principal/en-dos-anos-shell-le-comio-a-ypf-6-puntos-de-market-share-en-cordoba-juntas-son-73-de-las-ventas"
+      ]
+    },
+    {
+      "name": "Axion Energy (Spot convenience stores)",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "axionenergy.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Fuel station convenience stores: snacks, sandwiches and drinks.",
+      "channels_supplied": "Spot stores at Córdoba stations including Villa Allende and Córdoba city.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Has been upgrading Spot stores in Córdoba with partner food concepts, suggesting openness to new ranges. Small store count in Córdoba.",
+      "what_they_do_well": [
+        "Opened two Spot stores in Villa Allende and Córdoba city with chef partnership in 2023."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://infonegocios.info/tarjetero/empresa/axion"
+      ]
+    },
+    {
+      "name": "Shell Argentina (Raízen, Shell Select stores)",
+      "based_out_of": "Buenos Aires, Argentina",
+      "domain": "shell.com.ar",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Fuel station convenience stores: snacks, confectionery and drinks.",
+      "channels_supplied": "61 Shell stations in Córdoba province (2017).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Second largest forecourt network in Córdoba with high volume per station. Select shop presence in Córdoba not verified; buying is national.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://infonegocios.info/amp/nota-principal/en-dos-anos-shell-le-comio-a-ypf-6-puntos-de-market-share-en-cordoba-juntas-son-73-de-las-ventas"
+      ]
+    },
+    {
+      "name": "Hipermercado Anselmi",
+      "based_out_of": "San Francisco, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Hypermarket: full grocery.",
+      "channels_supplied": "Hypermarket in San Francisco plus Norte Express store.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The dominant local grocer in San Francisco, the main city of eastern Córdoba. Small number of stores limits reach.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.letrap.com.ar/politica/cordoba-la-anonima-rompe-el-cerco-san-francisco-y-desembarca-donde-fallaron-walmart-y-bugliotti-n5424339",
+        "https://www.lavozdesanjusto.com.ar/hipermercado-anselmi-largo-compra-popular-49091"
+      ]
+    },
+    {
+      "name": "Supermercados Chapulín",
+      "based_out_of": "Frontera, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Supermarkets: full grocery.",
+      "channels_supplied": "Five stores in the San Francisco and Frontera area (2018).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A regional chain serving San Francisco, Córdoba, from neighbouring Frontera. Value positioning and dated store data.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.lavozdesanjusto.com.ar/jorge-careglio-siempre-invertimos-y-lo-vamos-a-seguir-haciendo-49399"
+      ]
+    },
+    {
+      "name": "Supermercados Nexo",
+      "based_out_of": "Corral de Bustos, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Supermarkets: full grocery.",
+      "channels_supplied": "Stores in Corral de Bustos, Monte Maíz and Justiniano Posse.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A small multi-town chain in south-east Córdoba. Only one press mention found; head office assumed from first listed town.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/ciudadanos/precios-diferenciados-ya-se-consiguen-productos-con-descuentos-del-20-en-algunos-super-de-cordoba"
+      ]
+    },
+    {
+      "name": "Supermercados Granja",
+      "based_out_of": "Río Segundo, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Supermarkets: full grocery.",
+      "channels_supplied": "Stores in Río Segundo and Pilar.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A two-town chain east of Córdoba city. Only one press mention found; head office assumed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/ciudadanos/precios-diferenciados-ya-se-consiguen-productos-con-descuentos-del-20-en-algunos-super-de-cordoba"
+      ]
+    },
+    {
+      "name": "Super Festival",
+      "based_out_of": "Cosquín, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Supermarket: full grocery.",
+      "channels_supplied": "Store or stores in Cosquín, Punilla valley tourist area.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Serves the Punilla tourist corridor where visitors buy snacks. Store count unknown; only one press mention found.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/ciudadanos/precios-diferenciados-ya-se-consiguen-productos-con-descuentos-del-20-en-algunos-super-de-cordoba"
+      ]
+    },
+    {
+      "name": "Farmacias Grassi",
+      "based_out_of": "Río Cuarto, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 10,
+      "distributes": "Pharmacy network.",
+      "channels_supplied": "Pharmacies based in Río Cuarto.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Named by La Voz as a pharmacy network based in the interior of the province, giving reach in Río Cuarto. Store count not verified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/se-transforma-el-negocio-de-las-farmacias-cadenas-locales-de-hasta-24-sucursales-y-explosion-del-modelo-farmacity"
+      ]
+    },
+    {
+      "name": "Red Sarmiento",
+      "based_out_of": "Córdoba, Argentina",
+      "domain": "no domain",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 11,
+      "distributes": "Pharmacy network.",
+      "channels_supplied": "Pharmacies in Gran Córdoba.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A pharmacy network in Gran Córdoba named by La Voz. Store count and buying structure not verified.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/negocios/se-transforma-el-negocio-de-las-farmacias-cadenas-locales-de-hasta-24-sucursales-y-explosion-del-modelo-farmacity"
+      ]
+    }
+  ]
+}
