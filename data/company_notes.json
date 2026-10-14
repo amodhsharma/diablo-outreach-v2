@@ -135,6 +135,25 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "amiunonline.com": {
+    "name": "Distribuidora Amiun S.R.L.",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "A long-established Córdoba golosinas and kiosk wholesaler registered in this exact activity since 1993. Kiosk channel reach suits single-serve Diablo bars and sweets.",
+    "what_they_do_well": [
+      "Over 20 years supplying candy and kiosk items in Córdoba, recently moved to a larger facility."
+    ],
+    "distributes": "Golosinas, chocolates and kiosk items, plus some grocery lines.",
+    "channels_supplied": "Kiosks and retailers in Córdoba (named customers not stated).",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
   "ampersandsales.ie": {
     "name": "Ampersand",
     "based_out_of": "Dublin, Ireland",
@@ -215,6 +234,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "axionenergy.com": {
+    "name": "Axion Energy (Spot convenience stores)",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Has been upgrading Spot stores in Córdoba with partner food concepts, suggesting openness to new ranges. Small store count in Córdoba.",
+    "what_they_do_well": [
+      "Opened two Spot stores in Villa Allende and Córdoba city with chef partnership in 2023."
+    ],
+    "distributes": "Fuel station convenience stores: snacks, sandwiches and drinks.",
+    "channels_supplied": "Spot stores at Córdoba stations including Villa Allende and Córdoba city.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
   "balkania.ie": {
     "name": "Balkania",
     "based_out_of": "Dublin, Ireland",
@@ -283,6 +320,27 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "bio-salud.com.ar": {
+    "name": "Bio-Salud S.R.L.",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "The best-matched specialist in the city: it already sells sugar-free and stevia lines into the dietética channel that suits Diablo's positioning. The Happy Food sugar-free alfajor overlaps with Diablo's biscuit and sweets range, so the pitch should lead with chocolate and spreads.",
+    "what_they_do_well": [
+      "Runs an advisory service that helps clients open new dietéticas, building its own retail network.",
+      "Exhibited as a Córdoba wholesale distributor at the Expo Dieteticactiva trade show."
+    ],
+    "distributes": "Health food wholesale: supplements, gluten-free foods, bulk goods, dried fruit, baking, vegan products, sweeteners and natural cosmetics.",
+    "channels_supplied": "Dietéticas and independent shops across Córdoba, with nationwide shipping; also advises new dietéticas on opening.",
+    "sf_brands_carried": "Happy Food alfajor sin azúcar, Kony Stevia Life and a stevia-sweetened Trini dulce de leche.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "biopartner.ch": {
     "name": "Bio Partner Schweiz AG",
@@ -485,6 +543,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "carrefour.com.ar": {
+    "name": "Carrefour Argentina",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "The widest supermarket footprint in Córdoba with 60+ stores, many of them Express convenience units where impulse confectionery sells. The parent rejected sale offers in February 2026 but in August 2026 was again reported to be seeking a buyer or partner, so ownership may change.",
+    "what_they_do_well": [
+      "Opened its 400th Express store nationally in Nueva Córdoba and passed 60 stores in the province."
+    ],
+    "distributes": "Hypermarkets, supermarkets and Express convenience stores: full grocery and confectionery.",
+    "channels_supplied": "More than 60 stores in Córdoba province across Hiper, Market, Maxi and Express formats; online store.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
   "caterfood.co.uk": {
     "name": "Caterfood",
     "based_out_of": "Paignton, United Kingdom",
@@ -519,6 +595,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "caterser.com.ar": {
+    "name": "Caterser Distribuidora",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "Could place Diablo syrups and sweets in cafés and hotels in the tourist sierras. Retail reach is limited.",
+    "what_they_do_well": [
+      "Family business trading since 1995 with weekly deliveries across the Córdoba sierras."
+    ],
+    "distributes": "Foodservice supplies: sweets and snacks, dairy, frozen, cold meats, grains, drinks and coffee.",
+    "channels_supplied": "Foodservice businesses in Córdoba, Alta Gracia, Villa Carlos Paz, Villa General Belgrano and the Sierras.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "cdgroup.ch": {
     "name": "Choco-diffusion SA",
     "based_out_of": "Le Locle, Switzerland",
@@ -534,6 +630,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "cencosud.com": {
+    "name": "Cencosud Argentina (Disco, Vea, Jumbo)",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Around 44 supermarkets in Córdoba across three banners, with Jumbo positioned as the premium format where imported European snacks sit best. A Jumbo listing in Córdoba could extend to the national network later.",
+    "what_they_do_well": [
+      "Runs 22 Disco and 21 Vea stores in Córdoba and opened Jumbo at Nuevocentro in 2022."
+    ],
+    "distributes": "Full grocery including confectionery, biscuits and health food aisles.",
+    "channels_supplied": "Disco (22 stores), Vea (21) and Jumbo (Nuevocentro) in Córdoba as of December 2022; Spid quick commerce via Rappi.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
   "chemistwarehouse.ie": {
     "name": "Chemist Warehouse Ireland",
@@ -674,6 +788,65 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "cordiez.com.ar": {
+    "name": "Cordiez",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "The largest Córdoba-born supermarket chain at 39 stores with its own distribution centre and fleet, so it can take product centrally. Its Mercamax cash and carry arm adds a second outlet for the same listing.",
+    "what_they_do_well": [
+      "Trading since 1969 from barrio Ferreyra, now 39 stores across the province.",
+      "Runs its own 18,000 m2 distribution centre and delivery fleet."
+    ],
+    "distributes": "Neighbourhood supermarkets: full grocery and confectionery; also Mercamax cash and carry stores.",
+    "channels_supplied": "39 stores across Córdoba province (plus earlier presence in Catamarca and Santiago del Estero); own delivery fleet.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "cordobafood.com.ar": {
+    "name": "CordobaFood",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Mixed retail and foodservice wholesaler with its own refrigerated fleet across Córdoba province. Confectionery is not a visible line, so Diablo would be an add-on.",
+    "what_they_do_well": [
+      "Delivers within 24 to 48 hours across Gran Córdoba with its own refrigerated fleet."
+    ],
+    "distributes": "Fresh, dry and canned foods from national brands.",
+    "channels_supplied": "Foodservice (bars, hotels, restaurants, caterers), supermarkets, autoservicios and almacenes, plus distributors and institutions, in Gran Córdoba, Sierras Chicas, Punilla and the south of the province.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "cordobanorte.com.ar": {
+    "name": "Distribuidora Arcor Córdoba Norte",
+    "based_out_of": "Sinsacate, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Strong field sales and cold chain but it describes itself as an exclusive Arcor distributor, which likely blocks a competing chocolate brand.",
+    "what_they_do_well": [
+      "Over 20 years in the region with sales reps and a merchandising team visiting each point of sale."
+    ],
+    "distributes": "Arcor confectionery, chocolates, biscuits, ice cream and grocery.",
+    "channels_supplied": "Shops across northern Córdoba via sales reps and merchandisers, plus the ArcorCenter outlet in Jesús María.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "costco.co.uk": {
     "name": "Costco Wholesale UK",
     "based_out_of": "Watford, United Kingdom",
@@ -780,6 +953,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "delsud.com.ar": {
+    "name": "Droguería del Sud S.A.",
+    "based_out_of": "Juárez Celman, Argentina (Córdoba distribution centre; head office not verified)",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Pharmacies are a key channel for diabetic-friendly sweets in Argentina and this droguería reaches 2,000 of them from Córdoba. Whether it handles food or confectionery is not confirmed, so it is conditional.",
+    "what_they_do_well": [
+      "Opened a 16,000 m2 distribution centre near Córdoba in 2025 holding about 25,000 product references."
+    ],
+    "distributes": "Medicines and pharmacy-related products (food lines not confirmed).",
+    "channels_supplied": "About 2,000 pharmacies, clinics and health insurers in Córdoba and eight northern provinces.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
   "discountsupplements.ie": {
     "name": "Discount Supplements",
     "based_out_of": "Ireland (city not verified)",
@@ -794,6 +986,104 @@
     "sf_brands_carried": "Grenade Carb Killa low-sugar protein bars.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "distribuidorafragueiro.com.ar": {
+    "name": "Fragueiro S.A. (Distribuidora Fragueiro)",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "An established Córdoba distributor with its own field sales force reaching most of the city's small retailers. It carries Arcor and Felfort confectionery but no visible sugar-free line, leaving room for Diablo.",
+    "what_they_do_well": [
+      "Trading since 1988 with more than 1,800 retail clients in Córdoba.",
+      "Eleven sales executives cover about 75% of Córdoba city."
+    ],
+    "distributes": "Groceries, biscuits, golosinas, beverages, cleaning, pet food and batteries.",
+    "channels_supplied": "More than 1,800 almacenes, autoservicios, kiosks and hardware stores in Córdoba city, Villa Allende, Saldán, La Calera and Malvinas Argentinas, plus its own cash and carry.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "distribuidoraintegrall.com.ar": {
+    "name": "Integrall Distribuidora",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Established confectionery route with a gluten-free category that shows openness to free-from lines. Its Arcor focus may limit room for a rival chocolate brand.",
+    "what_they_do_well": [
+      "Family distributor trading since 1978 with more than 1,500 retail clients."
+    ],
+    "distributes": "Over 1,000 consumer goods: chocolates, confectionery, biscuits, ice cream, flours and gluten-free items.",
+    "channels_supplied": "More than 1,500 shops and kiosks in north-west Córdoba city, Villa Allende and Saldán.",
+    "sf_brands_carried": "Gluten-free range; no sugar-free brands named.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "distribuidoramayoristaitalia.com": {
+    "name": "Distribuidora Mayorista Italia",
+    "based_out_of": "Villa María, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "One of few Córdoba confectionery wholesalers with a dedicated sugar-free chocolate section, proving demand among its trade buyers. Georgalos sugar-free chocolate competes directly, so Diablo would need to win on range breadth and European positioning.",
+    "what_they_do_well": [
+      "Runs a dedicated diet or sugar-free chocolate category alongside Arcor, Georgalos and Felfort lines."
+    ],
+    "distributes": "Alfajores, chocolates, golosinas, biscuits, beverages, gluten-free products, cleaning goods.",
+    "channels_supplied": "Wholesale to trade customers from Villa María, Córdoba province (named retail customers not stated).",
+    "sf_brands_carried": "Dedicated diet or sugar-free chocolate category including Georgalos sugar-free chocolate; Orieta sugar-free and light jams; Tosti light toasts.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "distribuidorapop.com.ar": {
+    "name": "Distribuidora Pop",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "National online wholesaler actively targeting Córdoba kiosks. Not based locally, so it is a secondary route.",
+    "what_they_do_well": [],
+    "distributes": "Over 5,000 kiosk products: confectionery, biscuits, snacks, grocery, tobacco and bazaar.",
+    "channels_supplied": "Kiosks, almacenes and mini markets nationally, with a dedicated Córdoba wholesale page and shipping to the interior.",
+    "sf_brands_carried": "A healthy products section; no sugar-free brands named.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "distrimay.com": {
+    "name": "Distrimay",
+    "based_out_of": "Villa Carlos Paz, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A family health-food wholesaler already handling imported products and supplying dietéticas around Córdoba and the Punilla tourist corridor. Diablo would add a sugar-free confectionery category it does not visibly offer.",
+    "what_they_do_well": [
+      "Supplies dietéticas and almacenes from three branches across Villa Carlos Paz and Córdoba Capital.",
+      "Trading for over ten years with more than 2,000 products."
+    ],
+    "distributes": "Natural and healthy foods, national and imported, over 2,000 items including vegan and gluten-free lines plus own repacked products.",
+    "channels_supplied": "Dietéticas, almacenes and direct consumers through three branches (Villa Carlos Paz and two in Córdoba Capital) and e-commerce.",
+    "sf_brands_carried": "Healthy, vegan and gluten-free lines; sugar-free brands not named on its site.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "doetschgrether.ch": {
     "name": "Doetsch Grether AG",
@@ -935,6 +1225,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "entresano.com": {
+    "name": "EntreSano",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Córdoba healthy supermarket chain with seven sites that already lists sugar-free as a category and works with around 400 brands, so a curated imported sugar-free range fits its shelf. Its 600 m2 Recta Martinolli store gives room for a branded block.",
+    "what_they_do_well": [
+      "Opened its seventh site, a 600 m2 store on Recta Martinolli, in May 2024 after starting in 2018.",
+      "Works with about 400 brands and launched its own yerba mate, Entreluna."
+    ],
+    "distributes": "Healthy supermarket: sugar-free, gluten-free and vegan foods, wholegrain bakery, nuts, cereals, supplements and natural cosmetics.",
+    "channels_supplied": "Own stores in Córdoba city (seven openings by May 2024, one wholesale only) plus own-label yerba mate Entreluna.",
+    "sf_brands_carried": "Sugar-free products listed as a core category; specific brands not verified.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "epicurium.co.uk": {
     "name": "Epicurium",
     "based_out_of": "Durham, United Kingdom",
@@ -1031,6 +1341,61 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "farmaciageneralpaz.com": {
+    "name": "Farmacia General Paz",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "One of the largest local pharmacy chains at about 18 stores, with an online store and loyalty club useful for launch promotions.",
+    "what_they_do_well": [
+      "Runs a loyalty club that targeted 40,000 cards."
+    ],
+    "distributes": "Pharmacy and perfumery with online sales.",
+    "channels_supplied": "About 18 pharmacies in Córdoba; loyalty club.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "farmaciasred.com": {
+    "name": "Farmacias Red",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A fast-growing Córdoba pharmacy chain with an online store, giving both shelf and e-commerce outlets for sugar-free sweets. Store count varies by source (9 to 15).",
+    "what_they_do_well": [
+      "Doubled its branches in five years and plans more in Córdoba and the NEA."
+    ],
+    "distributes": "Pharmacy and perfumery with online store.",
+    "channels_supplied": "About 15 pharmacies in Córdoba with expansion to the NEA region; online store.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "farmacity.com": {
+    "name": "Farmacity",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "The largest pharmacy chain in Córdoba with 39 stores, and pharmacies are a natural home for diabetic-friendly sweets. A national listing would carry Diablo into every Córdoba store at once.",
+    "what_they_do_well": [
+      "Reached 39 Córdoba stores, up from 25 in 2018, per La Voz."
+    ],
+    "distributes": "Pharmacy and drugstore: OTC, personal care, beauty and a snack and food aisle.",
+    "channels_supplied": "39 stores in Córdoba province (33 in the capital); national chain with beauty arm Get The Look and e-commerce.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
   "fitzpatrickwholesale.ie": {
     "name": "Fitzpatrick Wholesale",
@@ -1160,6 +1525,60 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "gianellidistribuidoramayorista.com.ar": {
+    "name": "Gianelli Distribuidora Mayorista",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A multi-branch Córdoba wholesaler but led by fiambres and dairy, so confectionery fit is weak. Branch count is inconsistent on its site.",
+    "what_they_do_well": [],
+    "distributes": "Cold cuts, cheese, dairy, beverages, pantry goods and snacks.",
+    "channels_supplied": "Food businesses and retail shoppers via several Córdoba branches including Villa Carlos Paz, with wholesale delivery.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "goloshmayorista.com": {
+    "name": "Golosh",
+    "based_out_of": "Jesús María, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "Already sells imported confectionery to kiosks, so a European sugar-free range fits its offer. No sugar-free line is visible, giving Diablo a clear gap.",
+    "what_they_do_well": [
+      "Over 30 years in confectionery wholesale, selling national and imported sweets."
+    ],
+    "distributes": "Confectionery, chocolates, alfajores and snacks, national and imported; over 500 products.",
+    "channels_supplied": "Kiosks, almacenes, maxikioscos and shops in Córdoba, with shipping across Argentina.",
+    "sf_brands_carried": "None named.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "grupodinosaurio.com": {
+    "name": "Super Mami (Grupo Dinosaurio)",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "The fastest-growing Córdoba-owned chain, now 16 stores with more planned in El Tropezón and Villa Carlos Paz. A local head office in Córdoba makes buyer access quicker than national chains.",
+    "what_they_do_well": [
+      "Took over operation of all six A Granel supermarkets in July 2026 under a 20-year agreement."
+    ],
+    "distributes": "Supermarkets and hypermarket: full grocery and confectionery.",
+    "channels_supplied": "16 Super Mami stores in Córdoba province after taking over the six A Granel stores in July 2026.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
   "haecky.ch": {
     "name": "Haecky Import AG",
     "based_out_of": "Reinach BL, Switzerland",
@@ -1215,6 +1634,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "hastaelcielo.com.ar": {
+    "name": "Hasta el Cielo",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A Córdoba candy wholesaler and retailer focused on gummies and party candy. Sugar-free gummies could fit, but the business is small and part retail.",
+    "what_they_do_well": [],
+    "distributes": "Bulk candy by weight, gummies, marshmallows, lollipops and party combos.",
+    "channels_supplied": "Wholesale buyers with a minimum order and retail customers, shipping nationwide.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "havenpharmacy.ie": {
     "name": "Haven Pharmacy",
@@ -1511,6 +1947,64 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "laanonima.com.ar": {
+    "name": "La Anónima",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Newly arrived in Córdoba with four large hypermarkets and actively expanding in the province, so it is building its local range now. Large hypermarket formats have space for a dedicated sugar-free block.",
+    "what_they_do_well": [
+      "Took over 12 Libertad hypermarkets in March 2026 and reopened all four Córdoba stores in June 2026."
+    ],
+    "distributes": "Supermarkets and hypermarkets: full grocery and confectionery.",
+    "channels_supplied": "Four former Libertad hypermarkets in Córdoba city reopened June 2026; national chain across the interior.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "lacasadelkioskero.com.ar": {
+    "name": "La Casa del Kioskero",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "A family kiosk wholesaler with two Córdoba branches and delivery to shops. No sugar-free line was seen, so Diablo would be a differentiated addition, though volumes per SKU may be small.",
+    "what_they_do_well": [
+      "Family business with more than 30 years supplying kiosks and almacenes in Córdoba."
+    ],
+    "distributes": "Golosinas, chocolates, alfajores, biscuits, snacks, beverages, groceries, perfumery and kiosk sundries.",
+    "channels_supplied": "Kiosks and almacenes in Córdoba and nationwide via delivery and two branches (Centro and Jardín).",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "lagranjadelcentro.com.ar": {
+    "name": "La Granja del Centro",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "A dietética wholesaler that represents manufacturers and already lists light and fit snack brands, but no sugar-free chocolate. Diablo would fill a clear gap in its sweet snack range.",
+    "what_they_do_well": [
+      "Represents and distributes natural food manufacturers to dietéticas, with advice for new dietética openings."
+    ],
+    "distributes": "Natural foods, sports nutrition, herbs, cereals and legumes, jams, nut butters, plant drinks, gluten-free snacks.",
+    "channels_supplied": "Wholesale to dietéticas and distributors in Córdoba with shipping across Argentina.",
+    "sf_brands_carried": "Meriendita Light, Savona Fit, BIBA sugar-free almond drink; no direct sugar-free confectionery competitor seen.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "lidl.co.uk": {
     "name": "Lidl GB",
     "based_out_of": "London, United Kingdom",
@@ -1587,6 +2081,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "makro.com.ar": {
+    "name": "Supermercados Mayoristas Makro S.A.",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "The leading cash and carry in Córdoba with three stores and an affinity network of almaceneros. Now owned by Cencosud since 2025, which may centralise buying in Buenos Aires.",
+    "what_they_do_well": [
+      "Built the Red M&K network of affiliated almaceneros in Córdoba, reported at 500 members.",
+      "Opened a LEED-standard Córdoba store in 2016 on Juan B. Justo and Circunvalación."
+    ],
+    "distributes": "Full cash and carry grocery range including confectionery, snacks, beverages and own brands.",
+    "channels_supplied": "Professional customers in Córdoba (almacenes and foodservice) via three stores in Córdoba province and the Red M&K almacenero network.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
   "mandd.ie": {
     "name": "M&D Marketing & Distribution",
     "based_out_of": "Dublin, Ireland",
@@ -1601,6 +2114,42 @@
     "sf_brands_carried": "Loacker, Weider, Bonne Maman, Takis, Arizona, Koh Coconut; no sugar-free confectionery brand identified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "marianomax.com.ar": {
+    "name": "Mariano Max",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Córdoba-owned supermarket chain of about 11 stores that has shown willingness to give dedicated shelf blocks to themes. Mid-sized buying team should be accessible.",
+    "what_they_do_well": [
+      "Launched a Hecho en Córdoba aisle with more than 1,500 local products."
+    ],
+    "distributes": "Supermarkets: full grocery and confectionery.",
+    "channels_supplied": "About 11 stores in Córdoba province including Córdoba city, Jesús María and Cruz del Eje.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "masonline.com.ar": {
+    "name": "ChangoMás (Grupo GDN)",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Operates the former Walmart hypermarkets in Córdoba and sells online through Masonline, giving national e-commerce reach. A value positioning means Diablo would need a price-led entry pack. Córdoba store count not verified.",
+    "what_they_do_well": [],
+    "distributes": "Hypermarkets and supermarkets: full grocery and confectionery.",
+    "channels_supplied": "Hiper ChangoMás stores in Córdoba (former Walmart) and online store Masonline.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "maxela.ie": {
     "name": "Maxela",
@@ -1631,6 +2180,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "mayoristamdm.com": {
+    "name": "MDM Mayorista",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A mid-sized Córdoba wholesaler with an ordering app and over 1,500 retail clients. Brand list is dairy and grocery led, so confectionery fit is unproven.",
+    "what_they_do_well": [
+      "More than 16 years trading with over 1,500 clients, three branches and an 800 m2 distribution centre."
+    ],
+    "distributes": "Mass consumption food and grocery products (51 brands).",
+    "channels_supplied": "More than 1,500 shops in Córdoba capital and nearby towns such as Villa Allende, La Calera, Carlos Paz and Río Ceballos, ordering via app.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "mccabespharmacy.com": {
     "name": "McCabes Pharmacy",
@@ -1862,6 +2430,23 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "nutridiet.com.ar": {
+    "name": "NutriDiet",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Mercado Norte health wholesaler with sweeteners and keto items already on offer, close to Diablo's buyer. Smaller scale than the tier 1 specialists.",
+    "what_they_do_well": [],
+    "distributes": "Dried fruit and nuts, flours, gluten-free items, supplements, sweeteners, oils, cereals and snack bars.",
+    "channels_supplied": "Wholesale price list for resellers and online retail from stalls in Mercado Norte, Córdoba.",
+    "sf_brands_carried": "Sweetener and keto lines; brands carried include Granger, EntreNuts and Santa María.",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "nutsinbulk.ie": {
     "name": "Nuts in Bulk (Outlet Wholefood Company)",
     "based_out_of": "Navan, Ireland",
@@ -1924,6 +2509,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "pedidosya.com.ar": {
+    "name": "PedidosYa Market",
+    "based_out_of": "Montevideo, Uruguay",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Owns its stock in Córdoba dark stores open until 23:00, suited to impulse snacking. Head office location stated as PedidosYa group base and not verified for the Argentine unit.",
+    "what_they_do_well": [
+      "Grew to 69 dark stores in 12 provinces since launching in April 2020."
+    ],
+    "distributes": "Quick commerce dark stores: about 4,500 grocery items including snacks and beverages.",
+    "channels_supplied": "Four dark stores in Córdoba city and one in Río Cuarto (May 2025); 69 nationally.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "philipdennis.co.uk": {
     "name": "Philip Dennis Foodservice",
@@ -2197,6 +2801,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "sanpablomayorista.com": {
+    "name": "San Pablo S.R.L.",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "An official distributor for Unilever, Kimberly Clark and Molino Cañuelas with route coverage of northern Córdoba. Confectionery is not a core line, so Diablo would be a new category for its sales force.",
+    "what_they_do_well": [
+      "Official distributor in Córdoba for Unilever, Kimberly Clark, Grupo Peñaflor and Clorox."
+    ],
+    "distributes": "Food, beverages, personal care, home care, pet food and stationery.",
+    "channels_supplied": "Retailers across Córdoba capital, Sierras Chicas, Punilla, Jesús María, Colonia Caroya and northern Córdoba with 24 to 48 hour delivery.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "savageandwhitten.com": {
     "name": "S&W Wholesale (Savage & Whitten)",
     "based_out_of": "Newry, United Kingdom",
@@ -2394,6 +3018,25 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "supercaracol.com.ar": {
+    "name": "Caracol Supermercados",
+    "based_out_of": "Río Tercero, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A family chain of about 10 stores in the Calamuchita and Tercero Arriba area, including tourist towns, with its own distribution centre.",
+    "what_they_do_well": [
+      "Grew from a 1973 deli in Río Tercero to around 10 supermarkets."
+    ],
+    "distributes": "Supermarkets: full grocery.",
+    "channels_supplied": "About 10 stores in Río Tercero, Oliva, Embalse, Almafuerte and Hernando; own distribution centre.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "superdrug.com": {
     "name": "Superdrug",
     "based_out_of": "Croydon, United Kingdom",
@@ -2411,6 +3054,42 @@
     "sf_brands_carried": "Not verified.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "supermercadobecerra.com": {
+    "name": "Supermercados Becerra",
+    "based_out_of": "Alta Gracia, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A growing regional chain covering tourist towns such as Villa General Belgrano and Carlos Paz where premium imported snacks sell. Family owned with short decision chains.",
+    "what_they_do_well": [
+      "Trading since 1924, from an Alta Gracia greengrocer to 12 supermarkets."
+    ],
+    "distributes": "Supermarkets: full grocery, confectionery and wine.",
+    "channels_supplied": "12 to 13 stores in Alta Gracia, Carlos Paz, Calamuchita valley, Despeñaderos and Río Segundo.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "svfarma.com.ar": {
+    "name": "SVfarma",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A growing local pharmacy chain whose e-commerce ships nationwide, so a listing reaches beyond Córdoba. Smaller scale means a quicker decision.",
+    "what_they_do_well": [
+      "Founded in the 1980s in Alta Córdoba and grew to 10 locations by July 2025."
+    ],
+    "distributes": "Pharmacy and perfumery with national e-commerce.",
+    "channels_supplied": "About 10 pharmacies in Córdoba city and Salsipuedes; online store shipping nationally.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
   "sweetco.ie": {
     "name": "Sweet Co",
@@ -2666,6 +3345,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "vendordistribuciones.com.ar": {
+    "name": "Vendor Distribuciones",
+    "based_out_of": "Córdoba, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Its refrigerated fleet and temperature-controlled chamber solve the chocolate heat problem in Córdoba summers. Confectionery is not its core, so Diablo would be a new category.",
+    "what_they_do_well": [
+      "Trading since 2003 with more than 4,600 clients in Córdoba province.",
+      "Runs 15 refrigerated vehicles and a 2,000 m3 temperature-controlled chamber."
+    ],
+    "distributes": "Mass consumption foods, mainly dairy and chilled lines (Milkaut, Citric, Firenze, Don Yeyo, Campo Austral).",
+    "channels_supplied": "More than 4,600 shops and businesses across Córdoba province; online ordering for registered clients.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "voigt.ch": {
     "name": "Voigt AG",
     "based_out_of": "Romanshorn, Switzerland",
@@ -2823,6 +3522,24 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "yaguar.com.ar": {
+    "name": "Supermercados Mayoristas Yaguar S.A.",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "A national cash and carry with a Córdoba branch serving neighbourhood trade. Listing would be decided centrally, so it suits a later stage once an importer is in place. Head office location is assumed from its Buenos Aires base and not verified.",
+    "what_they_do_well": [
+      "Says it serves over 75,000 businesses across Argentina, including kiosks and supermarkets."
+    ],
+    "distributes": "Full wholesale grocery range including confectionery, snacks and beverages.",
+    "channels_supplied": "Supermarkets, convenience stores, kiosks, restaurants and hotels through more than 20 branches including Córdoba.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
   "youings.com": {
     "name": "Youings Wholesale",
     "based_out_of": "Barnstaple, United Kingdom",
@@ -2838,5 +3555,21 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "ypf.com": {
+    "name": "YPF (YPF Full convenience stores)",
+    "based_out_of": "Buenos Aires, Argentina",
+    "market": "Cordoba, Argentina",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "The largest forecourt network in Córdoba, strong for single-serve bars and sweets. Buying is national and convenience ranges are tight; Full shop count in Córdoba not verified.",
+    "what_they_do_well": [],
+    "distributes": "Fuel station convenience stores: snacks, confectionery, drinks and coffee.",
+    "channels_supplied": "127 YPF stations in Córdoba province (2017), many with Full shops.",
+    "sf_brands_carried": "",
+    "added": "2026-10-14",
+    "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   }
 }
