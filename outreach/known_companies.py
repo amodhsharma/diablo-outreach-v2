@@ -1,4 +1,4 @@
-"""Button 2f: keep data/known_companies.csv, the list of every company already in HubSpot.
+"""Keep data/known_companies.csv (button 1 after setup, and every button 2 automatic run), the list of every company already in HubSpot.
 
 Research and the research import use it so a company already in HubSpot is never added again
 (agreed 13 Oct 2026). The live account holds about 46,000 companies, more than HubSpot's search

@@ -1,4 +1,4 @@
-"""Job 5: copy Instantly results back to HubSpot's Lead Status. Runs every 3 hours.
+"""Button 4, step 1: copy Instantly results back to HubSpot's Lead Status. Runs every 3 hours.
 
 Only AUTO-OUTREACH companies and contacts are ever changed (hubspot_client.TagGuard); an
 Instantly lead whose HubSpot contact lacks the tag is ignored. Statuses only move forward

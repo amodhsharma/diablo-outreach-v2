@@ -50,3 +50,9 @@ def test_the_timer_inputs_exist():
     # Button 3 never emails anyone; button 4 does all the sending.
     assert "outreach.send" not in (ROOT / ".github/workflows/outreach.yml").read_text()
     assert "outreach.sync" not in (ROOT / ".github/workflows/outreach.yml").read_text()
+
+
+def test_only_the_four_buttons_are_left():
+    names = sorted(yaml.safe_load(p.read_text())["name"] for p in (ROOT / ".github" / "workflows").glob("*.yml"))
+    assert names == ["1 - Setup HubSpot (once per account)", "2 - Research", "3 - Find contacts",
+                     "4 - Send and follow up"]

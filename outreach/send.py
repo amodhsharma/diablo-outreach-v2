@@ -1,4 +1,4 @@
-"""Job 4b: add approved contacts to an Instantly campaign.
+"""Button 4, step 2: add person 1 of each newly approved company to an Instantly campaign.
 
 Only AUTO-OUTREACH contacts whose Lead Status is GATE2: Approved to send are sent (gate 2), only at
 AUTO-OUTREACH companies, and only one person per company at a time, most senior first (see

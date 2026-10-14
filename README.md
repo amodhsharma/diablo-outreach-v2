@@ -67,7 +67,7 @@ only ever uses and changes the AUTO-OUTREACH one.
 
 ## The buttons (agreed 14 Oct 2026)
 
-Three numbered buttons. Everything you never need to think about (strict checks, duplicate checks,
+Four numbered buttons, and nothing else in the Actions tab. Everything you never need to think about (strict checks, duplicate checks,
 the lists the system keeps) runs inside them by itself. Each run's page shows its steps in order:
 **Before** (tests, up to date), the **main steps**, and **After** (save, and fail loudly if any step
 failed, so GitHub emails you). One step failing never stops the others.
@@ -83,10 +83,19 @@ The two Claude scheduled tasks are not GitHub buttons: research runs at 2:28, 5:
 IST) and personal lines at 12:28, 3:28, 6:28 and 9:28 (AM and PM IST), both every 3 hours (agreed 14 Oct 2026). Both can be started by hand in a Claude chat
 (`/outreach-research`, `/outreach-mail-writing`).
 
-**Changing over (14 Oct 2026):** today's version is frozen as the branch `v2-before-revamp`. The
-old buttons (1, 2a to 2g, 3, 4a to 4c, 5, 6) stay until the three new ones have been tested, then
-they are removed. Until then, the new buttons start by themselves when Claude saves research or
-lines; the old ones only run when pressed or by the old timer jobs.
+The earlier buttons (2a to 2g, 3, 4a to 4c, 5 and 6) were removed on 14 Oct 2026 once the new ones
+had passed their tests. The version before the change is kept as the branch `v2-before-revamp`.
+
+## Your steps, from a new market to the first email
+
+1. **Button 2:** "Add a market", with the Location (country or city) and the Channels.
+2. **Claude researches it:** `/outreach-research` in a Claude chat, or within 3 hours by itself.
+3. **Companies arrive in HubSpot by themselves** as soon as the research is saved.
+4. **Gate 1:** set the companies worth contacting to *GATE1: Approved for outreach*.
+5. **Button 3** (or its 3-hourly run): finds the contacts and puts them on the list for lines.
+6. **Claude writes the personal lines:** `/outreach-mail-writing`, or within 3 hours by itself.
+7. **Gate 2:** read each contact's line and set it to *GATE2: Approved to send*.
+8. **Button 4** (or its 3-hourly run): person 1 is emailed, and the rest of the loop runs by itself.
 
 ## How the email lines get written
 
@@ -104,8 +113,8 @@ lines; the old ones only run when pressed or by the old timer jobs.
 ## The outside timer
 
 GitHub's own timer often skips runs, so cron-job.org presses the buttons on time, using one key
-limited to starting this repository's buttons. From the change-over: button 3 at 12, 3, 6 and 9
-(AM and PM, IST) and button 2 ("Automatic run") at 2, 5, 8 and 11. Set-up, renewal and the exact
+limited to starting this repository's buttons: button 3 at 12, 3, 6 and 9 (AM and PM, IST),
+button 4 at 1, 4, 7 and 10, and button 2 ("Automatic run") at 2, 5, 8 and 11. Set-up, renewal and the exact
 settings: `docs/outside_timer.md`. If cron-job.org stops (for example when its key expires), it
 emails a failure notice and the buttons can still be pressed by hand.
 
@@ -131,7 +140,7 @@ company. Each must be approved at gate 2. Then, with one email to the company ev
 - Everything stays in the one monthly campaign and mailbox: only person 1 is a campaign lead, the
   others are reached by forwarding person 1's thread. Who was emailed and when is read from
   Instantly itself, so HubSpot needs no extra fields for it.
-- The forwards and the reminder are sent by button 3 (Outreach) using Instantly's forward and
+- The forwards and the reminder are sent by button 4 (Send and follow up) using Instantly's forward and
   reply features. That needs the GitHub secret `INSTANTLY_EMAILS_KEY` (an Instantly key with the
   scope `emails:all`); until it is added, those emails wait and nothing is marked Unqualified.
 - Settings: `send.next_contact_after_days` and `send.rotation` in `config/settings.yaml`.
@@ -156,9 +165,9 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
   India?" and nothing is added. Short forms like UK, USA and UAE are accepted, and a Location typed
   in lower case gets capitals ("dublin, ireland" is saved as "Dublin, Ireland").
 - Locations match as written: "UK" and "United Kingdom" are different.
-- A repeat goes On hold until someone presses **2d - Manual - Research: allow a market we have done before**.
+- A repeat goes On hold until someone presses **2 - Research** with "Allow a repeat".
 - A failed Channel runs again by itself once, at the next run, and the new files replace the
-  earlier ones. If it fails again it is marked Failed until someone presses **2c - Manual - Research: try a failed market again**.
+  earlier ones. If it fails again it is marked Failed until someone presses **2 - Research** with "Try a failed market again".
 
 ## Where things are
 
@@ -172,7 +181,7 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
 | `skills/outreachMailWriting/` | The steps, writing rules and strict check for the email lines |
 | `mail/pending.json` | Contacts waiting for email lines |
 | `mail/lines/<date>/` | Each writing run's lines; `mail/imported.txt` records which were imported |
-| `data/known_companies.csv` | Companies already in HubSpot (nightly) |
+| `data/known_companies.csv` | Companies already in HubSpot (refreshed by every button 2 automatic run) |
 | `data/company_notes.json` | What each company distributes and why it fits, for email writing |
 | `config/exclude.txt` | Companies that must never be researched or contacted |
 | `config/settings.yaml` | Contacts, salesperson assignment, sending and sync settings |
@@ -187,8 +196,8 @@ Settings > Secrets and variables > Actions > New repository secret.
 | `HUBSPOT_TOKEN_TEST` | The test account > Development > Legacy apps > the private app. Scopes: crm.objects.companies read and write, crm.objects.contacts read and write, crm.schemas.companies read and write, crm.schemas.contacts read and write, crm.objects.owners read |
 | `APOLLO_API_KEY` | Apollo > Settings > Integrations > API keys |
 | `INSTANTLY_API_KEY` | Instantly > Settings > Integrations > API keys (scopes: campaigns and leads) |
-| `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 3 to send the forwards and person 1's reminder |
-| `INSTANTLY_ACCOUNTS_KEY` | A second, read-only Instantly key with the scope `accounts:read`, used only by button 3's health check to read the mailboxes (`docs/instantly_accounts_key.md`) |
+| `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 4 to send the forwards and person 1's reminder |
+| `INSTANTLY_ACCOUNTS_KEY` | A second, read-only Instantly key with the scope `accounts:read`, used only by button 4's health check to read the mailboxes (`docs/instantly_accounts_key.md`) |
 | `HUBSPOT_TOKEN_LIVE` | Only when testing is finished: the same kind of private app, made in the live account, with the same scopes |
 
 To use the live HubSpot account for the automatic jobs, add a repository variable

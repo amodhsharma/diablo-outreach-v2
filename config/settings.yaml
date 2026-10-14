@@ -94,7 +94,7 @@ contacts:
 
 assignment:
   # Gives each approved company a salesperson (its HubSpot company owner) when
-  # "3 - Manual - Find the top 4 people at each approved company" runs. Contacts get the same owner. Companies that already
+  # "3 - Find contacts" runs. Contacts get the same owner. Companies that already
   # have an owner keep it. Leave rules and default_owners empty to switch this off.
   #
   # Each rule: market (a country, region or city), optional category, and the
@@ -183,9 +183,9 @@ send:
       days: [mon, tue, wed, thu, fri, sat, sun]
 
 # Automatic city list (agreed 12 Oct 2026): keeps research going without anyone adding a market.
-# Button 2g adds the next city from data/auto_markets.csv (UK, EU, Canada and South America in a
+# Button 2 ("Automatic run") adds the next city from data/auto_markets.csv (UK, EU, Canada and South America in a
 # random order that takes turns between regions) when the research queue is empty. Adding a
-# market by hand with 2a still works, and those always run first.
+# market by hand with button 2 ("Add a market") still works, and those always run first.
 auto_markets:
   enabled: true
   channels: distributors, wholesalers, retailers

@@ -7,7 +7,7 @@ already in the queue.
 
 A city is added only when all of these hold (settings: auto_markets in config/settings.yaml):
   - the automatic list is switched on;
-  - nothing is Waiting in the research queue (markets added by hand with 2a always come first);
+  - nothing is Waiting in the research queue (markets added by hand with button 2 always come first);
   - fewer than `max_per_day` automatic cities were added today;
   - fewer than `pause_when_awaiting_review` AUTO-OUTREACH companies are waiting for review in
     HubSpot (Lead Status New), so the team is never buried in companies nobody has looked at.

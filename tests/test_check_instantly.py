@@ -1,4 +1,4 @@
-"""Offline tests for button 6's mailbox health section."""
+"""Offline tests for the health check (button 4)."""
 
 from outreach import check_instantly as ci
 
@@ -45,7 +45,7 @@ def test_section_flags_what_needs_attention():
 
 def test_section_without_a_campaign_this_month_or_analytics():
     text = ci.mailboxes_section([acc("sales@nosugardiablo.com")], [], None, SETTINGS, "Diablo | NOV2026")
-    assert "4b will not give it to new campaigns" in text and "could not be read" in text
+    assert "button 4 will not give it to new campaigns" in text and "could not be read" in text
     assert "No mailboxes" in ci.mailboxes_section([], [], {}, SETTINGS, "Diablo | NOV2026")
     healthy = ci.mailboxes_section([acc("sales@diablosnosugar.com")], [], {}, SETTINGS, "Diablo | NOV2026")
     assert "Nothing: every mailbox looks healthy." in healthy

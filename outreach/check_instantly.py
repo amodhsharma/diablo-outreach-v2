@@ -1,11 +1,11 @@
-"""Button 6: a health check of Instantly, in plain words.
+"""The health check of Instantly, in plain words (button 4, last step, or its "Check only" box).
 
 1. Mailboxes: every sending mailbox connected to Instantly, whether it can send, how its
    warm-up is going, its sender name and daily limit, which campaigns use it, and a short list
    of anything that needs attention.
 2. Campaigns: whether each Diablo campaign is sending and if not why (Instantly's own
    diagnosis), with the leads counted by status.
-3. HubSpot: what 4b would do right now with the contacts set to GATE2: Approved to send, and why.
+3. HubSpot: what button 4 would send right now with the contacts set to GATE2: Approved to send, and why.
 
 Writes the answer to diagnostics/instantly_status.md and to the run's summary page. Changes
 nothing in Instantly or HubSpot. No lead email addresses are written: leads are counts only.
@@ -108,7 +108,7 @@ def mailboxes_section(accounts, campaigns, analytics, settings, current_name):
                 reasons.append(f"Ready but not used by this month's campaign ({current_name}): open the "
                                "campaign, Settings, Accounts To Use, and add it")
             elif not current and email not in for_new:
-                reasons.append("Ready but 4b will not give it to new campaigns: ask for it to be added to the "
+                reasons.append("Ready but button 4 will not give it to new campaigns: ask for it to be added to the "
                                "sending mailboxes")
         elif camps:
             reasons.append(f"Used by {', '.join(camps)} although it is not ready: take it out of the campaign "
@@ -176,7 +176,7 @@ def mailboxes(instantly, campaigns, settings):
 def campaigns_section(instantly, campaigns):
     lines = []
     if not campaigns:
-        lines += ["## Campaigns", "", "- No Diablo campaigns yet: 4b creates one when it first sends.", ""]
+        lines += ["## Campaigns", "", "- No Diablo campaigns yet: button 4 creates one when it first sends.", ""]
     for camp in campaigns:
         cid = camp["id"]
         lines += [f"## Campaign: {camp.get('name')}", "",
@@ -237,7 +237,7 @@ KEEP = ("Skipped", "Waiting", "[dry run]", "Instantly")
 
 
 def hubspot_section(settings, target, instantly=None):
-    """What 4b would do right now with the contacts set to GATE2: Approved to send, and why."""
+    """What button 4 would do right now with the contacts set to GATE2: Approved to send, and why."""
     from . import send
     from .hubspot_client import HubSpot
     lines = []
@@ -248,7 +248,7 @@ def hubspot_section(settings, target, instantly=None):
                 lines.append(f"- {line}")
 
     send.run(target, settings, HubSpot(), instantly, dry_run=True, log=collect)
-    return "## GATE2: Approved to send in HubSpot (what 4b would do now)\n\n" + ("\n".join(lines) or "- Nothing") + "\n"
+    return "## GATE2: Approved to send in HubSpot (what button 4 would do now)\n\n" + ("\n".join(lines) or "- Nothing") + "\n"
 
 
 def main(argv=None):

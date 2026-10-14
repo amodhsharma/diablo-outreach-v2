@@ -1,38 +1,17 @@
 # Outside timer: pressing the GitHub buttons on time
 
-GitHub's own timer is best effort: on 7 and 8 Oct 2026 it ran button 4b twice overnight instead
-of about seven times, and button 5 three times instead of five. So a free outside timer,
-cron-job.org, presses those buttons on time through the GitHub API (agreed with Ariel on
-8 Oct 2026).
+GitHub's own timer is best effort (on 7 and 8 Oct 2026 it skipped most of its runs), so a free
+outside timer, cron-job.org, presses the buttons on time through the GitHub API (agreed with Ariel
+on 8 Oct 2026). Three jobs, one button each, every 3 hours, one hour apart (set 14 Oct 2026):
 
-**One rhythm for all three (agreed 8 Oct 2026):** the timer presses one button every hour, in
-turn, so each button runs 8 times a day, every 3 hours:
+| Time (Asia/Kolkata) | Job | Button |
+|---|---|---|
+| 12, 3, 6 and 9, AM and PM | Diablo NEW 3 Outreach | 3 - Find contacts |
+| 1, 4, 7 and 10, AM and PM | Diablo NEW 4 Send | 4 - Send and follow up |
+| 2, 5, 8 and 11, AM and PM | Diablo NEW 2 Research | 2 - Research ("Automatic run") |
 
-| Time (IST) | Button |
-|---|---|
-| 12, 3, 6 and 9, AM and PM | 4b - Timer/Manual - Send approved contacts to Instantly to be emailed |
-| 1, 4, 7 and 10, AM and PM | 5 - Timer/Manual - Update HubSpot with who was emailed, replied or bounced, and line up the next person |
-| 2, 5, 8 and 11, AM and PM | 2f - Timer/Manual - Refresh the "already in HubSpot" list so research skips them |
-
-Send comes first, so the sync an hour later already sees the emails that went out. Button 2g (the
-automatic city list) needs no job of its own: it starts by itself after every 2f run. The three
-jobs passed their test runs on 8 Oct 2026 and GitHub's own timer was then switched off, so
-cron-job.org is the only timer to manage.
-
-## From the change-over to the three buttons (14 Oct 2026)
-
-Once the new buttons have passed their tests, cron-job.org presses only three of them (button 3
-was split into 3 and 4 on 14 Oct 2026):
-
-| Job name | URL | When (Asia/Kolkata) | Request body |
-|---|---|---|---|
-| Find contacts (button 3) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/outreach.yml/dispatches` | Every day at 12, 3, 6 and 9, AM and PM | `{"ref":"main","inputs":{"check_only":"false"}}` |
-| Send and follow up (button 4) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send-loop.yml/dispatches` | Every day at 1, 4, 7 and 10, AM and PM | `{"ref":"main","inputs":{"check_only":"false"}}` |
-| Research (button 2) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/research.yml/dispatches` | Every day at 2, 5, 8 and 11, AM and PM | `{"ref":"main","inputs":{"action":"Automatic run"}}` |
-
-Same method (POST), the same four headers and the same GitHub key as below. **Pause** (do not
-delete) the three old jobs (4b, 5 and 2f) at the same moment: un-pausing them is how to go back to
-the frozen version if ever needed.
+Claude's two scheduled tasks fit in between: personal lines 28 minutes after button 3, research 28
+minutes after button 2.
 
 The timer uses one GitHub key. This is the one key that does not live in GitHub's secrets:
 cron-job.org has to hold it to press the buttons. It is limited so that it can only start the
@@ -59,36 +38,38 @@ What this key can do: start the GitHub buttons of diablo-outreach-v2 and see the
 What it cannot do: read or change the code, see the HubSpot, Apollo or Instantly keys, or
 touch any other repository. To cut it off at any time, delete it on the same GitHub page.
 
-## Step 2: set up cron-job.org (about 10 minutes)
+## Step 2: the three jobs in cron-job.org
 
-1. Sign up for a free account at https://cron-job.org.
-2. In **Settings**, set the time zone to **Asia/Kolkata**.
-3. Create the three jobs below with **Create cronjob**. For each one, in the **Advanced** tab:
-   - **Request method:** POST
-   - **Headers** (four of them):
-     - `Accept` = `application/vnd.github+json`
-     - `Authorization` = `Bearer ` followed by the key from step 1 (one space after Bearer)
-     - `X-GitHub-Api-Version` = `2022-11-28`
-     - `Content-Type` = `application/json`
-   - **Request body:** as shown for each job
-   - **Notifications:** tick "notify me when an execution fails"
+In **Settings**, the time zone is **Asia/Kolkata**. For each job: **Create cronjob**, then
 
-| Job title | URL | Schedule | Request body |
+- **Common tab:** the title and URL below; **Enable job** on; **Execution schedule: Custom**, with
+  the crontab below (or tick the same hours, minute 0, every day of month, week and month).
+- **Advanced tab:** time zone **Asia/Kolkata**; request method **POST**; four headers:
+  - `Accept` = `application/vnd.github+json`
+  - `Authorization` = `Bearer ` followed by the key from step 1 (one space after Bearer)
+  - `X-GitHub-Api-Version` = `2022-11-28`
+  - `Content-Type` = `application/json`
+- the request body below, and tick "notify me when an execution fails".
+
+| Job title | URL | Crontab | Request body |
 |---|---|---|---|
-| Diablo 4b Send to Instantly | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send.yml/dispatches` | Every 3 hours from midnight, on the hour: 0, 3, 6, 9, 12, 15, 18, 21 | `{"ref":"main","inputs":{"target":"auto","dry_run":false}}` |
-| Diablo 5 Sync | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/sync.yml/dispatches` | Every 3 hours from 1 AM, on the hour: 1, 4, 7, 10, 13, 16, 19, 22 | `{"ref":"main"}` |
-| Diablo 2f Company list | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/known-companies.yml/dispatches` | Every 3 hours from 2 AM, on the hour: 2, 5, 8, 11, 14, 17, 20, 23 | `{"ref":"main"}` |
+| Diablo NEW 3 Outreach | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/outreach.yml/dispatches` | `0 0,3,6,9,12,15,18,21 * * *` | `{"ref":"main","inputs":{"check_only":"false"}}` |
+| Diablo NEW 4 Send | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send-loop.yml/dispatches` | `0 1,4,7,10,13,16,19,22 * * *` | `{"ref":"main","inputs":{"check_only":"false"}}` |
+| Diablo NEW 2 Research | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/research.yml/dispatches` | `0 2,5,8,11,14,17,20,23 * * *` | `{"ref":"main","inputs":{"action":"Automatic run"}}` |
 
-4. Use **Test run** on each job. A good answer is **204 No Content**, and a new run appears in
-   the repository's **Actions** tab within a minute. A 401 or 403 means the key was copied
-   wrongly or is missing "Actions: Read and write"; a 404 means the URL has a typo.
+Use **Test run** on each job. A good answer is **204 No Content**, and a new run appears in the
+repository's **Actions** tab within a minute. A 401 or 403 means the key was copied wrongly or
+is missing "Actions: Read and write"; a 404 means the URL has a typo (or the button was removed);
+a 422 means the request body does not match.
 
-`"target":"auto"` sends to the HubSpot account in the repository variable PIPELINE_TARGET
-(test until it is set to live), so the timer needs no change when going live.
+The old jobs (Diablo 4b, 5 and 2f) press buttons that were removed on 14 Oct 2026. Keep them
+paused, or delete them. Going back to the earlier version would mean restoring the branch
+`v2-before-revamp`, after which they would work again.
 
 ## Renewing or stopping
 
 - **Renewing:** before the key expires, make a new one (step 1) and paste it into the three
   jobs' Authorization headers, then delete the old key.
-- **Pausing everything:** switch the jobs off in cron-job.org. Nothing else presses these
-  buttons by itself.
+- **Pausing everything:** switch the jobs off in cron-job.org ("Enable job" off on each job's
+  page). Nothing else presses these buttons by itself, except Claude saving research or lines,
+  which starts buttons 2 and 3 for those files only.

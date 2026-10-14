@@ -82,7 +82,7 @@ class LeadStatus:
             label = STAGES[obj][stage]
             raise PipelineError(
                 f'HubSpot\'s {obj[:-1]} Lead Status has no "{label}" choice. Run button 1 '
-                '("One-time setup") for this account, which adds it.') from None
+                '("1 - Setup HubSpot") for this account, which adds it.') from None
 
     def stage(self, obj, value):
         """The pipeline stage for a stored Lead Status value: "" when empty, "team" when it is a

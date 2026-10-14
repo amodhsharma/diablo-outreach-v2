@@ -1,4 +1,4 @@
-"""Offline tests for the automatic city list (button 2g)."""
+"""Offline tests for the automatic city list (button 2, automatic run)."""
 
 from outreach import auto_markets as am
 from outreach import research_queue as rq
