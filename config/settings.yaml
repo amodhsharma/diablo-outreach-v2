@@ -141,8 +141,8 @@ send:
     delay_days: 3
   # Privacy notice link shown in every email footer. Check it before sending.
   privacy_url: https://www.diablosugarfree.com/policies/privacy-policy
-  # The 2026 catalogue's public web link. DUMMY until the catalogue is live (agreed 12 Oct 2026):
-  # replace it before going live.
+  # The 2026 catalogue's public web link, opened by the word "here" in the introduction email
+  # (final, agreed 14 Oct 2026).
   catalogue_link: https://www.diablosugarfree.com/pages/catalogue-2026
   # Which template files the emails are built from (paths from the repository's top folder).
   # To switch template, change the path here; nothing else needs to change. Set 13 Oct 2026:
@@ -160,15 +160,16 @@ send:
   # "booking link is missing" message). Template 1 instead adds "You can also book a time directly
   # here: <link>" only when a link is set.
   booking_link: "xxx"
-  # Signature on every email (agreed 12 Oct 2026). Leave phone empty to leave that line out.
-  # The phone is a placeholder (XXXXXX) until the real number is given: replace it before going live.
+  # Signature on every email: the name, the title, then "Diablo Sugar Free" (linked to the website)
+  # "(B Healthy Ltd, London)" (agreed 14 Oct 2026). No phone number and no separate website line:
+  # the templates no longer show either, so website and phone are not used.
   # Set the same name as each mailbox's sender name in Instantly (Email Accounts), so the
   # inbox shows "Joshua".
   signature:
     name: Joshua
     title: Initial Outreach Team
     website: www.diablosugarfree.com
-    phone: XXXXXX
+    phone: ""
   # When Instantly may send. Agreed 7 Oct 2026: any time of day, every day, as soon as a
   # campaign is started (not limited to each country's working hours). Instantly still spaces
   # the emails out and keeps to daily_limit. To limit a market again, add an entry such as:

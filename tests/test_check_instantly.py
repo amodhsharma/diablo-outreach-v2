@@ -103,7 +103,7 @@ def test_template_2_agreed_14_oct():
             "booking_link": "xxx"}
     _, body = send._template("templates/template_2.json", base)
     intro = body.index("By way of introduction")
-    assert intro < body.index("{{personal_line}}") < body.index("Attaching a catalogue for your reference: https://c/x")
+    assert intro < body.index("{{personal_line}}") < body.index('Attaching a catalogue <a href="https://c/x">here</a> for your reference.')
     assert "We supply more than 126 countries" in body
     assert "UK brand" not in body and "{{market_country}}" not in body and "I'd love" not in body
     assert ("We would be more than glad to set up a call between your team and our outreach or strategy team "
@@ -126,18 +126,24 @@ def test_no_sending_while_the_booking_link_is_a_placeholder():
 
 def test_footer_is_grey_small_with_clickable_links():
     from outreach import send
-    base = {"privacy_url": "https://www.diablosugarfree.com/policies/privacy-policy", "signature": {"name": "Joshua"}}
-    for name in ("template_1.json", "follow_up.json", "templates/template_2.json"):
+    base = {"privacy_url": "https://www.diablosugarfree.com/policies/privacy-policy", "signature": {"name": "Joshua", "title": "Initial Outreach Team"}}
+    for name in ("template_1.json", "follow_up.json", "templates/template_2.json", "templates/forward.json"):
         _, body = send._template(name, base)
         html = send.html_paragraphs(body)
         assert "--<br/>" not in body and "<hr " in html and "font-size:12px" in html and "color:#888888" in html
-        assert '<a href="https://www.diablosugarfree.com" style="color:#888888">Diablo Sugar Free</a> (B Healthy Ltd, London)<br>' in html
         assert ('Privacy notice: <a href="https://www.diablosugarfree.com/policies/privacy-policy" '
                 'style="color:#888888">https://www.diablosugarfree.com/policies/privacy-policy</a>') in html
         assert 'contact you again.<br><br>Privacy notice' in html
         text = send.render(html, {"first_name": "Ann"})
-        assert "Diablo Sugar Free [https://www.diablosugarfree.com] (B Healthy Ltd, London)\n" in text
         assert "contact you again.\n\nPrivacy notice: https://www.diablosugarfree.com/policies/privacy-policy" in text
+        if name != "template_1.json":
+            # 14 Oct 2026: the company line moved from the footer into the signature, linked; no phone or website line
+            assert "(B Healthy Ltd, London)<br>" not in html  # gone from the footer
+            assert ('Joshua<br/>Initial Outreach Team<br/><a href="https://www.diablosugarfree.com">Diablo Sugar Free</a> '
+                    "(B Healthy Ltd, London)</div>") in html
+            assert "| Diablo Sugar Free [https://www.diablosugarfree.com] (B Healthy Ltd, London)\n" in text
+            assert "www.diablosugarfree.com\n" not in text.split("Best regards,")[1].split("---")[0].replace(
+                "[https://www.diablosugarfree.com]", "")
 
 
 def test_template_1_is_used_and_filled():

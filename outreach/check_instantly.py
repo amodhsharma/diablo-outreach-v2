@@ -202,6 +202,12 @@ def campaigns_section(instantly, campaigns):
                 lines.append(f"- {key}: `{json.dumps(diag[key], ensure_ascii=False)[:600]}`")
         if camp.get("email_list") is not None:
             lines.append(f"- Mailboxes it sends from: {', '.join(camp['email_list']) or 'none'}")
+        # Both must stay off (agreed 9 Oct 2026): tracked links are rewritten through Instantly's
+        # tracking domain, which makes cold emails more likely to land in spam.
+        for key, label in (("link_tracking", "Link tracking"), ("open_tracking", "Open tracking")):
+            if key in camp:
+                on = bool(camp.get(key))
+                lines.append(f"- {label}: {'**ON** (should be off: switch it off in the campaign Options)' if on else 'off'}")
         leads = instantly.list_leads(cid)
         counts = Counter(lead_label(l) for l in leads)
         lines.append(f"- Leads: {len(leads)}" + ("".join(f"\n  - {n} {label}" for label, n in counts.most_common())))
