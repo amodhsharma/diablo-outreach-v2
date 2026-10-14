@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T06:50:14+00:00 (UTC).
+Checked 2026-10-14T06:51:33+00:00 (UTC).
 
 ## Mailboxes
 
@@ -49,8 +49,9 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Active
+- Instantly says: **waiting_for_leads**. No leads are ready to receive emails
+- Instantly's explanation: The campaign is currently paused because there are no new leads ready to receive emails. While there's an available sending account and the campaign is within its daily limit and schedule, it cannot send without recipients. To restart sending, you need to add more leads to the campaign.
 - Last healthy send: 2026-10-14T06:33:27.292Z
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 30, "sent": 2, "limit_hit": false}`
@@ -60,8 +61,9 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
 - issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T06:42:27.352Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T06:33:27.292Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
-- Leads: 2
+- Leads: 3
   - 2 Completed, emailed
+  - 1 Active, not yet emailed
 - Emails in the sequence: 1 (characters in each body: [2040])
 
 
@@ -71,6 +73,4 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what 4b would do now)
 
-- 1 contacts approved to send
-- Waiting: contact 889991418046 (a***@gmail.com) at R.C. Andreae AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- 1 approved contacts wait their turn (one person per company at a time)
+- 0 contacts approved to send
