@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T08:07:48+00:00 (UTC).
+Checked 2026-10-14T08:13:08+00:00 (UTC).
 
 ## Mailboxes
 
@@ -49,8 +49,9 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Active
+- Instantly says: **waiting_for_leads**. No leads are ready to receive emails
+- Instantly's explanation: The campaign is currently paused and waiting for leads. It is not sending emails because there are no new leads available for it to contact, even though one account is connected and ready to send within the daily limit and schedule. To resume sending, please add more leads to this campaign.
 - Last healthy send: 2026-10-14T06:52:44.825Z
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 30, "sent": 3, "limit_hit": false}`
@@ -60,9 +61,10 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
 - issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T07:01:44.858Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T06:52:44.825Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
-- Leads: 3
+- Leads: 4
   - 2 Completed, emailed
   - 1 Completed, emailed, replied
+  - 1 Active, not yet emailed
 - Emails in the sequence: 1 (characters in each body: [2040])
 
 
@@ -70,6 +72,11 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - INSTANTLY_EMAILS_KEY works: Sync can send the forwards and the reminder.
 
-## GATE2: Approved to send in HubSpot
+## GATE2: Approved to send in HubSpot (what 4b would do now)
 
-- Could not be read: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+- 4 contacts approved to send
+- Waiting: contact 890562001127 (a***@diablosugarfree.com) at Toga Food SA: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 890562001128 (a***@diablosugarfree.com) at Toga Food SA: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 890562001129 (a***@gmail.com) at Toga Food SA: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 890562001130 (r***@diablosugarfree.com) at Toga Food SA: the company's last email was under 3 days ago (one email every 3 days per company)
+- 4 approved contacts wait their turn (one person per company at a time)
