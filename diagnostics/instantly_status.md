@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-14T06:31:06+00:00 (UTC).
+Checked 2026-10-14T06:50:14+00:00 (UTC).
 
 ## Mailboxes
 
@@ -49,21 +49,19 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Active
-- Instantly says: **waiting_for_leads**. No leads are ready to receive emails
-- Instantly's explanation: The campaign is currently paused because there are no leads available to send emails to, even though your connected email account is ready and within its daily send limits. To resume sending, please add new leads to the campaign or ensure existing leads meet the campaign's targeting criteria.
-- Last healthy send: 2026-10-14T06:14:21.258Z
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
+- Last healthy send: 2026-10-14T06:33:27.292Z
 - schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 1, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 1, "limit_hit": false}`
+- campaign_daily_limit: `{"limit": 30, "sent": 2, "limit_hit": false}`
+- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 2, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
 - leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T06:23:21.283Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T06:14:21.258Z"}`
+- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T06:42:27.352Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T06:33:27.292Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Leads: 2
-  - 1 Completed, emailed
-  - 1 Active, not yet emailed
+  - 2 Completed, emailed
 - Emails in the sequence: 1 (characters in each body: [2040])
 
 
