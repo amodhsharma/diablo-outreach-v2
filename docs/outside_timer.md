@@ -21,11 +21,13 @@ cron-job.org is the only timer to manage.
 
 ## From the change-over to the three buttons (14 Oct 2026)
 
-Once the new buttons have passed their tests, cron-job.org presses only two of them:
+Once the new buttons have passed their tests, cron-job.org presses only three of them (button 3
+was split into 3 and 4 on 14 Oct 2026):
 
 | Job name | URL | When (Asia/Kolkata) | Request body |
 |---|---|---|---|
-| Outreach (button 3) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/outreach.yml/dispatches` | Every day at 12, 3, 6 and 9, AM and PM | `{"ref":"main","inputs":{"check_only":"false"}}` |
+| Find contacts (button 3) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/outreach.yml/dispatches` | Every day at 12, 3, 6 and 9, AM and PM | `{"ref":"main","inputs":{"check_only":"false"}}` |
+| Send and follow up (button 4) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send-loop.yml/dispatches` | Every day at 1, 4, 7 and 10, AM and PM | `{"ref":"main","inputs":{"check_only":"false"}}` |
 | Research (button 2) | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/research.yml/dispatches` | Every day at 2, 5, 8 and 11, AM and PM | `{"ref":"main","inputs":{"action":"Automatic run"}}` |
 
 Same method (POST), the same four headers and the same GitHub key as below. **Pause** (do not

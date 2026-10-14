@@ -41,4 +41,12 @@ def test_the_timer_inputs_exist():
     research = yaml.safe_load((ROOT / ".github/workflows/research.yml").read_text())
     outreach = yaml.safe_load((ROOT / ".github/workflows/outreach.yml").read_text())
     assert "Automatic run" in research[True]["workflow_dispatch"]["inputs"]["action"]["options"]
-    assert outreach[True]["workflow_dispatch"]["inputs"]["check_only"]["type"] == "boolean"
+    assert outreach[True]["workflow_dispatch"]["inputs"]["check_only"]["type"] == "boolean"  # button 3's timer body
+    send_loop = yaml.safe_load((ROOT / ".github/workflows/send-loop.yml").read_text())
+    inputs = send_loop[True]["workflow_dispatch"]["inputs"]
+    assert inputs["check_only"]["type"] == "boolean" and "CONFIRM" in inputs["test_gaps"]["description"]
+    # Buttons 3 and 4 never run at the same time.
+    assert outreach["concurrency"]["group"] == send_loop["concurrency"]["group"]
+    # Button 3 never emails anyone; button 4 does all the sending.
+    assert "outreach.send" not in (ROOT / ".github/workflows/outreach.yml").read_text()
+    assert "outreach.sync" not in (ROOT / ".github/workflows/outreach.yml").read_text()

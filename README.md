@@ -76,7 +76,8 @@ failed, so GitHub emails you). One step failing never stops the others.
 |---|---|---|
 | **1 - Setup HubSpot (once per account)** | Press once per account, first with "Dry run" ticked | Adds the two contact fields and the Lead Status choices; reads every company already in that account |
 | **2 - Research** | Pick "What to do": Add a market (Location, Channels, optional languages and number), Cancel a market, Try a failed market again, or Allow a repeat (Job ID, optional Channel) | **When Claude saves research:** strict check, duplicate check, **website check and Apollo pre-check**, then the companies arrive as New (or Missing Info when a check fails). **Every 3 hours:** refresh the "already in HubSpot" list, import anything waiting, add the next automatic city |
-| **3 - Outreach** | Nothing: the timer runs it every 3 hours. Press it to run now, or tick "Check only" for the health report. Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first), the next person in line (a forward naming the colleague before them) and person 1's reminder; Apollo finds the top 4 people at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); GATE2 people sent to Instantly; health check; the list of people Claude still has to write for |
+| **3 - Find contacts** | Nothing: the timer runs it every 3 hours (12, 3, 6, 9). Press it to run now | In order: Apollo finds the top 4 people at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); the list of people Claude still has to write for. Never emails anyone |
+| **4 - Send and follow up** | Nothing: the timer runs it every 3 hours (1, 4, 7, 10). Press it to run now, or tick "Check only" for the health report. Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first) and each company's loop (the forward to the next person naming the colleague before them, person 1's reminder, Unqualified at the end); person 1's introduction for GATE2 people at new companies; health check |
 
 The two Claude scheduled tasks are not GitHub buttons: research runs at 2:28, 5:28, 8:28 and 11:28 (AM and PM
 IST) and personal lines at 12:28, 3:28, 6:28 and 9:28 (AM and PM IST), both every 3 hours (agreed 14 Oct 2026). Both can be started by hand in a Claude chat
@@ -89,13 +90,13 @@ lines; the old ones only run when pressed or by the old timer jobs.
 
 ## How the email lines get written
 
-1. **3 - Outreach** (every 3 hours) finds the top 4 people at each GATE1 company and saves the new contacts (job title and company research only, no names or
+1. **3 - Find contacts** (every 3 hours) finds the top 4 people at each GATE1 company and saves the new contacts (job title and company research only, no names or
    emails) to `mail/pending.json`.
 2. Every 3 hours Claude runs the outreach-mail-writing skill: it writes a personal opening for
    up to 60 contacts, checks them and saves one file to `mail/lines/<date>/`. The subject line is
    fixed in the template.
    A manual run does the same at any time: `/outreach-mail-writing` in a Claude chat.
-3. **3 - Outreach** starts by itself, checks the file again and puts the
+3. **3 - Find contacts** starts by itself, checks the file again and puts the
    line in each contact's *Outreach personal line* and sets Lead Status to *"New, Personal line filled"*. Gate 2 is
    yours: read it and change Lead Status to *GATE2: Approved to send*. To change a line, edit it in
    HubSpot before approving.

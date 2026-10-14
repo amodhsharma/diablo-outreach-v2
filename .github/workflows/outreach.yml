@@ -1,27 +1,20 @@
-name: '3 - Outreach'
+name: '3 - Find contacts'
 
-# One button for everything after gate 1 (agreed 14 Oct 2026). Replaces 3, 4a, 4b, 4c, 5 and 6.
+# Button 3 prepares people and never emails anyone (split from sending on 14 Oct 2026; sending is
+# button 4). Nothing to press: cron-job.org starts it every 3 hours (12, 3, 6 and 9, AM and PM IST).
+# Press it yourself only to run now.
 #
-# Nothing to press: cron-job.org starts it every 3 hours. Press it yourself only to run now, or tick
-# "Check only" for the health report without changing or sending anything.
-#
-# Every 3 hours, in this order, each step on its own (one failing never stops the others):
-#   1. Instantly results to HubSpot: replies, interest, bounces and opt-outs (a reply stops a
-#      company before anything else is sent), then the next person in line and rounds 2 and 3.
-#   2. Find people: Apollo finds the top 4 people at companies on GATE1 with no contacts yet
+# In this order, each step on its own (one failing never stops the others):
+#   1. Find people: Apollo finds the top 4 people at companies on GATE1 with no contacts yet
 #      (credits only for approved companies, within the per-run limit in config/settings.yaml).
-#   3. Put Claude's personal lines into HubSpot ("New, Personal line filled").
-#   4. Send: GATE2 people go to Instantly, one person per company at a time.
-#   5. Health check: mailboxes, campaigns and why anyone is waiting (diagnostics/instantly_status.md).
-#   6. Update the list of people Claude still has to write personal lines for.
-# Also runs by itself the moment Claude saves personal lines, for step 3 only.
+#   2. Put Claude's personal lines into HubSpot ("New, Personal line filled").
+#   3. Update the list of people Claude still has to write personal lines for (Claude writes them
+#      28 minutes later).
+# Also runs by itself the moment Claude saves personal lines, for step 2 only.
 #
-# Testing only: type CONFIRM in "TEST ONLY" and the gaps between emails (3 days between people at a
-# company, 7 days before the same person is emailed again) become 15 minutes for that run. It is
-# refused for the live account, and the automatic runs always use the normal gaps.
-#
-# Before: the automatic tests. After: the lists are saved, and the run fails (GitHub emails you) if
-# any step failed. Only records with Lead Source AUTO-OUTREACH are ever changed.
+# "Check only" (kept so the timer's request still fits): writes the health report and changes
+# nothing. Before: the automatic tests. After: the lists are saved, and the run fails (GitHub
+# emails you) if any step failed. Only records with Lead Source AUTO-OUTREACH are ever changed.
 on:
   push:
     branches: [main]
@@ -30,19 +23,16 @@ on:
   workflow_dispatch:
     inputs:
       check_only:
-        description: "Check only: the health report, nothing sent or changed"
+        description: "Check only: the health report, nothing changed"
         type: boolean
         default: false
-      test_gaps:
-        description: "TEST ONLY: type CONFIRM for 15-minute gaps instead of 3 and 7 days, this run only (refused on live). Leave empty normally"
-        default: ""
 
 concurrency:
   group: outreach-writes
   cancel-in-progress: false
 
 jobs:
-  outreach:
+  contacts:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
@@ -50,7 +40,6 @@ jobs:
     env:
       TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
       MODE: ${{ github.event_name == 'push' && 'lines' || (inputs.check_only == true || inputs.check_only == 'true') && 'check' || 'full' }}
-      TEST_GAPS: ${{ inputs.test_gaps }}
       HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
       INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
     steps:
@@ -64,24 +53,7 @@ jobs:
           git pull --rebase
           python -m pytest -q
 
-      - name: "Before: test gaps (only when CONFIRM is typed, never on live)"
-        if: env.TEST_GAPS != ''
-        run: |
-          if [ "$TEST_GAPS" != "CONFIRM" ]; then
-            echo "::error::Test gaps: type CONFIRM exactly (in capitals), or leave the box empty. Nothing was done."; exit 1; fi
-          if [ "$TARGET" != "test" ]; then
-            echo "::error::Test gaps are refused for the live HubSpot account. Nothing was done."; exit 1; fi
-          echo "TEST GAPS ON: 15 minutes instead of 3 and 7 days, for this run only (test account)."
-
-      - name: "1. Instantly results to HubSpot, next person in line, rounds 2 and 3"
-        id: sync
-        if: env.MODE == 'full'
-        continue-on-error: true
-        env:
-          INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
-        run: python -m outreach.sync --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
-
-      - name: "2. Find people at GATE1 companies (Apollo)"
+      - name: "1. Find people at GATE1 companies (Apollo)"
         id: people
         if: env.MODE == 'full'
         continue-on-error: true
@@ -89,43 +61,37 @@ jobs:
           APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY }}
         run: python -m outreach.find_contacts --target "$TARGET" --skip-if-not-configured
 
-      - name: "3. Put Claude's personal lines into HubSpot"
+      - name: "2. Put Claude's personal lines into HubSpot"
         id: lines
         if: env.MODE == 'full' || env.MODE == 'lines'
         continue-on-error: true
         run: python -m outreach.import_lines --target "$TARGET" --skip-if-not-configured
 
-      - name: "4. Send GATE2 people to Instantly"
-        id: send
+      - name: "3. Update the list of people still needing a personal line"
+        id: pending
         if: env.MODE == 'full'
         continue-on-error: true
-        run: python -m outreach.send --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
+        run: python -m outreach.export_for_lines --target "$TARGET" --skip-if-not-configured
 
-      - name: "5. Health check: mailboxes, campaigns, who is waiting and why"
+      - name: "Check only: health report"
         id: health
-        if: env.MODE == 'full' || env.MODE == 'check'
+        if: env.MODE == 'check'
         continue-on-error: true
         env:
           INSTANTLY_ACCOUNTS_KEY: ${{ secrets.INSTANTLY_ACCOUNTS_KEY }}
           INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
         run: python -m outreach.check_instantly
 
-      - name: "6. Update the list of people still needing a personal line"
-        id: pending
-        if: env.MODE == 'full'
-        continue-on-error: true
-        run: python -m outreach.export_for_lines --target "$TARGET" --skip-if-not-configured
-
       - name: "After: save the lists"
         if: always()
         run: |
-          bash .github/scripts/save_changes.sh "Outreach run ($MODE)" mail/pending.json mail/imported.txt \
+          bash .github/scripts/save_changes.sh "Find contacts ($MODE)" mail/pending.json mail/imported.txt \
             data/apollo_skipped.json data/apollo_kept.json diagnostics/instantly_status.md
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: outreach-run
+          name: find-contacts-run
           path: runs/
           if-no-files-found: ignore
 
@@ -133,11 +99,9 @@ jobs:
         if: always()
         run: |
           failed=""
-          [ "${{ steps.sync.outcome }}" = "failure" ] && failed="$failed 1 (Instantly results);"
-          [ "${{ steps.people.outcome }}" = "failure" ] && failed="$failed 2 (find people);"
-          [ "${{ steps.lines.outcome }}" = "failure" ] && failed="$failed 3 (personal lines);"
-          [ "${{ steps.send.outcome }}" = "failure" ] && failed="$failed 4 (send);"
-          [ "${{ steps.health.outcome }}" = "failure" ] && failed="$failed 5 (health check);"
-          [ "${{ steps.pending.outcome }}" = "failure" ] && failed="$failed 6 (list for Claude);"
+          [ "${{ steps.people.outcome }}" = "failure" ] && failed="$failed 1 (find people);"
+          [ "${{ steps.lines.outcome }}" = "failure" ] && failed="$failed 2 (personal lines);"
+          [ "${{ steps.pending.outcome }}" = "failure" ] && failed="$failed 3 (list for Claude);"
+          [ "${{ steps.health.outcome }}" = "failure" ] && failed="$failed health check;"
           if [ -n "$failed" ]; then echo "::error::These steps failed:$failed open them above for the reason."; exit 1; fi
           echo "Every step worked."

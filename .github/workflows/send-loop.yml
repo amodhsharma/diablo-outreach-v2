@@ -1,0 +1,111 @@
+name: '4 - Send and follow up'
+
+# Button 4: everything that emails people or reacts to their emails (split from button 3 on
+# 14 Oct 2026). Nothing to press: cron-job.org starts it every 3 hours (1, 4, 7 and 10, AM and PM
+# IST). Press it yourself to run now, or tick "Check only" for the health report without changing
+# or sending anything.
+#
+# In this order, each step on its own (one failing never stops the others):
+#   1. Instantly results to HubSpot: replies, interest, bounces and opt-outs (a reply stops a
+#      company before anything else is sent), then each company's loop moves on: the forward to the
+#      next person naming the colleague before them, person 1's one reminder, Unqualified at the end.
+#   2. Send: person 1's introduction for companies whose people are newly on GATE2.
+#   3. Health check: mailboxes, campaigns and why anyone is waiting (diagnostics/instantly_status.md).
+#
+# Testing only: type CONFIRM in "TEST ONLY" and the gaps between emails (3 days between people at a
+# company, 7 days before person 1's reminder) become 15 minutes for that run. It is refused for the
+# live account, and the automatic runs always use the normal gaps.
+#
+# Before: the automatic tests. After: the report is saved, and the run fails (GitHub emails you) if
+# any step failed. Only records with Lead Source AUTO-OUTREACH are ever changed.
+on:
+  workflow_dispatch:
+    inputs:
+      check_only:
+        description: "Check only: the health report, nothing sent or changed"
+        type: boolean
+        default: false
+      test_gaps:
+        description: "TEST ONLY: type CONFIRM for 15-minute gaps instead of 3 and 7 days, this run only (refused on live). Leave empty normally"
+        default: ""
+
+concurrency:
+  group: outreach-writes
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+      MODE: ${{ (inputs.check_only == true || inputs.check_only == 'true') && 'check' || 'full' }}
+      TEST_GAPS: ${{ inputs.test_gaps }}
+      HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+      INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: "Before: up to date and tests pass"
+        run: |
+          git pull --rebase
+          python -m pytest -q
+
+      - name: "Before: test gaps (only when CONFIRM is typed, never on live)"
+        if: env.TEST_GAPS != ''
+        run: |
+          if [ "$TEST_GAPS" != "CONFIRM" ]; then
+            echo "::error::Test gaps: type CONFIRM exactly (in capitals), or leave the box empty. Nothing was done."; exit 1; fi
+          if [ "$TARGET" != "test" ]; then
+            echo "::error::Test gaps are refused for the live HubSpot account. Nothing was done."; exit 1; fi
+          echo "TEST GAPS ON: 15 minutes instead of 3 and 7 days, for this run only (test account)."
+
+      - name: "1. Instantly results to HubSpot, then each company's loop: forward, reminder, Unqualified"
+        id: sync
+        if: env.MODE == 'full'
+        continue-on-error: true
+        env:
+          INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
+        run: python -m outreach.sync --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
+
+      - name: "2. Send person 1's introduction (GATE2 people at new companies)"
+        id: send
+        if: env.MODE == 'full'
+        continue-on-error: true
+        run: python -m outreach.send --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
+
+      - name: "3. Health check: mailboxes, campaigns, who is waiting and why"
+        id: health
+        if: env.MODE == 'full' || env.MODE == 'check'
+        continue-on-error: true
+        env:
+          INSTANTLY_ACCOUNTS_KEY: ${{ secrets.INSTANTLY_ACCOUNTS_KEY }}
+          INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
+        run: python -m outreach.check_instantly
+
+      - name: "After: save the report"
+        if: always()
+        run: |
+          bash .github/scripts/save_changes.sh "Send and follow up ($MODE)" diagnostics/instantly_status.md
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: send-run
+          path: runs/
+          if-no-files-found: ignore
+
+      - name: "After: did every step work?"
+        if: always()
+        run: |
+          failed=""
+          [ "${{ steps.sync.outcome }}" = "failure" ] && failed="$failed 1 (Instantly results and the loop);"
+          [ "${{ steps.send.outcome }}" = "failure" ] && failed="$failed 2 (send);"
+          [ "${{ steps.health.outcome }}" = "failure" ] && failed="$failed 3 (health check);"
+          if [ -n "$failed" ]; then echo "::error::These steps failed:$failed open them above for the reason."; exit 1; fi
+          echo "Every step worked."
