@@ -211,13 +211,13 @@ def campaigns_section(instantly, campaigns):
 
 
 def keys_section(emails_key_set, emails_api):
-    """Whether the key for rounds 2 and 3 (INSTANTLY_EMAILS_KEY) is set and works."""
+    """Whether the key for the forwards and the reminder (INSTANTLY_EMAILS_KEY) is set and works."""
     if not emails_key_set:
-        return ("## Keys\n\n- INSTANTLY_EMAILS_KEY is not set: rounds 2 and 3 (replies in each person's thread) "
+        return ("## Keys\n\n- INSTANTLY_EMAILS_KEY is not set: the forwards to persons 2 to 4 and person 1's reminder "
                 "wait until it is added.\n")
     try:
         emails_api.request("GET", "/emails", params={"limit": 1})
-        return "## Keys\n\n- INSTANTLY_EMAILS_KEY works: Sync can send rounds 2 and 3.\n"
+        return "## Keys\n\n- INSTANTLY_EMAILS_KEY works: Sync can send the forwards and the reminder.\n"
     except InstantlyError as err:
         return f"## Keys\n\n- INSTANTLY_EMAILS_KEY is set but Instantly refused it: {err}\n"
 

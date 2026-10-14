@@ -76,7 +76,7 @@ failed, so GitHub emails you). One step failing never stops the others.
 |---|---|---|
 | **1 - Setup HubSpot (once per account)** | Press once per account, first with "Dry run" ticked | Adds the two contact fields and the Lead Status choices; reads every company already in that account |
 | **2 - Research** | Pick "What to do": Add a market (Location, Channels, optional languages and number), Cancel a market, Try a failed market again, or Allow a repeat (Job ID, optional Channel) | **When Claude saves research:** strict check, duplicate check, **website check and Apollo pre-check**, then the companies arrive as New (or Missing Info when a check fails). **Every 3 hours:** refresh the "already in HubSpot" list, import anything waiting, add the next automatic city |
-| **3 - Outreach** | Nothing: the timer runs it every 3 hours. Press it to run now, or tick "Check only" for the health report. Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first), the next person in line and rounds 2 and 3; Apollo finds the top 4 people at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); GATE2 people sent to Instantly; health check; the list of people Claude still has to write for |
+| **3 - Outreach** | Nothing: the timer runs it every 3 hours. Press it to run now, or tick "Check only" for the health report. Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first), the next person in line (a forward naming the colleague before them) and person 1's reminder; Apollo finds the top 4 people at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); GATE2 people sent to Instantly; health check; the list of people Claude still has to write for |
 
 The two Claude scheduled tasks are not GitHub buttons: research runs at 2:28, 5:28, 8:28 and 11:28 (AM and PM
 IST) and personal lines at 12:28, 3:28, 6:28 and 9:28 (AM and PM IST), both every 3 hours (agreed 14 Oct 2026). Both can be started by hand in a Claude chat
@@ -108,26 +108,31 @@ limited to starting this repository's buttons. From the change-over: button 3 at
 settings: `docs/outside_timer.md`. If cron-job.org stops (for example when its key expires), it
 emails a failure notice and the buttons can still be pressed by hand.
 
-## One person per company at a time, in turn
+## One loop per company, one person at a time
 
-Agreed 13 Oct 2026. Button 3 finds the top 4 people at each company. Each must be approved at
-gate 2. Then, with one email to the company every 3 days:
+Agreed 14 Oct 2026 (replaces the three rounds of 13 Oct). Button 3 finds the top 4 people at each
+company. Each must be approved at gate 2. Then, with one email to the company every 3 days:
 
-| Day | Email |
+| Day (3 people) | Email |
 |---|---|
-| 0, 3, 6, 9 | Person 1, 2, 3 and 4 get their first email (from Instantly) |
-| 12, 15, 18, 21 | Round 2: each gets the reminder (`templates/follow_up.json`) as a reply in their own thread |
-| 24, 27, 30, 33 | Round 3: each gets the same reminder again the same way (one template for both rounds, agreed 14 Oct 2026) |
+| 0 | Person 1: the introduction (`templates/template_2.json`, from the Instantly campaign) |
+| 3 | Person 2: a forward of the chain from the same mailbox (`templates/forward.json`): "In case our earlier note to your colleague [person 1] did not reach the right desk..." with their personal line |
+| 6 | Person 3: a forward of the latest email in the chain, naming person 2 (and person 4 on day 9, if there is one) |
+| 9 | Person 1: one reminder as a reply in their own thread (`templates/follow_up.json`): "We wrote to you about a week ago...". This is the last email |
+| 12 | No reply from anyone: the company becomes **Unqualified** |
 
-- Nobody gets another email less than 7 days after their previous one: with fewer people, the
-  next email waits until the week is up (2 people: days 0, 3, 7, 10, 14, 17).
-- The moment anyone at the company replies or opts out, nobody else there is emailed. A bounced
-  person is skipped.
-- After round 3 with no reply, the company becomes **Unqualified**.
-- Who was emailed and when is read from Instantly itself, so HubSpot needs no extra fields for it.
-- Rounds 2 and 3 are sent by button 3 (Outreach) using Instantly's reply feature. That needs the
-  GitHub secret `INSTANTLY_EMAILS_KEY` (an Instantly key with the scope `emails:all`); until it
-  is added, those emails wait and nothing is marked Unqualified.
+- Persons 2 to 4 get one email each and never a second one (fewer emails, less risk of spam).
+- Person 1's reminder is at least 7 days after their introduction (2 people: days 0, 3, 7; 1
+  person: days 0 and 7).
+- The moment anyone at the company replies or opts out, also in reply to a forward, nobody else
+  there is emailed. A bounced person is never named; if person 1 bounces, person 2 gets the
+  introduction instead.
+- Everything stays in the one monthly campaign and mailbox: only person 1 is a campaign lead, the
+  others are reached by forwarding person 1's thread. Who was emailed and when is read from
+  Instantly itself, so HubSpot needs no extra fields for it.
+- The forwards and the reminder are sent by button 3 (Outreach) using Instantly's forward and
+  reply features. That needs the GitHub secret `INSTANTLY_EMAILS_KEY` (an Instantly key with the
+  scope `emails:all`); until it is added, those emails wait and nothing is marked Unqualified.
 - Settings: `send.next_contact_after_days` and `send.rotation` in `config/settings.yaml`.
 - Everyone whose email Apollo revealed is listed in `data/apollo_kept.json` (kept as a contact)
   or `data/apollo_skipped.json` (e.g. unverified), by Apollo's ID, so nobody is paid for twice.
@@ -170,7 +175,7 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
 | `data/company_notes.json` | What each company distributes and why it fits, for email writing |
 | `config/exclude.txt` | Companies that must never be researched or contacted |
 | `config/settings.yaml` | Contacts, salesperson assignment, sending and sync settings |
-| `templates/` | The first email and the reminder; `email_templates_for_approval.md` holds the per-Channel drafts |
+| `templates/` | The introduction, the forward to the next person and person 1's reminder; `email_templates_for_approval.md` holds the per-Channel drafts |
 
 ## Secrets
 
@@ -181,7 +186,7 @@ Settings > Secrets and variables > Actions > New repository secret.
 | `HUBSPOT_TOKEN_TEST` | The test account > Development > Legacy apps > the private app. Scopes: crm.objects.companies read and write, crm.objects.contacts read and write, crm.schemas.companies read and write, crm.schemas.contacts read and write, crm.objects.owners read |
 | `APOLLO_API_KEY` | Apollo > Settings > Integrations > API keys |
 | `INSTANTLY_API_KEY` | Instantly > Settings > Integrations > API keys (scopes: campaigns and leads) |
-| `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 3 to send rounds 2 and 3 as replies in each person's thread |
+| `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 3 to send the forwards and person 1's reminder |
 | `INSTANTLY_ACCOUNTS_KEY` | A second, read-only Instantly key with the scope `accounts:read`, used only by button 3's health check to read the mailboxes (`docs/instantly_accounts_key.md`) |
 | `HUBSPOT_TOKEN_LIVE` | Only when testing is finished: the same kind of private app, made in the live account, with the same scopes |
 

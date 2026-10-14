@@ -119,23 +119,25 @@ send:
   # Example: ["ariel@getdiablo.com", "ariel@diablosnacks.com"]
   sending_accounts: [sales@diablosnosugar.com]
   daily_limit: 30
-  # Order of emails at each company (agreed 13 Oct 2026). Up to 4 contacts, most senior first,
-  # one email every next_contact_after_days days: Person 1, 2, 3, 4 (first emails), then back
-  # to Person 1 for a reminder in their own thread, Person 2, ... for `rounds` rounds. Nobody gets
-  # another email less than min_days_same_person days after their previous one; if a company has
-  # fewer people, the next email waits until then. Any reply or opt-out stops the company.
-  # First emails go through Instantly; later emails are sent by Sync (button 5) as replies in
-  # the person's thread, using the GitHub secret INSTANTLY_EMAILS_KEY (scope emails:all).
+  # Order of emails at each company: ONE loop (agreed 14 Oct 2026). Up to 4 contacts, most senior
+  # first, one email every next_contact_after_days days:
+  #   Person 1   the introduction (templates.first_email, through the Instantly campaign)
+  #   Person 2+  a forward of the latest email in the chain, naming the colleague before them
+  #              (templates.forward), sent by Sync from the same mailbox
+  #   Person 1   one reminder as a reply in their thread (templates.reminder), at least
+  #              min_days_same_person days after their introduction. This is the last email.
+  # Persons 2 to 4 get one email each. next_contact_after_days after the last email with no
+  # reply, the company becomes Unqualified. Any reply or opt-out stops the company at once.
+  # Forwards and the reminder need the GitHub secret INSTANTLY_EMAILS_KEY (scope emails:all).
   next_contact_after_days: 3
   rotation:
-    rounds: 3
     min_days_same_person: 7
-    # The email for round 2 and round 3: one template for both (agreed 14 Oct 2026). It names the
-    # colleague emailed most recently before them who has not replied, when there is one.
-    follow_up_templates: [templates/follow_up.json]
-  # Used only when rotation.rounds is 1: Instantly then sends one reminder itself.
+    # Instantly forwards an email with our note on top. If the test shows the earlier email is not
+    # included underneath, set this to true and Sync adds it itself.
+    forward_include_original: false
+  # Instantly's own reminder step stays off: Sync sends the forwards and the reminder.
   follow_up:
-    enabled: true
+    enabled: false
     delay_days: 3
   # Privacy notice link shown in every email footer. Check it before sending.
   privacy_url: https://www.diablosugarfree.com/policies/privacy-policy
@@ -148,6 +150,8 @@ send:
   # 13 Oct 2026). The first email now uses template_2.json.
   templates:
     first_email: templates/template_2.json
+    forward: templates/forward.json
+    reminder: templates/follow_up.json
     follow_up: templates/follow_up.json
   # Booking link for the team's shared booking page. Template 2 shows it on its own line after
   # "Or if you would want to set up a call directly, you can do it from the link below." (agreed

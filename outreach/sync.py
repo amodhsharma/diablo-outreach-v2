@@ -11,11 +11,13 @@ Instantly lead whose HubSpot contact lacks the tag is ignored. Statuses only mov
     unsubscribed (opted out)           Unqualified           Unqualified (nobody else is emailed)
     bounced                            Unqualified           unchanged (the others carry on)
 
-It then moves companies on in turn (see next_in_line.py): one email per company every 3 days,
-Person 1 to 4 first, then back to Person 1 for a reminder in their own thread, for 3 rounds.
-First emails: the next approved contact is added to the company's campaign. Later emails: sent
-here as a reply in the person's thread (needs INSTANTLY_EMAILS_KEY). A company that gets no
-reply after the last round becomes Unqualified.
+It then moves companies on in turn (see next_in_line.py), one loop per company (agreed 14 Oct
+2026): person 1's introduction goes through the Instantly campaign; every 3 days the next
+approved person gets a forward of the latest email in the chain, naming the colleague before
+them; then person 1 gets one reminder as a reply in their own thread, at least a week after
+their introduction. 3 days after that with no reply the company becomes Unqualified. Forwards
+and the reminder need INSTANTLY_EMAILS_KEY. A reply from anyone, also to a forward, stops the
+company at once.
 Usage:
     python -m outreach.sync --target test
 """
@@ -23,14 +25,15 @@ Usage:
 import argparse
 import html as html_lib
 import os
+import re
 import sys
 
 from .common import PipelineError, check_target, load_company_notes, load_settings, run_dir, write_json
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .next_in_line import (
-    COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign, lead_for, parse_time,
-    tagged_company_of,
+    COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign,
+    lead_for, mark_sent, parse_time, tagged_company_of,
 )
 from .schema import LEAD_STATUS, PERSONAL_LINE
 from .stages import LeadStatus, forward
@@ -118,117 +121,190 @@ def _sent_time(email):
     return parse_time(email.get("timestamp_email") or email.get("timestamp_created"))
 
 
-COLLEAGUE_SENTENCE = ("In case our earlier note to your colleague {name} did not reach the right desk, "
-                      "we wanted to share it with you as well.")
+def _name(contact):
+    p = contact.get("properties") or {}
+    return " ".join(x.strip() for x in (p.get("firstname") or "", p.get("lastname") or "") if x and x.strip())
 
 
 def previous_colleague(person, contacts, touches):
-    """Full name of the colleague at the same company who was emailed most recently and has not
-    replied (agreed 14 Oct 2026), or "". Only people whose state is "sent" count: anyone who
-    replied or opted out stops the whole company, and a bounced or skipped person is never named."""
-    best, best_time = "", None
+    """The colleague at the same company who was emailed most recently and has not replied
+    (agreed 14 Oct 2026), or None. Only people whose state is "sent" count: anyone who replied or
+    opted out stops the whole company, and a bounced or skipped person is never named."""
+    best, best_time = None, None
     for c in contacts:
         if str(c["id"]) == str(person["id"]) or c.get("state") != "sent":
             continue
         times = (touches or {}).get(c["id"]) or []
-        p = c.get("properties") or {}
-        name = " ".join(x.strip() for x in (p.get("firstname") or "", p.get("lastname") or "") if x and x.strip())
-        if name and times and (best_time is None or max(times) > best_time):
-            best, best_time = name, max(times)
+        if times and (best_time is None or max(times) > best_time):
+            best, best_time = c, max(times)
     return best
 
 
-def follow_up_email(round_no, person, company, settings, notes=None, colleague=""):
-    """(html, text) of a later-round email for one person, filled in. Rounds 2 and 3 use the same
-    template (agreed 14 Oct 2026); it names the colleague emailed before them when there is one."""
+def _addresses(value):
+    return [a.strip().lower() for a in re.split(r"[,;\s]+", str(value or "")) if "@" in a]
+
+
+def company_mail(emails_api, contacts):
+    """What Instantly holds for a company's people: ({contact id: [times emailed]},
+    {contact id: [emails sent to them, oldest first]}, {contact ids that replied}).
+    A forward may be filed under the address it was forwarded from, so every email is matched to
+    a person by its own To or From address."""
+    by_addr = {(c["properties"].get("email") or "").lower(): c for c in contacts
+               if c.get("state") in ("queued", "sent", "bounced") and c["properties"].get("email")}
+    seen = {}
+    for addr in by_addr:
+        for e in emails_api.thread_emails(addr):
+            seen.setdefault(e.get("id") or id(e), (e, addr))
+    sent, replied = {}, set()
+    for e, asked in seen.values():
+        kind = e.get("ue_type")
+        if kind == 2:  # received: a reply from one of them (out-of-office answers do not count)
+            if e.get("is_auto_reply"):
+                continue
+            sender = _addresses(e.get("from_address_email"))
+            who = by_addr.get(sender[0]) if sender else by_addr.get(asked)
+            if who:
+                replied.add(who["id"])
+            continue
+        if kind not in (1, 3):
+            continue
+        to = _addresses(e.get("to_address_email_list"))
+        people = [by_addr[a] for a in to if a in by_addr] if to else [by_addr[asked]]
+        for who in people:
+            sent.setdefault(who["id"], []).append(e)
+    for cid in sent:
+        sent[cid].sort(key=lambda e: parse_time(e.get("timestamp_email") or e.get("timestamp_created"))
+                       or parse_time("1970-01-01"))
+    touches = {cid: [t for t in (_sent_time(e) for e in es) if t] for cid, es in sent.items()}
+    return touches, sent, replied
+
+
+def _fill(path, person, company, settings, notes, extra=None):
     from . import send
-    rot = settings["send"].get("rotation") or {}
-    paths = rot.get("follow_up_templates") or ["templates/follow_up.json"]
-    path = paths[min(round_no - 2, len(paths) - 1)]
     _, body = send._template(path, settings["send"])
     lead = lead_for(person, company, notes)
     values = {"firstName": lead.get("first_name") or "", "lastName": lead.get("last_name") or "",
-              "companyName": lead.get("company_name") or "", **lead["custom_variables"],
-              "colleague_sentence": COLLEAGUE_SENTENCE.format(name=colleague) if colleague else ""}
-    if not colleague:  # nobody to name: the sentence and its paragraph are left out
-        body = body.replace("{{colleague_sentence}}<br/><br/>", "").replace("{{colleague_sentence}}", "")
+              "companyName": lead.get("company_name") or "", **lead["custom_variables"], **(extra or {})}
     html = send.html_paragraphs(body)
     for key, value in values.items():
         html = html.replace("{{" + key + "}}", html_lib.escape(str(value)))
     return html, send.render(html, {})
 
 
+def reminder_email(person, company, settings, notes=None):
+    """(html, text) of person 1's one reminder (agreed 14 Oct 2026)."""
+    paths = settings["send"].get("templates") or {}
+    return _fill(paths.get("reminder") or "templates/follow_up.json", person, company, settings, notes)
+
+
+def forward_email(person, company, settings, notes=None, colleague="", original=None):
+    """(html, text) of the note on top of a forward to the next person (agreed 14 Oct 2026)."""
+    paths = settings["send"].get("templates") or {}
+    html, text = _fill(paths.get("forward") or "templates/forward.json", person, company, settings, notes,
+                       {"colleague_name": colleague})
+    if original is not None and (settings["send"].get("rotation") or {}).get("forward_include_original"):
+        body = original.get("body") or {}
+        html += "<div><br></div><div>---------- Forwarded message ----------</div>" + (body.get("html") or "")
+        text += "\n\n---------- Forwarded message ----------\n" + (body.get("text") or "")
+    return html, text
+
+
+def forward_subject(chain):
+    """ "Fwd: " and the subject of the company's first email, without any Re: or Fwd: in front."""
+    subject = re.sub(r"^\s*((re|fwd?|fw)\s*:\s*)+", "", chain.get("subject") or "", flags=re.I)
+    return f"Fwd: {subject}"
+
+
 def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statuses=None, leads=None):
-    """Move each AUTO-OUTREACH company in outreach on to its next email when it is due."""
+    """Move each AUTO-OUTREACH company in outreach on through its one loop when the next email is due."""
     statuses = statuses or LeadStatus(hs)
     if leads is None:
         leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
     gap = float(settings["send"].get("next_contact_after_days", 3))
     rot = settings["send"].get("rotation") or {}
-    rounds, min_same = int(rot.get("rounds", 1)), float(rot.get("min_days_same_person", 7))
+    min_same = float(rot.get("min_days_same_person", 7))
     companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
                                  COMPANY_PROPS, max_results=5000)
+    result = {"next_contacts_added": 0, "forwards_sent": 0, "reminders_sent": 0, "no_reply": 0,
+              "replied": 0, "waiting_for_emails_key": 0}
     if not companies:
-        return {"next_contacts_added": 0, "follow_ups_sent": 0, "no_reply": 0}
+        return result
     everyone = contacts_by_company(hs, [c["id"] for c in companies])
     notes = load_company_notes()
-    added, sent, no_reply, need_key, contact_updates, company_updates = 0, 0, 0, 0, [], []
+    contact_updates, company_updates = [], []
     for company in companies:
         props = company.get("properties", {})
+        name = props.get("name")
         contacts = annotate(everyone.get(company["id"]) or [], statuses, leads)
-        states = [c["state"] for c in contacts]
-        later_rounds = (rounds > 1 and "sent" in states and "queued" not in states
-                        and not any(s in ("pending", "approved") for s in states))
-        touches, history = None, {}
-        if later_rounds and emails_api is not None:
-            touches = {}
+        touches, history, replied = None, {}, set()
+        if emails_api is not None and any(c["state"] in ("queued", "sent", "bounced") for c in contacts):
+            touches, history, replied = company_mail(emails_api, contacts)
+            mark_sent(contacts, touches)
+        if replied:  # e.g. a reply to a forward, which Instantly's campaign does not count
             for c in contacts:
-                if c["state"] == "sent":
-                    history[c["id"]] = emails_api.sent_emails(c["properties"].get("email") or "")
-                    touches[c["id"]] = [t for t in (_sent_time(e) for e in history[c["id"]]) if t]
+                if c["id"] in replied and forward(statuses.of("contacts", c), "replied"):
+                    contact_updates.append((c["id"], statuses.props("contacts", "replied")))
+            if forward(statuses.of("companies", company), "replied"):
+                company_updates.append((company["id"], statuses.props("companies", "replied")))
+            result["replied"] += 1
+            log(f"{name}: someone replied; nobody else there is emailed")
+            continue
         due, why = decide(contacts, statuses.of("companies", company), gap, now,
-                          touches=touches, rounds=rounds, min_same_days=min_same)
+                          touches=touches, min_same_days=min_same)
         if why == "no_reply":
             company_updates.append((company["id"], statuses.props("companies", "closed")))
-            no_reply += 1
+            result["no_reply"] += 1
+            log(f"{name}: the loop is finished with no reply; the company is now Unqualified")
             continue
         if why == "waiting_for_emails_key":
-            need_key += 1
+            result["waiting_for_emails_key"] += 1
             continue
-        if why == "follow_up":
+        if why == "forward":
+            prev = previous_colleague(due, contacts, touches)
+            chain = (history.get(prev["id"]) or [None])[-1] if prev else None
+            if chain is None or not due["properties"].get(PERSONAL_LINE):
+                log(f"{name}: the next person cannot be emailed yet (no earlier email to forward, or no "
+                    "personal line); will try again next run")
+                continue
+            html, text = forward_email(due, props, settings, notes, colleague=_name(prev), original=chain)
+            first = min((e for es in history.values() for e in es),
+                        key=lambda e: _sent_time(e) or parse_time("2999-01-01"), default=chain)
+            emails_api.forward(chain, due["properties"]["email"], forward_subject(first), html, text)
+            contact_updates.append((due["id"], statuses.props("contacts", "in_outreach")))
+            result["forwards_sent"] += 1
+            log(f"{name}: no reply yet; the chain was forwarded to "
+                f"{due['properties'].get('jobtitle') or 'the next contact'}, naming the colleague before them")
+            continue
+        if why == "reminder":
             past = history.get(due["id"]) or []
             if not past:
-                log(f"{props.get('name')}: could not find the earlier email to reply to; will try again next run")
+                log(f"{name}: could not find person 1's email to reply to; will try again next run")
                 continue
-            round_no = len(past) + 1
-            colleague = previous_colleague(due, contacts, touches)
-            html, text = follow_up_email(round_no, due, props, settings, notes, colleague=colleague)
+            html, text = reminder_email(due, props, settings, notes)
             emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
-            sent += 1
-            log(f"{props.get('name')}: round {round_no} email sent to {due['properties'].get('jobtitle') or 'the contact'}, "
-                "as a reply in their thread")
+            result["reminders_sent"] += 1
+            log(f"{name}: the loop is done; person 1 was sent their reminder, as a reply in their thread")
             continue
         campaign = last_campaign(contacts)
         if not due or why != "next" or not campaign or not due["properties"].get(PERSONAL_LINE):
             continue
-        lead = lead_for(due, props, notes)
+        lead = lead_for(due, props, notes)  # nobody reached yet (e.g. person 1 bounced before sending)
         results = instantly.add_leads(campaign, [lead])
         if sum(r.get("leads_uploaded") or 0 for r in results):
             contact_updates.append((due["id"], statuses.props("contacts", "in_outreach")))
-            added += 1
-            log(f"{props.get('name')}: no reply yet, next in line is {due['properties'].get('jobtitle') or 'the next contact'}")
+            result["next_contacts_added"] += 1
+            log(f"{name}: the introduction goes to {due['properties'].get('jobtitle') or 'the next contact'}")
         else:
-            log(f"{props.get('name')}: {lead['email']} is already in Instantly; not added again")
+            log(f"{name}: {lead['email']} is already in Instantly; not added again")
     hs.update_tagged("contacts", contact_updates)
     hs.update_tagged("companies", company_updates)
-    if need_key:
-        log(f"{need_key} companies are ready for their next round, but the GitHub secret INSTANTLY_EMAILS_KEY "
-            "(Instantly key with scope emails:all) is not set, so those emails wait")
-    if added or sent or no_reply:
-        log(f"Next in line: {added} first emails added, {sent} later-round emails sent, "
-            f"{no_reply} companies with no reply after the last round set to Unqualified")
-    return {"next_contacts_added": added, "follow_ups_sent": sent, "no_reply": no_reply,
-            "waiting_for_emails_key": need_key}
+    if result["waiting_for_emails_key"]:
+        log(f"{result['waiting_for_emails_key']} companies are ready for their next email, but the GitHub secret "
+            "INSTANTLY_EMAILS_KEY (Instantly key with scope emails:all) is not set, so those emails wait")
+    log(f"Loop: {result['forwards_sent']} forwards, {result['reminders_sent']} reminders, "
+        f"{result['next_contacts_added']} introductions added, {result['replied']} companies replied, "
+        f"{result['no_reply']} finished with no reply (now Unqualified)")
+    return result
 
 
 def main(argv=None):

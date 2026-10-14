@@ -169,3 +169,40 @@ class FakeInstantly:
         return self.leads.get(campaign_id, [])
 
 
+
+
+class FakeEmails:
+    """Instantly's email threads: what each address was sent (campaign, replies, forwards) and sent back."""
+
+    def __init__(self):
+        self.emails, self.replies, self.forwards = [], [], []
+
+    def _add(self, **e):
+        e.setdefault("id", f"e{len(self.emails) + 1}")
+        e.setdefault("eaccount", "sales@diablosnosugar.com")
+        self.emails.append(e)
+        return e
+
+    def campaign_email(self, to, when, subject="Partnering to establish Diablo"):
+        return self._add(ue_type=1, to_address_email_list=to, lead=to, subject=subject, timestamp_email=when)
+
+    def received(self, sender, when):
+        return self._add(ue_type=2, from_address_email=sender, lead=sender, subject="Re: hello", timestamp_email=when)
+
+    def thread_emails(self, lead_email):
+        lead_email = lead_email.lower()
+        return [e for e in self.emails if lead_email in (e.get("lead"), e.get("to_address_email_list"),
+                                                        e.get("from_address_email"))]
+
+    def reply(self, email, subject, html, text):
+        self.replies.append({"to": email, "subject": subject, "html": html, "text": text})
+        import datetime as dt
+        return self._add(ue_type=3, to_address_email_list=email["to_address_email_list"], lead=email["lead"],
+                         subject=subject, timestamp_email=dt.datetime.now(dt.timezone.utc).isoformat())
+
+    def forward(self, email, to, subject, html, text):
+        self.forwards.append({"of": email, "to": to, "subject": subject, "html": html, "text": text})
+        import datetime as dt
+        # Filed under the address it was forwarded from, as Instantly may do.
+        return self._add(ue_type=3, to_address_email_list=to, lead=email["lead"], subject=subject,
+                         timestamp_email=dt.datetime.now(dt.timezone.utc).isoformat())

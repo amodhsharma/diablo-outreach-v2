@@ -103,6 +103,27 @@ class Instantly:
             if not cursor or not batch:
                 return items
 
+    def thread_emails(self, lead_email):
+        """Every email Instantly holds for one address, sent and received, oldest first
+        (ue_type 1 = from a campaign, 2 = received, 3 = sent by us outside a campaign)."""
+        items, cursor = [], None
+        while True:
+            params = {"lead": lead_email, "limit": 100, "sort_order": "asc"}
+            if cursor:
+                params["starting_after"] = cursor
+            data = self.request("GET", "/emails", params=params)
+            batch = data.get("items", [])
+            items.extend(batch)
+            cursor = data.get("next_starting_after")
+            if not cursor or not batch:
+                return items
+
+    def forward(self, email, to, subject, html, text):
+        """Forward an email we sent to a new person, from the same mailbox (agreed 14 Oct 2026)."""
+        return self.request("POST", "/emails/forward", json={
+            "reply_to_uuid": email["id"], "eaccount": email["eaccount"], "to_address_email_list": to,
+            "subject": subject, "body": {"html": html, "text": text}})
+
     def reply(self, email, subject, html, text):
         """Send a reply in the thread of an email we sent, from the same mailbox."""
         subject = subject if subject.lower().startswith("re:") else f"Re: {subject}"

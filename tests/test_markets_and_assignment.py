@@ -117,9 +117,10 @@ def test_find_contacts_assigns_company_and_contacts(settings):
 
 
 def test_follow_up_after_three_days(settings):
-    # With rounds of emails (agreed 13 Oct 2026) Instantly sends only the first email.
+    # One loop per company (agreed 14 Oct 2026): Instantly sends only the introduction; Sync sends
+    # the forwards and person 1's reminder.
     assert len(send.campaign_body("Diablo | X", "India", settings)["sequences"][0]["steps"]) == 1
-    settings["send"]["rotation"]["rounds"] = 1  # the earlier way: Instantly sends the reminder itself
+    settings["send"]["follow_up"]["enabled"] = True  # the earlier way: Instantly sends the reminder itself
     body = send.campaign_body("Diablo | India | X | 2026-10", "India", settings)
     steps = body["sequences"][0]["steps"]
     assert len(steps) == 2
@@ -127,12 +128,8 @@ def test_follow_up_after_three_days(settings):
     reminder = steps[1]["variants"][0]
     assert reminder["subject"] == ""  # sent in the same thread
     assert "Joshua<br/>Initial Outreach Team" in reminder["body"] and "border-left" in reminder["body"] and "{{privacy_url}}" not in reminder["body"]
-    assert "samples" in reminder["body"]
+    assert "We wrote to you about a week ago" in reminder["body"]
     assert "\u2014" not in reminder["body"]
-
-    settings["send"]["follow_up"]["enabled"] = False
-    body = send.campaign_body("Diablo | India | X | 2026-10", "India", settings)
-    assert len(body["sequences"][0]["steps"]) == 1
 
 
 def test_typed_channel_end_to_end(settings):

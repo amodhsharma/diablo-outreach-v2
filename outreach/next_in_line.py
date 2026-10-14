@@ -1,23 +1,21 @@
-"""One person per company at a time, in turn (agreed 13 Oct 2026).
+"""One loop per company, one person at a time (agreed 14 Oct 2026).
 
-Up to 4 approved contacts per company, most senior first. Every email to a company is at
-least 3 days after the previous one (send.next_contact_after_days):
+Up to 4 approved contacts per company, most senior first, every email at least 3 days after the
+company's previous one (send.next_contact_after_days):
 
-    Person 1, Person 2, Person 3, Person 4 (first emails), then back to Person 1 for a
-    reminder in the same thread, Person 2, ... and so on for send.rotation.rounds rounds.
+    Person 1   the introduction (Instantly campaign)
+    Person 2   a forward of the latest email in the chain, naming the colleague before them
+    Person 3   the same, naming person 2 (and person 4, if there is one)
+    Person 1   one reminder, as a reply in their own thread, at least 7 days after their
+               introduction (send.rotation.min_days_same_person). This is the last email.
 
-Nobody gets a second or third email less than 7 days after their previous one
-(send.rotation.min_days_same_person): if the company has fewer people, the next email simply
-waits until the 7 days are up. The moment anyone at the company replies or opts out, everyone
-there stops. After the last round with no reply the company is marked "No reply".
+Persons 2 to 4 get one email each and nothing more. 3 days after the last email with no reply,
+the company becomes Unqualified. The moment anyone at the company replies or opts out, everyone
+there stops.
 
-First emails go through Instantly (4b adds the lead; Sync adds the next person). The 2nd and
-3rd emails are sent by Sync as replies in the person's own thread (Instantly's reply feature,
-key INSTANTLY_EMAILS_KEY).
-
-Where each person is comes from two places (agreed 13 Oct 2026): their Lead Status in HubSpot
-(gate 2, replies, dead ends) and Instantly itself (whether and when they were emailed, and which
-campaign), so HubSpot needs no extra fields for it.
+Where each person is comes from two places: their Lead Status in HubSpot (gate 2, replies, dead
+ends) and Instantly itself (the campaign, and the emails sent and received in each thread), so
+HubSpot needs no extra fields for it.
 """
 
 import datetime as dt
@@ -101,6 +99,15 @@ def annotate(contacts, statuses, leads):
     return contacts
 
 
+def mark_sent(contacts, touches):
+    """A person reached by a forward is not a campaign lead, so Instantly's lead list does not show
+    them as emailed; their thread does. Mark them sent when it does (in place)."""
+    for c in contacts:
+        if c.get("state") == "queued" and (touches or {}).get(c["id"]):
+            c["state"] = "sent"
+    return contacts
+
+
 def tagged_company_of(hs, contact_ids, properties):
     """({contact id: company id}, {company id: company record}) using, for each contact, the first
     linked company that carries the AUTO-OUTREACH tag. HubSpot may also link a contact to another
@@ -156,11 +163,11 @@ def touch_times(contact, touches=None):
     return [contact["sent_at"]] if contact.get("sent_at") else []
 
 
-def decide(contacts, company_stage, gap_days, now=None, touches=None, rounds=1, min_same_days=7):
+def decide(contacts, company_stage, gap_days, now=None, touches=None, min_same_days=7):
     """(the contact to email next or None, why). Contacts must be annotated (see annotate). why is
-    one of: next (their first email), follow_up (their next email, a reply in their thread),
-    stopped, waiting, waiting_for_gate_2, waiting_same_person, waiting_for_emails_key, no_reply,
-    nothing.
+    one of: next (person 1's introduction, through the campaign), forward (the next person, a
+    forward of the chain), reminder (person 1's one reminder, a reply in their thread), stopped,
+    waiting, waiting_for_gate_2, waiting_same_person, waiting_for_emails_key, no_reply, nothing.
 
     touches: {contact id: [times they were emailed]} from Instantly, or None when unknown."""
     now = now or dt.datetime.now(dt.timezone.utc)
@@ -171,29 +178,33 @@ def decide(contacts, company_stage, gap_days, now=None, touches=None, rounds=1, 
         return None, "stopped"
     if "queued" in states:
         return None, "waiting"
-    emailed = sorted((c for c in contacts if c["state"] == "sent"), key=rank_of)
-    times = [t for c in emailed for t in touch_times(c, touches)]
-    if emailed and (not times or now - max(times) < dt.timedelta(days=gap_days)):
+    reached = [c for c in contacts if c["state"] in ("sent", "bounced") and touch_times(c, touches)]
+    emailed = [c for c in contacts if c["state"] == "sent"]
+    times = [t for c in reached for t in touch_times(c, touches)]
+    if emailed and not times:
+        return None, "waiting"
+    if times and now - max(times) < dt.timedelta(days=gap_days):
         return None, "waiting"
     approved = sorted((c for c in contacts if c["state"] == "approved"), key=rank_of)
     if approved:
-        return approved[0], "next"
+        if not emailed:  # nobody reached yet (or only a bounced address): the introduction
+            return approved[0], "next"
+        if touches is None:
+            return None, "waiting_for_emails_key"
+        return approved[0], "forward"
     if "pending" in states:
         return None, "waiting_for_gate_2"
     if not emailed:
         return (None, "no_reply") if "bounced" in states else (None, "nothing")
-    if rounds <= 1:
-        return None, "no_reply"
     if touches is None:
         return None, "waiting_for_emails_key"
-    counts = {c["id"]: max(len(touch_times(c, touches)), 1) for c in emailed}
-    lowest = min(counts.values())
-    if lowest >= rounds:
-        return None, "no_reply"
-    person = next(c for c in emailed if counts[c["id"]] == lowest)
-    if now - touch_times(person, touches)[-1] < dt.timedelta(days=min_same_days):
-        return None, "waiting_same_person"
-    return person, "follow_up"
+    # The loop is done: one reminder to person 1 (the first person emailed), then the end.
+    first = min((c for c in emailed if touch_times(c, touches)), key=lambda c: touch_times(c, touches)[0])
+    if len(touch_times(first, touches)) < 2:
+        if now - touch_times(first, touches)[0] < dt.timedelta(days=min_same_days):
+            return None, "waiting_same_person"
+        return first, "reminder"
+    return None, "no_reply"
 
 
 def last_campaign(contacts):

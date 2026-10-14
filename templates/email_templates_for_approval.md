@@ -64,31 +64,41 @@ Accounts. It is set there, not here.
 > www.diablosugarfree.com
 > XXXXXX (phone, placeholder)
 
-## Reminder (rounds 2 and 3: one template, sent as a reply in the person's own thread; agreed 14 Oct 2026)
+## Forward to the next person (persons 2 to 4; agreed 14 Oct 2026, `templates/forward.json`)
+
+Sent by button 3 from the same mailbox as a forward of the latest email in the company's chain, so
+the earlier email appears underneath. Subject: "Fwd: " and the introduction's subject.
 
 > Hi {{firstName}},
 >
 > In case our earlier note to your colleague [full name] did not reach the right desk, we wanted to
 > share it with you as well.
 >
-> We wanted to follow up on our note about bringing Diablo Sugar Free to {{market}}. We would be
-> glad to send you samples, along with our pricing and logistics details, so you can judge the fit
-> for your customers.
+> {{personal_line}}
 >
 > Would a brief 10-minute call with our outreach lead work for you at a time of your convenience?
 >
-> Best regards,
-> Joshua
-> Initial Outreach Team
-> Diablo Sugar Free
-> www.diablosugarfree.com
-> XXXXXX (phone, placeholder)
+> Best regards, then the Joshua signature and the first email's footer.
 
-The colleague sentence names the person at the same company who was emailed most recently before
-this email and has not replied. A bounced person is never named, and nobody is named when the
-company has no such colleague: the sentence is then left out. The name is filled in only when the
-email is sent; it is never stored in GitHub. Round 3 uses the same template (the separate last
-note was dropped on 14 Oct 2026).
+The colleague is the person at the same company emailed most recently who has not replied, never
+a bounced person. The name is filled in only when the email is sent; it is never stored in GitHub.
+
+## Reminder to person 1 (the last email; agreed 14 Oct 2026, `templates/follow_up.json`)
+
+Sent once, as a reply in person 1's own thread, after the loop and at least a week after their
+introduction. Persons 2 to 4 never get a reminder.
+
+> Hi {{firstName}},
+>
+> We wrote to you about a week ago about bringing Diablo Sugar Free to {{market}}, and we
+> appreciate how busy things can be. We would still value the chance to share our range with your
+> team.
+>
+> Would a brief 10-minute call with our outreach lead work for you at a time of your convenience?
+>
+> Best regards, then the Joshua signature and the reminder footer.
+
+3 days after the reminder with no reply from anyone, the company becomes Unqualified.
 
 ## Footer (every email)
 

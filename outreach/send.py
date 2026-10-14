@@ -129,8 +129,6 @@ def sequence_steps(s):
     """First email, plus one reminder for anyone who has not replied (Instantly's `delay` is
     the wait before the NEXT email, so it sits on the first step)."""
     follow = s.get("follow_up") or {}
-    if int((s.get("rotation") or {}).get("rounds", 1)) > 1:
-        follow = {}  # later emails are sent by Sync as replies in each person's thread
     paths = s.get("templates") or {}
     subject, body = _template(paths.get("first_email") or "templates/template_1.json", s)
     first = {"type": "email", "delay": 0, "delay_unit": "days",
@@ -236,7 +234,10 @@ def refresh_campaign_content(instantly, settings, log=print):
 WAIT_REASONS = {
     "stopped": "someone at the company has replied, opted out or been marked, so nobody else there is emailed",
     "waiting": "the company's last email was under 3 days ago (one email every 3 days per company)",
-    "follow_up": "the company is on its later rounds; Sync sends those emails",
+    "forward": "someone at the company was already emailed; Sync sends this person a forward of that email in turn",
+    "reminder": "the company's loop is done; Sync sends person 1 their reminder",
+    "waiting_same_person": "the company's loop is done; person 1's reminder waits for its week",
+    "no_reply": "the company's loop is finished with no reply",
     "next": "a more senior approved person at the company goes first",
 }
 
@@ -332,7 +333,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         # One person per company at a time: only the one next in line goes now.
         company_contacts = annotate(everyone.get(company_id) or [c], statuses, in_instantly)
         due, why = decide(company_contacts, company_stage, gap)
-        if not due or due["id"] != c["id"]:
+        if why != "next" or not due or due["id"] != c["id"]:  # only person 1 goes through the campaign
             waiting += 1
             log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "
                 + WAIT_REASONS.get(why, "a more senior approved person at the company goes first"))
