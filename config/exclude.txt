@@ -2,3 +2,4 @@
 # Add existing partners, live negotiations and customers here.
 Blue Rickshaw Private Limited
 Diplomat Georgia (diplomat-global.com)
+PSP Pharma (psp.ge)
