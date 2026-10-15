@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-15T12:04:01+00:00 (UTC).
+Checked 2026-10-15T12:27:58+00:00 (UTC).
 
 ## Mailboxes
 
@@ -54,14 +54,22 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Active
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
+- Last healthy send: 2026-10-15T12:05:30.861Z
+- schedule_status: `{"in_schedule": true}`
+- campaign_daily_limit: `{"limit": 30, "sent": 1, "limit_hit": false}`
+- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 1, "limit_hit": false}`
+- accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
+- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
+- follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
+- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-15T12:14:30.513Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-15T12:05:30.861Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Link tracking: off
 - Open tracking: off
 - Leads: 5
   - 3 Completed, emailed, replied
-  - 1 Completed, emailed
-  - 1 Active, not yet emailed
+  - 2 Completed, emailed
 - Emails in the sequence: 1 (characters in each body: [1858])
 
 
@@ -71,17 +79,14 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 2 contacts approved to send
-- Waiting: contact 891826263241 (r***@diablosugarfree.com) at Leonhard & Saalfrank GmbH & Co. KG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 891826263242 (a***@gmail.com) at Leonhard & Saalfrank GmbH & Co. KG: the company's last email was under 3 days ago (one email every 3 days per company)
-- 2 approved contacts wait their turn (one person per company at a time)
+- 0 contacts approved to send
 
 ## Where every company is in its loop
 
-- **Leonhard & Saalfrank GmbH & Co. KG**: next is the next email, 3 days after the last one
+- **Leonhard & Saalfrank GmbH & Co. KG**: next is the next email, 3 days after the last one, due 18 Oct 17:35 IST
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
 |---|---|---|---|---|
-| Leonhard & Saalfrank GmbH & Co. KG | 1 | Sales Manager | Attempted to Contact | not yet |
-| Leonhard & Saalfrank GmbH & Co. KG | 2 | Financial Accountant | GATE2: Approved to send | not yet |
-| Leonhard & Saalfrank GmbH & Co. KG | 3 | Buyer | GATE2: Approved to send | not yet |
+| Leonhard & Saalfrank GmbH & Co. KG | 1 | Sales Manager | Reminder sent | 15 Oct 17:35 IST |
+| Leonhard & Saalfrank GmbH & Co. KG | 2 | Financial Accountant | Unqualified | not yet |
+| Leonhard & Saalfrank GmbH & Co. KG | 3 | Buyer | Unqualified | not yet |
