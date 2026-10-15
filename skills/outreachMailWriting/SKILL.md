@@ -74,8 +74,10 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt_2.md` (in use from 15 Oct 2026): the company note and the personal line
-  with its four styles. `prompts/lines_prompt.md` is the earlier version, kept unchanged and not used.
+- `prompts/lines_prompt_3.md` (in use from 15 Oct 2026): the company note, now short (4 to 12 words,
+  centred on sugar free, sweets and confectionery, no places), and the personal line with its four
+  styles. `prompts/lines_prompt_2.md` (the longer note) and `prompts/lines_prompt.md` are the earlier
+  versions, kept unchanged and not used.
 - `settings.yaml`: how many contacts one run writes for.
 - `scripts/`: prepare_lines.py (Step 2, also picks each contact's style), finalise_lines.py (Step 4),
   check_lines.py (the strict check and the four styles, also used by GitHub before importing).

@@ -19,6 +19,7 @@ HubSpot needs no extra fields for it.
 """
 
 import datetime as dt
+import re
 
 from .common import INDUSTRY_PARTNER
 from .schema import COMPANY_NOTE, LEAD_STATUS, ORDER, PERSONAL_LINE
@@ -256,6 +257,39 @@ def country_name(market):
     return (market or "").split(",")[-1].strip()
 
 
+# Legal endings left out of the company name in emails (agreed 15 Oct 2026): "Leonhard & Saalfrank
+# GmbH & Co. KG" reads as "Leonhard & Saalfrank". HubSpot keeps the full name. Longest first.
+LEGAL_FORMS = sorted({
+    "GmbH & Co. KG", "GmbH & Co KG", "GmbH & Co. KGaA", "UG (haftungsbeschränkt)", "UG", "GmbH", "gGmbH", "AG",
+    "KGaA", "KG", "OHG", "SE", "e.K.", "e.V.", "mbH", "Ltd.", "Ltd", "Limited", "PLC", "plc", "LLP", "LLC",
+    "Inc.", "Inc", "Corp.", "Corp", "Pty Ltd", "Pty. Ltd.", "S.A.", "SA", "S.A.S.", "SAS", "SARL", "S.à r.l.",
+    "S.a.r.l.", "S.r.l.", "Srl", "SRL", "S.p.A.", "SpA", "S.L.", "SL", "S.L.U.", "SLU", "S.A.C.", "SAC",
+    "S.A.A.", "E.I.R.L.", "EIRL", "Ltda.", "Ltda", "Lda.", "Lda", "B.V.", "BV", "N.V.", "NV", "BVBA", "VOF",
+    "sp. z o.o.", "Sp. z o.o.", "S.A.R.L.", "s.r.o.", "a.s.", "d.o.o.", "Kft.", "Zrt.", "Oy", "Oyj", "AB",
+    "A/S", "ApS", "AS", "ASA", "IKE", "EPE", "OOD", "EOOD", "SIA", "UAB", "OÜ", "& Co.", "& Co",
+}, key=len, reverse=True)
+
+
+def short_company_name(name):
+    """The company name as the emails show it: no legal ending and no part in brackets, e.g.
+    "Transgourmet Deutschland (Selgros Erfurt)" -> "Transgourmet Deutschland". Falls back to the
+    full name if nothing would be left."""
+    full = (name or "").strip()
+    short = re.sub(r"\s*\([^)]*\)", "", full).strip()
+    changed = True
+    while changed and short:
+        changed = False
+        for form in LEGAL_FORMS:
+            if short.lower().endswith(form.lower()):
+                before = short[: len(short) - len(form)]
+                if before and not (before[-1].isspace() or before[-1] == ","):
+                    continue  # part of a word, e.g. "Bisa" does not end in "SA"
+                short = before.rstrip(" ,").strip()
+                changed = True
+                break
+    return short or full
+
+
 def lead_for(contact, company, notes=None):
     """The Instantly lead for a contact. company: the company's HubSpot properties."""
     from .common import channel_of, market_of
@@ -265,7 +299,7 @@ def lead_for(contact, company, notes=None):
         "email": p["email"],
         "first_name": p.get("firstname") or "",
         "last_name": p.get("lastname") or "",
-        "company_name": company.get("name") or "",
+        "company_name": short_company_name(company.get("name")),
         "job_title": p.get("jobtitle") or "",
         "website": company.get("domain") or "",
         "custom_variables": {

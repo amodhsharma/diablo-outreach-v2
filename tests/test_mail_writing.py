@@ -302,7 +302,12 @@ def test_company_note_rules():
     assert any("company name" in e for e in problems("is Alpenhof Import AG, a free from importer in Zurich"))
     assert any('"we"' in e for e in problems("supplies the free from products we admire in Zurich"))
     assert any("full stop" in e for e in problems("supplies organic snacks to health stores in Zurich."))
-    assert any("4 to 25 words" in e for e in problems("imports sweets"))
+    assert any("4 to 12 words" in e for e in problems("imports sweets"))
+    # Shorter from 15 Oct 2026 (lines_prompt_3.md): at most 12 words and one comma
+    assert any("4 to 12 words" in e for e in problems(
+        "supplies raw materials and specialities to bakers, confectioners and ice cream makers across Bavaria"))
+    assert any("one comma" in e for e in problems("supplies sweets, snacks, drinks and chocolate"))
+    assert problems("supplies confectionery and snacks to kiosks and petrol stations") == []
     errs = []
     check_lines.check_line(errs, base)  # older files without a company note still pass
     assert errs == []
@@ -316,6 +321,31 @@ def test_writing_prompt_2_asks_for_the_company_note():
     assert "company note" in new and '"company_note": "..."' in new and "closest true fact" in new
     assert "company_note" not in old  # the original is kept unchanged
     assert "lines_prompt_2.md" in (skill / "scripts" / "prepare_lines.py").read_text()
+
+
+def test_writing_prompt_3_asks_for_a_short_sweets_centred_note():
+    from pathlib import Path
+    skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
+    new = (skill / "prompts" / "lines_prompt_3.md").read_text()
+    two = (skill / "prompts" / "lines_prompt_2.md").read_text()
+    assert "4 to 12 words" in new and "No places" in new and "sugar free" in new and "confectionery" in new
+    assert '"company_note": "..."' in new and "## The four styles" in new  # the personal line is unchanged
+    assert "6 to 25 words" in two  # prompt 2 is kept unchanged
+    assert "lines_prompt_3.md" in (skill / "scripts" / "prepare_lines.py").read_text()
+
+
+def test_emails_use_the_company_name_without_its_legal_ending():
+    from outreach.next_in_line import lead_for, short_company_name
+    assert short_company_name("Leonhard & Saalfrank GmbH & Co. KG") == "Leonhard & Saalfrank"
+    assert short_company_name("Transgourmet Deutschland (Selgros Erfurt)") == "Transgourmet Deutschland"
+    assert short_company_name("Lekkerland SE") == "Lekkerland"
+    assert short_company_name("Delitalia Peru S.A.C.") == "Delitalia Peru"
+    assert short_company_name("Masoutis S.A.") == "Masoutis"
+    assert short_company_name("Bisa") == "Bisa"  # a name that only looks like it ends in "SA"
+    assert short_company_name("Unicoop Firenze") == "Unicoop Firenze"
+    assert short_company_name("GmbH") == "GmbH"  # nothing would be left, so the full name stays
+    lead = lead_for({"properties": {"email": "a@b.example"}}, {"name": "dennree GmbH", "domain": "dennree.de"})
+    assert lead["company_name"] == "dennree"
 
 
 def test_contacts_just_added_are_listed_even_before_search_shows_them(tmp_path):

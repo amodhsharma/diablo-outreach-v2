@@ -22,7 +22,7 @@ LINE_KEYS = ["contact_id", "company_name", "personal_line"]
 # which style each line was written in.
 OPTIONAL_KEYS = ["subject_line", "style", "company_note"]
 # The company note (15 Oct 2026) finishes "we noticed <company name> ..." in template 3.
-NOTE_WORDS = (4, 25)
+NOTE_WORDS = (4, 12)  # 4 to 25 until 15 Oct 2026; lines_prompt_3.md asks for a short note
 
 SUBJECT_WORDS = (3, 7)
 PERSONAL_MAX_WORDS = 60
@@ -127,6 +127,8 @@ def note_problems(errors, where, note, company):
     n = len(_words(note))
     if not NOTE_WORDS[0] <= n <= NOTE_WORDS[1]:
         errors.append(f"{where}: company note must be {NOTE_WORDS[0]} to {NOTE_WORDS[1]} words (found {n})")
+    if note.count(",") > 1:
+        errors.append(f"{where}: company note may have at most one comma (one short fact)")
     if not note.strip()[0].islower():
         errors.append(f"{where}: company note must start with a small letter (it follows the company name)")
     if re.search(r"[.!?]\s*$", note) or _sentences(note) > 1:
