@@ -195,7 +195,7 @@ class FakeEmails:
         return [e for e in self.emails if lead_email in (e.get("lead"), e.get("to_address_email_list"),
                                                         e.get("from_address_email"))]
 
-    def reply(self, email, subject, html, text):
+    def reply(self, email, subject, html, text, keep_subject=False):
         self.replies.append({"to": email, "subject": subject, "html": html, "text": text})
         import datetime as dt
         return self._add(ue_type=3, to_address_email_list=email["to_address_email_list"], lead=email["lead"],

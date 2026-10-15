@@ -124,9 +124,11 @@ class Instantly:
             "reply_to_uuid": email["id"], "eaccount": email["eaccount"], "to_address_email_list": to,
             "subject": subject, "body": {"html": html, "text": text}})
 
-    def reply(self, email, subject, html, text):
-        """Send a reply in the thread of an email we sent, from the same mailbox."""
-        subject = subject if subject.lower().startswith("re:") else f"Re: {subject}"
+    def reply(self, email, subject, html, text, keep_subject=False):
+        """Send a reply to an email we sent, from the same mailbox. keep_subject sends the subject as
+        given (person 1's reminder from 15 Oct 2026 has its own); otherwise "Re: " is added."""
+        if not keep_subject:
+            subject = subject if subject.lower().startswith("re:") else f"Re: {subject}"
         return self.request("POST", "/emails/reply", json={
             "reply_to_uuid": email["id"], "eaccount": email["eaccount"], "subject": subject,
             "body": {"html": html, "text": text}})

@@ -110,9 +110,13 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     assert moved["reminders_sent"] == 1 and moved["forwards_sent"] == 0
     assert status_of(hs, p1) == "REMINDER_SENT" and status_of(hs, p2) == "FORWARD_SENT"
     rem = emails.replies[0]
-    assert rem["to"]["id"] == emails.emails[0]["id"] and rem["subject"] == "Partnering to establish Diablo"
-    assert "Hi P1,\n\nWe wrote to you about a week ago about bringing Diablo Sugar Free to" in rem["text"]
-    assert "Would a brief 10-minute call with our outreach lead work for you at a time of your convenience?" in rem["text"]
+    # Under person 1's own first email (not the forwards), with its own subject (follow_up_2, 15 Oct 2026).
+    assert rem["to"]["id"] == emails.emails[0]["id"] and rem["subject"] == "Bad Jokes + Europe's largest Brand"
+    assert "Hi P1,\n\nI imagine your inbox is about as full as a regular chocolate bar is of sugar." in rem["text"]
+    assert "I hope that bad joke buys me another email :)" in rem["text"]
+    assert "Would this week work, or would next week suit better?" in rem["text"]
+    assert "Joshua\nInternational Account Executive\nDiablo Sugar Free\nBook a quick meeting with us: " in rem["text"]
+    assert "colleague" not in rem["text"] and "{{" not in rem["text"] and "privacy" not in rem["text"].lower()
 
     # Persons 2 and 3 never get a second email; 3 days after the reminder the company is Unqualified.
     assert sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)["no_reply"] == 0

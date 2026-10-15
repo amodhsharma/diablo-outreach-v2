@@ -242,3 +242,43 @@ set `send.templates.first_email` to `templates/template_2.json` in `config/setti
 - No privacy link (agreed 15 Oct 2026: as few links as possible).
 - The forward and reminder keep their current wording and signature until Ariel sends new ones.
 
+
+## Person 1's reminder: follow_up_2.json (in use from 15 Oct 2026)
+
+Ariel's "Bad Jokes" email, fixed text (nothing in it is written by Claude). Sent once to person 1,
+at least 7 days after their introduction and 3 days after the last email at the company, as a
+reply to their own first email but with its own subject, so it arrives as a separate email. No
+colleague is named. `follow_up.json` is kept unchanged; to go back, set `send.templates.reminder`
+to `templates/follow_up.json`.
+
+**Subject:** Bad Jokes + Europe's largest Brand
+
+> Hi {{firstName}},
+>
+> I imagine your inbox is about as full as a regular chocolate bar is of sugar. Sadly, we can only
+> fix one of those.
+>
+> I hope that bad joke buys me another email :)
+>
+> Bad jokes aside, as mentioned, we are Diablo Sugar Free, Europe's largest sugar-free
+> confectionery company, with 117 snacks across 11 categories, from cakes and biscuits to wafers
+> and spreads, all sweetened without aspartame. Our catalogue: [diablosugarfree.com/pages/catalogue-2026](https://www.diablosugarfree.com/pages/catalogue-2026)
+>
+> We supply more than 126 countries and are listed with Carrefour, Tesco, Lidl and Holland &
+> Barrett, etc, but do not yet have a direct partner in {{market_country}}.
+>
+> I'd love to set up a call with your team and our Strategy Director to look at what the range
+> would need to earn properly for your professional customers.
+>
+> Would this week work, or would next week suit better?
+>
+> Best regards,
+>
+> Joshua
+> International Account Executive
+> Diablo Sugar Free
+> Book a quick meeting with us: [calendly.com/outreach-diablo/intro](https://calendly.com/outreach-diablo/intro)
+>
+> ---
+> <small>We found your business details in public and commercial sources. If you would rather not
+> hear from us, reply "no thanks" and we will not contact you again.</small>

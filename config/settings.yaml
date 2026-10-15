@@ -155,7 +155,9 @@ send:
   templates:
     first_email: templates/template_3.json
     forward: templates/forward.json
-    reminder: templates/follow_up.json
+    # Person 1's one reminder: follow_up_2.json from 15 Oct 2026 (Ariel's "Bad Jokes" email, sent as
+    # its own email with its own subject). follow_up.json is kept unchanged; put it back here to undo.
+    reminder: templates/follow_up_2.json
     follow_up: templates/follow_up.json
   # Booking link for the team's shared booking page. Template 2 shows it on its own line after
   # "Or if you would want to set up a call directly, you can do it from the link below." (agreed

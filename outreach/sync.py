@@ -191,6 +191,15 @@ def _fill(path, person, company, settings, notes, extra=None):
     return html, send.render(html, {})
 
 
+def reminder_subject(settings):
+    """The reminder template's own subject, or "" to reply as "Re: <first subject>". follow_up_2.json
+    (agreed 15 Oct 2026) has its own subject, so person 1 gets it as a separate email."""
+    from . import send
+    paths = settings["send"].get("templates") or {}
+    subject, _ = send._template(paths.get("reminder") or "templates/follow_up.json", settings["send"])
+    return (subject or "").strip()
+
+
 def reminder_email(person, company, settings, notes=None):
     """(html, text) of person 1's one reminder (agreed 14 Oct 2026)."""
     paths = settings["send"].get("templates") or {}
@@ -356,7 +365,11 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 log(f"{name}: could not find person 1's email to reply to; will try again next run")
                 continue
             html, text = reminder_email(due, props, settings, notes)
-            emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
+            own = reminder_subject(settings)  # a template with its own subject (follow_up_2, 15 Oct 2026)
+            if own:
+                emails_api.reply(past[-1], own, html, text, keep_subject=True)
+            else:
+                emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
             if statuses.has("contacts", "reminded") and forward(statuses.of("contacts", due), "reminded"):
                 contact_updates.append((due["id"], statuses.props("contacts", "reminded")))
             result["reminders_sent"] += 1
