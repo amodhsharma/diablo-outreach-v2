@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-15T10:30:48+00:00 (UTC).
+Checked 2026-10-15T12:04:01+00:00 (UTC).
 
 ## Mailboxes
 
@@ -32,7 +32,7 @@ Checked 2026-10-15T10:30:48+00:00 (UTC).
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (68 of 68) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Problem** | Connection error | Off | 100 | no numbers yet | Info Account | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | Off | 0 | no numbers yet | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
@@ -50,19 +50,19 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Link tracking: **ON** (should be off: switch it off in the campaign Options)
 - Open tracking: **ON** (should be off: switch it off in the campaign Options)
 - Leads: 0
-- Emails in the sequence: 1 (characters in each body: [2053])
+- Emails in the sequence: 1 (characters in each body: [1858])
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Active
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Link tracking: off
 - Open tracking: off
-- Leads: 4
+- Leads: 5
   - 3 Completed, emailed, replied
   - 1 Completed, emailed
-- Emails in the sequence: 1 (characters in each body: [2053])
+  - 1 Active, not yet emailed
+- Emails in the sequence: 1 (characters in each body: [1858])
 
 
 ## Keys
@@ -71,8 +71,17 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 0 contacts approved to send
+- 2 contacts approved to send
+- Waiting: contact 891826263241 (r***@diablosugarfree.com) at Leonhard & Saalfrank GmbH & Co. KG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 891826263242 (a***@gmail.com) at Leonhard & Saalfrank GmbH & Co. KG: the company's last email was under 3 days ago (one email every 3 days per company)
+- 2 approved contacts wait their turn (one person per company at a time)
 
 ## Where every company is in its loop
 
-- No company is being emailed right now.
+- **Leonhard & Saalfrank GmbH & Co. KG**: next is the next email, 3 days after the last one
+
+| Company | Order | Person (job title) | Lead Status | Emailed |
+|---|---|---|---|---|
+| Leonhard & Saalfrank GmbH & Co. KG | 1 | Sales Manager | Attempted to Contact | not yet |
+| Leonhard & Saalfrank GmbH & Co. KG | 2 | Financial Accountant | GATE2: Approved to send | not yet |
+| Leonhard & Saalfrank GmbH & Co. KG | 3 | Buyer | GATE2: Approved to send | not yet |
