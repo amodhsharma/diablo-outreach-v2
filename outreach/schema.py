@@ -30,6 +30,7 @@ LEAD_STATUS = "hs_lead_status"
 INDUSTRY_TYPE = "industry_type"
 TIER = "hs_ideal_customer_profile"
 PERSONAL_LINE = "diablo_personal_line"
+COMPANY_NOTE = "diablo_company_note"
 ORDER = "diablo_outreach_order"
 
 
@@ -65,13 +66,17 @@ INDUSTRY_TYPES = (
     ("Other", "Other"),
 )
 
-# The two new fields (contacts only), created in the "Diablo outreach" group.
+# The new fields (contacts only; the company note was added on 15 Oct 2026), created in the "Diablo outreach" group.
 NEW_PROPERTIES = {
     "companies": [],
     "contacts": [
         long_text(PERSONAL_LINE, "Outreach personal line",
                   "The tailored opening line for this person's first email. Read it before setting "
                   "Lead Status to GATE2: Approved to send (gate 2)."),
+        long_text(COMPANY_NOTE, "Outreach company note",
+                  "What we noticed about the company, finishing the first email's sentence \"I thought "
+                  "I'd reach out as we noticed <company> ...\" (added 15 Oct 2026). Read it before "
+                  "setting Lead Status to GATE2: Approved to send (gate 2)."),
         number(ORDER, "Outreach order",
                "Who at the company is emailed first: 1 = most senior found, then 2, 3 and 4."),
     ],

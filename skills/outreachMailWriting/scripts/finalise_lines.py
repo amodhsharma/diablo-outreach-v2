@@ -52,6 +52,8 @@ def build(batch, draft):
             "company_name": names.get(cid, ""),
             "personal_line": tidy(item.get("personal_line")),
         }
+        if item.get("company_note"):  # asked for from 15 Oct 2026 (template 3)
+            line["company_note"] = tidy(item["company_note"]).rstrip(" .")
         if styles.get(cid):
             line["style"] = styles[cid]  # the style prepare_lines.py gave this contact
         lines.append(line)

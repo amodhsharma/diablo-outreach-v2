@@ -161,7 +161,7 @@ def test_typed_channel_end_to_end(settings):
     assert find_contacts.titles_for("pharmacy DISTRIBUTOR", titles) == titles["Pharmacy distributor"]
 
     contact = hs.add("contacts", email="buyer@noblefoods.in", firstname="Asha",
-                     hs_lead_status="APPROVED_TO_SEND", diablo_personal_line="Line.")
+                     hs_lead_status="APPROVED_TO_SEND", diablo_personal_line="Line.", diablo_company_note="imports European sweets")
     hs.links[contact] = [cid]
     inst = FakeInstantly()
     send.run("test", settings, hs, inst, log=quiet)

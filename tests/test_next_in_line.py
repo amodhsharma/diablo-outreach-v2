@@ -42,7 +42,7 @@ def company_with_three(hs, name, domain):
     people = []
     for rank, title in enumerate(("Managing Director", "Head of Buying", "Category Manager"), start=1):
         pid = hs.add("contacts", email=f"p{rank}@{domain}", firstname=f"P{rank}", jobtitle=title,
-                     diablo_outreach_order=str(rank), diablo_personal_line="Line.", **{LS: "APPROVED_TO_SEND"})
+                     diablo_outreach_order=str(rank), diablo_personal_line="Line.", diablo_company_note="imports European sweets", **{LS: "APPROVED_TO_SEND"})
         hs.links[pid] = [cid]
         people.append(pid)
     return cid, people
@@ -151,7 +151,7 @@ def test_one_person_only_gets_a_reminder_after_a_week_then_unqualified(settings)
     hs, instantly, emails = FakeCRM(), FakeInstantly(), FakeEmails()
     cid = hs.add("companies", name="Quiet Co", domain="quiet.in", country="India", **{LS: "GATE1: Approved for outreach"})
     only = hs.add("contacts", email="boss@quiet.in", firstname="Bo", diablo_outreach_order="1",
-                  diablo_personal_line="Line.", **{LS: "APPROVED_TO_SEND"})
+                  diablo_personal_line="Line.", diablo_company_note="imports European sweets", **{LS: "APPROVED_TO_SEND"})
     hs.links[only] = [cid]
     send.run("test", settings, hs, instantly, log=quiet)
     lead(instantly, "boss@quiet.in")["timestamp_last_contact"] = ago(5)

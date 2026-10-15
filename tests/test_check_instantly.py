@@ -152,10 +152,18 @@ def test_template_1_is_used_and_filled():
     from outreach.common import load_settings
     from outreach.next_in_line import market_country
     s = load_settings()["send"]
-    assert s["templates"]["first_email"] == "templates/template_2.json"
-    body = send.sequence_steps(s)[0]["variants"][0]["body"]
-    assert "office of the Strategy Director" in body and "<div>{{personal_line}}</div><div><br></div><div>Attaching a catalogue" in body
-    assert "Joshua<br/>Initial Outreach Team" in body and "<hr " in body  # same sign-off and footer
+    assert s["templates"]["first_email"] == "templates/template_3.json"  # Ariel's new introduction (15 Oct 2026)
+    steps = send.sequence_steps(s)
+    body, subject = steps[0]["variants"][0]["body"], steps[0]["variants"][0]["subject"]
+    assert subject == "A sugar-free brand with no {{country_name}} partner yet"
+    assert "office of the Strategy Director" in body and "as we noticed {{companyName}} {{company_note}}." in body
+    assert "a direct partner in {{market_country}} yet" in body and "We supply more than 126 countries" in body
+    assert '<a href="https://www.diablosugarfree.com/pages/catalogue-2026">diablosugarfree.com/pages/catalogue-2026</a>' in body
+    assert 'Book a quick meeting with us: <a href="https://calendly.com/outreach-diablo/intro">calendly.com/outreach-diablo/intro</a>' in body
+    assert "Joshua<br/>International Account Executive<br/>Diablo Sugar Free<br/>" in body and "<hr " in body
+    assert "privacy" not in body.lower() and "{{personal_line}}" not in body
+    old = json.loads(open("templates/template_2.json").read())["body"]
+    assert "{{personal_line}}" in old and "Initial Outreach Team" not in old  # template 2 is kept unchanged
     current = json.loads(open("templates/template_1.json").read())["body"]
     assert "I hope this email finds you well" in current  # the current template is untouched
     assert market_country("Amsterdam, Netherlands") == "the Netherlands"

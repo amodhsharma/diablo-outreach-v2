@@ -25,7 +25,7 @@ from pathlib import Path
 from . import export_for_lines
 from .common import ROOT, PipelineError, check_target, now_iso
 from .hubspot_client import HubSpot, HubSpotError
-from .schema import LEAD_STATUS, PERSONAL_LINE
+from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE
 from .stages import LeadStatus
 
 SKILL = ROOT / "skills" / "outreachMailWriting"
@@ -92,7 +92,10 @@ def import_file(path, hs, done_ids=None):
         elif statuses.of("contacts", current[cid]) != "found":
             moved_on += 1
         else:
-            updates.append((cid, {PERSONAL_LINE: line["personal_line"], **statuses.props("contacts", "copy_ready")}))
+            props = {PERSONAL_LINE: line["personal_line"], **statuses.props("contacts", "copy_ready")}
+            if line.get("company_note"):  # lines files from 15 Oct 2026 also carry the company note
+                props[COMPANY_NOTE] = line["company_note"]
+            updates.append((cid, props))
     hs.update_tagged("contacts", updates)
     if done_ids is not None:
         done_ids.update(cid for cid, _ in updates)

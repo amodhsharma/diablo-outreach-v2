@@ -148,8 +148,12 @@ send:
   # To switch template, change the path here; nothing else needs to change. Set 13 Oct 2026:
   # template_1.json is the earlier first email and template_2.json the team's version (renamed
   # 13 Oct 2026). The first email now uses template_2.json.
+  # From 15 Oct 2026 the first email uses template_3.json (Ariel's new introduction: subject
+  # "A sugar-free brand with no <country> partner yet", the Outreach company note, a short
+  # catalogue link and the booking link in the signature). template_2.json is kept unchanged;
+  # to go back, put templates/template_2.json here again.
   templates:
-    first_email: templates/template_2.json
+    first_email: templates/template_3.json
     forward: templates/forward.json
     reminder: templates/follow_up.json
     follow_up: templates/follow_up.json
@@ -159,7 +163,9 @@ send:
   # it is ever not a real web address, Send sends nothing and does not change any campaign (it
   # stops with a clear "booking link is missing" message). Template 1 instead adds "You can also
   # book a time directly here: <link>" only when a link is set.
-  booking_link: "https://calendly.com/amodh-diablosugarfree/introductory-call-with-diablo-sugar-free"
+  # Changed on 15 Oct 2026 to the short Calendly link. Template 3 shows it in the signature as
+  # "Book a quick meeting with us:", written short (no https:// or www.) but clickable.
+  booking_link: "https://calendly.com/outreach-diablo/intro"
   # Signature on every email: the name, the title, then "Diablo Sugar Free" (linked to the website)
   # "(B Healthy Ltd, London)" (agreed 14 Oct 2026). No phone number and no separate website line:
   # the templates no longer show either, so website and phone are not used.

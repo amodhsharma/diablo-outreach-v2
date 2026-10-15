@@ -140,7 +140,9 @@ def main(argv=None):
         "contacts": batch,
     }
     (WORK / "batch.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    prompt = (SKILL / "prompts" / "lines_prompt.md").read_text(encoding="utf-8")
+    # lines_prompt_2.md (15 Oct 2026) also asks for the company note used by template 3;
+    # lines_prompt.md is kept unchanged beside it.
+    prompt = (SKILL / "prompts" / "lines_prompt_2.md").read_text(encoding="utf-8")
     prompt = prompt.replace("{{count}}", str(len(batch)))
     prompt = prompt.replace("{{contacts_json}}", json.dumps(batch, indent=2, ensure_ascii=False))
     (WORK / "prompt.md").write_text(prompt, encoding="utf-8")

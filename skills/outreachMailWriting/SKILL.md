@@ -5,8 +5,9 @@ description: Write the personal line (one of four styles) for Diablo outreach co
 
 # outreach-mail-writing
 
-You write one short piece of text for each contact that needs it: a **personal line**, the
-paragraph after the email's introduction. Each contact is given one of four styles at random
+You write two short pieces of text for each contact that needs them (from 15 Oct 2026): the
+**company note**, which finishes "we noticed <company> ..." in the first email (template 3), and a
+**personal line**, used when the email is forwarded to a colleague. Each contact is given one of four styles at random
 (agreed 14 Oct 2026); you fill that style's [brackets] from the company's research. The rest of the
 email, the subject line included, is a fixed template. The scripts in `scripts/` do every
 mechanical step; follow them exactly.
@@ -73,8 +74,8 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt.md`: the writing rules and the four styles, agreed in
-  `templates/email_templates_for_approval.md`.
+- `prompts/lines_prompt_2.md` (in use from 15 Oct 2026): the company note and the personal line
+  with its four styles. `prompts/lines_prompt.md` is the earlier version, kept unchanged and not used.
 - `settings.yaml`: how many contacts one run writes for.
 - `scripts/`: prepare_lines.py (Step 2, also picks each contact's style), finalise_lines.py (Step 4),
   check_lines.py (the strict check and the four styles, also used by GitHub before importing).

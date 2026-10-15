@@ -23,8 +23,10 @@ Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
 
 ## HubSpot fields (agreed 13 Oct 2026)
 
-The pipeline uses HubSpot's own fields wherever one fits. It adds only two fields, both on
-contacts: **Outreach personal line** and **Outreach order** (who is emailed first, 1 to 4).
+The pipeline uses HubSpot's own fields wherever one fits. It adds only three fields, all on
+contacts: **Outreach personal line** (used in the forwards), **Outreach company note** (finishes
+"we noticed <company> ..." in the first email, added 15 Oct 2026) and **Outreach order** (who is
+emailed first, 1 to 4).
 Everything else is an existing field: Lead Source, Lead Status, Industry Type (the Channel),
 Ideal Customer Profile Tier, Company name, Domain, City, Country, Company owner, name, email
 and job title. Apollo IDs are kept in GitHub (`data/apollo_kept.json`, `data/apollo_skipped.json`),
@@ -78,7 +80,7 @@ failed, so GitHub emails you). One step failing never stops the others.
 
 | Button | What you do | What runs inside it by itself |
 |---|---|---|
-| **1 - Setup HubSpot (once per account)** | Press once per account, first with "Dry run" ticked | Adds the two contact fields and the Lead Status choices; reads every company already in that account |
+| **1 - Setup HubSpot (once per account)** | Press once per account, first with "Dry run" ticked | Adds the three contact fields and the Lead Status choices; reads every company already in that account |
 | **2 - Research** | Pick "What to do": Add a market (Location, Channels, optional languages and number), Cancel a market, Try a failed market again, or Allow a repeat (Job ID, optional Channel) | **When Claude saves research:** strict check, duplicate check, **website check and Apollo pre-check**, then the companies arrive as New (or Missing Info when a check fails). **Every 3 hours:** refresh the "already in HubSpot" list, import anything waiting, add the next automatic city |
 | **3 - Find contacts** | Nothing: the timer runs it every 3 hours (12, 3, 6, 9). Press it to run now | In order: Apollo finds the top 4 people at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); the list of people Claude still has to write for. Never emails anyone |
 | **4 - Send and follow up** | Nothing: the timer runs it every 3 hours (1, 4, 7, 10). Press it to run now, or tick "Check only" for the health report. Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first) and each company's loop (the forward to the next person naming the colleague before them, person 1's reminder, Unqualified at the end); person 1's introduction for GATE2 people at new companies; health check. The run's page starts with a table of what was sent and what is waiting until when; the health report (`diagnostics/instantly_status.md`) shows where every company is in its loop |

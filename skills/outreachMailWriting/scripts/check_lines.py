@@ -20,7 +20,9 @@ LINE_KEYS = ["contact_id", "company_name", "personal_line"]
 # Older files also carried a subject line; it is still checked if present but no longer used
 # (the subject is fixed in the template, agreed 13 Oct 2026). Files from 14 Oct 2026 also say
 # which style each line was written in.
-OPTIONAL_KEYS = ["subject_line", "style"]
+OPTIONAL_KEYS = ["subject_line", "style", "company_note"]
+# The company note (15 Oct 2026) finishes "we noticed <company name> ..." in template 3.
+NOTE_WORDS = (4, 25)
 
 SUBJECT_WORDS = (3, 7)
 PERSONAL_MAX_WORDS = 60
@@ -116,6 +118,33 @@ def _emoji(text):
     return any(unicodedata.category(ch) == "So" or ord(ch) > 0xFFFF for ch in text)
 
 
+def note_problems(errors, where, note, company):
+    """The company note's own rules: it follows "we noticed <company name>", so it starts with a
+    small letter, never repeats the name and speaks only about the company."""
+    if not isinstance(note, str) or not note.strip():
+        errors.append(f"{where}: company_note must be text")
+        return
+    n = len(_words(note))
+    if not NOTE_WORDS[0] <= n <= NOTE_WORDS[1]:
+        errors.append(f"{where}: company note must be {NOTE_WORDS[0]} to {NOTE_WORDS[1]} words (found {n})")
+    if not note.strip()[0].islower():
+        errors.append(f"{where}: company note must start with a small letter (it follows the company name)")
+    if re.search(r"[.!?]\s*$", note) or _sentences(note) > 1:
+        errors.append(f"{where}: company note must be one clause with no full stop at the end")
+    if company and re.search(re.escape(company), note, re.I):
+        errors.append(f"{where}: the company note must not repeat the company name")
+    if _FIRST_PERSON.search(note) or re.search(r"(?<![A-Za-z'’])(we|our|us|you|your)(?![A-Za-z'’])", note, re.I):
+        errors.append(f'{where}: the company note must not say "I", "we", "our" or "you"')
+    low = note.lower()
+    for word in BANNED:
+        if re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", low):
+            errors.append(f'{where}: the company note uses "{word}", which is not allowed')
+    if any(d in note for d in _DASHES):
+        errors.append(f"{where}: the company note contains an em or en dash; use a comma")
+    if _EMAIL.search(note) or _PHONE.search(note) or _URL.search(note) or "{{" in note or _emoji(note):
+        errors.append(f"{where}: the company note must not contain emails, phone numbers, links, placeholders or emojis")
+
+
 def check_line(errors, line, pending_ids=None):
     where = "A line"
     if not isinstance(line, dict):
@@ -156,6 +185,8 @@ def check_line(errors, line, pending_ids=None):
         errors.append(f"{where}: no exclamation marks")
     if _FIRST_PERSON.search(personal):
         errors.append(f'{where}: the personal line must say "we", never "I", "me" or "my"')
+    if "company_note" in line:
+        note_problems(errors, where, line["company_note"], company)
     if "style" in line:
         for problem in style_problems(line["style"], personal):
             errors.append(f"{where}: {problem}")

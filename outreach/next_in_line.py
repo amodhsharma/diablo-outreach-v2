@@ -21,10 +21,10 @@ HubSpot needs no extra fields for it.
 import datetime as dt
 
 from .common import INDUSTRY_PARTNER
-from .schema import LEAD_STATUS, ORDER, PERSONAL_LINE
+from .schema import COMPANY_NOTE, LEAD_STATUS, ORDER, PERSONAL_LINE
 from .stages import COMPANY_STOPPED, EMAILED
 
-CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", PERSONAL_LINE, LEAD_STATUS, ORDER]
+CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", PERSONAL_LINE, COMPANY_NOTE, LEAD_STATUS, ORDER]
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS]
 
 # Each contact's state, worked out from its Lead Status and what Instantly holds (instantly_view):
@@ -250,6 +250,12 @@ def market_country(market):
     return "the " + country if country.startswith(WITH_THE) else country
 
 
+def country_name(market):
+    """The country of the Location as a plain name, for template 3's subject: "A sugar-free brand
+    with no Netherlands partner yet" (no "the" in front)."""
+    return (market or "").split(",")[-1].strip()
+
+
 def lead_for(contact, company, notes=None):
     """The Instantly lead for a contact. company: the company's HubSpot properties."""
     from .common import channel_of, market_of
@@ -264,6 +270,8 @@ def lead_for(contact, company, notes=None):
         "website": company.get("domain") or "",
         "custom_variables": {
             "personal_line": p.get(PERSONAL_LINE) or "",
+            "company_note": (p.get(COMPANY_NOTE) or "").strip().rstrip("."),
+            "country_name": country_name(market),
             "market": market,
             "market_short": market_short(market),
             "market_country": market_country(market),

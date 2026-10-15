@@ -1,7 +1,8 @@
 """Button 1: set up a HubSpot account for the outreach pipeline (agreed 13 Oct 2026).
 
 What it adds, and nothing else:
-  - contacts: the fields "Outreach personal line" and "Outreach order" (group "Diablo outreach");
+  - contacts: the fields "Outreach personal line", "Outreach company note" (added 15 Oct 2026)
+    and "Outreach order" (group "Diablo outreach");
   - Lead Status: the choices the pipeline needs that the account does not have yet. In the live
     account that is "GATE1: Approved for outreach" (companies), "New, Personal line filled" and "GATE2: Approved to send"
     (contacts). Existing choices are never changed, renamed, reordered or removed;

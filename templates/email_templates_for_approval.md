@@ -193,3 +193,52 @@ footer's company line were removed.
 
 Which file is used is set in `config/settings.yaml` under `send.templates`. To go back to
 `templates/template_1.json`, change that path; nothing else needs to change.
+
+## Template 3: the introduction to person 1 (in use from 15 Oct 2026)
+
+Ariel's new introduction, in `templates/template_3.json`. Template 2 is kept unchanged; to go back,
+set `send.templates.first_email` to `templates/template_2.json` in `config/settings.yaml`.
+
+**Subject:** A sugar-free brand with no {{country_name}} partner yet
+
+> Hi {{firstName}},
+>
+> I'm writing from the office of the Strategy Director at Diablo Sugar Free, where I look after
+> international partners.
+>
+> I thought I'd reach out as we noticed {{companyName}} {{company_note}}. We are a UK brand without
+> a direct partner in {{market_country}} yet.
+>
+> By way of introduction, **we are Europe's largest sugar-free confectionery company**, with 117
+> products across 11 categories, from cakes and biscuits to wafers and spreads.
+>
+> As you'll know, sugar-free carries a better margin than standard confectionery, as the shopper
+> accepts a higher price point. **We supply more than 126 countries and are listed with Carrefour,
+> Tesco, Lidl and Holland & Barrett.**
+>
+> Here is the link to our catalogue for your information: [diablosugarfree.com/pages/catalogue-2026](https://www.diablosugarfree.com/pages/catalogue-2026)
+>
+> I'd love to set up a call with your team and our Strategy Director to look at what the range
+> would need to earn properly for your professional customers.
+>
+> Would this week work, or would next week be better suited?
+>
+> Best regards,
+>
+> Joshua
+> International Account Executive
+> Diablo Sugar Free
+> Book a quick meeting with us: [calendly.com/outreach-diablo/intro](https://calendly.com/outreach-diablo/intro)
+>
+> ---
+> <small>We found your business details in public and commercial sources. If you would rather not
+> hear from us, reply "no thanks" and we will not contact you again.</small>
+
+- {{company_note}} is the new contact field **Outreach company note**, written by the
+  outreach-mail-writing skill from the research (healthy eating first, otherwise the closest true
+  fact) and checked by you at gate 2.
+- {{country_name}} is the country of the Location; {{market_country}} adds "the" where English
+  needs it ("the Netherlands").
+- No privacy link (agreed 15 Oct 2026: as few links as possible).
+- The forward and reminder keep their current wording and signature until Ariel sends new ones.
+

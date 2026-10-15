@@ -113,7 +113,7 @@ def test_send_and_sync(settings):
     hs, noble, _ = full_pipeline(settings)
     contact_id = next(iter(hs.records["contacts"]))
     c = hs.records["contacts"][contact_id]
-    c.update({"diablo_personal_line": "Your Reliance range has room for sugar free chocolate.", CO: "NEW_PERSONAL_LINE_FILLED"})
+    c.update({"diablo_personal_line": "Your Reliance range has room for sugar free chocolate.", "diablo_company_note": "runs a health food aisle", CO: "NEW_PERSONAL_LINE_FILLED"})
 
     instantly = FakeInstantly()
     assert send.run("test", settings, hs, instantly, log=quiet)["queued"] == 0  # gate 2 not passed yet
@@ -123,9 +123,9 @@ def test_send_and_sync(settings):
     plan = send.run("test", settings, hs, None, dry_run=True, log=logs.append)
     assert plan["queued"] == 0 and plan["campaigns"][0]["leads"] == 1
     shown = "\n".join(logs)  # the whole email, filled in, is printed in the job log
-    assert "Subject: Partnering to establish Diablo Sugar Free in the India sugar free snacks landscape" in shown
-    assert "Hi Firstp2," in shown and "Your Reliance range has room for sugar free chocolate." in shown
-    assert "XXXXXX" not in shown and "| Joshua\n| Initial Outreach Team\n| Diablo Sugar Free [https://www.diablosugarfree.com] (B Healthy Ltd, London)" in shown
+    assert "Subject: A sugar-free brand with no India partner yet" in shown  # template 3 (15 Oct 2026)
+    assert "Hi Firstp2," in shown and "as we noticed " in shown and " runs a health food aisle. We are a UK brand without a direct partner in India yet." in shown
+    assert "XXXXXX" not in shown and "Joshua\nInternational Account Executive\nDiablo Sugar Free\nBook a quick meeting with us: book.example/diablo [https://book.example/diablo]" in shown
     assert "office of the Strategy Director" in shown and "By way of introduction" in shown
     assert "{{" not in shown and "<br/>" not in shown
     assert "--- Email 2" not in shown  # later emails are sent by Sync, in rounds
@@ -137,12 +137,15 @@ def test_send_and_sync(settings):
     assert body["campaign_schedule"]["schedules"][0]["timezone"] == "Europe/Isle_of_Man"  # any time, every day
     assert body["campaign_schedule"]["schedules"][0]["timing"] == {"from": "00:00", "to": "23:59"}
     email = body["sequences"][0]["steps"][0]["variants"][0]["body"]
-    assert 'Best regards,<div style="border-left:3px solid #cccccc' in email and "{{privacy_url}}" not in email
-    assert 'Joshua<br/>Initial Outreach Team<br/><a href="https://www.diablosugarfree.com">Diablo Sugar Free</a>' in email
+    assert "Best regards," in email and "{{privacy_url}}" not in email and "Privacy notice" not in email
+    assert "<b>we are Europe's largest sugar-free confectionery company</b>" in email and "{{company_note}}" in email
+    assert "Joshua<br/>International Account Executive<br/>Diablo Sugar Free<br/>" in email
     assert "{{catalogue_link}}" not in email and "{{sender_phone}}" not in email
-    assert "eleven categories in all" in email and "<div><ul>" not in email
+    assert "117 products across 11 categories" in email and "<div><ul>" not in email
     lead = instantly.leads[camp_id][0]
-    assert lead["custom_variables"]["personal_line"].startswith("Your Reliance")
+    assert lead["custom_variables"]["personal_line"].startswith("Your Reliance")  # kept for the forwards
+    assert lead["custom_variables"]["company_note"] == "runs a health food aisle"
+    assert lead["custom_variables"]["country_name"] == "India"
     assert lead["custom_variables"]["partner_type"] == "distributor"
     assert c[CO] == "ATTEMPTED_TO_CONTACT"
     assert hs.records["companies"][noble][CO] == "Attempted to Contact"
@@ -246,7 +249,7 @@ def test_find_contacts_collects_the_top_four_once(settings):
 def test_send_reports_leads_instantly_skipped(settings):
     hs = FakeCRM()
     cid = approved_company(hs, name="Co", domain="co.in")
-    contact = hs.add("contacts", email="old@co.in", firstname="A", diablo_personal_line="L",
+    contact = hs.add("contacts", email="old@co.in", firstname="A", diablo_personal_line="L", diablo_company_note="imports European sweets",
                      **{CO: "APPROVED_TO_SEND"})
     hs.links[contact] = [cid]
     inst = FakeInstantly()
@@ -278,12 +281,11 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     body = steps[0]["variants"][0]["body"]
     gap = "<div><br></div>"
     assert body.startswith(f"<div>Hi {{{{firstName}}}},</div>{gap}<div>I'm writing from the office of the Strategy Director")
-    assert f"Holland & Barrett.</div>{gap}<div>{{{{personal_line}}}}</div>{gap}<div>Attaching" in body
+    assert f"Holland & Barrett</b>.</div>{gap}<div>Here is the link to our catalogue" in body
     assert "<br/><br/>" not in body
-    assert 'Joshua<br/>Initial Outreach Team<br/><a href="https://www.diablosugarfree.com">Diablo Sugar Free</a>' in body and "border-left" in body
+    assert 'Joshua<br/>International Account Executive<br/>Diablo Sugar Free<br/>Book a quick meeting with us: <a href="https://book.example/diablo">book.example/diablo</a>' in body
     shown = send.render(body, {"first_name": "Ann"})
-    assert "\n\nLet us know what day and time suits your team's schedule." in shown
-    assert "from the link below.\nhttps://book.example/diablo\n\nBest regards," in shown
+    assert "\n\nWould this week work, or would next week be better suited?\n\nBest regards," in shown
     instantly = FakeInstantly()
     old = instantly.create_campaign({"name": "Diablo | Dublin, Ireland | Retailers | OCT2026",
                                      "sequences": [{"steps": [{"variants": [{"subject": "{{subject_line}}", "body": ""}]}]}]})
@@ -304,9 +306,9 @@ def test_created_leads_matched_by_position():
 
 def test_send_says_why_a_contact_is_skipped(settings):
     hs = FakeCRM()
-    hs.add("contacts", email="solo@x.com", diablo_personal_line="Line.", **{CO: "APPROVED_TO_SEND"})
+    hs.add("contacts", email="solo@x.com", diablo_personal_line="Line.", diablo_company_note="imports European sweets", **{CO: "APPROVED_TO_SEND"})
     team_co = hs.add("companies", tagged=False, name="Team Co", domain="team.in", **{CO: "In Progress"})
-    linked = hs.add("contacts", email="at@team.in", diablo_personal_line="Line.", **{CO: "APPROVED_TO_SEND"})
+    linked = hs.add("contacts", email="at@team.in", diablo_personal_line="Line.", diablo_company_note="imports European sweets", **{CO: "APPROVED_TO_SEND"})
     hs.links[linked] = [team_co]
     messages = []
     send.run("test", settings, hs, None, dry_run=True, log=messages.append)
@@ -388,7 +390,7 @@ def test_the_auto_outreach_company_is_used_when_hubspot_links_another(settings):
     hs = FakeCRM()
     team = hs.add("companies", tagged=False, name="Parent Group", domain="group.com", **{CO: "Won"})
     ours = approved_company(hs)
-    contact = hs.add("contacts", email="buyer@group.com", diablo_personal_line="Line.", **{CO: "APPROVED_TO_SEND"})
+    contact = hs.add("contacts", email="buyer@group.com", diablo_personal_line="Line.", diablo_company_note="imports European sweets", **{CO: "APPROVED_TO_SEND"})
     hs.links[contact] = [team, ours]  # HubSpot linked the email's domain by itself, first
     instantly = FakeInstantly()
     assert send.run("test", settings, hs, instantly, log=quiet)["queued"] == 1

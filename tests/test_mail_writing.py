@@ -286,3 +286,33 @@ def test_search_lag_does_not_put_contacts_back_on_the_list(tmp_path, monkeypatch
     hs.records["contacts"][b][LS] = "NEW_PERSONAL_LINE_FILLED"  # e.g. lines typed in HubSpot by hand
     rows = export_for_lines.run("test", hs, pending, log=quiet)
     assert rows == []
+
+
+def test_company_note_rules():
+    import check_lines
+    base = {"contact_id": "1", "company_name": "Alpenhof Import AG",
+            "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+            "style": "D"}
+    def problems(note):
+        errs = []
+        check_lines.check_line(errs, dict(base, company_note=note))
+        return errs
+    assert problems("has built a dedicated free from shelf with independent pharmacies across Switzerland") == []
+    assert any("small letter" in e for e in problems("Has built a free from shelf across Switzerland"))
+    assert any("company name" in e for e in problems("is Alpenhof Import AG, a free from importer in Zurich"))
+    assert any('"we"' in e for e in problems("supplies the free from products we admire in Zurich"))
+    assert any("full stop" in e for e in problems("supplies organic snacks to health stores in Zurich."))
+    assert any("4 to 25 words" in e for e in problems("imports sweets"))
+    errs = []
+    check_lines.check_line(errs, base)  # older files without a company note still pass
+    assert errs == []
+
+
+def test_writing_prompt_2_asks_for_the_company_note():
+    from pathlib import Path
+    skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
+    new = (skill / "prompts" / "lines_prompt_2.md").read_text()
+    old = (skill / "prompts" / "lines_prompt.md").read_text()
+    assert "company note" in new and '"company_note": "..."' in new and "closest true fact" in new
+    assert "company_note" not in old  # the original is kept unchanged
+    assert "lines_prompt_2.md" in (skill / "scripts" / "prepare_lines.py").read_text()

@@ -30,7 +30,7 @@ from .next_in_line import (
     COMPANY_PROPS, CONTACT_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign, lead_for,
     tagged_company_of,
 )
-from .schema import PERSONAL_LINE
+from .schema import COMPANY_NOTE, PERSONAL_LINE
 from .stages import COMPANY_STOPPED, LeadStatus, forward
 
 
@@ -71,6 +71,11 @@ def schedule_days(sched):
     return {num: name in days for name, num in DAY_NUMBERS.items()}
 
 
+def short_link(url):
+    """A web address as people read it: "https://www.example.com/a" gives "example.com/a"."""
+    return re.sub(r"^(https?://)?(www\.)?", "", (url or "").strip(), flags=re.I).rstrip("/")
+
+
 def _template(path, s):
     """A template with the same-for-everyone parts filled in: privacy link, catalogue link and
     the signature. Lines left empty (e.g. no phone number) are dropped."""
@@ -84,6 +89,10 @@ def _template(path, s):
     fixed = {"privacy_url": s["privacy_url"], "catalogue_link": s.get("catalogue_link") or "",
              "booking_sentence": f" You can also book a time directly here: {real_link}" if real_link else "",
              "booking_link": link,
+             # The links written short for template 3 (agreed 15 Oct 2026): the same address
+             # without https:// or www., so the text shown matches where the link goes.
+             "booking_link_text": short_link(link),
+             "catalogue_link_text": short_link(s.get("catalogue_link") or ""),
              "sender_name": sig.get("name") or "", "sender_title": sig.get("title") or "",
              "sender_website": sig.get("website") or "", "sender_phone": sig.get("phone") or ""}
     body = template["body"]
@@ -92,6 +101,19 @@ def _template(path, s):
             body = body.replace("<br/>{{" + key + "}}", "").replace("{{" + key + "}}", "")
         body = body.replace("{{" + key + "}}", str(value))
     return template["subject"], body
+
+
+def first_email_uses(settings, name):
+    """True when the first email's template contains {{name}} (template 3 uses company_note)."""
+    s = settings["send"]
+    path = Path((s.get("templates") or {}).get("first_email") or "templates/template_1.json")
+    if not path.is_absolute():
+        path = ROOT / path if path.parent != Path(".") else ROOT / "templates" / path
+    try:
+        template = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    return "{{" + name + "}}" in template.get("body", "") + template.get("subject", "")
 
 
 def booking_link_problem(settings):
@@ -252,7 +274,7 @@ def mask(email):
     return f"{name[:1]}***@{domain}"
 
 
-def skip_reason(contact, company, company_stage):
+def skip_reason(contact, company, company_stage, needs_note=False):
     """Why an GATE2: Approved to send contact cannot be sent at all, or None."""
     p = contact["properties"]
     if not p.get("email"):
@@ -266,6 +288,8 @@ def skip_reason(contact, company, company_stage):
         return "its company is not GATE1: Approved for outreach (gate 1)"
     if not p.get(PERSONAL_LINE):
         return "its Outreach personal line is empty"
+    if needs_note and not p.get(COMPANY_NOTE):
+        return "its Outreach company note is empty (the first email needs it)"
     return None
 
 
@@ -320,13 +344,14 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     notes = load_company_notes()
     everyone = contacts_by_company(hs, list(companies))
     groups, skipped, waiting = defaultdict(list), [], 0
+    needs_note = first_email_uses(settings, "company_note")
     for c in contacts:
         company_id = owner_of.get(str(c["id"]))
         company = companies.get(company_id)
         comp = company["properties"] if company else None
         company_stage = statuses.of("companies", company) if company else ""
         p = c["properties"]
-        reason = skip_reason(c, comp, company_stage)
+        reason = skip_reason(c, comp, company_stage, needs_note)
         if reason:
             skipped.append({"contact_id": c["id"], "email": mask(p.get("email")), "reason": reason})
             log(f"Skipped contact {c['id']} ({mask(p.get('email'))}): {reason}")
