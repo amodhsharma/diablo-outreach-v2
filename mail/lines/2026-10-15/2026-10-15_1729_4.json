@@ -1,0 +1,36 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-15",
+  "run_type": "manual",
+  "generated_from": "2026-10-15T11:59:21+00:00",
+  "lines": [
+    {
+      "contact_id": "891826263243",
+      "company_name": "Leonhard & Saalfrank GmbH & Co. KG",
+      "personal_line": "Your team's work in supplying over 6,000 lines to bakers and confectioners since 1924 speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies raw materials and specialities to bakers, confectioners and ice cream makers across north eastern Bavaria and Central Germany",
+      "style": "B"
+    },
+    {
+      "contact_id": "891826263242",
+      "company_name": "Leonhard & Saalfrank GmbH & Co. KG",
+      "personal_line": "We hold your team in high regard for a family run business that has served bakers and confectioners since 1924. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "supplies raw materials and specialities to bakers, confectioners and ice cream makers across north eastern Bavaria and Central Germany",
+      "style": "D"
+    },
+    {
+      "contact_id": "891826263241",
+      "company_name": "Leonhard & Saalfrank GmbH & Co. KG",
+      "personal_line": "We have great respect for the way your team supplies bakers, confectioners and ice cream makers with raw materials and specialities. With such established reach across north eastern Bavaria and Central Germany, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies raw materials and specialities to bakers, confectioners and ice cream makers across north eastern Bavaria and Central Germany",
+      "style": "A"
+    },
+    {
+      "contact_id": "891826263244",
+      "company_name": "Leonhard & Saalfrank GmbH & Co. KG",
+      "personal_line": "Your range, from spreads and sugars to frozen goods, reflects a careful choice of raw materials and specialities for the bakery and confectionery trade. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "supplies raw materials and specialities to bakers, confectioners and ice cream makers across north eastern Bavaria and Central Germany",
+      "style": "C"
+    }
+  ]
+}
