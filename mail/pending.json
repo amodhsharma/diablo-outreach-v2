@@ -1,5 +1,66 @@
 {
-  "generated_at": "2026-10-15T11:19:12+00:00",
+  "generated_at": "2026-10-15T11:26:31+00:00",
   "target": "test",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "892051326174",
+      "job_title": "President, Technology & Product",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Holland & Barrett",
+        "domain": "hollandandbarrett.com",
+        "location": "Newcastle upon Tyne, United Kingdom",
+        "channel": "Retailers",
+        "based_out_of": "Nuneaton, United Kingdom",
+        "distributes": "Vitamins, health foods, free-from grocery, snacks and better-for-you confectionery.",
+        "channels_supplied": "Own stores including Blackett Street in Newcastle city centre and online.",
+        "sf_brands_carried": "Already lists Diablo products online and carries Free'ist no added sugar chocolate.",
+        "what_they_do_well": [
+          "Launched 500 new grocery lines in its first wave of a food range overhaul, including 200 branded lines."
+        ],
+        "fit_rationale": "The UK's main health food chain already lists Diablo, so the job is to widen the range and secure Newcastle store distribution. It carries the competitor Free'ist, and around 4 stores are listed in Northumberland plus a Newcastle city centre shop."
+      }
+    },
+    {
+      "contact_id": "892051326175",
+      "job_title": "Chief Executive Officer UK&I",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Holland & Barrett",
+        "domain": "hollandandbarrett.com",
+        "location": "Newcastle upon Tyne, United Kingdom",
+        "channel": "Retailers",
+        "based_out_of": "Nuneaton, United Kingdom",
+        "distributes": "Vitamins, health foods, free-from grocery, snacks and better-for-you confectionery.",
+        "channels_supplied": "Own stores including Blackett Street in Newcastle city centre and online.",
+        "sf_brands_carried": "Already lists Diablo products online and carries Free'ist no added sugar chocolate.",
+        "what_they_do_well": [
+          "Launched 500 new grocery lines in its first wave of a food range overhaul, including 200 branded lines."
+        ],
+        "fit_rationale": "The UK's main health food chain already lists Diablo, so the job is to widen the range and secure Newcastle store distribution. It carries the competitor Free'ist, and around 4 stores are listed in Northumberland plus a Newcastle city centre shop."
+      }
+    },
+    {
+      "contact_id": "892051326173",
+      "job_title": "Group Chief Financial Officer",
+      "seniority": "C-suite",
+      "rank": 3,
+      "company": {
+        "name": "Holland & Barrett",
+        "domain": "hollandandbarrett.com",
+        "location": "Newcastle upon Tyne, United Kingdom",
+        "channel": "Retailers",
+        "based_out_of": "Nuneaton, United Kingdom",
+        "distributes": "Vitamins, health foods, free-from grocery, snacks and better-for-you confectionery.",
+        "channels_supplied": "Own stores including Blackett Street in Newcastle city centre and online.",
+        "sf_brands_carried": "Already lists Diablo products online and carries Free'ist no added sugar chocolate.",
+        "what_they_do_well": [
+          "Launched 500 new grocery lines in its first wave of a food range overhaul, including 200 branded lines."
+        ],
+        "fit_rationale": "The UK's main health food chain already lists Diablo, so the job is to widen the range and secure Newcastle store distribution. It carries the competitor Free'ist, and around 4 stores are listed in Northumberland plus a Newcastle city centre shop."
+      }
+    }
+  ]
 }
