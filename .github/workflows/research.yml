@@ -12,8 +12,9 @@ name: '2 - Research'
 #   - when Claude saves new research: checks it, leaves out companies already in HubSpot, checks each
 #     company's website and asks Apollo whether it holds anyone there, then adds the companies to
 #     HubSpot (Lead Source AUTO-OUTREACH, Lead Status New, or Missing Info when a check fails);
-#   - every 3 hours (cron-job.org, "Automatic run"): refreshes the "already in HubSpot" list,
-#     imports anything still waiting and adds the next city from the automatic list when allowed.
+#   - every 3 hours (cron-job.org, "Automatic run"): refreshes the "already in HubSpot" list and
+#     imports anything still waiting. It no longer adds cities from the automatic list (switched
+#     off on 15 Oct 2026): markets are researched only when someone adds them.
 #
 # Before: the automatic tests. After: the queue and lists are saved, and the run fails (GitHub
 # emails you) if any step failed. To use the live account, add a repository variable
@@ -117,13 +118,17 @@ jobs:
           APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY }}
         run: python -m outreach.import_research --target "$TARGET" --skip-if-not-configured
 
-      - name: "Add the next city from the automatic list"
-        id: auto
-        if: env.ACTION == 'Automatic run'
-        continue-on-error: true
-        env:
-          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
-        run: python -m outreach.auto_markets --target "$TARGET"
+      # Switched off on 15 Oct 2026 (Ariel): no city is added from the automatic list any more.
+      # Markets are researched only when someone adds them (button 2, "Add a market"). To switch it
+      # back on, remove the # in front of the lines below and set auto_markets.enabled to true in
+      # config/settings.yaml.
+      # - name: "Add the next city from the automatic list"
+      #   id: auto
+      #   if: env.ACTION == 'Automatic run'
+      #   continue-on-error: true
+      #   env:
+      #     HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+      #   run: python -m outreach.auto_markets --target "$TARGET"
 
       - name: "After: save the queue and lists"
         if: always()

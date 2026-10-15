@@ -194,7 +194,7 @@ send:
 # random order that takes turns between regions) when the research queue is empty. Adding a
 # market by hand with button 2 ("Add a market") still works, and those always run first.
 auto_markets:
-  enabled: true
+  enabled: false  # switched off on 15 Oct 2026 (Ariel): markets only when someone adds them
   channels: distributors, wholesalers, retailers
   companies_wanted: 30          # per Channel
   max_per_day: 1
