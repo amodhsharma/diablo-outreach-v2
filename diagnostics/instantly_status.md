@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-15T07:30:45+00:00 (UTC).
+Checked 2026-10-15T10:30:48+00:00 (UTC).
 
 ## Mailboxes
 
@@ -32,7 +32,7 @@ Checked 2026-10-15T07:30:45+00:00 (UTC).
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | admin@nosugardiablo.com | **Ready** | On | Off | 100 | no numbers yet | Admin Account | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (60 of 60) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (68 of 68) | Diablo Info | 30 | none |
 | info@nosugardiablo.com | **Problem** | Connection error | Off | 100 | no numbers yet | Info Account | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | Off | 0 | no numbers yet | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
@@ -56,14 +56,6 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - Campaign status: Completed
 - Instantly says: **campaign_completed**. Campaign has completed
-- Last healthy send: 2026-10-14T08:17:52.788Z
-- schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 4, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 4, "limit_hit": false}`
-- accounts_summary: `{"total_connected": 1, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
-- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
-- follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-14T08:26:52.824Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-14T08:17:52.788Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com
 - Link tracking: off
 - Open tracking: off
