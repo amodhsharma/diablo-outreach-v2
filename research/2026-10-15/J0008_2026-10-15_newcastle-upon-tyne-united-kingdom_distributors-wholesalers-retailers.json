@@ -1,0 +1,1267 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0008",
+  "location": "Newcastle upon Tyne, United Kingdom",
+  "run_date": "2026-10-15",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 25,
+      "searches_used": 54
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 21,
+      "searches_used": 59
+    },
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 21,
+      "searches_used": 51
+    }
+  ],
+  "companies": [
+    {
+      "name": "Epicurium",
+      "based_out_of": "Consett, United Kingdom",
+      "domain": "epicurium.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Healthy snacks, chocolate and confectionery, snack bars, crisps and savoury snacks, functional and soft drinks; over 1,200 lines from about 120 brands.",
+      "channels_supplied": "Delivered wholesaler to independent retailers, workplaces, cafes, venues, sports clubs and foodservice operators, plus its own trade e-commerce site.",
+      "sf_brands_carried": "Better-for-you brands including Bio&Me (no added sugar granola), That's It, Fiid, Eleat, Grind, Zombie Bars and Vitamin Well. No sugar-free chocolate brand was confirmed, so a direct competitor is not known.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A County Durham healthy snacks specialist 15 miles from Newcastle whose whole proposition is better-for-you indulgence, so Diablo's sugar-free chocolate and sweets fill an obvious gap. Its mid-size, director-led structure makes a decision maker easy to reach.",
+      "what_they_do_well": [
+        "Supplies over 1,200 lines from around 120 brands across healthy snacks, confectionery and drinks.",
+        "Added Bio&Me, Popcorn Shed, That's It and Vitamin Well to its healthy range in 2023."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/suppliers/epicurium/",
+        "https://wholesalemanager.co.uk/epicurium-banishing-boring-snacks/",
+        "https://www.asiantrader.biz/epicurium-expands-healthy-range"
+      ]
+    },
+    {
+      "name": "Kitwave Group (including M&M Value)",
+      "based_out_of": "North Shields, United Kingdom",
+      "domain": "kitwave.co.uk",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Impulse confectionery, snacks, soft drinks, grocery, tobacco, frozen and chilled food and foodservice lines.",
+      "channels_supplied": "Independent retailers, convenience stores, vending (Automatic Retailing), schools and colleges and foodservice; subsidiaries include M&M Value (North Shields and Middlesbrough), Eden Farm, Teatime Tasties and Squirrels.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Kitwave was founded in North Shields as a confectionery wholesaler and remains headquartered on Tyneside, so it combines local reach with national scale through 27 depots. Its M&M Value arm already wins confectionery and snacks contracts in the region, which suits a sugar-free line for schools and colleges.",
+      "what_they_do_well": [
+        "Founded in 1988 as a regional confectionery business and grown into a national wholesaler with 27 depots.",
+        "Its M&M Value business won the snacks, confectionery and soft drinks lot for Sunderland College in 2021."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/?p=1508",
+        "https://netimesmagazine.co.uk/business/wholesaler-kitwave-strengthens-operations-with-central-supplies-deal/",
+        "https://www.find-tender.service.gov.uk/Notice/027945-2021",
+        "https://sharecast.com/scroll_5/equity/Kitwave_Group/profile",
+        "https://www.betterwholesaling.com/?p=8693"
+      ]
+    },
+    {
+      "name": "Parfetts",
+      "based_out_of": "Stockport, United Kingdom",
+      "domain": "parfetts.co.uk",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Grocery, confectionery, snacks, soft drinks, alcohol and tobacco for convenience retail.",
+      "channels_supplied": "Independent convenience retailers and its Go Local symbol group, delivered from Newcastle to Ripon via its Middlesbrough depot.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "An independent delivered and cash and carry wholesaler that is actively growing its Go Local symbol estate in the North East, giving Diablo a route into a curated convenience range. Its smaller size than the national multiples makes a buyer conversation more realistic.",
+      "what_they_do_well": [
+        "Its Middlesbrough depot, acquired from Blakemore in 2018, grew turnover 28% in six months.",
+        "Signed 15 new Go Local stores in the North East in six months."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://conveniencestore.co.uk/news/parfetts-reports-north-east-sales-boost-and-go-local-expansion/594811.article",
+        "https://wholesalemanager.co.uk/parfetts-reports-strong-growth-for-middlesbrough-depot/"
+      ]
+    },
+    {
+      "name": "United Wholesale Grocers",
+      "based_out_of": "Glasgow, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Grocery, confectionery, snacks, drinks and tobacco for independent retail (range inferred from cash and carry format).",
+      "channels_supplied": "Independent retailers through its Gateshead cash and carry on Team Valley and its Lifestyle Express symbol stores.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "An owner-managed Scottish wholesaler that bought Blakemore's Gateshead depot in 2018 and serves Tyneside independents from Team Valley. A family business is likely to move faster on a new better-for-you line than the national chains. Own website was not confirmed in this research.",
+      "what_they_do_well": [
+        "Bought AF Blakemore's Gateshead depot in 2018, keeping all staff, as its first cash and carry in England."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://betterretailing.com/blakemore-sells-gateshead",
+        "https://unitaswholesale.co.uk/retailer/wholesaler-search-2/page/49/",
+        "https://www.scottishgrocer.co.uk/2018/05/uwg-snaps-up-depot-from-blakemore-sale/"
+      ]
+    },
+    {
+      "name": "Bestway Wholesale",
+      "based_out_of": "London, United Kingdom",
+      "domain": "bestwaywholesale.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Full grocery, confectionery, snacks, soft drinks, alcohol, tobacco and catering lines.",
+      "channels_supplied": "Over 70,000 independent retailers and 40,000 caterers; Best-one and Costcutter symbol groups; Newcastle depot on the Drum Industrial Estate.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The UK's largest independent wholesaler has a Newcastle depot and runs symbol groups that give a listing reach into hundreds of North East convenience stores. Size makes access slower, so it ranks below the specialists.",
+      "what_they_do_well": [
+        "Supplies over 70,000 independent retailers from 65 depots, with UK turnover of 2.5 billion pounds."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://directory.birminghampost.co.uk/company/437627170476033",
+        "https://en.wikipedia.org/wiki/Bestway_Wholesale"
+      ]
+    },
+    {
+      "name": "Booker Group",
+      "based_out_of": "Wellingborough, United Kingdom",
+      "domain": "booker.co.uk",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 6,
+      "distributes": "Full grocery, confectionery, snacks, drinks, tobacco and catering lines.",
+      "channels_supplied": "Independent retailers, caterers and Premier, Londis and Budgens symbol stores; branches in Newcastle (Bath Street), Gateshead, Sunderland and Morpeth plus Makro Washington.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Booker has the densest branch network in Tyne and Wear and its Premier and Londis symbol stores are a ready shelf for a sugar-free impulse range. It is a large Tesco-owned business, so it ranks last in tier 1. Head office location is from general knowledge and should be checked.",
+      "what_they_do_well": [
+        "Serves around 1 million customers from over 190 cash and carry branches."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bookergroupjobs.co.uk/About-Us",
+        "https://www.bookergroupjobs.co.uk/About-Us",
+        "https://www.bookergroupjobs.co.uk/job-search/job/26037-branch-assistant-nights"
+      ]
+    },
+    {
+      "name": "Suma Wholefoods",
+      "based_out_of": "Elland, United Kingdom",
+      "domain": "suma.coop",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Wholefoods, organic, vegan and free-from groceries, snacks and body care; over 7,000 products.",
+      "channels_supplied": "Independent health food shops, wholefood co-ops and caterers across the UK and export customers.",
+      "sf_brands_carried": "Carries better-for-you snack brands including Nakd and Eat Real; no sugar-free chocolate competitor confirmed.",
+      "competing_brand_flag": false,
+      "fit_rationale": "The largest wholefood wholesaler in the north of England delivers to independent health food shops in the Newcastle area. Diablo's stevia sweetened, no aspartame positioning suits its free-from customers.",
+      "what_they_do_well": [
+        "Worker-owned co-operative trading for over 40 years with about 200 members."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.suma.coop/",
+        "https://supplier-directory.betterretailing.com/suppliers/suma/",
+        "https://www.suma.coop/?p=39",
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers"
+      ]
+    },
+    {
+      "name": "CLF Distribution",
+      "based_out_of": "Southampton, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Health foods, organic groceries, vitamins and supplements, personal care, household and pet care; over 16,000 lines.",
+      "channels_supplied": "Over 1,200 independent high street retailers across the UK, with next-day delivery up to seven days a week.",
+      "sf_brands_carried": "Lifestyle and organic brands including its own Just Natural; no sugar-free confectionery brand confirmed.",
+      "competing_brand_flag": false,
+      "fit_rationale": "CLF sells in singles and small multiples to independent health stores nationwide, which suits a new brand trialling in Newcastle health shops. Own website was not confirmed in this research.",
+      "what_they_do_well": [
+        "Offers over 16,000 lines, mostly in singles, with next-day delivery up to seven days a week."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://retail-merchandiser.com/news/with-hundreds-of-leading-lifestyle-brands-clf-distribution-offers-uk-retailers-a-comprehensive-choice/",
+        "https://supplier-directory.betterretailing.com/suppliers/category/healthy-foods/"
+      ]
+    },
+    {
+      "name": "Infinity Foods Wholesale",
+      "based_out_of": "Shoreham-by-Sea, United Kingdom",
+      "domain": "infinityfoodswholesale.coop",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Vegetarian, organic and natural foods and snacks.",
+      "channels_supplied": "Independent health food and wholefood retailers across the UK.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A national co-operative wholesaler to health food shops, which reaches the Newcastle independent health channel. Diablo's vegan-friendly and no-added-sugar lines align with its range focus.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/suppliers/infinity-foods-wholesale/",
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers"
+      ]
+    },
+    {
+      "name": "Cotswold Fayre",
+      "based_out_of": "Theale, United Kingdom",
+      "domain": "cotswold-fayre.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Premium ambient food and drink, confectionery and snacks.",
+      "channels_supplied": "Independent delis, farm shops and fine food retailers across the UK.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "The leading delivered wholesaler to UK farm shops and delis, a channel well represented in Northumberland and County Durham. Premium sugar-free chocolate gifting suits its customers.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/suppliers/cotswold-fayre/",
+        "https://supplier-directory.betterretailing.com/suppliers/category/healthy-foods/"
+      ]
+    },
+    {
+      "name": "Holleys Fine Foods",
+      "based_out_of": "Bristol, United Kingdom",
+      "domain": "holleysfinefoods.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Premium ambient groceries, confectionery and snacks.",
+      "channels_supplied": "Independent fine food retailers across the UK.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A one-stop premium grocery wholesaler serving independents UK-wide, including North East delis. Its range-building focus suits a differentiated better-for-you confectionery brand.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/suppliers/holleys-fine-foods/"
+      ]
+    },
+    {
+      "name": "JJ Foodservice",
+      "based_out_of": "London, United Kingdom",
+      "domain": "jjfoodservice.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Frozen, chilled and ambient foodservice products, drinks and confectionery.",
+      "channels_supplied": "Caterers, takeaways and food outlets, collection and delivery from its Newcastle branch on Sanderson Street.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Runs a 35,000 sq ft Newcastle branch serving takeaways and caterers, giving reach into a fragmented foodservice base. Confectionery is a secondary category, so fit is moderate.",
+      "what_they_do_well": [
+        "Opened a 35,000 sq ft Newcastle branch with a showroom about one mile from the city centre."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.betterwholesaling.com/jj-food-service-newcastle/",
+        "https://www.thecaterer.com/articles/492674/jj-food-service-opens-newcastle-branch"
+      ]
+    },
+    {
+      "name": "Brakes",
+      "based_out_of": "Ashford, United Kingdom",
+      "domain": "brake.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Full foodservice range including frozen, ambient and chilled food, confectionery and snacks.",
+      "channels_supplied": "Councils, schools, hospitality and university caterers; supplied North Tyneside Council school meals groceries.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A Sysco company that already supplies public sector catering on Tyneside and sits on the TUCO confectionery framework. Useful for scale once Diablo has regional proof points.",
+      "what_they_do_well": [
+        "Won North Tyneside Council's emergency groceries and frozen foods contract for school meals."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.contractsfinder.service.gov.uk/Notice/e4d3375a-d711-4c58-a8c0-9709726fa54a",
+        "https://www.find-tender.service.gov.uk/Notice/021045-2024"
+      ]
+    },
+    {
+      "name": "Quayside Wholesale",
+      "based_out_of": "Gateshead, United Kingdom",
+      "domain": "quaysidewholesale.co.uk",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Frozen food, household goods, drinks, snacks, confectionery, bakery and health and beauty.",
+      "channels_supplied": "Trade customers in the North East via delivery and online ordering; specific retail customers not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A Team Valley wholesaler with 11 to 50 staff carrying snacks and confectionery, so a reachable local buyer. Range and customers come from a directory and were not confirmed on its own site.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/quayside-frozen-foods-ltd/",
+        "https://www.leadstal.com/sb/quayside-wholesale"
+      ]
+    },
+    {
+      "name": "Best Choice Direct",
+      "based_out_of": "Gateshead, United Kingdom",
+      "domain": "bestchoicedirect.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Confectionery and snacks, frozen foods, spreads, soft drinks, pasta and pet food (per directory).",
+      "channels_supplied": "Trade customers; channels not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Listed at the same Team Valley address as Quayside Wholesale and may be a related business, which should be checked before outreach. Low priority until its range is confirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/best-choice-direct-ltd/"
+      ]
+    },
+    {
+      "name": "M.A. Brothers Cash & Carry",
+      "based_out_of": "Newcastle upon Tyne, United Kingdom",
+      "domain": "mabrotherscashandcarry.co.uk",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "General grocery including confectionery and snacks, drinks, dairy, frozen, spices and cleaning supplies.",
+      "channels_supplied": "Collection and delivery to local shops and caterers in Newcastle; named customers not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "An owner-run Elswick cash and carry serving local independent and ethnic grocers, a channel the national players under-serve. Fit for sugar-free lines is unproven, so it sits in tier 3.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/ma-brothers-wholesale-limited/",
+        "https://findit.yorkshireeveningpost.co.uk/search/newcastle/supermarkets/9"
+      ]
+    },
+    {
+      "name": "Sylhet Cash & Carry",
+      "based_out_of": "Newcastle upon Tyne, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors",
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Confectionery and snacks, frozen food, seafood, rice and grains, soft drinks and spices.",
+      "channels_supplied": "Local South Asian grocers and caterers (inferred); also retails.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A small Newcastle cash and carry serving the Bangladeshi community trade, with possible relevance for diabetic-friendly sweets. Only directory evidence, so low priority.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/sylhet-cash-carry-limited/"
+      ]
+    },
+    {
+      "name": "Worldwide Confectionery",
+      "based_out_of": "Manchester, United Kingdom",
+      "domain": "sweetandglory.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Sweets, chocolate, sodas, American candy and imported grocery.",
+      "channels_supplied": "UK-wide trade delivery to retailers; Newcastle customers not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A large importer-wholesaler of foreign confectionery that delivers nationally, so it could place Diablo in sweet shops in Newcastle. Coverage of the North East is inferred, not confirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/worldwide-confectionery-ltd/"
+      ]
+    },
+    {
+      "name": "UK Sweets",
+      "based_out_of": "Loughborough, United Kingdom",
+      "domain": "wholesalesweets.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Wholesale pick n mix, chocolate bars and sweets including vegan and halal options.",
+      "channels_supplied": "Online wholesale with free UK delivery to sweet shops and retailers; Newcastle customers not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "An online confectionery wholesaler with free UK delivery that already segments vegan and halal ranges, so a sugar-free segment is a natural extension. Directory evidence only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/uk-sweets-ltd/"
+      ]
+    },
+    {
+      "name": "Stateside Treat Emporium",
+      "based_out_of": "Newcastle upon Tyne, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Registered as a wholesaler of sugar, chocolate and sugar confectionery; the name suggests American sweets (not confirmed).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A Newcastle company registered for confectionery wholesale, possibly an importer of foreign sweets. Activity and range are known only from the company registry, so it needs checking before outreach.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://find-and-update.company-information.service.gov.uk/company/10100379"
+      ]
+    },
+    {
+      "name": "Sid Wilson (Newcastle) Ltd",
+      "based_out_of": "Newcastle upon Tyne, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Food and confectionery wholesale (per directory).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Listed in the Better Retailing supplier directory as a wholesaler of food and confectionery with a Newcastle name. No own website or address was found, so it is low priority.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://supplier-directory.staged.betterretailing.com/suppliers/category/fmcg-suppliers/page/35/"
+      ]
+    },
+    {
+      "name": "R E & B Hancock Ltd (Hancocks)",
+      "based_out_of": "Leicester, United Kingdom",
+      "domain": "hancocks.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Confectionery, pick n mix, bulk chocolate, seasonal confectionery and soft drinks.",
+      "channels_supplied": "Independent confectionery shops, convenience stores and market traders through 13 cash and carry stores, including a Newcastle depot at Chester-le-Street, plus click and collect.",
+      "sf_brands_carried": "Own Sugar Free category and Kingsway sugar-free handmade sweets (diabetic friendly). Kingsway sugar-free sweets overlap with Diablo's sweets but not its chocolate, biscuits or spreads.",
+      "competing_brand_flag": false,
+      "fit_rationale": "The UK's specialist confectionery cash and carry already runs a sugar-free category, so Diablo's chocolate and biscuit range fills a clear gap. Its Newcastle depot supplies retailers across Tyneside. Head office location is our assumption from its trading history and should be checked.",
+      "what_they_do_well": [
+        "Newcastle depot on the Drum Industrial Estate has traded since 1988 and supplies retailers across Newcastle and the surrounding area.",
+        "Launched a Kingsway sugar-free sweets range described as halal approved, gluten free and diabetic friendly."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.hancocks.co.uk/",
+        "https://wholesalemanager.co.uk/?p=44468",
+        "https://conveniencestore.co.uk/products/hancocks-unveils-new-sugar-free-sweets-range/342943.article"
+      ]
+    },
+    {
+      "name": "Parker Hampton Food Group Ltd",
+      "based_out_of": "Newcastle upon Tyne, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Impulse confectionery, crisps and snacks, soft drinks, grocery and alcohol.",
+      "channels_supplied": "Independent and symbol convenience retailers in the North East, South Yorkshire and Cambridgeshire; also owns convenience stores.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A young, family-run impulse wholesaler based in Newcastle, so owners are likely to be reachable directly. Confectionery and snacks are its core lines, and through its Sugro membership it can add listings across its retail customers. We could not find its own website.",
+      "what_they_do_well": [
+        "Joined the Sugro UK buying group in 2024, three years after being founded in 2021.",
+        "Acquired 10 convenience stores from Duncan Turner Ltd to grow its customer base."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://thegrocer.co.uk/news/sugro-welcomes-three-new-members-to-group/690848.article",
+        "https://wholesalemanager.co.uk/?p=53569"
+      ]
+    },
+    {
+      "name": "United Wholesale Grocers Ltd (UWG)",
+      "based_out_of": "Glasgow, United Kingdom",
+      "domain": "uwgl.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Grocery, impulse confectionery, soft drinks, tobacco and convenience ranges through cash and carry and delivered service.",
+      "channels_supplied": "Independent retail, symbol (Lifestyle Express and Shop Local) stores, foodservice and on-trade across Scotland and the North East from its Gateshead depot.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Owner-led wholesaler whose Gateshead cash and carry on the Team Valley serves Tyneside retailers, and it runs symbol fascias for independent stores. A Landmark member, so it can also list through that group. Product range detail comes from trade press, not its own site.",
+      "what_they_do_well": [
+        "Bought A.F. Blakemore's Gateshead depot in 2018 and kept all 45 staff, its first site south of the Scottish border.",
+        "Converted 80 independent stores to its Lifestyle Express and Shop Local fascias."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://barandkitchenmagazine.com/?p=21112",
+        "https://www.scottishgrocer.co.uk/2018/05/uwg-snaps-up-depot-from-blakemore-sale/",
+        "https://www.betterretailing.com/news/uwg-converts-80-stores-to-lifestyle-fascias/"
+      ]
+    },
+    {
+      "name": "Nisa (Co-op Wholesale)",
+      "based_out_of": "Scunthorpe, United Kingdom",
+      "domain": "nisalocally.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Full convenience grocery range of over 13,000 SKUs including confectionery, snacks and Co-op own brand.",
+      "channels_supplied": "About 1,400 independent retail partners and almost 4,000 Nisa Local, Nisa Extra and independent stores across the UK, including the North East.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A wholesale buying operation for independent retailers, so one listing reaches many convenience stores in and around Newcastle. Ranging is central and Co-op own label competes for space. Its North East store count was not verified.",
+      "what_they_do_well": [
+        "Supplies almost 4,000 stores and about 1,400 independent partners with a £1.45 billion turnover."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.nisalocally.co.uk/the-nisa-story/",
+        "https://www.openingtimesin.uk/nisa-newcastle-upon-tyne-sandyford-road/amp",
+        "https://www.thegrocer.co.uk/wholesalers/nisa-joins-coalition-of-wholesalers-supplying-costcutter/560883.article"
+      ]
+    },
+    {
+      "name": "Tyneside Foodservice Ltd",
+      "based_out_of": "Blaydon-on-Tyne, United Kingdom",
+      "domain": "tynesidefoodservice.com",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Frozen, chilled and ambient foodservice ranges including confectionery and snacks, desserts, dairy, meat and grocery.",
+      "channels_supplied": "Caterers, chefs, cafes and other food professionals across the North East, with online and app ordering and five day delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Local, owner-managed delivered foodservice wholesaler that runs its own trade shows, a good fit for Diablo's portion and catering formats in cafes and care. As a Fairway Foodservice member it could extend to other members. Domain comes from a directory and was not confirmed on its own site.",
+      "what_they_do_well": [
+        "Grew its ambient and chilled business by more than 30 percent in four years and drew close to 500 visitors to its trade show."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/tyneside-foodservice-limited",
+        "https://betterwholesaling.com/?p=8765",
+        "https://www.betterwholesaling.com/tyneside-foodservice-trade-show/"
+      ]
+    },
+    {
+      "name": "Bidfood UK",
+      "based_out_of": "Slough, United Kingdom",
+      "domain": "bidfood.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Foodservice ranges including ambient grocery, snacks, confectionery, chilled and frozen food.",
+      "channels_supplied": "Hospitality, education, healthcare and public sector caterers, served in the region from a new Durham hub.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "National foodservice wholesaler with a new North East hub in Durham serving the Newcastle area. Healthcare and education catering have growing demand for reduced-sugar snacks. Head office city and Newcastle coverage are our assumptions from the regional hub.",
+      "what_they_do_well": [
+        "Opened a new purpose-built 86,098 sq ft Durham depot as its North East hub in 2026."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.publicsectorcatering.co.uk/news/bidfood-strengthens-operations-opening-new-northeast-depot",
+        "https://www.thecaterer.com/products--equipment/bidfood-expands-northeast-england-reach",
+        "https://www.find-tender.service.gov.uk/Notice/027945-2021",
+        "https://www.find-tender.service.gov.uk/Notice/021045-2024"
+      ]
+    },
+    {
+      "name": "Essential Trading Co-operative",
+      "based_out_of": "Bristol, United Kingdom",
+      "domain": "essential-trading.coop",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Wholefoods, organic and natural groceries and snacks.",
+      "channels_supplied": "Independent health food shops and food co-ops, delivering throughout England and Wales.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A wholefood wholesaler to independent health shops that delivers to the North East. Health shop customers suit a no-added-sugar range. Only one directory source and its own site could not be checked.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.sustainweb.org/foodcoopstoolkit/wholefood_suppliers"
+      ]
+    },
+    {
+      "name": "Sugro UK",
+      "based_out_of": "United Kingdom (city not confirmed)",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Buying and marketing group for independent wholesalers, focused on ambient impulse confectionery, snacks and drinks.",
+      "channels_supplied": "About 95 independent wholesale members across the UK and Ireland, including Parker Hampton in Newcastle.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A route to many impulse wholesalers at once, including the Newcastle member Parker Hampton. Buying groups negotiate deals rather than hold all stock, so uptake depends on members. Its own website was not confirmed in our research.",
+      "what_they_do_well": [
+        "Grew its wholesale membership to 95 with new members including Newcastle based Parker Hampton."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplier-directory.betterretailing.com/suppliers/category/fmcg-suppliers/page/36/",
+        "https://thegrocer.co.uk/news/sugro-welcomes-three-new-members-to-group/690848.article"
+      ]
+    },
+    {
+      "name": "Today's Group",
+      "based_out_of": "United Kingdom (city not confirmed)",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Buying group for independent wholesalers covering grocery, impulse, on-trade and foodservice.",
+      "channels_supplied": "More than 150 wholesale members, including Kitwave on Tyneside.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The UK's largest buying group by purchasing power, and Kitwave buys through it, so a group deal could support a Kitwave listing. Conditional, since the group does not itself sell to Newcastle stores. Its own website was not confirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.betterwholesaling.com/?p=8693"
+      ]
+    },
+    {
+      "name": "Unitas Wholesale",
+      "based_out_of": "United Kingdom (city not confirmed)",
+      "domain": "unitaswholesale.co.uk",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Buying group for independent wholesalers and cash and carries covering grocery, impulse and foodservice.",
+      "channels_supplied": "Independent wholesale members across the UK; no Newcastle member confirmed in our research.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national buying group that runs a wholesaler finder for retailers. Lower priority because we could not confirm a Tyneside member.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://unitaswholesale.co.uk/retailer/wholesaler-search-2/page/51/"
+      ]
+    },
+    {
+      "name": "Fairway Foodservice",
+      "based_out_of": "United Kingdom (city not confirmed)",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Foodservice buying group for independent delivered wholesalers.",
+      "channels_supplied": "Independent foodservice wholesale members including Tyneside Foodservice in Blaydon.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Could open several regional foodservice wholesalers, including Tyneside Foodservice. Conditional, as it negotiates for members rather than stocking goods. Its own website was not confirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://betterwholesaling.com/?p=8765",
+        "https://fwd.co.uk/?p=6197"
+      ]
+    },
+    {
+      "name": "Costco Wholesale UK (Gateshead)",
+      "based_out_of": "Watford, United Kingdom",
+      "domain": "costco.co.uk",
+      "channel_category": [
+        "wholesalers",
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Membership warehouse selling bulk grocery, confectionery, snacks, drinks and business supplies.",
+      "channels_supplied": "Business members such as small retailers and caterers plus individual members, from its Gateshead warehouse with business delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Its Gateshead warehouse is used by small retailers and caterers buying in bulk. Ranging is central and partly consumer-facing, so it is a lower priority. Head office city is our assumption.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.costco.com/warehouse-locations/gateshead-england-609.html"
+      ]
+    },
+    {
+      "name": "Laidler's",
+      "based_out_of": "Seaton Delaval, United Kingdom",
+      "domain": "no domain",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Fresh fruit and vegetables, deli goods, cheese, breads and salads.",
+      "channels_supplied": "Hotels, restaurants and other trade customers across the North East, plus public cash and carry customers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-owned regional food wholesaler with trade reach into North East hospitality. Its range is fresh rather than confectionery, so fit is conditional. Directory listing only.",
+      "what_they_do_well": [
+        "Family-owned business marking 100 years of trading in the North East."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://findit.shieldsgazette.com/company/683944639766528"
+      ]
+    },
+    {
+      "name": "Holland & Barrett",
+      "based_out_of": "Nuneaton, United Kingdom",
+      "domain": "hollandandbarrett.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Vitamins, health foods, free-from grocery, snacks and better-for-you confectionery.",
+      "channels_supplied": "Own stores including Blackett Street in Newcastle city centre and online.",
+      "sf_brands_carried": "Already lists Diablo products online and carries Free'ist no added sugar chocolate.",
+      "competing_brand_flag": true,
+      "fit_rationale": "The UK's main health food chain already lists Diablo, so the job is to widen the range and secure Newcastle store distribution. It carries the competitor Free'ist, and around 4 stores are listed in Northumberland plus a Newcastle city centre shop.",
+      "what_they_do_well": [
+        "Launched 500 new grocery lines in its first wave of a food range overhaul, including 200 branded lines."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.hollandandbarrett.com/shop/brands/diablo/",
+        "https://www.hollandandbarrett.com/info/supplying-holland-and-barrett/",
+        "https://www.openingtimesin.uk/holland-and-barrett-blackett-street-newcastle",
+        "https://www.thegrocer.co.uk/specialist-retailers/holland-and-barrett-vows-to-improve-supplier-relationships-following-major-overhaul-of-food/682973.article"
+      ]
+    },
+    {
+      "name": "Fenwick",
+      "based_out_of": "Newcastle upon Tyne, United Kingdom",
+      "domain": "fenwick.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Department store with a food hall selling chocolates, confectionery, deli, bakery, groceries, wine and gifts.",
+      "channels_supplied": "Newcastle flagship food hall on Northumberland Street, 7 other English stores and online.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Newcastle's own department store group runs a food hall with a dedicated chocolate and confectionery offer, a natural home for premium no-added-sugar gifting lines. Sugar-free brands stocked are not confirmed. It has 8 stores in total, with its head office and flagship in Newcastle.",
+      "what_they_do_well": [
+        "Trading since 1882 from its Newcastle flagship, founded by John James Fenwick."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.newcastlegateshead.com/food-and-drink/fenwick-food-hall-p874201",
+        "https://echochamber.com/article/fenwick-food-hall-newcastle",
+        "https://en.wikipedia.org/wiki/Fenwick_(department_store)"
+      ]
+    },
+    {
+      "name": "James Hall & Co (SPAR North of England)",
+      "based_out_of": "Preston, United Kingdom",
+      "domain": "jameshall.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Convenience grocery, snacks, confectionery, chilled and fresh food for SPAR stores.",
+      "channels_supplied": "Company-owned SPAR stores including about 30 former North East Convenience Stores around Newcastle and Northumberland, plus over 600 independent SPAR stores it supplies.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "One buying team covers both owned SPAR stores in Newcastle and hundreds of independent SPAR retailers across the North, giving Diablo convenience reach in one listing. It runs supplier days, a clear route for new brands. Sugar-free confectionery stocked is not confirmed.",
+      "what_they_do_well": [
+        "Bought the 30-store North East Convenience Stores chain around Newcastle and Northumberland and converted it to SPAR.",
+        "Hosts supplier collaboration days for SPAR North of England suppliers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://conveniencestore.co.uk/james-hall-acquires-north-east-convenience-stores/539608.article",
+        "https://spar-international.com/news/spar-uk-wholesaler-james-hall-co-acquires-chain-north-east-convenience-stores/",
+        "https://www.asiantrader.biz/spar-north-of-england-holds-suppliers-day"
+      ]
+    },
+    {
+      "name": "Tesco",
+      "based_out_of": "Welwyn Garden City, United Kingdom",
+      "domain": "tesco.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Full-range grocery including confectionery, biscuits, spreads and free-from.",
+      "channels_supplied": "Extra, superstore and Express stores including Tesco Extra Kingston Park in Newcastle, plus online grocery and Tesco Marketplace.",
+      "sf_brands_carried": "Diablo is already listed on Tesco Marketplace, sold by Diablo itself; Chocologic no added sugar chocolate was reported to launch in Tesco.",
+      "competing_brand_flag": true,
+      "fit_rationale": "Diablo already sells through Tesco Marketplace, so the aim is a core range listing in Newcastle stores such as Kingston Park Extra. Tesco has taken a direct no-added-sugar chocolate competitor, which shows category demand but means a differentiated pitch is needed.",
+      "what_they_do_well": [
+        "Runs the Tesco Extra hypermarket at Kingston Park, profiled by The Grocer as a Newcastle flagship."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.tesco.com/shop/en-GB/products/380039450",
+        "https://thegrocer.co.uk/news/no-added-sugar-chocolate-chocologic-to-launch-in-tesco/526820.article",
+        "https://www.openingtimesin.uk/tesco-kingston-newcastle-upon-tyne"
+      ]
+    },
+    {
+      "name": "Co-op (Co-operative Group)",
+      "based_out_of": "Manchester, United Kingdom",
+      "domain": "coop.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Convenience grocery, snacks, confectionery and free-from.",
+      "channels_supplied": "Owned and franchise convenience stores, including a new East Benton store in Newcastle opened in 2025.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Co-op runs an open call for new food and drink businesses through its Apiary scheme, a clear onboarding route for a challenger brand. It is expanding in Newcastle with its first 2025 opening in East Benton. Sugar-free confectionery stocked is not confirmed.",
+      "what_they_do_well": [
+        "Runs the Apiary incubator to bring new food and drink businesses into its stores, now in its fourth wave."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.placenortheast.co.uk/co-op-announces-75-new-stores-starting-with-the-north-east/",
+        "https://www.grocerygazette.co.uk/2025/01/14/co-op-apiary-scheme/",
+        "https://www.co-operative.coop/media/news-releases/co-op-starts-search-for-third-wave-of-food-and-drink-businesses-to-join-its"
+      ]
+    },
+    {
+      "name": "Morrisons",
+      "based_out_of": "Bradford, United Kingdom",
+      "domain": "morrisons.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Full-range grocery including confectionery, biscuits and free-from.",
+      "channels_supplied": "Supermarkets including Byker in Newcastle, Morrisons Daily convenience stores, online groceries and delivery apps.",
+      "sf_brands_carried": "Chocologic no added sugar dark chocolate.",
+      "competing_brand_flag": true,
+      "fit_rationale": "Morrisons already sells a no-added-sugar chocolate brand online, proving shopper demand, and has stores in Newcastle including Byker. Diablo's wider range of sweets, biscuits and spreads could extend the set beyond a single competitor.",
+      "what_they_do_well": [
+        "Opened a new store in Newcastle, announced through its corporate media centre."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://groceries.morrisons.com/products/109044630",
+        "https://www.morrisons-corporate.com/media-centre/corporate-news/morrisons-opens-new-store-in-newcastle/",
+        "https://new.newcastle.gov.uk/communities/directory-where-buy-fairtrade-products/morrisons-byker"
+      ]
+    },
+    {
+      "name": "Waitrose",
+      "based_out_of": "Bracknell, United Kingdom",
+      "domain": "waitrose.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Premium full-range grocery including confectionery and free-from.",
+      "channels_supplied": "Supermarkets in Jesmond and Ponteland serving Newcastle, plus online.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Waitrose's affluent Jesmond and Ponteland shoppers suit a premium better-for-you confectionery range. Sugar-free brands stocked are not confirmed and listing is national, so this is a slower route than tier 1.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://givefood.org.uk/needs/at/newcastle/donationpoint/waitrose-jesmond",
+        "https://www.openingtimesin.uk/waitrose-ponteland-newcastle-upon-tyne"
+      ]
+    },
+    {
+      "name": "Sainsbury's",
+      "based_out_of": "London, United Kingdom",
+      "domain": "sainsburys.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Full-range grocery including confectionery, biscuits and free-from.",
+      "channels_supplied": "Supermarkets and Local stores in Newcastle, plus online grocery.",
+      "sf_brands_carried": "Own-label no added sugar milk and dark chocolate.",
+      "competing_brand_flag": false,
+      "fit_rationale": "Sainsbury's already sells own-label no-added-sugar chocolate, so the category exists but a branded entrant must add range, for example sweets and spreads. It has a Newcastle supermarket and Local stores.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.trolley.co.uk/product/sainsburys-no-added-sugar-milk-chocolate/XKF222",
+        "https://quoteddata.com/2020/10/supermarket-income-buys-sainsburys-newcastle/"
+      ]
+    },
+    {
+      "name": "Asda",
+      "based_out_of": "Leeds, United Kingdom",
+      "domain": "asda.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Full-range grocery including confectionery and free-from.",
+      "channels_supplied": "Supermarkets including Byker in Newcastle, Asda Express and online grocery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Asda has large Newcastle stores such as Byker and a value-minded shopper base that suits Diablo's accessible pricing. No sugar-free confectionery brand was confirmed in this search.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.openingtimesin.uk/asda-byker-newcastle-upon-tyne"
+      ]
+    },
+    {
+      "name": "Boots",
+      "based_out_of": "Nottingham, United Kingdom",
+      "domain": "boots.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Pharmacy, health and beauty, plus snacks, meal deals and healthy snacking.",
+      "channels_supplied": "Stores including Eldon Square in Newcastle and Newcastle Airport, plus online.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Pharmacy shoppers managing diabetes are a natural audience for no-added-sugar sweets, and Boots has a large Eldon Square store. Its food range is mainly meal deal and snacks, so confectionery space is limited and unconfirmed.",
+      "what_they_do_well": [
+        "Refitted its Newcastle Airport store with a health and beauty makeover."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.just-eat.co.uk/restaurants-boots---newcastle-eldon-sq-spital-tongues/menu",
+        "https://www.newcastleairport.com/corporate/media-centre/latest-news/boots-gives-newcastle-airport-store-a-health-and-beauty-makeover/"
+      ]
+    },
+    {
+      "name": "Superdrug",
+      "based_out_of": "Croydon, United Kingdom",
+      "domain": "superdrug.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Health and beauty, pharmacy and a healthy snacking range.",
+      "channels_supplied": "Stores including Northumberland Street in Newcastle, plus online.",
+      "sf_brands_carried": "Healthy snacking range with Grenade and SlimFast; no sugar-free confectionery brand found.",
+      "competing_brand_flag": false,
+      "fit_rationale": "Superdrug has a dedicated healthy snacking category with only a few brands, leaving room for no-added-sugar chocolate and sweets. It has a Northumberland Street store in Newcastle.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.superdrug.com/health/diet-fitness/weight-management/healthy-snacking/c/pt_health_healthy_snacking",
+        "https://www.openingtimesin.uk/superdrug-northumberland-street-newcastle-upon-tyne"
+      ]
+    },
+    {
+      "name": "Iceland Foods",
+      "based_out_of": "Deeside, United Kingdom",
+      "domain": "iceland.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Frozen food, grocery, snacks and confectionery.",
+      "channels_supplied": "Iceland and The Food Warehouse stores including Shields Road in Newcastle, plus online delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Iceland has Newcastle stores and is expanding The Food Warehouse format, which carries more branded ambient grocery. Sugar-free confectionery is not confirmed and its value focus may limit premium lines.",
+      "what_they_do_well": [
+        "Targeting 250 new Food Warehouse stores across the UK."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.openingtimesin.uk/iceland-newcastle-upon-tyne-shields-road/amp",
+        "https://www.grocerygazette.co.uk/?p=89521"
+      ]
+    },
+    {
+      "name": "Heron Foods",
+      "based_out_of": "Hull, United Kingdom",
+      "domain": "heronfoods.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Frozen and ambient discount grocery including branded snacks and confectionery.",
+      "channels_supplied": "Neighbourhood stores including Byker, Walker, Longbenton and Newcastle city centre.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Heron has one of the densest store footprints across Newcastle neighbourhoods and sells branded grocery at value prices. It is owned by B&M, and sugar-free confectionery is not confirmed.",
+      "what_they_do_well": [
+        "Planned to open 30 new stores a year, as reported by The Grocer."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.openingtimesin.uk/heron-foods-byker-newcastle",
+        "https://www.openingtimesin.uk/heron-foods-walker",
+        "https://www.thegrocer.co.uk/news/heron-foods-plans-to-open-30-new-stores-a-year/355779.article"
+      ]
+    },
+    {
+      "name": "One Stop",
+      "based_out_of": "Walsall, United Kingdom",
+      "domain": "onestop.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Convenience grocery, snacks and confectionery.",
+      "channels_supplied": "Owned and franchise convenience stores, including the former Mills Group stores in the North East.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "One Stop took over the North East Mills Group convenience estate, giving it a strong Tyneside footprint. It is a Tesco subsidiary, so buying may follow Tesco, and the head office location and sugar-free range are not confirmed here.",
+      "what_they_do_well": [
+        "Grew in the North East by buying the independent Mills Group convenience chain."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.thegrocer.co.uk/news/tesco-grows-one-stop-with-swoop-for-northeast-indie-mills-group/214653.article"
+      ]
+    },
+    {
+      "name": "B&M",
+      "based_out_of": "Liverpool, United Kingdom",
+      "domain": "bmstores.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "General merchandise discount stores with grocery, snacks and confectionery aisles.",
+      "channels_supplied": "Stores including B&M Home Store at Newcastle Shopping Park, plus B&M Express.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "B&M sells large volumes of branded confectionery and has a Newcastle Shopping Park store. It is mainly a general merchandise discounter, so it is conditional, and sugar-free lines are not confirmed.",
+      "what_they_do_well": [
+        "Bought the Heron Foods grocery chain, expanding its food retail reach."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://findit.shieldsgazette.com/company/1376463973527552",
+        "https://www.thegrocer.co.uk/mergers-and-acquisitions/all-you-need-to-know-about-the-bandm-takeover-of-heron-foods/556310.article"
+      ]
+    },
+    {
+      "name": "Home Bargains (TJ Morris)",
+      "based_out_of": "Liverpool, United Kingdom",
+      "domain": "homebargains.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Discount variety stores with fresh and frozen food, sweets, snacks and drinks.",
+      "channels_supplied": "Stores including a megastore at Team Valley, Gateshead, serving Newcastle.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Home Bargains sells branded sweets and snacks at volume and opened a megastore at Team Valley next to Newcastle in 2026. It is a variety discounter, so fit is conditional and sugar-free lines are unconfirmed.",
+      "what_they_do_well": [
+        "Opened a large megastore at Team Valley, Gateshead, in a former Homebase unit in 2026."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://ground.news/article/shoppers-flock-to-huge-new-home-bargains-as-megastore-opens-in-the-north-east"
+      ]
+    },
+    {
+      "name": "Costcutter",
+      "based_out_of": "York, United Kingdom",
+      "domain": "costcutter.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Convenience grocery, snacks and confectionery through a symbol group.",
+      "channels_supplied": "Independent Costcutter stores including College Lane in Newcastle.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "Costcutter has stores in Newcastle including College Lane near the universities. It is a symbol group whose stores are now supplied by Bestway, so the head office location is uncertain and ranging depends on each retailer.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.openingtimesin.uk/costcutter-newcastle-upon-tyne-college-ln",
+        "https://betterretailing.com/nisa-to-supply-costcutter-following-palmer-harvey-collapse"
+      ]
+    },
+    {
+      "name": "WHSmith (travel)",
+      "based_out_of": "Swindon, United Kingdom",
+      "domain": "whsmith.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Travel retail with snacks, drinks, meal deals, books and travel essentials.",
+      "channels_supplied": "Travel stores at Newcastle Airport and Newcastle Central Station.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "WHSmith's airport and station stores reach high footfall travellers who buy snacks on impulse. Confectionery space and sugar-free lines are not confirmed, and the high street stores now trade as TGJones under separate ownership.",
+      "what_they_do_well": [
+        "Transformed its Newcastle Airport store into a one-stop shop for travel essentials in 2025."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.newcastleairport.com/corporate/media-centre/latest-news/whsmith-transforms-newcastle-airport-store-into-one-stop-shop-for-travel-essentials/",
+        "https://www.openingtimesin.uk/whsmith-central-station-newcastle-upon-tyne"
+      ]
+    },
+    {
+      "name": "Mr Simms Olde Sweet Shoppe",
+      "based_out_of": "Stafford, United Kingdom",
+      "domain": "mrsimms.co",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Traditional sweets, pick and mix, chocolate and confectionery gifts.",
+      "channels_supplied": "Franchise sweet shops, over 70 across the UK and Hong Kong, including Sanderson Arcade in Morpeth, Northumberland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A specialist sweet shop chain is a strong match for Diablo's sweets and chocolate, and its first North East shop is in Morpeth, about 15 miles from Newcastle. It has no confirmed Newcastle store and sugar-free ranging is unconfirmed.",
+      "what_they_do_well": [
+        "Grew from one shop in Leek in 2004 to over 70 branches."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://dransfield.co.uk/news/morpeth-in-for-a-treat-as-new-sweet-shop-opens-in-arcade",
+        "https://en.wikipedia.org/wiki/Mr._Simms_Olde_Sweet_Shoppe",
+        "https://mrsimms.co/pages/history"
+      ]
+    },
+    {
+      "name": "Grape Tree",
+      "based_out_of": "United Kingdom (head office city not confirmed)",
+      "domain": "grapetree.co.uk",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Health and wholefoods, dried fruit, nuts, snacks and confectionery.",
+      "channels_supplied": "About 200 stores including Durham, plus online.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": null,
+      "fit_rationale": "A health food chain of about 200 stores is a natural outlet for better-for-you sweets. A Newcastle store was not confirmed, only Durham, so this is conditional.",
+      "what_they_do_well": [
+        "Built to about 200 stores since founder Nick Shutts launched it in 2013."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://en.wikipedia.org/wiki/Grape_Tree",
+        "https://happycow.net/reviews/grape-tree-durham-331993"
+      ]
+    }
+  ]
+}
