@@ -71,7 +71,9 @@ jobs:
         id: pending
         if: env.MODE == 'full'
         continue-on-error: true
-        run: python -m outreach.export_for_lines --target "$TARGET" --skip-if-not-configured
+        # Also lists the people step 1 has just added, by their ID: HubSpot's search can take a
+        # minute to show new records (so button 3 no longer needs pressing twice, 15 Oct 2026).
+        run: python -m outreach.export_for_lines --target "$TARGET" --skip-if-not-configured --new-contacts runs/new_contacts.json
 
       - name: "Check only: health report"
         id: health

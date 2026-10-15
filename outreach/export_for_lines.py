@@ -26,15 +26,18 @@ from .stages import COMPANY_STOPPED, LeadStatus
 PENDING_FILE = ROOT / "mail" / "pending.json"
 
 
-def collect(hs, max_results=5000, exclude=(), settings=None):
+def collect(hs, max_results=5000, exclude=(), settings=None, new_ids=()):
     """HubSpot's search can lag a few seconds behind an update, so every status is read again
-    directly before a contact is listed; `exclude` drops contacts just updated by the caller."""
+    directly before a contact is listed; `exclude` drops contacts just updated by the caller.
+    `new_ids` are contacts button 3 has just added: the search may not show them yet, so they
+    are read by their ID and listed straight away (agreed 15 Oct 2026)."""
     statuses = LeadStatus(hs)
     hierarchy = ((settings or load_settings()).get("contacts") or {}).get("hierarchy") or []
     props = ["jobtitle", ORDER, LEAD_STATUS]
     found = hs.tagged_search("contacts", [statuses.filter("contacts", "found")], props, max_results=max_results)
     exclude = {str(i) for i in exclude}
-    ids = [c["id"] for c in found if str(c["id"]) not in exclude]
+    ids = list(dict.fromkeys([str(c["id"]) for c in found] + [str(i) for i in new_ids]))
+    ids = [i for i in ids if i not in exclude]
     contacts = [c for c in hs.tagged_read("contacts", ids, props)
                 if statuses.of("contacts", c) == "found"] if ids else []
     if not contacts:
@@ -82,9 +85,9 @@ def save(rows, target, path=None):
     return data
 
 
-def run(target, hs, path=None, log=print, exclude=()):
+def run(target, hs, path=None, log=print, exclude=(), new_ids=()):
     check_target(hs, target)
-    rows = collect(hs, exclude=exclude)
+    rows = collect(hs, exclude=exclude, new_ids=new_ids)
     save(rows, target, path)
     log(f"{len(rows)} contacts need email lines; saved to mail/pending.json")
     return rows
@@ -94,12 +97,18 @@ def main(argv=None):
     p = argparse.ArgumentParser(description="Save the contacts that need email lines")
     p.add_argument("--target", default="test", choices=["test", "live"])
     p.add_argument("--skip-if-not-configured", action="store_true")
+    p.add_argument("--new-contacts", default="",
+                   help="the file of contacts button 3 has just added (runs/new_contacts.json)")
     args = p.parse_args(argv)
+    new_ids = []
+    if args.new_contacts and os.path.exists(args.new_contacts):
+        with open(args.new_contacts, encoding="utf-8") as fh:
+            new_ids = json.load(fh).get("contact_ids") or []
     if args.skip_if_not_configured and not os.environ.get("HUBSPOT_TOKEN"):
         print("The HubSpot key is not added yet; skipping.")
         return 0
     try:
-        run(args.target, HubSpot())
+        run(args.target, HubSpot(), new_ids=new_ids)
     except (PipelineError, HubSpotError) as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1

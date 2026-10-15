@@ -316,3 +316,14 @@ def test_writing_prompt_2_asks_for_the_company_note():
     assert "company note" in new and '"company_note": "..."' in new and "closest true fact" in new
     assert "company_note" not in old  # the original is kept unchanged
     assert "lines_prompt_2.md" in (skill / "scripts" / "prepare_lines.py").read_text()
+
+
+def test_contacts_just_added_are_listed_even_before_search_shows_them(tmp_path):
+    """Button 3 needed pressing twice (15 Oct 2026): HubSpot's search lags behind new records,
+    so the list builder now also reads the contacts step 1 has just added, by their ID."""
+    hs, (a, b, c, d) = crm_with_contacts()
+    real_search = hs.tagged_search
+    hs.tagged_search = lambda obj, *args, **kw: [] if obj == "contacts" else real_search(obj, *args, **kw)
+    assert export_for_lines.run("test", hs, tmp_path / "p.json", log=quiet) == []  # what used to happen
+    rows = export_for_lines.run("test", hs, tmp_path / "p.json", log=quiet, new_ids=[a, b, c])
+    assert sorted(r["contact_id"] for r in rows) == sorted([str(a), str(b)])  # c already has lines

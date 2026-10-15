@@ -15,6 +15,7 @@ Usage:
 """
 
 import argparse
+from pathlib import Path
 import os
 import re
 import sys
@@ -109,6 +110,12 @@ def load_skipped(path=None):
         return {}
 
 
+def new_contacts_file():
+    """runs/new_contacts.json: the contacts this run added, read by step 3 of button 3."""
+    from . import common
+    return Path(common.RUNS_DIR) / "new_contacts.json"
+
+
 def save_skipped(skipped, path=None):
     path = path or SKIPPED_FILE
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -145,6 +152,13 @@ def run(target, settings, hs, apollo, log=print):
             save_skipped(kept, KEPT_FILE)
     summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows}
     write_json(out_dir / "summary.json", summary)
+    # The contacts just added, for step 3 of button 3 (agreed 15 Oct 2026): HubSpot's search can
+    # take a minute to show new records, so the list of who needs lines adds these by their ID.
+    new_ids = [i for r in log_rows for i in r.get("contact_ids", [])]
+    new_contacts_file().parent.mkdir(parents=True, exist_ok=True)
+    write_json(new_contacts_file(), {"contact_ids": new_ids})
+    if new_ids:
+        log(f"{len(new_ids)} new contacts handed to step 3, so they get their lines in this run")
     log(f"Apollo credits used (approx.): {credits}")
     return summary
 
@@ -247,6 +261,7 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
             hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
         status = "contacts found" if created else "no contacts found"
         with_email = sum(1 for x in people if x.get("has_email", True))
+        row["contact_ids"] = [str(c["id"]) for c in created]  # for the list of who needs lines
         row.update(result=status, contacts=len(created), people_found=len(people),
                    with_email=with_email, emails_revealed=revealed, verified=len(keep),
                    top_person=(keep[0].get("title") if keep else ""))

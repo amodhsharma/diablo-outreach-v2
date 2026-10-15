@@ -78,6 +78,9 @@ def test_find_contacts_keeps_only_verified_and_ranks_titles(settings):
     assert not any(k.startswith("diablo_") and k not in ("diablo_outreach_order",) for k in contacts[0])
     assert hs.records["companies"][noble][CO] == "GATE1: Approved for outreach"  # waits for gate 2 and the emails
     assert find_contacts.load_skipped(find_contacts.KEPT_FILE) == {"p2": next(iter(hs.records["contacts"]))}
+    import json
+    handed = json.loads(find_contacts.new_contacts_file().read_text())  # for step 3 of button 3
+    assert handed == {"contact_ids": [str(next(iter(hs.records["contacts"])))]}
 
 
 def test_find_contacts_never_adds_or_touches_an_existing_email(settings):
