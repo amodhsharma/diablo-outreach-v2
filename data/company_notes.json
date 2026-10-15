@@ -282,20 +282,18 @@
   "asda.com": {
     "name": "Asda",
     "based_out_of": "Leeds, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Asda's Estover Supercentre is one of Plymouth's largest food stores and includes a pharmacy counter, a natural spot for diabetic-friendly lines. Value positioning suits Diablo's accessible price points.",
-    "what_they_do_well": [
-      "Runs the Plymouth Supercentre at Estover with an in-store pharmacy and petrol station."
-    ],
-    "distributes": "Full-range grocery, confectionery, free-from, health food and pharmacy.",
-    "channels_supplied": "Own supercentres and online delivery; Asda Plymouth Supercentre at Estover with in-store pharmacy.",
-    "sf_brands_carried": "Free-from range nationally; Plymouth-specific sugar-free brands not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "fit_rationale": "Asda has large Newcastle stores such as Byker and a value-minded shopper base that suits Diablo's accessible pricing. No sugar-free confectionery brand was confirmed in this search.",
+    "what_they_do_well": [],
+    "distributes": "Full-range grocery including confectionery and free-from.",
+    "channels_supplied": "Supermarkets including Byker in Newcastle, Asda Express and online grocery.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "asiamarket.ie": {
     "name": "Asia Market",
@@ -436,24 +434,42 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "bestwaywholesale.co.uk": {
+    "name": "Bestway Wholesale",
+    "based_out_of": "London, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "The UK's largest independent wholesaler has a Newcastle depot and runs symbol groups that give a listing reach into hundreds of North East convenience stores. Size makes access slower, so it ranks below the specialists.",
+    "what_they_do_well": [
+      "Supplies over 70,000 independent retailers from 65 depots, with UK turnover of 2.5 billion pounds."
+    ],
+    "distributes": "Full grocery, confectionery, snacks, soft drinks, alcohol, tobacco and catering lines.",
+    "channels_supplied": "Over 70,000 independent retailers and 40,000 caterers; Best-one and Costcutter symbol groups; Newcastle depot on the Drum Industrial Estate.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
   "bidfood.co.uk": {
-    "name": "Bidfood",
+    "name": "Bidfood UK",
     "based_out_of": "Slough, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Wholesalers",
     "channels": [
       "wholesalers",
       "distributors"
     ],
-    "fit_rationale": "Bidfood's Lee Mill depot near Ivybridge sits next to Plymouth, giving deep coverage of cafes, schools and care homes. Sugar free snacks fit care home and education menus, though foodservice ranging is slower than retail.",
+    "fit_rationale": "National foodservice wholesaler with a new North East hub in Durham serving the Newcastle area. Healthcare and education catering have growing demand for reduced-sugar snacks. Head office city and Newcastle coverage are our assumptions from the regional hub.",
     "what_they_do_well": [
-      "Opened a Bodmin depot in 2024 to cut delivery miles for customers furthest from its Lee Mill depot."
+      "Opened a new purpose-built 86,098 sq ft Durham depot as its North East hub in 2026."
     ],
-    "distributes": "Foodservice ambient, chilled and frozen foods, snacks, confectionery and non-food.",
-    "channels_supplied": "Restaurants, cafes, schools, care homes and public sector caterers in Devon and Cornwall from its Lee Mill depot near Plymouth and its Bodmin depot.",
+    "distributes": "Foodservice ranges including ambient grocery, snacks, confectionery, chilled and frozen food.",
+    "channels_supplied": "Hospitality, education, healthcare and public sector caterers, served in the region from a new Durham hub.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "bio-salud.com.ar": {
     "name": "Bio-Salud S.R.L.",
@@ -515,20 +531,20 @@
   "bmstores.co.uk": {
     "name": "B&M",
     "based_out_of": "Liverpool, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "B&M opened a 13,514 sq ft store at Plymstock Broadway in 2026, with groceries in the range. Discounters buy branded confectionery opportunistically, which suits clearance of seasonal lines or price-marked packs.",
+    "fit_rationale": "B&M sells large volumes of branded confectionery and has a Newcastle Shopping Park store. It is mainly a general merchandise discounter, so it is conditional, and sugar-free lines are not confirmed.",
     "what_they_do_well": [
-      "Opened a 13,514 sq ft Plymstock store in March 2026, creating 42 jobs."
+      "Bought the Heron Foods grocery chain, expanding its food retail reach."
     ],
-    "distributes": "Discount groceries, confectionery, household, toys and gifts.",
-    "channels_supplied": "Own stores including Plymstock Broadway, Plymouth, opened March 2026.",
-    "sf_brands_carried": "Not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "General merchandise discount stores with grocery, snacks and confectionery aisles.",
+    "channels_supplied": "Stores including B&M Home Store at Newcastle Shopping Park, plus B&M Express.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "bonizzi.ch": {
     "name": "Alberto Bonizzi AG",
@@ -549,41 +565,41 @@
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
   "booker.co.uk": {
-    "name": "Booker",
+    "name": "Booker Group",
     "based_out_of": "Wellingborough, United Kingdom",
-    "market": "Plymouth, United Kingdom",
-    "category": "Wholesalers",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
     "channels": [
-      "wholesalers",
-      "distributors"
+      "distributors",
+      "wholesalers"
     ],
-    "fit_rationale": "Booker runs a licensed cash and carry branch in Plymouth itself, so independent convenience and catering buyers in the city already shop there weekly. A central listing would give Diablo immediate local availability. The sugar free brands it carries are not verified.",
+    "fit_rationale": "Booker has the densest branch network in Tyne and Wear and its Premier and Londis symbol stores are a ready shelf for a sugar-free impulse range. It is a large Tesco-owned business, so it ranks last in tier 1. Head office location is from general knowledge and should be checked.",
     "what_they_do_well": [
-      "Operates a cash and carry branch at Burrington Way, Honicknowle Industrial Estate in Plymouth."
+      "Serves around 1 million customers from over 190 cash and carry branches."
     ],
-    "distributes": "Full grocery, confectionery, snacks, drinks, tobacco, catering and non-food.",
-    "channels_supplied": "Independent convenience retailers, symbol stores (Premier, Londis, Budgens) and caterers through its cash and carry branch at Burrington Way, Honicknowle, Plymouth, plus delivered service.",
+    "distributes": "Full grocery, confectionery, snacks, drinks, tobacco and catering lines.",
+    "channels_supplied": "Independent retailers, caterers and Premier, Londis and Budgens symbol stores; branches in Newcastle (Bath Street), Gateshead, Sunderland and Morpeth plus Makro Washington.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "boots.com": {
-    "name": "Boots UK",
+    "name": "Boots",
     "based_out_of": "Nottingham, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Boots has several Plymouth pharmacies, including city-centre and Mutley stores, and its pharmacy shoppers include diabetics. Sugar-free snacks fit near the pharmacy counter and in health ranges.",
+    "fit_rationale": "Pharmacy shoppers managing diabetes are a natural audience for no-added-sugar sweets, and Boots has a large Eldon Square store. Its food range is mainly meal deal and snacks, so confectionery space is limited and unconfirmed.",
     "what_they_do_well": [
-      "Operates multiple Plymouth stores, including New George Street, Drake Circus and Cornwall Street."
+      "Refitted its Newcastle Airport store with a health and beauty makeover."
     ],
-    "distributes": "Pharmacy, health and beauty, meal deals, snacks and confectionery.",
-    "channels_supplied": "Own stores in Plymouth including New George Street, Drake Circus, Cornwall Street and Mutley, plus online.",
-    "sf_brands_carried": "Health and diabetic-friendly snacks nationally; specific brands not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Pharmacy, health and beauty, plus snacks, meal deals and healthy snacking.",
+    "channels_supplied": "Stores including Eldon Square in Newcastle and Newcastle Airport, plus online.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "boots.ie": {
     "name": "Boots Ireland",
@@ -652,19 +668,20 @@
   "brake.co.uk": {
     "name": "Brakes",
     "based_out_of": "Ashford, United Kingdom",
-    "market": "Plymouth, United Kingdom",
-    "category": "Wholesalers",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
     "channels": [
-      "wholesalers",
       "distributors"
     ],
-    "fit_rationale": "National foodservice wholesaler that covers the South West, but no Plymouth depot was verified. A route for care home and school snacks rather than retail.",
-    "what_they_do_well": [],
-    "distributes": "Foodservice ambient, chilled and frozen foods, snacks and non-food.",
-    "channels_supplied": "Restaurants, pubs, schools, care homes and public sector caterers nationwide.",
+    "fit_rationale": "A Sysco company that already supplies public sector catering on Tyneside and sits on the TUCO confectionery framework. Useful for scale once Diablo has regional proof points.",
+    "what_they_do_well": [
+      "Won North Tyneside Council's emergency groceries and frozen foods contract for school meals."
+    ],
+    "distributes": "Full foodservice range including frozen, ambient and chilled food, confectionery and snacks.",
+    "channels_supplied": "Councils, schools, hospitality and university caterers; supplied North Tyneside Council school meals groceries.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "brmarketing.ie": {
     "name": "BR Marketing",
@@ -989,22 +1006,22 @@
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
   "coop.co.uk": {
-    "name": "Co-op Group",
+    "name": "Co-op (Co-operative Group)",
     "based_out_of": "Manchester, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "With over 30 Co-op stores in and around Plymouth, the Co-op has the densest local convenience network. Listings are national, so it suits a later, proven range rather than first entry.",
+    "fit_rationale": "Co-op runs an open call for new food and drink businesses through its Apiary scheme, a clear onboarding route for a challenger brand. It is expanding in Newcastle with its first 2025 opening in East Benton. Sugar-free confectionery stocked is not confirmed.",
     "what_they_do_well": [
-      "Has over 30 stores in or very close to Plymouth, according to Plymouth Online Directory."
+      "Runs the Apiary incubator to bring new food and drink businesses into its stores, now in its fourth wave."
     ],
-    "distributes": "Convenience grocery, confectionery, snacks and food to go.",
-    "channels_supplied": "Over 30 Co-op stores in or very close to Plymouth, plus rapid delivery apps.",
-    "sf_brands_carried": "Not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Convenience grocery, snacks, confectionery and free-from.",
+    "channels_supplied": "Owned and franchise convenience stores, including a new East Benton store in Newcastle opened in 2025.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "coopoliva.ge": {
     "name": "Geocoop",
@@ -1104,58 +1121,53 @@
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "costco.co.uk": {
-    "name": "Costco Wholesale UK",
+    "name": "Costco Wholesale UK (Gateshead)",
     "based_out_of": "Watford, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Wholesalers",
     "channels": [
-      "wholesalers"
+      "wholesalers",
+      "distributors"
     ],
-    "fit_rationale": "Small Plymouth retailers and caterers buy from Costco Bristol, but listings are centrally controlled and the distance makes it a weak local route. The Watford head office location is from memory and should be checked.",
+    "fit_rationale": "Its Gateshead warehouse is used by small retailers and caterers buying in bulk. Ranging is central and partly consumer-facing, so it is a lower priority. Head office city is our assumption.",
     "what_they_do_well": [],
-    "distributes": "Membership warehouse selling bulk grocery, confectionery, snacks and drinks.",
-    "channels_supplied": "Business and individual members, with the nearest warehouse in Bristol.",
+    "distributes": "Membership warehouse selling bulk grocery, confectionery, snacks, drinks and business supplies.",
+    "channels_supplied": "Business members such as small retailers and caterers plus individual members, from its Gateshead warehouse with business delivery.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "costcutter.co.uk": {
     "name": "Costcutter",
-    "based_out_of": "Leicester, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "based_out_of": "York, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Costcutter's Plymouth store reports confectionery as a top seller, with novelty sweets bringing in about 200 pounds a day. The symbol group buys centrally, so a listing would come through the group rather than the store.",
-    "what_they_do_well": [
-      "Its North Prospect, Plymouth store lists confectionery among its top-selling categories."
-    ],
-    "distributes": "Convenience grocery, confectionery, alcohol and food to go through franchised stores.",
-    "channels_supplied": "Franchised symbol stores including Costcutter North Prospect, Plymouth.",
-    "sf_brands_carried": "Not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "fit_rationale": "Costcutter has stores in Newcastle including College Lane near the universities. It is a symbol group whose stores are now supplied by Bestway, so the head office location is uncertain and ranging depends on each retailer.",
+    "what_they_do_well": [],
+    "distributes": "Convenience grocery, snacks and confectionery through a symbol group.",
+    "channels_supplied": "Independent Costcutter stores including College Lane in Newcastle.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "cotswold-fayre.co.uk": {
     "name": "Cotswold Fayre",
-    "based_out_of": "Reading, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "based_out_of": "Theale, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Distributors",
     "channels": [
-      "distributors",
-      "wholesalers"
+      "distributors"
     ],
-    "fit_rationale": "The leading ambient wholesaler to farm shops and delis, a channel well represented around Plymouth and Dartmoor. Its curated range and confectionery category suit premium sugar free chocolate and biscuits.",
-    "what_they_do_well": [
-      "Among the first UK companies certified as a B Corporation, in 2015.",
-      "Grew from a small start up in 1999 to around 1,700 customers."
-    ],
-    "distributes": "Ambient fine food and drink including confectionery, fudge, snacks and biscuits.",
-    "channels_supplied": "About 1,700 customers: farm shops, delis, independent retailers and foodservice.",
+    "fit_rationale": "The leading delivered wholesaler to UK farm shops and delis, a channel well represented in Northumberland and County Durham. Premium sugar-free chocolate gifting suits its customers.",
+    "what_they_do_well": [],
+    "distributes": "Premium ambient food and drink, confectionery and snacks.",
+    "channels_supplied": "Independent delis, farm shops and fine food retailers across the UK.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "cruspi.ch": {
     "name": "Cruspi SA",
@@ -1697,40 +1709,38 @@
   },
   "epicurium.co.uk": {
     "name": "Epicurium",
-    "based_out_of": "Durham, United Kingdom",
-    "market": "Plymouth, United Kingdom",
-    "category": "Wholesalers",
+    "based_out_of": "Consett, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
     "channels": [
-      "wholesalers"
+      "distributors"
     ],
-    "fit_rationale": "A specialist healthy snacking wholesaler whose whole proposition is low sugar and better for you brands for convenience stores, which matches Diablo closely. It serves the UK nationally, so Plymouth stores can order, but local depth is unverified.",
+    "fit_rationale": "A County Durham healthy snacks specialist 15 miles from Newcastle whose whole proposition is better-for-you indulgence, so Diablo's sugar-free chocolate and sweets fill an obvious gap. Its mid-size, director-led structure makes a decision maker easy to reach.",
     "what_they_do_well": [
-      "Added 25 independent brand lines in one expansion, a 20% range increase, to help convenience stores sell healthy food on the go."
+      "Supplies over 1,200 lines from around 120 brands across healthy snacks, confectionery and drinks.",
+      "Added Bio&Me, Popcorn Shed, That's It and Vitamin Well to its healthy range in 2023."
     ],
-    "distributes": "Healthy snacks, crisps, bars, functional drinks and independent better for you brands.",
-    "channels_supplied": "Convenience stores, especially commuter locations, and independent retailers across the UK by national delivery.",
-    "sf_brands_carried": "Low sugar, vegan and protein brands including Plenish, Nooro, Huel, Vit Hit, Pipers and Eat Natural.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Healthy snacks, chocolate and confectionery, snack bars, crisps and savoury snacks, functional and soft drinks; over 1,200 lines from about 120 brands.",
+    "channels_supplied": "Delivered wholesaler to independent retailers, workplaces, cafes, venues, sports clubs and foodservice operators, plus its own trade e-commerce site.",
+    "sf_brands_carried": "Better-for-you brands including Bio&Me (no added sugar granola), That's It, Fiid, Eleat, Grind, Zombie Bars and Vitamin Well. No sugar-free chocolate brand was confirmed, so a direct competitor is not known.",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "essential-trading.coop": {
     "name": "Essential Trading Co-operative",
     "based_out_of": "Bristol, United Kingdom",
-    "market": "Plymouth, United Kingdom",
-    "category": "Distributors",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Wholesalers",
     "channels": [
-      "distributors",
       "wholesalers"
     ],
-    "fit_rationale": "The closest major wholefood wholesaler to Plymouth, delivering across England and Wales into exactly the independent health stores that suit a stevia sweetened range. Its ethical positioning suits a no added sugar story; check its stance on non organic lines.",
-    "what_they_do_well": [
-      "Named by Sustain as a wholefood wholesaler delivering across England and Wales."
-    ],
-    "distributes": "Organic, vegetarian and vegan wholefoods, snacks, chocolate and household goods.",
-    "channels_supplied": "Independent health food shops, wholefood stores and food co-ops across England and Wales.",
+    "fit_rationale": "A wholefood wholesaler to independent health shops that delivers to the North East. Health shop customers suit a no-added-sugar range. Only one directory source and its own site could not be checked.",
+    "what_they_do_well": [],
+    "distributes": "Wholefoods, organic and natural groceries and snacks.",
+    "channels_supplied": "Independent health food shops and food co-ops, delivering throughout England and Wales.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "eurocaucasus.ge": {
     "name": "Euro Caucasus Supplies (House of Delicacies)",
@@ -1955,6 +1965,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "fenwick.co.uk": {
+    "name": "Fenwick",
+    "based_out_of": "Newcastle upon Tyne, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Newcastle's own department store group runs a food hall with a dedicated chocolate and confectionery offer, a natural home for premium no-added-sugar gifting lines. Sugar-free brands stocked are not confirmed. It has 8 stores in total, with its head office and flagship in Newcastle.",
+    "what_they_do_well": [
+      "Trading since 1882 from its Newcastle flagship, founded by John James Fenwick."
+    ],
+    "distributes": "Department store with a food hall selling chocolates, confectionery, deli, bakery, groceries, wine and gifts.",
+    "channels_supplied": "Newcastle flagship food hall on Northumberland Street, 7 other English stores and online.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "ferianativa.com": {
@@ -2290,6 +2319,24 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "grapetree.co.uk": {
+    "name": "Grape Tree",
+    "based_out_of": "United Kingdom (head office city not confirmed)",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A health food chain of about 200 stores is a natural outlet for better-for-you sweets. A Newcastle store was not confirmed, only Durham, so this is conditional.",
+    "what_they_do_well": [
+      "Built to about 200 stores since founder Nick Shutts launched it in 2013."
+    ],
+    "distributes": "Health and wholefoods, dried fruit, nuts, snacks and confectionery.",
+    "channels_supplied": "About 200 stores including Durham, plus online.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
   "greenmarket.pe": {
     "name": "Green Low Carb Market",
     "based_out_of": "Lima, Peru",
@@ -2395,24 +2442,24 @@
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
   "hancocks.co.uk": {
-    "name": "Hancocks",
-    "based_out_of": "Loughborough, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "name": "R E & B Hancock Ltd (Hancocks)",
+    "based_out_of": "Leicester, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Wholesalers",
     "channels": [
       "wholesalers",
       "distributors"
     ],
-    "fit_rationale": "Hancocks is the UK's specialist confectionery cash and carry and its Bristol depot is the nearest specialist source for Plymouth sweet shops and seaside retailers. A sugar free confectionery range sits naturally next to its vegan and halal signposted lines. Check whether it already lists a sugar free sweets brand.",
+    "fit_rationale": "The UK's specialist confectionery cash and carry already runs a sugar-free category, so Diablo's chocolate and biscuit range fills a clear gap. Its Newcastle depot supplies retailers across Tyneside. Head office location is our assumption from its trading history and should be checked.",
     "what_they_do_well": [
-      "Confectionery wholesaler trading since 1962, owned by World of Sweets, with depots across the Midlands, south of England and Wales.",
-      "Refreshed its Bristol depot in 2023 with clearer vegan and halal signposting."
+      "Newcastle depot on the Drum Industrial Estate has traded since 1988 and supplies retailers across Newcastle and the surrounding area.",
+      "Launched a Kingsway sugar-free sweets range described as halal approved, gluten free and diabetic friendly."
     ],
-    "distributes": "Confectionery, sweets, pick and mix, chocolate, snacks, soft drinks and seasonal lines.",
-    "channels_supplied": "Independent retailers, sweet shops, ice cream vendors and market traders through cash and carry depots including Bristol, plus online ordering and delivery.",
-    "sf_brands_carried": "Lists premium and better for you chocolate such as Willie's Cacao; specific sugar free brands not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Confectionery, pick n mix, bulk chocolate, seasonal confectionery and soft drinks.",
+    "channels_supplied": "Independent confectionery shops, convenience stores and market traders through 13 cash and carry stores, including a Newcastle depot at Chester-le-Street, plus click and collect.",
+    "sf_brands_carried": "Own Sugar Free category and Kingsway sugar-free handmade sweets (diabetic friendly). Kingsway sugar-free sweets overlap with Diablo's sweets but not its chocolate, biscuits or spreads.",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "harrisonsdirect.co.uk": {
     "name": "Albert Harrison and Co (Harrisons Direct)",
@@ -2479,23 +2526,41 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
-  "hollandandbarrett.com": {
-    "name": "Holland & Barrett",
-    "based_out_of": "Nuneaton, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+  "heronfoods.com": {
+    "name": "Heron Foods",
+    "based_out_of": "Hull, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "The UK's main health food chain has a city-centre Plymouth store in Drake Circus and national online reach. Its shoppers already seek better-for-you snacks, so stevia-sweetened chocolate and sweets fit the core shelf.",
+    "fit_rationale": "Heron has one of the densest store footprints across Newcastle neighbourhoods and sells branded grocery at value prices. It is owned by B&M, and sugar-free confectionery is not confirmed.",
     "what_they_do_well": [
-      "Trades from Drake Circus, Plymouth's main shopping centre, with extended Thursday and Saturday hours."
+      "Planned to open 30 new stores a year, as reported by The Grocer."
     ],
-    "distributes": "Vitamins, supplements, health foods, free-from and better-for-you snacks and confectionery.",
-    "channels_supplied": "Own stores including Unit 13 Drake Circus, Plymouth, plus national online store.",
-    "sf_brands_carried": "Carries free-from and reduced sugar snacks; specific sugar-free confectionery brands in the Plymouth store not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Frozen and ambient discount grocery including branded snacks and confectionery.",
+    "channels_supplied": "Neighbourhood stores including Byker, Walker, Longbenton and Newcastle city centre.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "hollandandbarrett.com": {
+    "name": "Holland & Barrett",
+    "based_out_of": "Nuneaton, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "The UK's main health food chain already lists Diablo, so the job is to widen the range and secure Newcastle store distribution. It carries the competitor Free'ist, and around 4 stores are listed in Northumberland plus a Newcastle city centre shop.",
+    "what_they_do_well": [
+      "Launched 500 new grocery lines in its first wave of a food range overhaul, including 200 branded lines."
+    ],
+    "distributes": "Vitamins, health foods, free-from grocery, snacks and better-for-you confectionery.",
+    "channels_supplied": "Own stores including Blackett Street in Newcastle city centre and online.",
+    "sf_brands_carried": "Already lists Diablo products online and carries Free'ist no added sugar chocolate.",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "hollandandbarrett.ge": {
     "name": "Holland & Barrett Georgia",
@@ -2516,20 +2581,36 @@
   "holleysfinefoods.com": {
     "name": "Holleys Fine Foods",
     "based_out_of": "Bristol, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Distributors",
     "channels": [
       "distributors"
     ],
-    "fit_rationale": "A Bristol fine food wholesaler with a large confectionery and snacking range and a sugar free filter, already listing South West brands such as Devon Cottage fudge. Coverage of Plymouth is likely but unconfirmed.",
-    "what_they_do_well": [
-      "Lists Devon Cottage fudge among hundreds of third party brands."
+    "fit_rationale": "A one-stop premium grocery wholesaler serving independents UK-wide, including North East delis. Its range-building focus suits a differentiated better-for-you confectionery brand.",
+    "what_they_do_well": [],
+    "distributes": "Premium ambient groceries, confectionery and snacks.",
+    "channels_supplied": "Independent fine food retailers across the UK.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "homebargains.co.uk": {
+    "name": "Home Bargains (TJ Morris)",
+    "based_out_of": "Liverpool, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
     ],
-    "distributes": "Fine food and grocery: bakery, snacking, confectionery, world foods, pantry and drinks, with around 588 brands.",
-    "channels_supplied": "Independent retailers; delivery area to Plymouth not stated, so confirm.",
-    "sf_brands_carried": "Has a sugar free dietary filter; brands not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "fit_rationale": "Home Bargains sells branded sweets and snacks at volume and opened a megastore at Team Valley next to Newcastle in 2026. It is a variety discounter, so fit is conditional and sugar-free lines are unconfirmed.",
+    "what_they_do_well": [
+      "Opened a large megastore at Team Valley, Gateshead, in a former Homebase unit in 2026."
+    ],
+    "distributes": "Discount variety stores with fresh and frozen food, sweets, snacks and drinks.",
+    "channels_supplied": "Stores including a megastore at Team Valley, Gateshead, serving Newcastle.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "hopsack.ie": {
     "name": "The Hopsack",
@@ -2598,20 +2679,20 @@
   "iceland.co.uk": {
     "name": "Iceland Foods",
     "based_out_of": "Deeside, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Iceland has Plymouth stores including Mayflower Street, as well as concessions inside The Range. Branded ambient confectionery is a secondary category, so fit is moderate.",
+    "fit_rationale": "Iceland has Newcastle stores and is expanding The Food Warehouse format, which carries more branded ambient grocery. Sugar-free confectionery is not confirmed and its value focus may limit premium lines.",
     "what_they_do_well": [
-      "Reached 900 UK stores in 2017, according to the company."
+      "Targeting 250 new Food Warehouse stores across the UK."
     ],
-    "distributes": "Frozen and chilled food, grocery, confectionery and snacks.",
-    "channels_supplied": "Own stores in Plymouth including Mayflower Street, Food Warehouse format, and online delivery.",
-    "sf_brands_carried": "Not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Frozen food, grocery, snacks and confectionery.",
+    "channels_supplied": "Iceland and The Food Warehouse stores including Shields Road in Newcastle, plus online delivery.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "ico.pe": {
     "name": "ICO Food Service",
@@ -2664,6 +2745,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "infinityfoodswholesale.coop": {
+    "name": "Infinity Foods Wholesale",
+    "based_out_of": "Shoreham-by-Sea, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "A national co-operative wholesaler to health food shops, which reaches the Newcastle independent health channel. Diablo's vegan-friendly and no-added-sugar lines align with its range focus.",
+    "what_they_do_well": [],
+    "distributes": "Vegetarian, organic and natural foods and snacks.",
+    "channels_supplied": "Independent health food and wholefood retailers across the UK.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "inishpharmacy.com": {
     "name": "Inish Pharmacy",
@@ -2718,21 +2816,42 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "the website address no longer exists"
   },
+  "jameshall.co.uk": {
+    "name": "James Hall & Co (SPAR North of England)",
+    "based_out_of": "Preston, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "One buying team covers both owned SPAR stores in Newcastle and hundreds of independent SPAR retailers across the North, giving Diablo convenience reach in one listing. It runs supplier days, a clear route for new brands. Sugar-free confectionery stocked is not confirmed.",
+    "what_they_do_well": [
+      "Bought the 30-store North East Convenience Stores chain around Newcastle and Northumberland and converted it to SPAR.",
+      "Hosts supplier collaboration days for SPAR North of England suppliers."
+    ],
+    "distributes": "Convenience grocery, snacks, confectionery, chilled and fresh food for SPAR stores.",
+    "channels_supplied": "Company-owned SPAR stores including about 30 former North East Convenience Stores around Newcastle and Northumberland, plus over 600 independent SPAR stores it supplies.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
   "jjfoodservice.com": {
     "name": "JJ Foodservice",
     "based_out_of": "London, United Kingdom",
-    "market": "Plymouth, United Kingdom",
-    "category": "Wholesalers",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
     "channels": [
-      "wholesalers"
+      "distributors"
     ],
-    "fit_rationale": "JJ has a Bristol branch, but delivery reach into Plymouth is not confirmed. Its takeaway customers are a weaker fit for premium sugar free confectionery.",
-    "what_they_do_well": [],
-    "distributes": "Foodservice and grocery wholesale, including snacks, confectionery and drinks.",
-    "channels_supplied": "Takeaways, restaurants and caterers through branches including Bristol, with delivery and collection.",
+    "fit_rationale": "Runs a 35,000 sq ft Newcastle branch serving takeaways and caterers, giving reach into a fragmented foodservice base. Confectionery is a secondary category, so fit is moderate.",
+    "what_they_do_well": [
+      "Opened a 35,000 sq ft Newcastle branch with a showroom about one mile from the city centre."
+    ],
+    "distributes": "Frozen, chilled and ambient foodservice products, drinks and confectionery.",
+    "channels_supplied": "Caterers, takeaways and food outlets, collection and delivery from its Newcastle branch on Sanderson Street.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "johnsonbrothers.ie": {
     "name": "Johnson Brothers",
@@ -2819,23 +2938,24 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
   "kitwave.co.uk": {
-    "name": "Kitwave Group",
+    "name": "Kitwave Group (including M&M Value)",
     "based_out_of": "North Shields, United Kingdom",
-    "market": "Plymouth, United Kingdom",
-    "category": "Wholesalers",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
     "channels": [
+      "distributors",
       "wholesalers"
     ],
-    "fit_rationale": "Kitwave started as a confectionery and impulse wholesaler and now has a South West foodservice hub near Newton Abbot serving around 6,000 customers. MJ Baker already sells confectionery, so Diablo could join an existing impulse range.",
+    "fit_rationale": "Kitwave was founded in North Shields as a confectionery wholesaler and remains headquartered on Tyneside, so it combines local reach with national scale through 27 depots. Its M&M Value arm already wins confectionery and snacks contracts in the region, which suits a sugar-free line for schools and colleges.",
     "what_they_do_well": [
-      "Bought Devon based MJ Baker Foodservice, which carries over 3,500 products including confectionery.",
-      "Built an 80,000 sq ft South West warehouse near Newton Abbot."
+      "Founded in 1988 as a regional confectionery business and grown into a national wholesaler with 27 depots.",
+      "Its M&M Value business won the snacks, confectionery and soft drinks lot for Sunderland College in 2021."
     ],
-    "distributes": "Confectionery, snacks, soft drinks, grocery, frozen and chilled foods, alcohol and fresh produce.",
-    "channels_supplied": "Convenience retailers and foodservice customers; in the South West through MJ Baker Foodservice and WestCountry (Newton Abbot area), about 6,000 customers.",
+    "distributes": "Impulse confectionery, snacks, soft drinks, grocery, tobacco, frozen and chilled food and foodservice lines.",
+    "channels_supplied": "Independent retailers, convenience stores, vending (Automatic Retailing), schools and colleges and foodservice; subsidiaries include M&M Value (North Shields and Middlesbrough), Eden Farm, Teatime Tasties and Squirrels.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "kmcint.com": {
     "name": "KMC International SAC",
@@ -3058,6 +3178,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "mabrotherscashandcarry.co.uk": {
+    "name": "M.A. Brothers Cash & Carry",
+    "based_out_of": "Newcastle upon Tyne, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "An owner-run Elswick cash and carry serving local independent and ethnic grocers, a channel the national players under-serve. Fit for sugar-free lines is unproven, so it sits in tier 3.",
+    "what_they_do_well": [],
+    "distributes": "General grocery including confectionery and snacks, drinks, dairy, frozen, spices and cleaning supplies.",
+    "channels_supplied": "Collection and delivery to local shops and caterers in Newcastle; named customers not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "makro.com.ar": {
     "name": "Supermercados Mayoristas Makro S.A.",
@@ -3354,20 +3491,20 @@
   "morrisons.com": {
     "name": "Morrisons",
     "based_out_of": "Bradford, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Morrisons has several Plymouth supermarkets and has used the Plymstock store for online store-picking. Multiple local outlets plus online give good reach for a sugar-free range.",
+    "fit_rationale": "Morrisons already sells a no-added-sugar chocolate brand online, proving shopper demand, and has stores in Newcastle including Byker. Diablo's wider range of sweets, biscuits and spreads could extend the set beyond a single competitor.",
     "what_they_do_well": [
-      "Chose its Plymstock store to launch store-picked online delivery, according to The Grocer."
+      "Opened a new store in Newcastle, announced through its corporate media centre."
     ],
-    "distributes": "Full-range grocery, confectionery, free-from and convenience.",
-    "channels_supplied": "Own supermarkets in Plymouth including Crownhill, Outland Road and Plymstock, Morrisons Daily convenience and online delivery.",
-    "sf_brands_carried": "Free-from range nationally; Plymouth-specific sugar-free brands not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Full-range grocery including confectionery, biscuits and free-from.",
+    "channels_supplied": "Supermarkets including Byker in Newcastle, Morrisons Daily convenience stores, online groceries and delivery apps.",
+    "sf_brands_carried": "Chocologic no added sugar dark chocolate.",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "mortons.ie": {
     "name": "Mortons",
@@ -3413,6 +3550,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "mrsimms.co": {
+    "name": "Mr Simms Olde Sweet Shoppe",
+    "based_out_of": "Stafford, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A specialist sweet shop chain is a strong match for Diablo's sweets and chocolate, and its first North East shop is in Morpeth, about 15 miles from Newcastle. It has no confirmed Newcastle store and sugar-free ranging is unconfirmed.",
+    "what_they_do_well": [
+      "Grew from one shop in Leek in 2004 to over 70 branches."
+    ],
+    "distributes": "Traditional sweets, pick and mix, chocolate and confectionery gifts.",
+    "channels_supplied": "Franchise sweet shops, over 70 across the UK and Hong Kong, including Sanderson Arcade in Morpeth, Northumberland.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "musgravegroup.com": {
     "name": "Musgrave Group (SuperValu, Centra, Daybreak)",
@@ -3544,6 +3699,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "nisalocally.co.uk": {
+    "name": "Nisa (Co-op Wholesale)",
+    "based_out_of": "Scunthorpe, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "retailers"
+    ],
+    "fit_rationale": "A wholesale buying operation for independent retailers, so one listing reaches many convenience stores in and around Newcastle. Ranging is central and Co-op own label competes for space. Its North East store count was not verified.",
+    "what_they_do_well": [
+      "Supplies almost 4,000 stores and about 1,400 independent partners with a £1.45 billion turnover."
+    ],
+    "distributes": "Full convenience grocery range of over 13,000 SKUs including confectionery, snacks and Co-op own brand.",
+    "channels_supplied": "About 1,400 independent retail partners and almost 4,000 Nisa Local, Nisa Extra and independent stores across the UK, including the North East.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
   "nolans.ie": {
     "name": "Nolans Supermarket",
     "based_out_of": "Dublin, Ireland",
@@ -3651,6 +3825,24 @@
     "sf_brands_carried": "Proceive supplements, E45, Bio-Oil, TePe; no food brands.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "onestop.co.uk": {
+    "name": "One Stop",
+    "based_out_of": "Walsall, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "One Stop took over the North East Mills Group convenience estate, giving it a strong Tyneside footprint. It is a Tesco subsidiary, so buying may follow Tesco, and the head office location and sugar-free range are not confirmed here.",
+    "what_they_do_well": [
+      "Grew in the North East by buying the independent Mills Group convenience chain."
+    ],
+    "distributes": "Convenience grocery, snacks and confectionery.",
+    "channels_supplied": "Owned and franchise convenience stores, including the former Mills Group stores in the North East.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "orbita.ge": {
     "name": "Orbita",
@@ -3779,6 +3971,26 @@
     "sf_brands_carried": "Not verified in this run.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "parfetts.co.uk": {
+    "name": "Parfetts",
+    "based_out_of": "Stockport, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "An independent delivered and cash and carry wholesaler that is actively growing its Go Local symbol estate in the North East, giving Diablo a route into a curated convenience range. Its smaller size than the national multiples makes a buyer conversation more realistic.",
+    "what_they_do_well": [
+      "Its Middlesbrough depot, acquired from Blakemore in 2018, grew turnover 28% in six months.",
+      "Signed 15 new Go Local stores in the North East in six months."
+    ],
+    "distributes": "Grocery, confectionery, snacks, soft drinks, alcohol and tobacco for convenience retail.",
+    "channels_supplied": "Independent convenience retailers and its Go Local symbol group, delivered from Newcastle to Ripon via its Middlesbrough depot.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "pedidosya.com.ar": {
     "name": "PedidosYa Market",
@@ -4228,20 +4440,18 @@
   "sainsburys.co.uk": {
     "name": "Sainsbury's",
     "based_out_of": "London, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Sainsbury's runs the Marsh Mills superstore and the Armada Centre store in central Plymouth. Its free-from and health aisles suit a stevia-sweetened range, with national buying deciding listings.",
-    "what_they_do_well": [
-      "Marsh Mills, Plymouth branch has traded since 1994 according to the Sainsbury Archive."
-    ],
-    "distributes": "Full-range grocery including confectionery, biscuits, free-from and health food.",
-    "channels_supplied": "Own superstores and convenience stores plus online delivery; Plymouth Marsh Mills superstore and Armada Centre store.",
-    "sf_brands_carried": "Free-from range nationally; Plymouth-specific sugar-free brands not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "fit_rationale": "Sainsbury's already sells own-label no-added-sugar chocolate, so the category exists but a branded entrant must add range, for example sweets and spreads. It has a Newcastle supermarket and Local stores.",
+    "what_they_do_well": [],
+    "distributes": "Full-range grocery including confectionery, biscuits and free-from.",
+    "channels_supplied": "Supermarkets and Local stores in Newcastle, plus online grocery.",
+    "sf_brands_carried": "Own-label no added sugar milk and dark chocolate.",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "sanpablomayorista.com": {
     "name": "San Pablo S.R.L.",
@@ -4531,21 +4741,21 @@
   "suma.coop": {
     "name": "Suma Wholefoods",
     "based_out_of": "Elland, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Distributors",
     "channels": [
       "distributors",
       "wholesalers"
     ],
-    "fit_rationale": "A national health food wholesaler that reaches Plymouth independents from its own fleet. Listing would give Diablo coverage of health stores across the whole South West in one step; vegetarian only policy suits Diablo.",
+    "fit_rationale": "The largest wholefood wholesaler in the north of England delivers to independent health food shops in the Newcastle area. Diablo's stevia sweetened, no aspartame positioning suits its free-from customers.",
     "what_they_do_well": [
-      "Serves most of mainland UK from its own fleet of vehicles."
+      "Worker-owned co-operative trading for over 40 years with about 200 members."
     ],
-    "distributes": "Vegetarian, vegan, organic and natural wholefoods, snacks and household goods.",
-    "channels_supplied": "Mainly independent health food shops across mainland UK, served largely by its own vehicle fleet.",
-    "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Wholefoods, organic, vegan and free-from groceries, snacks and body care; over 7,000 products.",
+    "channels_supplied": "Independent health food shops, wholefood co-ops and caterers across the UK and export customers.",
+    "sf_brands_carried": "Carries better-for-you snack brands including Nakd and Eat Real; no sugar-free chocolate competitor confirmed.",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "supercaracol.com.ar": {
     "name": "Caracol Supermercados",
@@ -4569,20 +4779,18 @@
   "superdrug.com": {
     "name": "Superdrug",
     "based_out_of": "Croydon, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Superdrug has a Drake Circus store and around 800 UK and Ireland stores under A.S. Watson. Its health positioning and till-point snacking suit small-format sugar-free sweets.",
-    "what_they_do_well": [
-      "Part of A.S. Watson, with around 800 UK and Ireland stores including Drake Circus, Plymouth."
-    ],
-    "distributes": "Health and beauty, pharmacy and impulse snacks and confectionery.",
-    "channels_supplied": "Own stores including Drake Circus, Plymouth, plus online.",
-    "sf_brands_carried": "Not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "fit_rationale": "Superdrug has a dedicated healthy snacking category with only a few brands, leaving room for no-added-sugar chocolate and sweets. It has a Northumberland Street store in Newcastle.",
+    "what_they_do_well": [],
+    "distributes": "Health and beauty, pharmacy and a healthy snacking range.",
+    "channels_supplied": "Stores including Northumberland Street in Newcastle, plus online.",
+    "sf_brands_carried": "Healthy snacking range with Grenade and SlimFast; no sugar-free confectionery brand found.",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "supermercadobecerra.com": {
     "name": "Supermercados Becerra",
@@ -4765,20 +4973,20 @@
   "tesco.com": {
     "name": "Tesco",
     "based_out_of": "Welwyn Garden City, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Tesco has the largest grocery footprint in Plymouth, from the Roborough Extra to several Express stores. A central buying team and national free-from range make it the highest-volume route, although listings are decided nationally rather than locally.",
+    "fit_rationale": "Diablo already sells through Tesco Marketplace, so the aim is a core range listing in Newcastle stores such as Kingston Park Extra. Tesco has taken a direct no-added-sugar chocolate competitor, which shows category demand but means a differentiated pitch is needed.",
     "what_they_do_well": [
-      "Operates Plymouth Roborough Extra at Woolwell Crescent, with Express stores serving students on Mutley Plain."
+      "Runs the Tesco Extra hypermarket at Kingston Park, profiled by The Grocer as a Newcastle flagship."
     ],
-    "distributes": "Full-range grocery including confectionery, biscuits, free-from and health food aisles.",
-    "channels_supplied": "Own superstores, Express convenience stores and online home delivery; Plymouth Roborough Extra plus Express stores on Mutley Plain and Discovery Heights.",
-    "sf_brands_carried": "Free-from and sugar-free confectionery sections exist nationally; brands stocked in Plymouth not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "distributes": "Full-range grocery including confectionery, biscuits, spreads and free-from.",
+    "channels_supplied": "Extra, superstore and Express stores including Tesco Extra Kingston Park in Newcastle, plus online grocery and Tesco Marketplace.",
+    "sf_brands_carried": "Diablo is already listed on Tesco Marketplace, sold by Diablo itself; Chocologic no added sugar chocolate was reported to launch in Tesco.",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "tesco.ie": {
     "name": "Tesco Ireland",
@@ -4953,6 +5161,25 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "tynesidefoodservice.com": {
+    "name": "Tyneside Foodservice Ltd",
+    "based_out_of": "Blaydon-on-Tyne, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers",
+      "distributors"
+    ],
+    "fit_rationale": "Local, owner-managed delivered foodservice wholesaler that runs its own trade shows, a good fit for Diablo's portion and catering formats in cafes and care. As a Fairway Foodservice member it could extend to other members. Domain comes from a directory and was not confirmed on its own site.",
+    "what_they_do_well": [
+      "Grew its ambient and chilled business by more than 30 percent in four years and drew close to 500 visitors to its trade show."
+    ],
+    "distributes": "Frozen, chilled and ambient foodservice ranges including confectionery and snacks, desserts, dairy, meat and grocery.",
+    "channels_supplied": "Caterers, chefs, cafes and other food professionals across the North East, with online and app ordering and five day delivery.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
   "uniphar.ie": {
     "name": "Uniphar",
     "based_out_of": "Dublin, Ireland",
@@ -4972,21 +5199,19 @@
   },
   "unitaswholesale.co.uk": {
     "name": "Unitas Wholesale",
-    "based_out_of": "United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "based_out_of": "United Kingdom (city not confirmed)",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Wholesalers",
     "channels": [
       "wholesalers"
     ],
-    "fit_rationale": "A buying group, not a stockholder itself, but one central agreement reaches many independent wholesalers, and its Brand Box pilot gives new products access to 1,000 stores. Members in Devon and Cornwall are not confirmed.",
-    "what_they_do_well": [
-      "Runs Brand Box, an NPD pilot giving supplier partners access to 1,000 stores at launch."
-    ],
-    "distributes": "Buying group for foodservice and convenience wholesale across all grocery and impulse categories.",
-    "channels_supplied": "172 independent member wholesalers that supply convenience stores and caterers, including in the South West.",
+    "fit_rationale": "A national buying group that runs a wholesaler finder for retailers. Lower priority because we could not confirm a Tyneside member.",
+    "what_they_do_well": [],
+    "distributes": "Buying group for independent wholesalers and cash and carries covering grocery, impulse and foodservice.",
+    "channels_supplied": "Independent wholesale members across the UK; no Newcastle member confirmed in our research.",
     "sf_brands_carried": "",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "united-drug.com": {
     "name": "United Drug",
@@ -5003,6 +5228,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "uwgl.co.uk": {
+    "name": "United Wholesale Grocers Ltd (UWG)",
+    "based_out_of": "Glasgow, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "Owner-led wholesaler whose Gateshead cash and carry on the Team Valley serves Tyneside retailers, and it runs symbol fascias for independent stores. A Landmark member, so it can also list through that group. Product range detail comes from trade press, not its own site.",
+    "what_they_do_well": [
+      "Bought A.F. Blakemore's Gateshead depot in 2018 and kept all 45 staff, its first site south of the Scottish border.",
+      "Converted 80 independent stores to its Lifestyle Express and Shop Local fascias."
+    ],
+    "distributes": "Grocery, impulse confectionery, soft drinks, tobacco and convenience ranges through cash and carry and delivered service.",
+    "channels_supplied": "Independent retail, symbol (Lifestyle Express and Shop Local) stores, foodservice and on-trade across Scotland and the North East from its Gateshead depot.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "vega.pe": {
     "name": "Grupo Vega",
@@ -5120,20 +5364,18 @@
   "waitrose.com": {
     "name": "Waitrose",
     "based_out_of": "Bracknell, United Kingdom",
-    "market": "Plymouth, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
     "category": "Retailers",
     "channels": [
       "retailers"
     ],
-    "fit_rationale": "Waitrose's Saltash store across the Tamar is the nearest to Plymouth and offers delivery into the city. Premium shoppers fit a European better-for-you brand, though there is only one local store.",
-    "what_they_do_well": [
-      "Serves Plymouth from its Saltash store with home delivery and click-and-collect."
-    ],
-    "distributes": "Premium grocery, confectionery, free-from and health food.",
-    "channels_supplied": "Saltash store serving Plymouth, with delivery and click-and-collect.",
-    "sf_brands_carried": "Not verified.",
-    "added": "2026-10-12",
-    "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+    "fit_rationale": "Waitrose's affluent Jesmond and Ponteland shoppers suit a premium better-for-you confectionery range. Sugar-free brands stocked are not confirmed and listing is national, so this is a slower route than tier 1.",
+    "what_they_do_well": [],
+    "distributes": "Premium full-range grocery including confectionery and free-from.",
+    "channels_supplied": "Supermarkets in Jesmond and Ponteland serving Newcastle, plus online.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "webstar.ch": {
     "name": "E. Weber & Cie AG",
@@ -5202,6 +5444,40 @@
     "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "wholesalesweets.co.uk": {
+    "name": "UK Sweets",
+    "based_out_of": "Loughborough, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "An online confectionery wholesaler with free UK delivery that already segments vegan and halal ranges, so a sugar-free segment is a natural extension. Directory evidence only.",
+    "what_they_do_well": [],
+    "distributes": "Wholesale pick n mix, chocolate bars and sweets including vegan and halal options.",
+    "channels_supplied": "Online wholesale with free UK delivery to sweet shops and retailers; Newcastle customers not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "whsmith.co.uk": {
+    "name": "WHSmith (travel)",
+    "based_out_of": "Swindon, United Kingdom",
+    "market": "Newcastle upon Tyne, United Kingdom",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "WHSmith's airport and station stores reach high footfall travellers who buy snacks on impulse. Confectionery space and sugar-free lines are not confirmed, and the high street stores now trade as TGJones under separate ownership.",
+    "what_they_do_well": [
+      "Transformed its Newcastle Airport store into a one-stop shop for travel essentials in 2025."
+    ],
+    "distributes": "Travel retail with snacks, drinks, meal deals, books and travel essentials.",
+    "channels_supplied": "Travel stores at Newcastle Airport and Newcastle Central Station.",
+    "sf_brands_carried": "",
+    "added": "2026-10-15",
+    "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
   "wibgus.com": {
     "name": "Natural Foods Peru (Wibgus SAC)",
