@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-16T16:30:49+00:00 (UTC).
+Checked 2026-10-16T19:30:46+00:00 (UTC).
 
 ## Mailboxes
 
@@ -29,7 +29,7 @@ Checked 2026-10-16T16:30:49+00:00 (UTC).
 | dana@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Dana - | 30 | none |
 | elize@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (60 of 60) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (63 of 63) | Diablo Info | 30 | none |
 | joshua@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (1 of 1) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
