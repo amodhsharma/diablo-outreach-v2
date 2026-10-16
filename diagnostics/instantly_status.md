@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-16T07:30:45+00:00 (UTC).
+Checked 2026-10-16T10:30:54+00:00 (UTC).
 
 ## Mailboxes
 
@@ -11,14 +11,11 @@ Checked 2026-10-16T07:30:45+00:00 (UTC).
 - **admin@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **admin@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **dana@diabloexport.com**: Warm-up score 0: not ready for campaigns yet (aim for 95 or more)
-- **dana@diabloexport.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **elize@diabloexport.com**: Warm-up score 0: not ready for campaigns yet (aim for 95 or more)
-- **elize@diabloexport.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **info@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **info@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **info@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **joshua@diabloexport.com**: Warm-up score 0: not ready for campaigns yet (aim for 95 or more)
-- **joshua@diabloexport.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **offers@diablosugarfree.com**: This is the main company domain (diablosugarfree.com): never use it for cold email
 - **sales@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **sales@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
@@ -29,11 +26,11 @@ Checked 2026-10-16T07:30:45+00:00 (UTC).
 |---|---|---|---|---|---|---|---|---|
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
-| dana@diabloexport.com | **Warming up** | On | Off | 0 | no numbers yet | Dana - | 30 | none |
-| elize@diabloexport.com | **Warming up** | On | Off | 0 | no numbers yet | Elize - | 30 | none |
+| dana@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Dana - | 30 | none |
+| elize@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (60 of 60) | Diablo Info | 30 | none |
-| joshua@diabloexport.com | **Warming up** | On | Off | 0 | no numbers yet | Joshua - | 30 | none |
+| joshua@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (1 of 1) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (58 of 58) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
