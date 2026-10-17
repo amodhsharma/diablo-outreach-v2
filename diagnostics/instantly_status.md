@@ -1,10 +1,10 @@
 # Instantly health check
 
-Checked 2026-10-17T16:30:46+00:00 (UTC).
+Checked 2026-10-17T19:30:46+00:00 (UTC).
 
 ## Mailboxes
 
-10 mailboxes: 8 ready, 1 warming up, 1 with a problem.
+10 mailboxes: 9 ready, 0 warming up, 1 with a problem.
 
 ### Needs attention
 
@@ -15,7 +15,7 @@ Checked 2026-10-17T16:30:46+00:00 (UTC).
 - **info@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **info@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **info@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
-- **joshua@diabloexport.com**: Warm-up score 0: not ready for campaigns yet (aim for 95 or more)
+- **joshua@diabloexport.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **offers@diablosugarfree.com**: This is the main company domain (diablosugarfree.com): never use it for cold email
 - **sales@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **sales@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
@@ -30,10 +30,10 @@ Checked 2026-10-17T16:30:46+00:00 (UTC).
 | elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (1 of 1) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (63 of 63) | Diablo Info | 30 | none |
-| joshua@diabloexport.com | **Warming up** | On | On | 0 | 100% inbox (1 of 1) | Joshua - | 30 | none |
+| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (1 of 1) | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (3 of 3) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (55 of 55) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (58 of 58) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
 
