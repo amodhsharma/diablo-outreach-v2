@@ -1,17 +1,17 @@
 # Instantly health check
 
-Checked 2026-10-17T10:30:41+00:00 (UTC).
+Checked 2026-10-17T13:30:44+00:00 (UTC).
 
 ## Mailboxes
 
-10 mailboxes: 6 ready, 3 warming up, 1 with a problem.
+10 mailboxes: 8 ready, 1 warming up, 1 with a problem.
 
 ### Needs attention
 
 - **admin@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **admin@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
-- **dana@diabloexport.com**: Warm-up score 0: not ready for campaigns yet (aim for 95 or more)
-- **elize@diabloexport.com**: Warm-up score 0: not ready for campaigns yet (aim for 95 or more)
+- **dana@diabloexport.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **elize@diabloexport.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **info@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
 - **info@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
 - **info@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
@@ -26,12 +26,12 @@ Checked 2026-10-17T10:30:41+00:00 (UTC).
 |---|---|---|---|---|---|---|---|---|
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
-| dana@diabloexport.com | **Warming up** | On | On | 0 | 100% inbox (1 of 1) | Dana - | 30 | none |
-| elize@diabloexport.com | **Warming up** | On | On | 0 | 100% inbox (1 of 1) | Elize - | 30 | none |
+| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (1 of 1) | Dana - | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (1 of 1) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (63 of 63) | Diablo Info | 30 | none |
 | joshua@diabloexport.com | **Warming up** | On | On | 0 | 100% inbox (1 of 1) | Joshua - | 30 | none |
-| offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (1 of 1) | Offers - | 30 | none |
+| offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (3 of 3) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (48 of 48) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
 
