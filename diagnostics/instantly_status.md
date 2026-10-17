@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-16T22:30:50+00:00 (UTC).
+Checked 2026-10-17T01:30:48+00:00 (UTC).
 
 ## Mailboxes
 
@@ -24,16 +24,16 @@ Checked 2026-10-16T22:30:50+00:00 (UTC).
 
 | Mailbox | Verdict | Sending | Warm-up | Warm-up score | Warm-up emails landing in inbox | Sender name | Daily limit | Campaigns using it |
 |---|---|---|---|---|---|---|---|---|
-| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
-| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
+| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Aryeh | 30 | none |
+| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Diablo Admin | 30 | none |
 | dana@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Dana - | 30 | none |
 | elize@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (63 of 63) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Diablo Info | 30 | none |
 | joshua@diabloexport.com | **Warming up** | On | On | 0 | no numbers yet | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (1 of 1) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (58 of 58) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (48 of 48) | Joshua from Diablo | 30 | Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
 
