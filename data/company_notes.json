@@ -192,6 +192,23 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "allinonetrade.de": {
+    "name": "Allinone Trade GmbH",
+    "based_out_of": "Berlin, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A national B2B confectionery wholesaler that delivers to Cologne resellers with no minimum order. Berlin based and trend candy led, so a fallback rather than a lead partner.",
+    "what_they_do_well": [],
+    "distributes": "International sweets, chips and snacks, drinks, biscuits, spreads, noodles and gum.",
+    "channels_supplied": "Trade resellers including kiosks, supermarkets and retailers, delivered throughout Germany by parcel carriers.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "amedis.ch": {
     "name": "Amedis-UE AG",
     "based_out_of": "Unterentfelden, Switzerland",
@@ -311,6 +328,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "asyafeinkost.de": {
+    "name": "ASYA Feinkost GmbH",
+    "based_out_of": "Cologne, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "An established Cologne wholesaler at the city wholesale market serving ethnic grocery and delicatessen shops. Snacks are in range but sweets are not confirmed, so treat as a test channel.",
+    "what_they_do_well": [
+      "Founded in 1998 by Turgay Ilhan and has grown its customer base in Cologne since."
+    ],
+    "distributes": "Delicatessen, pulses, nuts and snacks, dairy, drinks, tea and coffee and international branded groceries.",
+    "channels_supplied": "Feinkost wholesale to retailers and food businesses in Cologne and the surrounding area.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "atu.com.tr": {
     "name": "ATU Duty Free Tbilisi",
@@ -616,6 +652,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "bosfood.de": {
+    "name": "Bos Food GmbH",
+    "based_out_of": "Meerbusch, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A fine food wholesaler 40 km from Cologne with chocolate, praline and syrup categories, where Diablo syrups and spreads could serve pastry kitchens wanting sugar-free options. Its gastronomy focus makes it secondary to retail facing partners.",
+    "what_they_do_well": [
+      "Supplies star restaurants and professional kitchens and has traded for over 30 years.",
+      "Kept delivering on schedule after a 2018 warehouse fire, with around 200 employees."
+    ],
+    "distributes": "Gourmet foods including couverture and chocolate products, pastries, pralines and snacks, patisserie, syrups, cheese, truffles and wine.",
+    "channels_supplied": "Upscale and Michelin starred restaurants and professional kitchens in the Rhineland and nationwide, plus an online shop for consumers.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json"
+  },
   "boticasperu.pe": {
     "name": "Boticas Peru",
     "based_out_of": "Lima, Peru",
@@ -920,6 +975,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "christian-broicher.de": {
+    "name": "Christian Broicher e.K.",
+    "based_out_of": "Hürth, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A family-owned confectionery wholesaler on Cologne's doorstep with its own delivery fleet into kiosks, petrol stations and supermarkets, exactly the impulse channel for Diablo bars and sweets. It stocks mainstream brands (Ferrero, Milka, Haribo) but no sugar-free line is shown, and the owner is reachable directly.",
+    "what_they_do_well": [
+      "Family firm trading since 1954 in Hürth, led by Max Broicher since 1992.",
+      "Delivers with its own vehicle fleet from about 1,200 m2 of warehouse space."
+    ],
+    "distributes": "Confectionery, gingerbread, snacks, carnival throw sweets, soft drinks, beer, wine and spirits, plus impulse and children's items.",
+    "channels_supplied": "Supermarkets, petrol stations, kiosks, bakeries, small general stores, showmen and event organisers in the Cologne area, delivered by its own fleet.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "circlek.ie": {
     "name": "Circle K Ireland",
     "based_out_of": "Dublin, Ireland",
@@ -934,6 +1009,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "claus-gmbh.de": {
+    "name": "Claus Reformwaren Service Team GmbH",
+    "based_out_of": "Baden-Baden, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "The Reformhaus channel is one of the most natural homes for stevia sweetened, no-added-sugar confectionery in Germany, and Claus calls itself the number one wholesaler for it. Ranked tier 2 because its Cologne coverage is not confirmed and it is not based in the region.",
+    "what_they_do_well": [
+      "Family business since 1964 supplying over 400 brands from a warehouse of about 21,000 m2."
+    ],
+    "distributes": "About 22,000 health food, organic, baby, supplement, cosmetic and non-food lines from over 400 brands.",
+    "channels_supplied": "Reformhäuser, organic shops and natural food stores in Germany and 29 export countries; delivery into Cologne is not confirmed on its site.",
+    "sf_brands_carried": "Specialises in gluten-free and vegan lines; no sugar-free brands named.",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json"
   },
   "clfshop.com": {
     "name": "CLF Distribution",
@@ -1813,6 +1906,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "eu-brands.de": {
+    "name": "Eurobrands Lebensmittelgroßhandel GmbH & Co. KG",
+    "based_out_of": "Cologne, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Cologne based branded food wholesaler whose core is imported European confectionery (Anthon Berg, Guylian, Côte d'Or, Manner, Loacker, Lotus). Diablo would add a sugar-free block to an assortment that has none listed, and it already sells into chains and independents in the region.",
+    "what_they_do_well": [
+      "Carries a deep list of European confectionery brands including Lindt, Guylian, Anthon Berg, Manner and Loacker.",
+      "Supplies supermarket chains, wholesalers and independent shops from its own Leverkusen warehouse."
+    ],
+    "distributes": "Branded chocolate, sugar confectionery, biscuits, snacks, beverages, sauces, cereals and frozen ice cream and cakes.",
+    "channels_supplied": "Supermarket chains, wholesalers, distributors and small and large independent shops, served from a warehouse in Leverkusen.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json"
   },
   "eurocaucasus.ge": {
     "name": "Euro Caucasus Supplies (House of Delicacies)",
@@ -3066,6 +3178,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
+  "kubacompany.com": {
+    "name": "KUBA GmbH",
+    "based_out_of": "Cologne, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Cologne importer whose model is bringing foreign brands into German grocery and forecourt shelves, which is the route Diablo needs. Its sweets range is still small, so Diablo could become a lead confectionery line; claimed retail access should be verified as it may be store level rather than central listings.",
+    "what_they_do_well": [
+      "Builds distribution for imported drink brands such as Beypazari, Fruko and Xibe Energy in German retail and forecourts."
+    ],
+    "distributes": "Imported branded beverages and sweets, including Turkish specialties and halal and vegan Trolli confectionery.",
+    "channels_supplied": "Says it supplies points of sale at Edeka, Rewe, Nahkauf, Tegut and petrol stations (Shell, Total, Jet) plus Cologne wholesalers; over 50 partners nationwide.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "laanonima.com.ar": {
     "name": "La Anónima",
     "based_out_of": "Buenos Aires, Argentina",
@@ -3324,6 +3455,24 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "maho-gmbh.com": {
+    "name": "Maho GmbH",
+    "based_out_of": "Cologne, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Cologne importer with 3,500 m2 of space and its own trucks into NRW ethnic grocery, a channel with high diabetes awareness. Confectionery is a minor part of its range, so fit depends on appetite for a new category.",
+    "what_they_do_well": [
+      "Has supplied customers for over 20 years from a 3,500 m2 Cologne site with six trucks."
+    ],
+    "distributes": "Turkish and Mediterranean foods: dairy, tea and coffee, grains and pulses, ready meals and delicatessen, with confectionery brands such as Sölen and Hitschies listed.",
+    "channels_supplied": "Restaurants and grocery stores across NRW, other wholesalers (imported private labels) and supermarket chain advisory.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json"
+  },
   "makro.com.ar": {
     "name": "Supermercados Mayoristas Makro S.A.",
     "based_out_of": "Buenos Aires, Argentina",
@@ -3392,6 +3541,25 @@
     "sf_brands_carried": "Not verified in this run.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "mashall-sweets.de": {
+    "name": "Mashall Trade GmbH (Mashall Sweets)",
+    "based_out_of": "Dachau, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "An importer that relabels foreign confectionery in German and ships DACH-wide, so it reaches Cologne resellers. Its focus is trend American candy rather than better-for-you, so fit is conditional.",
+    "what_they_do_well": [
+      "Imports directly from international manufacturers and stores all goods centrally in Germany with German labelling."
+    ],
+    "distributes": "Imported sweets, snacks and drinks from the USA, Mexico and South Korea, plus supplements and vapes.",
+    "channels_supplied": "B2B only: kiosks, retailers, chain stores, petrol stations, speciality shops and hospitality across Germany, Austria and Switzerland.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "masonline.com.ar": {
     "name": "ChangoMás (Grupo GDN)",
@@ -3631,6 +3799,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "monolith-gruppe.de": {
+    "name": "Monolith West GmbH",
+    "based_out_of": "Bergheim, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A large importer next to Cologne with its own Eastern European grocery chain, which could carry Diablo for Russian and Polish speaking shoppers. Its sourcing is East European, so a UK brand is an unusual fit.",
+    "what_they_do_well": [
+      "Group operates the MIX Markt chain and reports record sales of 580 million euros."
+    ],
+    "distributes": "Imported Eastern European speciality foods; over 4,000 products in the group's range. Confectionery share not confirmed.",
+    "channels_supplied": "Group's own MIX Markt, Mini MIX Markt and Prima Markt stores plus German grocery retailers.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json"
   },
   "morrisons.com": {
     "name": "Morrisons",
@@ -3988,6 +4174,25 @@
     "sf_brands_carried": "Proceive supplements, E45, Bio-Oil, TePe; no food brands.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "oezsweets.de": {
+    "name": "OEZ Trade GmbH (OEZ Sweets)",
+    "based_out_of": "Bielefeld, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A direct importer of confectionery from 12 countries selling to over 10,000 resellers nationally, so it reaches Cologne kiosks by parcel and pallet. Not based in Cologne, but an importer mindset and no sugar-free competitor make it a credible second wave target.",
+    "what_they_do_well": [
+      "Claims to supply more than 10,000 retailers with 24 hour dispatch from its Bielefeld warehouse."
+    ],
+    "distributes": "Sweets (gummies, chocolate, biscuits, cakes), snacks (chips, nuts, popcorn, noodles) and soft, energy and alcoholic drinks; over 950 items.",
+    "channels_supplied": "B2B only: kiosks, convenience stores, petrol stations, markets and vending operators across Germany, shipped nationally including to Cologne.",
+    "sf_brands_carried": "No sugar-free range described; only Zero soft drink variants seen.",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "onestop.co.uk": {
     "name": "One Stop",
@@ -4904,6 +5109,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "sterngmbh.com": {
+    "name": "Stern Tobacco GmbH",
+    "based_out_of": "Cologne, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Cologne based delivery wholesaler with a dedicated sweets and snacks range and dense coverage of kiosks, canteens and care homes in the Rhineland. Care homes and canteens are natural outlets for no-added-sugar snacks; the name suggests a tobacco origin, so the depth of its confectionery buying should be checked.",
+    "what_they_do_well": [
+      "Supplies more than 1,200 business customers across the Rhineland with Monday to Saturday delivery."
+    ],
+    "distributes": "Beverages, tobacco and vapes, sweets and snacks, spirits and packaging items across 12 product categories.",
+    "channels_supplied": "Over 1,200 business customers in gastronomy, hotels, canteens, care homes, retail and kiosks across Cologne, Düsseldorf, Bonn, Leverkusen and Neuss.",
+    "sf_brands_carried": "",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "stonehouse.ie": {
     "name": "Stonehouse Marketing",
     "based_out_of": "Dublin, Ireland",
@@ -5610,6 +5834,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "weiling.de": {
+    "name": "Weiling GmbH",
+    "based_out_of": "Coesfeld, Germany",
+    "market": "Cologne, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "NRW's leading organic wholesaler and a gateway to Cologne's independent natural food shops, where better-for-you shoppers concentrate. Diablo is not certified organic, which may limit listing, so this is conditional on Weiling taking conventional free-from lines.",
+    "what_they_do_well": [
+      "Family business founded in 1975, with 2025 revenue of 272.5 million euros and about 650 staff.",
+      "Runs the Weiling Akademie with around 30 training seminars for retailer customers."
+    ],
+    "distributes": "Over 12,000 organic food lines plus organic cosmetics, drugstore and non-food items.",
+    "channels_supplied": "Independent organic and natural food retailers only, delivered within 24 hours from Coesfeld and Lonsee via transshipment points throughout Germany.",
+    "sf_brands_carried": "Organic better-for-you range; specific sugar-free confectionery brands not confirmed.",
+    "added": "2026-10-18",
+    "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json"
   },
   "well.co.uk": {
     "name": "Well Pharmacy",
