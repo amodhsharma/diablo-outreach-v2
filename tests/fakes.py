@@ -68,6 +68,11 @@ class FakeCRM(TagGuard):
     def option_labels(self, object_type, name):
         return dict(self.options.get((object_type, name), {}))
 
+    missing_properties = set()  # e.g. {("contacts", "diablo_contact_source")} for an account without it
+
+    def has_property(self, object_type, name):
+        return (object_type, name) not in self.missing_properties
+
     def list_all(self, object_type, properties):
         return [{"id": rid, "properties": dict(p)} for rid, p in self.records[object_type].items()]
 

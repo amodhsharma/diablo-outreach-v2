@@ -75,7 +75,9 @@ def test_find_contacts_keeps_only_verified_and_ranks_titles(settings):
     assert [c["email"] for c in contacts] == ["buyer@noblefoods.in"]
     assert contacts[0][CO] == "NEW" and contacts[0]["lead_source"] == "AUTO-OUTREACH"
     assert contacts[0]["diablo_outreach_order"] == "1"
-    assert not any(k.startswith("diablo_") and k not in ("diablo_outreach_order",) for k in contacts[0])
+    assert not any(k.startswith("diablo_") and k not in ("diablo_outreach_order", "diablo_contact_source")
+                   for k in contacts[0])
+    assert contacts[0]["diablo_contact_source"] == "Apollo"  # the field exists in this (fake) account
     assert hs.records["companies"][noble][CO] == "GATE1: Approved for outreach"  # waits for gate 2 and the emails
     assert find_contacts.load_skipped(find_contacts.KEPT_FILE) == {"p2": next(iter(hs.records["contacts"]))}
     import json

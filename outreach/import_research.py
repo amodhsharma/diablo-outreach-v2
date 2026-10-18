@@ -170,7 +170,7 @@ def import_file(path, rows, hs, settings, log=print, checker=None):
         return f"{name}: REJECTED by the strict check, nothing added to HubSpot. {shown}"
 
     data["_file"] = name
-    created = existing = missing = 0
+    created = existing = missing = inbox = 0
     dropped = []
     if data["companies"]:
         statuses = LeadStatus(hs)
@@ -187,6 +187,9 @@ def import_file(path, rows, hs, settings, log=print, checker=None):
             if decision == "drop":
                 dropped.append(f"{r['name']} ({reason})")
                 continue
+            if decision == "keep" and reason and r.get("domain"):  # e.g. the company inbox note
+                notes[r["domain"]]["import_check"] = reason
+                inbox += 1
             if decision == "missing_info":
                 r.update(statuses.props("companies", "missing_info"))
                 if r.get("domain"):
@@ -224,7 +227,9 @@ def import_file(path, rows, hs, settings, log=print, checker=None):
         rq.set_status(rows, job_id, line["channel"], status, reason, ran_on=data["run_date"], output_file=name)
     return (f"{name}: {created} companies added to HubSpot ({created - missing} as New, {missing} as Missing Info: "
             f"no working website or nobody in Apollo), {existing} already in HubSpot, {len(dropped)} left out "
-            "(low confidence and failed a check)" + (f": {'; '.join(dropped)}" if dropped else ""))
+            "(low confidence and failed a check)" + (f": {'; '.join(dropped)}" if dropped else "")
+            + (f". {inbox} of the New ones have nobody in Apollo; their website's contact address will be "
+               "emailed" if inbox else ""))
 
 
 def default_checker(log=print):

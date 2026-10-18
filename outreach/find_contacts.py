@@ -7,6 +7,11 @@ verified emails, most senior first. Each contact is created with Lead Source AUT
 Lead Status "New" and an Outreach order (1 = most senior). A company where nobody usable is
 found becomes "Missing Info". An email already anywhere in HubSpot is never added again.
 
+When Apollo has nobody usable (from 19 Oct 2026, contacts.company_inbox_fallback), the contact
+address on the company's own website is added instead, as one contact with the job title
+"Company inbox (from website)" (see company_inbox.py); only when that is missing too does the
+company become "Missing Info".
+
 Apollo charges for each email revealed. Every person revealed is remembered in GitHub
 (data/apollo_kept.json and data/apollo_skipped.json, by Apollo's person ID), so nobody is ever
 paid for twice. Apollo IDs are not stored in HubSpot.
@@ -20,6 +25,7 @@ import os
 import re
 import sys
 
+from . import company_inbox
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
 import json
@@ -29,7 +35,7 @@ from .common import (
     run_dir, write_json,
 )
 from .hubspot_client import HubSpot, HubSpotError
-from .schema import LEAD_STATUS, ORDER
+from .schema import CONTACT_SOURCE, INBOX_TITLE, LEAD_STATUS, ORDER, SOURCE_APOLLO, SOURCE_WEBSITE
 from .stages import LeadStatus
 
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS, "hubspot_owner_id"]
@@ -143,6 +149,9 @@ def run(target, settings, hs, apollo, log=print):
     before = (len(skipped), len(kept))
 
     credits, log_rows = 0, []
+    # "Outreach contact source" exists only once button 1 has run after 19 Oct 2026; until then the
+    # contacts are created without it (company inboxes are still recognised by their job title).
+    cfg = dict(cfg, _source_field=bool(companies) and _has_field(hs, CONTACT_SOURCE))
     try:
         credits = _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kept, log_rows, log)
     finally:  # whatever happens, never lose the record of who was already paid for
@@ -161,6 +170,45 @@ def run(target, settings, hs, apollo, log=print):
         log(f"{len(new_ids)} new contacts handed to step 3, so they get their lines in this run")
     log(f"Apollo credits used (approx.): {credits}")
     return summary
+
+
+def _has_field(hs, name):
+    check = getattr(hs, "has_property", None)
+    try:
+        return bool(check("contacts", name)) if check else False
+    except Exception:
+        return False
+
+
+def _mask(email):
+    name, _, domain = (email or "").partition("@")
+    return f"{name[:1]}***@{domain}" if domain else "(no email)"
+
+
+def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log):
+    """The company's website contact address as its one contact, or [] (agreed 19 Oct 2026)."""
+    email = company_inbox.find_inbox(domain)
+    if not email:
+        return []
+    if hs.batch_read("contacts", [email], ["email"], id_property="email"):
+        log(f"{name}: the website's contact address ({_mask(email)}) is already in HubSpot; not added again")
+        return []
+    record = {
+        ORDER: "1",
+        "email": email,
+        "firstname": "",
+        "lastname": "",
+        "jobtitle": INBOX_TITLE,
+        "company": name or "",
+        **statuses.props("contacts", "found"),
+        **({"hubspot_owner_id": owner} if owner else {}),
+        **({CONTACT_SOURCE: SOURCE_WEBSITE} if cfg.get("_source_field") else {}),
+    }
+    created = [c for c in _create_contacts(hs, [record], log) if c]
+    if created:
+        hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
+        log(f"{name}: nobody usable in Apollo; added the website's contact address ({_mask(email)}) instead")
+    return created
 
 
 def _create_contacts(hs, records, log):
@@ -250,6 +298,7 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
                 "company": name or "",
                 **statuses.props("contacts", "found"),
                 **({"hubspot_owner_id": owner} if owner else {}),
+                **({CONTACT_SOURCE: SOURCE_APOLLO} if cfg.get("_source_field") else {}),
             })
         made = _create_contacts(hs, new_contacts, log) if new_contacts else []
         for apollo_id, c in zip(new_ids, made):
@@ -257,9 +306,13 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
         created = [c for c in made if c]
         if created:
             hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
+        inbox = False
+        if not created and cfg.get("company_inbox_fallback"):
+            created = add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log)
+            inbox = bool(created)
         if not created:
             hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
-        status = "contacts found" if created else "no contacts found"
+        status = "company inbox added" if inbox else "contacts found" if created else "no contacts found"
         with_email = sum(1 for x in people if x.get("has_email", True))
         row["contact_ids"] = [str(c["id"]) for c in created]  # for the list of who needs lines
         row.update(result=status, contacts=len(created), people_found=len(people),

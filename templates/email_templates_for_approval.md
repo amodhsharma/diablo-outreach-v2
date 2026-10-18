@@ -308,3 +308,23 @@ Subject: Fwd: <the first email's subject>
 > Book a quick meeting with us: <short booking link>
 >
 > Footer: the full-width line and the "no thanks" sentence in small grey text (no privacy link).
+
+## Company inboxes: template_no_info_apollo_1.json and follow_up_no_info_apollo_1.json (in use from 19 Oct 2026)
+
+Used only when Apollo holds nobody at a company and the company's own website shows a contact
+address (purchasing first, then sales, then info@ and similar). That address is one contact with
+the job title "Company inbox (from website)". Its first email goes through its own campaign each
+month ("Diablo | <MONTH> | Company inboxes", at most 5 a day per sending mailbox); its reminder
+goes at least 7 days later from the same mailbox; then the company is Unqualified. There are no
+forwards.
+
+First email: template 3 word for word, except:
+
+> Hello {{companyName}} team,
+>
+> I'm writing from the office of the Strategy Director at Diablo Sugar Free, where I look after international partners. Could you kindly pass this on to the person responsible for purchasing or new brands?
+
+Reminder: follow_up_2 ("Bad Jokes + Europe's largest Brand") word for word, except the greeting
+"Hello {{companyName}} team," and, before "I'd love to set up a call...":
+
+> If this is better suited to a colleague, could you kindly pass it on to the person responsible for purchasing or new brands?

@@ -22,7 +22,7 @@ import datetime as dt
 import re
 
 from .common import INDUSTRY_PARTNER
-from .schema import COMPANY_NOTE, LEAD_STATUS, ORDER, PERSONAL_LINE
+from .schema import COMPANY_NOTE, INBOX_TITLE, LEAD_STATUS, ORDER, PERSONAL_LINE
 from .stages import COMPANY_STOPPED, EMAILED
 
 CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", PERSONAL_LINE, COMPANY_NOTE, LEAD_STATUS, ORDER]
@@ -249,6 +249,13 @@ def market_country(market):
     if country in ("UK", "USA", "US", "UAE"):
         return "the " + country
     return "the " + country if country.startswith(WITH_THE) else country
+
+
+def is_company_inbox(contact):
+    """True for a company's own contact address from its website (used when Apollo held nobody,
+    19 Oct 2026). Recognised by its job title, which button 3 always sets for these."""
+    p = (contact or {}).get("properties") or {}
+    return (p.get("jobtitle") or "").strip().lower() == INBOX_TITLE.lower()
 
 
 def country_name(market):

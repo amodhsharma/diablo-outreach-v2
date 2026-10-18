@@ -220,6 +220,14 @@ class HubSpot(TagGuard):
             body = {"inputs": [{"id": str(i), "properties": p} for i, p in chunk]}
             self.request("POST", f"/crm/v3/objects/{object_type}/batch/update", json=body)
 
+    def has_property(self, object_type, name):
+        """True when the account has this field (e.g. a field added by a newer button 1 run)."""
+        try:
+            prop = self.request("GET", f"/crm/v3/properties/{object_type}/{name}", ok=(200, 404))
+        except HubSpotError:
+            return False
+        return bool(prop.get("name"))
+
     def option_labels(self, object_type, name):
         """{value: label} for a dropdown field."""
         prop = self.request("GET", f"/crm/v3/properties/{object_type}/{name}")

@@ -27,8 +27,8 @@ from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .instantly_timezones import instantly_timezone
 from .next_in_line import (
-    COMPANY_PROPS, CONTACT_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign, lead_for,
-    tagged_company_of,
+    COMPANY_PROPS, CONTACT_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view,
+    is_company_inbox, last_campaign, lead_for, tagged_company_of,
 )
 from .schema import COMPANY_NOTE, PERSONAL_LINE
 from .stages import COMPANY_STOPPED, LeadStatus, forward
@@ -47,6 +47,23 @@ def campaign_name(prefix, month=None):
     """One campaign per month for every Location and Channel (agreed 8 Oct 2026), e.g.
     "Diablo | OCT2026". Location and Channel stay on each lead and in HubSpot."""
     return f"{prefix} {month or month_label()}"
+
+
+PERSON, INBOX = "person", "company_inbox"
+
+
+def inbox_suffix(s):
+    return " | " + ((s.get("company_inbox") or {}).get("campaign_suffix") or "Company inboxes")
+
+
+def inbox_campaign_name(prefix, s, month=None):
+    """Company inboxes (agreed 19 Oct 2026) have their own campaign each month, e.g.
+    "Diablo | OCT2026 | Company inboxes", with their own first email and a smaller daily limit."""
+    return campaign_name(prefix, month) + inbox_suffix(s)
+
+
+def kind_of_campaign(name, s):
+    return INBOX if str(name or "").endswith(inbox_suffix(s)) else PERSON
 
 
 def schedule_for(market, schedules):
@@ -175,12 +192,16 @@ def html_paragraphs(body):
     return GAP.join(part if part.startswith("<ul") else f"<div>{part}</div>" for part in parts)
 
 
-def sequence_steps(s):
+def sequence_steps(s, kind=PERSON):
     """First email, plus one reminder for anyone who has not replied (Instantly's `delay` is
-    the wait before the NEXT email, so it sits on the first step)."""
+    the wait before the NEXT email, so it sits on the first step). kind INBOX: the company inbox
+    campaign's first email (templates.first_email_company_inbox)."""
     follow = s.get("follow_up") or {}
     paths = s.get("templates") or {}
-    subject, body = _template(paths.get("first_email") or "templates/template_1.json", s)
+    first_path = paths.get("first_email") or "templates/template_1.json"
+    if kind == INBOX:
+        first_path = paths.get("first_email_company_inbox") or "templates/template_no_info_apollo_1.json"
+    subject, body = _template(first_path, s)
     first = {"type": "email", "delay": 0, "delay_unit": "days",
              "variants": [{"subject": subject, "body": html_paragraphs(body)}]}
     if not follow.get("enabled"):
@@ -215,9 +236,9 @@ def render(text, lead):
     return text.strip("\n") + "\n"
 
 
-def preview(name, leads, settings):
+def preview(name, leads, settings, kind=PERSON):
     """The emails exactly as each person will receive them, as plain text."""
-    steps = sequence_steps(settings["send"])
+    steps = sequence_steps(settings["send"], kind)
     out = []
     for lead in leads:
         out.append(f"=== {name}\nTo: {lead['email']} ({lead.get('job_title') or ''}, {lead.get('company_name') or ''})")
@@ -229,15 +250,20 @@ def preview(name, leads, settings):
     return "\n".join(out)
 
 
-def campaign_body(name, market, settings):
+def campaign_body(name, market, settings, kind=None):
     s = settings["send"]
+    kind = kind or kind_of_campaign(name, s)
     if not s.get("sending_accounts"):
         raise PipelineError(
             "No sending mailboxes set. Add your warmed mailboxes to send.sending_accounts "
             "in config/settings.yaml first."
         )
     sched = schedule_for(market, s["schedule"])
-    steps = sequence_steps(s)
+    steps = sequence_steps(s, kind)
+    daily_limit = s["daily_limit"]
+    if kind == INBOX:  # at most this many company inbox first emails per mailbox a day (19 Oct 2026)
+        cap = int((s.get("company_inbox") or {}).get("daily_cap_per_mailbox", 5))
+        daily_limit = cap * max(1, len(s["sending_accounts"]))
     return {
         "name": name,
         "campaign_schedule": {
@@ -250,7 +276,7 @@ def campaign_body(name, market, settings):
         },
         "sequences": [{"steps": steps}],
         "email_list": s["sending_accounts"],
-        "daily_limit": s["daily_limit"],
+        "daily_limit": daily_limit,
         "stop_on_reply": True,
         # A reply from anyone at a company stops the emails to everyone else there.
         "stop_for_company": True,
@@ -268,11 +294,12 @@ def refresh_campaign_content(instantly, settings, log=print):
     """Bring every Diablo campaign's emails in line with the templates, so a template change
     (or a fix such as the empty-body one) also reaches campaigns created earlier."""
     prefix = settings["sync"]["campaign_prefix"]
-    steps = sequence_steps(settings["send"])
+    by_kind = {k: sequence_steps(settings["send"], k) for k in (PERSON, INBOX)}
     fixed = 0
     for camp in instantly.list_campaigns():
         if not str(camp.get("name") or "").startswith(prefix):
             continue
+        steps = by_kind[kind_of_campaign(camp.get("name"), settings["send"])]
         current = (camp.get("sequences") or [{}])[0].get("steps")
         if _content(current) != _content(steps):
             instantly.update_campaign(camp["id"], {"sequences": [{"steps": steps}]})
@@ -393,7 +420,9 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             continue
         earlier = last_campaign(company_contacts)
         # A company stays in the campaign of its first email, so a reply there stops the others.
-        key = ("campaign", earlier) if earlier else ("month",)
+        # A company inbox (no people in Apollo, 19 Oct 2026) goes to the month's company inbox campaign.
+        kind = INBOX if is_company_inbox(c) else PERSON
+        key = ("campaign", earlier, kind) if earlier else ("month", kind)
         groups[key].append((c, company_id, comp, company_stage))
     if waiting:
         log(f"{waiting} approved contacts wait their turn (one person per company at a time)")
@@ -401,16 +430,17 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     existing = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
     plan, contact_updates, company_updates, previews, intros = [], [], {}, [], []
     for key, members in groups.items():
+        kind = key[-1]
         if key[0] == "campaign":  # the company's earlier contacts went here: keep it together
             campaign_id = key[1]
             name = next((n for n, i in existing.items() if i == campaign_id), f"campaign {campaign_id}")
         else:
-            name = campaign_name(prefix)
+            name = inbox_campaign_name(prefix, settings["send"]) if kind == INBOX else campaign_name(prefix)
             campaign_id = existing.get(name)
         leads = [lead_for(c, comp, notes) for c, _, comp, _ in members]
         plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})
-        previews.append(preview(name, leads, settings))
-        body = campaign_body(name, "", settings) if not campaign_id else None  # a dry run checks it too
+        previews.append(preview(name, leads, settings, kind))
+        body = campaign_body(name, "", settings, kind) if not campaign_id else None  # a dry run checks it too
         if dry_run:
             continue
         if not campaign_id:

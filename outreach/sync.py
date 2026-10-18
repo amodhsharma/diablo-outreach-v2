@@ -32,8 +32,8 @@ from .common import PipelineError, check_target, ist, load_company_notes, load_s
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .next_in_line import (
-    COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign,
-    lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
+    COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, is_company_inbox,
+    last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE
 from .stages import LeadStatus, forward
@@ -191,12 +191,20 @@ def _fill(path, person, company, settings, notes, extra=None, mailbox=None):
     return html, send.render(html, {})
 
 
-def reminder_subject(settings):
+def reminder_path(settings, person=None):
+    """The reminder template for this person: a company inbox (no people in Apollo, 19 Oct 2026)
+    gets templates.reminder_company_inbox, everyone else templates.reminder."""
+    paths = settings["send"].get("templates") or {}
+    if person is not None and is_company_inbox(person):
+        return paths.get("reminder_company_inbox") or "templates/follow_up_no_info_apollo_1.json"
+    return paths.get("reminder") or "templates/follow_up.json"
+
+
+def reminder_subject(settings, person=None):
     """The reminder template's own subject, or "" to reply as "Re: <first subject>". follow_up_2.json
     (agreed 15 Oct 2026) has its own subject, so person 1 gets it as a separate email."""
     from . import send
-    paths = settings["send"].get("templates") or {}
-    subject, _ = send._template(paths.get("reminder") or "templates/follow_up.json", settings["send"])
+    subject, _ = send._template(reminder_path(settings, person), settings["send"])
     return (subject or "").strip()
 
 
@@ -211,9 +219,7 @@ def forward_field(settings):
 def reminder_email(person, company, settings, notes=None, mailbox=None):
     """(html, text) of person 1's one reminder (agreed 14 Oct 2026). mailbox: the one sending it
     (the same one that sent the first email), used only when the signature follows the mailbox."""
-    paths = settings["send"].get("templates") or {}
-    return _fill(paths.get("reminder") or "templates/follow_up.json", person, company, settings, notes,
-                 mailbox=mailbox)
+    return _fill(reminder_path(settings, person), person, company, settings, notes, mailbox=mailbox)
 
 
 def forward_email(person, company, settings, notes=None, colleague="", original=None):
@@ -378,7 +384,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 log(f"{name}: could not find person 1's email to reply to; will try again next run")
                 continue
             html, text = reminder_email(due, props, settings, notes, mailbox=past[-1].get("eaccount"))
-            own = reminder_subject(settings)  # a template with its own subject (follow_up_2, 15 Oct 2026)
+            own = reminder_subject(settings, due)  # a template with its own subject (follow_up_2, 15 Oct 2026)
             if own:
                 emails_api.reply(past[-1], own, html, text, keep_subject=True)
             else:

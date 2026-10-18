@@ -13,6 +13,10 @@ would only waste the team's time at gate 1, so the research import (button 2) ch
 A company failing either check arrives as Missing Info instead of New, so nobody reviews it.
 A company that also had LOW confidence in the research (a directory or shop page only) is not
 added at all. Settings: import_checks in config/settings.yaml.
+
+From 19 Oct 2026 (import_checks.company_inbox_fallback): when Apollo holds nobody but the
+company's own website shows a contact address (see company_inbox.py), the company arrives as New
+like any other, with the note that the website's contact address will be emailed.
 """
 
 import re
@@ -118,6 +122,10 @@ def apollo_people(apollo, domain):
     return sum(1 for p in people if p.get("has_email", True))
 
 
+INBOX_NOTE = ("No people in Apollo: the contact address on the company's website will be emailed "
+              "(greeting the team and asking them to pass it on)")
+
+
 class Checker:
     """Decides, for each company, keep / missing_info / drop, with a plain reason. Never raises:
     anything unexpected counts as "could not tell" and the company is kept."""
@@ -129,11 +137,13 @@ class Checker:
         self.max_apollo = int(cfg.get("max_apollo_checks_per_run", 300))
         self.drop_low = cfg.get("drop_low_confidence_failures", True)
         self.workers = int(cfg.get("parallel_website_checks", 16))
+        self.inbox_fallback = bool(cfg.get("company_inbox_fallback", False))
+        self.find_inbox = None  # set in tests; otherwise company_inbox.find_inbox
         self.session, self.resolver, self.log = session, resolver, log
         self.apollo_used = 0
         self.apollo_problem = False
         self.sites = {}
-        self.counts = {"website": 0, "apollo": 0, "dropped": 0}
+        self.counts = {"website": 0, "apollo": 0, "dropped": 0, "company_inbox": 0}
 
     def _site(self, domain):
         try:
@@ -167,6 +177,15 @@ class Checker:
                      "were kept without the check")
         return found
 
+    def _has_inbox(self, domain):
+        try:
+            if self.find_inbox is None:
+                from .company_inbox import find_inbox
+                self.find_inbox = find_inbox
+            return bool(self.find_inbox(domain, session=self.session))
+        except Exception:
+            return False
+
     def check(self, domain, confidence):
         """(decision, reason). decision: keep, missing_info or drop."""
         try:
@@ -179,6 +198,9 @@ class Checker:
                     reason = detail
                     self.counts["website"] += 1
             if not reason and self._apollo(domain) == 0:
+                if self.inbox_fallback and self._has_inbox(domain):
+                    self.counts["company_inbox"] += 1
+                    return "keep", INBOX_NOTE
                 reason = "Apollo holds nobody with an email at this website"
                 self.counts["apollo"] += 1
         except Exception as err:
