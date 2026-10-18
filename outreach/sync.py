@@ -35,7 +35,7 @@ from .next_in_line import (
     COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, last_campaign,
     lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
-from .schema import LEAD_STATUS, PERSONAL_LINE
+from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE
 from .stages import LeadStatus, forward
 
 
@@ -200,6 +200,14 @@ def reminder_subject(settings):
     return (subject or "").strip()
 
 
+def forward_field(settings):
+    """(HubSpot field, plain name) the forward needs filled in for the person it goes to."""
+    from . import send
+    if send.template_uses(settings, "forward", "company_note"):
+        return COMPANY_NOTE, "Outreach company note"
+    return PERSONAL_LINE, "Outreach personal line"
+
+
 def reminder_email(person, company, settings, notes=None, mailbox=None):
     """(html, text) of person 1's one reminder (agreed 14 Oct 2026). mailbox: the one sending it
     (the same one that sent the first email), used only when the signature follows the mailbox."""
@@ -347,9 +355,11 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         if why == "forward":
             prev = previous_colleague(due, contacts, touches)
             chain = (history.get(prev["id"]) or [None])[-1] if prev else None
-            if chain is None or not due["properties"].get(PERSONAL_LINE):
+            # forward_2.json (19 Oct 2026) uses the company note; the older forward.json the personal line.
+            needed, label = forward_field(settings)
+            if chain is None or not due["properties"].get(needed):
                 log(f"{name}: the next person cannot be emailed yet (no earlier email to forward, or no "
-                    "personal line); will try again next run")
+                    f"{label}); will try again next run")
                 continue
             html, text = forward_email(due, props, settings, notes, colleague=_name(prev), original=chain)
             first = min((e for es in history.values() for e in es),

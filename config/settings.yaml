@@ -157,7 +157,9 @@ send:
   # to go back, put templates/template_2.json here again.
   templates:
     first_email: templates/template_3.json
-    forward: templates/forward.json
+    # Persons 2 to 4: forward_2.json from 19 Oct 2026 (Ariel): a short note giving the company note as the
+    # reason, then "we believe your company would be the right fit for us". forward.json is kept unchanged.
+    forward: templates/forward_2.json
     # Person 1's one reminder: follow_up_2.json from 15 Oct 2026 (Ariel's "Bad Jokes" email, sent as
     # its own email with its own subject). follow_up.json is kept unchanged; put it back here to undo.
     reminder: templates/follow_up_2.json

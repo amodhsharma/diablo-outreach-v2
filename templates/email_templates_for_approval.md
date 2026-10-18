@@ -282,3 +282,29 @@ to `templates/follow_up.json`.
 > ---
 > <small>We found your business details in public and commercial sources. If you would rather not
 > hear from us, reply "no thanks" and we will not contact you again.</small>
+
+## Forward to persons 2 to 4: forward_2.json (in use from 19 Oct 2026)
+
+Replaces `templates/forward.json` (kept unchanged, no longer used). Sent from the same mailbox as
+the first email, with the earlier email of the chain underneath. The reason given is the company's
+Outreach company note, the same fact person 1 saw; the personal line is not used. The forward goes
+out only when that person's Outreach company note is filled in.
+
+Subject: Fwd: <the first email's subject>
+
+> Hi {{firstName}},
+>
+> A few days ago I wrote to your colleague {{colleague_name}}, as we noticed {{companyName}} {{company_note}}. We do not yet have a direct partner in {{market_country}}, and we believe your company would be the right fit for us.
+>
+> My earlier note is below, and our catalogue is here: <short catalogue link>
+>
+> Would this week work for a short call with our Strategy Director, or would next week suit better?
+>
+> Best regards,
+>
+> {{sender_name}}
+> International Account Executive
+> Diablo Sugar Free
+> Book a quick meeting with us: <short booking link>
+>
+> Footer: the full-width line and the "no thanks" sentence in small grey text (no privacy link).

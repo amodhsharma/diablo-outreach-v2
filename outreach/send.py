@@ -125,8 +125,15 @@ def _template(path, s, mailbox=None):
 
 def first_email_uses(settings, name):
     """True when the first email's template contains {{name}} (template 3 uses company_note)."""
+    return template_uses(settings, "first_email", name)
+
+
+def template_uses(settings, which, name):
+    """True when the template set for `which` (first_email, forward, ...) contains {{name}}."""
     s = settings["send"]
-    path = Path((s.get("templates") or {}).get("first_email") or "templates/template_1.json")
+    default = {"first_email": "templates/template_1.json", "forward": "templates/forward.json",
+               "reminder": "templates/follow_up.json"}.get(which, "templates/template_1.json")
+    path = Path((s.get("templates") or {}).get(which) or default)
     if not path.is_absolute():
         path = ROOT / path if path.parent != Path(".") else ROOT / "templates" / path
     try:

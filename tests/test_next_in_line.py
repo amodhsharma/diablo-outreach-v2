@@ -84,8 +84,12 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     fwd = emails.forwards[0]
     assert fwd["to"] == "p2@noble.in" and fwd["of"]["id"] == emails.emails[0]["id"]
     assert fwd["subject"] == "Fwd: Partnering to establish Diablo"
-    assert ("Hi P2,\n\nIn case our earlier note to your colleague P1 L1 did not reach the right desk, we wanted "
-            "to share it with you as well.\n\nLine.\n\nWould a brief 10-minute call with our outreach lead") in fwd["text"]
+    # forward_2.json (19 Oct 2026): the company note is the reason, then the fit and the call.
+    assert ("Hi P2,\n\nA few days ago I wrote to your colleague P1 L1, as we noticed Noble Foods imports European "
+            "sweets. We do not yet have a direct partner in India, and we believe your company would be the right "
+            "fit for us.\n\nMy earlier note is below, and our catalogue is here:") in fwd["text"]
+    assert "Would this week work for a short call with our Strategy Director, or would next week suit better?" in fwd["text"]
+    assert "Line." not in fwd["text"] and "Privacy notice" not in fwd["text"]  # no personal line, no privacy link
     assert "{{" not in fwd["html"]
     assert [l["email"] for l in instantly.leads[camp_id]] == ["p1@noble.in"]  # still one campaign lead
 
@@ -99,7 +103,7 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     assert moved["forwards_sent"] == 1 and status_of(hs, p3) == "FORWARD_SENT"
     fwd = emails.forwards[1]
     assert fwd["to"] == "p3@noble.in" and fwd["of"]["to_address_email_list"] == "p2@noble.in"
-    assert "your colleague P2 L2 did not reach" in fwd["text"]
+    assert "your colleague P2 L2, as we noticed" in fwd["text"]
     assert fwd["subject"] == "Fwd: Partnering to establish Diablo"
 
     # Day 9: back to person 1, once, as a reply in their own thread.
@@ -315,3 +319,14 @@ def test_info_mailbox_is_a_sending_account():
     s = load_settings()["send"]
     assert s["sending_accounts"] == ["sales@diablosnosugar.com", "info@diablosnosugar.com"]
     assert not any(a.endswith("@diablosugarfree.com") for a in s["sending_accounts"])  # never the main domain
+
+
+def test_the_forward_waits_for_the_company_note_and_the_old_template_still_works(settings):
+    """forward_2.json needs the Outreach company note; forward.json (kept unchanged) the personal line."""
+    assert settings["send"]["templates"]["forward"] == "templates/forward_2.json"
+    assert sync.forward_field(settings) == ("diablo_company_note", "Outreach company note")
+    settings["send"]["templates"]["forward"] = "templates/forward.json"
+    assert sync.forward_field(settings) == ("diablo_personal_line", "Outreach personal line")
+    p = {"properties": {"email": "p@x.example", "firstname": "P", "diablo_personal_line": "Line."}}
+    html, text = sync.forward_email(p, {"name": "X GmbH", "domain": "x.example"}, settings, colleague="Q R")
+    assert "In case our earlier note to your colleague Q R" in text and "Line." in text
