@@ -179,9 +179,9 @@ def company_mail(emails_api, contacts):
     return touches, sent, replied
 
 
-def _fill(path, person, company, settings, notes, extra=None):
+def _fill(path, person, company, settings, notes, extra=None, mailbox=None):
     from . import send
-    _, body = send._template(path, settings["send"])
+    _, body = send._template(path, settings["send"], mailbox=mailbox)
     lead = lead_for(person, company, notes)
     values = {"firstName": lead.get("first_name") or "", "lastName": lead.get("last_name") or "",
               "companyName": lead.get("company_name") or "", **lead["custom_variables"], **(extra or {})}
@@ -200,17 +200,20 @@ def reminder_subject(settings):
     return (subject or "").strip()
 
 
-def reminder_email(person, company, settings, notes=None):
-    """(html, text) of person 1's one reminder (agreed 14 Oct 2026)."""
+def reminder_email(person, company, settings, notes=None, mailbox=None):
+    """(html, text) of person 1's one reminder (agreed 14 Oct 2026). mailbox: the one sending it
+    (the same one that sent the first email), used only when the signature follows the mailbox."""
     paths = settings["send"].get("templates") or {}
-    return _fill(paths.get("reminder") or "templates/follow_up.json", person, company, settings, notes)
+    return _fill(paths.get("reminder") or "templates/follow_up.json", person, company, settings, notes,
+                 mailbox=mailbox)
 
 
 def forward_email(person, company, settings, notes=None, colleague="", original=None):
     """(html, text) of the note on top of a forward to the next person (agreed 14 Oct 2026)."""
     paths = settings["send"].get("templates") or {}
+    mailbox = (original or {}).get("eaccount")  # the forward goes from the mailbox of the chain
     html, text = _fill(paths.get("forward") or "templates/forward.json", person, company, settings, notes,
-                       {"colleague_name": colleague})
+                       {"colleague_name": colleague}, mailbox=mailbox)
     if original is not None and (settings["send"].get("rotation") or {}).get("forward_include_original"):
         body = original.get("body") or {}
         html += "<div><br></div><div>---------- Forwarded message ----------</div>" + (body.get("html") or "")
@@ -364,7 +367,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             if not past:
                 log(f"{name}: could not find person 1's email to reply to; will try again next run")
                 continue
-            html, text = reminder_email(due, props, settings, notes)
+            html, text = reminder_email(due, props, settings, notes, mailbox=past[-1].get("eaccount"))
             own = reminder_subject(settings)  # a template with its own subject (follow_up_2, 15 Oct 2026)
             if own:
                 emails_api.reply(past[-1], own, html, text, keep_subject=True)

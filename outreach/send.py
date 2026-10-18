@@ -76,7 +76,27 @@ def short_link(url):
     return re.sub(r"^(https?://)?(www\.)?", "", (url or "").strip(), flags=re.I).rstrip("/")
 
 
-def _template(path, s):
+# Instantly's own placeholder for the first name of the mailbox that sends a campaign email.
+SENDING_ACCOUNT_FIRST_NAME = "{{sendingAccountFirstName}}"
+
+
+def sender_name_for(s, mailbox=None):
+    """The name in the signature. Normally the fixed signature.name ("Joshua"). With
+    signature.name_from_mailbox switched on (provision added 18 Oct 2026, off until Ariel says),
+    it follows the mailbox that sends: the forwards and the reminder use signature.names_by_mailbox
+    for that mailbox (falling back to signature.name), and the first email, whose mailbox Instantly
+    picks when it sends, uses Instantly's own sending-mailbox first name."""
+    sig = s.get("signature") or {}
+    fixed = sig.get("name") or ""
+    if not sig.get("name_from_mailbox"):
+        return fixed
+    if mailbox:
+        names = {str(k).strip().lower(): v for k, v in (sig.get("names_by_mailbox") or {}).items()}
+        return names.get(str(mailbox).strip().lower()) or fixed
+    return SENDING_ACCOUNT_FIRST_NAME
+
+
+def _template(path, s, mailbox=None):
     """A template with the same-for-everyone parts filled in: privacy link, catalogue link and
     the signature. Lines left empty (e.g. no phone number) are dropped."""
     path = Path(path)
@@ -93,7 +113,7 @@ def _template(path, s):
              # without https:// or www., so the text shown matches where the link goes.
              "booking_link_text": short_link(link),
              "catalogue_link_text": short_link(s.get("catalogue_link") or ""),
-             "sender_name": sig.get("name") or "", "sender_title": sig.get("title") or "",
+             "sender_name": sender_name_for(s, mailbox), "sender_title": sig.get("title") or "",
              "sender_website": sig.get("website") or "", "sender_phone": sig.get("phone") or ""}
     body = template["body"]
     for key, value in fixed.items():

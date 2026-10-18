@@ -117,7 +117,10 @@ send:
   contacts_per_run: 200
   # Sending mailboxes connected in Instantly (warmed secondary domains only).
   # Example: ["ariel@getdiablo.com", "ariel@diablosnacks.com"]
-  sending_accounts: [sales@diablosnosugar.com]
+  # info@diablosnosugar.com added on 18 Oct 2026 (Ariel). Every email to one company (first email,
+  # forwards, reminder) goes from the same mailbox; different companies are shared between these.
+  # Also add each one to the campaign's "Accounts To Use" in Instantly.
+  sending_accounts: [sales@diablosnosugar.com, info@diablosnosugar.com]
   daily_limit: 30
   # Order of emails at each company: ONE loop (agreed 14 Oct 2026). Up to 4 contacts, most senior
   # first, one email every next_contact_after_days days:
@@ -178,6 +181,19 @@ send:
     title: Initial Outreach Team
     website: www.diablosugarfree.com
     phone: ""
+    # Signature name from the sending mailbox (provision added 18 Oct 2026, SWITCHED OFF: every
+    # email is signed with the name above). To switch it on, set name_from_mailbox to true and fill
+    # names_by_mailbox. Then the forwards and the reminder are signed with the name listed for the
+    # mailbox that sends them (the same one that sent the first email), and the first email uses
+    # Instantly's own first name of its sending mailbox (Email Accounts > the mailbox > sender name),
+    # so keep both the same. A mailbox not listed is signed with the name above.
+    name_from_mailbox: false
+    names_by_mailbox:
+      sales@diablosnosugar.com: Joshua
+      info@diablosnosugar.com: Joshua
+      joshua@diabloexport.com: Joshua
+      dana@diabloexport.com: Dana
+      elize@diabloexport.com: Elize
   # When Instantly may send. Agreed 7 Oct 2026: any time of day, every day, as soon as a
   # campaign is started (not limited to each country's working hours). Instantly still spaces
   # the emails out and keeps to daily_limit. To limit a market again, add an entry such as:

@@ -285,3 +285,33 @@ def test_without_the_new_choices_the_forward_falls_back_to_attempted(settings):
         hs.options[("contacts", "hs_lead_status")].pop(value)
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert status_of(hs, p2) == "ATTEMPTED_TO_CONTACT"
+
+
+def test_signature_name_from_the_mailbox_is_off_by_default_and_follows_the_mailbox_when_on(settings):
+    """Provision added 18 Oct 2026, switched off: every email is signed with signature.name."""
+    s = settings["send"]
+    assert s["signature"]["name_from_mailbox"] is False
+    assert send.sender_name_for(s, "dana@diabloexport.com") == s["signature"]["name"]
+    _, body = send._template("templates/template_3.json", s)
+    assert "{{sendingAccountFirstName}}" not in body and s["signature"]["name"] in body
+    # Switched on: forwards and the reminder use the name listed for their mailbox, the first email
+    # (mailbox picked by Instantly) uses Instantly's own placeholder, and an unlisted mailbox the fixed name.
+    s["signature"]["name_from_mailbox"] = True
+    s["signature"]["names_by_mailbox"] = {"Dana@diabloexport.com": "Dana"}
+    assert send.sender_name_for(s, "dana@diabloexport.com") == "Dana"
+    assert send.sender_name_for(s, "other@diabloexport.com") == s["signature"]["name"]
+    _, body = send._template("templates/template_3.json", s)
+    assert "{{sendingAccountFirstName}}" in body
+    p = {"properties": {"email": "p@x.example", "firstname": "P"}}
+    html, _ = sync.forward_email(p, {"name": "X GmbH", "domain": "x.example"}, settings, colleague="Q",
+                                 original={"eaccount": "dana@diabloexport.com", "body": {}})
+    assert "Dana" in html
+    html, _ = sync.reminder_email(p, {"name": "X GmbH", "domain": "x.example"}, settings,
+                                  mailbox="dana@diabloexport.com")
+    assert "Dana" in html
+
+
+def test_info_mailbox_is_a_sending_account():
+    s = load_settings()["send"]
+    assert s["sending_accounts"] == ["sales@diablosnosugar.com", "info@diablosnosugar.com"]
+    assert not any(a.endswith("@diablosugarfree.com") for a in s["sending_accounts"])  # never the main domain
