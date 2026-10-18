@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-18T04:30:47+00:00 (UTC).
+Checked 2026-10-18T07:30:47+00:00 (UTC).
 
 ## Mailboxes
 
@@ -27,9 +27,9 @@ Checked 2026-10-18T04:30:47+00:00 (UTC).
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (3 of 3) | Dana - | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (2 of 2) | Elize - | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (3 of 3) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Diablo Info | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (56 of 56) | Diablo Info | 30 | none |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (1 of 1) | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (3 of 3) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
