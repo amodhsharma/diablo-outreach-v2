@@ -259,6 +259,8 @@ import_checks:
   drop_low_confidence_failures: true
   # Nobody in Apollo but a contact address on the company's own website: the company arrives as New
   # (not Missing Info) and that address is emailed (agreed 19 Oct 2026). false = back to Missing Info.
+  # The address may be on the company's other domain (e.g. info@cofi.fr on comptoir-produits-italiens.fr);
+  # Apollo is then asked about that domain too (19 Oct 2026).
   company_inbox_fallback: true
 
 sync:

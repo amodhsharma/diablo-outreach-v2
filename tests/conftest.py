@@ -17,3 +17,11 @@ def no_real_company_lists(tmp_path, monkeypatch):
     monkeypatch.setattr(common, "KNOWN_FILE_TEST", tmp_path / "known_companies_test.csv")
     monkeypatch.setattr(common, "TARGET_FILE", tmp_path / "pipeline_target.txt")
     monkeypatch.setattr(known_companies, "KNOWN_FILE", tmp_path / "known_companies.csv")
+
+
+@pytest.fixture(autouse=True)
+def no_real_apollo_lists(tmp_path, monkeypatch):
+    """No test reads or writes the real lists of people already revealed in Apollo."""
+    from outreach import find_contacts
+    monkeypatch.setattr(find_contacts, "SKIPPED_FILE", tmp_path / "apollo_skipped.json")
+    monkeypatch.setattr(find_contacts, "KEPT_FILE", tmp_path / "apollo_kept.json")

@@ -17,6 +17,10 @@ added at all. Settings: import_checks in config/settings.yaml.
 From 19 Oct 2026 (import_checks.company_inbox_fallback): when Apollo holds nobody but the
 company's own website shows a contact address (see company_inbox.py), the company arrives as New
 like any other, with the note that the website's contact address will be emailed.
+
+From 19 Oct 2026 (after COFI): the website's address may be on another domain of the same company
+(comptoir-produits-italiens.fr shows info@cofi.fr). Apollo is then also asked about that domain;
+when it holds people there, the company arrives as New and button 3 searches that domain too.
 """
 
 import re
@@ -126,6 +130,11 @@ INBOX_NOTE = ("No people in Apollo: the contact address on the company's website
               "(greeting the team and asking them to pass it on)")
 
 
+def other_domain_note(domain, other, people):
+    return (f"Nobody in Apollo at {domain}, but {people} with an email at {other}, the company's other website "
+            "(its contact address uses it); button 3 searches there")
+
+
 class Checker:
     """Decides, for each company, keep / missing_info / drop, with a plain reason. Never raises:
     anything unexpected counts as "could not tell" and the company is kept."""
@@ -177,16 +186,17 @@ class Checker:
                      "were kept without the check")
         return found
 
-    def _has_inbox(self, domain):
+    def _inbox(self, domain, name=None):
+        """The website's contact address, or None."""
         try:
             if self.find_inbox is None:
                 from .company_inbox import find_inbox
                 self.find_inbox = find_inbox
-            return bool(self.find_inbox(domain, session=self.session))
+            return self.find_inbox(domain, session=self.session, name=name) or None
         except Exception:
-            return False
+            return None
 
-    def check(self, domain, confidence):
+    def check(self, domain, confidence, name=None):
         """(decision, reason). decision: keep, missing_info or drop."""
         try:
             reason = ""
@@ -198,7 +208,13 @@ class Checker:
                     reason = detail
                     self.counts["website"] += 1
             if not reason and self._apollo(domain) == 0:
-                if self.inbox_fallback and self._has_inbox(domain):
+                email = self._inbox(domain, name) if self.inbox_fallback else None
+                if email:
+                    from .company_inbox import other_domain
+                    other = other_domain(email, domain)
+                    people = self._apollo(other) if other else None
+                    if people:
+                        return "keep", other_domain_note(domain, other, people)
                     self.counts["company_inbox"] += 1
                     return "keep", INBOX_NOTE
                 reason = "Apollo holds nobody with an email at this website"

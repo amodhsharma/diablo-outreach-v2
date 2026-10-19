@@ -62,17 +62,66 @@ def test_finding_the_best_address_on_the_website():
     assert REAL_FIND("empty.example", session=Site({}), mail_check=lambda d: True) is None
 
 
+def test_an_address_on_the_companys_other_domain_is_used():
+    """COFI, 19 Oct 2026: comptoir-produits-italiens.fr shows info@cofi.fr."""
+    site = Site({
+        "https://comptoir.example": '<a href="/contact">Contact</a> Site réalisé par <a href="https://webagence.example">'
+                                    'Web Agence</a>',
+        "https://comptoir.example/contact": "Écrivez-nous : info@cofi.example. Webmaster : hello@webagence.example",
+    })
+    assert REAL_FIND("comptoir.example", session=site, mail_check=lambda d: True,
+                     name="COFI (Comptoir France-Italie)") == "info@cofi.example"  # the name matches
+    assert REAL_FIND("comptoir.example", session=site, mail_check=lambda d: True, name="Comptoir Lyon") is None
+    assert company_inbox.other_domain("info@cofi.example", "comptoir.example") == "cofi.example"
+    assert company_inbox.other_domain("info@comptoir.example", "www.comptoir.example") is None
+    # The website links to its other domain (not a credit): a general address there is used.
+    linked = Site({
+        "https://shop.example": '<a href="https://www.groupe-north.example/">Notre groupe</a>'
+                                ' Contact: contact@groupe-north.example, anna.b@groupe-north.example',
+    })
+    assert REAL_FIND("shop.example", session=linked, mail_check=lambda d: True, name="Shop") == "contact@groupe-north.example"
+    # Never: an agency credited for the site, a social network, a free mailbox or an unlinked domain.
+    credit = Site({"https://a.example": 'Site by <a href="https://maker.example">Maker</a> info@maker.example'
+                                        ' <a href="https://facebook.com/a">fb</a> a.shop@gmail.com info@stranger.example'})
+    assert REAL_FIND("a.example", session=credit, mail_check=lambda d: True, name="Alpha") is None
+    assert company_inbox.name_matches("alphafoods.example", "Alpha Foods GmbH")
+    assert company_inbox.name_matches("saveuraldente.example", "Al Dente")
+    assert not company_inbox.name_matches("food.example", "Alpha Foods")
+
+
+def test_apollo_is_asked_about_the_other_domain(monkeypatch):
+    class Some:
+        def search_people(self, domain, *a, **k):
+            return [{"has_email": True}] * 3 if domain == "cofi.example" else []
+    checker = ic.Checker({"website": False, "company_inbox_fallback": True}, apollo=Some(), log=quiet)
+    checker.find_inbox = lambda domain, **k: "info@cofi.example" if k.get("name", "").startswith("COFI") else None
+    decision, reason = checker.check("comptoir.example", "high", "COFI (Comptoir France-Italie)")
+    assert decision == "keep" and "3 with an email at cofi.example" in reason
+    # Button 3 then searches cofi.example and adds the people there, not the inbox.
+    hs = FakeCRM()
+    hs.add("companies", name="COFI (Comptoir France-Italie)", domain="comptoir.example", country="France",
+           industry_type="Distributor Wholesaler", hs_lead_status="GATE1: Approved for outreach")
+    monkeypatch.setattr(company_inbox, "find_inbox", lambda domain, **k: "info@cofi.example")
+    apollo = FakeApollo({"cofi.example": [{"id": "p1", "title": "Purchasing Manager", "seniority": "manager",
+                                            "first_name": "A", "last_name": "B"}]},
+                        {"p1": ("a.b@cofi.example", "verified")})
+    summary = find_contacts.run("test", _settings(), hs, apollo, log=quiet)
+    row = summary["rows"][0]
+    assert row["other_domain"] == "cofi.example" and row["result"] == "contacts found"
+    assert [c["email"] for c in hs.records["contacts"].values()] == ["a.b@cofi.example"]
+
+
 def test_import_keeps_a_company_with_a_website_inbox_as_new():
     class NoOne:
         def search_people(self, *a, **k):
             return []
     checker = ic.Checker({"website": False, "company_inbox_fallback": True}, apollo=NoOne(), log=quiet)
-    checker.find_inbox = lambda domain, session=None: "info@alpha.example" if domain == "alpha.example" else None
+    checker.find_inbox = lambda domain, **k: "info@alpha.example" if domain == "alpha.example" else None
     decision, reason = checker.check("alpha.example", "high")
     assert decision == "keep" and "contact address on the company's website" in reason
     assert checker.check("beta.example", "high") == ("missing_info", "Apollo holds nobody with an email at this website")
     off = ic.Checker({"website": False}, apollo=NoOne(), log=quiet)  # switched off: Missing Info as before
-    off.find_inbox = lambda domain, session=None: "info@alpha.example"
+    off.find_inbox = lambda domain, **k: "info@alpha.example"
     assert off.check("alpha.example", "high")[0] == "missing_info"
 
 

@@ -30,7 +30,7 @@ from .common import (
     now_iso, save_company_notes, split_location,
 )
 from .hubspot_client import HubSpot, HubSpotError
-from .import_checks import Checker
+from .import_checks import INBOX_NOTE, Checker
 from .schema import INDUSTRY_TYPE, TIER
 from .stages import LeadStatus
 
@@ -185,13 +185,13 @@ def import_file(path, rows, hs, settings, log=print, checker=None, target="live"
             if i in known:
                 continue
             # Website and Apollo checks: a company nobody could email never reaches gate 1.
-            decision, reason = checker.check(r.get("domain"), data["companies"][i].get("confidence"))
+            decision, reason = checker.check(r.get("domain"), data["companies"][i].get("confidence"), r.get("name"))
             if decision == "drop":
                 dropped.append(f"{r['name']} ({reason})")
                 continue
             if decision == "keep" and reason and r.get("domain"):  # e.g. the company inbox note
                 notes[r["domain"]]["import_check"] = reason
-                inbox += 1
+                inbox += reason == INBOX_NOTE
             if decision == "missing_info":
                 r.update(statuses.props("companies", "missing_info"))
                 if r.get("domain"):

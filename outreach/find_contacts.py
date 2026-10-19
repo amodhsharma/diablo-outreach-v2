@@ -10,7 +10,8 @@ found becomes "Missing Info". An email already anywhere in HubSpot is never adde
 When Apollo has nobody usable (from 19 Oct 2026, contacts.company_inbox_fallback), the contact
 address on the company's own website is added instead, as one contact with the job title
 "Company inbox (from website)" (see company_inbox.py); only when that is missing too does the
-company become "Missing Info".
+company become "Missing Info". When that address uses the company's other domain (19 Oct 2026,
+e.g. info@cofi.fr on comptoir-produits-italiens.fr), Apollo is searched there too first.
 
 Apollo charges for each email revealed. Every person revealed is remembered in GitHub
 (data/apollo_kept.json and data/apollo_skipped.json, by Apollo's person ID), so nobody is ever
@@ -185,9 +186,13 @@ def _mask(email):
     return f"{name[:1]}***@{domain}" if domain else "(no email)"
 
 
-def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log):
+NOT_LOOKED = object()
+
+
+def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=NOT_LOOKED):
     """The company's website contact address as its one contact, or [] (agreed 19 Oct 2026)."""
-    email = company_inbox.find_inbox(domain)
+    if email is NOT_LOOKED:
+        email = company_inbox.find_inbox(domain, name=name)
     if not email:
         return []
     if hs.batch_read("contacts", [email], ["email"], id_property="email"):
@@ -251,10 +256,24 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
             hs.update_tagged("companies", [(cid, {"hubspot_owner_id": owner})])
             row["owner_id"] = owner
         titles = titles_for(category, cfg["titles"])
-        people = rank_people(
-            find_people(apollo, domain, cfg.get("seniorities"), cfg.get("search_per_page", 100)),
-            cfg["hierarchy"], titles, cfg.get("exclude_words", []), cfg.get("include_everyone_else", True),
-        )
+
+        def ranked(where):
+            return rank_people(
+                find_people(apollo, where, cfg.get("seniorities"), cfg.get("search_per_page", 100)),
+                cfg["hierarchy"], titles, cfg.get("exclude_words", []), cfg.get("include_everyone_else", True),
+            )
+        people = ranked(domain)
+        # Nobody in Apollo at this website: its contact address may use the company's other domain
+        # (19 Oct 2026, e.g. comptoir-produits-italiens.fr shows info@cofi.fr). Search Apollo there too.
+        inbox_email = NOT_LOOKED
+        if cfg.get("company_inbox_fallback") and not any(x.get("has_email", True) for x in people):
+            inbox_email = company_inbox.find_inbox(domain, name=name)
+            other = company_inbox.other_domain(inbox_email, domain)
+            if other:
+                people = ranked(other)
+                row["other_domain"] = other
+                log(f"{name}: nobody in Apollo at {domain}; also searched {other}, the company's other website "
+                    f"({len(people)} people)")
         # Apollo says up front whether it holds an email; revealing the others wastes credits.
         # Anyone already revealed before (kept or not) is skipped, so nobody is paid for twice.
         candidates = [x for x in people if x.get("has_email", True)
@@ -308,7 +327,7 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
             hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
         inbox = False
         if not created and cfg.get("company_inbox_fallback"):
-            created = add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log)
+            created = add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=inbox_email)
             inbox = bool(created)
         if not created:
             hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])

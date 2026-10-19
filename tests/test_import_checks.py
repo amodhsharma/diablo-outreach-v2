@@ -101,7 +101,7 @@ def test_import_marks_failures_missing_info_and_leaves_out_weak_ones(tmp_path, m
         def prefetch(self, domains):
             pass
 
-        def check(self, domain, confidence):
+        def check(self, domain, confidence, name=None):
             if domain == "alphafoods.in":
                 return "keep", ""
             return ("drop" if confidence == "low" else "missing_info"), "Apollo holds nobody with an email at this website"
