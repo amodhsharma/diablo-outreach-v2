@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-19T13:31:30+00:00 (UTC).
+Checked 2026-10-19T16:31:32+00:00 (UTC).
 
 ## Mailboxes
 
@@ -28,8 +28,8 @@ Checked 2026-10-19T13:31:30+00:00 (UTC).
 | dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Dana - | 30 | none |
 | elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (57 of 57) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
-| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (6 of 6) | Joshua - | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (62 of 62) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
+| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (8 of 8) | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (7 of 7) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (48 of 48) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
