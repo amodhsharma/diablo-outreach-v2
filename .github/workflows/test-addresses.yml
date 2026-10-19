@@ -2,16 +2,15 @@ name: 'T - Strain test: give test contacts the test addresses (test account only
 
 # Agreed 19 Oct 2026. Press after button 3 has found the contacts and before mail writing.
 # It uses the TEST HubSpot account only (HUBSPOT_TOKEN_TEST) and refuses the live one.
-# Only the cases given a mailbox are run (19 Oct 2026: c2 and c4 retired, so normally c1, c3, c5, c6
-# and c7). c1 to c6 each get an approved company with at least 3 new contacts, c7 one with at least
-# 1; their contacts get plus addresses on the case's mailbox with the round at the end (e.g.
-# name+c1p1r2@domain) and any further contacts there become Unqualified. Use a new round (r2, r3 ...)
-# for each restart. Nothing is written to the repository.
+# Each case typed in gets an approved company: 3 contacts each, the LAST case 1 contact. A case is a
+# letter and a number (e1, e2 ...); the letter is the round of the test (e from 19 Oct 2026, then f,
+# g ... for each restart). Contacts get plus addresses on the case's mailbox (e.g. name+e1p1@domain)
+# and any further contacts there become Unqualified. Nothing is written to the repository.
 on:
   workflow_dispatch:
     inputs:
       mailboxes:
-        description: "One mailbox per case being run, e.g. c1=a@x.com, c3=b@x.com, c5=c@x.com, c6=d@x.com, c7=e@x.com"
+        description: "One mailbox per case, the last one the one-contact case, e.g. e1=a@x.com, e2=b@x.com, ... e5=e@x.com"
         type: string
         required: true
       companies:
@@ -19,11 +18,6 @@ on:
         type: string
         required: false
         default: ""
-      round:
-        description: "Round of the test, added to every address (r2, r3 ...): use a new one for each restart"
-        type: string
-        required: false
-        default: "r2"
       dry_run:
         description: "Dry run: show what would change, change nothing"
         type: boolean
@@ -41,7 +35,6 @@ jobs:
       HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN_TEST }}
       TEST_MAILBOXES: ${{ inputs.mailboxes }}
       TEST_COMPANIES: ${{ inputs.companies }}
-      TEST_ROUND: ${{ inputs.round }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
