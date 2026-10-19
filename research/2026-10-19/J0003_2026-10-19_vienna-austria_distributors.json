@@ -1,0 +1,451 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0003",
+  "location": "Vienna, Austria",
+  "run_date": "2026-10-19",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 19,
+      "searches_used": 60
+    }
+  ],
+  "companies": [
+    {
+      "name": "Winkelbauer GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "delikat-essen.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "International specialities, confectionery, snacks, sauces and spreads, bread and baked goods, chilled and frozen desserts, beverages and some non food",
+      "channels_supplied": "Austrian food retail key accounts, specialist shops and food service via its own Austria wide sales team; individual chains not named on its site",
+      "sf_brands_carried": "Better for you lines such as Seeberger nuts and dried fruit, Finn Crisp and Oh my goodness; no sugar free confectionery brand seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "Owner run Vienna importer whose core business is placing foreign brands on Austrian shelves, including the British brands Gue and Kettle Chips. Around 50 brands and a lean team mean a sugar free confectionery range would get real attention.",
+      "what_they_do_well": [
+        "Trading since 1929 and importing sweet specialities into Vienna since the early 1960s, with an Austria wide sales force since 1970.",
+        "Took over Austrian distribution of the British dessert brand Gue in October 2025."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://delikat-essen.at/ueber-uns/",
+        "https://delikat-essen.at/en/",
+        "https://delikat-essen.at/gue-neu-bei-winkelbauer/",
+        "https://bestfoodimporters.com/company/winkelbauer-gmbh/"
+      ]
+    },
+    {
+      "name": "Maresi Austria GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "maresi.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Branded food and soft drinks including confectionery and snacks, spreads, tea, pasta and condiments, plus some household brands",
+      "channels_supplied": "Austrian grocery retail and food service, with subsidiaries in Hungary, the Czech Republic, Slovakia and Romania",
+      "sf_brands_carried": "Assugrin table sweetener and Yogi Tea; Assugrin is a sweetener rather than a snack so not a direct competitor",
+      "competing_brand_flag": false,
+      "fit_rationale": "Vienna based brand distributor that builds partner brands in Austrian retail and across Central and Eastern Europe, so one agreement could open several markets. Already handles a sweetener brand, showing comfort with the sugar reduction category.",
+      "what_they_do_well": [
+        "Built a group with subsidiaries in Hungary, the Czech Republic, Slovakia and Romania under the VIVATIS holding.",
+        "States its aim is to turn products into brands and brands into market leaders."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.advantageaustria.org/jp/company/en/maresi-austria-gmbh",
+        "https://bestfoodimporters.com/company/maresi-austria-gmbh/",
+        "http://maresi.at/"
+      ]
+    },
+    {
+      "name": "Kastner Gruppe",
+      "based_out_of": "Zwettl, Austria",
+      "domain": "kastner.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Full range food and beverage wholesale of about 60,000 items, including dry goods, confectionery, organic and fresh lines",
+      "channels_supplied": "About 140 independent retailers including Nah und Frisch and Stop und Shop, Biogast, gastronomy delivery and pick up markets including Wien Nord and Vienna Inzersdorf",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family run wholesaler with two pick up markets in Vienna and wholesale supply to Nah und Frisch independents, a strong convenience route for single serve sugar free snacks. Its partnership with Biogast adds an organic and health food outlet.",
+      "what_they_do_well": [
+        "Passed 300 million euros turnover for the first time in 2024.",
+        "Supplies 140 independent retailers including the Nah und Frisch wholesale business, Stop und Shop and Biogast."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.kastner.at/files/public/Presse/pressearchiv/2025/2025-01-30_cash_erfolgreich_mit_regionalen_wurzeln.pdf",
+        "https://www.tips.at/nachrichten/zwettl-niederoesterreich/wirtschaft-politik/422952-kastner-uebernimmt-geko-grosshandel-in-wien"
+      ]
+    },
+    {
+      "name": "Kiennast",
+      "based_out_of": "Gars am Kamp, Austria",
+      "domain": "kiennast.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Food, sweets, alcoholic and soft drinks, pet food and non food, including international brands",
+      "channels_supplied": "Petrol station shops and convenience stores such as the Doppler Group BP and Turmoel stations, OBI and GIGA Sport, Nah und Frisch retailers and gastronomy as part of Eurogast",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Lower Austrian family wholesaler that delivers convenience ranges Austria wide, including Vienna, with field sales offering category and shelf advice. Petrol and convenience shops suit impulse sugar free bars and sweets.",
+      "what_they_do_well": [
+        "Serves more than 350 petrol station and convenience customers with field sales advice on category management and shelf placement.",
+        "Family trading history traced back to 1585."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.kiennast.at/media/upload/editor/files/Flugblaetter/Kiennast_STS_Folder_628x297_Ansicht_v3.pdf",
+        "https://en.wikipedia.org/wiki/Kiennast",
+        "https://www.tt.com/artikel/11429263/grosshandelsgruppe-eurogast-oesterreich-2015-mit-322-mio-euro-umsatz"
+      ]
+    },
+    {
+      "name": "BIOGAST GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "biogast.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "About 14,000 certified organic articles including confectionery and snacks, dry goods, dairy, chilled and frozen foods, drinks and sports nutrition",
+      "channels_supplied": "Organic and health food shops, drugstores, farm shops, gastronomy, hotels and community catering in Austria and neighbouring countries",
+      "sf_brands_carried": "Organic and health food ranges; individual sugar free brands not confirmed",
+      "competing_brand_flag": false,
+      "fit_rationale": "Specialist organic wholesaler with offices in Vienna that reaches health food shops and drugstores, the natural home for better for you confectionery. Fit depends on which Diablo lines meet organic or natural positioning, so this is flagged as conditional.",
+      "what_they_do_well": [
+        "Supplies more than 2,000 customers from about 500 suppliers since its founding in 1999.",
+        "Offers about 14,000 organic articles, 4,400 of them from Austrian producers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.kastner.at/files/public/Presse/pressearchiv/2024/2024-09-26_biogast_ein_herz_fuer_bio_oliv.pdf",
+        "https://bestfoodimporters.com/company/biogast-gmbh/"
+      ]
+    },
+    {
+      "name": "H. M. Weihs GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "weihs.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Cheese, butter, meat specialities, confectionery, patisserie, frozen bakery and snacks, ice cream and Asian foods",
+      "channels_supplied": "Food retail, specialist food trade, food service and food industry; individual chains not named",
+      "sf_brands_carried": "Balance chocolates without added sugar from Belgium",
+      "competing_brand_flag": true,
+      "fit_rationale": "Owner managed Vienna importer that places European brands across retail and food service, a strong structural fit. It already carries Balance no added sugar chocolate, a direct competitor, so outreach should lead with categories Balance does not cover.",
+      "what_they_do_well": [
+        "Family run for more than 60 years since its founding in 1962.",
+        "Took over Austrian distribution of Nissin in 2023 and exclusive marketing of Upfield in 2022."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.weihs.at/en/about-us/",
+        "https://www.weihs.at/en/assortment/",
+        "https://www.weihs.at/en/2023/03/01/distribution-of-nissin-in-austria-by-weihs/",
+        "https://bestfoodimporters.com/company/weihs-h-m-gmbh/"
+      ]
+    },
+    {
+      "name": "METRO Cash und Carry Oesterreich GmbH",
+      "based_out_of": "Voesendorf, Austria",
+      "domain": "metro.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Full cash and carry range including confectionery and snacks, organic and health food, dry goods, fresh and frozen",
+      "channels_supplied": "Independent retailers, kiosks, gastronomy and other trade customers through its cash and carry stores and delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Largest cash and carry operator headquartered on the edge of Vienna, reaching the kiosks and small shops that independents restock from. A central listing is slow to win, so it sits behind the specialist importers.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/metro-cash-carry-osterreich-gmbh/",
+        "https://companydata.com/austria/food-distribution-companies/"
+      ]
+    },
+    {
+      "name": "Transgourmet Oesterreich GmbH",
+      "based_out_of": "Traun, Austria",
+      "domain": "transgourmet.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Foodservice wholesale range from economy to organic and plant based lines, with own brands Natura and Smart Cuisine",
+      "channels_supplied": "More than 86,000 gastronomy customers through 17 pick up and delivery sites; Vienna sites not named in the source, so coverage is assumed and flagged",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Market leader in Austrian gastronomy supply, relevant for cafes, hotels and vending that want sugar free snacks. Foodservice is a secondary route for a retail confectionery range.",
+      "what_they_do_well": [
+        "Turned over about 910 million euros with more than 86,000 active customers across Austria."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.leadersnet.at/news/97424,transgourmet-setzte-im-vorjahr-910-millionen-euro-um.html",
+        "https://companydata.com/austria/food-distribution-companies/"
+      ]
+    },
+    {
+      "name": "WF Interfoods Handelsges.m.b.H.",
+      "based_out_of": "Vienna, Austria",
+      "domain": "wf-interfoods.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Asian foods including snacks and desserts, frozen seafood and meat, rice and noodles, sauces, drinks and restaurant supplies",
+      "channels_supplied": "Restaurants, hotels and wholesale and retail traders in Austria, Germany, Hungary, Slovenia, Croatia, Slovakia and the Czech Republic",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Large Vienna importer with a 6,000 square metre warehouse and a cross border trade customer base. Its range is Asian focused, so Diablo would be an add on rather than a core line.",
+      "what_they_do_well": [
+        "Operates a wholesale facility of about 6,000 square metres in Vienna, founded in 2000."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.wf-interfoods.com/",
+        "https://bestfoodimporters.com/company/wf-interfoods-handelsges-m-b-h/"
+      ]
+    },
+    {
+      "name": "Concedis Gourmet GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "cavayco.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Gourmet products, confectionery and snacks, dairy, seafood, frozen meals, olive oil, spices, tea and coffee",
+      "channels_supplied": "Listed as importer, distributor, retailer and online store; trade customers not confirmed",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Small Vienna gourmet importer that combines distribution with its own shop, a possible test route for premium sugar free lines. Known only from a directory listing, so its scale and trade customers need checking.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/concedis-gourmet-gmbh/"
+      ]
+    },
+    {
+      "name": "Orient Marketingservice GmbH Nfg KG",
+      "based_out_of": "Vienna, Austria",
+      "domain": "orient.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Confectionery and snacks, dairy, seafood, fruit and vegetables, honey and spreads, drinks, pasta, spices, tea and coffee",
+      "channels_supplied": "Importer and wholesaler at the Vienna Grossgruenmarkt; trade customers not confirmed",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Mid size Vienna importer and wholesaler with 51 to 200 staff and a confectionery range, likely serving ethnic and independent grocers. Confirmed only through a directory, so details need checking.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/orient-marketingservice-gmbh-nfg-kg/"
+      ]
+    },
+    {
+      "name": "REWE Grosshandel GmbH",
+      "based_out_of": "Wiener Neudorf, Austria",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Grocery wholesale for the REWE Group trade names ADEG and AGM, covering the full food range",
+      "channels_supplied": "ADEG independent merchants and AGM cash and carry customers; wholesale role inferred from company listings and flagged",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Reaches ADEG independents and AGM cash and carry customers around Vienna, but listing runs through REWE central buying. Conditional on a REWE category decision, so lower priority than independent importers.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://companydata.com/austria/food-distribution-companies/",
+        "https://www.jobs.at/a/rewe-gro%c3%9fhandel"
+      ]
+    },
+    {
+      "name": "Wedl Handels GmbH",
+      "based_out_of": "Mils, Austria",
+      "domain": "wedl.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gastronomy wholesale of meat, fish, produce, wine, coffee, gourmet, organic and dessert products",
+      "channels_supplied": "Gastronomy, hotels and community catering, with a pick up and delivery site at Linzer Strasse in Vienna",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family wholesaler among Austria's top ten with a Vienna branch, useful for cafe and hotel placement. Confectionery and snacks are not a stated focus, so fit is conditional.",
+      "what_they_do_well": [
+        "Family run since 1904 and describes itself as one of Austria's top ten food wholesalers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.wedl.com/fileadmin/user_upload/presse/2025_03_Genusszeit-Herbst_A4_web.pdf",
+        "https://firmen.wko.at/wedl-handels-gmbh/wien/",
+        "https://www.herold.at/gelbe-seiten/wien/HB8dl/wedl-wien-wedl-handels-gmbh/"
+      ]
+    },
+    {
+      "name": "Anna Gold Handels GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "anna-gold.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Bakery, patisserie and kitchen supplies including baked goods, ice cream ingredients, honey, sugar, spices, frozen foods, decorations and packaging",
+      "channels_supplied": "Bakeries, confectioners and patisseries, large kitchens and ice cream parlours",
+      "sf_brands_carried": "A business directory lists diabetic friendly, gluten free and lactose free products; brands not named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Vienna supplier to bakeries and patisseries that a directory says stocks diabetic friendly products, a route for Diablo syrups and spreads as ingredients. Retail snacks are outside its core trade.",
+      "what_they_do_well": [
+        "Specialised in supplying bakeries, confectioners and caterers since 1960."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.anna-gold.at/",
+        "https://www.herold.at/gelbe-seiten/wien/v7SDX/anna-gold-lebensmittelgrosshandel/",
+        "https://bestfoodimporters.com/company/anna-gold-handels-gmbh/"
+      ]
+    },
+    {
+      "name": "Sabex Handelsgesellschaft m.b.H.",
+      "based_out_of": "Vienna, Austria",
+      "domain": "sabex.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Mediterranean and Turkish foods, soft drinks, alcoholic drinks and non food; a directory also lists confectionery and snacks",
+      "channels_supplied": "Business customers and traders through its cash and carry at the Vienna Grossgruenmarkt and a B2B web shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Long established Vienna general importer serving ethnic grocers and traders, a niche route to independent shops. Confectionery is not prominent on its own site.",
+      "what_they_do_well": [
+        "Trading since 1974 as a general importer of Mediterranean food and drinks."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://sabex.at/ueber-uns/",
+        "https://bestfoodimporters.com/company/sabex-handelsgesellschaft-m-b-h/"
+      ]
+    },
+    {
+      "name": "Alexandros Import Export GmbH",
+      "based_out_of": "Voesendorf, Austria",
+      "domain": "alexandros.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Greek foods and wines including confectionery and snacks, dairy, fish, olive oil and spices",
+      "channels_supplied": "Listed as importer, distributor and supplier; trade customers not confirmed",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Specialist Greek importer just south of Vienna with a confectionery category. Diablo would sit outside its origin focus, so it is a lower priority option.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/alexandros-import-export-gmbh/",
+        "https://www.alexandros.at/produkte/"
+      ]
+    },
+    {
+      "name": "Aoda Handels GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "aoda.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Asian and ethnic foods, rice, sauces, frozen foods, seafood, noodles and beverages",
+      "channels_supplied": "Restaurants and businesses in Austria",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Vienna importer and wholesaler for Asian restaurants; confectionery is not part of its listed range. Included only as an import capable stockist for occasional foodservice lines.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/aoda-handels-gmbh/"
+      ]
+    },
+    {
+      "name": "Koa Asia Handels GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "asia.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Asian foods, frozen foods, seafood, grains, drinks, organic and health food",
+      "channels_supplied": "Listed as importer, wholesaler, retailer and online store; trade customers not confirmed",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Vienna Asian importer with a health food category. Low relevance for European confectionery and confirmed only through a directory.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/koa-asia-handels-gmbh/"
+      ]
+    },
+    {
+      "name": "Imgro Nahrungs und Genussmittelgrosshandel und Import GmbH",
+      "based_out_of": "Vienna, Austria",
+      "domain": "imgro.at",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Fruit and vegetable preserves, dried fruit, olives, capers, olive oil, seafood specialities, tea and coffee",
+      "channels_supplied": "Importer and wholesaler; trade customers not confirmed",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Vienna importer of shelf stable delicatessen goods with import capability but no listed confectionery. Only a fit if it widens into sweet snacks.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/imgro-nahrungs-und-genusmittelgroshandel-und-import-ges-m-b-h/"
+      ]
+    }
+  ]
+}
