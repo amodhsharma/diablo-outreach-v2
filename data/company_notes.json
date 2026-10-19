@@ -53,6 +53,25 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "agidra.com": {
+    "name": "Agidra",
+    "based_out_of": "Saint-Priest (Lyon), France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Lyon based importer and wholesaler that already carries confectionery, snacks and health food for trade buyers, so Diablo slots into an existing category. Its mid size and local base make a buyer reachable. Own website could not be read; range is from directory and certification listings.",
+    "what_they_do_well": [
+      "Offers over 1,700 products to professionals online from its Saint-Priest base.",
+      "Ecocert certified organic specialised wholesaler."
+    ],
+    "distributes": "Ambient grocery, world and ethnic foods, confectionery and snacks, spreads, organic and health food, beverages and wine (1,700+ references).",
+    "channels_supplied": "Food professionals: restaurants, caterers and independent food shops, ordered online with delivery.",
+    "sf_brands_carried": "Organic and health food lines listed; specific sugar free brands not confirmed.",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
+  },
   "agrohub.com.ge": {
     "name": "Agrohub",
     "based_out_of": "Tbilisi, Georgia",
@@ -451,6 +470,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "benoitpopcorn.com": {
+    "name": "Benoit Ciné Distribution (Benoit Promotion)",
+    "based_out_of": "Saint-Pierre-de-Chandieu (Lyon area), France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Lyon based, family controlled distributor that already buys and resells confectionery into national cinema and venue concessions, a channel where a sugar free option is a clear point of difference. Through its 2022 takeover of Supergroup the same owners reach tobacconists, bakeries and groceries across France. Note it also makes its own popcorn, so it is part brand owner.",
+    "what_they_do_well": [
+      "Founded in 1994 in Lyon; supplies Gaumont Pathé, UGC and CGR cinemas plus stadiums and concert halls.",
+      "Owners took over national proximity wholesaler Supergroup from Logista France in 2022."
+    ],
+    "distributes": "Confectionery, beverages, popcorn and candyfloss (own production) and concession equipment for cinemas and venues.",
+    "channels_supplied": "Cinema chains Gaumont Pathé, UGC and CGR, independent cinemas, concert halls and stadiums; group also owns convenience wholesaler Supergroup.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
   },
   "bestway.co.uk": {
     "name": "Bestway Wholesale",
@@ -1081,6 +1119,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "comptoir-produits-italiens.fr": {
+    "name": "COFI (Comptoir France-Italie)",
+    "based_out_of": "Saint-Martin-d'Hères, France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "An owner run importer whose whole business is bringing European branded food into the region, with a Lyon area outlet and a trade sales arm. It already sells confectionery and biscuits, so a European sugar free range is a natural adjacency. Villeurbanne store details date from 2018 and should be rechecked.",
+    "what_they_do_well": [
+      "Has imported and distributed Italian food in France since 1972.",
+      "Runs a dedicated professional sales service and stores across Auvergne-Rhône-Alpes."
+    ],
+    "distributes": "Imported Italian grocery: pasta, sauces, preserves, cheese, charcuterie, confectionery, biscuits, wine and beverages.",
+    "channels_supplied": "Professional sales service to trade customers plus its own stores in Auvergne-Rhône-Alpes, including En Direct d'Italie in Villeurbanne (Lyon).",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "conatycatering.com": {
     "name": "Conaty Catering",
@@ -2538,6 +2596,24 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "groupe-pomona.fr": {
+    "name": "EpiSaveurs (Groupe Pomona)",
+    "based_out_of": "Rungis, France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Pomona's ambient network has a branch on the Lyon logistics belt and reaches bakeries and catering, where sugar free biscuits and sweets suit healthier menus. Buying is largely national, so expect a longer listing process. Head office location is assumed from group materials and should be checked.",
+    "what_they_do_well": [
+      "Pomona group has over 5.5 billion euros revenue and nearly 80 regional sites in France and Spain."
+    ],
+    "distributes": "Ambient grocery, beverages, equipment and hygiene products for foodservice.",
+    "channels_supplied": "Restaurants, canteens, bakeries and butchers; regional branch at Saint-Quentin-Fallavier serving the Lyon area and the Alps.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
+  },
   "grupodinosaurio.com": {
     "name": "Super Mami (Grupo Dinosaurio)",
     "based_out_of": "Córdoba, Argentina",
@@ -3747,6 +3823,24 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
   },
+  "metro.fr": {
+    "name": "Metro France",
+    "based_out_of": "Nanterre, France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Three trade stores in the Lyon area give independents a place to buy sugar free lines, but listing is decided centrally. Useful as a later volume channel rather than a first partner. Head office city is from general knowledge and not verified here.",
+    "what_they_do_well": [
+      "Opened a 10,000 m2 professional site in Lyon Gerland in 2022."
+    ],
+    "distributes": "Cash and carry wholesale: full food range including confectionery, biscuits and snacks, plus non food.",
+    "channels_supplied": "Trade only stores in Lyon Gerland, Vaulx-en-Velin and Limonest serving restaurants, independent retailers and organisations.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
+  },
   "metro.pe": {
     "name": "Cencosud Retail Peru (Wong and Metro)",
     "based_out_of": "Lima, Peru",
@@ -4586,6 +4680,24 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "promocash.com": {
+    "name": "Promocash Lyon (franchise)",
+    "based_out_of": "Lyon, France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Franchisee run cash and carry where a local manager has some say on range, giving a reachable trade outlet in Lyon. The Gerland site may have closed (Metro opened there in 2022); Lyon Champagne is confirmed as of 2020.",
+    "what_they_do_well": [
+      "Lyon stores renovated in 2020 with drive, online ordering and half day delivery."
+    ],
+    "distributes": "Cash and carry food wholesale for restaurants: grocery, fresh, drinks and wine (9,000 to 13,000 references per store).",
+    "channels_supplied": "Restaurant and food professionals via store, drive, online ordering and half day delivery; Carrefour group banner.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
+  },
   "pwfinefoods.co.uk": {
     "name": "PW Fine Foods (Samways)",
     "based_out_of": "Andover, United Kingdom",
@@ -4705,6 +4817,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "relais-vert.com": {
+    "name": "Relais Vert",
+    "based_out_of": "Carpentras, France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Family owned national wholesaler into health food shops, an audience for sugar free snacks. Its range is organic only, so it only fits if Diablo can offer organic lines. Lyon is served through national delivery, not a local depot.",
+    "what_they_do_well": [
+      "Family owned and independent organic wholesaler since 1986 with 270 employees."
+    ],
+    "distributes": "Organic grocery, dry goods, fruit and vegetables and natural cosmetics (8,000+ references).",
+    "channels_supplied": "Independent organic and health food shops across France with 24 hour delivery.",
+    "sf_brands_carried": "Organic and health food range; sugar free brands not confirmed.",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
   },
   "reneco.ge": {
     "name": "Reneco",
@@ -4874,6 +5004,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "saveuraldente.fr": {
+    "name": "Al Dente",
+    "based_out_of": "Oyonnax, France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Owner run importer in the Ain that already sells confectionery and biscuits to delicatessens. Whether it delivers into Lyon is not confirmed, hence tier 3.",
+    "what_they_do_well": [
+      "Importing Italian specialities for professional customers since 2003."
+    ],
+    "distributes": "Imported Italian food (1,000+ references): antipasti, pasta, sauces, oils, charcuterie, cheese, confectionery and biscuits, wine.",
+    "channels_supplied": "Fine food shops, restaurants, pizzerias, caterers, wine merchants and new specialist stores.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "saviva.ch": {
     "name": "Saviva AG",
@@ -5340,6 +5489,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "sysco.fr": {
+    "name": "Sysco France",
+    "based_out_of": "Rungis, France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Large foodservice distributor with Lyon area operations; sugar free snacks could fit catering and vending accounts. Confectionery depth is not confirmed and buying is central. Head office city is inferred from job listings.",
+    "what_they_do_well": [
+      "Delivers to 75,700 customers and adds about 300 new references a year."
+    ],
+    "distributes": "Foodservice range of about 8,500 references: fresh, frozen, dairy, grocery and non food.",
+    "channels_supplied": "Commercial and contract catering; Lyon area sites at Corbas and Limonest.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
+  },
   "syscoireland.com": {
     "name": "Sysco Ireland",
     "based_out_of": "Dublin, Ireland",
@@ -5602,6 +5769,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "transgourmet.fr": {
+    "name": "Transgourmet Rhône",
+    "based_out_of": "Saint-Quentin-Fallavier, France",
+    "market": "Lyon, France",
+    "category": "Distributors",
+    "channels": [
+      "Distributors"
+    ],
+    "fit_rationale": "Regional branch of a national foodservice distributor with a strong bakery-pastry and snacking focus, a channel for sugar free snacks at bakery counters. Confectionery in its local range is not confirmed.",
+    "what_they_do_well": [
+      "Exhibits for restaurant and bakery-pastry trades at Sirha in Lyon."
+    ],
+    "distributes": "Foodservice range for restaurants, catering and bakery-pastry: fresh, frozen, grocery and snacking.",
+    "channels_supplied": "Restaurants, contract catering and artisan bakers in the Lyon region.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
   },
   "tynesidefoodservice.com": {
     "name": "Tyneside Foodservice Ltd",
