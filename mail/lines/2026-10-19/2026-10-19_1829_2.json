@@ -1,0 +1,22 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-19",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-19T12:31:10+00:00",
+  "lines": [
+    {
+      "contact_id": "895472388298",
+      "company_name": "Dovgan GmbH",
+      "personal_line": "We have great respect for the way your team brings Eastern European specialities to German food retail. With such established reach across supermarkets and speciality food shops, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "imports sweets for supermarkets and speciality food shops",
+      "style": "A"
+    },
+    {
+      "contact_id": "895444768975",
+      "company_name": "tabacon TABAKWAREN GmbH & Co. KG",
+      "personal_line": "We have great respect for the way your team, as a family owned business, supplies shops, kiosks and petrol stations. With such established reach across eastern Germany and Bavaria, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies confectionery to kiosks and petrol stations",
+      "style": "A"
+    }
+  ]
+}
