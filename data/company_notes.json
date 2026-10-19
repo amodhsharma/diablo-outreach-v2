@@ -107,6 +107,23 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "alaska-lebensmittelservice.de": {
+    "name": "Alaska Lebensmittelservice GmbH",
+    "based_out_of": "Berlin, Germany",
+    "market": "Berlin, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Local foodservice wholesaler that could place snacks with cafes and caterers. Gastronomy focus limits retail reach.",
+    "what_they_do_well": [],
+    "distributes": "Foodservice wholesale of more than 2,000 items including confectionery and snacks, frozen, fish and meat.",
+    "channels_supplied": "Gastronomy in Berlin and the surrounding area, from its own logistics centre at the Berlin wholesale market.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "albisperu.com": {
     "name": "Albis Perú",
     "based_out_of": "Lima, Peru",
@@ -541,6 +558,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "barlu.de": {
+    "name": "BARLU Lebensmittel-Service GmbH",
+    "based_out_of": "Velten, Germany",
+    "market": "Berlin, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Regional foodservice wholesaler next to Berlin with a Tempelhof outlet. Fresh protein focus makes confectionery marginal.",
+    "what_they_do_well": [],
+    "distributes": "Foodservice wholesale of fish, meat, produce, frozen food and some confectionery and snacks.",
+    "channels_supplied": "Gastronomy customers in Berlin, Leipzig, Dresden, Halle and Frankfurt (Oder), with a shop in Berlin Tempelhof.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "barrygroup.ie": {
     "name": "Barry Group",
@@ -2652,6 +2686,25 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "the website address no longer exists"
   },
+  "genuport.de": {
+    "name": "Genuport Trade GmbH",
+    "based_out_of": "Norderstedt, Germany",
+    "market": "Berlin, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Family-owned specialist importer whose whole business is bringing foreign confectionery and snack brands into German retail, with British brands already in the portfolio. A sugar-free chocolate and biscuits range would fill a gap next to its fitness lines without a direct competitor.",
+    "what_they_do_well": [
+      "Family business trading since 1949, about 160 staff and roughly 130 million euros revenue in 2025.",
+      "Runs its own field sales force of about 60 people."
+    ],
+    "distributes": "Imported branded confectionery, biscuits, snacks, cereals and sports nutrition from almost 30 countries, about 50 brands including Cadbury, Weetabix, Fazer, Reese's and Rocky Mountain.",
+    "channels_supplied": "German food retail nationally (LEH) including Edeka and Rewe online shops, Amazon, fitness studios and its own B2C shop veritastii.de. Berlin coverage is through national retail, not a named Berlin account.",
+    "sf_brands_carried": "Multipower, Grenade and Oatsnack (protein and fitness lines); no sugar-free confectionery brand named.",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
+  },
   "georgeweiss.ch": {
     "name": "George Weiss Lebensmittel AG",
     "based_out_of": "Dietikon, Switzerland",
@@ -2899,6 +2952,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "hamberger.de": {
+    "name": "Hamberger Großmarkt",
+    "based_out_of": "Munich, Germany",
+    "market": "Berlin, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Owner-run wholesaler with a large Berlin market serving restaurants and small retailers, a route into Berlin's independent trade. Gastronomy focus makes it secondary for a retail snack range.",
+    "what_they_do_well": [
+      "Opened a Berlin wholesale market in Moabit with about 60,000 items."
+    ],
+    "distributes": "Cash and carry wholesale with about 46,000 food and 14,000 non-food items, including confectionery.",
+    "channels_supplied": "Gastronomy and small retailers from its Berlin Moabit market, plus a delivery service.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
   },
   "hancocks.co.uk": {
     "name": "R E & B Hancock Ltd (Hancocks)",
@@ -3171,6 +3242,22 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "if-bi.com": {
+    "name": "IFBI Int'l Food & Beverage Import GmbH",
+    "based_out_of": "Berlin, Germany",
+    "market": "Berlin, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Small Berlin importer that already brings in chocolate for retail and gastronomy. Range and scale need checking before outreach.",
+    "what_they_do_well": [],
+    "distributes": "Imported tea, chai, chocolate, beverages and spices.",
+    "channels_supplied": "Gastronomy and retailers, unnamed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
   },
   "iihealthfoods.com": {
     "name": "Independent Irish Health Foods",
@@ -3771,6 +3858,23 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "loewenzahngmbh.de": {
+    "name": "Löwenzahn Cash & Carry GmbH",
+    "based_out_of": "Berlin, Germany",
+    "market": "Berlin, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Berlin cash and carry with a listed confectionery and snacks range. Limited public detail on customers and scale.",
+    "what_they_do_well": [],
+    "distributes": "General grocery wholesale including confectionery and snacks, drinks and ethnic food.",
+    "channels_supplied": "Berlin trade customers, unnamed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "lynasfoodservice.com": {
     "name": "Lynas Foodservice",
     "based_out_of": "Coleraine, United Kingdom",
@@ -4218,6 +4322,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-18",
     "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json"
+  },
+  "monolith-gruppe.net": {
+    "name": "Monolith Gruppe",
+    "based_out_of": "Rosengarten, Germany",
+    "market": "Berlin, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Large importer-wholesaler with its own retail network for Eastern European communities. Range is ethnic, so a British sugar-free brand is an unusual fit.",
+    "what_they_do_well": [
+      "Founded in 1997, six German sites and more than 500 staff."
+    ],
+    "distributes": "Eastern European specialty foods, more than 4,000 items including Russian sweets, drinks, meat and fish.",
+    "channels_supplied": "About 2,500 trade customers including the Mix Markt store network and food retail; Berlin outlets not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
   },
   "morrisons.com": {
     "name": "Morrisons",
@@ -5435,22 +5557,22 @@
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
   "selgros.de": {
-    "name": "Transgourmet Deutschland (Selgros Erfurt)",
+    "name": "Transgourmet Deutschland (Selgros Cash & Carry)",
     "based_out_of": "Riedstadt, Germany",
-    "market": "Jena, Germany",
+    "market": "Berlin, Germany",
     "category": "Distributors",
     "channels": [
-      "Distributors"
+      "distributors"
     ],
-    "fit_rationale": "Second cash and carry option for Jena area retailers and caterers, with the nearest store in Erfurt. Same central listing hurdle as METRO, so a lower priority than specialist importers.",
+    "fit_rationale": "Five cash and carry markets in and around Berlin are where many independent shops and Spätis buy confectionery. A large generalist, so a listing is more of a range slot than active brand building.",
     "what_they_do_well": [
-      "Transgourmet Germany serves about 32,500 delivery customers with around 37,000 articles from 13 sites."
+      "Operates 38 cash and carry markets in Germany and delivers to 32,500 customers."
     ],
-    "distributes": "Cash and carry and delivered wholesale food and non-food, around 68,000 lines in the stores.",
-    "channels_supplied": "Trade customers including retailers, gastronomy and caterers via the Selgros store in Erfurt (An der Flurscheide) and delivery depots.",
+    "distributes": "Cash and carry and delivery wholesale of food and non-food, about 68,000 items including confectionery and snacks.",
+    "channels_supplied": "Selgros markets in Berlin Lichtenberg, Ahrensfelde, Falkensee, Stahnsdorf and Cottbus serving retailers, kiosks, hotels and gastronomy.",
     "sf_brands_carried": "",
-    "added": "2026-10-15",
-    "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
   },
   "sera.ge": {
     "name": "Sera (Marshe wholesale store)",
@@ -5958,6 +6080,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "terra-natur.de": {
+    "name": "Terra Naturkost Handels KG",
+    "based_out_of": "Berlin, Germany",
+    "market": "Berlin, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "The largest Berlin-based wholesaler to health-oriented independent retail, owner-managed since 1987. Its range is organic, so it fits only if Diablo lines meet organic or natural-store listing criteria, which is why it sits in tier 2.",
+    "what_they_do_well": [
+      "Founded in Berlin in 1981 and now one of Germany's three largest organic wholesalers.",
+      "Runs its own fleet of 50 lorries from a central Berlin site."
+    ],
+    "distributes": "Full range organic and vegan groceries, including sweets and snacks.",
+    "channels_supplied": "About 1,200 organic supermarkets, health food shops, restaurants, cafes, canteens and nurseries in Berlin, Brandenburg, Mecklenburg-Vorpommern and parts of Saxony and Saxony-Anhalt; sister company of the Bio Company chain within Bioverbund SE.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
   },
   "tesco.com": {
     "name": "Tesco",
