@@ -439,6 +439,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
+  "azadfood.de": {
+    "name": "Azad Food GmbH",
+    "based_out_of": "Rothenstein, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A small wholesaler about 15 km from Jena that delivers weekly to local food businesses. No confectionery range was confirmed, so it is a low priority add-on route.",
+    "what_they_do_well": [
+      "Delivers weekly to businesses across Thuringia and Bavaria, with pickup also offered."
+    ],
+    "distributes": "Food wholesale: drinks, spices, dairy, fruit and vegetables, sauces, frozen goods and packaging. Sweets not confirmed.",
+    "channels_supplied": "Businesses in Thuringia and Bavaria (likely restaurants and food shops), delivered weekly or by pickup.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "balkania.ie": {
     "name": "Balkania",
     "based_out_of": "Dublin, Ireland",
@@ -982,21 +1001,21 @@
   },
   "chefsculinar.de": {
     "name": "CHEFS CULINAR (CHEFS CULINAR Ost)",
-    "based_out_of": "Kiel, Germany",
+    "based_out_of": "Zorbau (Lutzen), Germany",
     "market": "Jena, Germany",
     "category": "Distributors",
     "channels": [
-      "Distributors"
+      "distributors"
     ],
-    "fit_rationale": "A family run delivered foodservice wholesaler whose eastern depot is within easy reach of Jena. Useful for sugar free syrups and portion snacks in hotels and canteens, but foodservice is secondary for Diablo.",
+    "fit_rationale": "The leading foodservice supplier to Thuringian hospitals and care homes, where diabetic and sugar free options are in real demand. Confectionery depth in its range was not confirmed.",
     "what_they_do_well": [
-      "Family run full range supplier stocking around 25,000 products from 8 sites and 23 depots."
+      "Family-run foodservice wholesaler serving hospitals, care homes, hotels and restaurants across Saxony-Anhalt, Saxony and Thuringia since 1995."
     ],
-    "distributes": "Food and non-food wholesale for catering, around 25,000 lines.",
-    "channels_supplied": "Hotels, gastronomy, company and communal catering; eastern region served from Zorbau (Saxony-Anhalt), about 50 km from Jena. Jena customers inferred, not confirmed.",
+    "distributes": "Full range foodservice food including frozen goods for professional kitchens.",
+    "channels_supplied": "Hospitals, care homes, hotels and restaurants in Saxony-Anhalt, Saxony, Thuringia, parts of Brandenburg and the Czech Republic.",
     "sf_brands_carried": "",
-    "added": "2026-10-15",
-    "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "chemistwarehouse.ie": {
     "name": "Chemist Warehouse Ireland",
@@ -1338,6 +1357,24 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "creveleurope.com": {
+    "name": "Crevel Europe GmbH",
+    "based_out_of": "Hilden, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Its whole model is importing foreign branded sweets and snacks and building them in German retail, which is exactly what Diablo needs. Customer logos include chains with stores in Jena (EDEKA, REWE, TEDi, METRO).",
+    "what_they_do_well": [
+      "Imports, distributes and builds international food brands such as Tajin, Herr's and Van Holten's for B2B customers across 33+ European markets."
+    ],
+    "distributes": "Imported confectionery, snacks and beverages plus international grocery (American, Mexican and Asian ranges).",
+    "channels_supplied": "B2B importer and brand builder; site shows EDEKA, REWE, METRO, TEDi and Transgourmet among customers in 33+ European markets. Jena reached through these national chains, not confirmed directly.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
+  },
   "cruspi.ch": {
     "name": "Cruspi SA",
     "based_out_of": "Dällikon, Switzerland",
@@ -1469,21 +1506,21 @@
   },
   "dennree.de": {
     "name": "dennree GmbH",
-    "based_out_of": "Töpen, Germany",
+    "based_out_of": "Topen, Germany",
     "market": "Jena, Germany",
     "category": "Distributors",
     "channels": [
-      "Distributors"
+      "distributors"
     ],
-    "fit_rationale": "Reaches organic shops in and around Jena from a nearby Upper Franconia base. Its organic only range is the main barrier, so it is only relevant for any certified organic Diablo lines.",
+    "fit_rationale": "The largest organic wholesaler serving eastern Germany from Topen, about 100 km from Jena, with direct reach into organic stores. Conditional on certified organic products, which Diablo's range is not confirmed to have.",
     "what_they_do_well": [
-      "Founded as a one-person business in 1974 and now supplies over 1,500 organic specialist stores."
+      "Central warehouse at Topen near Hof, with regional sites redistributing to organic stores across Germany and Austria."
     ],
-    "distributes": "Around 10,000 to 13,000 organic food lines plus natural cosmetics and drugstore items.",
-    "channels_supplied": "Over 1,500 independent organic specialist shops in Germany, Austria and Luxembourg plus its own Denns BioMarkt stores; Jena delivery is inferred from national coverage and its base about 90 km away.",
+    "distributes": "Organic wholesale: dry goods, dairy, cheese, fruit and vegetables, frozen, meat and natural cosmetics.",
+    "channels_supplied": "Organic specialist retailers, including the group's denns BioMarkt stores, from Topen near Hof and regional sites. Jena stores not confirmed.",
     "sf_brands_carried": "",
-    "added": "2026-10-15",
-    "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "deprodeca.com.pe": {
     "name": "Distribuidora Exclusiva de Productos de Calidad S.A.C. (Deprodeca)",
@@ -1717,6 +1754,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "dovgan.de": {
+    "name": "Dovgan GmbH",
+    "based_out_of": "Hamburg, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "An importer with sweets in its range and access to REWE and to the Russian and Eastern European shops found in Jena. Its focus is ethnic food, so sugar free sweets would sit outside its core story.",
+    "what_they_do_well": [
+      "Described by Lebensmittel Zeitung (2015) as the market leader for Eastern European specialities in German food retail."
+    ],
+    "distributes": "Imported Eastern European, Polish, Balkan, oriental and Vietnamese foods, including sweets and baked goods, plus frozen and food service ranges.",
+    "channels_supplied": "German food retail including REWE, and Eastern European food shops. Supply into Jena not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
+  },
   "downtoearth.ie": {
     "name": "Down to Earth Healthfood Store",
     "based_out_of": "Dublin, Ireland",
@@ -1828,22 +1883,22 @@
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "edeka-foodservice.de": {
-    "name": "EDEKA Foodservice",
-    "based_out_of": "Offenburg, Germany",
+    "name": "EDEKA Foodservice (EDEKA C+C Grossmarkt Jena)",
+    "based_out_of": "Jena, Germany (local market; group head office not verified)",
     "market": "Jena, Germany",
     "category": "Distributors",
     "channels": [
-      "Distributors"
+      "distributors"
     ],
-    "fit_rationale": "Has a depot in Jena itself and delivers to hotels, canteens and catering, where sugar free snacks, sweets and syrups could sell. Foodservice is a secondary channel for Diablo, so it ranks below retail routes. The Jena and Weimar depots come from a local directory and should be confirmed.",
+    "fit_rationale": "The only food wholesale market physically in Jena (Wiesenstrasse 102), so it reaches local caterers, kiosks and independent shops directly. Listing may need EDEKA central buying approval.",
     "what_they_do_well": [
-      "Serves more than 23,000 hotel, restaurant and communal catering customers."
+      "Runs a Jena cash and carry market with over 13,000 items, offering both on-site shopping and a delivery service."
     ],
-    "distributes": "Food and non-food wholesale for catering, from national brands to regional specialities.",
-    "channels_supplied": "Hotels, restaurants and communal catering; local depots listed at Wiesenstraße, Jena and Industriestraße, Weimar.",
+    "distributes": "Full range food and drink cash and carry with over 13,000 items; confectionery range not itemised on the page.",
+    "channels_supplied": "Trade customers in Jena and Thuringia through on-site cash and carry and a delivery service.",
     "sf_brands_carried": "",
-    "added": "2026-10-15",
-    "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "edeka.de": {
     "name": "EDEKA Nordbayern-Sachsen-Thüringen",
@@ -2412,6 +2467,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "gborder.de": {
+    "name": "G-Border Trade GmbH",
+    "based_out_of": "Frankfurt am Main, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A specialist kiosk wholesaler with sweets and snacks as a main category and nationwide shipping that reaches Jena kiosks and Spaetis. Smaller and more transactional than tier 1, with no field sales confirmed.",
+    "what_they_do_well": [
+      "Specialist kiosk and petrol station wholesaler shipping orders within 24 hours, free from 500 euros excluding drinks."
+    ],
+    "distributes": "Sweets and snacks, soft drinks, energy drinks, alcohol, shisha tobacco and smoking accessories.",
+    "channels_supplied": "Kiosk and petrol station trade, shipped across Germany within 24 hours. Named customers not found.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "gd-holding.com": {
     "name": "GD Alco (GD Holding)",
@@ -3008,6 +3082,24 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
   },
+  "imv-spezialitaeten.de": {
+    "name": "IMV Spezialitaeten-Import Marketing und Vertriebs GmbH",
+    "based_out_of": "Wiesbaden, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A second generation family importer of European confectionery whose customers are the specialist sweet and gift shops where a premium sugar free range sells well. Its premium craft positioning may limit how much of Diablo's mainstream range it takes.",
+    "what_they_do_well": [
+      "Family business in its second generation, sourcing confectionery from small makers worldwide for over 25 years."
+    ],
+    "distributes": "Imported chocolate, nougat, sweets and baked goods from small makers, plus spirits and delicatessen.",
+    "channels_supplied": "Specialist retailers in Germany, Austria and Switzerland (sweet shops, delicatessens, florists, lifestyle stores), hospitality and corporate gifts. Jena shops not named.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
+  },
   "infinityfoodswholesale.co.uk": {
     "name": "Infinity Foods Wholesale",
     "based_out_of": "Brighton, United Kingdom",
@@ -3385,23 +3477,23 @@
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "lekkerland.de": {
-    "name": "Lekkerland SE",
+    "name": "Lekkerland Deutschland",
     "based_out_of": "Frechen, Germany",
     "market": "Jena, Germany",
     "category": "Distributors",
     "channels": [
-      "Distributors"
+      "distributors"
     ],
-    "fit_rationale": "The dominant wholesaler into German petrol stations and kiosks, the main impulse channel for sweets and snacks around Jena. A listing would put Diablo bars and sweets in front of thousands of outlets at once. It is a large REWE group business, so expect a formal category listing process rather than an owner decision.",
+    "fit_rationale": "The leading supplier of sweets and snacks to petrol stations and kiosks in Central Germany, including around Jena, and it runs a newcomer products section. A large REWE Group business, so listing is central and slower than with an owner-run importer.",
     "what_they_do_well": [
-      "Serves around 60,000 sales outlets from 14 German logistics centres.",
-      "Borna centre supplies about 3,400 petrol station, kiosk and drinks store customers across Central Germany."
+      "Supplies around 40,000 outlets in Germany from 12 logistics centres with 368 own vehicles.",
+      "Its Borna logistics centre serves about 3,400 petrol station, kiosk and DIY store customers across Central Germany (2015 report)."
     ],
-    "distributes": "Sweets, savoury snacks, ice cream, fresh food, soft and alcoholic drinks, tobacco, own brand lines and non-food for on-the-go retail.",
-    "channels_supplied": "Petrol station shops, kiosks, convenience stores, drinks specialist stores, DIY stores and organised foodservice; Central Germany including the Jena area is served from its Borna (Leipzig) logistics centre.",
+    "distributes": "Confectionery, snacks, beverages, coffee, tobacco, food service, private label and non-food.",
+    "channels_supplied": "Petrol station shops, convenience stores, kiosks, coffee shops and charging stations; about 40,000 outlets in Germany. Borna logistics centre serves Central Germany.",
     "sf_brands_carried": "",
-    "added": "2026-10-15",
-    "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "leonhard-saalfrank.de": {
     "name": "Leonhard & Saalfrank GmbH & Co. KG",
@@ -3809,19 +3901,19 @@
   },
   "metro.de": {
     "name": "METRO Deutschland (METRO Erfurt)",
-    "based_out_of": "Düsseldorf, Germany",
+    "based_out_of": "Dusseldorf, Germany",
     "market": "Jena, Germany",
     "category": "Distributors",
     "channels": [
-      "Distributors"
+      "distributors"
     ],
-    "fit_rationale": "Independent shops and kiosks in Jena restock at cash and carry, so a METRO listing widens reach to small retailers. Listing decisions are central and slow, and no Jena store was confirmed.",
+    "fit_rationale": "The nearest METRO to Jena, and the main cash and carry alternative since Selgros Erfurt closed. Listing is decided centrally, so this is a slower route than an owner-run importer.",
     "what_they_do_well": [],
-    "distributes": "Cash and carry food and non-food including confectionery, groceries, fresh food and catering supplies.",
-    "channels_supplied": "Caterers, independent retailers, kiosks and self-employed business customers; nearest confirmed store is Linderbacher Weg, Erfurt, about 50 km from Jena.",
+    "distributes": "Full range food and drink cash and carry, including confectionery and snacks.",
+    "channels_supplied": "Restaurants, caterers, kiosks and independent retailers buying at the Erfurt market (Linderbacher Weg 32) and through delivery.",
     "sf_brands_carried": "",
-    "added": "2026-10-15",
-    "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "metro.fr": {
     "name": "Metro France",
@@ -4081,18 +4173,18 @@
     "market": "Jena, Germany",
     "category": "Distributors",
     "channels": [
-      "Distributors"
+      "distributors"
     ],
-    "fit_rationale": "The regional organic wholesaler for Thuringia, reaching the health food shops in Jena that suit a stevia sweetened range. Two caveats: it filed for restructuring in self-administration on 5 September 2026 and is seeking an investor, and organic wholesalers usually list only certified organic products, which may exclude most Diablo lines.",
+    "fit_rationale": "The regional organic wholesaler for Thuringia, reaching Jena's organic and health food shops. Flagged: it entered a self-administered restructuring in September 2026 and probably stocks certified organic goods only.",
     "what_they_do_well": [
-      "Supplies around 12,000 organic products from logistics centres in Erfurt and Schkeuditz and kept trading through its 2026 restructuring."
+      "Has supplied organic shops, farm shops and caterers in Thuringia, Saxony and Saxony-Anhalt since 2003, with over 12,000 items."
     ],
-    "distributes": "Around 12,000 organic and natural food lines, including about 2,000 fresh items, with confectionery and snacks.",
-    "channels_supplied": "Organic shops, farm shops, delivery services, restaurants and catering in Thuringia, Saxony, southern Saxony-Anhalt and northern Bavaria.",
+    "distributes": "Full range organic and natural food wholesale, over 12,000 items including about 2,000 fresh lines.",
+    "channels_supplied": "Organic shops, farm shops, delivery services and caterers in Thuringia, Saxony, southern Saxony-Anhalt and northern Bavaria.",
     "sf_brands_carried": "",
-    "added": "2026-10-15",
-    "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json",
-    "import_check": "Apollo holds nobody with an email at this website"
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "nicandali.ie": {
     "name": "Nic & Ali",
@@ -4190,6 +4282,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "noris-tabak.de": {
+    "name": "Noris Tabak & Convenience GmbH",
+    "based_out_of": "Nurnberg, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Convenience wholesaler with sweets and snacks in its core range and a warehouse in Kassel, within reach of Jena. A sugar free line would broaden its kiosk offer, though tobacco remains its anchor.",
+    "what_they_do_well": [
+      "Delivers nationwide up to five times a week from warehouses in Nurnberg, Leverkusen and Kassel."
+    ],
+    "distributes": "Confectionery, snacks, beverages, spirits, coffee and tobacco, plus convenience non-food.",
+    "channels_supplied": "Press and tobacco retailers and other resale outlets, delivered nationwide up to five times a week. Thuringia not named but covered by the nationwide claim.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "nourish.ie": {
     "name": "Nourish",
@@ -4876,18 +4986,18 @@
     "market": "Jena, Germany",
     "category": "Distributors",
     "channels": [
-      "Distributors"
+      "distributors"
     ],
-    "fit_rationale": "A family owned importer whose business is placing foreign specialty brands on German retail shelves with its own field sales. Its range is broad and delicatessen led, so sugar free confectionery would be a new segment rather than a clash. Good second wave target after the confectionery specialists.",
+    "fit_rationale": "An established owner-run importer that takes on foreign brands exclusively and sells them in with its own field sales team, a model that suits Diablo's spreads and syrups. Its focus is savoury and ethnic food, so confectionery would be a new push.",
     "what_they_do_well": [
-      "Family business in its 51st year in 2020, still run by the founding Richter family.",
-      "Long-standing field sales team works at the point of sale to build brands such as Goutess and Spice Islands."
+      "Over 50 years sourcing international speciality foods from its base in East Westphalia.",
+      "Uses its own field sales team to place newly taken-on brands at store level."
     ],
-    "distributes": "Imported confectionery and snacks, ethnic food, delicatessen, spreads, organic and health food, spices and frozen food.",
-    "channels_supplied": "German food retail via its own point of sale field sales team, plus wholesale, cash and carry, gastronomy and a consumer online shop; national coverage includes Thuringia but no Jena specific customer was named.",
-    "sf_brands_carried": "",
-    "added": "2026-10-15",
-    "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
+    "distributes": "Imported speciality foods: sauces, spreads, snacks and sweet specialities, world cuisines and organic lines.",
+    "channels_supplied": "Wholesale, food service and its own online shop; field sales work at store level. Thuringian customers not named.",
+    "sf_brands_carried": "Online shop has a no added sugar filter; brands within it not identified.",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "ripley.com.pe": {
     "name": "Ripley Peru",
@@ -5523,6 +5633,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "tabacon.de": {
+    "name": "tabacon TABAKWAREN GmbH & Co. KG",
+    "based_out_of": "Ronneburg, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Family owned Thuringian wholesaler about 50 km from Jena with a decision maker who can be reached, already adding sweets to kiosk and petrol station deliveries. Sugar free sweets would be a differentiated add-on to a range that is still mostly tobacco.",
+    "what_they_do_well": [
+      "Family owned wholesaler supplying over 2,700 shops, kiosks and petrol stations from Rugen to Passau with more than 4,000 items.",
+      "Reported sales above 380 million euros, with branches in Berlin and Nurnberg as well as Ronneburg."
+    ],
+    "distributes": "Tobacco (about 98 percent of sales), confectionery, drinks and spirits, smoking accessories and prepaid cards.",
+    "channels_supplied": "Shops, kiosks and petrol stations across eastern Germany and Bavaria, from a Thuringian base near Gera.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "tambo.pe": {
     "name": "Tambo (Lindcorp)",
     "based_out_of": "Lima, Peru",
@@ -5856,6 +5986,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "uplegger.de": {
+    "name": "Uplegger Food Company GmbH",
+    "based_out_of": "Langenhagen, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Full service sales and distribution partner for international brands, with a track record bringing in British brands such as Gu and Cathedral City. It works only in chilled and frozen goods, so it fits only if Diablo had a chilled line.",
+    "what_they_do_well": [
+      "Represents over 20 chilled and frozen brands, including Franui and The Vegetarian Butcher, for German, Austrian and Swiss retail."
+    ],
+    "distributes": "Chilled and frozen brands: dairy, cheese, desserts, ice cream, convenience and plant-based foods.",
+    "channels_supplied": "National and regional retail headquarters, independent retailers and selected food service and online customers in Germany, Austria and Switzerland.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
+  },
   "uwgl.co.uk": {
     "name": "United Wholesale Grocers Ltd (UWG)",
     "based_out_of": "Glasgow, United Kingdom",
@@ -5912,6 +6060,24 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "verbund.edeka": {
+    "name": "EDEKA Nordbayern-Sachsen-Thueringen",
+    "based_out_of": "Rottendorf, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "The regional wholesale arm that stocks EDEKA and Marktkauf stores in and around Jena, so a regional listing here puts Diablo on Jena shelves. Independent EDEKA retailers can also take regional lines, but central category management makes it slower.",
+    "what_they_do_well": [
+      "Supplies about 865 EDEKA, E center, Marktkauf and diska stores across Thuringia, Saxony and northern Bavaria (2020 figures)."
+    ],
+    "distributes": "Full range grocery wholesale, including confectionery, to EDEKA, E center, Marktkauf and diska stores.",
+    "channels_supplied": "About 865 stores in northern Bavaria, northern Baden-Wurttemberg, Thuringia and Saxony, many run by independent EDEKA retailers (2020).",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "verdenaturalmarket.pe": {
     "name": "Verde Natural Market",
@@ -6144,6 +6310,24 @@
     "sf_brands_carried": "Koochikoo sugar free candies, Amazonia erythritol and monk fruit sweeteners, Schar, Bob's Red Mill, Nature's Path; runs a dedicated sugar free category.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "worldofsweets.de": {
+    "name": "World of Sweets GmbH",
+    "based_out_of": "Henstedt-Ulzburg, Germany",
+    "market": "Jena, Germany",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Carries over 830 sweet brands including British ones such as Cadbury and supplies resellers, so it could place Diablo with small shops in Jena. It is mainly an online retailer, which makes it a conditional wholesale route.",
+    "what_they_do_well": [
+      "Runs one of Germany's largest online sweet shops, with over 9,000 items from more than 830 brands."
+    ],
+    "distributes": "Confectionery from around the world (gummies, chocolate, liquorice, hard candy), salty snacks, drinks and cereals.",
+    "channels_supplied": "Own online shop plus B2B supply to resellers, retailers and large customers across Germany, with no minimum order.",
+    "sf_brands_carried": "",
+    "added": "2026-10-19",
+    "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
   "wwfoods.ie": {
     "name": "World Wide Foods",
