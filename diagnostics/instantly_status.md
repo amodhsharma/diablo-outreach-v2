@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-19T12:37:22+00:00 (UTC).
+Checked 2026-10-19T13:31:30+00:00 (UTC).
 
 ## Mailboxes
 
@@ -28,8 +28,8 @@ Checked 2026-10-19T12:37:22+00:00 (UTC).
 | dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Dana - | 30 | none |
 | elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (55 of 55) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
-| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (4 of 4) | Joshua - | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (57 of 57) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
+| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (6 of 6) | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (7 of 7) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
 | sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (48 of 48) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
@@ -81,8 +81,8 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Link tracking: off
 - Open tracking: off
 - Leads: 4
-  - 3 Completed, emailed
-  - 1 Completed, emailed, replied
+  - 2 Completed, emailed, replied
+  - 2 Completed, emailed
 - Emails in the sequence: 1 (characters in each body: [2209])
 
 
@@ -96,24 +96,19 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 3 contacts approved to send
-- Waiting: contact 895430468813 (a***@diablosugarfree.com) at Rila Feinkost-Importe GmbH & Co. KG: the company's last email was under 3 days ago (one email every 3 days per company)
+- 2 contacts approved to send
 - Waiting: contact 895438950643 (c***@gmail.com) at Uplegger Food Company GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
 - Waiting: contact 895435143364 (a***@gmail.com) at EDEKA Nordbayern-Sachsen-Thueringen: the company's last email was under 3 days ago (one email every 3 days per company)
-- 3 approved contacts wait their turn (one person per company at a time)
+- 2 approved contacts wait their turn (one person per company at a time)
 
 ## Where every company is in its loop
 
-- **Rila Feinkost-Importe GmbH & Co. KG**: next is the next email, 3 days after the last one, due 22 Oct 18:07 IST
 - **Uplegger Food Company GmbH**: next is the next email, 3 days after the last one, due 22 Oct 18:07 IST
 - **EDEKA Nordbayern-Sachsen-Thueringen**: next is the next email, 3 days after the last one, due 22 Oct 18:07 IST
 - **Azad Food GmbH**: next is the next email, 3 days after the last one, due 22 Oct 17:36 IST
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
 |---|---|---|---|---|
-| Rila Feinkost-Importe GmbH & Co. KG | 1 | Purchasing Manager | Attempted to Contact | 19 Oct 17:42 IST |
-| Rila Feinkost-Importe GmbH & Co. KG | 2 | District Manager | Forward sent | 19 Oct 18:07 IST |
-| Rila Feinkost-Importe GmbH & Co. KG | 3 | Social Media-Manager | GATE2: Approved to send | not yet |
 | Uplegger Food Company GmbH | 1 | Head of Sales | Attempted to Contact | 19 Oct 17:51 IST |
 | Uplegger Food Company GmbH | 2 | Head of Supply Chain | Forward sent | 19 Oct 18:07 IST |
 | Uplegger Food Company GmbH | 3 | Sales Manager Nederland - Agency | GATE2: Approved to send | not yet |
