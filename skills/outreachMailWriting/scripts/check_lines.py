@@ -24,7 +24,11 @@ OPTIONAL_KEYS = ["subject_line", "style", "company_note"]
 # The company note (15 Oct 2026) finishes "we noticed <company name> ..." in template 3.
 NOTE_BANNED = ("organic", "non-food", "nonfood", "catering", "caterers", "caterer", "gastronomy", "foodservice",
                "food service", "restaurants", "restaurant", "hotels", "raw materials", "ingredients", "cosmetics",
-               "drugstore", "tobacco", "alcohol", "wine", "beer", "fresh food", "lines", "articles")
+               "drugstore", "tobacco", "alcohol", "wine", "beer", "fresh food", "lines", "articles",
+               # We do not sell ingredients (19 Oct 2026): never bakers, kitchens or other food makers.
+               "ingredient", "bakery", "bakeries", "baker", "bakers", "baking", "pastry", "patisserie",
+               "pâtisserie", "canteen", "canteens", "kitchen", "kitchens", "chef", "chefs", "cooking",
+               "food manufacturers", "food manufacturer", "food professionals", "grocery products")
 NOTE_WORDS = (4, 12)  # 4 to 25 until 15 Oct 2026; lines_prompt_3.md asks for a short note
 
 SUBJECT_WORDS = (3, 7)
@@ -133,8 +137,8 @@ def note_problems(errors, where, note, company):
     low_note = note.lower()
     for word in NOTE_BANNED:  # nothing unrelated to sweets and snacks (19 Oct 2026, strain test)
         if re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", low_note):
-            errors.append(f'{where}: the company note mentions "{word}", which has nothing to do with our range; '
-                          "write about the sweets, snacks or shops instead")
+            errors.append(f'{where}: the company note mentions "{word}", which has nothing to do with our range '
+                          "(and we do not sell ingredients); write about the sweets, snacks or shops instead")
     if re.search(r"\d", note):
         errors.append(f"{where}: the company note must not contain numbers")
     if note.count(",") > 1:

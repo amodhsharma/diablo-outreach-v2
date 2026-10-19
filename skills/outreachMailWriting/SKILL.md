@@ -74,7 +74,10 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt_4.md` (in use from 19 Oct 2026): the company note (4 to 12 words, always about
+- `prompts/lines_prompt_5.md` (in use from 19 Oct 2026): the same as lines_prompt_4.md, plus the rule
+  that we do not sell ingredients: the note never names bakeries, bakers, canteens, kitchens or other
+  food makers as customers, and never says "grocery products".
+- `prompts/lines_prompt_4.md` (used until 19 Oct 2026): the company note (4 to 12 words, always about
   sweets, snacks or the shops where they sell; never organic, catering, non-food and the like; no
   places or numbers) and the personal line with its four styles. `prompts/lines_prompt_3.md`,
   `prompts/lines_prompt_2.md` and `prompts/lines_prompt.md` are the earlier versions, kept unchanged

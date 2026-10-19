@@ -367,7 +367,7 @@ def test_writing_prompt_4_keeps_the_note_on_sweets():
     new = (skill / "prompts" / "lines_prompt_4.md").read_text()
     assert "organic, non-food, catering" in new and "## The four styles" in new
     assert "6 to 25 words" in (skill / "prompts" / "lines_prompt_2.md").read_text()  # older prompts unchanged
-    assert 'prompts" / "lines_prompt_4.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    assert (skill / "prompts" / "lines_prompt_5.md").exists()
     base = {"contact_id": "1", "company_name": "Alpenhof Import AG", "style": "D",
             "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business."}
     def problems(note):
@@ -379,3 +379,25 @@ def test_writing_prompt_4_keeps_the_note_on_sweets():
     assert any("numbers" in e for e in problems("supplies sweets to 1,500 kiosks"))
     assert problems("supplies confectionery and snacks to kiosks and petrol stations") == []
     assert problems("supplies health food shops with snacks") == []
+
+
+def test_writing_prompt_5_we_do_not_sell_ingredients():
+    """19 Oct 2026: "supplies grocery products to bakeries" made Diablo sound like an ingredient supplier."""
+    from pathlib import Path
+    import check_lines
+    skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
+    new = (skill / "prompts" / "lines_prompt_5.md").read_text()
+    assert "We do not sell ingredients" in new and "## The four styles" in new
+    assert "We do not sell ingredients" not in (skill / "prompts" / "lines_prompt_4.md").read_text()  # kept as it was
+    assert 'prompts" / "lines_prompt_5.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    base = {"contact_id": "1", "company_name": "Alpenhof Import AG", "style": "D",
+            "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business."}
+    def problems(note):
+        errs = []
+        check_lines.check_line(errs, dict(base, company_note=note))
+        return errs
+    for note in ("supplies grocery products to bakeries", "supplies snacking products to artisan bakers",
+                 "runs cash and carry stores for food professionals", "supplies canteens and kitchens"):
+        assert problems(note), note
+    assert problems("runs cash and carry stores") == []
+    assert problems("carries snacks and confectionery for independent shops") == []

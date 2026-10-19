@@ -140,10 +140,10 @@ def main(argv=None):
         "contacts": batch,
     }
     (WORK / "batch.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    # lines_prompt_4.md (19 Oct 2026, after the strain test): the company note is always about sweets,
-    # snacks or the shelves where they sell, never organic, catering, non-food and the like.
-    # lines_prompt_3.md, lines_prompt_2.md and lines_prompt.md are kept unchanged beside it.
-    prompt = (SKILL / "prompts" / "lines_prompt_4.md").read_text(encoding="utf-8")
+    # lines_prompt_5.md (19 Oct 2026): as lines_prompt_4.md, plus "we do not sell ingredients": the
+    # company note never names bakeries, kitchens or other food makers as customers.
+    # lines_prompt_4.md, lines_prompt_3.md, lines_prompt_2.md and lines_prompt.md are kept unchanged.
+    prompt = (SKILL / "prompts" / "lines_prompt_5.md").read_text(encoding="utf-8")
     prompt = prompt.replace("{{count}}", str(len(batch)))
     prompt = prompt.replace("{{contacts_json}}", json.dumps(batch, indent=2, ensure_ascii=False))
     (WORK / "prompt.md").write_text(prompt, encoding="utf-8")
