@@ -14,7 +14,10 @@ LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": 
                        "IN_PROGRESS": "In Progress", "UNQUALIFIED": "Unqualified",
                        "ATTEMPTED_TO_CONTACT": "Attempted to Contact", "WON": "WON",
                        "NEW_PERSONAL_LINE_FILLED": "New, Personal line filled", "APPROVED_TO_SEND": "GATE2: Approved to send",
-                       "FORWARD_SENT": "Forward sent", "REMINDER_SENT": "Reminder sent"}
+                       "FORWARD_SENT": "Forward sent", "REMINDER_SENT": "Reminder sent",
+                       "COLLEAGUE_REPLIED_POSITIVE": "Colleague replied: positive",
+                       "COLLEAGUE_REPLIED_NEGATIVE": "Colleague replied: negative",
+                       "COLLEAGUE_REPLIED": "Colleague replied"}
 
 
 class FakeCRM(TagGuard):
@@ -145,6 +148,11 @@ class FakeApollo:
 
 
 class FakeInstantly:
+    blocked = set()
+
+    def blocklist(self):
+        return set(self.blocked)
+
     def __init__(self):
         self.campaigns = {}
         self.leads = {}

@@ -141,7 +141,9 @@ send:
     min_days_same_person: 7
     # Instantly forwards an email with our note on top. If the test shows the earlier email is not
     # included underneath, set this to true and Sync adds it itself.
-    forward_include_original: false
+    # The strain test (19 Oct 2026) showed Instantly's forward does NOT include the earlier email, so
+    # Sync adds it underneath (From, Date, Subject, To, then the email), as an email program does.
+    forward_include_original: true
   # Instantly's own reminder step stays off: Sync sends the forwards and the reminder.
   follow_up:
     enabled: false
@@ -160,19 +162,22 @@ send:
   # catalogue link and the booking link in the signature). template_2.json is kept unchanged;
   # to go back, put templates/template_2.json here again.
   templates:
-    first_email: templates/template_3.json
+    # From 19 Oct 2026 (strain test fixes): the *_3, _4 and apollo_2 files greet with the full name, put
+    # "Book a quick meeting" above the signature, give the signature its grey line on the left, and the
+    # first emails add a hidden inbox preview line. The earlier files are kept unchanged.
+    first_email: templates/template_4.json
     # Persons 2 to 4: forward_2.json from 19 Oct 2026 (Ariel): a short note giving the company note as the
     # reason, then "we believe your company would be the right fit for us". forward.json is kept unchanged.
-    forward: templates/forward_2.json
+    forward: templates/forward_3.json
     # Person 1's one reminder: follow_up_2.json from 15 Oct 2026 (Ariel's "Bad Jokes" email, sent as
     # its own email with its own subject). follow_up.json is kept unchanged; put it back here to undo.
-    reminder: templates/follow_up_2.json
+    reminder: templates/follow_up_3.json
     follow_up: templates/follow_up.json
     # Company inboxes (19 Oct 2026): when Apollo holds nobody, the contact address on the company's
     # website is emailed instead, greeting "Hello <company> team" and asking them to pass it on.
     # Its own first email (own campaign each month, see company_inbox below) and its own reminder.
-    first_email_company_inbox: templates/template_no_info_apollo_1.json
-    reminder_company_inbox: templates/follow_up_no_info_apollo_1.json
+    first_email_company_inbox: templates/template_no_info_apollo_2.json
+    reminder_company_inbox: templates/follow_up_no_info_apollo_2.json
   company_inbox:
     # The month's company inbox campaign, e.g. "Diablo | OCT2026 | Company inboxes". Created
     # paused by button 4 like the main one; add its mailboxes in Instantly the same way.

@@ -22,6 +22,9 @@ LINE_KEYS = ["contact_id", "company_name", "personal_line"]
 # which style each line was written in.
 OPTIONAL_KEYS = ["subject_line", "style", "company_note"]
 # The company note (15 Oct 2026) finishes "we noticed <company name> ..." in template 3.
+NOTE_BANNED = ("organic", "non-food", "nonfood", "catering", "caterers", "caterer", "gastronomy", "foodservice",
+               "food service", "restaurants", "restaurant", "hotels", "raw materials", "ingredients", "cosmetics",
+               "drugstore", "tobacco", "alcohol", "wine", "beer", "fresh food", "lines", "articles")
 NOTE_WORDS = (4, 12)  # 4 to 25 until 15 Oct 2026; lines_prompt_3.md asks for a short note
 
 SUBJECT_WORDS = (3, 7)
@@ -127,6 +130,13 @@ def note_problems(errors, where, note, company):
     n = len(_words(note))
     if not NOTE_WORDS[0] <= n <= NOTE_WORDS[1]:
         errors.append(f"{where}: company note must be {NOTE_WORDS[0]} to {NOTE_WORDS[1]} words (found {n})")
+    low_note = note.lower()
+    for word in NOTE_BANNED:  # nothing unrelated to sweets and snacks (19 Oct 2026, strain test)
+        if re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", low_note):
+            errors.append(f'{where}: the company note mentions "{word}", which has nothing to do with our range; '
+                          "write about the sweets, snacks or shops instead")
+    if re.search(r"\d", note):
+        errors.append(f"{where}: the company note must not contain numbers")
     if note.count(",") > 1:
         errors.append(f"{where}: company note may have at most one comma (one short fact)")
     if not note.strip()[0].islower():

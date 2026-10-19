@@ -36,7 +36,7 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE
-from .stages import LeadStatus, forward
+from .stages import COLLEAGUE_STAGES, TEAM, LeadStatus, forward
 
 
 def lead_result(lead):
@@ -56,6 +56,56 @@ def lead_result(lead):
     return "in_outreach", None, "emailed" if lead.get("timestamp_last_contact") else "queued"
 
 
+def read_blocklist(*clients, log=print):
+    """Instantly's blocklist (addresses and domains), or an empty set when it cannot be read. Tries
+    each key in turn (the main key first, then the emails key)."""
+    problem = "no Instantly key can read it"
+    for client in clients:
+        if client is None or not hasattr(client, "blocklist"):
+            continue
+        try:
+            return client.blocklist()
+        except Exception as err:
+            problem = str(err)[:200]
+    log(f"WARNING: Instantly's blocklist could not be read ({problem}); an address only blocklisted "
+        "(not marked unsubscribed) would not stop its company this run")
+    return set()
+
+
+def is_blocked(email, blocked):
+    """True when the address, or its whole domain, is on Instantly's blocklist."""
+    email = (email or "").strip().lower()
+    if not email or not blocked:
+        return False
+    domain = email.rsplit("@", 1)[-1]
+    return email in blocked or domain in blocked or ("@" + domain) in blocked
+
+
+# What the rest of a company shows once someone there has answered (agreed 19 Oct 2026).
+COLLEAGUE_STAGE = {"marked interested": "colleague_positive", "replied": "colleague_replied",
+                   "marked not interested": "colleague_negative", "unsubscribed": "colleague_negative",
+                   "blocklisted": "colleague_negative"}
+
+
+def mark_colleagues(hs, statuses, company_contacts, answered_ids, stage, log=print, name=""):
+    """Give everyone at the company who has not answered themselves the colleague Lead Status, so
+    gate 2 no longer shows them as waiting. Skipped quietly when the account lacks the choice
+    (button 1 not run since 19 Oct 2026)."""
+    if not statuses.has("contacts", stage):
+        log(f"{name}: the Lead Status choice for colleagues is missing; run button 1 to add it")
+        return []
+    answered = {str(i) for i in answered_ids}
+    updates = []
+    for c in company_contacts:
+        current = statuses.of("contacts", c)
+        if str(c["id"]) in answered or current in ("replied", "closed", TEAM) + COLLEAGUE_STAGES:
+            continue
+        updates.append((c["id"], statuses.props("contacts", stage)))
+    if updates:
+        hs.update_tagged("contacts", updates)
+    return updates
+
+
 def run(target, settings, hs, instantly, log=print, emails_api=None):
     check_target(hs, target)
     statuses = LeadStatus(hs)
@@ -66,6 +116,7 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
 
     # Only AUTO-OUTREACH contacts come back from tagged_read; any other email is ignored.
     rows = hs.tagged_read("contacts", list(leads), ["email", LEAD_STATUS], id_property="email")
+    blocked = read_blocklist(instantly, emails_api, log=log)
     contact_updates, changed = [], []
     for r in rows:
         p = r.get("properties", {})
@@ -73,6 +124,9 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         if not lead:
             continue
         new, company_stage, event = lead_result(lead)
+        if is_blocked(p.get("email"), blocked) and new not in ("closed", "replied"):
+            # Blocklisted in Instantly counts as an opt-out (19 Oct 2026): the company stops.
+            new, company_stage, event = "closed", "closed", "blocklisted"
         old = statuses.of("contacts", r)
         if not forward(old, new):
             continue
@@ -108,8 +162,20 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
             if forward(now_stage, stage):
                 company_updates[company_id] = statuses.props("companies", stage)
         hs.update_tagged("companies", list(company_updates.items()))
+        # Everyone else at a company that has answered gets a Lead Status saying so (19 Oct 2026).
+        if company_updates:
+            everyone = contacts_by_company(hs, list(company_updates))
+            for company_id in company_updates:
+                events = [c["event"] for c in ups if owner_of.get(str(c["contact_id"])) == company_id]
+                answered = [c["contact_id"] for c in ups if owner_of.get(str(c["contact_id"])) == company_id]
+                kind = ("colleague_positive" if "marked interested" in events else
+                        "colleague_negative" if any(COLLEAGUE_STAGE.get(e) == "colleague_negative" for e in events)
+                        else "colleague_replied")
+                mark_colleagues(hs, statuses, everyone.get(company_id) or [], answered, kind, log,
+                                (current.get(company_id) or {}).get("properties", {}).get("name", ""))
 
-    moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads)
+    moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads,
+                    blocked=blocked)
     out_dir = run_dir("sync")
     write_json(out_dir / "changes.json", {"contacts": changed, "companies": company_updates,
                                           "next_in_line": moved})
@@ -229,9 +295,28 @@ def forward_email(person, company, settings, notes=None, colleague="", original=
     html, text = _fill(paths.get("forward") or "templates/forward.json", person, company, settings, notes,
                        {"colleague_name": colleague}, mailbox=mailbox)
     if original is not None and (settings["send"].get("rotation") or {}).get("forward_include_original"):
-        body = original.get("body") or {}
-        html += "<div><br></div><div>---------- Forwarded message ----------</div>" + (body.get("html") or "")
-        text += "\n\n---------- Forwarded message ----------\n" + (body.get("text") or "")
+        html, text = add_forwarded(html, text, original)
+    return html, text
+
+
+def add_forwarded(html, text, original):
+    """The earlier email underneath, as an email program shows a forward (switched on 19 Oct 2026:
+    the strain test showed Instantly's forward does not include it by itself)."""
+    body = original.get("body") or {}
+    when = parse_time(original.get("timestamp_email") or original.get("timestamp_created"))
+    to = original.get("to_address_email_list") or ""
+    to = ", ".join(to) if isinstance(to, (list, tuple)) else str(to)
+    head = [("From", original.get("from_address_email") or original.get("eaccount") or ""),
+            ("Date", when.strftime("%a, %d %b %Y at %H:%M UTC") if when else ""),
+            ("Subject", original.get("subject") or ""), ("To", to)]
+    head = [(k, v) for k, v in head if v]
+    orig_html = body.get("html") or html_lib.escape(body.get("text") or "").replace("\n", "<br>")
+    orig_text = body.get("text") or re.sub(r"<[^>]+>", "", (body.get("html") or "").replace("<br>", "\n"))
+    html += ("<div><br></div><div>---------- Forwarded message ---------</div>"
+             + "".join(f"<div>{k}: {html_lib.escape(v)}</div>" for k, v in head)
+             + "<div><br></div>" + orig_html)
+    text += ("\n\n---------- Forwarded message ---------\n" + "".join(f"{k}: {v}\n" for k, v in head)
+             + "\n" + orig_text)
     return html, text
 
 
@@ -307,7 +392,8 @@ def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None):
             + "\n".join(people) + "\n")
 
 
-def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statuses=None, leads=None):
+def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statuses=None, leads=None,
+            blocked=None):
     """Move each AUTO-OUTREACH company in outreach on through its one loop when the next email is due."""
     statuses = statuses or LeadStatus(hs)
     if leads is None:
@@ -339,9 +425,21 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                     contact_updates.append((c["id"], statuses.props("contacts", "replied")))
             if forward(statuses.of("companies", company), "replied"):
                 company_updates.append((company["id"], statuses.props("companies", "replied")))
+            mark_colleagues(hs, statuses, contacts, replied, "colleague_replied", log, name)
             result["replied"] += 1
             sent_rows.append(f"| {name} | - | Reply received: nobody else there is emailed |")
             log(f"{name}: someone replied; nobody else there is emailed")
+            continue
+        opted_out = [c for c in contacts if is_blocked(c["properties"].get("email"), blocked)]
+        if opted_out:  # blocklisted in Instantly (19 Oct 2026): an opt-out, so the company stops
+            for c in opted_out:
+                if forward(statuses.of("contacts", c), "closed"):
+                    contact_updates.append((c["id"], statuses.props("contacts", "closed")))
+            if forward(statuses.of("companies", company), "closed"):
+                company_updates.append((company["id"], statuses.props("companies", "closed")))
+            mark_colleagues(hs, statuses, contacts, [c["id"] for c in opted_out], "colleague_negative", log, name)
+            sent_rows.append(f"| {name} | - | Blocklisted in Instantly: company Unqualified, nobody else emailed |")
+            log(f"{name}: someone there is on Instantly's blocklist; the company is now Unqualified")
             continue
         due, why = decide(contacts, statuses.of("companies", company), gap, now,
                           touches=touches, min_same_days=min_same)
@@ -367,6 +465,10 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 log(f"{name}: the next person cannot be emailed yet (no earlier email to forward, or no "
                     f"{label}); will try again next run")
                 continue
+            if not ((chain.get("body") or {}).get("html") or (chain.get("body") or {}).get("text")):
+                full = emails_api.get_email(chain["id"]) if hasattr(emails_api, "get_email") else None
+                if full:  # the list of emails may leave out the body; read the one email in full
+                    chain = {**chain, **full}
             html, text = forward_email(due, props, settings, notes, colleague=_name(prev), original=chain)
             first = min((e for es in history.values() for e in es),
                         key=lambda e: _sent_time(e) or parse_time("2999-01-01"), default=chain)

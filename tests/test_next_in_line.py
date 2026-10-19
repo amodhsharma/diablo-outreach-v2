@@ -85,7 +85,7 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     assert fwd["to"] == "p2@noble.in" and fwd["of"]["id"] == emails.emails[0]["id"]
     assert fwd["subject"] == "Fwd: Partnering to establish Diablo"
     # forward_2.json (19 Oct 2026): the company note is the reason, then the fit and the call.
-    assert ("Hi P2,\n\nA few days ago I wrote to your colleague P1 L1, as we noticed Noble Foods imports European "
+    assert ("Hi P2 L2,\n\nA few days ago I wrote to your colleague P1 L1, as we noticed Noble Foods imports European "
             "sweets. We do not yet have a direct partner in India, and we believe your company would be the right "
             "fit for us.\n\nMy earlier note is below, and our catalogue is here:") in fwd["text"]
     assert "Would this week work for a short call with our Strategy Director, or would next week suit better?" in fwd["text"]
@@ -116,10 +116,10 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     rem = emails.replies[0]
     # Under person 1's own first email (not the forwards), with its own subject (follow_up_2, 15 Oct 2026).
     assert rem["to"]["id"] == emails.emails[0]["id"] and rem["subject"] == "Bad Jokes + Europe's largest Brand"
-    assert "Hi P1,\n\nI imagine your inbox is about as full as a regular chocolate bar is of sugar." in rem["text"]
+    assert "Hi P1 L1,\n\nI imagine your inbox is about as full as a regular chocolate bar is of sugar." in rem["text"]
     assert "I hope that bad joke buys me another email :)" in rem["text"]
     assert "Would this week work, or would next week suit better?" in rem["text"]
-    assert "Joshua\nInternational Account Executive\nDiablo Sugar Free\nBook a quick meeting with us: " in rem["text"]
+    assert "Book a quick meeting with us: " in rem["text"] and "Best regards,\n| Joshua\n| International Account Executive\n| Diablo Sugar Free" in rem["text"]
     assert "colleague" not in rem["text"] and "{{" not in rem["text"] and "privacy" not in rem["text"].lower()
 
     # Persons 2 and 3 never get a second email; 3 days after the reminder the company is Unqualified.
@@ -139,7 +139,8 @@ def test_a_reply_to_a_forward_stops_the_company(settings):
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["replied"] == 1 and moved["forwards_sent"] == 0
     assert status_of(hs, p2) == "IN_PROGRESS" and hs.records["companies"][cid][LS] == "In Progress"
-    assert status_of(hs, p3) == "APPROVED_TO_SEND"  # never emailed
+    # Never emailed; since 19 Oct 2026 the others show that a colleague answered, not gate 2.
+    assert status_of(hs, p3) == "COLLEAGUE_REPLIED" and status_of(hs, p1) == "COLLEAGUE_REPLIED"
 
 
 def test_a_reply_through_the_campaign_also_stops_everyone(settings):
@@ -323,10 +324,53 @@ def test_info_mailbox_is_a_sending_account():
 
 def test_the_forward_waits_for_the_company_note_and_the_old_template_still_works(settings):
     """forward_2.json needs the Outreach company note; forward.json (kept unchanged) the personal line."""
-    assert settings["send"]["templates"]["forward"] == "templates/forward_2.json"
+    assert settings["send"]["templates"]["forward"] == "templates/forward_3.json"
     assert sync.forward_field(settings) == ("diablo_company_note", "Outreach company note")
     settings["send"]["templates"]["forward"] = "templates/forward.json"
     assert sync.forward_field(settings) == ("diablo_personal_line", "Outreach personal line")
     p = {"properties": {"email": "p@x.example", "firstname": "P", "diablo_personal_line": "Line."}}
     html, text = sync.forward_email(p, {"name": "X GmbH", "domain": "x.example"}, settings, colleague="Q R")
     assert "In case our earlier note to your colleague Q R" in text and "Line." in text
+
+
+def test_colleagues_show_a_positive_or_negative_answer(settings):
+    """S2 and S4 of the strain test (19 Oct 2026): when person 1 answers, persons 2 and 3 are not
+    left at gate 2 but show the answer."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=0.5)
+    lead(instantly, "p1@noble.in").update(lt_interest_status=1)  # Instantly's green thumbs up
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert status_of(hs, p1) == "IN_PROGRESS" and hs.records["companies"][cid][LS] == "In Progress"
+    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_REPLIED_POSITIVE"
+
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=0.5)
+    lead(instantly, "p1@noble.in").update(lt_interest_status=-1)  # marked not interested
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "Unqualified"
+    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_REPLIED_NEGATIVE"
+
+
+def test_a_blocklisted_person_1_stops_the_company(settings):
+    """S6 of the strain test (19 Oct 2026): blocklisting in Instantly does not mark the lead
+    unsubscribed, so Sync reads the blocklist itself and nobody else is emailed."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    instantly.blocked = {"p1@noble.in"}
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["forwards_sent"] == 0 and not emails.forwards
+    assert status_of(hs, p1) == "UNQUALIFIED" and hs.records["companies"][cid][LS] == "Unqualified"
+    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_REPLIED_NEGATIVE"
+    # A whole blocklisted domain counts too, also for a colleague reached by a forward.
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    instantly.blocked = {"noble.in"}
+    assert sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)["forwards_sent"] == 0
+
+
+def test_the_forward_carries_the_earlier_email_underneath(settings):
+    """S5 of the strain test (19 Oct 2026): the forward arrived without the earlier email."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    emails.emails[0]["body"] = {"html": "<div>Hi P1, the first email</div>", "text": "Hi P1, the first email"}
+    emails.emails[0]["from_address_email"] = "sales@getdiablo-test.com"
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    fwd = emails.forwards[0]
+    assert "---------- Forwarded message ---------" in fwd["text"] and "Hi P1, the first email" in fwd["text"]
+    assert "From: sales@getdiablo-test.com" in fwd["text"] and "To: p1@noble.in" in fwd["text"]
+    assert "<div>Hi P1, the first email</div>" in fwd["html"]

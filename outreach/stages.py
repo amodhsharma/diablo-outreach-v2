@@ -16,6 +16,9 @@ account itself, so the code works whatever the account calls a choice internally
     They replied                               In Progress                   In Progress
     Any dead end (rejected, not interested,    Unqualified                   Unqualified
     no reply, opted out, bounced)
+    A colleague at the company answered for                                  "Colleague replied: positive",
+    everyone (19 Oct 2026): the others are                                   "Colleague replied: negative" or
+    never emailed and show what happened                                     "Colleague replied"
 
 Any other Lead Status (for example Emailed or Won) means a person has taken the record over:
 the pipeline treats it as "team" and stops.
@@ -42,8 +45,13 @@ STAGES = {
         "reminded": "Reminder sent",
         "replied": "In Progress",
         "closed": "Unqualified",
+        # The rest of a company once someone there has answered (agreed 19 Oct 2026).
+        "colleague_positive": "Colleague replied: positive",
+        "colleague_negative": "Colleague replied: negative",
+        "colleague_replied": "Colleague replied",
     },
 }
+COLLEAGUE_STAGES = ("colleague_positive", "colleague_negative", "colleague_replied")
 # Contact stages that mean "emailed, no reply yet" (agreed 14 Oct 2026: the forward and the
 # reminder get their own Lead Status so they can be checked in HubSpot).
 EMAILED = ("in_outreach", "forwarded", "reminded")
@@ -57,12 +65,15 @@ NEW_OPTION_VALUES = {
     "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
                  "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "Forward sent": "FORWARD_SENT",
                  "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
-                 "Unqualified": "UNQUALIFIED"},
+                 "Unqualified": "UNQUALIFIED", "Colleague replied: positive": "COLLEAGUE_REPLIED_POSITIVE",
+                 "Colleague replied: negative": "COLLEAGUE_REPLIED_NEGATIVE",
+                 "Colleague replied": "COLLEAGUE_REPLIED"},
 }
 
 # Later stages win: a status only ever moves forward.
 ORDER = {"": 0, "found": 0, "missing_info": 0, "copy_ready": 0, "approved": 0,
-         "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3}
+         "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3,
+         "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2}
 TEAM = "team"
 
 

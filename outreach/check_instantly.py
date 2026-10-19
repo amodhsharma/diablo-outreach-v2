@@ -119,6 +119,12 @@ def mailboxes_section(accounts, campaigns, analytics, settings, current_name):
         if not name:
             reasons.append("Sender name not set: emails show only the address. Set it in Instantly, "
                            "Email Accounts, the mailbox, Settings")
+        sig = settings["send"].get("signature") or {}
+        if (email in for_new and name and sig.get("name") and not sig.get("name_from_mailbox")
+                and (acc.get("first_name") or "").strip().lower() != sig["name"].strip().lower()):
+            # 19 Oct 2026: info@ showed another name than the "Joshua" its emails are signed with.
+            reasons.append(f'Sender name "{name}" does not match the signature "{sig["name"]}": set the first '
+                           f'name to {sig["name"]} in Instantly, Email Accounts, the mailbox, Settings')
         warm = (analytics or {}).get(acc.get("email")) or (analytics or {}).get(email) or {}
         inbox, spam = warm.get("landed_inbox") or 0, warm.get("landed_spam") or 0
         if inbox + spam:

@@ -118,6 +118,28 @@ class Instantly:
             if not cursor or not batch:
                 return items
 
+    def get_email(self, email_id):
+        """One email in full (body included)."""
+        try:
+            return self.request("GET", f"/emails/{email_id}")
+        except InstantlyError:
+            return None
+
+    def blocklist(self):
+        """Every address and domain on Instantly's blocklist, lower case (19 Oct 2026: a blocklisted
+        address does not change its lead's status, so the pipeline reads the list itself)."""
+        values, cursor = set(), None
+        while True:
+            params = {"limit": 100}
+            if cursor:
+                params["starting_after"] = cursor
+            data = self.request("GET", "/block-lists-entries", params=params)
+            batch = data.get("items", [])
+            values.update(str(x.get("bl_value") or "").strip().lower() for x in batch if x.get("bl_value"))
+            cursor = data.get("next_starting_after")
+            if not cursor or not batch:
+                return values
+
     def forward(self, email, to, subject, html, text):
         """Forward an email we sent to a new person, from the same mailbox (agreed 14 Oct 2026)."""
         return self.request("POST", "/emails/forward", json={

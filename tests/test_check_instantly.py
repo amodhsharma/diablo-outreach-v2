@@ -152,7 +152,7 @@ def test_template_1_is_used_and_filled():
     from outreach.common import load_settings
     from outreach.next_in_line import market_country
     s = load_settings()["send"]
-    assert s["templates"]["first_email"] == "templates/template_3.json"  # Ariel's new introduction (15 Oct 2026)
+    assert s["templates"]["first_email"] == "templates/template_4.json"  # template 3 with the 19 Oct 2026 fixes
     steps = send.sequence_steps(s)
     body, subject = steps[0]["variants"][0]["body"], steps[0]["variants"][0]["subject"]
     assert subject == "A sugar-free brand with no {{country_name}} partner yet"
@@ -160,7 +160,7 @@ def test_template_1_is_used_and_filled():
     assert "a direct partner in {{market_country}} yet" in body and "We supply more than 126 countries" in body
     assert '<a href="https://www.diablosugarfree.com/pages/catalogue-2026">diablosugarfree.com/pages/catalogue-2026</a>' in body
     assert 'Book a quick meeting with us: <a href="https://calendly.com/outreach-diablo/intro">calendly.com/outreach-diablo/intro</a>' in body
-    assert "Joshua<br/>International Account Executive<br/>Diablo Sugar Free<br/>" in body and "<hr " in body
+    assert "Joshua<br/>International Account Executive<br/>Diablo Sugar Free</div>" in body and "<hr " in body
     assert "privacy" not in body.lower() and "{{personal_line}}" not in body
     old = json.loads(open("templates/template_2.json").read())["body"]
     assert "{{personal_line}}" in old and "Initial Outreach Team" not in old  # template 2 is kept unchanged

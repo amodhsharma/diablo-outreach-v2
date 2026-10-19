@@ -357,3 +357,25 @@ def test_contacts_just_added_are_listed_even_before_search_shows_them(tmp_path):
     assert export_for_lines.run("test", hs, tmp_path / "p.json", log=quiet) == []  # what used to happen
     rows = export_for_lines.run("test", hs, tmp_path / "p.json", log=quiet, new_ids=[a, b, c])
     assert sorted(r["contact_id"] for r in rows) == sorted([str(a), str(b)])  # c already has lines
+
+
+def test_writing_prompt_4_keeps_the_note_on_sweets():
+    """Strain test, 19 Oct 2026: notes about organic food or catering said nothing about our range."""
+    from pathlib import Path
+    import check_lines
+    skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
+    new = (skill / "prompts" / "lines_prompt_4.md").read_text()
+    assert "organic, non-food, catering" in new and "## The four styles" in new
+    assert "6 to 25 words" in (skill / "prompts" / "lines_prompt_2.md").read_text()  # older prompts unchanged
+    assert 'prompts" / "lines_prompt_4.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    base = {"contact_id": "1", "company_name": "Alpenhof Import AG", "style": "D",
+            "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business."}
+    def problems(note):
+        errs = []
+        check_lines.check_line(errs, dict(base, company_note=note))
+        return errs
+    assert any('"organic"' in e for e in problems("supplies organic food to specialist shops"))
+    assert any('"catering"' in e for e in problems("serves retail and catering with wholesale"))
+    assert any("numbers" in e for e in problems("supplies sweets to 1,500 kiosks"))
+    assert problems("supplies confectionery and snacks to kiosks and petrol stations") == []
+    assert problems("supplies health food shops with snacks") == []

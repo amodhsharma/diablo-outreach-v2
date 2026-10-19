@@ -221,6 +221,8 @@ def render(text, lead):
               "companyName": lead.get("company_name") or "", **lead.get("custom_variables", {})}
     for key, value in values.items():
         text = text.replace("{{" + key + "}}", str(value))
+    # The hidden inbox preview line (template 4, 19 Oct 2026) is not part of what the reader sees.
+    text = re.sub(r'<div style="display:none[^"]*">.*?</div>', "", text)
     text = text.replace("<ul>", "\n\n").replace("</ul>", "\n\n").replace("<li>", "\u2022 ").replace("</li>", "\n")
     text = text.replace(GAP, "\n\n")
     text = re.sub(r'<div style="border-left[^"]*">(.*?)</div>',  # the signature block, shown with a bar

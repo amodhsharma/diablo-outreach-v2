@@ -129,8 +129,13 @@ def test_send_and_sync(settings):
     assert plan["queued"] == 0 and plan["campaigns"][0]["leads"] == 1
     shown = "\n".join(logs)  # the whole email, filled in, is printed in the job log
     assert "Subject: A sugar-free brand with no India partner yet" in shown  # template 3 (15 Oct 2026)
-    assert "Hi Firstp2," in shown and "as we noticed " in shown and " runs a health food aisle. We are a UK brand without a direct partner in India yet." in shown
-    assert "XXXXXX" not in shown and "Joshua\nInternational Account Executive\nDiablo Sugar Free\nBook a quick meeting with us: book.example/diablo [https://book.example/diablo]" in shown
+    # Template 4 (19 Oct 2026): the full name, the fuller line after the note, the booking link above
+    # the signature, which has its grey line; the hidden preview line is not shown.
+    assert "Hi Firstp2" in shown and "as we noticed " in shown and (" runs a health food aisle. We are a UK brand "
+           "without a direct partner in India yet, and we believe you could be the right partner for us there.") in shown
+    assert "XXXXXX" not in shown and ("Book a quick meeting with us: book.example/diablo [https://book.example/diablo]\n\n"
+                                      "Best regards,\n| Joshua\n| International Account Executive\n| Diablo Sugar Free") in shown
+    assert "looking for a partner in" not in shown
     assert "office of the Strategy Director" in shown and "By way of introduction" in shown
     assert "{{" not in shown and "<br/>" not in shown
     assert "--- Email 2" not in shown  # later emails are sent by Sync, in rounds
@@ -144,7 +149,7 @@ def test_send_and_sync(settings):
     email = body["sequences"][0]["steps"][0]["variants"][0]["body"]
     assert "Best regards," in email and "{{privacy_url}}" not in email and "Privacy notice" not in email
     assert "<b>we are Europe's largest sugar-free confectionery company</b>" in email and "{{company_note}}" in email
-    assert "Joshua<br/>International Account Executive<br/>Diablo Sugar Free<br/>" in email
+    assert "Joshua<br/>International Account Executive<br/>Diablo Sugar Free</div>" in email
     assert "{{catalogue_link}}" not in email and "{{sender_phone}}" not in email
     assert "117 products across 11 categories" in email and "<div><ul>" not in email
     lead = instantly.leads[camp_id][0]
@@ -285,12 +290,16 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     steps = send.sequence_steps(settings["send"])
     body = steps[0]["variants"][0]["body"]
     gap = "<div><br></div>"
-    assert body.startswith(f"<div>Hi {{{{firstName}}}},</div>{gap}<div>I'm writing from the office of the Strategy Director")
+    assert body.startswith('<div><div style="display:none')  # the hidden inbox preview line (19 Oct 2026)
+    assert ("Europe's largest sugar-free confectionery company, looking for a partner in {{market_country}}</div>"
+            f"Hi {{{{full_name}}}},</div>{gap}<div>I'm writing from the office of the Strategy Director") in body
     assert f"Holland & Barrett</b>.</div>{gap}<div>Here is the link to our catalogue" in body
     assert "<br/><br/>" not in body
-    assert 'Joshua<br/>International Account Executive<br/>Diablo Sugar Free<br/>Book a quick meeting with us: <a href="https://book.example/diablo">book.example/diablo</a>' in body
+    assert ('<div>Book a quick meeting with us: <a href="https://book.example/diablo">book.example/diablo</a></div>'
+            f'{gap}<div>Best regards,<div style="border-left:3px solid #cccccc;padding-left:10px;margin:4px 0 0 2px">'
+            'Joshua<br/>International Account Executive<br/>Diablo Sugar Free</div></div>') in body
     shown = send.render(body, {"first_name": "Ann"})
-    assert "\n\nWould this week work, or would next week be better suited?\n\nBest regards," in shown
+    assert "\n\nWould this week work, or would next week be better suited?\n\nBook a quick meeting" in shown
     instantly = FakeInstantly()
     old = instantly.create_campaign({"name": "Diablo | Dublin, Ireland | Retailers | OCT2026",
                                      "sequences": [{"steps": [{"variants": [{"subject": "{{subject_line}}", "body": ""}]}]}]})

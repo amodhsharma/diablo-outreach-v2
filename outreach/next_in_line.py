@@ -312,6 +312,9 @@ def lead_for(contact, company, notes=None):
         "custom_variables": {
             "personal_line": p.get(PERSONAL_LINE) or "",
             "company_note": (p.get(COMPANY_NOTE) or "").strip().rstrip("."),
+            # The greeting uses the full name (19 Oct 2026): "Hi Thomas Müller,".
+            "full_name": " ".join(x.strip() for x in (p.get("firstname") or "", p.get("lastname") or "")
+                                  if x and x.strip()),
             "country_name": country_name(market),
             "market": market,
             "market_short": market_short(market),

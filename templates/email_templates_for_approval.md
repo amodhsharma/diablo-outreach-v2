@@ -328,3 +328,19 @@ Reminder: follow_up_2 ("Bad Jokes + Europe's largest Brand") word for word, exce
 "Hello {{companyName}} team," and, before "I'd love to set up a call...":
 
 > If this is better suited to a colleague, could you kindly pass it on to the person responsible for purchasing or new brands?
+
+## Fixes after the strain test (in use from 19 Oct 2026)
+
+New files, the earlier ones kept unchanged: template_4.json (first email), forward_3.json,
+follow_up_3.json, template_no_info_apollo_2.json and follow_up_no_info_apollo_2.json.
+
+- Greeting with the full name: "Hi {{full_name}}," (first and last name; just the first name when
+  there is no last name). Company inboxes keep "Hello {{companyName}} team,".
+- "Book a quick meeting with us: <link>" now sits above the signature, and the signature
+  (name, International Account Executive, Diablo Sugar Free) has its grey line on the left again.
+- The first emails start with a hidden inbox preview line, so the inbox shows "Europe's largest
+  sugar-free confectionery company, looking for a partner in {{market_country}}" next to the subject.
+- After the company note, the first email now reads: "We are a UK brand without a direct partner in
+  {{market_country}} yet, and we believe you could be the right partner for us there." (company
+  inboxes: "...your company could be the right partner for us there.")
+- Every forward carries the earlier email underneath (From, Date, Subject, To, then the email).
