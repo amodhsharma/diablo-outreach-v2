@@ -1,3 +1,1 @@
 job_id,location,channel,languages,companies_wanted,added_by,added_on,status,reason,approved_by,ran_on,output_file,attempts
-J0010,"Jena, Germany",Distributors,German,30,amodhsharma,2026-10-15,"Done, fewer than wanted","14 found, floor 15; see the report",,2026-10-15,research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json,
-J0011,"Cologne, Germany",distributors,german,20,amodhsharma,2026-10-18,Done,15 found,,2026-10-19,research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json,

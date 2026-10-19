@@ -374,3 +374,17 @@ def test_the_forward_carries_the_earlier_email_underneath(settings):
     assert "---------- Forwarded message ---------" in fwd["text"] and "Hi P1, the first email" in fwd["text"]
     assert "From: sales@getdiablo-test.com" in fwd["text"] and "To: p1@noble.in" in fwd["text"]
     assert "<div>Hi P1, the first email</div>" in fwd["html"]
+
+
+def test_a_reply_from_another_address_counts_for_the_person_written_to(settings):
+    """Case c3 (19 Oct 2026): the reply to a forward came from the person's main address, not the
+    address we wrote to; it counts for the person whose conversation it arrived in."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)  # forward to person 2
+    reply = emails.received("p2.main@other.example", ago(0))
+    reply["lead"] = "p2@noble.in"  # filed in person 2's conversation
+    for e in emails.emails[:-1]:
+        e["timestamp_email"] = ago(4)
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["replied"] == 1 and moved["forwards_sent"] == 0
+    assert status_of(hs, p2) == "IN_PROGRESS" and hs.records["companies"][cid][LS] == "In Progress"

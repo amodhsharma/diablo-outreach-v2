@@ -1,0 +1,49 @@
+name: 'T - Strain test: give test contacts the test addresses (test account only)'
+
+# Agreed 19 Oct 2026. Press after button 3 has found the contacts and before mail writing.
+# It uses the TEST HubSpot account only (HUBSPOT_TOKEN_TEST) and refuses the live one.
+# Cases c1 to c6 each get an approved company with at least 3 new contacts, c7 one with at least 1;
+# their contacts get plus addresses on the case's mailbox (e.g. amodhextra+c2p1@gmail.com) and any
+# further contacts there become Unqualified. Nothing is written to the repository.
+on:
+  workflow_dispatch:
+    inputs:
+      mailboxes:
+        description: "One mailbox per case, e.g. c1=rafi@x.com, c2=amodhextra@gmail.com, ... c7=ariel@x.com"
+        type: string
+        required: true
+      companies:
+        description: "Optional: 7 company names in case order c1 to c7, separated by ;  (empty = pick them)"
+        type: string
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run: show what would change, change nothing"
+        type: boolean
+        default: true
+
+concurrency:
+  group: research-writes
+  cancel-in-progress: false
+
+jobs:
+  addresses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN_TEST }}
+      TEST_MAILBOXES: ${{ inputs.mailboxes }}
+      TEST_COMPANIES: ${{ inputs.companies }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: "Before: tests pass"
+        run: python -m pytest -q
+      - name: "Give the test contacts the test addresses"
+        run: |
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="--dry-run"; fi
+          python -m outreach.test_addresses --target test $ARGS

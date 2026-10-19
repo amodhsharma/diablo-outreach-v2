@@ -228,7 +228,9 @@ def company_mail(emails_api, contacts):
             if e.get("is_auto_reply"):
                 continue
             sender = _addresses(e.get("from_address_email"))
-            who = by_addr.get(sender[0]) if sender else by_addr.get(asked)
+            # A reply from another address of theirs (e.g. their main address instead of the one we
+            # wrote to) counts for the person whose conversation it arrived in (19 Oct 2026, case c3).
+            who = (by_addr.get(sender[0]) if sender else None) or by_addr.get(asked)
             if who:
                 replied.add(who["id"])
             continue
