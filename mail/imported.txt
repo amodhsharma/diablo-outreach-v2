@@ -8,3 +8,4 @@ mail/lines/2026-10-14/2026-10-14_0224_3.json	2026-10-13T20:55:02+00:00	3 contact
 mail/lines/2026-10-14/2026-10-14_1338_4.json	2026-10-14T08:09:14+00:00	4 contacts now on 'New, Personal line filled'
 mail/lines/2026-10-15/2026-10-15_1729_4.json	2026-10-15T12:00:37+00:00	4 contacts now on 'New, Personal line filled'
 mail/lines/2026-10-15/2026-10-15_1810_16.json	2026-10-15T12:41:06+00:00	16 contacts now on 'New, Personal line filled'
+mail/lines/2026-10-19/2026-10-19_1125_13.json	2026-10-19T05:57:01+00:00	12 contacts now on 'New, Personal line filled', 1 skipped (not an AUTO-OUTREACH contact in HubSpot)
