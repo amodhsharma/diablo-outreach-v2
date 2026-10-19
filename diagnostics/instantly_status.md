@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-19T06:42:47+00:00 (UTC).
+Checked 2026-10-19T07:31:06+00:00 (UTC).
 
 ## Mailboxes
 
@@ -28,7 +28,7 @@ Checked 2026-10-19T06:42:47+00:00 (UTC).
 | dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Dana - | 30 | none |
 | elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Anne from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (4 of 4) | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (7 of 7) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
@@ -53,7 +53,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Open tracking: off
 - Leads: 1
   - 1 Completed, emailed
-- Emails in the sequence: 1 (characters in each body: [1954])
+- Emails in the sequence: 1 (characters in each body: [2305])
 
 ## Campaign: Diablo | Dublin, Ireland | Retailers | OCT2026
 
@@ -63,28 +63,27 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Link tracking: **ON** (should be off: switch it off in the campaign Options)
 - Open tracking: **ON** (should be off: switch it off in the campaign Options)
 - Leads: 0
-- Emails in the sequence: 1 (characters in each body: [1858])
+- Emails in the sequence: 1 (characters in each body: [2209])
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Active
-- Instantly says: **healthy**. Campaign is sending normally
-- Instantly's explanation: The campaign is currently healthy, active, and within its sending schedule, having recently sent emails and successfully contacted 4 leads today, well below its daily limit of 30. There are no apparent issues preventing further sends, as new leads are ready; however, ensure new leads continue to be added and monitor the status of the second connected email account, which is currently unavailable.
-- Last healthy send: 2026-10-19T06:34:14.286Z
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
+- Last healthy send: 2026-10-19T06:34:28.493Z
 - schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 4, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 4, "limit_hit": false}`
+- campaign_daily_limit: `{"limit": 30, "sent": 6, "limit_hit": false}`
+- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 6, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 2, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
-- leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
+- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": null, "issue_first_seen_at": null, "consecutive_loops_with_issue": 0, "last_healthy_send_at": "2026-10-19T06:34:14.286Z"}`
+- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-19T06:43:14.295Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-19T06:34:28.493Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Link tracking: off
 - Open tracking: off
 - Leads: 6
   - 4 Completed, emailed
   - 2 Completed, emailed, replied
-- Emails in the sequence: 1 (characters in each body: [1858])
+- Emails in the sequence: 1 (characters in each body: [2209])
 
 
 ## Keys
@@ -107,4 +106,24 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Where every company is in its loop
 
-- Could not be read: GET /emails kept failing after retries
+- **Lekkerland SE**: next is the next email, 3 days after the last one, due 22 Oct 12:12 IST
+- **Transgourmet Deutschland (Selgros Erfurt)**: next is the next email, 3 days after the last one, due 22 Oct 12:12 IST
+- **dennree GmbH**: next is the next email, 3 days after the last one, due 22 Oct 12:12 IST
+- **Christian Broicher e.K.**: next is the next email, 3 days after the last one, due 22 Oct 12:00 IST
+- **Bos Food GmbH**: next is the next email, 3 days after the last one, due 22 Oct 12:04 IST
+
+| Company | Order | Person (job title) | Lead Status | Emailed |
+|---|---|---|---|---|
+| Lekkerland SE | 1 | Chief Executive Officer | Attempted to Contact | 19 Oct 11:46 IST |
+| Lekkerland SE | 2 | Senior Product Owner | Forward sent | 19 Oct 12:12 IST |
+| Lekkerland SE | 3 | Product Owner SAP-Engineering | GATE2: Approved to send | not yet |
+| Transgourmet Deutschland (Selgros Erfurt) | 1 | Managing Director | Attempted to Contact | 19 Oct 11:46 IST |
+| Transgourmet Deutschland (Selgros Erfurt) | 2 | Managing Director | Forward sent | 19 Oct 12:12 IST |
+| Transgourmet Deutschland (Selgros Erfurt) | 3 | Managing Director | GATE2: Approved to send | not yet |
+| dennree GmbH | 1 | Leitung Regionen | Attempted to Contact | 19 Oct 11:55 IST |
+| dennree GmbH | 2 | Regional Director Rhein Main Neckar | Forward sent | 19 Oct 12:12 IST |
+| dennree GmbH | 3 | Leitung Personal / Head of Human Resources | GATE2: Approved to send | not yet |
+| Christian Broicher e.K. | 1 | Company inbox (from website) | Attempted to Contact | 19 Oct 12:00 IST |
+| Bos Food GmbH | 1 | HR Director | Attempted to Contact | 19 Oct 12:04 IST |
+| Bos Food GmbH | 2 | HR-Manager | GATE2: Approved to send | not yet |
+| Bos Food GmbH | 3 | Operations Manager | GATE2: Approved to send | not yet |
