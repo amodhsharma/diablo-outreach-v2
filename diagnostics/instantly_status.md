@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-19T09:28:37+00:00 (UTC).
+Checked 2026-10-19T10:05:20+00:00 (UTC).
 
 ## Mailboxes
 
@@ -66,22 +66,22 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Active
-- Instantly says: **waiting_for_leads**. No leads are ready to receive emails
-- Instantly's explanation: The campaign is currently active and within its scheduled sending time but is paused because there are no new leads ready to be contacted. It successfully sent emails recently. To resume sending, please add more leads to the campaign.
-- Last healthy send: 2026-10-19T06:34:28.493Z
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
+- Last healthy send: 2026-10-19T10:01:33.880Z
 - schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 6, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 6, "limit_hit": false}`
-- accounts_summary: `{"total_connected": 2, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
+- campaign_daily_limit: `{"limit": 30, "sent": 13, "limit_hit": false}`
+- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 13, "limit_hit": false}`
+- accounts_summary: `{"total_connected": 2, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 1}}`
 - leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-19T06:43:14.295Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-19T06:34:28.493Z"}`
+- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-19T10:01:33.936Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-19T10:01:33.880Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Link tracking: off
 - Open tracking: off
 - Leads: 7
-  - 7 Active, not yet emailed
+  - 5 Completed, emailed
+  - 2 Completed, emailed, replied
 - Emails in the sequence: 1 (characters in each body: [2209])
 
 
@@ -91,51 +91,35 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 14 contacts approved to send
+- 6 contacts approved to send
 - Waiting: contact 895356901598 (r***@diablosugarfree.com) at Agidra: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895356901601 (r***@diablosugarfree.com) at Agidra: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895148828901 (c***@gmail.com) at Sysco France: the company's last email was under 3 days ago (one email every 3 days per company)
 - Waiting: contact 895148828903 (c***@gmail.com) at Sysco France: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895357011149 (a***@gmail.com) at Relais Vert: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895357011151 (a***@gmail.com) at Relais Vert: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895357011152 (a***@gmail.com) at Relais Vert: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895157411021 (a***@gmail.com) at EpiSaveurs (Groupe Pomona): the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895157411023 (a***@gmail.com) at EpiSaveurs (Groupe Pomona): the company's last email was under 3 days ago (one email every 3 days per company)
 - Waiting: contact 895335588066 (a***@gmail.com) at Transgourmet Rhône: the company's last email was under 3 days ago (one email every 3 days per company)
 - Waiting: contact 895335588067 (a***@gmail.com) at Transgourmet Rhône: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895157411031 (a***@diablosugarfree.com) at Benoit Ciné Distribution (Benoit Promotion): the company's last email was under 3 days ago (one email every 3 days per company)
 - Waiting: contact 895134412009 (a***@diablosugarfree.com) at Promocash Lyon (franchise): the company's last email was under 3 days ago (one email every 3 days per company)
 - Waiting: contact 895134412010 (a***@diablosugarfree.com) at Promocash Lyon (franchise): the company's last email was under 3 days ago (one email every 3 days per company)
-- 14 approved contacts wait their turn (one person per company at a time)
+- 6 approved contacts wait their turn (one person per company at a time)
 
 ## Where every company is in its loop
 
-- **Agidra**: next is the next email, 3 days after the last one
-- **Sysco France**: next is the next email, 3 days after the last one
-- **Relais Vert**: next is the next email, 3 days after the last one
-- **EpiSaveurs (Groupe Pomona)**: next is the next email, 3 days after the last one
-- **Transgourmet Rhône**: next is the next email, 3 days after the last one
-- **Benoit Ciné Distribution (Benoit Promotion)**: next is the next email, 3 days after the last one
-- **Promocash Lyon (franchise)**: next is the next email, 3 days after the last one
+- **Agidra**: next is the next email, 3 days after the last one, due 22 Oct 15:35 IST
+- **Sysco France**: next is the next email, 3 days after the last one, due 22 Oct 15:35 IST
+- **Transgourmet Rhône**: next is the next email, 3 days after the last one, due 22 Oct 15:22 IST
+- **Benoit Ciné Distribution (Benoit Promotion)**: next is the next email, 3 days after the last one, due 22 Oct 15:22 IST
+- **Promocash Lyon (franchise)**: next is the next email, 3 days after the last one, due 22 Oct 15:31 IST
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
 |---|---|---|---|---|
-| Agidra | 1 | Sales Manager | Attempted to Contact | not yet |
-| Agidra | 2 | Deputy Manager | GATE2: Approved to send | not yet |
+| Agidra | 1 | Sales Manager | Attempted to Contact | 19 Oct 15:04 IST |
+| Agidra | 2 | Deputy Manager | Forward sent | 19 Oct 15:35 IST |
 | Agidra | 3 | Directeur Supply-chain | GATE2: Approved to send | not yet |
-| Sysco France | 1 | HR Business Partner | Attempted to Contact | not yet |
-| Sysco France | 2 | HR Business Partner Région Sud | GATE2: Approved to send | not yet |
+| Sysco France | 1 | HR Business Partner | Attempted to Contact | 19 Oct 15:04 IST |
+| Sysco France | 2 | HR Business Partner Région Sud | Forward sent | 19 Oct 15:35 IST |
 | Sysco France | 3 | Regional Director | GATE2: Approved to send | not yet |
-| Relais Vert | 1 | Product Manager | Attempted to Contact | not yet |
-| Relais Vert | 2 | Sales Manager | GATE2: Approved to send | not yet |
-| Relais Vert | 3 | HR Manager | GATE2: Approved to send | not yet |
-| EpiSaveurs (Groupe Pomona) | 1 | Product Owner Agile | Web + App | Attempted to Contact | not yet |
-| EpiSaveurs (Groupe Pomona) | 2 | Chief Financial Officer (CFO) | GATE2: Approved to send | not yet |
-| EpiSaveurs (Groupe Pomona) | 3 | Director General | GATE2: Approved to send | not yet |
-| Transgourmet Rhône | 1 | Product Owner Commerce | Attempted to Contact | not yet |
+| Transgourmet Rhône | 1 | Product Owner Commerce | Attempted to Contact | 19 Oct 15:22 IST |
 | Transgourmet Rhône | 2 | Product Owner Junior ERP | Apprenti | GATE2: Approved to send | not yet |
 | Transgourmet Rhône | 3 | Proxy Product Owner | GATE2: Approved to send | not yet |
-| Benoit Ciné Distribution (Benoit Promotion) | 1 | Responsable Qualité et Développement Produit | Attempted to Contact | not yet |
-| Promocash Lyon (franchise) | 1 | Director | Attempted to Contact | not yet |
+| Benoit Ciné Distribution (Benoit Promotion) | 1 | Responsable Qualité et Développement Produit | Attempted to Contact | 19 Oct 15:22 IST |
+| Promocash Lyon (franchise) | 1 | Director | Attempted to Contact | 19 Oct 15:31 IST |
 | Promocash Lyon (franchise) | 2 | Operational Director | GATE2: Approved to send | not yet |
 | Promocash Lyon (franchise) | 3 | Director | GATE2: Approved to send | not yet |
