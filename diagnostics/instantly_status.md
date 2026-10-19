@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-19T10:05:20+00:00 (UTC).
+Checked 2026-10-19T10:31:03+00:00 (UTC).
 
 ## Mailboxes
 
@@ -102,24 +102,4 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Where every company is in its loop
 
-- **Agidra**: next is the next email, 3 days after the last one, due 22 Oct 15:35 IST
-- **Sysco France**: next is the next email, 3 days after the last one, due 22 Oct 15:35 IST
-- **Transgourmet Rhône**: next is the next email, 3 days after the last one, due 22 Oct 15:22 IST
-- **Benoit Ciné Distribution (Benoit Promotion)**: next is the next email, 3 days after the last one, due 22 Oct 15:22 IST
-- **Promocash Lyon (franchise)**: next is the next email, 3 days after the last one, due 22 Oct 15:31 IST
-
-| Company | Order | Person (job title) | Lead Status | Emailed |
-|---|---|---|---|---|
-| Agidra | 1 | Sales Manager | Attempted to Contact | 19 Oct 15:04 IST |
-| Agidra | 2 | Deputy Manager | Forward sent | 19 Oct 15:35 IST |
-| Agidra | 3 | Directeur Supply-chain | GATE2: Approved to send | not yet |
-| Sysco France | 1 | HR Business Partner | Attempted to Contact | 19 Oct 15:04 IST |
-| Sysco France | 2 | HR Business Partner Région Sud | Forward sent | 19 Oct 15:35 IST |
-| Sysco France | 3 | Regional Director | GATE2: Approved to send | not yet |
-| Transgourmet Rhône | 1 | Product Owner Commerce | Attempted to Contact | 19 Oct 15:22 IST |
-| Transgourmet Rhône | 2 | Product Owner Junior ERP | Apprenti | GATE2: Approved to send | not yet |
-| Transgourmet Rhône | 3 | Proxy Product Owner | GATE2: Approved to send | not yet |
-| Benoit Ciné Distribution (Benoit Promotion) | 1 | Responsable Qualité et Développement Produit | Attempted to Contact | 19 Oct 15:22 IST |
-| Promocash Lyon (franchise) | 1 | Director | Attempted to Contact | 19 Oct 15:31 IST |
-| Promocash Lyon (franchise) | 2 | Operational Director | GATE2: Approved to send | not yet |
-| Promocash Lyon (franchise) | 3 | Director | GATE2: Approved to send | not yet |
+- Could not be read: GET /emails kept failing after retries
