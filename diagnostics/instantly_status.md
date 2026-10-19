@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-19T10:31:03+00:00 (UTC).
+Checked 2026-10-19T12:04:23+00:00 (UTC).
 
 ## Mailboxes
 
@@ -39,8 +39,9 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026 | Company inboxes
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Active
+- Instantly says: **waiting_for_leads**. No leads are ready to receive emails
+- Instantly's explanation: The campaign is currently waiting for leads and not sending because there are no recipients ready to be contacted. Although one of your accounts is temporarily unavailable due to a waiting period, the primary issue is the lack of leads. To restart sending, please add more leads to your campaign.
 - Last healthy send: 2026-10-19T06:30:44.944Z
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 10, "sent": 1, "limit_hit": false}`
@@ -51,7 +52,8 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-19T06:30:59.977Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-19T06:30:44.944Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
-- Leads: 0
+- Leads: 1
+  - 1 Active, not yet emailed
 - Emails in the sequence: 1 (characters in each body: [2305])
 
 ## Campaign: Diablo | Dublin, Ireland | Retailers | OCT2026
@@ -66,8 +68,9 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Active
+- Instantly says: **waiting_for_leads**. No leads are ready to receive emails
+- Instantly's explanation: The campaign is currently paused and waiting for new leads to be added. This is because there are no leads ready to be contacted at the moment, although one of your two connected email accounts is also temporarily unavailable. To resume sending, you should add more leads to the campaign.
 - Last healthy send: 2026-10-19T10:01:33.880Z
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 30, "sent": 13, "limit_hit": false}`
@@ -79,9 +82,8 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Link tracking: off
 - Open tracking: off
-- Leads: 7
-  - 5 Completed, emailed
-  - 2 Completed, emailed, replied
+- Leads: 4
+  - 4 Active, not yet emailed
 - Emails in the sequence: 1 (characters in each body: [2209])
 
 
@@ -89,17 +91,43 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - INSTANTLY_EMAILS_KEY works: Sync can send the forwards and the reminder.
 
+## Blocklist
+
+- **Instantly's blocklist could not be read** (GET /block-lists-entries failed with 401: {"statusCode":401,"error":"Unauthorized","message":"Invalid scope. Required: block_list_entries:read. Found: emails:all"}). Emails still go out; opt-outs already in HubSpot stay stopped, but new blocklist entries are not applied until it can be read again.
+
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 6 contacts approved to send
-- Waiting: contact 895356901598 (r***@diablosugarfree.com) at Agidra: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895148828903 (c***@gmail.com) at Sysco France: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895335588066 (a***@gmail.com) at Transgourmet Rhône: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895335588067 (a***@gmail.com) at Transgourmet Rhône: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895134412009 (a***@diablosugarfree.com) at Promocash Lyon (franchise): the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895134412010 (a***@diablosugarfree.com) at Promocash Lyon (franchise): the company's last email was under 3 days ago (one email every 3 days per company)
-- 6 approved contacts wait their turn (one person per company at a time)
+- 8 contacts approved to send
+- Waiting: contact 895430468812 (a***@diablosugarfree.com) at Rila Feinkost-Importe GmbH & Co. KG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 895430468813 (a***@diablosugarfree.com) at Rila Feinkost-Importe GmbH & Co. KG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 895461122276 (a***@gmail.com) at World of Sweets GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 895461122274 (a***@gmail.com) at World of Sweets GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 895438950643 (c***@gmail.com) at Uplegger Food Company GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 895438950644 (c***@gmail.com) at Uplegger Food Company GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 895435143361 (a***@gmail.com) at EDEKA Nordbayern-Sachsen-Thueringen: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 895435143364 (a***@gmail.com) at EDEKA Nordbayern-Sachsen-Thueringen: the company's last email was under 3 days ago (one email every 3 days per company)
+- 8 approved contacts wait their turn (one person per company at a time)
 
 ## Where every company is in its loop
 
-- Could not be read: GET /emails kept failing after retries
+- **Rila Feinkost-Importe GmbH & Co. KG**: next is the next email, 3 days after the last one
+- **World of Sweets GmbH**: next is the next email, 3 days after the last one
+- **Uplegger Food Company GmbH**: next is the next email, 3 days after the last one
+- **EDEKA Nordbayern-Sachsen-Thueringen**: next is the next email, 3 days after the last one
+- **Azad Food GmbH**: next is the next email, 3 days after the last one
+
+| Company | Order | Person (job title) | Lead Status | Emailed |
+|---|---|---|---|---|
+| Rila Feinkost-Importe GmbH & Co. KG | 1 | Purchasing Manager | Attempted to Contact | not yet |
+| Rila Feinkost-Importe GmbH & Co. KG | 2 | District Manager | GATE2: Approved to send | not yet |
+| Rila Feinkost-Importe GmbH & Co. KG | 3 | Social Media-Manager | GATE2: Approved to send | not yet |
+| World of Sweets GmbH | 1 | Head of Purchasing | Attempted to Contact | not yet |
+| World of Sweets GmbH | 2 | Master Data Manager / Content und Vertrieb | GATE2: Approved to send | not yet |
+| World of Sweets GmbH | 3 | Leiter Business Development, Marketing und Sales | GATE2: Approved to send | not yet |
+| Uplegger Food Company GmbH | 1 | Head of Sales | Attempted to Contact | not yet |
+| Uplegger Food Company GmbH | 2 | Head of Supply Chain | GATE2: Approved to send | not yet |
+| Uplegger Food Company GmbH | 3 | Sales Manager Nederland - Agency | GATE2: Approved to send | not yet |
+| EDEKA Nordbayern-Sachsen-Thueringen | 1 | Managing Director / CFO | Attempted to Contact | not yet |
+| EDEKA Nordbayern-Sachsen-Thueringen | 2 | Managing Director | GATE2: Approved to send | not yet |
+| EDEKA Nordbayern-Sachsen-Thueringen | 3 | Managing Director | GATE2: Approved to send | not yet |
+| Azad Food GmbH | 1 | Company inbox (from website) | Attempted to Contact | not yet |
