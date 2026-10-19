@@ -1,3 +1,4 @@
 job_id,location,channel,languages,companies_wanted,added_by,added_on,status,reason,approved_by,ran_on,output_file,attempts
 J0001,"Lyon, France",Distributors,French,20,amodhsharma,2026-10-19,"Done, fewer than wanted","11 found, floor 15; see the report",,2026-10-19,research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json,
 J0002,"Jena, Germany",distributors,german,20,amodhsharma,2026-10-19,Waiting,,,,,
+J0003,"Vienna, Austria",distributors,,30,amodhsharma,2026-10-19,Waiting,,,,,
