@@ -1,5 +1,391 @@
 {
-  "generated_at": "2026-10-19T09:30:38+00:00",
+  "generated_at": "2026-10-19T11:44:02+00:00",
   "target": "test",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "895461259493",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Azad Food GmbH",
+        "domain": "azadfood.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Rothenstein, Germany",
+        "distributes": "Food wholesale: drinks, spices, dairy, fruit and vegetables, sauces, frozen goods and packaging. Sweets not confirmed.",
+        "channels_supplied": "Businesses in Thuringia and Bavaria (likely restaurants and food shops), delivered weekly or by pickup.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Delivers weekly to businesses across Thuringia and Bavaria, with pickup also offered."
+        ],
+        "fit_rationale": "A small wholesaler about 15 km from Jena that delivers weekly to local food businesses. No confectionery range was confirmed, so it is a low priority add-on route."
+      }
+    },
+    {
+      "contact_id": "895430701264",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Dovgan GmbH",
+        "domain": "dovgan.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Hamburg, Germany",
+        "distributes": "Imported Eastern European, Polish, Balkan, oriental and Vietnamese foods, including sweets and baked goods, plus frozen and food service ranges.",
+        "channels_supplied": "German food retail including REWE, and Eastern European food shops. Supply into Jena not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Described by Lebensmittel Zeitung (2015) as the market leader for Eastern European specialities in German food retail."
+        ],
+        "fit_rationale": "An importer with sweets in its range and access to REWE and to the Russian and Eastern European shops found in Jena. Its focus is ethnic food, so sugar free sweets would sit outside its core story."
+      }
+    },
+    {
+      "contact_id": "895435143363",
+      "job_title": "Managing Director / CFO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "EDEKA Nordbayern-Sachsen-Thueringen",
+        "domain": "verbund.edeka",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Rottendorf, Germany",
+        "distributes": "Full range grocery wholesale, including confectionery, to EDEKA, E center, Marktkauf and diska stores.",
+        "channels_supplied": "About 865 stores in northern Bavaria, northern Baden-Wurttemberg, Thuringia and Saxony, many run by independent EDEKA retailers (2020).",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Supplies about 865 EDEKA, E center, Marktkauf and diska stores across Thuringia, Saxony and northern Bavaria (2020 figures)."
+        ],
+        "fit_rationale": "The regional wholesale arm that stocks EDEKA and Marktkauf stores in and around Jena, so a regional listing here puts Diablo on Jena shelves. Independent EDEKA retailers can also take regional lines, but central category management makes it slower."
+      }
+    },
+    {
+      "contact_id": "895430468811",
+      "job_title": "Purchasing Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Rila Feinkost-Importe GmbH & Co. KG",
+        "domain": "rila.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Stemwede, Germany",
+        "distributes": "Imported speciality foods: sauces, spreads, snacks and sweet specialities, world cuisines and organic lines.",
+        "channels_supplied": "Wholesale, food service and its own online shop; field sales work at store level. Thuringian customers not named.",
+        "sf_brands_carried": "Online shop has a no added sugar filter; brands within it not identified.",
+        "what_they_do_well": [
+          "Over 50 years sourcing international speciality foods from its base in East Westphalia.",
+          "Uses its own field sales team to place newly taken-on brands at store level."
+        ],
+        "fit_rationale": "An established owner-run importer that takes on foreign brands exclusively and sells them in with its own field sales team, a model that suits Diablo's spreads and syrups. Its focus is savoury and ethnic food, so confectionery would be a new push."
+      }
+    },
+    {
+      "contact_id": "895437212919",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "tabacon TABAKWAREN GmbH & Co. KG",
+        "domain": "tabacon.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Ronneburg, Germany",
+        "distributes": "Tobacco (about 98 percent of sales), confectionery, drinks and spirits, smoking accessories and prepaid cards.",
+        "channels_supplied": "Shops, kiosks and petrol stations across eastern Germany and Bavaria, from a Thuringian base near Gera.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family owned wholesaler supplying over 2,700 shops, kiosks and petrol stations from Rugen to Passau with more than 4,000 items.",
+          "Reported sales above 380 million euros, with branches in Berlin and Nurnberg as well as Ronneburg."
+        ],
+        "fit_rationale": "Family owned Thuringian wholesaler about 50 km from Jena with a decision maker who can be reached, already adding sweets to kiosk and petrol station deliveries. Sugar free sweets would be a differentiated add-on to a range that is still mostly tobacco."
+      }
+    },
+    {
+      "contact_id": "895438950645",
+      "job_title": "Head of Sales",
+      "seniority": "Heads and junior directors",
+      "rank": 1,
+      "company": {
+        "name": "Uplegger Food Company GmbH",
+        "domain": "uplegger.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Langenhagen, Germany",
+        "distributes": "Chilled and frozen brands: dairy, cheese, desserts, ice cream, convenience and plant-based foods.",
+        "channels_supplied": "National and regional retail headquarters, independent retailers and selected food service and online customers in Germany, Austria and Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Represents over 20 chilled and frozen brands, including Franui and The Vegetarian Butcher, for German, Austrian and Swiss retail."
+        ],
+        "fit_rationale": "Full service sales and distribution partner for international brands, with a track record bringing in British brands such as Gu and Cathedral City. It works only in chilled and frozen goods, so it fits only if Diablo had a chilled line."
+      }
+    },
+    {
+      "contact_id": "895461122273",
+      "job_title": "Head of Purchasing",
+      "seniority": "Heads and junior directors",
+      "rank": 1,
+      "company": {
+        "name": "World of Sweets GmbH",
+        "domain": "worldofsweets.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Henstedt-Ulzburg, Germany",
+        "distributes": "Confectionery from around the world (gummies, chocolate, liquorice, hard candy), salty snacks, drinks and cereals.",
+        "channels_supplied": "Own online shop plus B2B supply to resellers, retailers and large customers across Germany, with no minimum order.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs one of Germany's largest online sweet shops, with over 9,000 items from more than 830 brands."
+        ],
+        "fit_rationale": "Carries over 830 sweet brands including British ones such as Cadbury and supplies resellers, so it could place Diablo with small shops in Jena. It is mainly an online retailer, which makes it a conditional wholesale route."
+      }
+    },
+    {
+      "contact_id": "895435143361",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "EDEKA Nordbayern-Sachsen-Thueringen",
+        "domain": "verbund.edeka",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Rottendorf, Germany",
+        "distributes": "Full range grocery wholesale, including confectionery, to EDEKA, E center, Marktkauf and diska stores.",
+        "channels_supplied": "About 865 stores in northern Bavaria, northern Baden-Wurttemberg, Thuringia and Saxony, many run by independent EDEKA retailers (2020).",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Supplies about 865 EDEKA, E center, Marktkauf and diska stores across Thuringia, Saxony and northern Bavaria (2020 figures)."
+        ],
+        "fit_rationale": "The regional wholesale arm that stocks EDEKA and Marktkauf stores in and around Jena, so a regional listing here puts Diablo on Jena shelves. Independent EDEKA retailers can also take regional lines, but central category management makes it slower."
+      }
+    },
+    {
+      "contact_id": "895430468812",
+      "job_title": "District Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Rila Feinkost-Importe GmbH & Co. KG",
+        "domain": "rila.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Stemwede, Germany",
+        "distributes": "Imported speciality foods: sauces, spreads, snacks and sweet specialities, world cuisines and organic lines.",
+        "channels_supplied": "Wholesale, food service and its own online shop; field sales work at store level. Thuringian customers not named.",
+        "sf_brands_carried": "Online shop has a no added sugar filter; brands within it not identified.",
+        "what_they_do_well": [
+          "Over 50 years sourcing international speciality foods from its base in East Westphalia.",
+          "Uses its own field sales team to place newly taken-on brands at store level."
+        ],
+        "fit_rationale": "An established owner-run importer that takes on foreign brands exclusively and sells them in with its own field sales team, a model that suits Diablo's spreads and syrups. Its focus is savoury and ethnic food, so confectionery would be a new push."
+      }
+    },
+    {
+      "contact_id": "895438950644",
+      "job_title": "Head of Supply Chain",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "Uplegger Food Company GmbH",
+        "domain": "uplegger.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Langenhagen, Germany",
+        "distributes": "Chilled and frozen brands: dairy, cheese, desserts, ice cream, convenience and plant-based foods.",
+        "channels_supplied": "National and regional retail headquarters, independent retailers and selected food service and online customers in Germany, Austria and Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Represents over 20 chilled and frozen brands, including Franui and The Vegetarian Butcher, for German, Austrian and Swiss retail."
+        ],
+        "fit_rationale": "Full service sales and distribution partner for international brands, with a track record bringing in British brands such as Gu and Cathedral City. It works only in chilled and frozen goods, so it fits only if Diablo had a chilled line."
+      }
+    },
+    {
+      "contact_id": "895461122276",
+      "job_title": "Master Data Manager / Content und Vertrieb",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "World of Sweets GmbH",
+        "domain": "worldofsweets.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Henstedt-Ulzburg, Germany",
+        "distributes": "Confectionery from around the world (gummies, chocolate, liquorice, hard candy), salty snacks, drinks and cereals.",
+        "channels_supplied": "Own online shop plus B2B supply to resellers, retailers and large customers across Germany, with no minimum order.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs one of Germany's largest online sweet shops, with over 9,000 items from more than 830 brands."
+        ],
+        "fit_rationale": "Carries over 830 sweet brands including British ones such as Cadbury and supplies resellers, so it could place Diablo with small shops in Jena. It is mainly an online retailer, which makes it a conditional wholesale route."
+      }
+    },
+    {
+      "contact_id": "895435143364",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 3,
+      "company": {
+        "name": "EDEKA Nordbayern-Sachsen-Thueringen",
+        "domain": "verbund.edeka",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Rottendorf, Germany",
+        "distributes": "Full range grocery wholesale, including confectionery, to EDEKA, E center, Marktkauf and diska stores.",
+        "channels_supplied": "About 865 stores in northern Bavaria, northern Baden-Wurttemberg, Thuringia and Saxony, many run by independent EDEKA retailers (2020).",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Supplies about 865 EDEKA, E center, Marktkauf and diska stores across Thuringia, Saxony and northern Bavaria (2020 figures)."
+        ],
+        "fit_rationale": "The regional wholesale arm that stocks EDEKA and Marktkauf stores in and around Jena, so a regional listing here puts Diablo on Jena shelves. Independent EDEKA retailers can also take regional lines, but central category management makes it slower."
+      }
+    },
+    {
+      "contact_id": "895430468813",
+      "job_title": "Social Media-Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Rila Feinkost-Importe GmbH & Co. KG",
+        "domain": "rila.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Stemwede, Germany",
+        "distributes": "Imported speciality foods: sauces, spreads, snacks and sweet specialities, world cuisines and organic lines.",
+        "channels_supplied": "Wholesale, food service and its own online shop; field sales work at store level. Thuringian customers not named.",
+        "sf_brands_carried": "Online shop has a no added sugar filter; brands within it not identified.",
+        "what_they_do_well": [
+          "Over 50 years sourcing international speciality foods from its base in East Westphalia.",
+          "Uses its own field sales team to place newly taken-on brands at store level."
+        ],
+        "fit_rationale": "An established owner-run importer that takes on foreign brands exclusively and sells them in with its own field sales team, a model that suits Diablo's spreads and syrups. Its focus is savoury and ethnic food, so confectionery would be a new push."
+      }
+    },
+    {
+      "contact_id": "895438950643",
+      "job_title": "Sales Manager Nederland - Agency",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Uplegger Food Company GmbH",
+        "domain": "uplegger.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Langenhagen, Germany",
+        "distributes": "Chilled and frozen brands: dairy, cheese, desserts, ice cream, convenience and plant-based foods.",
+        "channels_supplied": "National and regional retail headquarters, independent retailers and selected food service and online customers in Germany, Austria and Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Represents over 20 chilled and frozen brands, including Franui and The Vegetarian Butcher, for German, Austrian and Swiss retail."
+        ],
+        "fit_rationale": "Full service sales and distribution partner for international brands, with a track record bringing in British brands such as Gu and Cathedral City. It works only in chilled and frozen goods, so it fits only if Diablo had a chilled line."
+      }
+    },
+    {
+      "contact_id": "895461122274",
+      "job_title": "Leiter Business Development, Marketing und Sales",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "World of Sweets GmbH",
+        "domain": "worldofsweets.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Henstedt-Ulzburg, Germany",
+        "distributes": "Confectionery from around the world (gummies, chocolate, liquorice, hard candy), salty snacks, drinks and cereals.",
+        "channels_supplied": "Own online shop plus B2B supply to resellers, retailers and large customers across Germany, with no minimum order.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs one of Germany's largest online sweet shops, with over 9,000 items from more than 830 brands."
+        ],
+        "fit_rationale": "Carries over 830 sweet brands including British ones such as Cadbury and supplies resellers, so it could place Diablo with small shops in Jena. It is mainly an online retailer, which makes it a conditional wholesale route."
+      }
+    },
+    {
+      "contact_id": "895435143362",
+      "job_title": "Teamlead HR Business Partner",
+      "seniority": "C-suite",
+      "rank": 4,
+      "company": {
+        "name": "EDEKA Nordbayern-Sachsen-Thueringen",
+        "domain": "verbund.edeka",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Rottendorf, Germany",
+        "distributes": "Full range grocery wholesale, including confectionery, to EDEKA, E center, Marktkauf and diska stores.",
+        "channels_supplied": "About 865 stores in northern Bavaria, northern Baden-Wurttemberg, Thuringia and Saxony, many run by independent EDEKA retailers (2020).",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Supplies about 865 EDEKA, E center, Marktkauf and diska stores across Thuringia, Saxony and northern Bavaria (2020 figures)."
+        ],
+        "fit_rationale": "The regional wholesale arm that stocks EDEKA and Marktkauf stores in and around Jena, so a regional listing here puts Diablo on Jena shelves. Independent EDEKA retailers can also take regional lines, but central category management makes it slower."
+      }
+    },
+    {
+      "contact_id": "895430468810",
+      "job_title": "Marketing",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Rila Feinkost-Importe GmbH & Co. KG",
+        "domain": "rila.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Stemwede, Germany",
+        "distributes": "Imported speciality foods: sauces, spreads, snacks and sweet specialities, world cuisines and organic lines.",
+        "channels_supplied": "Wholesale, food service and its own online shop; field sales work at store level. Thuringian customers not named.",
+        "sf_brands_carried": "Online shop has a no added sugar filter; brands within it not identified.",
+        "what_they_do_well": [
+          "Over 50 years sourcing international speciality foods from its base in East Westphalia.",
+          "Uses its own field sales team to place newly taken-on brands at store level."
+        ],
+        "fit_rationale": "An established owner-run importer that takes on foreign brands exclusively and sells them in with its own field sales team, a model that suits Diablo's spreads and syrups. Its focus is savoury and ethnic food, so confectionery would be a new push."
+      }
+    },
+    {
+      "contact_id": "895438950646",
+      "job_title": "Senior Key-Account-Manager DACH",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Uplegger Food Company GmbH",
+        "domain": "uplegger.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Langenhagen, Germany",
+        "distributes": "Chilled and frozen brands: dairy, cheese, desserts, ice cream, convenience and plant-based foods.",
+        "channels_supplied": "National and regional retail headquarters, independent retailers and selected food service and online customers in Germany, Austria and Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Represents over 20 chilled and frozen brands, including Franui and The Vegetarian Butcher, for German, Austrian and Swiss retail."
+        ],
+        "fit_rationale": "Full service sales and distribution partner for international brands, with a track record bringing in British brands such as Gu and Cathedral City. It works only in chilled and frozen goods, so it fits only if Diablo had a chilled line."
+      }
+    },
+    {
+      "contact_id": "895461122275",
+      "job_title": "Leiter Lagerlogistik",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "World of Sweets GmbH",
+        "domain": "worldofsweets.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Henstedt-Ulzburg, Germany",
+        "distributes": "Confectionery from around the world (gummies, chocolate, liquorice, hard candy), salty snacks, drinks and cereals.",
+        "channels_supplied": "Own online shop plus B2B supply to resellers, retailers and large customers across Germany, with no minimum order.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs one of Germany's largest online sweet shops, with over 9,000 items from more than 830 brands."
+        ],
+        "fit_rationale": "Carries over 830 sweet brands including British ones such as Cadbury and supplies resellers, so it could place Diablo with small shops in Jena. It is mainly an online retailer, which makes it a conditional wholesale route."
+      }
+    }
+  ]
 }
