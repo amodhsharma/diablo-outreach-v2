@@ -1,5 +1,47 @@
 {
-  "generated_at": "2026-10-19T11:49:17+00:00",
+  "generated_at": "2026-10-19T12:31:10+00:00",
   "target": "test",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "895472388298",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Dovgan GmbH",
+        "domain": "dovgan.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Hamburg, Germany",
+        "distributes": "Imported Eastern European, Polish, Balkan, oriental and Vietnamese foods, including sweets and baked goods, plus frozen and food service ranges.",
+        "channels_supplied": "German food retail including REWE, and Eastern European food shops. Supply into Jena not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Described by Lebensmittel Zeitung (2015) as the market leader for Eastern European specialities in German food retail."
+        ],
+        "fit_rationale": "An importer with sweets in its range and access to REWE and to the Russian and Eastern European shops found in Jena. Its focus is ethnic food, so sugar free sweets would sit outside its core story."
+      }
+    },
+    {
+      "contact_id": "895444768975",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "tabacon TABAKWAREN GmbH & Co. KG",
+        "domain": "tabacon.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Ronneburg, Germany",
+        "distributes": "Tobacco (about 98 percent of sales), confectionery, drinks and spirits, smoking accessories and prepaid cards.",
+        "channels_supplied": "Shops, kiosks and petrol stations across eastern Germany and Bavaria, from a Thuringian base near Gera.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family owned wholesaler supplying over 2,700 shops, kiosks and petrol stations from Rugen to Passau with more than 4,000 items.",
+          "Reported sales above 380 million euros, with branches in Berlin and Nurnberg as well as Ronneburg."
+        ],
+        "fit_rationale": "Family owned Thuringian wholesaler about 50 km from Jena with a decision maker who can be reached, already adding sweets to kiosk and petrol station deliveries. Sugar free sweets would be a differentiated add-on to a range that is still mostly tobacco."
+      }
+    }
+  ]
 }
