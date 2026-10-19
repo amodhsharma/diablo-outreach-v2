@@ -4,7 +4,7 @@ import pytest
 
 from outreach import setup_hubspot
 from outreach.hubspot_client import HubSpotError
-from outreach.schema import CONTACT_SOURCE, COMPANY_NOTE, GROUP_NAME, INDUSTRY_TYPES, NEW_PROPERTIES, ORDER, PERSONAL_LINE
+from outreach.schema import CONTACT_SOURCE, COMPANY_NOTE, GROUP_NAME, INDUSTRY_TYPES, NEW_PROPERTIES, ORDER, PERSONAL_LINE, STOP_REASON
 from outreach.stages import STAGES
 
 
@@ -93,21 +93,24 @@ def test_live_gets_exactly_four_fields_and_five_choices():
     hs = live_like()
     before = {obj: [dict(o) for o in hs.props[obj]["hs_lead_status"]["options"]] for obj in ("companies", "contacts")}
     summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
-    assert summary["created"] == 5  # the contacts group and the four contact fields
+    # the two groups, the five contact fields and (19 Oct 2026) the company's "Outreach stopped because"
+    assert summary["created"] == 8
     # GATE1: Approved for outreach; "New, Personal line filled", GATE2: Approved to send, and (14 Oct 2026)
-    # "Forward sent" and "Reminder sent", and (19 Oct 2026) the three "Colleague replied" choices
-    assert summary["updated"] == 8
+    # "Forward sent" and "Reminder sent", and (19 Oct 2026) the three "Colleague replied" choices and
+    # "Colleague opted out"
+    assert summary["updated"] == 9
     assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, COMPANY_NOTE, ORDER,
-                                         CONTACT_SOURCE}
-    assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type"}
+                                         CONTACT_SOURCE, STOP_REASON}
+    assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type", STOP_REASON}
     assert labels(hs, "companies")[-1:] == ["GATE1: Approved for outreach"]
-    assert sorted(labels(hs, "contacts")[-7:]) == sorted(["New, Personal line filled", "GATE2: Approved to send",
+    assert sorted(labels(hs, "contacts")[-8:]) == sorted(["New, Personal line filled", "GATE2: Approved to send",
                                                          "Forward sent", "Reminder sent", "Colleague replied: positive",
-                                                         "Colleague replied: negative", "Colleague replied"])
+                                                         "Colleague replied: negative", "Colleague replied",
+                                                         "Colleague opted out"])
     for obj in ("companies", "contacts"):  # the team's choices are sent back exactly as they were
         assert hs.props[obj]["hs_lead_status"]["options"][:len(before[obj])] == before[obj]
     assert len(hs.props["companies"]["industry_type"]["options"]) == 6  # live's own field: untouched
-    assert hs.groups["companies"] == [] and hs.groups["contacts"][0]["name"] == GROUP_NAME
+    assert hs.groups["companies"][0]["name"] == hs.groups["contacts"][0]["name"] == GROUP_NAME
 
     again = setup_hubspot.run(hs, allow_production=True, log=quiet)
     assert set(again) == {"unchanged"}
@@ -134,7 +137,7 @@ def test_refuses_live_account_without_flag_but_a_dry_run_only_reads():
     shown = []
     summary = setup_hubspot.run(hs, dry_run=True, log=shown.append)
     assert all(method == "GET" for method, _ in hs.calls)
-    assert summary["updated"] == 8 and any("[would add]" in line for line in shown)
+    assert summary["updated"] == 9 and any("[would add]" in line for line in shown)
     assert "New, Personal line filled" not in labels(hs, "contacts")
 
 
@@ -147,8 +150,9 @@ def test_type_conflict_is_reported_not_overwritten():
 
 
 def test_schema_rules():
-    assert [s["name"] for s in NEW_PROPERTIES["contacts"]] == [PERSONAL_LINE, COMPANY_NOTE, ORDER, CONTACT_SOURCE]
-    assert NEW_PROPERTIES["companies"] == []
+    assert [s["name"] for s in NEW_PROPERTIES["contacts"]] == [PERSONAL_LINE, COMPANY_NOTE, ORDER, CONTACT_SOURCE,
+                                                               STOP_REASON]
+    assert [s["name"] for s in NEW_PROPERTIES["companies"]] == [STOP_REASON]  # 19 Oct 2026
     assert all(s["name"].startswith("diablo_") for s in NEW_PROPERTIES["contacts"])
 
 

@@ -96,7 +96,8 @@ LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach"},
                                  "Forward sent", "Reminder sent",  # these two added 14 Oct 2026
                                  # the rest of a company once someone there has answered (19 Oct 2026)
                                  "Colleague replied: positive", "Colleague replied: negative",
-                                 "Colleague replied"}}
+                                 "Colleague replied",
+                                 "Colleague opted out"}}  # 19 Oct 2026
 
 
 def ensure_lead_status(hs, object_type, existing, plan, live=False):

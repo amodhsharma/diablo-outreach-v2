@@ -9,7 +9,15 @@ Instantly lead whose HubSpot contact lacks the tag is ignored. Statuses only mov
     replied or marked interested       In Progress           In Progress
     marked not interested              Unqualified           Unqualified
     unsubscribed (opted out)           Unqualified           Unqualified (nobody else is emailed)
+    on Instantly's blocklist           Unqualified           Unqualified (nobody else is emailed)
+    a reply asking us to stop          Unqualified           Unqualified (nobody else is emailed)
+    an automatic answer (out of        unchanged             unchanged (no reply: the loop carries on)
+      office, holiday)
     bounced                            Unqualified           unchanged (the others carry on)
+
+After an opt-out the others at the company show "Colleague opted out", and "Outreach stopped
+because" says why on the person, the colleagues and the company, with a note on the timeline
+(19 Oct 2026). The opt-out signals are checked again just before every email goes.
 
 It then moves companies on in turn (see next_in_line.py), one loop per company (agreed 14 Oct
 2026): person 1's introduction goes through the Instantly campaign; every 3 days the next
@@ -23,10 +31,12 @@ Usage:
 """
 
 import argparse
+import datetime as dt
 import html as html_lib
 import os
 import re
 import sys
+import time
 
 from .common import PipelineError, check_target, ist, load_company_notes, load_settings, run_dir, step_summary, write_json
 from .hubspot_client import HubSpot, HubSpotError
@@ -35,7 +45,7 @@ from .next_in_line import (
     COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, is_company_inbox,
     last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
-from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE
+from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
 from .stages import COLLEAGUE_STAGES, TEAM, LeadStatus, forward
 
 
@@ -56,41 +66,213 @@ def lead_result(lead):
     return "in_outreach", None, "emailed" if lead.get("timestamp_last_contact") else "queued"
 
 
+# ---- Opt-outs (19 Oct 2026, strain test c5) -------------------------------------------------
+# Several signals, so the blocklist is never the only safeguard: Instantly's "unsubscribed", its
+# blocklist (an address, the same address without a "+tag", or a whole domain), a reply asking us
+# to stop, and HubSpot's own memory (the "Outreach stopped because" field once an opt-out is found).
+OPT_OUT_EVENTS = ("unsubscribed", "blocklisted", "opted out by reply", "opted out earlier")
+STOP_TEXT = {"blocklisted": "Opted out: on Instantly's blocklist",
+             "unsubscribed": "Opted out: unsubscribed in Instantly",
+             "opted out by reply": "Opted out: asked in a reply not to be emailed again"}
+BLOCKLIST_TRIES = 3
+BLOCKLIST_RETRY_SECONDS = 5
+BLOCKLIST_FRESH_SECONDS = 60  # read again before a send when the copy in hand is older than this
+
+
+class BlockList(set):
+    """Instantly's blocklist (lower case addresses and domains) and whether it could be read."""
+
+    def __init__(self, values=(), ok=True, problem=""):
+        super().__init__(values)
+        self.ok, self.problem, self.read_at = ok, problem, time.monotonic()
+        self._plain = None
+
+    def plain(self):
+        """The addresses again without any "+tag" (clgdbt+c5p1@gmail.com also as clgdbt@gmail.com)."""
+        if self._plain is None:
+            self._plain = {_untagged(v) for v in self if "@" in v}
+        return self._plain
+
+
+def _untagged(email):
+    name, _, domain = (email or "").rpartition("@")
+    return f"{name.split('+', 1)[0]}@{domain}" if name else email
+
+
 def read_blocklist(*clients, log=print):
-    """Instantly's blocklist (addresses and domains), or an empty set when it cannot be read. Tries
-    each key in turn (the main key first, then the emails key)."""
+    """Instantly's blocklist. Tries each key in turn (the main key first, then the emails key), each
+    a few times. When it cannot be read at all, the run carries on: anyone already marked as opted
+    out in HubSpot stays stopped, and the report says that entries added since the last successful
+    read are not applied yet (agreed 19 Oct 2026; nothing else is held back)."""
     problem = "no Instantly key can read it"
     for client in clients:
         if client is None or not hasattr(client, "blocklist"):
             continue
-        try:
-            return client.blocklist()
-        except Exception as err:
-            problem = str(err)[:200]
-    log(f"WARNING: Instantly's blocklist could not be read ({problem}); an address only blocklisted "
-        "(not marked unsubscribed) would not stop its company this run")
-    return set()
+        for attempt in range(BLOCKLIST_TRIES):
+            try:
+                found = BlockList(client.blocklist())
+                log(f"Instantly blocklist: {len(found)} entries read (addresses and domains)")
+                return found
+            except Exception as err:
+                problem = str(err)[:200]
+                if attempt + 1 < BLOCKLIST_TRIES and BLOCKLIST_RETRY_SECONDS:
+                    time.sleep(BLOCKLIST_RETRY_SECONDS)
+    log(f"WARNING: Instantly's blocklist could not be read ({problem}). Forwards and reminders still go out; "
+        "anyone already marked as opted out in HubSpot stays stopped, but blocklist entries added since the "
+        "last successful read are not applied in this run")
+    return BlockList(ok=False, problem=problem)
 
 
 def is_blocked(email, blocked):
-    """True when the address, or its whole domain, is on Instantly's blocklist."""
+    """True when the address, the same address without its "+tag", or its whole domain is on
+    Instantly's blocklist."""
     email = (email or "").strip().lower()
-    if not email or not blocked:
+    if not email or not blocked or "@" not in email:
         return False
     domain = email.rsplit("@", 1)[-1]
-    return email in blocked or domain in blocked or ("@" + domain) in blocked
+    if email in blocked or domain in blocked or ("@" + domain) in blocked:
+        return True
+    plain = blocked.plain() if isinstance(blocked, BlockList) else {_untagged(v) for v in blocked if "@" in v}
+    return _untagged(email) in plain
 
 
-# What the rest of a company shows once someone there has answered (agreed 19 Oct 2026).
+def opted_out_earlier(contact):
+    """HubSpot remembers an opt-out found before (the "Outreach stopped because" field)."""
+    return str((contact.get("properties") or {}).get(STOP_REASON) or "").lower().startswith("opted out")
+
+
+def today():
+    return dt.datetime.now(dt.timezone.utc).strftime("%d %b %Y").lstrip("0")
+
+
+# ---- Replies: automatic answers and requests to stop (19 Oct 2026, strain test c6) ------------
+# An automatic answer (out of office, holiday) counts as NO reply: the loop carries on.
+AUTO_SUBJECT = re.compile(
+    r"^\s*(automatic reply|auto[- ]?reply|autoreply|auto[- ]?response|automatische antwort|abwesenheitsnotiz|"
+    r"abwesenheit|r[ée]ponse automatique|respuesta autom[áa]tica|risposta automatica|automatisch antwoord|"
+    r"automatyczna odpowied|out of (the )?office|ooo\b|away from (the )?office|on (annual )?leave|"
+    r"vacation|holiday|urlaub|absent|absence|cong[ée]s|fuera de la oficina|fuori ufficio)", re.I)
+AUTO_BODY = re.compile(
+    r"(out of (the )?office|i am (currently )?away|i'?m (currently )?away|on (annual |parental )?leave|"
+    r"on holiday|on vacation|automatic reply|auto-?reply|this is an automated|nicht im b[üu]ro|abwesend|"
+    r"im urlaub|je suis absente?|absente? du bureau|en cong[ée]s|fuera de la oficina|estar[ée] fuera|"
+    r"fuori ufficio|sono assente)", re.I)
+RETURN_WORDS = re.compile(r"\b(return|returning|back|until|zur[üu]ck|wieder|bis zum|retour|jusqu|regreso|"
+                          r"hasta|rientro|fino al)\b", re.I)
+# A reply asking not to be emailed again counts as an opt-out.
+OPT_OUT_WORDS = re.compile(
+    r"(unsubscribe|opt(ed)?[- ]?out\b|remove me|remove us|take me off|take us off|stop (emailing|sending|"
+    r"contacting|writing)|do not (contact|email|write)|don'?t (contact|email|write)|no (more|further) e-?mails|"
+    r"not (to )?contact (me|us) again|abmelden|austragen|keine (weiteren )?(e-?mails|nachrichten|werbung)|"
+    r"nicht mehr (kontaktieren|anschreiben|schreiben)|d[ée]sinscri|d[ée]sabonn|ne plus (me |nous )?"
+    r"(contacter|[ée]crire|recevoir|envoyer)|darse de baja|darme de baja|no (me|nos) (contacte|escriba)|"
+    r"cancellami|disiscriv|non contattarmi|afmelden|uitschrijven|niet meer (mailen|contacteren))", re.I)
+QUOTE_START = re.compile(
+    r"(^|\n)\s*(>|on .{0,200}wrote:|am .{0,200}schrieb|le .{0,200}a [ée]crit|el .{0,200}escribi[óo]|"
+    r"il .{0,200}ha scritto|op .{0,200}schreef|-{2,}\s*(original message|urspr[üu]ngliche nachricht|"
+    r"message d'origine|forwarded message|mensaje original)|_{5,}|from:\s|von:\s|de\s?:\s|sent from my)",
+    re.I)
+
+
+def reply_text(email):
+    """The words of a received email above any quoted earlier email, as plain text."""
+    body = email.get("body") or {}
+    if isinstance(body, str):
+        text = body
+    else:
+        text = body.get("text") or ""
+        if not text and body.get("html"):
+            text = re.sub(r"<br\s*/?>|</p>|</div>", "\n", body["html"], flags=re.I)
+            text = html_lib.unescape(re.sub(r"<[^>]+>", " ", text))
+    text = text or email.get("content_preview") or ""
+    m = QUOTE_START.search(text)
+    return (text[:m.start()] if m else text).strip()
+
+
+def is_auto_reply(email):
+    """True for an automatic answer (out of office, holiday): Instantly's own flag, a subject such as
+    "Automatic reply: ..." or "Abwesenheitsnotiz", or a short text saying they are away until a date."""
+    if email.get("is_auto_reply"):
+        return True
+    subject = email.get("subject") or ""
+    bare = re.sub(r"^\s*((re|aw|sv|antw|fw|fwd|wg|tr)\s*:\s*)+", "", subject, flags=re.I)
+    if AUTO_SUBJECT.match(subject) or AUTO_SUBJECT.match(bare):
+        return True
+    text = reply_text(email)
+    return bool(text) and len(text) < 1500 and bool(AUTO_BODY.search(text)) and bool(RETURN_WORDS.search(text))
+
+
+def is_opt_out_reply(email):
+    return bool(OPT_OUT_WORDS.search(reply_text(email)))
+
+
+def _with_body(emails_api, email):
+    """The email with its text: the list of emails may leave the body out."""
+    body = email.get("body")
+    if body and (isinstance(body, str) or body.get("text") or body.get("html")):
+        return email
+    full = emails_api.get_email(email["id"]) if (email.get("id") and hasattr(emails_api, "get_email")) else None
+    return {**email, **full} if full else email
+
+
+def classify_replies(emails_api, address):
+    """What a person's answers in Instantly amount to: "opt_out", "reply", "auto" (only automatic
+    answers) or None (no answer found, or the emails could not be read)."""
+    try:
+        got = [e for e in emails_api.thread_emails(address) if e.get("ue_type") == 2]
+    except Exception:
+        return None
+    kinds = set()
+    for e in got:
+        e = _with_body(emails_api, e)
+        if is_auto_reply(e):
+            kinds.add("auto")
+        elif is_opt_out_reply(e):
+            kinds.add("opt_out")
+        else:
+            kinds.add("reply")
+    for kind in ("opt_out", "reply", "auto"):
+        if kind in kinds:
+            return kind
+    return None
+
+
+def stop_reasons(hs, object_type, items, log=print):
+    """Write "Outreach stopped because" and a timeline note on AUTO-OUTREACH records: [(id, text)].
+    Never stops the run: a missing field or a key without note access is reported once."""
+    items = [(str(rid), text) for rid, text in items if text]
+    if not items:
+        return
+    try:
+        if hs.has_property(object_type, STOP_REASON):
+            hs.update_tagged(object_type, [(rid, {STOP_REASON: text[:250]}) for rid, text in items])
+        else:
+            log(f'The {object_type} field "Outreach stopped because" is missing; run button 1 to add it')
+    except Exception as err:
+        log(f"Could not write why outreach stopped on {len(items)} {object_type}: {str(err)[:200]}")
+    try:
+        if hasattr(hs, "note_tagged"):
+            hs.note_tagged(object_type, [(rid, f"Diablo outreach stopped. {text}") for rid, text in items])
+    except Exception as err:
+        log(f"Could not add a timeline note on {len(items)} {object_type} (the note says why outreach "
+            f"stopped): {str(err)[:200]}")
+
+
+# What the rest of a company shows once someone there has answered (agreed 19 Oct 2026); an opt-out
+# gets its own choice, "Colleague opted out" (19 Oct 2026), or "Colleague replied: negative" in an
+# account where button 1 has not added it yet.
 COLLEAGUE_STAGE = {"marked interested": "colleague_positive", "replied": "colleague_replied",
-                   "marked not interested": "colleague_negative", "unsubscribed": "colleague_negative",
-                   "blocklisted": "colleague_negative"}
+                   "marked not interested": "colleague_negative", "unsubscribed": "colleague_opted_out",
+                   "blocklisted": "colleague_opted_out", "opted out by reply": "colleague_opted_out",
+                   "opted out earlier": "colleague_opted_out"}
 
 
 def mark_colleagues(hs, statuses, company_contacts, answered_ids, stage, log=print, name=""):
     """Give everyone at the company who has not answered themselves the colleague Lead Status, so
     gate 2 no longer shows them as waiting. Skipped quietly when the account lacks the choice
     (button 1 not run since 19 Oct 2026)."""
+    if stage == "colleague_opted_out" and not statuses.has("contacts", stage):
+        stage = "colleague_negative"  # until button 1 adds "Colleague opted out"
     if not statuses.has("contacts", stage):
         log(f"{name}: the Lead Status choice for colleagues is missing; run button 1 to add it")
         return []
@@ -115,7 +297,7 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         return {"updated": 0}
 
     # Only AUTO-OUTREACH contacts come back from tagged_read; any other email is ignored.
-    rows = hs.tagged_read("contacts", list(leads), ["email", LEAD_STATUS], id_property="email")
+    rows = hs.tagged_read("contacts", list(leads), ["email", LEAD_STATUS, "jobtitle"], id_property="email")
     blocked = read_blocklist(instantly, emails_api, log=log)
     contact_updates, changed = [], []
     for r in rows:
@@ -124,6 +306,20 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         if not lead:
             continue
         new, company_stage, event = lead_result(lead)
+        # A reply Instantly has not labelled (or labelled out of office) is read (19 Oct 2026): an
+        # automatic answer is no reply, and a request to stop is an opt-out. If the emails cannot be
+        # read, the reply counts as before.
+        if (emails_api is not None and (lead.get("email_reply_count") or 0) > 0
+                and lead.get("lt_interest_status") in (None, 0) and lead.get("status") not in (-1, -2)):
+            kind = classify_replies(emails_api, p.get("email"))
+            if kind == "auto":
+                new, company_stage, event = "in_outreach", None, "out of office"
+                log(f"{p.get('jobtitle') or 'A contact'} sent an automatic answer (out of office); it does not "
+                    "count as a reply, so the loop carries on")
+            elif kind == "opt_out":
+                new, company_stage, event = "closed", "closed", "opted out by reply"
+            elif kind == "reply":
+                new, company_stage, event = "replied", "replied", "replied"
         if is_blocked(p.get("email"), blocked) and new not in ("closed", "replied"):
             # Blocklisted in Instantly counts as an opt-out (19 Oct 2026): the company stops.
             new, company_stage, event = "closed", "closed", "blocklisted"
@@ -132,8 +328,12 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
             continue
         contact_updates.append((r["id"], statuses.props("contacts", new)))
         changed.append({"contact_id": r["id"], "from": old, "to": new, "event": event,
-                        "company_to": company_stage})
+                        "company_to": company_stage, "jobtitle": p.get("jobtitle") or "contact"})
     hs.update_tagged("contacts", contact_updates)
+    opt_out_rows = []
+    opted = [c for c in changed if c["event"] in OPT_OUT_EVENTS]
+    stop_reasons(hs, "contacts", [(c["contact_id"], f"{STOP_TEXT.get(c['event'], 'Opted out')} ({today()})")
+                                  for c in opted], log)
 
     # Roll replies and opt-outs up to their companies.
     company_updates = {}
@@ -169,13 +369,22 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                 events = [c["event"] for c in ups if owner_of.get(str(c["contact_id"])) == company_id]
                 answered = [c["contact_id"] for c in ups if owner_of.get(str(c["contact_id"])) == company_id]
                 kind = ("colleague_positive" if "marked interested" in events else
+                        "colleague_opted_out" if any(e in OPT_OUT_EVENTS for e in events) else
                         "colleague_negative" if any(COLLEAGUE_STAGE.get(e) == "colleague_negative" for e in events)
                         else "colleague_replied")
-                mark_colleagues(hs, statuses, everyone.get(company_id) or [], answered, kind, log,
-                                (current.get(company_id) or {}).get("properties", {}).get("name", ""))
+                cname = (current.get(company_id) or {}).get("properties", {}).get("name", "")
+                marked = mark_colleagues(hs, statuses, everyone.get(company_id) or [], answered, kind, log, cname)
+                if kind == "colleague_opted_out":
+                    stop_reasons(hs, "companies", [(company_id, f"A contact opted out ({today()})")], log)
+                    stop_reasons(hs, "contacts", [(cid, f"A colleague opted out ({today()})") for cid, _ in marked], log)
+                    for c in ups:
+                        if owner_of.get(str(c["contact_id"])) == company_id and c["event"] in OPT_OUT_EVENTS:
+                            opt_out_rows.append(f"| {cname} | {c['jobtitle']} | {STOP_TEXT.get(c['event'])} |")
+                            log(f"{cname}: {c['jobtitle']} opted out ({c['event']}); the company is now Unqualified "
+                                "and nobody else there is emailed")
 
     moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads,
-                    blocked=blocked)
+                    blocked=blocked, opt_out_rows=opt_out_rows)
     out_dir = run_dir("sync")
     write_json(out_dir / "changes.json", {"contacts": changed, "companies": company_updates,
                                           "next_in_line": moved})
@@ -210,11 +419,12 @@ def _addresses(value):
     return [a.strip().lower() for a in re.split(r"[,;\s]+", str(value or "")) if "@" in a]
 
 
-def company_mail(emails_api, contacts):
+def company_mail(emails_api, contacts, details=None):
     """What Instantly holds for a company's people: ({contact id: [times emailed]},
     {contact id: [emails sent to them, oldest first]}, {contact ids that replied}).
     A forward may be filed under the address it was forwarded from, so every email is matched to
-    a person by its own To or From address."""
+    a person by its own To or From address. Automatic answers (out of office) are not replies
+    (19 Oct 2026); a reply asking us to stop goes into details["opted_out"] instead, when given."""
     by_addr = {(c["properties"].get("email") or "").lower(): c for c in contacts
                if c.get("state") in ("queued", "sent", "bounced") and c["properties"].get("email")}
     seen = {}
@@ -225,14 +435,20 @@ def company_mail(emails_api, contacts):
     for e, asked in seen.values():
         kind = e.get("ue_type")
         if kind == 2:  # received: a reply from one of them (out-of-office answers do not count)
-            if e.get("is_auto_reply"):
+            e = _with_body(emails_api, e)
+            if is_auto_reply(e):
+                if details is not None:
+                    details.setdefault("auto_replies", set()).add(asked)
                 continue
             sender = _addresses(e.get("from_address_email"))
             # A reply from another address of theirs (e.g. their main address instead of the one we
             # wrote to) counts for the person whose conversation it arrived in (19 Oct 2026, case c3).
             who = (by_addr.get(sender[0]) if sender else None) or by_addr.get(asked)
             if who:
-                replied.add(who["id"])
+                if details is not None and is_opt_out_reply(e):
+                    details.setdefault("opted_out", set()).add(who["id"])
+                else:
+                    replied.add(who["id"])
             continue
         if kind not in (1, 3):
             continue
@@ -366,8 +582,9 @@ def progress_rows(name, contacts, touches, statuses):
     return rows
 
 
-def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None):
-    """Read only: where every company in outreach is in its loop, for the health report."""
+def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None, blocked=None):
+    """Read only: where every company in outreach is in its loop, for the health report. With the
+    blocklist given, each company also says whether anyone there is on it (19 Oct 2026)."""
     statuses = statuses or LeadStatus(hs)
     leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
     gap = float(settings["send"].get("next_contact_after_days", 3))
@@ -387,17 +604,74 @@ def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None):
             mark_sent(contacts, touches)
         _, why = decide(contacts, statuses.of("companies", company), gap, now, touches=touches, min_same_days=min_same)
         when = due_at(contacts, touches, why, gap, min_same)
-        nexts.append(f"- **{name}**: next is {NEXT_STEP.get(why, why)}" + (f", due {ist(when)}" if when else ""))
+        line = f"- **{name}**: next is {NEXT_STEP.get(why, why)}" + (f", due {ist(when)}" if when else "")
+        if blocked is not None and getattr(blocked, "ok", True):
+            found = stop_signals(contacts, blocked, leads)
+            line += (f"; **opted out: {len(found)} there** (the company is stopped at the next run)" if found
+                     else "; blocklist: clear")
+        nexts.append(line)
         people += progress_rows(name, contacts, touches, statuses)
     return ("## Where every company is in its loop\n\n" + "\n".join(nexts) + "\n\n"
             "| Company | Order | Person (job title) | Lead Status | Emailed |\n|---|---|---|---|---|\n"
             + "\n".join(people) + "\n")
 
 
+def blocklist_line(blocked):
+    if isinstance(blocked, BlockList) and not blocked.ok:
+        return (f"**Instantly blocklist could not be read** ({blocked.problem}). Emails still went out; anyone "
+                "already marked as opted out in HubSpot stayed stopped, but blocklist entries added since the last "
+                "successful read were not applied in this run.")
+    return f"Instantly blocklist: {len(blocked or ())} entries read and checked before every email."
+
+
+def _summary(sent_rows, waiting_rows, opt_out_rows, blocked):
+    summary = "## Button 4: what was sent this run\n\n" + blocklist_line(blocked) + "\n\n"
+    summary += ("| Company | Person (job title) | What happened |\n|---|---|---|\n" + "\n".join(sent_rows)
+                if sent_rows else "Nothing was due this run.")
+    if opt_out_rows:
+        summary += ("\n\n## Opt-outs found this run\n\n| Company | Person (job title) | Signal |\n|---|---|---|\n"
+                    + "\n".join(opt_out_rows))
+    if waiting_rows:
+        summary += ("\n\n## Waiting\n\n| Company | Next | Due |\n|---|---|---|\n" + "\n".join(waiting_rows))
+    step_summary(summary)
+
+
+def stop_signals(contacts, blocked, leads, details=None):
+    """[(contact, event)] for everyone at a company who opted out, by any of the signals: Instantly
+    unsubscribed, on Instantly's blocklist, a reply asking us to stop, or an opt-out HubSpot already
+    holds (19 Oct 2026)."""
+    found = []
+    asked_to_stop = (details or {}).get("opted_out") or set()
+    for c in contacts:
+        email = (c["properties"].get("email") or "").lower()
+        lead = (leads or {}).get(email) or {}
+        if lead.get("status") == -2:
+            found.append((c, "unsubscribed"))
+        elif is_blocked(email, blocked):
+            found.append((c, "blocklisted"))
+        elif c["id"] in asked_to_stop:
+            found.append((c, "opted out by reply"))
+        elif opted_out_earlier(c):
+            found.append((c, "opted out earlier"))
+    return found
+
+
 def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statuses=None, leads=None,
-            blocked=None):
+            blocked=None, opt_out_rows=None):
     """Move each AUTO-OUTREACH company in outreach on through its one loop when the next email is due."""
     statuses = statuses or LeadStatus(hs)
+    blocklist = {"now": blocked if blocked is not None else read_blocklist(instantly, emails_api, log=log)}
+
+    def fresh_blocklist():
+        """The blocklist, read again when the copy in hand is more than a minute old (a last check
+        just before each email; if it cannot be read again, the earlier copy is used)."""
+        held = blocklist["now"]
+        if isinstance(held, BlockList) and time.monotonic() - held.read_at > BLOCKLIST_FRESH_SECONDS:
+            again = read_blocklist(instantly, emails_api, log=lambda *_: None)
+            if again.ok:
+                blocklist["now"] = again
+        return blocklist["now"]
+
     if leads is None:
         leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
     gap = float(settings["send"].get("next_contact_after_days", 3))
@@ -406,21 +680,63 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
                                  COMPANY_PROPS, max_results=5000)
     result = {"next_contacts_added": 0, "forwards_sent": 0, "reminders_sent": 0, "no_reply": 0,
-              "replied": 0, "waiting_for_emails_key": 0}
+              "replied": 0, "waiting_for_emails_key": 0, "opted_out": 0}
+    opt_out_rows = list(opt_out_rows or [])
     if not companies:
+        _summary([], [], opt_out_rows, blocklist["now"])
         return result
     everyone = contacts_by_company(hs, [c["id"] for c in companies])
     notes = load_company_notes()
     contact_updates, company_updates = [], []
     sent_rows, waiting_rows = [], []
+
+    def stop_company(company, name, contacts, found):
+        """An opt-out at the company: that person and the company are Unqualified, everyone else
+        there shows "Colleague opted out", and HubSpot says why (19 Oct 2026)."""
+        for c, event in found:
+            if forward(statuses.of("contacts", c), "closed"):
+                contact_updates.append((c["id"], statuses.props("contacts", "closed")))
+        if forward(statuses.of("companies", company), "closed"):
+            company_updates.append((company["id"], statuses.props("companies", "closed")))
+        fresh = [(c, e) for c, e in found if e != "opted out earlier"]
+        stop_reasons(hs, "contacts", [(c["id"], f"{STOP_TEXT.get(e, 'Opted out')} ({today()})") for c, e in fresh], log)
+        marked = mark_colleagues(hs, statuses, contacts, [c["id"] for c, _ in found], "colleague_opted_out", log, name)
+        stop_reasons(hs, "contacts", [(cid, f"A colleague opted out ({today()})") for cid, _ in marked], log)
+        stop_reasons(hs, "companies", [(company["id"], f"A contact opted out ({today()})")], log)
+        for c, event in found:
+            opt_out_rows.append(f"| {name} | {c['properties'].get('jobtitle') or 'contact'} | "
+                                f"{STOP_TEXT.get(event, 'Opted out earlier (already in HubSpot)')} |")
+        result["opted_out"] += 1
+        sent_rows.append(f"| {name} | - | Opted out: company Unqualified, nobody else emailed |")
+        log(f"{name}: someone there opted out ({', '.join(sorted({e for _, e in found}))}); the company is now "
+            "Unqualified and nobody else there is emailed")
+
+    def last_check(company, name, contacts, details):
+        """Just before an email goes: anyone at the company opted out since the run started?"""
+        found = stop_signals(contacts, fresh_blocklist(), leads, details)
+        if found:
+            stop_company(company, name, contacts, found)
+            return False
+        return True
+
     for company in companies:
         props = company.get("properties", {})
         name = props.get("name")
         contacts = annotate(everyone.get(company["id"]) or [], statuses, leads)
-        touches, history, replied = None, {}, set()
+        touches, history, replied, details = None, {}, set(), {}
         if emails_api is not None and any(c["state"] in ("queued", "sent", "bounced") for c in contacts):
-            touches, history, replied = company_mail(emails_api, contacts)
+            try:
+                touches, history, replied = company_mail(emails_api, contacts, details)
+            except Exception as err:  # one company's emails not readable never stops the others
+                log(f"{name}: Instantly's emails for this company could not be read ({str(err)[:150]}); "
+                    "nothing is sent to it this run, it is tried again next run")
+                waiting_rows.append(f"| {name} | emails could not be read, tried again next run | - |")
+                continue
             mark_sent(contacts, touches)
+        found = stop_signals(contacts, blocklist["now"], leads, details)
+        if found:  # an opt-out comes before anything else, also before a colleague's reply
+            stop_company(company, name, contacts, found)
+            continue
         if replied:  # e.g. a reply to a forward, which Instantly's campaign does not count
             for c in contacts:
                 if c["id"] in replied and forward(statuses.of("contacts", c), "replied"):
@@ -431,17 +747,6 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             result["replied"] += 1
             sent_rows.append(f"| {name} | - | Reply received: nobody else there is emailed |")
             log(f"{name}: someone replied; nobody else there is emailed")
-            continue
-        opted_out = [c for c in contacts if is_blocked(c["properties"].get("email"), blocked)]
-        if opted_out:  # blocklisted in Instantly (19 Oct 2026): an opt-out, so the company stops
-            for c in opted_out:
-                if forward(statuses.of("contacts", c), "closed"):
-                    contact_updates.append((c["id"], statuses.props("contacts", "closed")))
-            if forward(statuses.of("companies", company), "closed"):
-                company_updates.append((company["id"], statuses.props("companies", "closed")))
-            mark_colleagues(hs, statuses, contacts, [c["id"] for c in opted_out], "colleague_negative", log, name)
-            sent_rows.append(f"| {name} | - | Blocklisted in Instantly: company Unqualified, nobody else emailed |")
-            log(f"{name}: someone there is on Instantly's blocklist; the company is now Unqualified")
             continue
         due, why = decide(contacts, statuses.of("companies", company), gap, now,
                           touches=touches, min_same_days=min_same)
@@ -474,7 +779,13 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             html, text = forward_email(due, props, settings, notes, colleague=_name(prev), original=chain)
             first = min((e for es in history.values() for e in es),
                         key=lambda e: _sent_time(e) or parse_time("2999-01-01"), default=chain)
-            emails_api.forward(chain, due["properties"]["email"], forward_subject(first), html, text)
+            if not last_check(company, name, contacts, details):
+                continue
+            try:
+                emails_api.forward(chain, due["properties"]["email"], forward_subject(first), html, text)
+            except Exception as err:
+                log(f"{name}: Instantly refused the forward ({str(err)[:150]}); it is tried again next run")
+                continue
             contact_updates.append((due["id"], statuses.props_or("contacts", "forwarded", "in_outreach")))
             result["forwards_sent"] += 1
             sent_rows.append(f"| {name} | {due['properties'].get('jobtitle') or 'next contact'} | Forward sent, naming "
@@ -489,10 +800,16 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 continue
             html, text = reminder_email(due, props, settings, notes, mailbox=past[-1].get("eaccount"))
             own = reminder_subject(settings, due)  # a template with its own subject (follow_up_2, 15 Oct 2026)
-            if own:
-                emails_api.reply(past[-1], own, html, text, keep_subject=True)
-            else:
-                emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
+            if not last_check(company, name, contacts, details):
+                continue
+            try:
+                if own:
+                    emails_api.reply(past[-1], own, html, text, keep_subject=True)
+                else:
+                    emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
+            except Exception as err:
+                log(f"{name}: Instantly refused the reminder ({str(err)[:150]}); it is tried again next run")
+                continue
             if statuses.has("contacts", "reminded") and forward(statuses.of("contacts", due), "reminded"):
                 contact_updates.append((due["id"], statuses.props("contacts", "reminded")))
             result["reminders_sent"] += 1
@@ -504,6 +821,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         if not due or why != "next" or not campaign or not due["properties"].get(PERSONAL_LINE):
             continue
         lead = lead_for(due, props, notes)  # nobody reached yet (e.g. person 1 bounced before sending)
+        if not last_check(company, name, contacts, details):
+            continue
         results = instantly.add_leads(campaign, [lead])
         if sum(r.get("leads_uploaded") or 0 for r in results):
             contact_updates.append((due["id"], statuses.props("contacts", "in_outreach")))
@@ -518,12 +837,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     if result["waiting_for_emails_key"]:
         log(f"{result['waiting_for_emails_key']} companies are ready for their next email, but the GitHub secret "
             "INSTANTLY_EMAILS_KEY (Instantly key with scope emails:all) is not set, so those emails wait")
-    summary = "## Button 4: what was sent this run\n\n"
-    summary += ("| Company | Person (job title) | What happened |\n|---|---|---|\n" + "\n".join(sent_rows)
-                if sent_rows else "Nothing was due this run.")
-    if waiting_rows:
-        summary += ("\n\n## Waiting\n\n| Company | Next | Due |\n|---|---|---|\n" + "\n".join(waiting_rows))
-    step_summary(summary)
+    _summary(sent_rows, waiting_rows, opt_out_rows, blocklist["now"])
     log(f"Loop: {result['forwards_sent']} forwards, {result['reminders_sent']} reminders, "
         f"{result['next_contacts_added']} introductions added, {result['replied']} companies replied, "
         f"{result['no_reply']} finished with no reply (now Unqualified)")

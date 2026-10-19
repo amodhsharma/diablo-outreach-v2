@@ -49,9 +49,11 @@ STAGES = {
         "colleague_positive": "Colleague replied: positive",
         "colleague_negative": "Colleague replied: negative",
         "colleague_replied": "Colleague replied",
+        # Someone at the company opted out (19 Oct 2026): blocklisted, unsubscribed or asked to stop.
+        "colleague_opted_out": "Colleague opted out",
     },
 }
-COLLEAGUE_STAGES = ("colleague_positive", "colleague_negative", "colleague_replied")
+COLLEAGUE_STAGES = ("colleague_positive", "colleague_negative", "colleague_replied", "colleague_opted_out")
 # Contact stages that mean "emailed, no reply yet" (agreed 14 Oct 2026: the forward and the
 # reminder get their own Lead Status so they can be checked in HubSpot).
 EMAILED = ("in_outreach", "forwarded", "reminded")
@@ -67,13 +69,13 @@ NEW_OPTION_VALUES = {
                  "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
                  "Unqualified": "UNQUALIFIED", "Colleague replied: positive": "COLLEAGUE_REPLIED_POSITIVE",
                  "Colleague replied: negative": "COLLEAGUE_REPLIED_NEGATIVE",
-                 "Colleague replied": "COLLEAGUE_REPLIED"},
+                 "Colleague replied": "COLLEAGUE_REPLIED", "Colleague opted out": "COLLEAGUE_OPTED_OUT"},
 }
 
 # Later stages win: a status only ever moves forward.
 ORDER = {"": 0, "found": 0, "missing_info": 0, "copy_ready": 0, "approved": 0,
          "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3,
-         "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2}
+         "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2}
 TEAM = "team"
 
 

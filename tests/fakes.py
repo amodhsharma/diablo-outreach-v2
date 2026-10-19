@@ -17,7 +17,7 @@ LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": 
                        "FORWARD_SENT": "Forward sent", "REMINDER_SENT": "Reminder sent",
                        "COLLEAGUE_REPLIED_POSITIVE": "Colleague replied: positive",
                        "COLLEAGUE_REPLIED_NEGATIVE": "Colleague replied: negative",
-                       "COLLEAGUE_REPLIED": "Colleague replied"}
+                       "COLLEAGUE_REPLIED": "Colleague replied", "COLLEAGUE_OPTED_OUT": "Colleague opted out"}
 
 
 class FakeCRM(TagGuard):
@@ -110,6 +110,11 @@ class FakeCRM(TagGuard):
         for a, b in pairs:
             self.links.setdefault(str(a), []).append(str(b))
 
+    def _create_note(self, object_type, record_id, text):
+        self.notes = getattr(self, "notes", [])
+        self.notes.append((object_type, str(record_id), text))
+        return {"id": f"note{len(self.notes)}"}
+
     def associated_ids(self, from_type, to_type, ids):
         if from_type == "companies":  # links are stored contact -> companies
             return {str(i): [c for c, cos in self.links.items() if str(i) in cos] for i in ids}
@@ -200,8 +205,10 @@ class FakeEmails:
     def campaign_email(self, to, when, subject="Partnering to establish Diablo"):
         return self._add(ue_type=1, to_address_email_list=to, lead=to, subject=subject, timestamp_email=when)
 
-    def received(self, sender, when):
-        return self._add(ue_type=2, from_address_email=sender, lead=sender, subject="Re: hello", timestamp_email=when)
+    def received(self, sender, when, subject="Re: hello", text=None):
+        extra = {"body": {"text": text}} if text is not None else {}
+        return self._add(ue_type=2, from_address_email=sender, lead=sender, subject=subject, timestamp_email=when,
+                         **extra)
 
     def thread_emails(self, lead_email):
         lead_email = lead_email.lower()

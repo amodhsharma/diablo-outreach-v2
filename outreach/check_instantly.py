@@ -236,6 +236,19 @@ def keys_section(emails_key_set, emails_api):
         return f"## Keys\n\n- INSTANTLY_EMAILS_KEY is set but Instantly refused it: {err}\n"
 
 
+def blocklist_section(*clients):
+    """Whether Instantly's blocklist can be read, and how many entries it holds (19 Oct 2026: the
+    loop checks it before every email, so a list that cannot be read must show up here)."""
+    from .sync import read_blocklist
+    blocked = read_blocklist(*clients, log=lambda *_: None)
+    if not blocked.ok:
+        return ("## Blocklist\n\n- **Instantly's blocklist could not be read** "
+                f"({blocked.problem}). Emails still go out; opt-outs already in HubSpot stay stopped, but new "
+                "blocklist entries are not applied until it can be read again.\n"), blocked
+    return (f"## Blocklist\n\n- Instantly's blocklist: {len(blocked)} entries (addresses and domains), read "
+            "and checked before every forward, reminder and introduction.\n"), blocked
+
+
 def run(instantly, settings, accounts_api=None):
     """accounts_api reads the mailboxes: a separate read-only key (INSTANTLY_ACCOUNTS_KEY) when
     set, so the key that sends emails never needs more access than it has."""
@@ -267,11 +280,14 @@ def hubspot_section(settings, target, instantly=None):
 
 def main(argv=None):
     settings = load_settings()
+    blocked = None
     try:
         key = os.environ.get("INSTANTLY_ACCOUNTS_KEY")
         text = run(Instantly(), settings, Instantly(api_key=key) if key else None)
         emails_key = os.environ.get("INSTANTLY_EMAILS_KEY")
         text += "\n" + keys_section(bool(emails_key), Instantly(api_key=emails_key) if emails_key else None)
+        section, blocked = blocklist_section(Instantly(), Instantly(api_key=emails_key) if emails_key else None)
+        text += "\n" + section
     except InstantlyError as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1
@@ -285,7 +301,8 @@ def main(argv=None):
             from .sync import overview
             emails_key = os.environ.get("INSTANTLY_EMAILS_KEY")
             text += "\n" + overview(HubSpot(), Instantly(), settings,
-                                     emails_api=Instantly(api_key=emails_key) if emails_key else None)
+                                     emails_api=Instantly(api_key=emails_key) if emails_key else None,
+                                     blocked=blocked)
         except Exception as err:
             text += f"\n## Where every company is in its loop\n\n- Could not be read: {err}\n"
     OUT.parent.mkdir(parents=True, exist_ok=True)

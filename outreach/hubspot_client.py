@@ -90,6 +90,14 @@ class TagGuard:
         self._check_tags(object_type, [i for i, _ in updates], "change")
         self._batch_update(object_type, updates)
 
+    def note_tagged(self, object_type, notes):
+        """Add a note to the timeline of AUTO-OUTREACH records: [(record id, text)]."""
+        notes = [(str(rid), text) for rid, text in notes if text]
+        if not notes:
+            return []
+        self._check_tags(object_type, [rid for rid, _ in notes], "add a note to")
+        return [self._create_note(object_type, rid, text) for rid, text in notes]
+
     def associate_tagged(self, from_type, to_type, pairs):
         """Link records; both sides must carry the tag."""
         pairs = [(str(a), str(b)) for a, b in pairs]
@@ -219,6 +227,18 @@ class HubSpot(TagGuard):
         for chunk in _chunks(updates, 100):
             body = {"inputs": [{"id": str(i), "properties": p} for i, p in chunk]}
             self.request("POST", f"/crm/v3/objects/{object_type}/batch/update", json=body)
+
+    # HubSpot's own association types: note to contact and note to company.
+    NOTE_ASSOCIATION = {"contacts": 202, "companies": 190}
+
+    def _create_note(self, object_type, record_id, text):
+        import datetime as _dt
+        body = {"properties": {"hs_timestamp": _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                               "hs_note_body": text},
+                "associations": [{"to": {"id": str(record_id)},
+                                  "types": [{"associationCategory": "HUBSPOT_DEFINED",
+                                             "associationTypeId": self.NOTE_ASSOCIATION[object_type]}]}]}
+        return self.request("POST", "/crm/v3/objects/notes", json=body)
 
     def has_property(self, object_type, name):
         """True when the account has this field (e.g. a field added by a newer button 1 run)."""

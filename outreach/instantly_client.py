@@ -23,12 +23,19 @@ class Instantly:
         )
 
     def request(self, method, path, **kwargs):
-        for attempt in range(6):
+        # 19 Oct 2026: Instantly limits how often its email list can be read; a busy run was refused
+        # ("GET /emails kept failing"). Waits longer now, and as long as Instantly asks (Retry-After).
+        for attempt in range(8):
             resp = self.session.request(method, API + path, timeout=60, **kwargs)
             if resp.status_code in (200, 201):
                 return resp.json() if resp.content else {}
             if resp.status_code == 429 or resp.status_code >= 500:
-                time.sleep(min(2 ** attempt, 30))
+                wait = min(2 ** attempt, 60)
+                try:
+                    wait = max(wait, min(float(resp.headers.get("Retry-After") or 0), 120))
+                except (TypeError, ValueError, AttributeError):
+                    pass
+                time.sleep(wait)
                 continue
             raise InstantlyError(f"{method} {path} failed with {resp.status_code}: {resp.text[:500]}")
         raise InstantlyError(f"{method} {path} kept failing after retries")
@@ -133,9 +140,12 @@ class Instantly:
             params = {"limit": 100}
             if cursor:
                 params["starting_after"] = cursor
-            data = self.request("GET", "/block-lists-entries", params=params)
-            batch = data.get("items", [])
-            values.update(str(x.get("bl_value") or "").strip().lower() for x in batch if x.get("bl_value"))
+            data = self.request("GET", "/block-lists-entries", params=params) or {}
+            batch = data.get("items") or data.get("data") or []
+            for x in batch:  # bl_value in Instantly's API v2; the others only in case it changes
+                value = x.get("bl_value") or x.get("value") or x.get("email") or x.get("domain")
+                if value:
+                    values.add(str(value).strip().lower())
             cursor = data.get("next_starting_after")
             if not cursor or not batch:
                 return values

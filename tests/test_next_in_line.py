@@ -357,7 +357,12 @@ def test_a_blocklisted_person_1_stops_the_company(settings):
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["forwards_sent"] == 0 and not emails.forwards
     assert status_of(hs, p1) == "UNQUALIFIED" and hs.records["companies"][cid][LS] == "Unqualified"
-    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_REPLIED_NEGATIVE"
+    # 19 Oct 2026: the others show "Colleague opted out" and HubSpot says why, also on the timeline.
+    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_OPTED_OUT"
+    assert hs.records["contacts"][p1]["diablo_stop_reason"].startswith("Opted out: on Instantly's blocklist (")
+    assert hs.records["contacts"][p2]["diablo_stop_reason"].startswith("A colleague opted out (")
+    assert hs.records["companies"][cid]["diablo_stop_reason"].startswith("A contact opted out (")
+    assert any(n[1] == p1 and "blocklist" in n[2] for n in hs.notes)
     # A whole blocklisted domain counts too, also for a colleague reached by a forward.
     hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
     instantly.blocked = {"noble.in"}
@@ -388,3 +393,124 @@ def test_a_reply_from_another_address_counts_for_the_person_written_to(settings)
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["replied"] == 1 and moved["forwards_sent"] == 0
     assert status_of(hs, p2) == "IN_PROGRESS" and hs.records["companies"][cid][LS] == "In Progress"
+
+
+# ---- 19 Oct 2026, second strain test: opt-outs (c5) and automatic answers (c6) ------------------
+
+@pytest.fixture
+def no_waiting(monkeypatch):
+    monkeypatch.setattr(sync, "BLOCKLIST_RETRY_SECONDS", 0)
+
+
+def test_the_blocklist_matches_plus_addresses_and_domains():
+    blocked = sync.BlockList({"clgdbt+c5p1@gmail.com", "noble.in"})
+    assert sync.is_blocked("CLGDBT+c5p1@gmail.com", blocked)
+    assert sync.is_blocked("clgdbt@gmail.com", blocked)  # the same mailbox without its "+tag"
+    assert sync.is_blocked("x@noble.in", blocked)  # a whole domain
+    assert not sync.is_blocked("other@gmail.com", blocked)
+    assert sync.is_blocked("p1+test@noble.example", {"p1@noble.example"})  # a plain set works too
+
+
+def test_an_unreadable_blocklist_never_stops_the_other_emails(settings, monkeypatch, no_waiting):
+    """Ariel, 19 Oct 2026: holding everything back because one list cannot be read is not wanted.
+    The forward still goes; an opt-out HubSpot already holds still stops its company."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    def refuse():
+        raise RuntimeError("401 not allowed")
+    instantly.blocklist = refuse
+    shown = []
+    monkeypatch.setattr(sync, "step_summary", shown.append)
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["forwards_sent"] == 1
+    assert "Instantly blocklist could not be read" in shown[-1]
+
+    hs, instantly, emails, cid2, (q1, q2, q3) = started(settings, name="Other", domain="other.in", days=3.1)
+    instantly.blocklist = refuse
+    hs.records["contacts"][q1]["diablo_stop_reason"] = "Opted out: on Instantly's blocklist (18 Oct 2026)"
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["forwards_sent"] == 0 and hs.records["companies"][cid2][LS] == "Unqualified"
+
+
+def test_the_blocklist_is_checked_again_just_before_an_email(settings, monkeypatch):
+    """An address blocklisted while the run is going is still caught before the forward."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    calls = []
+    def changing():
+        calls.append(1)
+        return set() if len(calls) == 1 else {"p1@noble.in"}
+    instantly.blocklist = changing
+    monkeypatch.setattr(sync, "BLOCKLIST_FRESH_SECONDS", -1)  # always read again before an email
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert len(calls) >= 2 and moved["forwards_sent"] == 0 and not emails.forwards
+    assert hs.records["companies"][cid][LS] == "Unqualified" and status_of(hs, p2) == "COLLEAGUE_OPTED_OUT"
+
+
+def test_an_automatic_answer_is_no_reply(settings):
+    """Case c6: an out-of-office answer does not stop the loop; person 2 still gets the forward."""
+    for subject, text, interest in (("Automatic reply: Partnering to establish Diablo", "Away.", None),
+                                    ("Re: Partnering to establish Diablo",
+                                     "Thank you for your email. I am out of the office until 25 October.", 0),
+                                    ("Abwesenheitsnotiz: Partnering", "Ich bin im Urlaub.", None)):
+        hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+        lead(instantly, "p1@noble.in").update(email_reply_count=1, lt_interest_status=interest)
+        emails.received("p1@noble.in", ago(1), subject=subject, text=text)
+        moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+        assert status_of(hs, p1) == "ATTEMPTED_TO_CONTACT", subject
+        assert moved["forwards_sent"] == 1 and moved["replied"] == 0, subject
+
+
+def test_a_real_reply_still_stops_the_company(settings):
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    lead(instantly, "p1@noble.in").update(email_reply_count=1)
+    emails.received("p1@noble.in", ago(1), text="Interesting, please send your price list.\n\nOn Mon, J wrote:\n"
+                                              "> Unsubscribe here if you prefer")  # the quote is ignored
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert status_of(hs, p1) == "IN_PROGRESS" and moved["forwards_sent"] == 0
+    assert status_of(hs, p2) == "COLLEAGUE_REPLIED"
+
+
+def test_a_reply_asking_to_stop_is_an_opt_out(settings):
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    lead(instantly, "p1@noble.in").update(email_reply_count=1)
+    emails.received("p1@noble.in", ago(1), text="Please remove me from your mailing list.")
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["forwards_sent"] == 0 and status_of(hs, p1) == "UNQUALIFIED"
+    assert hs.records["companies"][cid][LS] == "Unqualified" and status_of(hs, p2) == "COLLEAGUE_OPTED_OUT"
+    assert hs.records["contacts"][p1]["diablo_stop_reason"].startswith("Opted out: asked in a reply")
+
+    # The same in German, to a forward (Instantly's campaign does not count replies to forwards).
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)  # forward to person 2
+    reply = emails.received("p2@noble.in", ago(0), text="Bitte keine weiteren E-Mails.")
+    for e in emails.emails[:-1]:
+        e["timestamp_email"] = ago(4)
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["forwards_sent"] == 0 and status_of(hs, p2) == "UNQUALIFIED"
+    assert hs.records["companies"][cid][LS] == "Unqualified" and status_of(hs, p3) == "COLLEAGUE_OPTED_OUT"
+
+
+def test_without_the_new_choice_colleagues_show_negative(settings):
+    """Before button 1 adds "Colleague opted out", nothing breaks: the others show the negative choice."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    del hs.options[("contacts", "hs_lead_status")]["COLLEAGUE_OPTED_OUT"]
+    hs.missing_properties = {("contacts", "diablo_stop_reason"), ("companies", "diablo_stop_reason")}
+    instantly.blocked = {"p1@noble.in"}
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["forwards_sent"] == 0 and status_of(hs, p2) == "COLLEAGUE_REPLIED_NEGATIVE"
+    assert "diablo_stop_reason" not in hs.records["contacts"][p1]
+
+
+def test_one_company_whose_emails_cannot_be_read_does_not_stop_the_others(settings):
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    other, (q1, q2, q3) = company_with_three(hs, "Other Foods", "other.in")
+    send.run("test", settings, hs, instantly, log=quiet)
+    lead(instantly, "p1@other.in")["timestamp_last_contact"] = ago(3.1)
+    emails.campaign_email("p1@other.in", ago(3.1))
+    real = emails.thread_emails
+    def flaky(address):
+        if address.endswith("@noble.in"):
+            raise RuntimeError("GET /emails kept failing after retries")
+        return real(address)
+    emails.thread_emails = flaky
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["forwards_sent"] == 1 and emails.forwards[0]["to"] == "p2@other.in"

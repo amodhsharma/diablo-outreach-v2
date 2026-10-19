@@ -33,6 +33,9 @@ PERSONAL_LINE = "diablo_personal_line"
 COMPANY_NOTE = "diablo_company_note"
 ORDER = "diablo_outreach_order"
 CONTACT_SOURCE = "diablo_contact_source"
+# Why the pipeline stopped emailing a contact or company (19 Oct 2026), e.g. "Opted out: on
+# Instantly's blocklist (19 Oct 2026)". Written only where button 1 has created the field.
+STOP_REASON = "diablo_stop_reason"
 # Where a contact came from (19 Oct 2026): a person found in Apollo, or the company's own contact
 # address from its website when Apollo held nobody. Company inboxes also carry this job title, so
 # they are recognised even before the field exists in an account.
@@ -75,7 +78,11 @@ INDUSTRY_TYPES = (
 # The new fields (contacts only; the company note was added on 15 Oct 2026 and the contact source on
 # 19 Oct 2026), created in the "Diablo outreach" group.
 NEW_PROPERTIES = {
-    "companies": [],
+    "companies": [
+        text(STOP_REASON, "Outreach stopped because",
+             "Why the pipeline stopped emailing this company, e.g. \"A contact opted out (19 Oct 2026)\" "
+             "(added 19 Oct 2026)."),
+    ],
     "contacts": [
         long_text(PERSONAL_LINE, "Outreach personal line",
                   "The tailored opening line for this person's first email. Read it before setting "
@@ -90,6 +97,9 @@ NEW_PROPERTIES = {
                  "Apollo (a person) or Company website (the company's own contact address, used when "
                  "Apollo held nobody; added 19 Oct 2026).",
                  ((SOURCE_APOLLO, SOURCE_APOLLO), (SOURCE_WEBSITE, SOURCE_WEBSITE)), group=GROUP_NAME),
+        text(STOP_REASON, "Outreach stopped because",
+             "Why the pipeline stopped emailing this person, e.g. \"Opted out: on Instantly's blocklist "
+             "(19 Oct 2026)\" or \"A colleague opted out (19 Oct 2026)\" (added 19 Oct 2026)."),
     ],
 }
 
