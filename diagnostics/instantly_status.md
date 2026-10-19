@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-19T07:31:06+00:00 (UTC).
+Checked 2026-10-19T09:24:39+00:00 (UTC).
 
 ## Mailboxes
 
@@ -51,8 +51,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-19T06:30:59.977Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-19T06:30:44.944Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
-- Leads: 1
-  - 1 Completed, emailed
+- Leads: 0
 - Emails in the sequence: 1 (characters in each body: [2305])
 
 ## Campaign: Diablo | Dublin, Ireland | Retailers | OCT2026
@@ -80,9 +79,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Link tracking: off
 - Open tracking: off
-- Leads: 6
-  - 4 Completed, emailed
-  - 2 Completed, emailed, replied
+- Leads: 0
 - Emails in the sequence: 1 (characters in each body: [2209])
 
 
@@ -92,38 +89,8 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 9 contacts approved to send
-- Waiting: contact 892144471254 (a***@gmail.com) at Lekkerland SE: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 892096350406 (a***@gmail.com) at Transgourmet Deutschland (Selgros Erfurt): the company's last email was under 3 days ago (one email every 3 days per company)
-- Skipped contact 892095968481 (a***@gmail.com): its company's Lead Status says outreach has ended or a person has taken it over
-- Skipped contact 892095968484 (a***@gmail.com): its company's Lead Status says outreach has ended or a person has taken it over
-- Waiting: contact 891894700220 (a***@gmail.com) at dennree GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
-- Skipped contact 895196225747 (a***@gmail.com): its company's Lead Status says outreach has ended or a person has taken it over
-- Skipped contact 895196225748 (a***@gmail.com): its company's Lead Status says outreach has ended or a person has taken it over
-- Waiting: contact 895250580729 (a***@gmail.com) at Bos Food GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895250581691 (a***@gmail.com) at Bos Food GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
-- 5 approved contacts wait their turn (one person per company at a time)
+- 0 contacts approved to send
 
 ## Where every company is in its loop
 
-- **Lekkerland SE**: next is the next email, 3 days after the last one, due 22 Oct 12:12 IST
-- **Transgourmet Deutschland (Selgros Erfurt)**: next is the next email, 3 days after the last one, due 22 Oct 12:12 IST
-- **dennree GmbH**: next is the next email, 3 days after the last one, due 22 Oct 12:12 IST
-- **Christian Broicher e.K.**: next is the next email, 3 days after the last one, due 22 Oct 12:00 IST
-- **Bos Food GmbH**: next is the next email, 3 days after the last one, due 22 Oct 12:04 IST
-
-| Company | Order | Person (job title) | Lead Status | Emailed |
-|---|---|---|---|---|
-| Lekkerland SE | 1 | Chief Executive Officer | Attempted to Contact | 19 Oct 11:46 IST |
-| Lekkerland SE | 2 | Senior Product Owner | Forward sent | 19 Oct 12:12 IST |
-| Lekkerland SE | 3 | Product Owner SAP-Engineering | GATE2: Approved to send | not yet |
-| Transgourmet Deutschland (Selgros Erfurt) | 1 | Managing Director | Attempted to Contact | 19 Oct 11:46 IST |
-| Transgourmet Deutschland (Selgros Erfurt) | 2 | Managing Director | Forward sent | 19 Oct 12:12 IST |
-| Transgourmet Deutschland (Selgros Erfurt) | 3 | Managing Director | GATE2: Approved to send | not yet |
-| dennree GmbH | 1 | Leitung Regionen | Attempted to Contact | 19 Oct 11:55 IST |
-| dennree GmbH | 2 | Regional Director Rhein Main Neckar | Forward sent | 19 Oct 12:12 IST |
-| dennree GmbH | 3 | Leitung Personal / Head of Human Resources | GATE2: Approved to send | not yet |
-| Christian Broicher e.K. | 1 | Company inbox (from website) | Attempted to Contact | 19 Oct 12:00 IST |
-| Bos Food GmbH | 1 | HR Director | Attempted to Contact | 19 Oct 12:04 IST |
-| Bos Food GmbH | 2 | HR-Manager | GATE2: Approved to send | not yet |
-| Bos Food GmbH | 3 | Operations Manager | GATE2: Approved to send | not yet |
+- No company is being emailed right now.
