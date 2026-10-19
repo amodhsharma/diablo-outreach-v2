@@ -340,7 +340,7 @@ follow_up_3.json, template_no_info_apollo_2.json and follow_up_no_info_apollo_2.
   (name, International Account Executive, Diablo Sugar Free) has its grey line on the left again.
 - The first emails start with a hidden inbox preview line, so the inbox shows "Europe's largest
   sugar-free confectionery company, looking for a partner in {{market_country}}" next to the subject.
-- After the company note, the first email now reads: "We are a UK brand without a direct partner in
-  {{market_country}} yet, and we believe you could be the right partner for us there." (company
-  inboxes: "...your company could be the right partner for us there.")
+- After the company note, the first email now reads (chosen by Ariel, 19 Oct 2026): "We are a UK brand
+  without a direct partner in {{market_country}} yet, and given your reach, we believe we could grow
+  well together." (company inboxes the same)
 - Every forward carries the earlier email underneath (From, Date, Subject, To, then the email).

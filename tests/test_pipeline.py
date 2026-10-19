@@ -132,7 +132,7 @@ def test_send_and_sync(settings):
     # Template 4 (19 Oct 2026): the full name, the fuller line after the note, the booking link above
     # the signature, which has its grey line; the hidden preview line is not shown.
     assert "Hi Firstp2" in shown and "as we noticed " in shown and (" runs a health food aisle. We are a UK brand "
-           "without a direct partner in India yet, and we believe you could be the right partner for us there.") in shown
+           "without a direct partner in India yet, and given your reach, we believe we could grow well together.") in shown
     assert "XXXXXX" not in shown and ("Book a quick meeting with us: book.example/diablo [https://book.example/diablo]\n\n"
                                       "Best regards,\n| Joshua\n| International Account Executive\n| Diablo Sugar Free") in shown
     assert "looking for a partner in" not in shown
