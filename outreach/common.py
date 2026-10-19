@@ -19,6 +19,18 @@ RESEARCH_DIR = ROOT / "research"
 QUEUE_FILE = RESEARCH_DIR / "queue.csv"
 # Companies already in HubSpot, saved every night for the research exclusion list.
 KNOWN_FILE = ROOT / "data" / "known_companies.csv"
+# Separate lists per account (agreed 19 Oct 2026): known_companies.csv is the LIVE account's list,
+# known_companies_test.csv the test account's. A live run never overwrites the test list.
+KNOWN_FILE_TEST = ROOT / "data" / "known_companies_test.csv"
+# Which account the pipeline currently works on, written by button 2 on every run so the research
+# skill (which runs outside GitHub) knows which list to use.
+TARGET_FILE = ROOT / "data" / "pipeline_target.txt"
+
+
+def known_file(target):
+    """The "already in HubSpot" list for an account: live or test."""
+    from . import common
+    return common.KNOWN_FILE if target == "live" else common.KNOWN_FILE_TEST
 
 # The live Diablo Sugar Free HubSpot account.
 PRODUCTION_PORTAL_ID = 147671704

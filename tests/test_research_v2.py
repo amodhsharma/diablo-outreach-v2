@@ -142,6 +142,7 @@ def run_script(repo, name, *args):
 
 
 def test_skill_scripts_end_to_end(repo):
+    (repo / "data" / "pipeline_target.txt").write_text("live\n")  # the live account: full exclusion list
     out = run_script(repo, "prepare_run.py")
     assert out.returncode == 0, out.stderr
     plan = json.loads((repo / "work" / "plan.json").read_text())
@@ -406,7 +407,7 @@ def test_what_they_do_well_rules():
 
 def test_import_skips_companies_on_the_full_list_and_by_website(import_env):
     root, folder = import_env
-    (root / "known_companies.csv").write_text(
+    (root / "known_companies_test.csv").write_text(  # the test account's own list (19 Oct 2026)
         "id,name,domain,country,why\n7,No Site Traders Pvt. Ltd.,,India,other\n", encoding="utf-8")
     (folder / "J0001_mumbai-india_z.json").write_text(json.dumps(final_file()))
     hs = FakeCRM()
@@ -446,3 +447,24 @@ def test_version_2_numbers(tmp_path):
     assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (30, 15)
     f.write_text(f.read_text().replace("prompt_version: 2", "prompt_version: 1"))
     assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (60, 30)
+
+
+def test_test_account_research_has_no_exclusion_list(repo):
+    """19 Oct 2026: on the test account research takes the first companies it finds; only the
+    live account is checked against its 40,000+ companies."""
+    (repo / "data" / "pipeline_target.txt").write_text("test\n")
+    out = run_script(repo, "prepare_run.py")
+    assert out.returncode == 0, out.stderr
+    assert "no 'already in HubSpot' list" in out.stdout
+    prompt = (repo / "work" / "channel_2_prompt.md").read_text()
+    assert "Known Foods Pvt Ltd" not in prompt and (repo / "work" / "exclusions.txt").read_text() == ""
+    assert json.loads((repo / "work" / "plan.json").read_text())["target"] == "test"
+
+
+def test_each_account_keeps_its_own_list(tmp_path):
+    from outreach import common
+    hs = FakeCRM()
+    hs.add("companies", name="Alpha", domain="alpha.example")
+    known_companies.run("test", hs, log=quiet)
+    assert common.KNOWN_FILE_TEST.exists() and not common.KNOWN_FILE.exists()  # live list untouched
+    assert "alpha.example" in common.KNOWN_FILE_TEST.read_text()

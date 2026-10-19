@@ -189,7 +189,9 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
 | `skills/outreachMailWriting/` | The steps, writing rules and strict check for the email lines |
 | `mail/pending.json` | Contacts waiting for email lines |
 | `mail/lines/<date>/` | Each writing run's lines; `mail/imported.txt` records which were imported |
-| `data/known_companies.csv` | Companies already in HubSpot (refreshed by every button 2 automatic run) |
+| `data/known_companies.csv` | Companies already in the LIVE HubSpot (refreshed by button 2 when on live, and by button 1 on live) |
+| `data/known_companies_test.csv` | The same for the test HubSpot (19 Oct 2026: one list per account; research on test uses no list) |
+| `data/pipeline_target.txt` | Which account the pipeline works on (written by button 2), read by the research skill |
 | `data/company_notes.json` | What each company distributes and why it fits, for email writing |
 | `config/exclude.txt` | Companies that must never be researched or contacted |
 | `config/settings.yaml` | Contacts, salesperson assignment, sending and sync settings |

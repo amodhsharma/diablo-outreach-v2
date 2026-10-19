@@ -26,8 +26,8 @@ from pathlib import Path
 from . import known_companies
 from . import research_queue as rq
 from .common import (
-    ROOT, PipelineError, check_target, clean_category, clean_domain, industry_type, load_settings, now_iso,
-    save_company_notes, split_location,
+    ROOT, PipelineError, check_target, clean_category, clean_domain, industry_type, known_file, load_settings,
+    now_iso, save_company_notes, split_location,
 )
 from .hubspot_client import HubSpot, HubSpotError
 from .import_checks import Checker
@@ -67,13 +67,15 @@ def job_of(path):
     return match.group(1) if match else None
 
 
-def already_in_hubspot(hs, records):
+def already_in_hubspot(hs, records, target="live"):
     """Indexes of the records that already exist in HubSpot. Two checks:
-    1. the full "already in HubSpot" list (data/known_companies.csv, every company in the account,
+    1. the full "already in HubSpot" list of that account (data/known_companies.csv for live,
+       data/known_companies_test.csv for test; every company in the account,
        refreshed every 3 hours) with websites and names cleaned up, so "www.", "Ltd" or "PLC"
        never hide a match (names only count within the same country);
     2. a live look-up in HubSpot of each website and name, which catches anything added since."""
-    known = known_companies.load_index()
+    # The list of the account being imported into (19 Oct 2026: one list per account).
+    known = known_companies.load_index(known_file(target) if target == "test" else None)
     found = set()
     for i, r in enumerate(records):
         if known_companies.matches(known, r.get("domain"), r.get("name"), r.get("country")):
@@ -145,7 +147,7 @@ def _mark_rejected(rows, job_id, path, reason):
     return changed
 
 
-def import_file(path, rows, hs, settings, log=print, checker=None):
+def import_file(path, rows, hs, settings, log=print, checker=None, target="live"):
     """Import one file. Returns a short result line for the summary."""
     path = Path(path)
     name = relative(path)
@@ -175,7 +177,7 @@ def import_file(path, rows, hs, settings, log=print, checker=None):
     if data["companies"]:
         statuses = LeadStatus(hs)
         records, notes = hubspot_records(data, statuses)
-        known = already_in_hubspot(hs, records)
+        known = already_in_hubspot(hs, records, target)
         checker = checker or default_checker(log)
         checker.prefetch(r.get("domain") for i, r in enumerate(records) if i not in known)
         new = []
@@ -256,7 +258,7 @@ def run(target, hs, files=None, log=print, checker=None):
     checker = checker if checker is not None else default_checker(log)
     results = []
     for f in files:
-        line = import_file(f, rows, hs, settings, log=log, checker=checker)
+        line = import_file(f, rows, hs, settings, log=log, checker=checker, target=target)
         log(line)
         results.append(line)
         rq.save(rows)  # after every file, so a run cut short never redoes finished files

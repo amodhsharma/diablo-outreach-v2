@@ -7,3 +7,13 @@ def no_real_websites(monkeypatch):
     tests that need one replace find_inbox themselves."""
     from outreach import company_inbox
     monkeypatch.setattr(company_inbox, "find_inbox", lambda *a, **k: None)
+
+
+@pytest.fixture(autouse=True)
+def no_real_company_lists(tmp_path, monkeypatch):
+    """No test reads or writes the real "already in HubSpot" lists or the account marker."""
+    from outreach import common, known_companies
+    monkeypatch.setattr(common, "KNOWN_FILE", tmp_path / "known_companies.csv")
+    monkeypatch.setattr(common, "KNOWN_FILE_TEST", tmp_path / "known_companies_test.csv")
+    monkeypatch.setattr(common, "TARGET_FILE", tmp_path / "pipeline_target.txt")
+    monkeypatch.setattr(known_companies, "KNOWN_FILE", tmp_path / "known_companies.csv")

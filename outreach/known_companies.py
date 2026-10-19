@@ -1,4 +1,8 @@
-"""Keep data/known_companies.csv (button 1 after setup, and every button 2 automatic run), the list of every company already in HubSpot.
+"""Keep the list of every company already in HubSpot (button 1 after setup, and every button 2 automatic run).
+
+One list per account (agreed 19 Oct 2026): data/known_companies.csv for the live account and
+data/known_companies_test.csv for the test account, each with its own state file, so reading the
+live account never replaces the test list.
 
 Research and the research import use it so a company already in HubSpot is never added again
 (agreed 13 Oct 2026). The live account holds about 46,000 companies, more than HubSpot's search
@@ -26,7 +30,7 @@ import os
 import re
 import sys
 
-from .common import KNOWN_FILE, PipelineError, check_target, clean_domain
+from .common import KNOWN_FILE, PipelineError, check_target, clean_domain, known_file
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import TAG, TAG_PROPERTY
 
@@ -129,7 +133,15 @@ def changed_since(hs, since):
                      sorts=[{"propertyName": "hs_lastmodifieddate", "direction": "ASCENDING"}])
 
 
+def state_file(target):
+    path = known_file(target)
+    return path.with_name(path.stem + "_state.json") if target == "live" else path.with_name(
+        "known_companies_test_state.json")
+
+
 def run(target, hs, path=None, state_path=None, log=print, force_full=False, now=None):
+    path = path or known_file(target)
+    state_path = state_path or state_file(target)
     portal = check_target(hs, target)
     now = now or dt.datetime.now(dt.timezone.utc)
     state = load_state(state_path)
@@ -159,7 +171,7 @@ def run(target, hs, path=None, state_path=None, log=print, force_full=False, now
     state.update(portal=str(portal), last_run=now.replace(microsecond=0).isoformat())
     save(rows, path)
     save_state(state, state_path)
-    log(f"data/known_companies.csv now lists {len(rows)} companies")
+    log(f"data/{path.name} now lists {len(rows)} companies ({target} account)")
     return rows
 
 

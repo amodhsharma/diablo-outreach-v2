@@ -84,15 +84,31 @@ def country_of(location):
     return location.split(",")[-1].strip()
 
 
-def exclusion_lines(country, limit):
+def pipeline_target():
+    """The account the pipeline works on now ("test" or "live"), as button 2 last wrote it in
+    data/pipeline_target.txt. Unknown means test."""
+    path = ROOT / "data" / "pipeline_target.txt"
+    try:
+        value = path.read_text(encoding="utf-8").strip().lower()
+    except OSError:
+        return "test"
+    return "live" if value == "live" else "test"
+
+
+def exclusion_lines(country, limit, target=None):
     """(lines for the prompt, every line for the checks, how many known).
 
     The prompt names at most `limit` companies: config/exclude.txt first, then HubSpot companies
     for the same country, then every company the pipeline itself added or that is a customer.
     The checks (work/exclusions.txt, used by each helper's own check and by the merge) hold
     every company in HubSpot: same-country companies by name and website, all others by
-    website, so a company already in HubSpot is dropped even when the prompt could not list it."""
+    website, so a company already in HubSpot is dropped even when the prompt could not list it.
+
+    Test account (agreed 19 Oct 2026): no list at all, so a test run simply takes the first
+    companies it finds; only the live account is checked against its 40,000+ companies."""
     lines, seen = [], set()
+    if (target or pipeline_target()) != "live":
+        return [], [], 0
 
     def add(out, name, domain=""):
         domain = clean_domain(domain) if domain else NO_DOMAIN
@@ -158,7 +174,8 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
     country = country_of(job_location)
     languages = lines[0]["languages"] or "the main local languages"
     max_searches = int(settings.get("max_searches_per_channel", 60))
-    excl, full, total_known = exclusion_lines(country, int(settings.get("max_exclusions_in_prompt", 500)))
+    target = pipeline_target()
+    excl, full, total_known = exclusion_lines(country, int(settings.get("max_exclusions_in_prompt", 500)), target)
     (work / "exclusions.txt").write_text("\n".join(full) + ("\n" if full else ""), encoding="utf-8")
     exclude_text = "\n".join(excl) or "none"
 
@@ -229,7 +246,7 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
         "run_date": run_date, "run_type": "manual" if manual else "scheduled",
         "prompt_version": rq.prompt_version(settings),
         "max_searches_per_channel": max_searches, "exclusions_listed": len(excl),
-        "exclusions_known": total_known, "work": str(work),
+        "exclusions_known": total_known, "target": target, "work": str(work),
         "location_prompt": location_prompt, "location_file": str(work / "location.md"),
         "closing_file": str(work / "closing.md"),
         "output_json": str(json_path.relative_to(ROOT)), "output_report": str(report_path.relative_to(ROOT)),
@@ -253,8 +270,11 @@ def main(argv=None):
         print(f"NOTHING TO DO: no job is waiting in the queue{what}.")
         return NOTHING_TO_DO
     print(f"Job {plan['job_id']}: {plan['location']} ({plan['run_type']} run, {plan['run_date']})")
-    print(f"Exclusion list: {plan['exclusions_listed']} companies "
-          f"(of {plan['exclusions_known']} known)")
+    if plan.get("target") == "live":
+        print(f"Exclusion list: {plan['exclusions_listed']} companies "
+              f"(of {plan['exclusions_known']} known)")
+    else:
+        print("Test account: no 'already in HubSpot' list; the first companies found are used")
     for c in plan["channels"]:
         if c["status"] == "run":
             print(f"- Channel {c['index']}: {c['channel']} -> template {c['template']}, "

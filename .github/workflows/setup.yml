@@ -57,4 +57,5 @@ jobs:
         run: |
           python -m outreach.known_companies --target "${{ inputs.target }}" --full
           bash .github/scripts/save_changes.sh "Setup: list of companies already in HubSpot" \
-            data/known_companies.csv data/known_companies_state.json
+            data/known_companies.csv data/known_companies_state.json \
+            data/known_companies_test.csv data/known_companies_test_state.json

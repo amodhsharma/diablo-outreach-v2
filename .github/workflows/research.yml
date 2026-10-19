@@ -101,6 +101,11 @@ jobs:
               python -m outreach.research_queue "$VERB" --job "$JOB" --channel "$CHANNEL" --by "$BY" ;;
           esac
 
+      - name: "Note which HubSpot account the pipeline works on"
+        # The research skill reads it (19 Oct 2026): on the test account it uses no "already in
+        # HubSpot" list; on live it checks against every live company.
+        run: echo "$TARGET" > data/pipeline_target.txt
+
       - name: "Refresh the 'already in HubSpot' list"
         id: known
         if: env.ACTION == 'Automatic run' || env.ACTION == 'Import new research'
@@ -134,7 +139,8 @@ jobs:
         if: always()
         run: |
           bash .github/scripts/save_changes.sh "Research: $ACTION" research/queue.csv data/company_notes.json \
-            data/known_companies.csv data/known_companies_state.json
+            data/known_companies.csv data/known_companies_state.json data/known_companies_test.csv \
+            data/known_companies_test_state.json data/pipeline_target.txt
 
       - name: "After: did every step work?"
         if: always()
