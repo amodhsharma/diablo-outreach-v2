@@ -7,8 +7,10 @@ from outreach.common import PipelineError, PRODUCTION_PORTAL_ID
 
 from .fakes import FakeCRM
 
-MAILBOXES = "c1=rafi@x.example, c2=amodhextra@gmail.com, c3=amodh@x.example, c4=a.r@gmail.com, " \
-            "c5=clg@gmail.com, c6=a1014@gmail.com, c7=ariel@x.example"
+MAILBOXES = "c1=one@x.example, c2=two@y.example, c3=three@x.example, c4=four@y.example, " \
+            "c5=five@y.example, c6=six@y.example, c7=seven@x.example"
+# From 19 Oct 2026 (c2 and c4 retired): five cases.
+FIVE = "c1=two@y.example, c3=three@x.example, c5=five@y.example, c6=six@y.example, c7=four@y.example"
 
 
 def quiet(_):
@@ -35,8 +37,7 @@ def test_cases_get_plus_addresses_and_extra_contacts_are_closed():
     hs, ids = crm([4, 3, 3, 3, 3, 3, 1, 2])
     out = ta.run("test", hs, ta.parse_mailboxes(MAILBOXES), log=quiet)
     emails = {p["email"] for p in hs.records["contacts"].values()}
-    assert {"amodhextra+c2p1@gmail.com", "amodhextra+c2p2@gmail.com", "amodhextra+c2p3@gmail.com",
-            "ariel+c7p1@x.example"} <= emails
+    assert {"two+c2p1@y.example", "two+c2p2@y.example", "two+c2p3@y.example", "seven+c7p1@x.example"} <= emails
     first = next(cid for cid in ids if len(ids[cid]) == 4)
     assert hs.records["contacts"][ids[first][3]]["hs_lead_status"] == "UNQUALIFIED"  # the 4th person
     assert out["unused"] == ["Company H"]  # an approved company not used: listed, untouched
@@ -50,10 +51,12 @@ def test_named_companies_and_refusals():
         ta.run("test", hs, ta.parse_mailboxes(MAILBOXES), names, log=quiet)  # G has only 1 contact for c1
     with pytest.raises(PipelineError, match="test account only"):
         ta.run("live", hs, ta.parse_mailboxes(MAILBOXES), log=quiet)
-    with pytest.raises(PipelineError, match="No mailbox given for c7"):
-        ta.parse_mailboxes(MAILBOXES.rsplit(",", 1)[0])
+    with pytest.raises(PipelineError, match="No mailbox given"):
+        ta.parse_mailboxes("")
     with pytest.raises(PipelineError, match='no "\\+" part'):
-        ta.parse_mailboxes(MAILBOXES.replace("rafi@", "rafi+x@"))
+        ta.parse_mailboxes(MAILBOXES.replace("one@", "one+x@"))
+    with pytest.raises(PipelineError, match="not a round"):
+        ta.run("test", hs, ta.parse_mailboxes(FIVE), log=quiet, round_tag="r 2!")
     live = FakeCRM(portal=PRODUCTION_PORTAL_ID)
     with pytest.raises(PipelineError):
         ta.run("test", live, ta.parse_mailboxes(MAILBOXES), log=quiet)  # a live key is refused too
@@ -63,3 +66,19 @@ def test_dry_run_changes_nothing():
     hs, ids = crm([3, 3, 3, 3, 3, 3, 1])
     ta.run("test", hs, ta.parse_mailboxes(MAILBOXES), dry_run=True, log=quiet)
     assert all(p["email"].startswith("real") for p in hs.records["contacts"].values())
+
+
+def test_five_cases_with_a_round():
+    """19 Oct 2026: c2 and c4 retired; the freed mailboxes take c1 and c7; a round keeps a restart's
+    addresses apart from the earlier round's emails in Instantly."""
+    hs, ids = crm([3, 3, 3, 3, 1, 3])
+    mailboxes = ta.parse_mailboxes(FIVE)
+    assert list(mailboxes) == ["c1", "c3", "c5", "c6", "c7"]
+    out = ta.run("test", hs, mailboxes, log=quiet, round_tag="r2")
+    assert set(out["cases"]) == {"c1", "c3", "c5", "c6", "c7"}
+    emails = {p["email"] for p in hs.records["contacts"].values()}
+    assert {"two+c1p1r2@y.example", "two+c1p3r2@y.example", "six+c6p2r2@y.example", "four+c7p1r2@y.example"} <= emails
+    assert not any("+c2" in e or "+c4" in e for e in emails)
+    assert out["unused"] == ["Company F"]
+    with pytest.raises(PipelineError, match="Name exactly 5 companies"):
+        ta.run("test", crm([3, 3, 3, 3, 1])[0], mailboxes, ["Company A"], log=quiet)

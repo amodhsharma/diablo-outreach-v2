@@ -4,20 +4,24 @@ TEST ACCOUNT ONLY: it refuses the live HubSpot account. Run it after button 3 ha
 contacts, before mail writing. It takes approved (GATE1) companies whose AUTO-OUTREACH contacts
 are still New or "New, Personal line filled":
 
-  - cases c1 to c6 each get a company with at least 3 contacts, case c7 a company with at least 1;
-  - the first contacts by Outreach order get plus addresses on the case's mailbox, e.g.
-    amodhextra+c2p1@gmail.com, amodhextra+c2p2@gmail.com, amodhextra+c2p3@gmail.com;
+  - only the cases given a mailbox are run (from 19 Oct 2026: any of c1 to c7; c2 and c4 were
+    retired after the second strain test gave the expected results). c1 to c6 each get a company
+    with at least 3 contacts, c7 a company with at least 1;
+  - the first contacts by Outreach order get plus addresses on the case's mailbox, with the round
+    of the test at the end, e.g. name+c1p1r2@x.com, name+c1p2r2@x.com, name+c1p3r2@x.com. A new round
+    (r2, r3 ...) for each restart keeps Instantly's emails from an earlier round apart;
   - any further contacts at those companies become Unqualified, so only the test addresses are
     ever emailed.
 
 The mailboxes are typed into the button when it is run (never stored in the repository):
-    c1=rafi@x.com, c2=amodhextra@gmail.com, ..., c7=ariel@x.com
+    c1=a@x.com, c3=b@x.com, c5=c@x.com, c6=d@x.com, c7=e@x.com
 Companies can be named in case order (optional); otherwise they are picked by name, those with the
 most contacts first. Approved companies that are not used are listed, so they can be set to
 Unqualified before anyone is approved at gate 2.
 
 Usage:
-    python -m outreach.test_addresses --mailboxes "c1=...,c2=..." [--companies "A; B; ..."] [--dry-run]
+    python -m outreach.test_addresses --mailboxes "c1=...,c3=..." [--companies "A; B; ..."] [--round r2]
+        [--dry-run]
 """
 
 import argparse
@@ -34,10 +38,12 @@ from .stages import LeadStatus
 CASES = {f"c{i}": 3 for i in range(1, 7)}
 CASES["c7"] = 1
 EMAIL = re.compile(r"^[^@\s+]+@[^@\s]+\.[A-Za-z]{2,}$")
+ROUND = re.compile(r"^[a-z0-9]{0,6}$")
 
 
 def parse_mailboxes(text):
-    """{"c1": "rafi@x.com", ...} from "c1=rafi@x.com, c2=..." (spaces, commas, semicolons or new lines)."""
+    """{"c1": "a@x.com", ...} from "c1=a@x.com, c3=..." (spaces, commas, semicolons or new lines). Only
+    the cases given are run (19 Oct 2026); at least one is needed."""
     out = {}
     for part in re.split(r"[,;\n]+", text or ""):
         part = part.strip()
@@ -52,15 +58,14 @@ def parse_mailboxes(text):
         if not EMAIL.match(email):
             raise PipelineError(f'"{email}" for {case} is not a plain email address (no "+" part)')
         out[case] = email.lower()
-    missing = [c for c in CASES if c not in out]
-    if missing:
-        raise PipelineError(f"No mailbox given for {', '.join(missing)}")
-    return out
+    if not out:
+        raise PipelineError("No mailbox given: type at least one case, e.g. c1=name@domain")
+    return {case: out[case] for case in CASES if case in out}
 
 
-def plus(email, case, n):
+def plus(email, case, n, round_tag=""):
     name, domain = email.split("@", 1)
-    return f"{name}+{case}p{n}@{domain}"
+    return f"{name}+{case}p{n}{round_tag}@{domain}"
 
 
 def mask(email):
@@ -68,16 +73,17 @@ def mask(email):
     return f"{name[:1]}***{name[name.find('+'):] if '+' in name else ''}@{domain}" if domain else "(none)"
 
 
-def choose(companies, people, names=None):
-    """{case: company} for the seven cases."""
+def choose(companies, people, names=None, cases=None):
+    """{case: company} for the cases being run."""
+    cases = {c: CASES[c] for c in (cases or CASES)}
     usable = [c for c in companies if people.get(c["id"])]
     if names:
         wanted = [n.strip().lower() for n in names if n.strip()]
-        if len(wanted) != len(CASES):
-            raise PipelineError(f"Name exactly {len(CASES)} companies, in case order c1 to c7")
+        if len(wanted) != len(cases):
+            raise PipelineError(f"Name exactly {len(cases)} companies, in case order {', '.join(cases)}")
         by_name = {(c["properties"].get("name") or "").strip().lower(): c for c in usable}
         chosen = {}
-        for case, name in zip(CASES, wanted):
+        for case, name in zip(cases, wanted):
             company = by_name.get(name) or next((c for n, c in by_name.items() if name in n), None)
             if company is None:
                 raise PipelineError(f'No approved company with new contacts is called "{name}"')
@@ -85,7 +91,7 @@ def choose(companies, people, names=None):
     else:
         usable.sort(key=lambda c: (-len(people[c["id"]]), (c["properties"].get("name") or "").lower()))
         chosen, used = {}, set()
-        for case, need in sorted(CASES.items(), key=lambda kv: -kv[1]):  # the 3-contact cases first
+        for case, need in sorted(cases.items(), key=lambda kv: -kv[1]):  # the 3-contact cases first
             fits = [c for c in usable if c["id"] not in used and len(people[c["id"]]) >= need]
             if need == 1:  # the one-contact case takes the smallest company left (best: exactly one)
                 fits.sort(key=lambda c: len(people[c["id"]]))
@@ -104,9 +110,12 @@ def choose(companies, people, names=None):
     return chosen
 
 
-def run(target, hs, mailboxes, names=None, dry_run=False, log=print):
+def run(target, hs, mailboxes, names=None, dry_run=False, log=print, round_tag=""):
     if target != "test":
         raise PipelineError("The test addresses are for the test account only. Nothing was done.")
+    round_tag = (round_tag or "").strip().lower()
+    if not ROUND.match(round_tag):
+        raise PipelineError(f'"{round_tag}" is not a round: use up to 6 letters or digits, e.g. r2')
     check_target(hs, "test")
     statuses = LeadStatus(hs)
     companies = hs.tagged_search("companies", [statuses.filter("companies", "approved")], COMPANY_PROPS,
@@ -114,13 +123,13 @@ def run(target, hs, mailboxes, names=None, dry_run=False, log=print):
     everyone = contacts_by_company(hs, [c["id"] for c in companies]) if companies else {}
     people = {cid: sorted([p for p in ps if statuses.of("contacts", p) in ("found", "copy_ready")], key=rank_of)
               for cid, ps in everyone.items()}
-    chosen = choose(companies, people, names)
+    chosen = choose(companies, people, names, cases=list(mailboxes))
     updates, rows = [], []
     for case, company in sorted(chosen.items()):
         name = company["properties"].get("name")
         for n, person in enumerate(people[company["id"]], start=1):
             if n <= CASES[case]:
-                address = plus(mailboxes[case], case, n)
+                address = plus(mailboxes[case], case, n, round_tag)
                 updates.append((person["id"], {"email": address}))
                 rows.append(f"| {case} | {name} | {n} | {person['properties'].get('jobtitle') or ''} | {mask(address)} |")
             else:
@@ -151,12 +160,14 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument("--mailboxes", default=os.environ.get("TEST_MAILBOXES", ""))
     p.add_argument("--companies", default=os.environ.get("TEST_COMPANIES", ""))
+    p.add_argument("--round", default=os.environ.get("TEST_ROUND", ""))
     p.add_argument("--target", default="test")
     p.add_argument("--dry-run", action="store_true")
     args = p.parse_args(argv)
     try:
         names = [x for x in re.split(r"[;\n]+", args.companies) if x.strip()] or None
-        run(args.target, HubSpot(), parse_mailboxes(args.mailboxes), names, dry_run=args.dry_run)
+        run(args.target, HubSpot(), parse_mailboxes(args.mailboxes), names, dry_run=args.dry_run,
+            round_tag=args.round)
     except (PipelineError, HubSpotError) as err:
         print(f"::error::{err}")
         print(f"ERROR: {err}", file=sys.stderr)
