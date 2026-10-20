@@ -1,0 +1,575 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0006",
+  "location": "Geneva, Switzerland",
+  "run_date": "2026-10-20",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 25,
+      "searches_used": 97
+    }
+  ],
+  "companies": [
+    {
+      "name": "Bevanar & Dorga SA",
+      "based_out_of": "Plan-les-Ouates, Switzerland",
+      "domain": "bevanar-dorga.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Imported and Swiss confectionery, chocolate, biscuits, fine grocery, syrups and mixers, beverages, spirits and frozen goods.",
+      "channels_supplied": "Professional buyers in gastronomy plus hospitals and clinics, mainly in the Geneva area; retail only through its Jolly Dessert brand.",
+      "sf_brands_carried": "Moco no-added-sugar juices; no sugar-free confectionery brand listed.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva-based, family-run importer with about 70 staff that already lists imported confectionery and biscuit brands such as Lotus, Fortwenger and Maffren next to Monin syrups. Diablo's syrups, biscuits and chocolate would fill a sugar-free gap for its hotel, café and clinic customers.",
+      "what_they_do_well": [
+        "Family business built from Dorga (1963) and Bevanar (1969), merged in 2024 and employing about 70 people.",
+        "Carries a broad imported brand portfolio including Valrhona, Lotus, Monin and Fever-Tree for Geneva professionals."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.bevanar-dorga.ch/a-propos/",
+        "https://www.bevanar-dorga.ch/nos-marques/",
+        "https://bestfoodimporters.com/company/bevanar-sa/"
+      ]
+    },
+    {
+      "name": "Attitude Bio SA",
+      "based_out_of": "Plan-les-Ouates, Switzerland",
+      "domain": "attitude.bio",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Imported organic and natural food (rice, cereals, spices, herbal teas, gluten-free lines) plus natural cosmetics.",
+      "channels_supplied": "Natural and organic retail partners in Switzerland (exact accounts not named on its site).",
+      "sf_brands_carried": "Destination Bio, Autour du Riz, Favrichon, Biosoleil, Nature & Cie, Food for Health; none are direct sugar-free confectionery competitors.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva importer and wholesaler whose whole model is bringing French better-for-you brands into Swiss specialist retail. Diablo's no-added-sugar range would sit naturally beside its organic breakfast and snack lines without a direct competitor in its portfolio.",
+      "what_they_do_well": [
+        "Holds Swiss distribution for a portfolio of French organic brands including Destination Bio, Favrichon and Emile Noël."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://attitude.bio/nos-marques/",
+        "https://bestfoodimporters.com/company/attitude-bio-sa/"
+      ]
+    },
+    {
+      "name": "Hima La Vie",
+      "based_out_of": "Romanel-sur-Lausanne, Switzerland",
+      "domain": "himalavie.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Oils, vinegars, teas, plant-based and instant drinks, spreads, dried fruit purées, sweeteners, honey, spices, flours, cosmetics and cleaning products.",
+      "channels_supplied": "Local shops and retailers across French-speaking Switzerland, delivered every weekday by its own transport or parcel.",
+      "sf_brands_carried": "Sells sweeteners and natural health lines; brands not named on its site. No direct sugar-free confectionery competitor confirmed.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A long-established Romandie importer and distributor already selling sweeteners, spreads and health foods to independent shops. Diablo's spreads, syrups and sugar-free sweets match that shelf and its delivery network reaches Geneva retailers.",
+      "what_they_do_well": [
+        "Distributing quality products in Switzerland since 1946.",
+        "Supplies more than 150 partners with weekday deliveries using its own transport."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.himalavie.ch/",
+        "https://bestfoodimporters.com/company/hima-la-vie/"
+      ]
+    },
+    {
+      "name": "1001 Distributions (Mangenot O.S. Déstockage)",
+      "based_out_of": "Roche, Switzerland",
+      "domain": "1001-distributions.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Branded confectionery, chewing gum, snacks, dried fruit and nuts, groceries, drinks, household and non-food goods.",
+      "channels_supplied": "B2B webshop restricted to Swiss retail professionals such as supermarkets and other shops; delivers across Switzerland.",
+      "sf_brands_carried": "None identified on its site.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Romandie wholesaler that sells branded sweets and snacks such as Stimorol, Nestlé YES and Pringles to independent supermarkets and shops. It could list Diablo quickly for Geneva independents, though its destocking model may favour price-led deals; worth checking.",
+      "what_they_do_well": [
+        "Runs a B2B webshop reserved for Swiss retail professionals with brands such as Barilla, Pringles and Stimorol."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.1001-distributions.ch/",
+        "https://www.1001-distributions.ch/cgv/"
+      ]
+    },
+    {
+      "name": "Cadar SA",
+      "based_out_of": "Fleurier, Switzerland",
+      "domain": "cadar.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Dry and fresh grocery for independent food shops, including dairy, frozen, drinks and organic and health food.",
+      "channels_supplied": "Independent grocers across Switzerland through its à la carte and mafée store concepts; Geneva coverage not stated on its site.",
+      "sf_brands_carried": "Organic and health food listed as a category; no sugar-free confectionery brand named.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A purchasing centre and wholesaler for independent grocers that can put Diablo onto many small Romandie shelves at once. Geneva coverage needs to be confirmed, but its network of independent shops suits a no-added-sugar range.",
+      "what_they_do_well": [
+        "Founded in 1975 by ten shopkeepers and now runs a warehouse of more than 4,000 m2 with over 50 staff."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.cadar.ch/centrale-dachat/qui-sommes-nous/",
+        "https://bestfoodimporters.com/company/cadar-s-a/",
+        "https://revenuebase.ai/companies/food-distributors-and-wholesalers/switzerland"
+      ]
+    },
+    {
+      "name": "Mexiland Import Export Sàrl",
+      "based_out_of": "Satigny, Switzerland",
+      "domain": "mexiland.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Mexican, Tex-Mex and American foods: tortillas, sauces, spices, snacks and tapas, drinks and candies.",
+      "channels_supplied": "Restaurants, bars, caterers, wholesalers and consumers across Switzerland, plus its own shops.",
+      "sf_brands_carried": "None identified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva importer that already sells American-style snacks and candies to wholesalers and restaurants nationwide. Diablo could add a sugar-free snack line to its range for the same trade customers.",
+      "what_they_do_well": [
+        "Distributing Mexican and American foods in Switzerland since 2004.",
+        "Exclusive Swiss representative for the SDV France Saveurs du Monde range since 2014."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://gastro.mexiland.ch/2/",
+        "https://new.mexiland.ch/en/64-candies",
+        "https://bestfoodimporters.com/company/mexiland-import-export-sarl/"
+      ]
+    },
+    {
+      "name": "Omniadis SA",
+      "based_out_of": "Grand-Lancy, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Import, storage and distribution of food and non-food goods, including grocery, drugstore and pharmacy products and beverages (per registry purpose).",
+      "channels_supplied": "Not confirmed; registry purpose covers grocery, drugstore and pharmacy trade.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva importer whose registered purpose spans grocery, drugstore and pharmacy products, the exact channels where sugar-free confectionery sells. No website was found, so its current range and customers must be confirmed before outreach.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://onlineinfo.ch/company/omniadis-sa---che-107-754-477/pdf",
+        "https://ch.kompass.com/fr/a/alimentation/03/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Dépôt Yussuf Sàrl",
+      "based_out_of": "Romanel-sur-Lausanne, Switzerland",
+      "domain": "depotyussuf.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Exotic foods from Africa, Asia, the Middle East and Latin America: dry goods, drinks, sauces, flours, frozen food and private label.",
+      "channels_supplied": "Shops, wholesalers and large retailers; more than 500 clients. Geneva not named but the client base is Romandie-wide.",
+      "sf_brands_carried": "None identified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "An importer-wholesaler supplying hundreds of ethnic shops, many of them in Geneva's diverse neighbourhoods. A sugar-free sweets and biscuits range would be new to its mostly savoury portfolio.",
+      "what_they_do_well": [
+        "Serves more than 500 business clients including shops, wholesalers and large retailers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://depotyussuf.com/",
+        "https://bestfoodimporters.com/company/depot-yussuf-sarl/"
+      ]
+    },
+    {
+      "name": "Saya SA",
+      "based_out_of": "Gland, Switzerland",
+      "domain": "saya.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Italian and general food for professionals: cheese, charcuterie, pasta, preserves, coffee, wines, beers, some biscuits and non-food.",
+      "channels_supplied": "Restaurants, pizzerias, hotels, bars, cafés, caterers and grocery stores in French-speaking Switzerland.",
+      "sf_brands_carried": "None identified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Romandie foodservice wholesaler near Geneva that also serves grocery stores and already lists biscuits in its offers. Diablo could reach cafés and independent grocers through it, though confectionery is not its core.",
+      "what_they_do_well": [
+        "Has supplied restaurants in French-speaking Switzerland for more than two decades."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://saya.ch/"
+      ]
+    },
+    {
+      "name": "Bolay SA",
+      "based_out_of": "Gland, Switzerland",
+      "domain": "bolay.swiss",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Frozen and chilled food for restaurants: desserts and ice cream, bakery, vegetables, potatoes, meat, fish, vegetarian and vegan.",
+      "channels_supplied": "Restaurant and catering professionals; national service through partners Von Kaenel and Eggenschwiler.",
+      "sf_brands_carried": "Vegetarian and vegan lines; no sugar-free brands named.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family foodservice distributor founded in Geneva and now based nearby, with a desserts range that could take Diablo's chocolate and biscuits. Fit is conditional on ambient products fitting its frozen-led model.",
+      "what_they_do_well": [
+        "Family company trading since 1952, founded in Cointrin and now in its third generation."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://bolay.swiss/a-propos/",
+        "https://bestfoodimporters.com/company/bolay-s-a/"
+      ]
+    },
+    {
+      "name": "Duport-Aberlé SA",
+      "based_out_of": "Plan-les-Ouates, Switzerland",
+      "domain": "duport-aberle.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Premium canned fish and seafood and Basque preserved foods.",
+      "channels_supplied": "Not named; directory listings describe it as an importer for the Swiss market.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long-standing Geneva importer of premium packaged foods with import licences and ambient logistics in place. It would need to extend beyond preserves to take confectionery, so fit is conditional. Domain is taken from a directory and was not opened.",
+      "what_they_do_well": [
+        "Importing premium canned foods since 1888."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/duport-aberle-s-a/",
+        "https://ch.kompass.com/fr/a/alimentation/03/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Koronekes Sàrl",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "koronekes.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Fine food: oils, vinegars, spices, salts, olives, antipasti, dried fruit, chocolate coverings, Japanese products, pasta and rice.",
+      "channels_supplied": "Professional restaurants and gourmet customers in Switzerland.",
+      "sf_brands_carried": "None identified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva fine-food importer with more than 800 products sold to restaurants. It has no sweets range yet, so Diablo would be a new category for it; lower priority.",
+      "what_they_do_well": [
+        "Founded in 2007 and now imports more than 800 fine food products."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://koronekes.ch/",
+        "https://bestfoodimporters.com/company/koronekes-sarl/"
+      ]
+    },
+    {
+      "name": "Italian Quality Sàrl",
+      "based_out_of": "Plan-les-Ouates, Switzerland",
+      "domain": "italianquality.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Italian fine food: fresh dairy, truffles, Parmesan, ham, tuna, fresh pasta and wines.",
+      "channels_supplied": "High-end hotels and restaurants, some central buyers and about fifty professional clients; consumers through its affiliate Intenso.",
+      "sf_brands_carried": "None identified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva importer with refrigerated vehicles and Free Port warehousing that serves luxury hotels. It carries no confectionery, so Diablo would only fit as an add-on for hotel and banking clients.",
+      "what_they_do_well": [
+        "Runs its own refrigerated fleet and uses Geneva Free Port warehousing."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.italianquality.ch/presentation",
+        "https://bestfoodimporters.com/company/italian-quality-sarl/"
+      ]
+    },
+    {
+      "name": "Oasis Drink",
+      "based_out_of": "Neuchâtel, Switzerland",
+      "domain": "oasisdrink.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Soft drinks, waters, juices, energy drinks, wines, sauces, oils, tortillas, coffee items and packaging.",
+      "channels_supplied": "Restaurants, bars, cafés, hotels and takeaway outlets with daily delivery across French-speaking Switzerland including Geneva.",
+      "sf_brands_carried": "None identified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A B2B supplier with daily Geneva delivery to takeaway and café outlets, where single-serve sugar-free snacks could sell at the till. It does not yet carry confectionery, so this is a conditional fit.",
+      "what_they_do_well": [
+        "Delivers daily to hospitality customers in Neuchâtel, Vaud, Geneva, Fribourg and Jura."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.oasisdrink.ch/"
+      ]
+    },
+    {
+      "name": "Smyrliadis SA",
+      "based_out_of": "Oron-la-Ville, Switzerland",
+      "domain": "smyrliadis.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Greek foods: dairy, olive oil, specialities, fine grocery and wines.",
+      "channels_supplied": "Greek restaurants in French-speaking Switzerland, other businesses and consumers online.",
+      "sf_brands_carried": "None identified.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family Greek importer and wholesaler serving Romandie restaurants. Confectionery is not a focus, so Diablo is a low-priority add-on.",
+      "what_they_do_well": [
+        "Family business since 1972, wholesaling Greek products since 1986."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.smyrliadis.com/a-propos/",
+        "https://bestfoodimporters.com/company/smyrliadis-sa/"
+      ]
+    },
+    {
+      "name": "Swinut SA",
+      "based_out_of": "Satigny, Switzerland",
+      "domain": "swinut.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Trading and distribution of fresh and dried fruit and nuts.",
+      "channels_supplied": "Markets in Switzerland and Europe; customers not named.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A young Geneva trader in dried fruit and nuts, adjacent to healthy snacking. It appears to trade commodities rather than branded goods, so fit is uncertain.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://swinut.com/",
+        "https://bestfoodimporters.com/company/swinut-sa/"
+      ]
+    },
+    {
+      "name": "Vivadis SA",
+      "based_out_of": "Plan-les-Ouates, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Food distribution across Switzerland, mainly dairy and fresh products (per Kompass).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva importer-distributor of food listed on Kompass. Chilled focus and no website mean range and customers must be checked first.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation/03/r/geneve/ch_25/",
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Alnadiet SA",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Trade and distribution of food and natural health products (per Kompass).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva distributor of natural health foods, which suggests a better-for-you focus close to Diablo's positioning. No website was found, so this is unconfirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Inportugalia SA",
+      "based_out_of": "Vernier, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Import and sale of Portuguese food and beverages; also runs food shops and restaurants (per Kompass).",
+      "channels_supplied": "Own shops and restaurants; trade customers not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Geneva has a large Portuguese community, and an importer serving it could add sugar-free sweets. Its mix of wholesale and own retail is unconfirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Gesteco SA",
+      "based_out_of": "Châtelaine, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 10,
+      "distributes": "Food, beverage and tobacco distribution (per Kompass).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva food, drink and tobacco distributor, a profile that often serves kiosks and convenience stores. Its range and customers need checking.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/r/geneve/ch_25/",
+        "https://onlineinfo.ch/firma/gesteco-sa---che-103-243-485/pdf"
+      ]
+    },
+    {
+      "name": "Luxury Legends Sagl",
+      "based_out_of": "Grand-Lancy, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 11,
+      "distributes": "Wholesale of food, beverages and tobacco (per Kompass).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva-registered food, drink and tobacco wholesaler. Too little is known to rank it higher.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/r/geneve/ch_25/",
+        "https://ch.kompass.com/fr/a/alimentation/03/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Gastro Food Distribution Sàrl",
+      "based_out_of": "Satigny, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 12,
+      "distributes": "Import and distribution of food products (per Kompass).",
+      "channels_supplied": "Not confirmed; name suggests foodservice.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva food importer and distributor, likely serving foodservice. Range and customers are unconfirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Lucas Genève SA",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 13,
+      "distributes": "Import, preparation and distribution of seafood and gourmet products (per Kompass).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva gourmet importer and distributor. Seafood focus makes confectionery a stretch, so it is a low priority.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/r/geneve/ch_25/",
+        "https://ch.kompass.com/fr/a/alimentation/03/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Les Trois Meules Sàrl",
+      "based_out_of": "Bernex, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 14,
+      "distributes": "Cheese, dairy, meat, delicatessen, beverages and farm products (per Kompass).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva delicatessen distributor that could add packaged sweets for its customers. Its range is unconfirmed beyond the directory.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/r/geneve/ch_25/",
+        "https://ch.kompass.com/fr/a/alimentation/03/r/geneve/ch_25/"
+      ]
+    },
+    {
+      "name": "Alimentation Nega SA",
+      "based_out_of": "Lausanne, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 15,
+      "distributes": "Import, export and marketing of food and beverages (per Kompass).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Lausanne food importer and wholesaler near Geneva. Too little is known, so it sits at the bottom of the list.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/fr/a/alimentation-boissons-et-tabac-commerce-de-gros/8125003/",
+        "https://us.kompass.com/z/ch/a/importers-exporters-food-and-beverages/8110006/"
+      ]
+    }
+  ]
+}
