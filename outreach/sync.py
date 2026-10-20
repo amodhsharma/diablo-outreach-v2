@@ -158,18 +158,40 @@ def today():
 
 # ---- Replies: automatic answers and requests to stop (19 Oct 2026, strain test c6) ------------
 # An automatic answer (out of office, holiday) counts as NO reply: the loop carries on.
-AUTO_SUBJECT = re.compile(
-    r"^\s*(automatic reply|auto[- ]?reply|autoreply|auto[- ]?response|automatische antwort|abwesenheitsnotiz|"
-    r"abwesenheit|r[ée]ponse automatique|respuesta autom[áa]tica|risposta automatica|automatisch antwoord|"
-    r"automatyczna odpowied|out of (the )?office|ooo\b|away from (the )?office|on (annual )?leave|"
-    r"vacation|holiday|urlaub|absent|absence|cong[ée]s|fuera de la oficina|fuori ufficio)", re.I)
-AUTO_BODY = re.compile(
-    r"(out of (the )?office|i am (currently )?away|i'?m (currently )?away|on (annual |parental )?leave|"
-    r"on holiday|on vacation|automatic reply|auto-?reply|this is an automated|nicht im b[üu]ro|abwesend|"
-    r"im urlaub|je suis absente?|absente? du bureau|en cong[ée]s|fuera de la oficina|estar[ée] fuera|"
-    r"fuori ufficio|sono assente)", re.I)
+# Words that mark an automatic answer (20 Oct 2026: a wider list, looked for anywhere in the subject
+# and in the text above any quoted email, in the languages of our markets).
+AUTO_PHRASES = (
+    # English
+    r"automatic reply", r"automated reply", r"automated response", r"automatic response",
+    r"auto[- ]?reply", r"auto[- ]?response", r"auto[- ]?responder", r"autoreply", r"out of (the )?office",
+    r"\booo\b", r"away from (the |my )?(office|desk)", r"on (annual |parental |maternity |paternity |sick )?leave",
+    r"on holiday", r"on vacation", r"currently away", r"limited access to (my )?e-?mails?",
+    r"this is an automated", r"automatically generated", r"do not reply to this (e-?mail|message)",
+    r"no longer (with|at) (the company|this company)", r"has left the company",
+    # German
+    r"automatische antwort", r"abwesenheitsnotiz", r"abwesenheit", r"abwesend", r"nicht im b[üu]ro",
+    r"au[ßs]er haus", r"im urlaub", r"urlaubsbedingt", r"nicht erreichbar", r"automatisch generiert",
+    # French
+    r"r[ée]ponse automatique", r"message automatique", r"absente? du bureau", r"je suis (actuellement )?absente?",
+    r"en cong[ée]s?", r"hors du bureau",
+    # Spanish, Italian, Portuguese
+    r"respuesta autom[áa]tica", r"fuera de la oficina", r"de vacaciones", r"ausente",
+    r"risposta automatica", r"fuori ufficio", r"sono (in ferie|assente)", r"resposta autom[áa]tica",
+    r"fora do escrit[óo]rio",
+    # Dutch, Nordic, Polish, Czech
+    r"automatisch antwoord", r"afwezig", r"met vakantie", r"niet aanwezig", r"autosvar", r"automatisk svar",
+    r"fr[åa]nvarande", r"frav[æa]r", r"automatyczna odpowied", r"nieobecn", r"automatick[áa] odpov[ěe]d",
+    r"mimo kancel[áa][řr]",
+)
+AUTO_PHRASE = re.compile("(" + "|".join(AUTO_PHRASES) + ")", re.I)
+AUTO_HEADERS = re.compile(r"(auto-submitted:\s*auto-(replied|generated)|x-autoreply|x-autorespond|"
+                          r"precedence:\s*auto_reply|x-auto-response-suppress)", re.I)
+# Kept for the earlier subject check (19 Oct 2026).
+AUTO_SUBJECT = AUTO_PHRASE
+AUTO_BODY = AUTO_PHRASE
 RETURN_WORDS = re.compile(r"\b(return|returning|back|until|zur[üu]ck|wieder|bis zum|retour|jusqu|regreso|"
                           r"hasta|rientro|fino al)\b", re.I)
+SHORT_ANSWER = 800  # characters: a longer text needs a return date too, so a real answer is not missed
 # A reply asking not to be emailed again counts as an opt-out.
 OPT_OUT_WORDS = re.compile(
     r"(unsubscribe|opt(ed)?[- ]?out\b|remove me|remove us|take me off|take us off|stop (emailing|sending|"
@@ -200,17 +222,30 @@ def reply_text(email):
     return (text[:m.start()] if m else text).strip()
 
 
-def is_auto_reply(email):
-    """True for an automatic answer (out of office, holiday): Instantly's own flag, a subject such as
-    "Automatic reply: ..." or "Abwesenheitsnotiz", or a short text saying they are away until a date."""
-    if email.get("is_auto_reply"):
-        return True
-    subject = email.get("subject") or ""
-    bare = re.sub(r"^\s*((re|aw|sv|antw|fw|fwd|wg|tr)\s*:\s*)+", "", subject, flags=re.I)
-    if AUTO_SUBJECT.match(subject) or AUTO_SUBJECT.match(bare):
-        return True
+def auto_reply_reason(email):
+    """Why an answer counts as automatic (out of office, holiday), or "" when it does not. Checked in
+    this order (20 Oct 2026, a safety check so an automatic answer is never taken as a real one):
+    Instantly's own flag; auto-reply headers; any of the AUTO_PHRASES anywhere in the subject; any of
+    them in the text above the quoted email, when the text is short (a longer text also needs a word
+    such as "until" or "back", so a real answer that mentions a holiday is not missed)."""
+    if email.get("is_auto_reply") or email.get("auto_reply"):
+        return "Instantly marked it as an automatic reply"
+    headers = email.get("headers") or email.get("raw_headers") or ""
+    if headers and AUTO_HEADERS.search(headers if isinstance(headers, str) else " ".join(map(str, headers))):
+        return "its headers say it was sent automatically"
+    m = AUTO_PHRASE.search(email.get("subject") or "")
+    if m:
+        return f'the subject says "{m.group(0)}"'
     text = reply_text(email)
-    return bool(text) and len(text) < 1500 and bool(AUTO_BODY.search(text)) and bool(RETURN_WORDS.search(text))
+    m = AUTO_PHRASE.search(text) if text else None
+    if m and (len(text) < SHORT_ANSWER or RETURN_WORDS.search(text)):
+        return f'the text says "{m.group(0)}"'
+    return ""
+
+
+def is_auto_reply(email):
+    """True for an automatic answer (out of office, holiday); see auto_reply_reason."""
+    return bool(auto_reply_reason(email))
 
 
 def is_opt_out_reply(email):
@@ -226,9 +261,10 @@ def _with_body(emails_api, email):
     return {**email, **full} if full else email
 
 
-def classify_replies(emails_api, address):
+def classify_replies(emails_api, address, why=None):
     """What a person's answers in Instantly amount to: "opt_out", "reply", "auto" (only automatic
-    answers) or None (no answer found, or the emails could not be read)."""
+    answers) or None (no answer found, or the emails could not be read). why (a list) gets the reason
+    an answer was taken as automatic."""
     try:
         got = [e for e in emails_api.thread_emails(address) if e.get("ue_type") == 2]
     except Exception:
@@ -236,8 +272,11 @@ def classify_replies(emails_api, address):
     kinds = set()
     for e in got:
         e = _with_body(emails_api, e)
-        if is_auto_reply(e):
+        reason = auto_reply_reason(e)
+        if reason:
             kinds.add("auto")
+            if why is not None:
+                why.append(reason)
         elif is_opt_out_reply(e):
             kinds.add("opt_out")
         else:
@@ -323,12 +362,13 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         # decides as before (none: "replied"). If the emails cannot be read, the label counts as before.
         if (emails_api is not None and (lead.get("email_reply_count") or 0) > 0
                 and lead.get("status") not in (-1, -2)):
-            kind = classify_replies(emails_api, p.get("email"))
+            why = []
+            kind = classify_replies(emails_api, p.get("email"), why)
             if kind == "auto":
                 new, company_stage, event = "in_outreach", None, "out of office"
-                log(f"{p.get('jobtitle') or 'A contact'} sent only an automatic answer (out of office)"
-                    + (" that Instantly labelled" if lead.get("lt_interest_status") not in (None, 0) else "")
-                    + "; it does not count as a reply, so the loop carries on")
+                log(f"{p.get('jobtitle') or 'A contact'} sent only an automatic answer ({why[0] if why else 'out of office'})"
+                    + ("; Instantly labelled it, the label is ignored" if lead.get("lt_interest_status") not in (None, 0)
+                       else "") + "; it does not count as a reply, so the loop carries on")
             elif kind == "opt_out":
                 new, company_stage, event = "closed", "closed", "opted out by reply"
             elif kind == "reply" and lead.get("lt_interest_status") in (None, 0):

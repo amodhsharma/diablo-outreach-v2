@@ -561,3 +561,32 @@ def test_a_key_without_the_blocklist_permission_is_explained(monkeypatch, settin
     blocked = sync.read_blocklist(NoScope(), log=shown.append)
     assert not blocked.ok and "INSTANTLY_BLOCKLIST_KEY" in blocked.problem and "block_list_entries:read" in blocked.problem
     assert shown[0].startswith("WARNING: Instantly's blocklist could not be read")
+
+
+def test_more_words_mark_an_automatic_answer():
+    """Ariel, 20 Oct 2026: a safety check with more words, in the subject or the text."""
+    auto = [
+        {"subject": "Re: A sugar-free brand", "body": {"text": "This is an automated response. Thank you."}},
+        {"subject": "Out of Office: A sugar-free brand", "body": {"text": "Hello"}},
+        {"subject": "Re: Partnering", "body": {"text": "I am on annual leave with limited access to email."}},
+        {"subject": "AW: Partnering", "body": {"text": "Vielen Dank. Ich bin außer Haus und ab Montag wieder da."}},
+        {"subject": "Réponse automatique : Partnering", "body": {"text": "Merci."}},
+        {"subject": "Re: Partnering", "body": {"text": "Je suis absente du bureau jusqu'au 3 novembre."}},
+        {"subject": "Re: Partnering", "body": {"text": "Estoy fuera de la oficina hasta el lunes."}},
+        {"subject": "Re: Partnering", "body": {"text": "Sono fuori ufficio, rientro il 4."}},
+        {"subject": "Automatisch antwoord: Partnering", "body": {"text": "Ik ben afwezig."}},
+        {"subject": "Re: Partnering", "body": {"text": "Hi", "html": ""}, "headers": "Auto-Submitted: auto-replied"},
+        {"subject": "Re: Partnering", "is_auto_reply": 1, "body": {"text": "Thanks"}},
+        {"subject": "Re: Partnering", "body": {"text": "Thank you for your email. She has left the company."}},
+    ]
+    for e in auto:
+        assert sync.is_auto_reply(e), e
+    real = [
+        {"subject": "Re: A sugar-free brand", "body": {"text": "Yes, please send your price list and samples."}},
+        {"subject": "Re: Partnering", "body": {"text": "We are currently out of stock of sugar free lines, so yes."}},
+        # A long real answer that mentions a holiday, with no return date: still a real answer.
+        {"subject": "Re: Partnering", "body": {"text": "Thank you for reaching out. " * 30 +
+                                                      "Our buyer is on holiday but we are interested."}},
+    ]
+    for e in real:
+        assert not sync.is_auto_reply(e), e
