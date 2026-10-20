@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-20T04:31:06+00:00 (UTC).
+Checked 2026-10-20T04:44:42+00:00 (UTC).
 
 ## Mailboxes
 
@@ -26,7 +26,7 @@ Checked 2026-10-20T04:31:06+00:00 (UTC).
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (13 of 13) | Dana - | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Elize - | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (10 of 10) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (8 of 8) | Joshua - | 30 | none |
@@ -92,7 +92,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Blocklist
 
-- **Instantly's blocklist could not be read** (GET /block-lists-entries failed with 401: {"statusCode":401,"error":"Unauthorized","message":"Invalid scope. Required: block_list_entries:read. Found: emails:all"}). Emails still go out; opt-outs already in HubSpot stay stopped, but new blocklist entries are not applied until it can be read again.
+- Instantly's blocklist: 1 entries (addresses and domains), read and checked before every forward, reminder and introduction.
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
@@ -100,9 +100,9 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Where every company is in its loop
 
-- **Uplegger Food Company GmbH**: next is the next email, 3 days after the last one, due 23 Oct 09:58 IST
-- **EDEKA Nordbayern-Sachsen-Thueringen**: next is the next email, 3 days after the last one, due 23 Oct 09:58 IST
-- **Azad Food GmbH**: next is the next email, 3 days after the last one, due 22 Oct 17:36 IST
+- **Uplegger Food Company GmbH**: next is the next email, 3 days after the last one, due 23 Oct 09:58 IST; **opted out: 3 there** (the company is stopped at the next run)
+- **EDEKA Nordbayern-Sachsen-Thueringen**: next is the next email, 3 days after the last one, due 23 Oct 09:58 IST; blocklist: clear
+- **Azad Food GmbH**: next is the next email, 3 days after the last one, due 22 Oct 17:36 IST; blocklist: clear
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
 |---|---|---|---|---|
