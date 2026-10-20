@@ -1,5 +1,124 @@
 {
-  "generated_at": "2026-10-20T05:12:55+00:00",
+  "generated_at": "2026-10-20T05:16:49+00:00",
   "target": "test",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "896223144173",
+      "job_title": "Sales Director International",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Hamberger Großmarkt",
+        "domain": "hamberger.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Munich, Germany",
+        "distributes": "Cash and carry wholesale with about 46,000 food and 14,000 non-food items, including confectionery.",
+        "channels_supplied": "Gastronomy and small retailers from its Berlin Moabit market, plus a delivery service.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Opened a Berlin wholesale market in Moabit with about 60,000 items."
+        ],
+        "fit_rationale": "Owner-run wholesaler with a large Berlin market serving restaurants and small retailers, a route into Berlin's independent trade. Gastronomy focus makes it secondary for a retail snack range."
+      }
+    },
+    {
+      "contact_id": "896301007047",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Löwenzahn Cash & Carry GmbH",
+        "domain": "loewenzahngmbh.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Berlin, Germany",
+        "distributes": "General grocery wholesale including confectionery and snacks, drinks and ethnic food.",
+        "channels_supplied": "Berlin trade customers, unnamed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Berlin cash and carry with a listed confectionery and snacks range. Limited public detail on customers and scale."
+      }
+    },
+    {
+      "contact_id": "895900895466",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Monolith Gruppe",
+        "domain": "monolith-gruppe.net",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Rosengarten, Germany",
+        "distributes": "Eastern European specialty foods, more than 4,000 items including Russian sweets, drinks, meat and fish.",
+        "channels_supplied": "About 2,500 trade customers including the Mix Markt store network and food retail; Berlin outlets not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Founded in 1997, six German sites and more than 500 staff."
+        ],
+        "fit_rationale": "Large importer-wholesaler with its own retail network for Eastern European communities. Range is ethnic, so a British sugar-free brand is an unusual fit."
+      }
+    },
+    {
+      "contact_id": "896223144176",
+      "job_title": "Sales Director Europe DIY",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Hamberger Großmarkt",
+        "domain": "hamberger.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Munich, Germany",
+        "distributes": "Cash and carry wholesale with about 46,000 food and 14,000 non-food items, including confectionery.",
+        "channels_supplied": "Gastronomy and small retailers from its Berlin Moabit market, plus a delivery service.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Opened a Berlin wholesale market in Moabit with about 60,000 items."
+        ],
+        "fit_rationale": "Owner-run wholesaler with a large Berlin market serving restaurants and small retailers, a route into Berlin's independent trade. Gastronomy focus makes it secondary for a retail snack range."
+      }
+    },
+    {
+      "contact_id": "896223144174",
+      "job_title": "Director Business Development Management + Sales Director Americas",
+      "seniority": "Directors",
+      "rank": 3,
+      "company": {
+        "name": "Hamberger Großmarkt",
+        "domain": "hamberger.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Munich, Germany",
+        "distributes": "Cash and carry wholesale with about 46,000 food and 14,000 non-food items, including confectionery.",
+        "channels_supplied": "Gastronomy and small retailers from its Berlin Moabit market, plus a delivery service.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Opened a Berlin wholesale market in Moabit with about 60,000 items."
+        ],
+        "fit_rationale": "Owner-run wholesaler with a large Berlin market serving restaurants and small retailers, a route into Berlin's independent trade. Gastronomy focus makes it secondary for a retail snack range."
+      }
+    },
+    {
+      "contact_id": "896223144175",
+      "job_title": "Head of Marketing & E-Commerce",
+      "seniority": "Heads and junior directors",
+      "rank": 4,
+      "company": {
+        "name": "Hamberger Großmarkt",
+        "domain": "hamberger.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Munich, Germany",
+        "distributes": "Cash and carry wholesale with about 46,000 food and 14,000 non-food items, including confectionery.",
+        "channels_supplied": "Gastronomy and small retailers from its Berlin Moabit market, plus a delivery service.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Opened a Berlin wholesale market in Moabit with about 60,000 items."
+        ],
+        "fit_rationale": "Owner-run wholesaler with a large Berlin market serving restaurants and small retailers, a route into Berlin's independent trade. Gastronomy focus makes it secondary for a retail snack range."
+      }
+    }
+  ]
 }
