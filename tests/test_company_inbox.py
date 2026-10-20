@@ -196,13 +196,13 @@ def test_company_inboxes_get_their_own_campaign_greeting_and_cap():
     assert camps[inbox]["daily_limit"] == 10 and camps[main]["daily_limit"] == s["send"]["daily_limit"]
     inbox_body = camps[inbox]["sequences"][0]["steps"][0]["variants"][0]["body"]
     main_body = camps[main]["sequences"][0]["steps"][0]["variants"][0]["body"]
-    assert "</div>Hello {{companyName}} team,</div>" in inbox_body and "pass this on to the person responsible" in inbox_body
+    assert "</div>Hello to the team at {{companyName}},</div>" in inbox_body and "pass this on to the person responsible" in inbox_body
     assert "</div>Hi {{full_name}},</div>" in main_body and "pass this on" not in main_body
     # Keeping the campaigns up to date never gives the inbox campaign the people's email, or the reverse.
     assert send.refresh_campaign_content(instantly, s, log=quiet) == 0
     lead = instantly.leads[camps[inbox]["id"]][0]
     text = send.render(inbox_body, lead)
-    assert text.startswith("Hello Alpha Foods team,")  # the short name, without "GmbH"
+    assert text.startswith("Hello to the team at Alpha Foods,")  # the short name, without "GmbH"
 
 
 def test_company_inbox_reminder_uses_its_own_template():
@@ -211,11 +211,11 @@ def test_company_inbox_reminder_uses_its_own_template():
                             "diablo_company_note": "imports sweets"}}
     person = {"properties": {"email": "anna@beta.example", "firstname": "Anna", "jobtitle": "Buyer"}}
     company = {"name": "Alpha Foods GmbH", "domain": "alpha.example", "country": "Germany"}
-    assert sync.reminder_path(s, inbox) == "templates/follow_up_no_info_apollo_2.json"
+    assert sync.reminder_path(s, inbox) == "templates/follow_up_no_info_apollo_3.json"
     assert sync.reminder_path(s, person) == "templates/follow_up_3.json"
     assert sync.reminder_subject(s, inbox) == "Bad Jokes + Europe's largest Brand"
     html, text = sync.reminder_email(inbox, company, s)
-    assert text.startswith("Hello Alpha Foods team,")
+    assert text.startswith("Hello to the team at Alpha Foods,")
     assert "If this is better suited to a colleague, could you kindly pass it on" in text
     html, text = sync.reminder_email(person, company, s)
     assert text.startswith("Hi Anna,") and "pass it on" not in text  # no last name: just the first name

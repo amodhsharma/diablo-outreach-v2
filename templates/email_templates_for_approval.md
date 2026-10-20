@@ -344,3 +344,13 @@ follow_up_3.json, template_no_info_apollo_2.json and follow_up_no_info_apollo_2.
   without a direct partner in {{market_country}} yet, and given your reach, we believe we could grow
   well together." (company inboxes the same)
 - Every forward carries the earlier email underneath (From, Date, Subject, To, then the email).
+
+## Company inbox greeting (in use from 20 Oct 2026)
+
+New files, the earlier ones kept unchanged: template_no_info_apollo_3.json (first email) and
+follow_up_no_info_apollo_3.json (reminder). The only change is the greeting:
+
+> Hello to the team at {{companyName}},
+
+instead of "Hello {{companyName}} team,". {{companyName}} is the short company name (without
+"GmbH", "AG" and the like), e.g. "Hello to the team at Fortura,".

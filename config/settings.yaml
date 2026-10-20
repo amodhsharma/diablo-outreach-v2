@@ -176,8 +176,10 @@ send:
     # Company inboxes (19 Oct 2026): when Apollo holds nobody, the contact address on the company's
     # website is emailed instead, greeting "Hello <company> team" and asking them to pass it on.
     # Its own first email (own campaign each month, see company_inbox below) and its own reminder.
-    first_email_company_inbox: templates/template_no_info_apollo_2.json
-    reminder_company_inbox: templates/follow_up_no_info_apollo_2.json
+    # The _3 files (20 Oct 2026, Ariel) greet "Hello to the team at <company>," instead of
+    # "Hello <company> team,"; the _2 files are kept unchanged.
+    first_email_company_inbox: templates/template_no_info_apollo_3.json
+    reminder_company_inbox: templates/follow_up_no_info_apollo_3.json
   company_inbox:
     # The month's company inbox campaign, e.g. "Diablo | OCT2026 | Company inboxes". Created
     # paused by button 4 like the main one; add its mailboxes in Instantly the same way.
