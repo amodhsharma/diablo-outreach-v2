@@ -8,6 +8,7 @@ This module uses the Python standard library only, so the skill can use it too.
 
 Usage (from the GitHub buttons):
     python -m outreach.research_queue add --location "Mumbai, India" --channels "distributors, retailers" \
+        (several cities, one job each: --location "Hamburg, Munich, Cologne, Germany")
         --languages "Hindi, Marathi" --wanted 60 --by ariel
     python -m outreach.research_queue cancel --job J0003 [--channel retailers]
     python -m outreach.research_queue retry --job J0003 [--channel retailers]
@@ -267,6 +268,33 @@ def add(rows, location, channels, languages="", wanted="", added_by="", on=None,
     return job_id, new, warnings
 
 
+def split_locations(location):
+    """Several cities typed in one box (20 Oct 2026): "Hamburg, Munich, Cologne, Germany" is one job
+    per city: ["Hamburg, Germany", "Munich, Germany", "Cologne, Germany"]. Semicolons work as commas.
+    One or two parts ("Germany", "Lyon, France") stay one job."""
+    parts = tidy(str(location or "").replace(";", ",")).split(", ")
+    parts = [p for p in parts if p]
+    if len(parts) <= 2:
+        return [", ".join(parts)]
+    country = parts[-1]
+    out, seen = [], set()
+    for city in parts[:-1]:
+        if city.lower() not in seen:
+            seen.add(city.lower())
+            out.append(f"{city}, {country}")
+    return out
+
+
+def add_many(rows, location, channels, languages="", wanted="", added_by="", on=None, default_wanted=60):
+    """add() for every city typed in the Location box, one job each. All or nothing: if one city is
+    refused (e.g. a misspelt country), no job is added. Returns [(job_id, new lines, warnings)]."""
+    trial = list(rows)
+    results = [add(trial, place, channels, languages, wanted, added_by, on, default_wanted)
+               for place in split_locations(location)]
+    rows[:] = trial
+    return results
+
+
 def _select(rows, job_id, channel=None):
     job_id = str(job_id or "").strip().upper()
     if not job_id:
@@ -413,13 +441,15 @@ def main(argv=None):
     try:
         if args.action == "add":
             settings = load_research_settings()
-            job_id, new, warnings = add(rows, args.location, args.channels, args.languages,
-                                        args.wanted, args.by,
-                                        default_wanted=settings.get("default_companies", 60))
-            lines = [f"## Job {job_id} added", ""]
-            lines += [f"- {r['channel']} in {r['location']}: **{r['status']}**" for r in new]
-            if warnings:
-                lines += ["", "### Warnings", ""] + [f"- {w}" for w in warnings]
+            results = add_many(rows, args.location, args.channels, args.languages, args.wanted, args.by,
+                               default_wanted=settings.get("default_companies", 60))
+            lines = []
+            for job_id, new, warnings in results:
+                lines += [f"## Job {job_id} added", ""]
+                lines += [f"- {r['channel']} in {r['location']}: **{r['status']}**" for r in new]
+                if warnings:
+                    lines += ["", "### Warnings", ""] + [f"- {w}" for w in warnings]
+                lines.append("")
             _summary("\n".join(lines))
         elif args.action == "cancel":
             changed = cancel(rows, args.job, args.channel)

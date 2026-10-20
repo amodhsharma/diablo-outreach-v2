@@ -468,3 +468,24 @@ def test_each_account_keeps_its_own_list(tmp_path):
     known_companies.run("test", hs, log=quiet)
     assert common.KNOWN_FILE_TEST.exists() and not common.KNOWN_FILE.exists()  # live list untouched
     assert "alpha.example" in common.KNOWN_FILE_TEST.read_text()
+
+
+def test_several_cities_in_one_box_become_one_job_each():
+    """Ariel, 20 Oct 2026: "Hamburg, Munich, Cologne, Germany" in button 2."""
+    from outreach import research_queue as rq
+    assert rq.split_locations("Hamburg, Munich, Cologne, Germany") == [
+        "Hamburg, Germany", "Munich, Germany", "Cologne, Germany"]
+    assert rq.split_locations("Lyon, France") == ["Lyon, France"]
+    assert rq.split_locations("Germany") == ["Germany"]
+    assert rq.split_locations("hamburg; munich; Germany") == ["hamburg, Germany", "munich, Germany"]
+    rows = []
+    results = rq.add_many(rows, "hamburg, munich, cologne, germany", "distributors, retailers", wanted="15",
+                          added_by="ariel", on="2026-10-20")
+    assert [job for job, _, _ in results] == ["J0001", "J0002", "J0003"]
+    assert [r["location"] for r in rows] == ["Hamburg, Germany"] * 2 + ["Munich, Germany"] * 2 + ["Cologne, Germany"] * 2
+    assert all(r["companies_wanted"] == "15" for r in rows)
+    # All or nothing: a misspelt country adds no job at all.
+    before = list(rows)
+    with pytest.raises(rq.QueueError):
+        rq.add_many(rows, "Berlin, Bremen, Germny", "distributors")
+    assert rows == before

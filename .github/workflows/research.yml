@@ -32,7 +32,7 @@ on:
         options: ["Add a market", "Cancel a market", "Try a failed market again", "Allow a repeat", "Automatic run"]
         default: "Add a market"
       location:
-        description: "Add a market: Location, a city or country, country last (e.g. Lyon, France). A misspelt country stops the button"
+        description: "Add a market: Location, country last (e.g. Lyon, France). Several cities: Hamburg, Munich, Cologne, Germany (one job each). A misspelt country stops the button"
         default: ""
       channels:
         description: "Add a market: Channels, the types of company to find, separated by commas (e.g. distributors, wholesalers, retailers)"
