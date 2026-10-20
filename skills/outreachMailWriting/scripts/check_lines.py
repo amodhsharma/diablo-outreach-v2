@@ -28,7 +28,10 @@ NOTE_BANNED = ("organic", "non-food", "nonfood", "catering", "caterers", "catere
                # We do not sell ingredients (19 Oct 2026): never bakers, kitchens or other food makers.
                "ingredient", "bakery", "bakeries", "baker", "bakers", "baking", "pastry", "patisserie",
                "pâtisserie", "canteen", "canteens", "kitchen", "kitchens", "chef", "chefs", "cooking",
-               "food manufacturers", "food manufacturer", "food professionals", "grocery products")
+               "food manufacturers", "food manufacturer", "food professionals", "grocery products",
+               # 20 Oct 2026: the company's premises or vague buyer groups say nothing to a buyer.
+               "cash and carry", "cash & carry", "cash-and-carry", "c&c", "wholesale market", "depot",
+               "warehouse", "trade customers", "trade customer", "food retail", "professionals")
 # 20 Oct 2026: the note must name our range ("is in the distribution space for confectionery
 # products" when the research shows nothing more specific).
 NOTE_RANGE = re.compile(r"(?<![a-z])(sweets?|chocolates?|confectionery|biscuits?|cookies|snacks?|snacking|candy|"

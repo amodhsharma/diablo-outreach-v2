@@ -74,7 +74,11 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt_6.md` (in use from 20 Oct 2026): the company note always names our range
+- `prompts/lines_prompt_7.md` (in use from 20 Oct 2026, later the same day): as lines_prompt_6.md,
+  plus the note must read like a person wrote it: what they sell and to which kind of shop, never
+  their premises or format (cash and carry, depot, warehouse) or vague buyers ("trade customers",
+  "food retail"). Wrong: "stocks confectionery in its cash and carry for small retailers".
+- `prompts/lines_prompt_6.md` (used on 20 Oct 2026): the company note always names our range
   (sweets, chocolate, confectionery, biscuits, snacks or sugar free products); when the research
   shows nothing specific it is the fixed note "is in the distribution space for confectionery
   products" (or "sugar free products"; retailers: "is in the retail space for ..."). The check refuses

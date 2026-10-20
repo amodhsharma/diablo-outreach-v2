@@ -140,12 +140,12 @@ def main(argv=None):
         "contacts": batch,
     }
     (WORK / "batch.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    # lines_prompt_6.md (20 Oct 2026): the company note always names our range (sweets, chocolate,
-    # confectionery, biscuits, snacks or sugar free products); with nothing specific in the research it
-    # is a fixed note ("is in the distribution space for confectionery products").
-    # lines_prompt_5.md, lines_prompt_4.md, lines_prompt_3.md, lines_prompt_2.md and lines_prompt.md are
-    # kept unchanged.
-    prompt = (SKILL / "prompts" / "lines_prompt_6.md").read_text(encoding="utf-8")
+    # lines_prompt_7.md (20 Oct 2026): as lines_prompt_6.md (the note always names our range, else the
+    # fixed "is in the distribution space for confectionery products"), plus: it reads like a person
+    # wrote it; never the company's premises or format (cash and carry, depot ...) or vague buyers
+    # ("trade customers"). lines_prompt_6.md, lines_prompt_5.md, lines_prompt_4.md,
+    # lines_prompt_3.md, lines_prompt_2.md and lines_prompt.md are kept unchanged.
+    prompt = (SKILL / "prompts" / "lines_prompt_7.md").read_text(encoding="utf-8")
     prompt = prompt.replace("{{count}}", str(len(batch)))
     prompt = prompt.replace("{{contacts_json}}", json.dumps(batch, indent=2, ensure_ascii=False))
     (WORK / "prompt.md").write_text(prompt, encoding="utf-8")

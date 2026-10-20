@@ -412,7 +412,7 @@ def test_writing_prompt_6_the_note_always_names_our_range():
     assert "is in the distribution space for confectionery products" in new and "## The four styles" in new
     assert "is in the retail space for" in new
     assert "distribution space" not in (skill / "prompts" / "lines_prompt_5.md").read_text()  # kept as it was
-    assert 'prompts" / "lines_prompt_6.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    assert "lines_prompt_6.md" in (skill / "scripts" / "prepare_lines.py").read_text()
     base = {"contact_id": "1", "company_name": "Alpenhof Import AG", "style": "D",
             "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business."}
     def problems(note):
@@ -427,4 +427,28 @@ def test_writing_prompt_6_the_note_always_names_our_range():
                  "is in the distribution space for sugar free products",
                  "is in the retail space for confectionery products",
                  "supplies confectionery and snacks to kiosks and petrol stations"):
+        assert problems(note) == [], note
+
+
+def test_writing_prompt_7_the_note_reads_like_a_person_wrote_it():
+    """Ariel, 20 Oct 2026: "stocks confectionery in its cash and carry for small retailers" means
+    nothing to a buyer."""
+    from pathlib import Path
+    import check_lines
+    skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
+    new = (skill / "prompts" / "lines_prompt_7.md").read_text()
+    assert "stocks confectionery in its cash and carry for small retailers" in new and "## The four styles" in new
+    assert "cash and carry for small retailers" not in (skill / "prompts" / "lines_prompt_6.md").read_text()
+    assert 'prompts" / "lines_prompt_7.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    base = {"contact_id": "1", "company_name": "Alpenhof Import AG", "style": "D",
+            "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business."}
+    def problems(note):
+        errs = []
+        check_lines.check_line(errs, dict(base, company_note=note))
+        return errs
+    for note in ("stocks confectionery in its cash and carry for small retailers",
+                 "stocks confectionery and snacks for its trade customers",
+                 "supplies sweets from its depot to food retail"):
+        assert problems(note), note
+    for note in ("stocks confectionery for independent shops", "is in the distribution space for confectionery products"):
         assert problems(note) == [], note
