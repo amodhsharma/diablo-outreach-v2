@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-20T01:31:16+00:00 (UTC).
+Checked 2026-10-20T04:28:47+00:00 (UTC).
 
 ## Mailboxes
 
@@ -23,9 +23,9 @@ Checked 2026-10-20T01:31:16+00:00 (UTC).
 
 | Mailbox | Verdict | Sending | Warm-up | Warm-up score | Warm-up emails landing in inbox | Sender name | Daily limit | Campaigns using it |
 |---|---|---|---|---|---|---|---|---|
-| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (64 of 64) | Aryeh | 30 | none |
-| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (64 of 64) | Diablo Admin | 30 | none |
-| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Dana - | 30 | none |
+| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
+| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
+| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (13 of 13) | Dana - | 30 | none |
 | elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (9 of 9) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
@@ -96,23 +96,20 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 2 contacts approved to send
-- Waiting: contact 895438950643 (c***@gmail.com) at Uplegger Food Company GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 895435143364 (a***@gmail.com) at EDEKA Nordbayern-Sachsen-Thueringen: the company's last email was under 3 days ago (one email every 3 days per company)
-- 2 approved contacts wait their turn (one person per company at a time)
+- 0 contacts approved to send
 
 ## Where every company is in its loop
 
-- **Uplegger Food Company GmbH**: next is the next email, 3 days after the last one, due 22 Oct 18:07 IST
-- **EDEKA Nordbayern-Sachsen-Thueringen**: next is the next email, 3 days after the last one, due 22 Oct 18:07 IST
+- **Uplegger Food Company GmbH**: next is the next email, 3 days after the last one, due 23 Oct 09:58 IST
+- **EDEKA Nordbayern-Sachsen-Thueringen**: next is the next email, 3 days after the last one, due 23 Oct 09:58 IST
 - **Azad Food GmbH**: next is the next email, 3 days after the last one, due 22 Oct 17:36 IST
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
 |---|---|---|---|---|
 | Uplegger Food Company GmbH | 1 | Head of Sales | Attempted to Contact | 19 Oct 17:51 IST |
 | Uplegger Food Company GmbH | 2 | Head of Supply Chain | Forward sent | 19 Oct 18:07 IST |
-| Uplegger Food Company GmbH | 3 | Sales Manager Nederland - Agency | GATE2: Approved to send | not yet |
+| Uplegger Food Company GmbH | 3 | Sales Manager Nederland - Agency | Forward sent | 20 Oct 09:58 IST |
 | EDEKA Nordbayern-Sachsen-Thueringen | 1 | Managing Director / CFO | Attempted to Contact | 19 Oct 17:51 IST |
 | EDEKA Nordbayern-Sachsen-Thueringen | 2 | Managing Director | Forward sent | 19 Oct 18:07 IST |
-| EDEKA Nordbayern-Sachsen-Thueringen | 3 | Managing Director | GATE2: Approved to send | not yet |
+| EDEKA Nordbayern-Sachsen-Thueringen | 3 | Managing Director | Forward sent | 20 Oct 09:58 IST |
 | Azad Food GmbH | 1 | Company inbox (from website) | Reminder sent | 19 Oct 17:36 IST |
