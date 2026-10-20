@@ -1,0 +1,50 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-20",
+  "run_type": "manual",
+  "generated_from": "2026-10-20T05:16:49+00:00",
+  "lines": [
+    {
+      "contact_id": "896223144173",
+      "company_name": "Hamberger Großmarkt",
+      "personal_line": "Your team's work in opening a Berlin wholesale market in Moabit with about 60,000 items speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "stocks confectionery in its cash and carry for small retailers",
+      "style": "B"
+    },
+    {
+      "contact_id": "896301007047",
+      "company_name": "Löwenzahn Cash & Carry GmbH",
+      "personal_line": "We have great respect for the way your team supplies confectionery, snacks and drinks to the Berlin trade. With such established reach across your cash and carry customers, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "stocks confectionery and snacks for its trade customers",
+      "style": "A"
+    },
+    {
+      "contact_id": "895900895466",
+      "company_name": "Monolith Gruppe",
+      "personal_line": "We hold your team in high regard for building a business with six German sites and more than 500 staff since 1997. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "imports sweets and speciality foods for food retail",
+      "style": "D"
+    },
+    {
+      "contact_id": "896223144176",
+      "company_name": "Hamberger Großmarkt",
+      "personal_line": "Your range, from confectionery to a full food and non-food assortment, reflects a careful choice of products for small retailers across Berlin. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "stocks confectionery in its cash and carry for small retailers",
+      "style": "C"
+    },
+    {
+      "contact_id": "896223144174",
+      "company_name": "Hamberger Großmarkt",
+      "personal_line": "We have great respect for the way your team serves small retailers from its Berlin Moabit market. With such established reach across cash and carry and delivery, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "stocks confectionery in its cash and carry for small retailers",
+      "style": "A"
+    },
+    {
+      "contact_id": "896223144175",
+      "company_name": "Hamberger Großmarkt",
+      "personal_line": "We hold your team in high regard for its cash and carry market and delivery service for small retailers in Berlin. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "stocks confectionery in its cash and carry for small retailers",
+      "style": "D"
+    }
+  ]
+}
