@@ -597,6 +597,23 @@
     "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "baerendreck.ch": {
+    "name": "Krieg & Co. GmbH",
+    "based_out_of": "Immensee, Switzerland",
+    "market": "Lucerne, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A small sweets trader on the edge of the Lucerne region. The domain baerendreck.ch comes from Kompass and was not verified, and it is unclear whether the business is a wholesaler, a retailer or a brand, so treat it as a lead to qualify.",
+    "what_they_do_well": [],
+    "distributes": "Trade in sweets (Süsswaren) and other goods.",
+    "channels_supplied": "Not stated; it is based in canton Schwyz close to Lucerne.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0004_2026-10-20_lucerne-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "bairogrosshandel.ch": {
     "name": "BAIRO Group GmbH",
     "based_out_of": "Dietikon, Switzerland",
@@ -2949,6 +2966,24 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "gastrokaese.ch": {
+    "name": "Gastro Käse-Service AG",
+    "based_out_of": "Ballwil, Switzerland",
+    "market": "Lucerne, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A family-run wholesaler based in the canton of Lucerne whose customers are hospitals and care homes, where diabetic-friendly spreads, syrups and desserts are needed every day. It is not a confectionery specialist, so Diablo spreads and syrups are a better first offer than chocolate.",
+    "what_they_do_well": [
+      "Family business led by two brothers with over 30 years' experience, supplying hospitals, care homes and canteens across German-speaking Switzerland."
+    ],
+    "distributes": "Swiss and international cheese, dairy, vegan alternatives, jams, salad dressings and other foods in bulk catering packs.",
+    "channels_supplied": "Hospitals and clinics, care and nursing homes, staff canteens, hotels and contract catering across German-speaking Switzerland.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0004_2026-10-20_lucerne-switzerland_distributors.json"
+  },
   "gastropfaff.ch": {
     "name": "GastroPfaff AG",
     "based_out_of": "Allschwil, Switzerland",
@@ -4495,6 +4530,24 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0003_2026-10-19_vienna-austria_distributors.json"
   },
+  "margot.ch": {
+    "name": "Ch. Margot & Cie SA",
+    "based_out_of": "Lutry, Switzerland",
+    "market": "Lucerne, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "One of the few independent national kiosk and confectionery wholesalers left after Lekkerland Schweiz was dissolved, and it delivers nationwide, so Lucerne kiosks can be reached. Sugar-free chocolate and sweets suit its impulse and counter range. Its Lucerne coverage is stated as nationwide rather than named, so this should be checked on first contact.",
+    "what_they_do_well": [
+      "Trading since 1934 and now supplies more than 2,500 clients across Switzerland from a range of over 3,000 items."
+    ],
+    "distributes": "Tobacco and confectionery wholesale: chocolate, chewing gum, beverages and kiosk articles, over 3,000 items.",
+    "channels_supplied": "Kiosks, tobacconists and convenience retailers; more than 2,500 trade clients with delivery across all of Switzerland and service in French and German.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0004_2026-10-20_lucerne-switzerland_distributors.json"
+  },
   "marianomax.com.ar": {
     "name": "Mariano Max",
     "based_out_of": "Córdoba, Argentina",
@@ -5860,6 +5913,25 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
   },
+  "provianda.ch": {
+    "name": "Provianda GmbH",
+    "based_out_of": "Zofingen, Switzerland",
+    "market": "Lucerne, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A mid-size, owner-managed wholesaler built around vending and workplace catering, a channel where sugar-free bars, chocolate and biscuits sell as a better-for-you option. It already lists branded bars such as Lion, KitKat and Knoppers, so Diablo would sit beside them as the healthier line. Zofingen is about 45 km from Lucerne, but its delivery area is not stated.",
+    "what_they_do_well": [
+      "Wholesale supplier to the vending and staff catering sector since 2009, stocking brands such as Lion, KitKat, Milka and Knoppers."
+    ],
+    "distributes": "Packaged confectionery, wafers, bars including a protein bar range, snacks and beverages sold by the carton.",
+    "channels_supplied": "Vending operators and staff catering (Betriebsverpflegung) through its own B2B web shop.",
+    "sf_brands_carried": "Has a protein bar category; no sugar-free brand was seen on the pages checked.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0004_2026-10-20_lucerne-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "pwfinefoods.co.uk": {
     "name": "PW Fine Foods (Samways)",
     "based_out_of": "Andover, United Kingdom",
@@ -6257,6 +6329,22 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "seinet.ch": {
+    "name": "Seinet AG",
+    "based_out_of": "Luzern, Switzerland",
+    "market": "Lucerne, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "One of the few food wholesalers based in Lucerne city, with gourmet and dry lines next to fresh meat. The fit for confectionery is weak and the domain comes from a directory only.",
+    "what_they_do_well": [],
+    "distributes": "Comestibles and meat wholesale, plus fish, frozen and ready meals, gourmet products, pasta and spices.",
+    "channels_supplied": "Foodservice and comestibles trade in Lucerne; named customers not found.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0004_2026-10-20_lucerne-switzerland_distributors.json"
   },
   "selectvending.co.uk": {
     "name": "Select Vending",
@@ -6889,6 +6977,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
+  },
+  "terrapon.ch": {
+    "name": "Terrapon Fils SA",
+    "based_out_of": "Marly, Switzerland",
+    "market": "Lucerne, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "An established confectionery and convenience food wholesaler that could take a sugar-free range into convenience outlets. It is based in Fribourg and may not deliver to Lucerne, so it stays in tier 3 until that is checked.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery and food wholesale with a convenience food focus.",
+    "channels_supplied": "Trade customers in convenience and foodservice; the named outlets and coverage of German-speaking Switzerland could not be confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0004_2026-10-20_lucerne-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "tesco.com": {
     "name": "Tesco",

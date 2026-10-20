@@ -2,7 +2,7 @@ job_id,location,channel,languages,companies_wanted,added_by,added_on,status,reas
 J0001,"Zurich, Switzerland",distributors,German,50,amodhsharma,2026-10-20,Done,26 found,,2026-10-20,research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json,
 J0002,"Basel, Switzerland",distributors,German,50,amodhsharma,2026-10-20,Done,33 found,,2026-10-20,research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json,
 J0003,"Bern, Switzerland",distributors,German,50,amodhsharma,2026-10-20,"Done, fewer than wanted","11 found, floor 25; see the report",,2026-10-20,research/2026-10-20/J0003_2026-10-20_bern-switzerland_distributors.json,
-J0004,"Lucerne, Switzerland",distributors,German,50,amodhsharma,2026-10-20,Waiting,,,,,
+J0004,"Lucerne, Switzerland",distributors,German,50,amodhsharma,2026-10-20,"Done, fewer than wanted","13 found, floor 25; see the report",,2026-10-20,research/2026-10-20/J0004_2026-10-20_lucerne-switzerland_distributors.json,
 J0005,"St. Gallen, Switzerland",distributors,German,50,amodhsharma,2026-10-20,Waiting,,,,,
 J0006,"Geneva, Switzerland",distributors,French,50,amodhsharma,2026-10-20,Waiting,,,,,
 J0007,"Lausanne, Switzerland",distributors,French,50,amodhsharma,2026-10-20,Waiting,,,,,
