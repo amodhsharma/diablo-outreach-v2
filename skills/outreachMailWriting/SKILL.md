@@ -74,7 +74,12 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt_5.md` (in use from 19 Oct 2026): the same as lines_prompt_4.md, plus the rule
+- `prompts/lines_prompt_6.md` (in use from 20 Oct 2026): the company note always names our range
+  (sweets, chocolate, confectionery, biscuits, snacks or sugar free products); when the research
+  shows nothing specific it is the fixed note "is in the distribution space for confectionery
+  products" (or "sugar free products"; retailers: "is in the retail space for ..."). The check refuses
+  any other note without those words.
+- `prompts/lines_prompt_5.md` (used on 19 Oct 2026): the same as lines_prompt_4.md, plus the rule
   that we do not sell ingredients: the note never names bakeries, bakers, canteens, kitchens or other
   food makers as customers, and never says "grocery products".
 - `prompts/lines_prompt_4.md` (used until 19 Oct 2026): the company note (4 to 12 words, always about

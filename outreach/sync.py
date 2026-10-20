@@ -105,6 +105,12 @@ def read_blocklist(*clients, log=print):
     out in HubSpot stays stopped, and the report says that entries added since the last successful
     read are not applied yet (agreed 19 Oct 2026; nothing else is held back)."""
     problem = "no Instantly key can read it"
+    key = os.environ.get("INSTANTLY_BLOCKLIST_KEY")  # read-only key for the blocklist (20 Oct 2026)
+    if key:
+        try:
+            clients = (Instantly(api_key=key),) + tuple(clients)
+        except Exception:
+            pass
     for client in clients:
         if client is None or not hasattr(client, "blocklist"):
             continue
@@ -115,6 +121,11 @@ def read_blocklist(*clients, log=print):
                 return found
             except Exception as err:
                 problem = str(err)[:200]
+                if "block_list_entries" in problem or " 401" in problem or " 403" in problem:
+                    problem = ("Instantly refused the key: it is not allowed to read the blocklist. Add the GitHub "
+                               "secret INSTANTLY_BLOCKLIST_KEY: an Instantly API key with the permission "
+                               "block_list_entries:read")
+                    break  # asking again with the same key does not help
                 if attempt + 1 < BLOCKLIST_TRIES and BLOCKLIST_RETRY_SECONDS:
                     time.sleep(BLOCKLIST_RETRY_SECONDS)
     log(f"WARNING: Instantly's blocklist could not be read ({problem}). Forwards and reminders still go out; "
@@ -306,19 +317,21 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         if not lead:
             continue
         new, company_stage, event = lead_result(lead)
-        # A reply Instantly has not labelled (or labelled out of office) is read (19 Oct 2026): an
-        # automatic answer is no reply, and a request to stop is an opt-out. If the emails cannot be
-        # read, the reply counts as before.
+        # Every answer is read, whatever label Instantly gave it (20 Oct 2026, case e4: Instantly
+        # labelled an automatic reply "Interested"). Only automatic answers: no reply, the loop carries
+        # on and the label is ignored. A request to stop: an opt-out. A real answer: Instantly's label
+        # decides as before (none: "replied"). If the emails cannot be read, the label counts as before.
         if (emails_api is not None and (lead.get("email_reply_count") or 0) > 0
-                and lead.get("lt_interest_status") in (None, 0) and lead.get("status") not in (-1, -2)):
+                and lead.get("status") not in (-1, -2)):
             kind = classify_replies(emails_api, p.get("email"))
             if kind == "auto":
                 new, company_stage, event = "in_outreach", None, "out of office"
-                log(f"{p.get('jobtitle') or 'A contact'} sent an automatic answer (out of office); it does not "
-                    "count as a reply, so the loop carries on")
+                log(f"{p.get('jobtitle') or 'A contact'} sent only an automatic answer (out of office)"
+                    + (" that Instantly labelled" if lead.get("lt_interest_status") not in (None, 0) else "")
+                    + "; it does not count as a reply, so the loop carries on")
             elif kind == "opt_out":
                 new, company_stage, event = "closed", "closed", "opted out by reply"
-            elif kind == "reply":
+            elif kind == "reply" and lead.get("lt_interest_status") in (None, 0):
                 new, company_stage, event = "replied", "replied", "replied"
         if is_blocked(p.get("email"), blocked) and new not in ("closed", "replied"):
             # Blocklisted in Instantly counts as an opt-out (19 Oct 2026): the company stops.
@@ -795,6 +808,17 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             continue
         if why == "reminder":
             past = history.get(due["id"]) or []
+            if statuses.of("contacts", due) == "reminded":
+                # HubSpot already says the reminder went (20 Oct 2026): never send it twice, even when
+                # Instantly's record of it is missing. The loop ends after the usual gap.
+                last = max(touch_times(due, touches) or [None], key=lambda t: t or parse_time("1970-01-01"))
+                if last is None or (now or dt.datetime.now(dt.timezone.utc)) - last >= dt.timedelta(days=gap):
+                    company_updates.append((company["id"], statuses.props("companies", "closed")))
+                    result["no_reply"] += 1
+                    sent_rows.append(f"| {name} | - | Loop finished with no reply: company set to Unqualified |")
+                    log(f"{name}: the reminder was already sent; the loop is finished with no reply, so the company "
+                        "is now Unqualified")
+                continue
             if not past:
                 log(f"{name}: could not find person 1's email to reply to; will try again next run")
                 continue
@@ -802,11 +826,13 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             own = reminder_subject(settings, due)  # a template with its own subject (follow_up_2, 15 Oct 2026)
             if not last_check(company, name, contacts, details):
                 continue
+            subject = own or past[0].get("subject") or ""
+            if not own and not subject.lower().startswith("re:"):
+                subject = f"Re: {subject}"
             try:
-                if own:
-                    emails_api.reply(past[-1], own, html, text, keep_subject=True)
-                else:
-                    emails_api.reply(past[-1], past[0].get("subject") or "", html, text)
+                # Sent to person 1's own address in their thread (20 Oct 2026: a "reply" to our own
+                # email went back to our own mailbox, so person 1 never got it).
+                emails_api.send_in_thread(past[-1], due["properties"]["email"], subject, html, text)
             except Exception as err:
                 log(f"{name}: Instantly refused the reminder ({str(err)[:150]}); it is tried again next run")
                 continue
@@ -815,7 +841,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             result["reminders_sent"] += 1
             sent_rows.append(f"| {name} | {due['properties'].get('jobtitle') or 'person 1'} | Reminder sent, as a reply "
                              "in their own thread (Lead Status: Reminder sent) |")
-            log(f"{name}: the loop is done; person 1 was sent their reminder, as a reply in their thread")
+            log(f"{name}: the loop is done; person 1 was sent their reminder, in their own thread")
             continue
         campaign = last_campaign(contacts)
         if not due or why != "next" or not campaign or not due["properties"].get(PERSONAL_LINE):
@@ -844,6 +870,24 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     return result
 
 
+LAST_RUN = None  # diagnostics/sync_last_run.md, set below
+
+
+def write_last_run(lines):
+    """Everything step 1 said in its last run, saved with the report (20 Oct 2026), so the reason for a
+    problem can be read without opening GitHub's log. Email addresses are masked."""
+    from .common import ROOT
+    path = LAST_RUN or ROOT / "diagnostics" / "sync_last_run.md"
+    masked = [re.sub(r"([A-Za-z0-9._%-])[A-Za-z0-9._%+-]*@([A-Za-z0-9.-]+)", r"\1***@\2", line) for line in lines]
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("# Button 4, step 1: the last run\n\nWritten " + dt.datetime.now(dt.timezone.utc)
+                        .strftime("%Y-%m-%d %H:%M UTC") + "\n\n```\n" + "\n".join(masked) + "\n```\n",
+                        encoding="utf-8")
+    except OSError:
+        pass
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description="Sync Instantly statuses to HubSpot")
     p.add_argument("--target", default="test", choices=["test", "live"])
@@ -861,13 +905,31 @@ def main(argv=None):
     if args.skip_if_not_configured and not (os.environ.get("HUBSPOT_TOKEN") and os.environ.get("INSTANTLY_API_KEY")):
         print("Sync skipped: HubSpot or Instantly key not added yet.")
         return 0
+    lines, code = [], 0
+
+    def log(text):
+        print(text)
+        lines.append(str(text))
     try:
         key = os.environ.get("INSTANTLY_EMAILS_KEY")
-        run(args.target, settings, HubSpot(), Instantly(), emails_api=Instantly(api_key=key) if key else None)
+        run(args.target, settings, HubSpot(), Instantly(), emails_api=Instantly(api_key=key) if key else None,
+            log=log)
     except (PipelineError, HubSpotError, InstantlyError) as err:
         print(f"ERROR: {err}", file=sys.stderr)
-        return 1
-    return 0
+        lines.append(f"ERROR: {err}")
+        code = 1
+    except Exception as err:  # anything unexpected: written down so it can be read without the GitHub log
+        import traceback
+        lines.append("UNEXPECTED ERROR: " + "".join(traceback.format_exception(err))[-3000:])
+        write_last_run(lines)
+        raise
+    write_last_run(lines)
+    if any(line.startswith("WARNING: Instantly's blocklist could not be read") for line in lines):
+        # Emails went out as usual; the run is marked so GitHub emails about it (20 Oct 2026).
+        from .common import ROOT
+        (ROOT / "runs").mkdir(exist_ok=True)
+        (ROOT / "runs" / "blocklist_unreadable").write_text("1\n", encoding="utf-8")
+    return code
 
 
 if __name__ == "__main__":

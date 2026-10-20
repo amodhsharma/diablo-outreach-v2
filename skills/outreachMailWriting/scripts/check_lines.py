@@ -29,6 +29,10 @@ NOTE_BANNED = ("organic", "non-food", "nonfood", "catering", "caterers", "catere
                "ingredient", "bakery", "bakeries", "baker", "bakers", "baking", "pastry", "patisserie",
                "pâtisserie", "canteen", "canteens", "kitchen", "kitchens", "chef", "chefs", "cooking",
                "food manufacturers", "food manufacturer", "food professionals", "grocery products")
+# 20 Oct 2026: the note must name our range ("is in the distribution space for confectionery
+# products" when the research shows nothing more specific).
+NOTE_RANGE = re.compile(r"(?<![a-z])(sweets?|chocolates?|confectionery|biscuits?|cookies|snacks?|snacking|candy|"
+                        r"candies|wafers?|pralines?|gums?|lollipops?|sugar[ -]free|no added sugar|free from)(?![a-z])")
 NOTE_WORDS = (4, 12)  # 4 to 25 until 15 Oct 2026; lines_prompt_3.md asks for a short note
 
 SUBJECT_WORDS = (3, 7)
@@ -139,6 +143,11 @@ def note_problems(errors, where, note, company):
         if re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", low_note):
             errors.append(f'{where}: the company note mentions "{word}", which has nothing to do with our range '
                           "(and we do not sell ingredients); write about the sweets, snacks or shops instead")
+    if not NOTE_RANGE.search(low_note):
+        errors.append(f"{where}: the company note must name our range (sweets, chocolate, confectionery, biscuits, "
+                      "snacks or sugar free products); with nothing specific in the research write "
+                      '"is in the distribution space for confectionery products" (retailers: "is in the retail '
+                      'space for confectionery products")')
     if re.search(r"\d", note):
         errors.append(f"{where}: the company note must not contain numbers")
     if note.count(",") > 1:

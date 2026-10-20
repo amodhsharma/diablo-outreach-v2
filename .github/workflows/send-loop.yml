@@ -71,6 +71,7 @@ jobs:
         continue-on-error: true
         env:
           INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
+          INSTANTLY_BLOCKLIST_KEY: ${{ secrets.INSTANTLY_BLOCKLIST_KEY }}
         run: python -m outreach.sync --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
 
       - name: "2. Send person 1's introduction (GATE2 people at new companies)"
@@ -86,12 +87,14 @@ jobs:
         env:
           INSTANTLY_ACCOUNTS_KEY: ${{ secrets.INSTANTLY_ACCOUNTS_KEY }}
           INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
+          INSTANTLY_BLOCKLIST_KEY: ${{ secrets.INSTANTLY_BLOCKLIST_KEY }}
         run: python -m outreach.check_instantly
 
       - name: "After: save the report"
         if: always()
         run: |
-          bash .github/scripts/save_changes.sh "Send and follow up ($MODE)" diagnostics/instantly_status.md
+          bash .github/scripts/save_changes.sh "Send and follow up ($MODE)" diagnostics/instantly_status.md \
+            diagnostics/sync_last_run.md
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -107,5 +110,7 @@ jobs:
           [ "${{ steps.sync.outcome }}" = "failure" ] && failed="$failed 1 (Instantly results and the loop);"
           [ "${{ steps.send.outcome }}" = "failure" ] && failed="$failed 2 (send);"
           [ "${{ steps.health.outcome }}" = "failure" ] && failed="$failed 3 (health check);"
+          # 20 Oct 2026: emails still went out, but nobody should miss that opt-outs could not be checked.
+          [ -f runs/blocklist_unreadable ] && failed="$failed Instantly's blocklist could not be read (emails still went out; add or check the secret INSTANTLY_BLOCKLIST_KEY);"
           if [ -n "$failed" ]; then echo "::error::These steps failed:$failed open them above for the reason."; exit 1; fi
           echo "Every step worked."

@@ -156,6 +156,16 @@ class Instantly:
             "reply_to_uuid": email["id"], "eaccount": email["eaccount"], "to_address_email_list": to,
             "subject": subject, "body": {"html": html, "text": text}})
 
+    def send_in_thread(self, email, to, subject, html, text):
+        """Send a new email to `to` in the thread of an email we sent, from the same mailbox, with
+        exactly this subject (20 Oct 2026: person 1's reminder). Instantly's reply endpoint answers
+        the sender of the email it replies to, which for our own email is our own mailbox, so the
+        reminder never reached person 1 (15 Oct and 19 Oct, case e5). This endpoint takes the
+        address it goes to."""
+        return self.request("POST", "/emails/forward", json={
+            "reply_to_uuid": email["id"], "eaccount": email["eaccount"], "to_address_email_list": to,
+            "subject": subject, "body": {"html": html, "text": text}})
+
     def reply(self, email, subject, html, text, keep_subject=False):
         """Send a reply to an email we sent, from the same mailbox. keep_subject sends the subject as
         given (person 1's reminder from 15 Oct 2026 has its own); otherwise "Re: " is added."""

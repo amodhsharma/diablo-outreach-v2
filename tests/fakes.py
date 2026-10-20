@@ -221,6 +221,13 @@ class FakeEmails:
         return self._add(ue_type=3, to_address_email_list=email["to_address_email_list"], lead=email["lead"],
                          subject=subject, timestamp_email=dt.datetime.now(dt.timezone.utc).isoformat())
 
+    def send_in_thread(self, email, to, subject, html, text):
+        """Person 1's reminder (20 Oct 2026): sent to their own address, in their thread."""
+        self.replies.append({"to": email, "address": to, "subject": subject, "html": html, "text": text})
+        import datetime as dt
+        return self._add(ue_type=3, to_address_email_list=to, lead=email["lead"], subject=subject,
+                         timestamp_email=dt.datetime.now(dt.timezone.utc).isoformat())
+
     def forward(self, email, to, subject, html, text):
         self.forwards.append({"of": email, "to": to, "subject": subject, "html": html, "text": text})
         import datetime as dt

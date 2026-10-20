@@ -116,6 +116,7 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     rem = emails.replies[0]
     # Under person 1's own first email (not the forwards), with its own subject (follow_up_2, 15 Oct 2026).
     assert rem["to"]["id"] == emails.emails[0]["id"] and rem["subject"] == "Bad Jokes + Europe's largest Brand"
+    assert rem["address"] == "p1@noble.in"  # 20 Oct 2026: sent to person 1 themselves, not back to our mailbox
     assert "Hi P1 L1,\n\nI imagine your inbox is about as full as a regular chocolate bar is of sugar." in rem["text"]
     assert "I hope that bad joke buys me another email :)" in rem["text"]
     assert "Would this week work, or would next week suit better?" in rem["text"]
@@ -514,3 +515,49 @@ def test_one_company_whose_emails_cannot_be_read_does_not_stop_the_others(settin
     emails.thread_emails = flaky
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["forwards_sent"] == 1 and emails.forwards[0]["to"] == "p2@other.in"
+
+
+# ---- 20 Oct 2026, third strain test (round e) -----------------------------------------------------
+
+def test_an_automatic_answer_labelled_interested_is_still_no_reply(settings):
+    """Case e4: Instantly labelled "Automatic reply Re: ..." as Interested; the colleagues were never
+    emailed. The answer itself decides, not the label."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    lead(instantly, "p1@noble.in").update(email_reply_count=1, lt_interest_status=1)
+    emails.received("p1@noble.in", ago(1), subject="Automatic reply Re: A sugar-free brand with no Germany partner yet",
+                    text="Please contact after 1 day\n\nOn Mon, Oct 19, 2026 at 5:42 PM Joshua wrote:\n> Hi")
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert status_of(hs, p1) == "ATTEMPTED_TO_CONTACT" and hs.records["companies"][cid][LS] != "In Progress"
+    assert moved["forwards_sent"] == 1 and emails.forwards[0]["to"] == "p2@noble.in"
+
+    # A real answer that Instantly labelled Interested still stops the company, as before.
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    lead(instantly, "p1@noble.in").update(email_reply_count=1, lt_interest_status=1)
+    emails.received("p1@noble.in", ago(1), text="Yes, please send the price list.")
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert status_of(hs, p1) == "IN_PROGRESS" and status_of(hs, p2) == "COLLEAGUE_REPLIED_POSITIVE"
+    assert moved["forwards_sent"] == 0
+
+
+def test_a_reminder_hubspot_already_holds_is_never_sent_again(settings):
+    """Case e5: HubSpot said "Reminder sent" but Instantly held no record of it. No second reminder;
+    the loop ends after the usual gap."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=9.5)
+    for pid in (p2, p3):
+        hs.records["contacts"][pid][LS] = "UNQUALIFIED"
+    hs.records["contacts"][p1][LS] = "REMINDER_SENT"
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["reminders_sent"] == 0 and not emails.replies
+    assert moved["no_reply"] == 1 and hs.records["companies"][cid][LS] == "Unqualified"
+
+
+def test_a_key_without_the_blocklist_permission_is_explained(monkeypatch, settings):
+    class NoScope:
+        def blocklist(self):
+            raise RuntimeError('GET /block-lists-entries failed with 401: {"message":"Invalid scope. Required: '
+                               'block_list_entries:read. Found: emails:all"}')
+    monkeypatch.setattr(sync, "BLOCKLIST_RETRY_SECONDS", 0)
+    shown = []
+    blocked = sync.read_blocklist(NoScope(), log=shown.append)
+    assert not blocked.ok and "INSTANTLY_BLOCKLIST_KEY" in blocked.problem and "block_list_entries:read" in blocked.problem
+    assert shown[0].startswith("WARNING: Instantly's blocklist could not be read")

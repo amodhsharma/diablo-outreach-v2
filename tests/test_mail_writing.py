@@ -389,7 +389,7 @@ def test_writing_prompt_5_we_do_not_sell_ingredients():
     new = (skill / "prompts" / "lines_prompt_5.md").read_text()
     assert "We do not sell ingredients" in new and "## The four styles" in new
     assert "We do not sell ingredients" not in (skill / "prompts" / "lines_prompt_4.md").read_text()  # kept as it was
-    assert 'prompts" / "lines_prompt_5.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    assert "lines_prompt_5.md" in (skill / "scripts" / "prepare_lines.py").read_text()
     base = {"contact_id": "1", "company_name": "Alpenhof Import AG", "style": "D",
             "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business."}
     def problems(note):
@@ -399,5 +399,32 @@ def test_writing_prompt_5_we_do_not_sell_ingredients():
     for note in ("supplies grocery products to bakeries", "supplies snacking products to artisan bakers",
                  "runs cash and carry stores for food professionals", "supplies canteens and kitchens"):
         assert problems(note), note
-    assert problems("runs cash and carry stores") == []
     assert problems("carries snacks and confectionery for independent shops") == []
+
+
+def test_writing_prompt_6_the_note_always_names_our_range():
+    """20 Oct 2026: "runs a weekly wholesale delivery and pickup service" and "brings international
+    brands to retail chains and independent retailers" said nothing about our range."""
+    from pathlib import Path
+    import check_lines
+    skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
+    new = (skill / "prompts" / "lines_prompt_6.md").read_text()
+    assert "is in the distribution space for confectionery products" in new and "## The four styles" in new
+    assert "is in the retail space for" in new
+    assert "distribution space" not in (skill / "prompts" / "lines_prompt_5.md").read_text()  # kept as it was
+    assert 'prompts" / "lines_prompt_6.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    base = {"contact_id": "1", "company_name": "Alpenhof Import AG", "style": "D",
+            "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business."}
+    def problems(note):
+        errs = []
+        check_lines.check_line(errs, dict(base, company_note=note))
+        return errs
+    for note in ("runs a weekly wholesale delivery and pickup service",
+                 "brings international brands to retail chains and independent retailers",
+                 "runs cash and carry stores"):
+        assert any("must name our range" in e for e in problems(note)), note
+    for note in ("is in the distribution space for confectionery products",
+                 "is in the distribution space for sugar free products",
+                 "is in the retail space for confectionery products",
+                 "supplies confectionery and snacks to kiosks and petrol stations"):
+        assert problems(note) == [], note

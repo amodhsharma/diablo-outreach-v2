@@ -25,3 +25,11 @@ def no_real_apollo_lists(tmp_path, monkeypatch):
     from outreach import find_contacts
     monkeypatch.setattr(find_contacts, "SKIPPED_FILE", tmp_path / "apollo_skipped.json")
     monkeypatch.setattr(find_contacts, "KEPT_FILE", tmp_path / "apollo_kept.json")
+
+
+@pytest.fixture(autouse=True)
+def no_real_keys_or_reports(tmp_path, monkeypatch):
+    """No test uses a real Instantly blocklist key or writes the real last-run report."""
+    from outreach import sync
+    monkeypatch.delenv("INSTANTLY_BLOCKLIST_KEY", raising=False)
+    monkeypatch.setattr(sync, "LAST_RUN", tmp_path / "sync_last_run.md")
