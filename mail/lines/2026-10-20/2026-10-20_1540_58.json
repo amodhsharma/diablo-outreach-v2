@@ -1,0 +1,414 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-20",
+  "run_type": "manual",
+  "generated_from": "2026-10-20T10:04:24+00:00",
+  "lines": [
+    {
+      "contact_id": "896266143974",
+      "company_name": "Alberto Bonizzi AG",
+      "personal_line": "Your team's work in importing food into Switzerland for over a century, with brands such as Citterio and Fiasconaro, speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "imports sweets and gourmet specialities",
+      "style": "B"
+    },
+    {
+      "contact_id": "896249138388",
+      "company_name": "Arslan GmbH",
+      "personal_line": "Your team's work in bringing Turkish confectionery, snacks and spreads to specialist grocers speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies confectionery and snacks to independent shops",
+      "style": "B"
+    },
+    {
+      "contact_id": "896461045999",
+      "company_name": "Bio Partner Schweiz AG",
+      "personal_line": "We have great respect for the way your team supplies around 4,000 customers with about 10,000 organic products. With such established reach across health food shops and your own shops, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "A"
+    },
+    {
+      "contact_id": "896464362682",
+      "company_name": "Biofair-Naturapart GmbH",
+      "personal_line": "We hold your team in high regard for supplying organic foods and natural cosmetics to the trade for more than two decades. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "supplies vegan snacks to health food shops",
+      "style": "D"
+    },
+    {
+      "contact_id": "896461061352",
+      "company_name": "Columbus Vertriebs AG",
+      "personal_line": "Your range, from confectionery and snacks to juices and soft drinks, reflects a careful choice of products for the Swiss market. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "imports and distributes confectionery and snacks",
+      "style": "C"
+    },
+    {
+      "contact_id": "896460860621",
+      "company_name": "Conaxess Trade Switzerland AG",
+      "personal_line": "Your team's work in taking over Milka distribution in Switzerland from Mondelez in 2020 speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies reduced sugar chocolate bars to kiosks",
+      "style": "B"
+    },
+    {
+      "contact_id": "896223984860",
+      "company_name": "Covin AG",
+      "personal_line": "We have great respect for the way your team serves the Portuguese and Spanish communities across Switzerland. With such established reach across specialist retailers in Zurich and Geneva, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies confectionery and snacks to specialist shops",
+      "style": "A"
+    },
+    {
+      "contact_id": "896459613383",
+      "company_name": "E. Weber & Cie AG",
+      "personal_line": "We hold your team in high regard for its position as a Zurich distributor and wholesaler across confectionery, snacks and health food. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "distributes confectionery and snacks alongside health food",
+      "style": "D"
+    },
+    {
+      "contact_id": "896449945844",
+      "company_name": "El Sol AG",
+      "personal_line": "Your range, from Mexican foods to drinks, reflects a careful choice of products for retailers and private customers across Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "896460639467",
+      "company_name": "F. Uhlmann-Eyraud SA",
+      "personal_line": "We hold your team in high regard for a family business trading since 1878 that links manufacturers, retailers and consumers across Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "supplies confectionery to retailers and pharmacies",
+      "style": "D"
+    },
+    {
+      "contact_id": "896449689843",
+      "company_name": "Fortura AG",
+      "personal_line": "Your range, from lollies and liquorice to chocolate and marzipan, reflects a careful choice of confectionery for kiosks, petrol station shops and retailers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "supplies confectionery and snacks to kiosks and petrol stations",
+      "style": "C"
+    },
+    {
+      "contact_id": "896446592232",
+      "company_name": "George Weiss Lebensmittel AG",
+      "personal_line": "We have great respect for the way your team imports more than 2,000 products for customers across Switzerland. With such established reach across the Swiss market, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "imports confectionery and snacks among its speciality foods",
+      "style": "A"
+    },
+    {
+      "contact_id": "896434950333",
+      "company_name": "Good Taste Imports GmbH",
+      "personal_line": "Your team's work in importing confectionery, nut mixes and fruit products for wholesale and online customers speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "imports confectionery and nut snacks",
+      "style": "B"
+    },
+    {
+      "contact_id": "896452008180",
+      "company_name": "Imex Delikatessen AG",
+      "personal_line": "We hold your team in high regard for a gourmet range that runs from truffles and antipasti to sweets and snacks. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "imports gourmet sweets and snacks",
+      "style": "D"
+    },
+    {
+      "contact_id": "896223981797",
+      "company_name": "Importessa GmbH",
+      "personal_line": "Your range, from premium panettone to organic truffles, reflects a careful choice of Italian specialities for corporate gifting in the Zurich area. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "imports premium confectionery and panettone",
+      "style": "C"
+    },
+    {
+      "contact_id": "896432350425",
+      "company_name": "Life Brands GmbH",
+      "personal_line": "We have great respect for the way your team supplies sports nutrition, vitamins and drinks to wholesale customers. With such established reach across the wholesale trade, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "A"
+    },
+    {
+      "contact_id": "896460854489",
+      "company_name": "Neuenschwander R. & H. AG",
+      "personal_line": "Your team's work in combining import, distribution and wholesale across confectionery and health food speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "distributes confectionery and health food",
+      "style": "B"
+    },
+    {
+      "contact_id": "896436391149",
+      "company_name": "Pharmapost AG",
+      "personal_line": "We have great respect for the way your team builds third party brands in Swiss pharmacies and drugstores. With such established reach across the pharmacy and drugstore trade, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "A"
+    },
+    {
+      "contact_id": "896445546706",
+      "company_name": "Pistor AG",
+      "personal_line": "Your range, from confectionery to a broad food and non-food assortment, reflects a careful choice of products for customers across Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "896461053160",
+      "company_name": "Primefood SA",
+      "personal_line": "We hold your team in high regard for importing and distributing food in Switzerland since 1993, with a clear eye for added value products. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "imports confectionery and snacks, favouring sugar free products",
+      "style": "D"
+    },
+    {
+      "contact_id": "896383370465",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "Your team's work in serving as the exclusive Swiss general importer for Trolli gummies speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "imports branded gummies and chocolate",
+      "style": "B"
+    },
+    {
+      "contact_id": "896432466121",
+      "company_name": "Rufenberg Trading GmbH",
+      "personal_line": "Your team's work in importing and distributing innovative food brands in Switzerland since 2011 speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "896259878104",
+      "company_name": "Salottino GmbH",
+      "personal_line": "Your range, from confectionery and snacks to olive oil and pasta, reflects a careful choice of Italian products for the trade and your own shop. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "imports confectionery and snacks alongside gourmet foods",
+      "style": "C"
+    },
+    {
+      "contact_id": "896464252100",
+      "company_name": "Sole e Gusto GmbH",
+      "personal_line": "We have great respect for the way your team brings confectionery, snacks and health food to wholesale and online customers. With such established reach across wholesale and your online store, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "stocks confectionery and snacks next to health food",
+      "style": "A"
+    },
+    {
+      "contact_id": "896459299008",
+      "company_name": "Thraki GmbH",
+      "personal_line": "We hold your team in high regard for importing Greek and Balkan food into Switzerland since 1997. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "896249138387",
+      "company_name": "Arslan GmbH",
+      "personal_line": "Your range, from confectionery and snacks to spices, tea and coffee, reflects a careful choice of products for Turkish and specialist grocers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "supplies confectionery and snacks to independent shops",
+      "style": "C"
+    },
+    {
+      "contact_id": "896461045997",
+      "company_name": "Bio Partner Schweiz AG",
+      "personal_line": "Your team's work in strengthening organic wholesale through the merger with Somona in 2018 speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "B"
+    },
+    {
+      "contact_id": "896460860623",
+      "company_name": "Conaxess Trade Switzerland AG",
+      "personal_line": "We hold your team in high regard for placing NEOH bars in 200 k kiosk stores from 2019. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "supplies reduced sugar chocolate bars to kiosks",
+      "style": "D"
+    },
+    {
+      "contact_id": "896223984858",
+      "company_name": "Covin AG",
+      "personal_line": "Your range, from Portuguese and Spanish confectionery to dairy and spreads, reflects a careful choice of products for specialist retailers across Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "supplies confectionery and snacks to specialist shops",
+      "style": "C"
+    },
+    {
+      "contact_id": "896459613380",
+      "company_name": "E. Weber & Cie AG",
+      "personal_line": "We have great respect for the way your team distributes confectionery and snacks through convenience wholesale. With such established reach across distribution, wholesale and retail, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "distributes confectionery and snacks alongside health food",
+      "style": "A"
+    },
+    {
+      "contact_id": "896460639466",
+      "company_name": "F. Uhlmann-Eyraud SA",
+      "personal_line": "Your team's work in building a reputation as an OTC and food specialist speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies confectionery to retailers and pharmacies",
+      "style": "B"
+    },
+    {
+      "contact_id": "896449689844",
+      "company_name": "Fortura AG",
+      "personal_line": "We hold your team in high regard for importing and supplying confectionery since 1978. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "supplies confectionery and snacks to kiosks and petrol stations",
+      "style": "D"
+    },
+    {
+      "contact_id": "896446592231",
+      "company_name": "George Weiss Lebensmittel AG",
+      "personal_line": "We hold your team in high regard for over 40 years of food import experience. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "imports confectionery and snacks among its speciality foods",
+      "style": "D"
+    },
+    {
+      "contact_id": "896460854490",
+      "company_name": "Neuenschwander R. & H. AG",
+      "personal_line": "We have great respect for the way your team imports and distributes confectionery, spreads and health food. With such established reach across import, distribution and wholesale, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "distributes confectionery and health food",
+      "style": "A"
+    },
+    {
+      "contact_id": "896436391148",
+      "company_name": "Pharmapost AG",
+      "personal_line": "Your team's work in building third party brands with key account management and sales support speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "B"
+    },
+    {
+      "contact_id": "896445546705",
+      "company_name": "Pistor AG",
+      "personal_line": "We have great respect for the way your team runs the Mercanto online marketplace alongside its wholesale business. With such established reach across Switzerland, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "896383370467",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "Your range, from gummies to chocolate, reflects a careful choice of confectionery for Swiss wholesale and retail. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "imports branded gummies and chocolate",
+      "style": "C"
+    },
+    {
+      "contact_id": "896461046000",
+      "company_name": "Bio Partner Schweiz AG",
+      "personal_line": "Your range, from organic grocery to fresh products, reflects a careful choice of products for organic and health food shops. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "C"
+    },
+    {
+      "contact_id": "896460860622",
+      "company_name": "Conaxess Trade Switzerland AG",
+      "personal_line": "We have great respect for the way your team brings more than 20 brands, including Milka, to Swiss retail. With such established reach across convenience, pharmacy and e-commerce, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies reduced sugar chocolate bars to kiosks",
+      "style": "A"
+    },
+    {
+      "contact_id": "896223984857",
+      "company_name": "Covin AG",
+      "personal_line": "Your team's work in running warehouses in both Zurich and Geneva to serve customers nationwide speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies confectionery and snacks to specialist shops",
+      "style": "B"
+    },
+    {
+      "contact_id": "896459613381",
+      "company_name": "E. Weber & Cie AG",
+      "personal_line": "Your team's work in building a range across confectionery, snacks, health food and sports nutrition speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "distributes confectionery and snacks alongside health food",
+      "style": "B"
+    },
+    {
+      "contact_id": "896460639469",
+      "company_name": "F. Uhlmann-Eyraud SA",
+      "personal_line": "We have great respect for the way your team brings food, confectionery and OTC health products to Swiss retailers. With such established reach across retail and the pharmacy trade, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies confectionery to retailers and pharmacies",
+      "style": "A"
+    },
+    {
+      "contact_id": "896449689845",
+      "company_name": "Fortura AG",
+      "personal_line": "We have great respect for the way your team supplies kiosks, petrol station shops and retailers with packaged sweets. With such established reach across your B2B online shop and sales team, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies confectionery and snacks to kiosks and petrol stations",
+      "style": "A"
+    },
+    {
+      "contact_id": "896446592233",
+      "company_name": "George Weiss Lebensmittel AG",
+      "personal_line": "Your range, from confectionery and snacks to Asian and Mediterranean specialities, reflects a careful choice of products for customers across Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "imports confectionery and snacks among its speciality foods",
+      "style": "C"
+    },
+    {
+      "contact_id": "896460854488",
+      "company_name": "Neuenschwander R. & H. AG",
+      "personal_line": "We hold your team in high regard for a range that spans confectionery, snacks, dairy and gourmet goods. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "distributes confectionery and health food",
+      "style": "D"
+    },
+    {
+      "contact_id": "896436391151",
+      "company_name": "Pharmapost AG",
+      "personal_line": "We hold your team in high regard for its own LIVSANE brand and the third party brands it builds in pharmacies and drugstores. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "D"
+    },
+    {
+      "contact_id": "896445546707",
+      "company_name": "Pistor AG",
+      "personal_line": "Your team's work in growing revenue to CHF 857.8 million in 2025 speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "896383370466",
+      "company_name": "R.C. Andreae AG",
+      "personal_line": "Your range, from Trolli gummies to chocolate and spreads, reflects a careful choice of brands for Swiss shoppers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "imports branded gummies and chocolate",
+      "style": "C"
+    },
+    {
+      "contact_id": "896461045998",
+      "company_name": "Bio Partner Schweiz AG",
+      "personal_line": "We hold your team in high regard for its position as one of the largest organic distributors in Switzerland, with its own shops including Witikon in Zurich. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "D"
+    },
+    {
+      "contact_id": "896460860624",
+      "company_name": "Conaxess Trade Switzerland AG",
+      "personal_line": "Your range, from Milka chocolate to PROTEINWATER, reflects a careful choice of brands for retail, convenience and pharmacy shoppers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "supplies reduced sugar chocolate bars to kiosks",
+      "style": "C"
+    },
+    {
+      "contact_id": "896223984859",
+      "company_name": "Covin AG",
+      "personal_line": "We hold your team in high regard for its position as a major importer for the Portuguese and Spanish communities in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "supplies confectionery and snacks to specialist shops",
+      "style": "D"
+    },
+    {
+      "contact_id": "896459613382",
+      "company_name": "E. Weber & Cie AG",
+      "personal_line": "Your range, from confectionery and snacks to health food and sports nutrition, reflects a careful choice of products for the Swiss market. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "distributes confectionery and snacks alongside health food",
+      "style": "C"
+    },
+    {
+      "contact_id": "896460639468",
+      "company_name": "F. Uhlmann-Eyraud SA",
+      "personal_line": "Your range, from confectionery and snacks to Ohropax and Stop Hemo, reflects a careful choice of brands for retailers and pharmacies across Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "supplies confectionery to retailers and pharmacies",
+      "style": "C"
+    },
+    {
+      "contact_id": "896449689846",
+      "company_name": "Fortura AG",
+      "personal_line": "Your team's work in pairing a B2B online shop with personal sales advice speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies confectionery and snacks to kiosks and petrol stations",
+      "style": "B"
+    },
+    {
+      "contact_id": "896446592230",
+      "company_name": "George Weiss Lebensmittel AG",
+      "personal_line": "Your team's work in building a range of more than 2,000 products over four decades of importing speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "imports confectionery and snacks among its speciality foods",
+      "style": "B"
+    },
+    {
+      "contact_id": "896460854491",
+      "company_name": "Neuenschwander R. & H. AG",
+      "personal_line": "Your range, from confectionery and spreads to dairy and gourmet goods, reflects a careful choice of products for the Swiss market. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "distributes confectionery and health food",
+      "style": "C"
+    },
+    {
+      "contact_id": "896436391150",
+      "company_name": "Pharmapost AG",
+      "personal_line": "Your range, from OTC medicines and dietary supplements to food products, reflects a careful choice of brands for pharmacies and drugstores. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for sugar free products",
+      "style": "C"
+    },
+    {
+      "contact_id": "896445546704",
+      "company_name": "Pistor AG",
+      "personal_line": "We hold your team in high regard for remaining cooperative owned and independent of the big retail groups. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "D"
+    }
+  ]
+}
