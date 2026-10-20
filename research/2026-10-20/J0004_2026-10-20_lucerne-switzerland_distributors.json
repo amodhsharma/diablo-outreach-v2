@@ -1,0 +1,297 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0004",
+  "location": "Lucerne, Switzerland",
+  "run_date": "2026-10-20",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 13,
+      "searches_used": 95
+    }
+  ],
+  "companies": [
+    {
+      "name": "Ch. Margot & Cie SA",
+      "based_out_of": "Lutry, Switzerland",
+      "domain": "margot.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Tobacco and confectionery wholesale: chocolate, chewing gum, beverages and kiosk articles, over 3,000 items.",
+      "channels_supplied": "Kiosks, tobacconists and convenience retailers; more than 2,500 trade clients with delivery across all of Switzerland and service in French and German.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "One of the few independent national kiosk and confectionery wholesalers left after Lekkerland Schweiz was dissolved, and it delivers nationwide, so Lucerne kiosks can be reached. Sugar-free chocolate and sweets suit its impulse and counter range. Its Lucerne coverage is stated as nationwide rather than named, so this should be checked on first contact.",
+      "what_they_do_well": [
+        "Trading since 1934 and now supplies more than 2,500 clients across Switzerland from a range of over 3,000 items."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://ch.kompass.com/fr/c/ch-margot-cie-sa/ch019111/",
+        "https://shop.margot.ch/about"
+      ]
+    },
+    {
+      "name": "Provianda GmbH",
+      "based_out_of": "Zofingen, Switzerland",
+      "domain": "provianda.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Packaged confectionery, wafers, bars including a protein bar range, snacks and beverages sold by the carton.",
+      "channels_supplied": "Vending operators and staff catering (Betriebsverpflegung) through its own B2B web shop.",
+      "sf_brands_carried": "Has a protein bar category; no sugar-free brand was seen on the pages checked.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A mid-size, owner-managed wholesaler built around vending and workplace catering, a channel where sugar-free bars, chocolate and biscuits sell as a better-for-you option. It already lists branded bars such as Lion, KitKat and Knoppers, so Diablo would sit beside them as the healthier line. Zofingen is about 45 km from Lucerne, but its delivery area is not stated.",
+      "what_they_do_well": [
+        "Wholesale supplier to the vending and staff catering sector since 2009, stocking brands such as Lion, KitKat, Milka and Knoppers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://ch.kompass.com/c/provianda-gmbh/ch297771/",
+        "https://www.provianda.ch/de/kategorie/waffel",
+        "https://www.moneyhouse.ch/en/company/provianda-gmbh-5365315871"
+      ]
+    },
+    {
+      "name": "Gastro Käse-Service AG",
+      "based_out_of": "Ballwil, Switzerland",
+      "domain": "gastrokaese.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Swiss and international cheese, dairy, vegan alternatives, jams, salad dressings and other foods in bulk catering packs.",
+      "channels_supplied": "Hospitals and clinics, care and nursing homes, staff canteens, hotels and contract catering across German-speaking Switzerland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run wholesaler based in the canton of Lucerne whose customers are hospitals and care homes, where diabetic-friendly spreads, syrups and desserts are needed every day. It is not a confectionery specialist, so Diablo spreads and syrups are a better first offer than chocolate.",
+      "what_they_do_well": [
+        "Family business led by two brothers with over 30 years' experience, supplying hospitals, care homes and canteens across German-speaking Switzerland."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://gastrokaese.ch/",
+        "https://yellowpages.swiss/company/116759/gastro-kaese-service-ag-ballwil",
+        "https://ch.kompass.com/a/grosshandel/81250/r/luzern/ch_03/"
+      ]
+    },
+    {
+      "name": "Terrapon Fils SA",
+      "based_out_of": "Marly, Switzerland",
+      "domain": "terrapon.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Confectionery and food wholesale with a convenience food focus.",
+      "channels_supplied": "Trade customers in convenience and foodservice; the named outlets and coverage of German-speaking Switzerland could not be confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An established confectionery and convenience food wholesaler that could take a sugar-free range into convenience outlets. It is based in Fribourg and may not deliver to Lucerne, so it stays in tier 3 until that is checked.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ch.kompass.com/fr/c/terrapon-fils-sa/ch767861/",
+        "http://www.terrapon.ch/portrait.html"
+      ]
+    },
+    {
+      "name": "Krieg & Co. GmbH",
+      "based_out_of": "Immensee, Switzerland",
+      "domain": "baerendreck.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Trade in sweets (Süsswaren) and other goods.",
+      "channels_supplied": "Not stated; it is based in canton Schwyz close to Lucerne.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A small sweets trader on the edge of the Lucerne region. The domain baerendreck.ch comes from Kompass and was not verified, and it is unclear whether the business is a wholesaler, a retailer or a brand, so treat it as a lead to qualify.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/c/krieg-co-gmbh/ch782941/",
+        "https://www.moneyhouse.ch/de/company/krieg-co-gmbh-13787926891"
+      ]
+    },
+    {
+      "name": "Pertexe AG",
+      "based_out_of": "Sarnen, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Trade and distribution of food and culinary specialties.",
+      "channels_supplied": "Not stated; based in Obwalden, next to Lucerne.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Central Switzerland food specialties distributor that may supply delicatessen and gastro customers in the Lucerne area. Its range and customers could not be confirmed beyond its registered purpose.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://onlineinfo.ch/azienda/pertexe-ag---che-114-294-593/pdf",
+        "https://ch.kompass.com/a/nahrungsmittel-getranke-und-tabak-grosshandel/8125003/page-5/"
+      ]
+    },
+    {
+      "name": "Venta AG",
+      "based_out_of": "Schindellegi, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Trade, packaging and import of food, mainly sweets.",
+      "channels_supplied": "Not stated.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A sweets importer and trader in canton Schwyz, within reach of Lucerne. Kompass also lists production, so it may be partly a manufacturer, and the website on its listing points to an unrelated company, so this is low confidence.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/c/venta-ag/ch106142/"
+      ]
+    },
+    {
+      "name": "masaretti GmbH",
+      "based_out_of": "Wetzikon, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Wholesale of food, beverages and tobacco; listed under sugar confectionery and chocolate products.",
+      "channels_supplied": "Not stated.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Listed as a confectionery and chocolate distributor, which matches Diablo's core categories. Nothing beyond the directory listing could be verified, including whether it serves Lucerne.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://us.kompass.com/z/ch/a/sugar-confectionery/03670/",
+        "https://ch.kompass.com/a/kakao-und-schokoladenerzeugnisse/03690/"
+      ]
+    },
+    {
+      "name": "Seinet AG",
+      "based_out_of": "Luzern, Switzerland",
+      "domain": "seinet.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Comestibles and meat wholesale, plus fish, frozen and ready meals, gourmet products, pasta and spices.",
+      "channels_supplied": "Foodservice and comestibles trade in Lucerne; named customers not found.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "One of the few food wholesalers based in Lucerne city, with gourmet and dry lines next to fresh meat. The fit for confectionery is weak and the domain comes from a directory only.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/seinet-ag/",
+        "https://search.ch/tel/luzern/nahrungsmittel-grosshandel"
+      ]
+    },
+    {
+      "name": "Italsapori-Import",
+      "based_out_of": "Gelfingen, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Italian wine, spirits and food.",
+      "channels_supplied": "Not stated; listed as a wine and spirits wholesaler in the canton of Lucerne.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A local Italian import business in the Seetal area of Lucerne that might add Diablo biscuits or spreads for its Italian food customers. Its food range and trade customers are only known from one directory entry.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://search.ch/tel/luzern/nahrungsmittel-grosshandel"
+      ]
+    },
+    {
+      "name": "Gilli Getränke GmbH",
+      "based_out_of": "Schlierbach, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Wholesale of beverages and food.",
+      "channels_supplied": "Not stated; likely local gastro and retail customers in the canton of Lucerne.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Lucerne-canton drinks wholesaler that also lists food, which could carry Diablo syrups or snacks to its gastro accounts. Only a directory entry was found.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/a/grosshandel/81250/r/luzern/ch_03/"
+      ]
+    },
+    {
+      "name": "Empire Sweets GmbH",
+      "based_out_of": "Wetzikon, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Trade and distribution of sweets and food, including through online shops.",
+      "channels_supplied": "Not stated.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A new sweets trading company (registered June 2024) that may want differentiated lines such as sugar-free confectionery. It could equally be mainly an online retailer, so it needs qualifying.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.moneyhouse.ch/en/company/empire-sweets-gmbh-20437058881"
+      ]
+    },
+    {
+      "name": "Swedish Candy Group GmbH",
+      "based_out_of": "Zürich, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 10,
+      "distributes": "Import and trade of sweets, chocolate, confectionery and food of all kinds.",
+      "channels_supplied": "Not stated; possibly sales platforms and resellers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A confectionery importer whose registered purpose (changed in March 2026) covers sweets import and distribution. It is very new and may be retail-led, so its fit and Lucerne reach are unconfirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.moneyhouse.ch/en/company/swedish-candy-group-gmbh-4376009021"
+      ]
+    }
+  ]
+}
