@@ -280,6 +280,25 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "amfood.ch": {
+    "name": "AM Food GmbH",
+    "based_out_of": "Muttenz, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Basel-area importer with its own refrigerated fleet and a snacks and sweets category, selling only to shops and foodservice. A strong route into Basel's ethnic grocery shops, though confectionery is a side category and halal status would matter.",
+    "what_they_do_well": [
+      "Delivers weekly across Switzerland with its own refrigerated vans, supplying only food shops, snack bars and restaurants."
+    ],
+    "distributes": "Imported Balkan specialties: meat and sausages from its own butchery, pickled vegetables, groceries, drinks, snacks and sweets, coffee.",
+    "channels_supplied": "Food shops, snack bars and restaurants across Switzerland, plus wholesale customers and specialist shops.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "amiunonline.com": {
     "name": "Distribuidora Amiun S.R.L.",
     "based_out_of": "Córdoba, Argentina",
@@ -560,6 +579,25 @@
     "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "bairogrosshandel.ch": {
+    "name": "BAIRO Group GmbH",
+    "based_out_of": "Dietikon, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A B2B wholesaler built around the kiosk and petrol shop channel with a dedicated snacks and sweets category, delivering nationwide including Basel. Sugar free chocolate and sweets would give its kiosk customers a differentiated line.",
+    "what_they_do_well": [
+      "Runs a B2B shop for kiosks, petrol station shops, retailers and foodservice across Switzerland and Liechtenstein."
+    ],
+    "distributes": "Snacks and sweets (chips, candy, cookies, chocolate), drinks, energy drinks, groceries and non-food kiosk supplies.",
+    "channels_supplied": "Kiosks, petrol station shops, retailers and foodservice in Switzerland and Liechtenstein, B2B web shop with 2 to 5 day delivery.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "balkania.ie": {
     "name": "Balkania",
     "based_out_of": "Dublin, Ireland",
@@ -758,6 +796,25 @@
     "sf_brands_carried": "Organic and natural ranges; specific sugar-free brands not confirmed.",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json"
+  },
+  "bizzyvends-b2b.ch": {
+    "name": "Bizzyvends B2B",
+    "based_out_of": "Switzerland (city not confirmed)",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A wholesaler specialised in imported branded snacks and candy for kiosks and late-night shops, a channel dense in Basel. Diablo would add a sugar free option alongside its imported candy brands; legal entity and base were not confirmed.",
+    "what_they_do_well": [
+      "Supplies kiosks, late-night shops and petrol stations nationwide with international snack brands such as Trolli and Takis."
+    ],
+    "distributes": "International snacks and sweets: chips, chocolate, candy, classics and drinks, plus vapes, Pokemon products and non-food.",
+    "channels_supplied": "Retailers, kiosks, late-night shops, petrol stations and online shops, with nationwide delivery; brands named include Trolli, Takis and Red Bull.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "bmstores.co.uk": {
     "name": "B&M",
@@ -997,6 +1054,24 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
+  "caporaso.ch": {
+    "name": "Caporaso AG",
+    "based_out_of": "Wuerenlingen, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A family-run importer with national reach into both retail and foodservice, including Basel. Fit depends on its appetite for non-Italian confectionery, as its current sweets are Italian seasonal lines.",
+    "what_they_do_well": [
+      "Family-run Italian food importer founded in 1982, supplying gastronomy and retail across Switzerland with its own logistics."
+    ],
+    "distributes": "Italian specialty foods, over 1,800 products including pasta, preserves, processed meat and seasonal sweets such as panettone.",
+    "channels_supplied": "Gastronomy and retail across Switzerland, ordered via its HOGASHOP online shop and delivered by its own logistics.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
+  },
   "careplus.ie": {
     "name": "CarePlus Pharmacy",
     "based_out_of": "Dublin, Ireland",
@@ -1135,6 +1210,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "cema-trading.com": {
+    "name": "CEMA Trading GmbH",
+    "based_out_of": "Switzerland (city not confirmed)",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A B2B importer serving Asian restaurants and retail shops, a possible secondary route into Basel's Asian grocery trade. Confectionery and Basel coverage are not confirmed.",
+    "what_they_do_well": [],
+    "distributes": "Imported Asian food: rice, noodles, sauces, spices and other items.",
+    "channels_supplied": "Foodservice and retail customers in Switzerland.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "cencosud.com": {
     "name": "Cencosud Argentina (Disco, Vea, Jumbo)",
@@ -1293,6 +1385,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "columbus-swiss.com": {
+    "name": "Columbus Vertriebs AG",
+    "based_out_of": "Risch, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Listed as an importer and distributor of confectionery and snacks, which matches Diablo's categories. Directory data only; channels and Basel coverage need checking.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery and snacks; juices, soft drinks and water (linked to ALO drink).",
+    "channels_supplied": "Not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "comptoir-produits-italiens.fr": {
     "name": "COFI (Comptoir France-Italie)",
@@ -1864,6 +1973,22 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "divinafood.ch": {
+    "name": "Divina Food AG",
+    "based_out_of": "Dietikon, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A national importer serving both retail and foodservice. No confectionery in its current range, so this is a low-probability extension pitch.",
+    "what_they_do_well": [],
+    "distributes": "Imported Italian specialities and own-produced fresh dairy such as mozzarella and ricotta; over 1,000 products.",
+    "channels_supplied": "Gastronomy, retail and industrial customers across Switzerland.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
+  },
   "dle.pe": {
     "name": "Distribuidora Lima Este (DLE)",
     "based_out_of": "Lima, Peru",
@@ -2159,6 +2284,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "elsol.ch": {
+    "name": "El Sol AG",
+    "based_out_of": "Allschwil, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Basel-area specialist importer with its own wholesale warehouse and restaurant and retail customers. Fit is limited to cross-selling sweets into its Latin American food accounts.",
+    "what_they_do_well": [
+      "Importing Mexican food since 1993, with a wholesale warehouse opened in Basel in 2007."
+    ],
+    "distributes": "Imported Mexican food and drinks.",
+    "channels_supplied": "Restaurants, retailers and private customers in Switzerland, from a wholesale warehouse in the Basel area.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "entresano.com": {
     "name": "EntreSano",
     "based_out_of": "Córdoba, Argentina",
@@ -2197,6 +2341,22 @@
     "sf_brands_carried": "Better-for-you brands including Bio&Me (no added sugar granola), That's It, Fiid, Eleat, Grind, Zombie Bars and Vitamin Well. No sugar-free chocolate brand was confirmed, so a direct competitor is not known.",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "ernst-welti.swiss": {
+    "name": "Ernst Welti AG",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A general food wholesaler that could carry packaged sweets, but its focus appears to be fresh produce. Directory data only.",
+    "what_they_do_well": [],
+    "distributes": "Wholesale of food, vegetables and fruit and other goods.",
+    "channels_supplied": "Not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
   "essential-trading.coop": {
     "name": "Essential Trading Co-operative",
@@ -2578,6 +2738,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "fortura.ch": {
+    "name": "Fortura AG",
+    "based_out_of": "Zunzgen, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Basel-Landschaft confectionery importer and wholesaler 25 km from Basel whose whole model is selling packaged sweets to kiosks, petrol shops and independent retailers. A sugar free range would add a better-for-you block to an assortment that currently shows no sugar free line.",
+    "what_they_do_well": [
+      "Confectionery importer and wholesaler incorporated in 1978, still active in Zunzgen BL.",
+      "Supplies kiosks, petrol station shops and retailers across Switzerland through a B2B online shop backed by personal sales advice."
+    ],
+    "distributes": "Confectionery for resale (lollies, gums, jellies, liquorice, chocolate, marzipan, nougat, marshmallows), snacks, drinks and kiosk items, plus toys, party and gift articles.",
+    "channels_supplied": "Kiosks, petrol station shops, retailers, leisure businesses, bakeries, online shops and market traders across Switzerland, via its own B2B web shop and sales team.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
+  },
   "fresco.ge": {
     "name": "Fresco (Fresco Group)",
     "based_out_of": "Tbilisi, Georgia",
@@ -2661,6 +2840,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "gastropfaff.ch": {
+    "name": "GastroPfaff AG",
+    "based_out_of": "Allschwil, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Basel-region foodservice wholesaler with direct daily access to Basel restaurants and caterers. Confectionery is a minor category, so it suits portion packs or foodservice formats rather than retail.",
+    "what_they_do_well": [
+      "Serves around 250 customers with 8 delivery vehicles and about 25,000 deliveries a year, with no minimum order.",
+      "Holds IFS Logistics and FSSC certification for its 600 square metre warehouse."
+    ],
+    "distributes": "Fruit and vegetable specialist with over 3,000 products from more than 50 countries, including frozen goods; directory lists confectionery and snacks too.",
+    "channels_supplied": "Around 250 foodservice customers in the Basel region such as Volkshaus Basel, with no minimum order.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "gborder.de": {
     "name": "G-Border Trade GmbH",
@@ -2868,6 +3067,25 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "greekgourmet.ch": {
+    "name": "Greek Gourmet AG",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A direct importer with existing supermarket listings nationally, useful as a mid-size owner-run route to retail shelves. Confectionery is not confirmed in its range, so this is an extension pitch.",
+    "what_they_do_well": [
+      "Direct importer of Greek food since 2008, supplying supermarkets and restaurants across Switzerland."
+    ],
+    "distributes": "Directly imported Greek food, especially goat and sheep cheese, plus other Greek specialities.",
+    "channels_supplied": "Supermarkets and restaurants across Switzerland.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "greenmarket.pe": {
     "name": "Green Low Carb Market",
     "based_out_of": "Lima, Peru",
@@ -2971,6 +3189,22 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "gustoso.ch": {
+    "name": "Gustoso AG",
+    "based_out_of": "Fulenbach, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A gourmet importer and wholesaler whose gift sets could take premium sugar free chocolate. Directory data only.",
+    "what_they_do_well": [],
+    "distributes": "Gourmet foods including pasta, South Tyrolean apple juice and gift sets; directory also lists confectionery and snacks.",
+    "channels_supplied": "Not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
   "haecky.ch": {
     "name": "Haecky Import AG",
@@ -3179,6 +3413,22 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "honeydew.ch": {
+    "name": "honeydew GmbH",
+    "based_out_of": "Switzerland (city not confirmed)",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Positions itself as a general importer and distributor of better-for-you vegan brands, close to Diablo's positioning. It also offers consulting, so confirm it buys and holds stock and is not acting as an agency.",
+    "what_they_do_well": [],
+    "distributes": "Vegan products including snacks and plant-based drinks; brands shown include Melibio, Treets, Superbon, Sunfly and The Lekker Company.",
+    "channels_supplied": "Retailers and distributors in the Swiss market (none named).",
+    "sf_brands_carried": "Better-for-you vegan snack brands such as Superbon and Treets; no direct sugar free confectionery competitor seen.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
+  },
   "hopsack.ie": {
     "name": "The Hopsack",
     "based_out_of": "Dublin, Ireland",
@@ -3242,6 +3492,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "iberpasion.ch": {
+    "name": "Iberpasion GmbH",
+    "based_out_of": "Bremgarten, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A small importer with confectionery and snacks among its categories. Directory data only, so range and reach need checking.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery and snacks, dairy, fruit and vegetables, honey and spreads, meat products, olive oil and spices.",
+    "channels_supplied": "Not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "iceland.co.uk": {
     "name": "Iceland Foods",
@@ -3311,6 +3578,22 @@
     "sf_brands_carried": "Chocolate and Love no-added-sugar 100% cocoa bar; Clearspring and other free-from brands. Not a direct Diablo competitor.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "imex.ch": {
+    "name": "Imex Delikatessen AG",
+    "based_out_of": "Lachen, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Carries sweets and snacks within a gourmet range and lists wholesale activity. Directory data only, with a strong online retail element, so wholesale reach into Basel is unconfirmed.",
+    "what_they_do_well": [],
+    "distributes": "Gourmet foods: oils, antipasti, pasta, sauces, snacks, truffles, sweets, beverages and gifts.",
+    "channels_supplied": "Listed as importer, wholesaler and online store; trade customers not named.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
   "imgro.at": {
     "name": "Imgro Nahrungs und Genussmittelgrosshandel und Import GmbH",
@@ -3450,6 +3733,23 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "isbilir-food.ch": {
+    "name": "Isbilir Lebensmittel",
+    "based_out_of": "Basel, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Basel food trading company registered in 2026, possibly serving the city's Turkish grocery trade. Very new and unverified, so treat as a lead to check.",
+    "what_they_do_well": [],
+    "distributes": "Food trading (registered purpose: Handel mit Lebensmitteln).",
+    "channels_supplied": "Not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "itn.com.pe": {
     "name": "ITN SA (I.T.N. S.A.)",
@@ -3797,6 +4097,25 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "lapa.ch": {
+    "name": "LAPA - finest italian food GmbH",
+    "based_out_of": "Embrach, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Delivers to Basel foodservice six days a week, so it has proven Basel reach. Sweets are limited to frozen desserts, so fit is low.",
+    "what_they_do_well": [
+      "Delivers to Basel and north-west Switzerland six days a week, with same-day delivery for orders placed by 05:00."
+    ],
+    "distributes": "Italian fresh dairy, cured meats, pasta, pizza ingredients, cheese, antipasti, frozen products including desserts, beverages and wine.",
+    "channels_supplied": "Restaurants, pizzerias and hotels in Basel-Stadt, Basel-Landschaft, Aarau and Solothurn.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "lekkerland.de": {
     "name": "Lekkerland Deutschland",
     "based_out_of": "Frechen, Germany",
@@ -4067,6 +4386,22 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "marinello.ch": {
+    "name": "Marinello & Co. AG",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "An Italian food importer and wholesaler with confectionery and snacks in its listed range. Directory data only; Basel coverage not confirmed.",
+    "what_they_do_well": [],
+    "distributes": "Confectionery and snacks, dairy, frozen food and ready meals, fruit and vegetables (Italian focus, Picobello).",
+    "channels_supplied": "Listed as importer, distributor, wholesaler and retailer; customers not named.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
   "marketcapon.com.pe": {
     "name": "Market Capon (America Capon)",
@@ -4524,6 +4859,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "my-izakaya.ch": {
+    "name": "MY IZAKAYA",
+    "based_out_of": "Huenenberg, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A pure B2B importer whose customers include Asian grocery shops, a channel Diablo does not yet reach in Basel. Snacks and confectionery are already a category, though its focus is Japanese brands.",
+    "what_they_do_well": [
+      "Operates purely as a B2B wholesaler supplying restaurants, bars, Asian grocery shops and distributors."
+    ],
+    "distributes": "Japanese drinks (chuhai, sake, shochu, beer, soft drinks), Japanese snacks including Pocky and KitKat, spices and specialities.",
+    "channels_supplied": "Restaurants and izakayas, bars, retail and Asian grocery shops and other distributors; B2B only.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "mziuriholding.ge": {
     "name": "Mziuri",
     "based_out_of": "Tbilisi, Georgia",
@@ -4545,20 +4899,20 @@
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "naturalex.ch": {
-    "name": "Naturalex Sàrl",
+    "name": "Naturalex Sarl",
     "based_out_of": "Geneva, Switzerland",
-    "market": "Zurich, Switzerland",
+    "market": "Basel, Switzerland",
     "category": "Distributors",
     "channels": [
       "distributors"
     ],
-    "fit_rationale": "An organic and health importer distributor with confectionery in range. Geneva base and unverified Zurich reach keep it conditional.",
+    "fit_rationale": "An organic importer and distributor carrying confectionery and snacks. Geneva based and also registered as Naturalex Agency SA, so confirm it holds stock and serves German-speaking Switzerland.",
     "what_they_do_well": [],
-    "distributes": "Organic and eco food, drinks, cleaning products and cosmetics incl. confectionery and snacks.",
-    "channels_supplied": "Importer, distributor, wholesaler and retailer.",
+    "distributes": "Organic and eco-friendly goods including confectionery and snacks, grains, spreads, drinks and tea and coffee.",
+    "channels_supplied": "Not confirmed.",
     "sf_brands_carried": "",
-    "added": "2026-10-13",
-    "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
   "naturalife.ie": {
     "name": "Naturalife Health",
@@ -4574,6 +4928,25 @@
     "sf_brands_carried": "Udo's Choice, New Nordic, Manuka Health, Cleanmarine; no food or confectionery brands.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "naturapart.ch": {
+    "name": "Biofair-Naturapart GmbH",
+    "based_out_of": "Mendrisio, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A national organic B2B supplier to the health food trade, relevant for better-for-you lines. Based in Ticino, so service to Basel is not confirmed.",
+    "what_they_do_well": [
+      "Has supplied organic foods and natural cosmetics to the trade for more than two decades, per its directory profile."
+    ],
+    "distributes": "Organic, macrobiotic and vegan foods including snacks, Japanese noodles, miso and teas, plus natural cosmetics.",
+    "channels_supplied": "Trade buyers only via a log-in B2B web shop; specific shops not named.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "naturkost-erfurt.de": {
     "name": "Naturkost Erfurt GmbH",
@@ -5108,6 +5481,44 @@
     "sf_brands_carried": "Not verified.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
+  "phag.bio": {
+    "name": "Phag GmbH",
+    "based_out_of": "Walchwil, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A national health food wholesaler that already lists hundreds of free-from brands for the Reformhaus and organic channel, which reaches Basel's health food stores. Diablo's stevia sweetened, no-added-sugar range fits the free-from shelf it already serves.",
+    "what_they_do_well": [
+      "Describes itself as Switzerland's oldest organic wholesaler, trading since 1895.",
+      "Carries more than 9,500 articles from over 250 brands for health food and organic shops."
+    ],
+    "distributes": "Organic and health food, dietary supplements, baby food, bulk packs, cosmetics and non-food; over 9,500 articles from more than 250 brands, with own brands Pural and eubiona and a vegan and gluten-free focus.",
+    "channels_supplied": "Health food stores (Reformhaeuser), organic specialist shops and other specialist retailers, delivered by refrigerated truck or parcel service.",
+    "sf_brands_carried": "Vegan and gluten-free free-from ranges confirmed; a sugar free confectionery line was not confirmed on the page.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "pharmapost.swiss": {
+    "name": "Pharmapost AG",
+    "based_out_of": "Niederbipp, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Gives access to the pharmacy and drugstore channel, where sugar free and diabetic-friendly sweets sell well, and already handles food products. Confirm it buys and holds stock rather than acting only as a sales agent.",
+    "what_they_do_well": [
+      "Builds third-party brands in Swiss pharmacies and drugstores, offering key account management, pre-wholesale and sales support."
+    ],
+    "distributes": "OTC medicines, dietary supplements and food products, body care and medical devices; own brand LIVSANE plus third-party brands.",
+    "channels_supplied": "Pharmacies and drugstores (specialist trade only), with key account management, pre-wholesale and sales support for manufacturers.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
   "philipdennis.co.uk": {
     "name": "Philip Dennis Foodservice",
@@ -6237,6 +6648,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "tatko.ch": {
+    "name": "TATKO AG",
+    "based_out_of": "Spreitenbach, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A family-owned Turkish-Swiss wholesaler that built its business on Turkish brands including the biscuit maker Eti, so it already moves packaged sweet snacks to ethnic supermarkets. Confectionery is not in its current catalogue, so fit is conditional.",
+    "what_they_do_well": [
+      "Family business founded in 2000, starting with Turkish brands Koska, Tadim and Eti.",
+      "Reports more than 1,000 active trade customers including restaurants and supermarkets."
+    ],
+    "distributes": "Bulk food wholesale and import: frozen meat and poultry, dairy, grains, oils, spices, canned goods, juices, soft drinks and frozen bakery.",
+    "channels_supplied": "Restaurants, supermarkets, canteens and other businesses; reports over 1,000 active customers. Basel coverage not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "tbilisiholding.com": {
     "name": "Tbilisi Holding Company (THC)",
     "based_out_of": "Tbilisi, Georgia",
@@ -6308,6 +6739,25 @@
     "sf_brands_carried": "Stocks WONDR low-sugar protein jellies per 2026 trade press and listed Free'ist sugar-free jellies in 2018.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "theasiacompany.ch": {
+    "name": "The Asia Company S.A.",
+    "based_out_of": "Muenchenstein, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Basel-area importer and wholesaler 6 km from the city centre with its own trade customer base among Asian restaurants and shops. Snacks are a listed category, but European sugar free sweets would be a new line for it.",
+    "what_they_do_well": [
+      "Founded in 2010 in Muenchenstein to import Asian and European foods for Swiss restaurants and retailers.",
+      "ISO 22000 certified since 2021, delivering with its own refrigerated vehicles."
+    ],
+    "distributes": "Asian and European foods: fresh produce, dry goods including snacks, drinks, frozen goods including desserts, and non-food.",
+    "channels_supplied": "Swiss restaurants and retailers, delivered in refrigerated vehicles.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
   "thehealthstore.ie": {
     "name": "The Health Store",
@@ -6718,6 +7168,22 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "vermo.ch": {
+    "name": "Vermo AG",
+    "based_out_of": "Inwil, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A long-established independent foodservice supplier with a dry goods range. Directory data only and based in central Switzerland.",
+    "what_they_do_well": [],
+    "distributes": "Ice cream, frozen, dairy, convenience, dry goods and vegan and vegetarian ranges.",
+    "channels_supplied": "Not confirmed; profile suggests foodservice. Basel coverage not confirmed.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
   "vg.ge": {
     "name": "VG Distribution (Veyseloglu Group)",
