@@ -41,7 +41,7 @@ on:
         description: "Add a market (optional): languages to also search local sources in (e.g. French). Empty = the main local languages"
         default: ""
       wanted:
-        description: "Add a market (optional): companies wanted per Channel. Empty = 60"
+        description: "Add a market (optional): companies wanted per Channel. Empty = 50 (a deep search of the city)"
         default: ""
       job:
         description: "Cancel, Try again or Allow a repeat: the Job ID, e.g. J0003"

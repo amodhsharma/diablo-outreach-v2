@@ -16,12 +16,14 @@ default_companies: 60
 # For small jobs (fewer wanted than this), the number wanted is used instead.
 min_floor: 30
 
-# The same two numbers for prompt version 2 (fewer, better companies).
-default_companies_2: 30
-min_floor_2: 15
+# The same two numbers for prompt version 2 (fewer, better companies). Raised on 20 Oct 2026 (going
+# live, Ariel: search each city exhaustively): 30 and 15 before.
+default_companies_2: 50
+min_floor_2: 25
 
-# Most web searches each helper may run for one Channel.
-max_searches_per_channel: 60
+# Most web searches each helper may run for one Channel (60 before 20 Oct 2026: a deeper search of
+# each city; a research run takes longer).
+max_searches_per_channel: 120
 
 # Most companies listed in the prompt's exclusion list.
 max_exclusions_in_prompt: 500
