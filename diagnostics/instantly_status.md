@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-20T04:44:42+00:00 (UTC).
+Checked 2026-10-20T05:22:39+00:00 (UTC).
 
 ## Mailboxes
 
@@ -25,8 +25,8 @@ Checked 2026-10-20T04:44:42+00:00 (UTC).
 |---|---|---|---|---|---|---|---|---|
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
-| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (13 of 13) | Dana - | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (10 of 10) | Elize - | 30 | none |
+| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (15 of 15) | Dana - | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (12 of 12) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (8 of 8) | Joshua - | 30 | none |
@@ -39,8 +39,9 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026 | Company inboxes
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Active
+- Instantly says: **waiting_for_leads**. No leads are ready to receive emails
+- Instantly's explanation: The campaign is currently paused and waiting because there are no new leads ready to be contacted. It last sent an email a minute ago and is within its daily send limit and schedule. To resume sending emails, please add more leads to the campaign.
 - Last healthy send: 2026-10-19T12:06:34.353Z
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 10, "sent": 2, "limit_hit": false}`
@@ -52,7 +53,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
 - Leads: 1
-  - 1 Completed, emailed
+  - 1 Active, not yet emailed
 - Emails in the sequence: 1 (characters in each body: [2305])
 
 ## Campaign: Diablo | Dublin, Ireland | Retailers | OCT2026
@@ -92,24 +93,18 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Blocklist
 
-- Instantly's blocklist: 1 entries (addresses and domains), read and checked before every forward, reminder and introduction.
+- Instantly's blocklist: 0 entries (addresses and domains), read and checked before every forward, reminder and introduction.
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 0 contacts approved to send
+- 1 contacts approved to send
+- Waiting: contact 896301007047 (a***@gmail.com) at Löwenzahn Cash & Carry GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
+- 1 approved contacts wait their turn (one person per company at a time)
 
 ## Where every company is in its loop
 
-- **Uplegger Food Company GmbH**: next is the next email, 3 days after the last one, due 23 Oct 09:58 IST; **opted out: 3 there** (the company is stopped at the next run)
-- **EDEKA Nordbayern-Sachsen-Thueringen**: next is the next email, 3 days after the last one, due 23 Oct 09:58 IST; blocklist: clear
-- **Azad Food GmbH**: next is the next email, 3 days after the last one, due 22 Oct 17:36 IST; blocklist: clear
+- **Löwenzahn Cash & Carry GmbH**: next is the next email, 3 days after the last one; blocklist: clear
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
 |---|---|---|---|---|
-| Uplegger Food Company GmbH | 1 | Head of Sales | Attempted to Contact | 19 Oct 17:51 IST |
-| Uplegger Food Company GmbH | 2 | Head of Supply Chain | Forward sent | 19 Oct 18:07 IST |
-| Uplegger Food Company GmbH | 3 | Sales Manager Nederland - Agency | Forward sent | 20 Oct 09:58 IST |
-| EDEKA Nordbayern-Sachsen-Thueringen | 1 | Managing Director / CFO | Attempted to Contact | 19 Oct 17:51 IST |
-| EDEKA Nordbayern-Sachsen-Thueringen | 2 | Managing Director | Forward sent | 19 Oct 18:07 IST |
-| EDEKA Nordbayern-Sachsen-Thueringen | 3 | Managing Director | Forward sent | 20 Oct 09:58 IST |
-| Azad Food GmbH | 1 | Company inbox (from website) | Reminder sent | 19 Oct 17:36 IST |
+| Löwenzahn Cash & Carry GmbH | 1 | Company inbox (from website) | Attempted to Contact | not yet |
