@@ -1,4 +1,23 @@
 {
+  "1001-distributions.ch": {
+    "name": "1001 Distributions (Mangenot O.S. Déstockage)",
+    "based_out_of": "Roche, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Romandie wholesaler that sells branded sweets and snacks such as Stimorol, Nestlé YES and Pringles to independent supermarkets and shops. It could list Diablo quickly for Geneva independents, though its destocking model may favour price-led deals; worth checking.",
+    "what_they_do_well": [
+      "Runs a B2B webshop reserved for Swiss retail professionals with brands such as Barilla, Pringles and Stimorol."
+    ],
+    "distributes": "Branded confectionery, chewing gum, snacks, dried fruit and nuts, groceries, drinks, household and non-food goods.",
+    "channels_supplied": "B2B webshop restricted to Swiss retail professionals such as supermarkets and other shops; delivers across Switzerland.",
+    "sf_brands_carried": "None identified on its site.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "2nabiji.ge": {
     "name": "Ori Nabiji (2 Nabiji)",
     "based_out_of": "Tbilisi, Georgia",
@@ -488,6 +507,25 @@
     "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "attitude.bio": {
+    "name": "Attitude Bio SA",
+    "based_out_of": "Plan-les-Ouates, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Geneva importer and wholesaler whose whole model is bringing French better-for-you brands into Swiss specialist retail. Diablo's no-added-sugar range would sit naturally beside its organic breakfast and snack lines without a direct competitor in its portfolio.",
+    "what_they_do_well": [
+      "Holds Swiss distribution for a portfolio of French organic brands including Destination Bio, Favrichon and Emile Noël."
+    ],
+    "distributes": "Imported organic and natural food (rice, cereals, spices, herbal teas, gluten-free lines) plus natural cosmetics.",
+    "channels_supplied": "Natural and organic retail partners in Switzerland (exact accounts not named on its site).",
+    "sf_brands_carried": "Destination Bio, Autour du Riz, Favrichon, Biosoleil, Nature & Cie, Food for Health; none are direct sugar-free confectionery competitors.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "atu.com.tr": {
     "name": "ATU Duty Free Tbilisi",
     "based_out_of": "Istanbul, Turkey",
@@ -737,6 +775,25 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "bevanar-dorga.ch": {
+    "name": "Bevanar & Dorga SA",
+    "based_out_of": "Plan-les-Ouates, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Geneva-based, family-run importer with about 70 staff that already lists imported confectionery and biscuit brands such as Lotus, Fortwenger and Maffren next to Monin syrups. Diablo's syrups, biscuits and chocolate would fill a sugar-free gap for its hotel, café and clinic customers.",
+    "what_they_do_well": [
+      "Family business built from Dorga (1963) and Bevanar (1969), merged in 2024 and employing about 70 people.",
+      "Carries a broad imported brand portfolio including Valrhona, Lotus, Monin and Fever-Tree for Geneva professionals."
+    ],
+    "distributes": "Imported and Swiss confectionery, chocolate, biscuits, fine grocery, syrups and mixers, beverages, spirits and frozen goods.",
+    "channels_supplied": "Professional buyers in gastronomy plus hospitals and clinics, mainly in the Geneva area; retail only through its Jolly Dessert brand.",
+    "sf_brands_carried": "Moco no-added-sugar juices; no sugar-free confectionery brand listed.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json"
+  },
   "bidfood.co.uk": {
     "name": "Bidfood UK",
     "based_out_of": "Slough, United Kingdom",
@@ -868,6 +925,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "bolay.swiss": {
+    "name": "Bolay SA",
+    "based_out_of": "Gland, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A family foodservice distributor founded in Geneva and now based nearby, with a desserts range that could take Diablo's chocolate and biscuits. Fit is conditional on ambient products fitting its frozen-led model.",
+    "what_they_do_well": [
+      "Family company trading since 1952, founded in Cointrin and now in its third generation."
+    ],
+    "distributes": "Frozen and chilled food for restaurants: desserts and ice cream, bakery, vegetables, potatoes, meat, fish, vegetarian and vegan.",
+    "channels_supplied": "Restaurant and catering professionals; national service through partners Von Kaenel and Eggenschwiler.",
+    "sf_brands_carried": "Vegetarian and vegan lines; no sugar-free brands named.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "bonizzi.ch": {
     "name": "Alberto Bonizzi AG",
@@ -1071,6 +1147,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "cadar.ch": {
+    "name": "Cadar SA",
+    "based_out_of": "Fleurier, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A purchasing centre and wholesaler for independent grocers that can put Diablo onto many small Romandie shelves at once. Geneva coverage needs to be confirmed, but its network of independent shops suits a no-added-sugar range.",
+    "what_they_do_well": [
+      "Founded in 1975 by ten shopkeepers and now runs a warehouse of more than 4,000 m2 with over 50 staff."
+    ],
+    "distributes": "Dry and fresh grocery for independent food shops, including dairy, frozen, drinks and organic and health food.",
+    "channels_supplied": "Independent grocers across Switzerland through its à la carte and mafée store concepts; Geneva coverage not stated on its site.",
+    "sf_brands_carried": "Organic and health food listed as a category; no sugar-free confectionery brand named.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json"
   },
   "campograndeperu.com": {
     "name": "Campo Grande Perú",
@@ -1894,6 +1988,25 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
+  "depotyussuf.com": {
+    "name": "Dépôt Yussuf Sàrl",
+    "based_out_of": "Romanel-sur-Lausanne, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "An importer-wholesaler supplying hundreds of ethnic shops, many of them in Geneva's diverse neighbourhoods. A sugar-free sweets and biscuits range would be new to its mostly savoury portfolio.",
+    "what_they_do_well": [
+      "Serves more than 500 business clients including shops, wholesalers and large retailers."
+    ],
+    "distributes": "Exotic foods from Africa, Asia, the Middle East and Latin America: dry goods, drinks, sauces, flours, frozen food and private label.",
+    "channels_supplied": "Shops, wholesalers and large retailers; more than 500 clients. Geneva not named but the client base is Romandie-wide.",
+    "sf_brands_carried": "None identified.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "deprodeca.com.pe": {
     "name": "Distribuidora Exclusiva de Productos de Calidad S.A.C. (Deprodeca)",
     "based_out_of": "Lima, Peru",
@@ -2235,6 +2348,25 @@
     "sf_brands_carried": "Listed Free'ist sugar-free jellies in 2018 according to trade press; current range not verified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "duport-aberle.ch": {
+    "name": "Duport-Aberlé SA",
+    "based_out_of": "Plan-les-Ouates, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A long-standing Geneva importer of premium packaged foods with import licences and ambient logistics in place. It would need to extend beyond preserves to take confectionery, so fit is conditional. Domain is taken from a directory and was not opened.",
+    "what_they_do_well": [
+      "Importing premium canned foods since 1888."
+    ],
+    "distributes": "Premium canned fish and seafood and Basque preserved foods.",
+    "channels_supplied": "Not named; directory listings describe it as an importer for the Swiss market.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "easytradedistribution.ch": {
     "name": "easytrade distribution AG",
@@ -3488,6 +3620,26 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "himalavie.ch": {
+    "name": "Hima La Vie",
+    "based_out_of": "Romanel-sur-Lausanne, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A long-established Romandie importer and distributor already selling sweeteners, spreads and health foods to independent shops. Diablo's spreads, syrups and sugar-free sweets match that shelf and its delivery network reaches Geneva retailers.",
+    "what_they_do_well": [
+      "Distributing quality products in Switzerland since 1946.",
+      "Supplies more than 150 partners with weekday deliveries using its own transport."
+    ],
+    "distributes": "Oils, vinegars, teas, plant-based and instant drinks, spreads, dried fruit purées, sweeteners, honey, spices, flours, cosmetics and cleaning products.",
+    "channels_supplied": "Local shops and retailers across French-speaking Switzerland, delivered every weekday by its own transport or parcel.",
+    "sf_brands_carried": "Sells sweeteners and natural health lines; brands not named on its site. No direct sugar-free confectionery competitor confirmed.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "hollandandbarrett.com": {
     "name": "Holland & Barrett",
     "based_out_of": "Nuneaton, United Kingdom",
@@ -3913,6 +4065,25 @@
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "italianquality.ch": {
+    "name": "Italian Quality Sàrl",
+    "based_out_of": "Plan-les-Ouates, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Geneva importer with refrigerated vehicles and Free Port warehousing that serves luxury hotels. It carries no confectionery, so Diablo would only fit as an add-on for hotel and banking clients.",
+    "what_they_do_well": [
+      "Runs its own refrigerated fleet and uses Geneva Free Port warehousing."
+    ],
+    "distributes": "Italian fine food: fresh dairy, truffles, Parmesan, ham, tuna, fresh pasta and wines.",
+    "channels_supplied": "High-end hotels and restaurants, some central buyers and about fifty professional clients; consumers through its affiliate Intenso.",
+    "sf_brands_carried": "None identified.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "itn.com.pe": {
     "name": "ITN SA (I.T.N. S.A.)",
     "based_out_of": "Chorrillos, Lima, Peru",
@@ -4128,6 +4299,25 @@
     "sf_brands_carried": "Healthy options category mentioned; no sugar free brand named.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "koronekes.ch": {
+    "name": "Koronekes Sàrl",
+    "based_out_of": "Geneva, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Geneva fine-food importer with more than 800 products sold to restaurants. It has no sweets range yet, so Diablo would be a new category for it; lower priority.",
+    "what_they_do_well": [
+      "Founded in 2007 and now imports more than 800 fine food products."
+    ],
+    "distributes": "Fine food: oils, vinegars, spices, salts, olives, antipasti, dried fruit, chocolate coverings, Japanese products, pasta and rice.",
+    "channels_supplied": "Professional restaurants and gourmet customers in Switzerland.",
+    "sf_brands_carried": "None identified.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "kubacompany.com": {
     "name": "KUBA GmbH",
@@ -4857,6 +5047,26 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "mexiland.ch": {
+    "name": "Mexiland Import Export Sàrl",
+    "based_out_of": "Satigny, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Geneva importer that already sells American-style snacks and candies to wholesalers and restaurants nationwide. Diablo could add a sugar-free snack line to its range for the same trade customers.",
+    "what_they_do_well": [
+      "Distributing Mexican and American foods in Switzerland since 2004.",
+      "Exclusive Swiss representative for the SDV France Saveurs du Monde range since 2014."
+    ],
+    "distributes": "Mexican, Tex-Mex and American foods: tortillas, sauces, spices, snacks and tapas, drinks and candies.",
+    "channels_supplied": "Restaurants, bars, caterers, wholesalers and consumers across Switzerland, plus its own shops.",
+    "sf_brands_carried": "None identified.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "mifarma.com.pe": {
     "name": "Mifarma",
     "based_out_of": "Lima, Peru",
@@ -5376,6 +5586,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "oasisdrink.ch": {
+    "name": "Oasis Drink",
+    "based_out_of": "Neuchâtel, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A B2B supplier with daily Geneva delivery to takeaway and café outlets, where single-serve sugar-free snacks could sell at the till. It does not yet carry confectionery, so this is a conditional fit.",
+    "what_they_do_well": [
+      "Delivers daily to hospitality customers in Neuchâtel, Vaud, Geneva, Fribourg and Jura."
+    ],
+    "distributes": "Soft drinks, waters, juices, energy drinks, wines, sauces, oils, tortillas, coffee items and packaging.",
+    "channels_supplied": "Restaurants, bars, cafés, hotels and takeaway outlets with daily delivery across French-speaking Switzerland including Geneva.",
+    "sf_brands_carried": "None identified.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "oceanhealthcare.ie": {
     "name": "Ocean Healthcare",
@@ -6330,6 +6559,25 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "saya.ch": {
+    "name": "Saya SA",
+    "based_out_of": "Gland, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Romandie foodservice wholesaler near Geneva that also serves grocery stores and already lists biscuits in its offers. Diablo could reach cafés and independent grocers through it, though confectionery is not its core.",
+    "what_they_do_well": [
+      "Has supplied restaurants in French-speaking Switzerland for more than two decades."
+    ],
+    "distributes": "Italian and general food for professionals: cheese, charcuterie, pasta, preserves, coffee, wines, beers, some biscuits and non-food.",
+    "channels_supplied": "Restaurants, pizzerias, hotels, bars, cafés, caterers and grocery stores in French-speaking Switzerland.",
+    "sf_brands_carried": "None identified.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "seinet.ch": {
     "name": "Seinet AG",
     "based_out_of": "Luzern, Switzerland",
@@ -6495,6 +6743,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "smyrliadis.com": {
+    "name": "Smyrliadis SA",
+    "based_out_of": "Oron-la-Ville, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A family Greek importer and wholesaler serving Romandie restaurants. Confectionery is not a focus, so Diablo is a low-priority add-on.",
+    "what_they_do_well": [
+      "Family business since 1972, wholesaling Greek products since 1986."
+    ],
+    "distributes": "Greek foods: dairy, olive oil, specialities, fine grocery and wines.",
+    "channels_supplied": "Greek restaurants in French-speaking Switzerland, other businesses and consumers online.",
+    "sf_brands_carried": "None identified.",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "soanpro.com.pe": {
     "name": "Sociedad Anonima de Proveedores SAC (Soanpro)",
@@ -6828,6 +7095,23 @@
     "sf_brands_carried": "Lists a 'Sugarfree Sweets' category; brands not confirmed, so a competing line is possible.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "swinut.com": {
+    "name": "Swinut SA",
+    "based_out_of": "Satigny, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A young Geneva trader in dried fruit and nuts, adjacent to healthy snacking. It appears to trade commodities rather than branded goods, so fit is uncertain.",
+    "what_they_do_well": [],
+    "distributes": "Trading and distribution of fresh and dried fruit and nuts.",
+    "channels_supplied": "Markets in Switzerland and Europe; customers not named.",
+    "sf_brands_carried": "",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "sysco.fr": {
     "name": "Sysco France",
