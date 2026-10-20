@@ -1,5 +1,1152 @@
 {
-  "generated_at": "2026-10-20T09:30:49+00:00",
+  "generated_at": "2026-10-20T10:04:24+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "896266143974",
+      "job_title": "Vertrieb Romandie, Deutschweiz & Tessin",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Alberto Bonizzi AG",
+        "domain": "bonizzi.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zürich, Switzerland",
+        "distributes": "Italian food: charcuterie, sweets (e.g. Fiasconaro), gourmet products, spreads and organic food.",
+        "channels_supplied": "Swiss trade and corporate gift customers; retail accounts not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over a century importing Italian food into Switzerland, carrying brands such as Citterio and Fiasconaro."
+        ],
+        "fit_rationale": "A long-established Zurich importer of branded European food that already handles sweets and gifting. Its Italian focus means Diablo would be a stretch beyond its core, so tier 2."
+      }
+    },
+    {
+      "contact_id": "896249138388",
+      "job_title": "Manager Einkauf",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Arslan GmbH",
+        "domain": "arslan.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Pratteln, Switzerland",
+        "distributes": "Turkish and ethnic food: confectionery and snacks, dairy, grains, spreads, drinks, spices, tea and coffee.",
+        "channels_supplied": "Ethnic grocery and trade customers; Zurich coverage not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An importer and wholesaler with confectionery in its range serving Turkish and ethnic grocers, a channel with demand for halal sweets that Diablo can supply. Based near Basel."
+      }
+    },
+    {
+      "contact_id": "896461045999",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Bio Partner Schweiz AG",
+        "domain": "biopartner.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Seon, Switzerland",
+        "distributes": "Organic food wholesale: about 10,000 products across grocery and fresh lines.",
+        "channels_supplied": "About 4,000 customers in retail, gastronomy and industry, mainly organic shops; also runs its own organic shops including Witikon in Zurich.",
+        "sf_brands_carried": "Organic and natural ranges; specific sugar-free brands not confirmed.",
+        "what_they_do_well": [
+          "Supplies around 4,000 retail, gastronomy and industry customers with about 10,000 organic products.",
+          "Merged with Somona in 2018 to strengthen organic wholesale."
+        ],
+        "fit_rationale": "One of the largest organic distributors in Switzerland with a direct route into Zurich organic and health food shops. Fit depends on whether non-organic sugar-free lines can sit in its range, so approach after tier 1."
+      }
+    },
+    {
+      "contact_id": "896464362682",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Biofair-Naturapart GmbH",
+        "domain": "naturapart.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Mendrisio, Switzerland",
+        "distributes": "Organic, macrobiotic and vegan foods including snacks, Japanese noodles, miso and teas, plus natural cosmetics.",
+        "channels_supplied": "Trade buyers only via a log-in B2B web shop; specific shops not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has supplied organic foods and natural cosmetics to the trade for more than two decades, per its directory profile."
+        ],
+        "fit_rationale": "A national organic B2B supplier to the health food trade, relevant for better-for-you lines. Based in Ticino, so service to Basel is not confirmed."
+      }
+    },
+    {
+      "contact_id": "896461061352",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Columbus Vertriebs AG",
+        "domain": "columbus-swiss.com",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Risch, Switzerland",
+        "distributes": "Confectionery and snacks; juices, soft drinks and water (linked to ALO drink).",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Listed as an importer and distributor of confectionery and snacks, which matches Diablo's categories. Directory data only; channels and Basel coverage need checking."
+      }
+    },
+    {
+      "contact_id": "896460860621",
+      "job_title": "Commercial Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Conaxess Trade Switzerland AG",
+        "domain": "conaxesstrade.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Neuendorf, Switzerland",
+        "distributes": "Food, non-food, confectionery and beverages; more than 20 brands including Milka chocolate and PROTEINWATER.",
+        "channels_supplied": "Retail, food service, convenience, pharmacies, e-commerce and cash and carry; NEOH bars placed in 200 k kiosk stores.",
+        "sf_brands_carried": "NEOH reduced-sugar bars; the wider Conaxess group lists Nick's, Keast KETO and TWEEK, but Swiss availability of these is not confirmed.",
+        "what_they_do_well": [
+          "Took over Milka distribution in Switzerland from Mondelez in October 2020.",
+          "Placed NEOH bars in 200 Valora k kiosk stores from 2019."
+        ],
+        "fit_rationale": "Covers convenience, pharmacy and retail channels with key account management and its own warehouse, and has launched better-for-you bars such as NEOH. NEOH is a reduced-sugar chocolate bar so treat it as a partial competitor. Larger and private equity owned, so less owner-run than tier 1 peers."
+      }
+    },
+    {
+      "contact_id": "896223984860",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Covin AG",
+        "domain": "covin.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Bachenbülach, Switzerland",
+        "distributes": "Portuguese and Spanish food including confectionery and snacks, dairy, meat, spreads, drinks and dry goods.",
+        "channels_supplied": "Ethnic and specialist retailers and food service across Switzerland, with warehouses in Zurich and Geneva.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs warehouses in both Zurich and Geneva to serve customers nationwide."
+        ],
+        "fit_rationale": "A major importer and distributor for the Portuguese and Spanish communities with a warehouse in Zurich. It already buys and holds European branded confectionery, though Diablo would sit outside its ethnic focus."
+      }
+    },
+    {
+      "contact_id": "896459613383",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "E. Weber & Cie AG",
+        "domain": "webstar.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zürich, Switzerland",
+        "distributes": "Wide food range listed, including confectionery and snacks, health food and sports nutrition.",
+        "channels_supplied": "Distribution, wholesale and retail; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Zurich distributor and wholesaler of 201 to 500 staff listing confectionery and health food. The directory entry is thin, so its real focus needs checking before outreach."
+      }
+    },
+    {
+      "contact_id": "896449945844",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "El Sol AG",
+        "domain": "elsol.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Allschwil, Switzerland",
+        "distributes": "Imported Mexican food and drinks.",
+        "channels_supplied": "Restaurants, retailers and private customers in Switzerland, from a wholesale warehouse in the Basel area.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Importing Mexican food since 1993, with a wholesale warehouse opened in Basel in 2007."
+        ],
+        "fit_rationale": "A Basel-area specialist importer with its own wholesale warehouse and restaurant and retail customers. Fit is limited to cross-selling sweets into its Latin American food accounts."
+      }
+    },
+    {
+      "contact_id": "896460639467",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "F. Uhlmann-Eyraud SA",
+        "domain": "uhlmann-eyraud.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lenzburg, Switzerland",
+        "distributes": "Food, confectionery and snacks plus over the counter health products (e.g. Ohropax, Stop Hemo).",
+        "channels_supplied": "Swiss retailers plus the pharmacy and drugstore trade; specific chains not named in sources.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family-owned and trading since 1878, linking manufacturers, retailers and consumers across Switzerland.",
+          "Trade press describes it as an OTC and food specialist."
+        ],
+        "fit_rationale": "A family-owned distributor that sells both food and OTC health products, so it can take a sugar-free range into pharmacies and drugstores as well as grocery. Based in Lenzburg, within easy reach of Zurich. Brand portfolio beyond Ohropax and Stop Hemo not confirmed."
+      }
+    },
+    {
+      "contact_id": "896449689843",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Fortura AG",
+        "domain": "fortura.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zunzgen, Switzerland",
+        "distributes": "Confectionery for resale (lollies, gums, jellies, liquorice, chocolate, marzipan, nougat, marshmallows), snacks, drinks and kiosk items, plus toys, party and gift articles.",
+        "channels_supplied": "Kiosks, petrol station shops, retailers, leisure businesses, bakeries, online shops and market traders across Switzerland, via its own B2B web shop and sales team.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Confectionery importer and wholesaler incorporated in 1978, still active in Zunzgen BL.",
+          "Supplies kiosks, petrol station shops and retailers across Switzerland through a B2B online shop backed by personal sales advice."
+        ],
+        "fit_rationale": "A Basel-Landschaft confectionery importer and wholesaler 25 km from Basel whose whole model is selling packaged sweets to kiosks, petrol shops and independent retailers. A sugar free range would add a better-for-you block to an assortment that currently shows no sugar free line."
+      }
+    },
+    {
+      "contact_id": "896446592232",
+      "job_title": "Head of Sales",
+      "seniority": "Heads and junior directors",
+      "rank": 1,
+      "company": {
+        "name": "George Weiss Lebensmittel AG",
+        "domain": "georgeweiss.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Dietikon, Switzerland",
+        "distributes": "More than 2,000 food lines including confectionery and snacks, Asian and Mediterranean specialities, frozen and dry goods.",
+        "channels_supplied": "Food service customers plus some retail and online sales.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over 40 years of food import experience with more than 2,000 products for food service."
+        ],
+        "fit_rationale": "A Zurich-area importer and wholesaler with four decades of import experience and a broad dry goods range. Mainly food service, so Diablo would suit its snack and dessert lines for restaurants and canteens."
+      }
+    },
+    {
+      "contact_id": "896434950333",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Good Taste Imports GmbH",
+        "domain": "nussmischung.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Thalwil, Switzerland",
+        "distributes": "Confectionery and snacks (nut mixes) and fruit products.",
+        "channels_supplied": "Wholesale plus its own online store; trade customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A small importer and wholesaler of snacks on Lake Zurich, close to the target market. Snack focus suits Diablo's sweets and biscuits, though its scale and trade customers are unverified."
+      }
+    },
+    {
+      "contact_id": "896452008180",
+      "job_title": "Buyer",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Imex Delikatessen AG",
+        "domain": "imex.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lachen, Switzerland",
+        "distributes": "Gourmet foods: oils, antipasti, pasta, sauces, snacks, truffles, sweets, beverages and gifts.",
+        "channels_supplied": "Listed as importer, wholesaler and online store; trade customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Carries sweets and snacks within a gourmet range and lists wholesale activity. Directory data only, with a strong online retail element, so wholesale reach into Basel is unconfirmed."
+      }
+    },
+    {
+      "contact_id": "896223981797",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Importessa GmbH",
+        "domain": "importessa.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Volketswil, Switzerland",
+        "distributes": "Italian confectionery and gourmet products, notably premium panettone and organic truffles.",
+        "channels_supplied": "Corporate gifting and trade customers in the Zurich area.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Zurich-area importer of Italian sweets sold heavily as corporate gifts, a seasonal route for Diablo gift lines. Small and niche, so lower priority."
+      }
+    },
+    {
+      "contact_id": "896432350425",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Life Brands GmbH",
+        "domain": "lifebrands.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Sports nutrition, vitamins and minerals, drinks, tea and coffee, pasta.",
+        "channels_supplied": "Wholesale customers; named outlets not confirmed.",
+        "sf_brands_carried": "Sports nutrition lines; brands not named.",
+        "what_they_do_well": [],
+        "fit_rationale": "An importer and wholesaler of sports nutrition, a channel where sugar-free bars and snacks sell well. Confectionery is not yet in its listed range, so fit is conditional."
+      }
+    },
+    {
+      "contact_id": "896460854489",
+      "job_title": "CFO",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Neuenschwander R. & H. AG",
+        "domain": "neuenschwanderag.com",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Grafenried, Switzerland",
+        "distributes": "Confectionery and snacks, spreads, organic and health food, dairy and gourmet goods (directory listing).",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Listed as an importer, distributor and wholesaler with confectionery and health food. The directory description is unreliable and Zurich reach is unknown, so lowest priority."
+      }
+    },
+    {
+      "contact_id": "896436391149",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Pharmapost AG",
+        "domain": "pharmapost.swiss",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Niederbipp, Switzerland",
+        "distributes": "OTC medicines, dietary supplements and food products, body care and medical devices; own brand LIVSANE plus third-party brands.",
+        "channels_supplied": "Pharmacies and drugstores (specialist trade only), with key account management, pre-wholesale and sales support for manufacturers.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Builds third-party brands in Swiss pharmacies and drugstores, offering key account management, pre-wholesale and sales support."
+        ],
+        "fit_rationale": "Gives access to the pharmacy and drugstore channel, where sugar free and diabetic-friendly sweets sell well, and already handles food products. Confirm it buys and holds stock rather than acting only as a sales agent."
+      }
+    },
+    {
+      "contact_id": "896445546706",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Pistor AG",
+        "domain": "pistor.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Rothenburg, Switzerland",
+        "distributes": "Broad food and non-food range for bakeries, confectioners, gastronomy and care homes, including confectionery lines.",
+        "channels_supplied": "Bakeries, confectioners, restaurants, care homes and hospitals across Switzerland; runs the Mercanto online marketplace.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Second largest Swiss food service wholesaler with CHF 857.8 million revenue in 2025.",
+          "Cooperative-owned and independent of the big retail groups."
+        ],
+        "fit_rationale": "The number two Swiss food service wholesaler and independent of Coop and Migros, so it is a route into Zurich cafes, canteens and care homes where sugar-free options matter. A large generalist, so Diablo would be one of thousands of lines."
+      }
+    },
+    {
+      "contact_id": "896461053160",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Primefood SA",
+        "domain": "primefood.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Bioggio, Switzerland",
+        "distributes": "Confectionery and snacks, grains and rice, spreads, organic and health food, tea and coffee.",
+        "channels_supplied": "Swiss market; named retailers not confirmed. Also listed as an agent or broker, so stock holding should be checked.",
+        "sf_brands_carried": "States a preference for added-value lines such as sugar-free, gluten-free, lactose-free, vegan and organic; brands not named.",
+        "what_they_do_well": [
+          "Importing and distributing food in Switzerland since 1993."
+        ],
+        "fit_rationale": "Explicitly sources trendy added-value products including sugar-free for the Swiss market, which lines up with Diablo's offer. Based in Ticino, so its coverage of Zurich and whether it buys and holds stock need confirming."
+      }
+    },
+    {
+      "contact_id": "896383370465",
+      "job_title": "Sales Front Office / Accounting / Administration",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "R.C. Andreae AG",
+        "domain": "rca.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Arlesheim, Switzerland",
+        "distributes": "Confectionery and food specialities: gummies through to chocolate, plus spreads, organic food and tea.",
+        "channels_supplied": "Swiss wholesale and retail plus its own online store; Beobachter compares its Trolli apple rings with Migros, Coop and Aldi Suisse own label versions. Named accounts not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Exclusive Swiss general importer for Trolli gummies, per Beobachter."
+        ],
+        "fit_rationale": "A specialist confectionery general importer holding exclusive Swiss rights for Trolli, so it already runs foreign sweets brands through Swiss grocery. A mid-size importer where a decision maker should be reachable. Ships nationally, including Zurich."
+      }
+    },
+    {
+      "contact_id": "896432466121",
+      "job_title": "Founder Rufenberg Trading GmbH",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Rufenberg Trading GmbH",
+        "domain": "rufenberg.swiss",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Rüfenacht, Switzerland",
+        "distributes": "Innovative packaged food brands and start-up brands imported into Switzerland.",
+        "channels_supplied": "Swiss retail customers; named chains not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Importing and distributing innovative food brands in Switzerland since 2011."
+        ],
+        "fit_rationale": "Its whole model is importing and distributing new food brands into Switzerland, which matches a brand Diablo wants to launch. Small and owner-run, so quick to decide, but its retail reach could not be verified on its own site."
+      }
+    },
+    {
+      "contact_id": "896259878104",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Salottino GmbH",
+        "domain": "salottino.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Horgen, Switzerland",
+        "distributes": "Italian confectionery and snacks, gourmet products, meat, olive oil, pasta, tea and coffee.",
+        "channels_supplied": "Trade supply and its own retail; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A small Lake Zurich importer of Italian food that lists confectionery. Partly retail, so wholesale capacity needs confirming."
+      }
+    },
+    {
+      "contact_id": "896464252100",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Sole e Gusto GmbH",
+        "domain": "soleegusto.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lyss, Switzerland",
+        "distributes": "Confectionery and snacks, organic and health food, spreads, pasta, dairy, meat and dry goods.",
+        "channels_supplied": "Wholesale and online store; trade customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An importer and wholesaler that lists both confectionery and health food, so a sugar-free line fits its range. Based near Bern and its Zurich reach is unconfirmed."
+      }
+    },
+    {
+      "contact_id": "896459299008",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Thraki GmbH",
+        "domain": "thraki.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Schlieren, Switzerland",
+        "distributes": "Greek, Balkan and Mediterranean speciality foods: gourmet goods, grains, olive oil, pasta and spices.",
+        "channels_supplied": "Wholesale customers nationwide plus its own sales outlet.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Importing Greek and Balkan food into Switzerland since 1997."
+        ],
+        "fit_rationale": "A Zurich-area importer selling to wholesale customers across Switzerland. Confectionery is not in its listed range, so Diablo would be an add-on."
+      }
+    },
+    {
+      "contact_id": "896249138387",
+      "job_title": "Sales Representative",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Arslan GmbH",
+        "domain": "arslan.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Pratteln, Switzerland",
+        "distributes": "Turkish and ethnic food: confectionery and snacks, dairy, grains, spreads, drinks, spices, tea and coffee.",
+        "channels_supplied": "Ethnic grocery and trade customers; Zurich coverage not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An importer and wholesaler with confectionery in its range serving Turkish and ethnic grocers, a channel with demand for halal sweets that Diablo can supply. Based near Basel."
+      }
+    },
+    {
+      "contact_id": "896461045997",
+      "job_title": "Leiterin Kaufmännischer Bereich / CFO",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Bio Partner Schweiz AG",
+        "domain": "biopartner.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Seon, Switzerland",
+        "distributes": "Organic food wholesale: about 10,000 products across grocery and fresh lines.",
+        "channels_supplied": "About 4,000 customers in retail, gastronomy and industry, mainly organic shops; also runs its own organic shops including Witikon in Zurich.",
+        "sf_brands_carried": "Organic and natural ranges; specific sugar-free brands not confirmed.",
+        "what_they_do_well": [
+          "Supplies around 4,000 retail, gastronomy and industry customers with about 10,000 organic products.",
+          "Merged with Somona in 2018 to strengthen organic wholesale."
+        ],
+        "fit_rationale": "One of the largest organic distributors in Switzerland with a direct route into Zurich organic and health food shops. Fit depends on whether non-organic sugar-free lines can sit in its range, so approach after tier 1."
+      }
+    },
+    {
+      "contact_id": "896460860623",
+      "job_title": "Commercial Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Conaxess Trade Switzerland AG",
+        "domain": "conaxesstrade.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Neuendorf, Switzerland",
+        "distributes": "Food, non-food, confectionery and beverages; more than 20 brands including Milka chocolate and PROTEINWATER.",
+        "channels_supplied": "Retail, food service, convenience, pharmacies, e-commerce and cash and carry; NEOH bars placed in 200 k kiosk stores.",
+        "sf_brands_carried": "NEOH reduced-sugar bars; the wider Conaxess group lists Nick's, Keast KETO and TWEEK, but Swiss availability of these is not confirmed.",
+        "what_they_do_well": [
+          "Took over Milka distribution in Switzerland from Mondelez in October 2020.",
+          "Placed NEOH bars in 200 Valora k kiosk stores from 2019."
+        ],
+        "fit_rationale": "Covers convenience, pharmacy and retail channels with key account management and its own warehouse, and has launched better-for-you bars such as NEOH. NEOH is a reduced-sugar chocolate bar so treat it as a partial competitor. Larger and private equity owned, so less owner-run than tier 1 peers."
+      }
+    },
+    {
+      "contact_id": "896223984858",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Covin AG",
+        "domain": "covin.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Bachenbülach, Switzerland",
+        "distributes": "Portuguese and Spanish food including confectionery and snacks, dairy, meat, spreads, drinks and dry goods.",
+        "channels_supplied": "Ethnic and specialist retailers and food service across Switzerland, with warehouses in Zurich and Geneva.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs warehouses in both Zurich and Geneva to serve customers nationwide."
+        ],
+        "fit_rationale": "A major importer and distributor for the Portuguese and Spanish communities with a warehouse in Zurich. It already buys and holds European branded confectionery, though Diablo would sit outside its ethnic focus."
+      }
+    },
+    {
+      "contact_id": "896459613380",
+      "job_title": "CEO E. Weber & Cie AG (Grosshandel Convenience)",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "E. Weber & Cie AG",
+        "domain": "webstar.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zürich, Switzerland",
+        "distributes": "Wide food range listed, including confectionery and snacks, health food and sports nutrition.",
+        "channels_supplied": "Distribution, wholesale and retail; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Zurich distributor and wholesaler of 201 to 500 staff listing confectionery and health food. The directory entry is thin, so its real focus needs checking before outreach."
+      }
+    },
+    {
+      "contact_id": "896460639466",
+      "job_title": "FvP/QP, Head of Quality",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "F. Uhlmann-Eyraud SA",
+        "domain": "uhlmann-eyraud.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lenzburg, Switzerland",
+        "distributes": "Food, confectionery and snacks plus over the counter health products (e.g. Ohropax, Stop Hemo).",
+        "channels_supplied": "Swiss retailers plus the pharmacy and drugstore trade; specific chains not named in sources.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family-owned and trading since 1878, linking manufacturers, retailers and consumers across Switzerland.",
+          "Trade press describes it as an OTC and food specialist."
+        ],
+        "fit_rationale": "A family-owned distributor that sells both food and OTC health products, so it can take a sugar-free range into pharmacies and drugstores as well as grocery. Based in Lenzburg, within easy reach of Zurich. Brand portfolio beyond Ohropax and Stop Hemo not confirmed."
+      }
+    },
+    {
+      "contact_id": "896449689844",
+      "job_title": "Head of Logistics",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "Fortura AG",
+        "domain": "fortura.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zunzgen, Switzerland",
+        "distributes": "Confectionery for resale (lollies, gums, jellies, liquorice, chocolate, marzipan, nougat, marshmallows), snacks, drinks and kiosk items, plus toys, party and gift articles.",
+        "channels_supplied": "Kiosks, petrol station shops, retailers, leisure businesses, bakeries, online shops and market traders across Switzerland, via its own B2B web shop and sales team.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Confectionery importer and wholesaler incorporated in 1978, still active in Zunzgen BL.",
+          "Supplies kiosks, petrol station shops and retailers across Switzerland through a B2B online shop backed by personal sales advice."
+        ],
+        "fit_rationale": "A Basel-Landschaft confectionery importer and wholesaler 25 km from Basel whose whole model is selling packaged sweets to kiosks, petrol shops and independent retailers. A sugar free range would add a better-for-you block to an assortment that currently shows no sugar free line."
+      }
+    },
+    {
+      "contact_id": "896446592231",
+      "job_title": "Account Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "George Weiss Lebensmittel AG",
+        "domain": "georgeweiss.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Dietikon, Switzerland",
+        "distributes": "More than 2,000 food lines including confectionery and snacks, Asian and Mediterranean specialities, frozen and dry goods.",
+        "channels_supplied": "Food service customers plus some retail and online sales.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over 40 years of food import experience with more than 2,000 products for food service."
+        ],
+        "fit_rationale": "A Zurich-area importer and wholesaler with four decades of import experience and a broad dry goods range. Mainly food service, so Diablo would suit its snack and dessert lines for restaurants and canteens."
+      }
+    },
+    {
+      "contact_id": "896460854490",
+      "job_title": "CSO / Key Account Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Neuenschwander R. & H. AG",
+        "domain": "neuenschwanderag.com",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Grafenried, Switzerland",
+        "distributes": "Confectionery and snacks, spreads, organic and health food, dairy and gourmet goods (directory listing).",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Listed as an importer, distributor and wholesaler with confectionery and health food. The directory description is unreliable and Zurich reach is unknown, so lowest priority."
+      }
+    },
+    {
+      "contact_id": "896436391148",
+      "job_title": "Regulatory Affairs & Quality Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Pharmapost AG",
+        "domain": "pharmapost.swiss",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Niederbipp, Switzerland",
+        "distributes": "OTC medicines, dietary supplements and food products, body care and medical devices; own brand LIVSANE plus third-party brands.",
+        "channels_supplied": "Pharmacies and drugstores (specialist trade only), with key account management, pre-wholesale and sales support for manufacturers.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Builds third-party brands in Swiss pharmacies and drugstores, offering key account management, pre-wholesale and sales support."
+        ],
+        "fit_rationale": "Gives access to the pharmacy and drugstore channel, where sugar free and diabetic-friendly sweets sell well, and already handles food products. Confirm it buys and holds stock rather than acting only as a sales agent."
+      }
+    },
+    {
+      "contact_id": "896445546705",
+      "job_title": "Product Owner Salesforce",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Pistor AG",
+        "domain": "pistor.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Rothenburg, Switzerland",
+        "distributes": "Broad food and non-food range for bakeries, confectioners, gastronomy and care homes, including confectionery lines.",
+        "channels_supplied": "Bakeries, confectioners, restaurants, care homes and hospitals across Switzerland; runs the Mercanto online marketplace.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Second largest Swiss food service wholesaler with CHF 857.8 million revenue in 2025.",
+          "Cooperative-owned and independent of the big retail groups."
+        ],
+        "fit_rationale": "The number two Swiss food service wholesaler and independent of Coop and Migros, so it is a route into Zurich cafes, canteens and care homes where sugar-free options matter. A large generalist, so Diablo would be one of thousands of lines."
+      }
+    },
+    {
+      "contact_id": "896383370467",
+      "job_title": "Teamleitung Administration, Personal, Marketing, Verantwortliche als Administrator IT-Systems",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "R.C. Andreae AG",
+        "domain": "rca.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Arlesheim, Switzerland",
+        "distributes": "Confectionery and food specialities: gummies through to chocolate, plus spreads, organic food and tea.",
+        "channels_supplied": "Swiss wholesale and retail plus its own online store; Beobachter compares its Trolli apple rings with Migros, Coop and Aldi Suisse own label versions. Named accounts not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Exclusive Swiss general importer for Trolli gummies, per Beobachter."
+        ],
+        "fit_rationale": "A specialist confectionery general importer holding exclusive Swiss rights for Trolli, so it already runs foreign sweets brands through Swiss grocery. A mid-size importer where a decision maker should be reachable. Ships nationally, including Zurich."
+      }
+    },
+    {
+      "contact_id": "896461046000",
+      "job_title": "Category Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Bio Partner Schweiz AG",
+        "domain": "biopartner.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Seon, Switzerland",
+        "distributes": "Organic food wholesale: about 10,000 products across grocery and fresh lines.",
+        "channels_supplied": "About 4,000 customers in retail, gastronomy and industry, mainly organic shops; also runs its own organic shops including Witikon in Zurich.",
+        "sf_brands_carried": "Organic and natural ranges; specific sugar-free brands not confirmed.",
+        "what_they_do_well": [
+          "Supplies around 4,000 retail, gastronomy and industry customers with about 10,000 organic products.",
+          "Merged with Somona in 2018 to strengthen organic wholesale."
+        ],
+        "fit_rationale": "One of the largest organic distributors in Switzerland with a direct route into Zurich organic and health food shops. Fit depends on whether non-organic sugar-free lines can sit in its range, so approach after tier 1."
+      }
+    },
+    {
+      "contact_id": "896460860622",
+      "job_title": "Commercial Director",
+      "seniority": "Directors",
+      "rank": 3,
+      "company": {
+        "name": "Conaxess Trade Switzerland AG",
+        "domain": "conaxesstrade.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Neuendorf, Switzerland",
+        "distributes": "Food, non-food, confectionery and beverages; more than 20 brands including Milka chocolate and PROTEINWATER.",
+        "channels_supplied": "Retail, food service, convenience, pharmacies, e-commerce and cash and carry; NEOH bars placed in 200 k kiosk stores.",
+        "sf_brands_carried": "NEOH reduced-sugar bars; the wider Conaxess group lists Nick's, Keast KETO and TWEEK, but Swiss availability of these is not confirmed.",
+        "what_they_do_well": [
+          "Took over Milka distribution in Switzerland from Mondelez in October 2020.",
+          "Placed NEOH bars in 200 Valora k kiosk stores from 2019."
+        ],
+        "fit_rationale": "Covers convenience, pharmacy and retail channels with key account management and its own warehouse, and has launched better-for-you bars such as NEOH. NEOH is a reduced-sugar chocolate bar so treat it as a partial competitor. Larger and private equity owned, so less owner-run than tier 1 peers."
+      }
+    },
+    {
+      "contact_id": "896223984857",
+      "job_title": "Directeur Geneve",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Covin AG",
+        "domain": "covin.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Bachenbülach, Switzerland",
+        "distributes": "Portuguese and Spanish food including confectionery and snacks, dairy, meat, spreads, drinks and dry goods.",
+        "channels_supplied": "Ethnic and specialist retailers and food service across Switzerland, with warehouses in Zurich and Geneva.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs warehouses in both Zurich and Geneva to serve customers nationwide."
+        ],
+        "fit_rationale": "A major importer and distributor for the Portuguese and Spanish communities with a warehouse in Zurich. It already buys and holds European branded confectionery, though Diablo would sit outside its ethnic focus."
+      }
+    },
+    {
+      "contact_id": "896459613381",
+      "job_title": "Group CFO",
+      "seniority": "C-suite",
+      "rank": 3,
+      "company": {
+        "name": "E. Weber & Cie AG",
+        "domain": "webstar.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zürich, Switzerland",
+        "distributes": "Wide food range listed, including confectionery and snacks, health food and sports nutrition.",
+        "channels_supplied": "Distribution, wholesale and retail; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Zurich distributor and wholesaler of 201 to 500 staff listing confectionery and health food. The directory entry is thin, so its real focus needs checking before outreach."
+      }
+    },
+    {
+      "contact_id": "896460639469",
+      "job_title": "Senior Product & Business Development Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "F. Uhlmann-Eyraud SA",
+        "domain": "uhlmann-eyraud.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lenzburg, Switzerland",
+        "distributes": "Food, confectionery and snacks plus over the counter health products (e.g. Ohropax, Stop Hemo).",
+        "channels_supplied": "Swiss retailers plus the pharmacy and drugstore trade; specific chains not named in sources.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family-owned and trading since 1878, linking manufacturers, retailers and consumers across Switzerland.",
+          "Trade press describes it as an OTC and food specialist."
+        ],
+        "fit_rationale": "A family-owned distributor that sells both food and OTC health products, so it can take a sugar-free range into pharmacies and drugstores as well as grocery. Based in Lenzburg, within easy reach of Zurich. Brand portfolio beyond Ohropax and Stop Hemo not confirmed."
+      }
+    },
+    {
+      "contact_id": "896449689845",
+      "job_title": "Key-Account-Manager & Product Manager Food / NearFood",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Fortura AG",
+        "domain": "fortura.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zunzgen, Switzerland",
+        "distributes": "Confectionery for resale (lollies, gums, jellies, liquorice, chocolate, marzipan, nougat, marshmallows), snacks, drinks and kiosk items, plus toys, party and gift articles.",
+        "channels_supplied": "Kiosks, petrol station shops, retailers, leisure businesses, bakeries, online shops and market traders across Switzerland, via its own B2B web shop and sales team.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Confectionery importer and wholesaler incorporated in 1978, still active in Zunzgen BL.",
+          "Supplies kiosks, petrol station shops and retailers across Switzerland through a B2B online shop backed by personal sales advice."
+        ],
+        "fit_rationale": "A Basel-Landschaft confectionery importer and wholesaler 25 km from Basel whose whole model is selling packaged sweets to kiosks, petrol shops and independent retailers. A sugar free range would add a better-for-you block to an assortment that currently shows no sugar free line."
+      }
+    },
+    {
+      "contact_id": "896446592233",
+      "job_title": "Account Manager / Field Sales (Aussendienst)",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "George Weiss Lebensmittel AG",
+        "domain": "georgeweiss.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Dietikon, Switzerland",
+        "distributes": "More than 2,000 food lines including confectionery and snacks, Asian and Mediterranean specialities, frozen and dry goods.",
+        "channels_supplied": "Food service customers plus some retail and online sales.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over 40 years of food import experience with more than 2,000 products for food service."
+        ],
+        "fit_rationale": "A Zurich-area importer and wholesaler with four decades of import experience and a broad dry goods range. Mainly food service, so Diablo would suit its snack and dessert lines for restaurants and canteens."
+      }
+    },
+    {
+      "contact_id": "896460854488",
+      "job_title": "Mitglied der Geschäftsleitung / Leiter Einkauf, Produktmanagement, QS",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Neuenschwander R. & H. AG",
+        "domain": "neuenschwanderag.com",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Grafenried, Switzerland",
+        "distributes": "Confectionery and snacks, spreads, organic and health food, dairy and gourmet goods (directory listing).",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Listed as an importer, distributor and wholesaler with confectionery and health food. The directory description is unreliable and Zurich reach is unknown, so lowest priority."
+      }
+    },
+    {
+      "contact_id": "896436391151",
+      "job_title": "Senior Product Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Pharmapost AG",
+        "domain": "pharmapost.swiss",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Niederbipp, Switzerland",
+        "distributes": "OTC medicines, dietary supplements and food products, body care and medical devices; own brand LIVSANE plus third-party brands.",
+        "channels_supplied": "Pharmacies and drugstores (specialist trade only), with key account management, pre-wholesale and sales support for manufacturers.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Builds third-party brands in Swiss pharmacies and drugstores, offering key account management, pre-wholesale and sales support."
+        ],
+        "fit_rationale": "Gives access to the pharmacy and drugstore channel, where sugar free and diabetic-friendly sweets sell well, and already handles food products. Confirm it buys and holds stock rather than acting only as a sales agent."
+      }
+    },
+    {
+      "contact_id": "896445546707",
+      "job_title": "Product Owner CRM & Market Research",
+      "seniority": "Top leadership",
+      "rank": 3,
+      "company": {
+        "name": "Pistor AG",
+        "domain": "pistor.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Rothenburg, Switzerland",
+        "distributes": "Broad food and non-food range for bakeries, confectioners, gastronomy and care homes, including confectionery lines.",
+        "channels_supplied": "Bakeries, confectioners, restaurants, care homes and hospitals across Switzerland; runs the Mercanto online marketplace.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Second largest Swiss food service wholesaler with CHF 857.8 million revenue in 2025.",
+          "Cooperative-owned and independent of the big retail groups."
+        ],
+        "fit_rationale": "The number two Swiss food service wholesaler and independent of Coop and Migros, so it is a route into Zurich cafes, canteens and care homes where sugar-free options matter. A large generalist, so Diablo would be one of thousands of lines."
+      }
+    },
+    {
+      "contact_id": "896383370466",
+      "job_title": "Einkauf, Verkaufinnendienst",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "R.C. Andreae AG",
+        "domain": "rca.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Arlesheim, Switzerland",
+        "distributes": "Confectionery and food specialities: gummies through to chocolate, plus spreads, organic food and tea.",
+        "channels_supplied": "Swiss wholesale and retail plus its own online store; Beobachter compares its Trolli apple rings with Migros, Coop and Aldi Suisse own label versions. Named accounts not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Exclusive Swiss general importer for Trolli gummies, per Beobachter."
+        ],
+        "fit_rationale": "A specialist confectionery general importer holding exclusive Swiss rights for Trolli, so it already runs foreign sweets brands through Swiss grocery. A mid-size importer where a decision maker should be reachable. Ships nationally, including Zurich."
+      }
+    },
+    {
+      "contact_id": "896461045998",
+      "job_title": "Category Manager Naturkosmetik",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Bio Partner Schweiz AG",
+        "domain": "biopartner.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Seon, Switzerland",
+        "distributes": "Organic food wholesale: about 10,000 products across grocery and fresh lines.",
+        "channels_supplied": "About 4,000 customers in retail, gastronomy and industry, mainly organic shops; also runs its own organic shops including Witikon in Zurich.",
+        "sf_brands_carried": "Organic and natural ranges; specific sugar-free brands not confirmed.",
+        "what_they_do_well": [
+          "Supplies around 4,000 retail, gastronomy and industry customers with about 10,000 organic products.",
+          "Merged with Somona in 2018 to strengthen organic wholesale."
+        ],
+        "fit_rationale": "One of the largest organic distributors in Switzerland with a direct route into Zurich organic and health food shops. Fit depends on whether non-organic sugar-free lines can sit in its range, so approach after tier 1."
+      }
+    },
+    {
+      "contact_id": "896460860624",
+      "job_title": "Head of Sales",
+      "seniority": "Heads and junior directors",
+      "rank": 4,
+      "company": {
+        "name": "Conaxess Trade Switzerland AG",
+        "domain": "conaxesstrade.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Neuendorf, Switzerland",
+        "distributes": "Food, non-food, confectionery and beverages; more than 20 brands including Milka chocolate and PROTEINWATER.",
+        "channels_supplied": "Retail, food service, convenience, pharmacies, e-commerce and cash and carry; NEOH bars placed in 200 k kiosk stores.",
+        "sf_brands_carried": "NEOH reduced-sugar bars; the wider Conaxess group lists Nick's, Keast KETO and TWEEK, but Swiss availability of these is not confirmed.",
+        "what_they_do_well": [
+          "Took over Milka distribution in Switzerland from Mondelez in October 2020.",
+          "Placed NEOH bars in 200 Valora k kiosk stores from 2019."
+        ],
+        "fit_rationale": "Covers convenience, pharmacy and retail channels with key account management and its own warehouse, and has launched better-for-you bars such as NEOH. NEOH is a reduced-sugar chocolate bar so treat it as a partial competitor. Larger and private equity owned, so less owner-run than tier 1 peers."
+      }
+    },
+    {
+      "contact_id": "896223984859",
+      "job_title": "Sales",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Covin AG",
+        "domain": "covin.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Bachenbülach, Switzerland",
+        "distributes": "Portuguese and Spanish food including confectionery and snacks, dairy, meat, spreads, drinks and dry goods.",
+        "channels_supplied": "Ethnic and specialist retailers and food service across Switzerland, with warehouses in Zurich and Geneva.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs warehouses in both Zurich and Geneva to serve customers nationwide."
+        ],
+        "fit_rationale": "A major importer and distributor for the Portuguese and Spanish communities with a warehouse in Zurich. It already buys and holds European branded confectionery, though Diablo would sit outside its ethnic focus."
+      }
+    },
+    {
+      "contact_id": "896459613382",
+      "job_title": "HR Business Partner",
+      "seniority": "C-suite",
+      "rank": 4,
+      "company": {
+        "name": "E. Weber & Cie AG",
+        "domain": "webstar.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zürich, Switzerland",
+        "distributes": "Wide food range listed, including confectionery and snacks, health food and sports nutrition.",
+        "channels_supplied": "Distribution, wholesale and retail; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Zurich distributor and wholesaler of 201 to 500 staff listing confectionery and health food. The directory entry is thin, so its real focus needs checking before outreach."
+      }
+    },
+    {
+      "contact_id": "896460639468",
+      "job_title": "Mitglied des Stiftungsrates",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "F. Uhlmann-Eyraud SA",
+        "domain": "uhlmann-eyraud.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lenzburg, Switzerland",
+        "distributes": "Food, confectionery and snacks plus over the counter health products (e.g. Ohropax, Stop Hemo).",
+        "channels_supplied": "Swiss retailers plus the pharmacy and drugstore trade; specific chains not named in sources.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family-owned and trading since 1878, linking manufacturers, retailers and consumers across Switzerland.",
+          "Trade press describes it as an OTC and food specialist."
+        ],
+        "fit_rationale": "A family-owned distributor that sells both food and OTC health products, so it can take a sugar-free range into pharmacies and drugstores as well as grocery. Based in Lenzburg, within easy reach of Zurich. Brand portfolio beyond Ohropax and Stop Hemo not confirmed."
+      }
+    },
+    {
+      "contact_id": "896449689846",
+      "job_title": "Shop Manager/Filialleiter",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "Fortura AG",
+        "domain": "fortura.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zunzgen, Switzerland",
+        "distributes": "Confectionery for resale (lollies, gums, jellies, liquorice, chocolate, marzipan, nougat, marshmallows), snacks, drinks and kiosk items, plus toys, party and gift articles.",
+        "channels_supplied": "Kiosks, petrol station shops, retailers, leisure businesses, bakeries, online shops and market traders across Switzerland, via its own B2B web shop and sales team.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Confectionery importer and wholesaler incorporated in 1978, still active in Zunzgen BL.",
+          "Supplies kiosks, petrol station shops and retailers across Switzerland through a B2B online shop backed by personal sales advice."
+        ],
+        "fit_rationale": "A Basel-Landschaft confectionery importer and wholesaler 25 km from Basel whose whole model is selling packaged sweets to kiosks, petrol shops and independent retailers. A sugar free range would add a better-for-you block to an assortment that currently shows no sugar free line."
+      }
+    },
+    {
+      "contact_id": "896446592230",
+      "job_title": "Account-Manager",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "George Weiss Lebensmittel AG",
+        "domain": "georgeweiss.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Dietikon, Switzerland",
+        "distributes": "More than 2,000 food lines including confectionery and snacks, Asian and Mediterranean specialities, frozen and dry goods.",
+        "channels_supplied": "Food service customers plus some retail and online sales.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over 40 years of food import experience with more than 2,000 products for food service."
+        ],
+        "fit_rationale": "A Zurich-area importer and wholesaler with four decades of import experience and a broad dry goods range. Mainly food service, so Diablo would suit its snack and dessert lines for restaurants and canteens."
+      }
+    },
+    {
+      "contact_id": "896460854491",
+      "job_title": "Fachspezialistin Social Media Marketing",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Neuenschwander R. & H. AG",
+        "domain": "neuenschwanderag.com",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Grafenried, Switzerland",
+        "distributes": "Confectionery and snacks, spreads, organic and health food, dairy and gourmet goods (directory listing).",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Listed as an importer, distributor and wholesaler with confectionery and health food. The directory description is unreliable and Zurich reach is unknown, so lowest priority."
+      }
+    },
+    {
+      "contact_id": "896436391150",
+      "job_title": "Regional Sales Consultant / KAM",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Pharmapost AG",
+        "domain": "pharmapost.swiss",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Niederbipp, Switzerland",
+        "distributes": "OTC medicines, dietary supplements and food products, body care and medical devices; own brand LIVSANE plus third-party brands.",
+        "channels_supplied": "Pharmacies and drugstores (specialist trade only), with key account management, pre-wholesale and sales support for manufacturers.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Builds third-party brands in Swiss pharmacies and drugstores, offering key account management, pre-wholesale and sales support."
+        ],
+        "fit_rationale": "Gives access to the pharmacy and drugstore channel, where sugar free and diabetic-friendly sweets sell well, and already handles food products. Confirm it buys and holds stock rather than acting only as a sales agent."
+      }
+    },
+    {
+      "contact_id": "896445546704",
+      "job_title": "Chief Operations Officer (COO)",
+      "seniority": "C-suite",
+      "rank": 4,
+      "company": {
+        "name": "Pistor AG",
+        "domain": "pistor.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Rothenburg, Switzerland",
+        "distributes": "Broad food and non-food range for bakeries, confectioners, gastronomy and care homes, including confectionery lines.",
+        "channels_supplied": "Bakeries, confectioners, restaurants, care homes and hospitals across Switzerland; runs the Mercanto online marketplace.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Second largest Swiss food service wholesaler with CHF 857.8 million revenue in 2025.",
+          "Cooperative-owned and independent of the big retail groups."
+        ],
+        "fit_rationale": "The number two Swiss food service wholesaler and independent of Coop and Migros, so it is a route into Zurich cafes, canteens and care homes where sugar-free options matter. A large generalist, so Diablo would be one of thousands of lines."
+      }
+    }
+  ]
 }
