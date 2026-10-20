@@ -1,0 +1,109 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0005",
+  "location": "St. Gallen, Switzerland",
+  "run_date": "2026-10-20",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 109
+    }
+  ],
+  "companies": [
+    {
+      "name": "Avosano AG (formerly Voigt AG)",
+      "based_out_of": "Romanshorn, Switzerland",
+      "domain": "voigt.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Pharmaceutical, dietary and cosmetic products as a full range wholesaler; about 32,000 articles held in stock.",
+      "channels_supplied": "Pharmacies, drugstores, medical suppliers and health food stores across German-speaking Switzerland, including Eastern Switzerland. Sister wholesaler Amedis belongs to the same Avosano holding.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Thurgau based wholesaler next to St. Gallen that reaches pharmacies, drugstores and health food stores, the channel where diabetic and sugar-free lines sell. Its registered purpose covers dietary products, but a confectionery range is not confirmed, so check first whether it lists food lines.",
+      "what_they_do_well": [
+        "Family business founded in 1904 that keeps 32,000 articles in stock and delivers within three hours."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bionity.com/en/companies/1039887/voigt-ag.html",
+        "https://jobmaps.ch/company/612789",
+        "https://www.voigt.ch/de/voigt-ag-pharma-grosshandel"
+      ]
+    },
+    {
+      "name": "F.P. Selection Group AG",
+      "based_out_of": "St. Gallen, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Food products of all kinds, especially imported and exported specialities from Italy, Switzerland and the Mediterranean region (registered purpose since 2022).",
+      "channels_supplied": null,
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A small St. Gallen importer of Mediterranean specialities that could add a sugar-free sweet range to what it sells. It is confirmed only from the commercial register, and its customers and whether it holds stock are unknown.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.moneyhouse.ch/en/company/f-p-selection-group-ag-10635720481"
+      ]
+    },
+    {
+      "name": "Arnold Produkte AG",
+      "based_out_of": "Schoenenberg an der Thur, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Food trading and transport (registered purpose); listed as a wholesale distributor of food, beverages and tobacco.",
+      "channels_supplied": null,
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long established Thurgau food trader with its own transport, close to the St. Gallen market. Its range and customers could not be confirmed, so treat it as a lead to qualify.",
+      "what_they_do_well": [
+        "Trading in food since its commercial register entry in 1988."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.moneyhouse.ch/en/company/arnold-produkte-ag-4017557951",
+        "https://ch.kompass.com/a/nahrungsmittel/03/r/thurgau/ch_20/"
+      ]
+    },
+    {
+      "name": "Frommis Delikatessen GmbH",
+      "based_out_of": "St. Gallen, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Fish, delicatessen and food of all kinds, with beverage trade, food processing and catering.",
+      "channels_supplied": null,
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A newly registered St. Gallen delicatessen wholesaler that might add premium better-for-you sweets. It is very new and its focus is fish and catering, so fit is uncertain.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://ch.kompass.com/s/einzelhandel-handel/13/v/st-gallen/ch_17_1721_3203/",
+        "https://business-monitor.ch/fr/cp/grossistes-en-alimentation/saint-gall"
+      ]
+    }
+  ]
+}
