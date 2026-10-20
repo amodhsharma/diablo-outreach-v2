@@ -1,5 +1,1157 @@
 {
-  "generated_at": "2026-10-20T10:12:41+00:00",
+  "generated_at": "2026-10-20T12:33:16+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "896535904503",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "AM Food GmbH",
+        "domain": "amfood.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Muttenz, Switzerland",
+        "distributes": "Imported Balkan specialties: meat and sausages from its own butchery, pickled vegetables, groceries, drinks, snacks and sweets, coffee.",
+        "channels_supplied": "Food shops, snack bars and restaurants across Switzerland, plus wholesale customers and specialist shops.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Delivers weekly across Switzerland with its own refrigerated vans, supplying only food shops, snack bars and restaurants."
+        ],
+        "fit_rationale": "A Basel-area importer with its own refrigerated fleet and a snacks and sweets category, selling only to shops and foodservice. A strong route into Basel's ethnic grocery shops, though confectionery is a side category and halal status would matter."
+      }
+    },
+    {
+      "contact_id": "896531038439",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Bizzyvends B2B",
+        "domain": "bizzyvends-b2b.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Switzerland (city not confirmed)",
+        "distributes": "International snacks and sweets: chips, chocolate, candy, classics and drinks, plus vapes, Pokemon products and non-food.",
+        "channels_supplied": "Retailers, kiosks, late-night shops, petrol stations and online shops, with nationwide delivery; brands named include Trolli, Takis and Red Bull.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Supplies kiosks, late-night shops and petrol stations nationwide with international snack brands such as Trolli and Takis."
+        ],
+        "fit_rationale": "A wholesaler specialised in imported branded snacks and candy for kiosks and late-night shops, a channel dense in Basel. Diablo would add a sugar free option alongside its imported candy brands; legal entity and base were not confirmed."
+      }
+    },
+    {
+      "contact_id": "896559784141",
+      "job_title": "CFO / COO Mitglied der GL",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Caporaso AG",
+        "domain": "caporaso.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Wuerenlingen, Switzerland",
+        "distributes": "Italian specialty foods, over 1,800 products including pasta, preserves, processed meat and seasonal sweets such as panettone.",
+        "channels_supplied": "Gastronomy and retail across Switzerland, ordered via its HOGASHOP online shop and delivered by its own logistics.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family-run Italian food importer founded in 1982, supplying gastronomy and retail across Switzerland with its own logistics."
+        ],
+        "fit_rationale": "A family-run importer with national reach into both retail and foodservice, including Basel. Fit depends on its appetite for non-Italian confectionery, as its current sweets are Italian seasonal lines."
+      }
+    },
+    {
+      "contact_id": "896555199690",
+      "job_title": "Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Chef Gourmet SA",
+        "domain": "chefgourmet.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Cousset, Switzerland",
+        "distributes": "Frozen bakery and pastry (including Bridor mini pastries), dry products and bakery ingredients for chefs.",
+        "channels_supplied": "Swiss chefs, restaurants and hotels, with field sales in western Switzerland and the Zurich region.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Supplies hotel and restaurant kitchens with sweet bakery items, so sugar-free biscuits or syrups could ride on its routes. Its focus on frozen bakery makes Diablo's ambient retail packs a secondary fit."
+      }
+    },
+    {
+      "contact_id": "896529800425",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "claro fair trade AG",
+        "domain": "claro.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Orpund, Switzerland",
+        "distributes": "Fair trade coffee, tea, chocolate, confectionery, bars, chips, baking and breakfast goods.",
+        "channels_supplied": "Over 100 claro world shops and partner shops in Switzerland through a B2B shop login, plus its own web shop.",
+        "sf_brands_carried": "Carries third-party lines such as fairafric chocolate; no sugar-free brand found.",
+        "what_they_do_well": [
+          "Swiss fair trade pioneer since 1977, supplying over 100 world shops and partner shops."
+        ],
+        "fit_rationale": "A Bern-canton importer with a ready network of independent shops buying chocolate and sweets. It is conditional because claro sources mainly fair trade products and is also a brand in its own right, so Diablo may not meet its sourcing criteria."
+      }
+    },
+    {
+      "contact_id": "896555552979",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Divina Food AG",
+        "domain": "divinafood.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Dietikon, Switzerland",
+        "distributes": "Imported Italian specialities and own-produced fresh dairy such as mozzarella and ricotta; over 1,000 products.",
+        "channels_supplied": "Gastronomy, retail and industrial customers across Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A national importer serving both retail and foodservice. No confectionery in its current range, so this is a low-probability extension pitch."
+      }
+    },
+    {
+      "contact_id": "896531107042",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "easytrade distribution AG",
+        "domain": "easytradedistribution.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lucerne, Switzerland",
+        "distributes": "Imported snacks (popcorn, filled dates, dried mango, cotton candy), drinks and tobacco alternatives.",
+        "channels_supplied": "Kiosks, retail chains and B2B wholesale resellers in all Swiss language regions, plus its own B2B and B2C web shops.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Holds exclusive Swiss rights for nine of its ten brands and ships from two own warehouses.",
+          "Runs its own field sales team that visits dealers on site."
+        ],
+        "fit_rationale": "A young, owner-run import partner that takes exclusive Swiss rights for snack brands and sells them into kiosks and chains with its own field team. Diablo's impulse-size sweets and bars suit its kiosk route, though its tobacco-alternative lines mean the fit should be checked."
+      }
+    },
+    {
+      "contact_id": "896531888350",
+      "job_title": "Operations Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Ernst Welti AG",
+        "domain": "ernst-welti.swiss",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Wholesale of food, vegetables and fruit and other goods.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A general food wholesaler that could carry packaged sweets, but its focus appears to be fresh produce. Directory data only."
+      }
+    },
+    {
+      "contact_id": "896529927364",
+      "job_title": "Foodex Group President / CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Foodex Suisse",
+        "domain": "foodex.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Geneva region, Switzerland (head office town not confirmed)",
+        "distributes": "Japanese and Asian foodservice products: rice, noodles, sauces, seafood, ready dishes, desserts, drinks and packaging.",
+        "channels_supplied": "Japanese and Asian restaurants, grocery stores, hotels, cafes and bars across Switzerland, with dry, frozen and fresh delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Operating in Switzerland since 2001 with dry, frozen and fresh logistics."
+        ],
+        "fit_rationale": "Has tri-temperature logistics and grocery store customers, which would handle chocolate safely. Fit is limited because it is owned by a Japanese drinks group and focuses on Asian cuisine."
+      }
+    },
+    {
+      "contact_id": "896529442004",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "GastroPfaff AG",
+        "domain": "gastropfaff.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Allschwil, Switzerland",
+        "distributes": "Fruit and vegetable specialist with over 3,000 products from more than 50 countries, including frozen goods; directory lists confectionery and snacks too.",
+        "channels_supplied": "Around 250 foodservice customers in the Basel region such as Volkshaus Basel, with no minimum order.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Serves around 250 customers with 8 delivery vehicles and about 25,000 deliveries a year, with no minimum order.",
+          "Holds IFS Logistics and FSSC certification for its 600 square metre warehouse."
+        ],
+        "fit_rationale": "A Basel-region foodservice wholesaler with direct daily access to Basel restaurants and caterers. Confectionery is a minor category, so it suits portion packs or foodservice formats rather than retail."
+      }
+    },
+    {
+      "contact_id": "896558346433",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Greek Gourmet AG",
+        "domain": "greekgourmet.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Directly imported Greek food, especially goat and sheep cheese, plus other Greek specialities.",
+        "channels_supplied": "Supermarkets and restaurants across Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Direct importer of Greek food since 2008, supplying supermarkets and restaurants across Switzerland."
+        ],
+        "fit_rationale": "A direct importer with existing supermarket listings nationally, useful as a mid-size owner-run route to retail shelves. Confectionery is not confirmed in its range, so this is an extension pitch."
+      }
+    },
+    {
+      "contact_id": "896450652373",
+      "job_title": "Leiter Einkauf und Logistik",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Gustoso AG",
+        "domain": "gustoso.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Fulenbach, Switzerland",
+        "distributes": "Gourmet foods including pasta, South Tyrolean apple juice and gift sets; directory also lists confectionery and snacks.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A gourmet importer and wholesaler whose gift sets could take premium sugar free chocolate. Directory data only."
+      }
+    },
+    {
+      "contact_id": "896528828636",
+      "job_title": "Chief Kindness Catalyst | Head Bulls*** Detector",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "honeydew GmbH",
+        "domain": "honeydew.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Switzerland (city not confirmed)",
+        "distributes": "Vegan products including snacks and plant-based drinks; brands shown include Melibio, Treets, Superbon, Sunfly and The Lekker Company.",
+        "channels_supplied": "Retailers and distributors in the Swiss market (none named).",
+        "sf_brands_carried": "Better-for-you vegan snack brands such as Superbon and Treets; no direct sugar free confectionery competitor seen.",
+        "what_they_do_well": [],
+        "fit_rationale": "Positions itself as a general importer and distributor of better-for-you vegan brands, close to Diablo's positioning. It also offers consulting, so confirm it buys and holds stock and is not acting as an agency."
+      }
+    },
+    {
+      "contact_id": "896559786173",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Iberpasion GmbH",
+        "domain": "iberpasion.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Bremgarten, Switzerland",
+        "distributes": "Confectionery and snacks, dairy, fruit and vegetables, honey and spreads, meat products, olive oil and spices.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A small importer with confectionery and snacks among its categories. Directory data only, so range and reach need checking."
+      }
+    },
+    {
+      "contact_id": "896450649337",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Isbilir Lebensmittel",
+        "domain": "isbilir-food.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Basel, Switzerland",
+        "distributes": "Food trading (registered purpose: Handel mit Lebensmitteln).",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Basel food trading company registered in 2026, possibly serving the city's Turkish grocery trade. Very new and unverified, so treat as a lead to check."
+      }
+    },
+    {
+      "contact_id": "896538133747",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "LAPA - finest italian food GmbH",
+        "domain": "lapa.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Embrach, Switzerland",
+        "distributes": "Italian fresh dairy, cured meats, pasta, pizza ingredients, cheese, antipasti, frozen products including desserts, beverages and wine.",
+        "channels_supplied": "Restaurants, pizzerias and hotels in Basel-Stadt, Basel-Landschaft, Aarau and Solothurn.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Delivers to Basel and north-west Switzerland six days a week, with same-day delivery for orders placed by 05:00."
+        ],
+        "fit_rationale": "Delivers to Basel foodservice six days a week, so it has proven Basel reach. Sweets are limited to frozen desserts, so fit is low."
+      }
+    },
+    {
+      "contact_id": "896553068767",
+      "job_title": "Head of Purchasing",
+      "seniority": "Heads and junior directors",
+      "rank": 1,
+      "company": {
+        "name": "Marinello & Co. AG",
+        "domain": "marinello.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Confectionery and snacks, dairy, frozen food and ready meals, fruit and vegetables (Italian focus, Picobello).",
+        "channels_supplied": "Listed as importer, distributor, wholesaler and retailer; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An Italian food importer and wholesaler with confectionery and snacks in its listed range. Directory data only; Basel coverage not confirmed."
+      }
+    },
+    {
+      "contact_id": "896553826548",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "MY IZAKAYA",
+        "domain": "my-izakaya.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Huenenberg, Switzerland",
+        "distributes": "Japanese drinks (chuhai, sake, shochu, beer, soft drinks), Japanese snacks including Pocky and KitKat, spices and specialities.",
+        "channels_supplied": "Restaurants and izakayas, bars, retail and Asian grocery shops and other distributors; B2B only.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Operates purely as a B2B wholesaler supplying restaurants, bars, Asian grocery shops and distributors."
+        ],
+        "fit_rationale": "A pure B2B importer whose customers include Asian grocery shops, a channel Diablo does not yet reach in Basel. Snacks and confectionery are already a category, though its focus is Japanese brands."
+      }
+    },
+    {
+      "contact_id": "896531302595",
+      "job_title": "Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Naturalex Sarl",
+        "domain": "naturalex.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Geneva, Switzerland",
+        "distributes": "Organic and eco-friendly goods including confectionery and snacks, grains, spreads, drinks and tea and coffee.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An organic importer and distributor carrying confectionery and snacks. Geneva based and also registered as Naturalex Agency SA, so confirm it holds stock and serves German-speaking Switzerland."
+      }
+    },
+    {
+      "contact_id": "896560046266",
+      "job_title": "Technical Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Nurissa AG",
+        "domain": "nurissa.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Biel/Bienne, Switzerland",
+        "distributes": "Snacks, cold drinks and coffee through vending machines, plus fruit boxes and water dispensers.",
+        "channels_supplied": "Workplace vending for over 3,000 business customers in the Bern canton region and western Switzerland.",
+        "sf_brands_carried": "Runs its own nuri health label that scores about 100 snacks and drinks, with a penalty for sugar.",
+        "what_they_do_well": [
+          "Third-generation family company founded in 1962, serving over 3,000 customers.",
+          "Developed the nuri health and sustainability snack label with the Bern University of Applied Sciences."
+        ],
+        "fit_rationale": "A Bern-canton family firm that actively looks for healthier snacks for its machines and penalises sugar in its own label. Diablo bars and sweets would score well, but it is a vending operator rather than a classic distributor, so volumes depend on its machine estate."
+      }
+    },
+    {
+      "contact_id": "896553825494",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Phag GmbH",
+        "domain": "phag.bio",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Walchwil, Switzerland",
+        "distributes": "Organic and health food, dietary supplements, baby food, bulk packs, cosmetics and non-food; over 9,500 articles from more than 250 brands, with own brands Pural and eubiona and a vegan and gluten-free focus.",
+        "channels_supplied": "Health food stores (Reformhaeuser), organic specialist shops and other specialist retailers, delivered by refrigerated truck or parcel service.",
+        "sf_brands_carried": "Vegan and gluten-free free-from ranges confirmed; a sugar free confectionery line was not confirmed on the page.",
+        "what_they_do_well": [
+          "Describes itself as Switzerland's oldest organic wholesaler, trading since 1895.",
+          "Carries more than 9,500 articles from over 250 brands for health food and organic shops."
+        ],
+        "fit_rationale": "A national health food wholesaler that already lists hundreds of free-from brands for the Reformhaus and organic channel, which reaches Basel's health food stores. Diablo's stevia sweetened, no-added-sugar range fits the free-from shelf it already serves."
+      }
+    },
+    {
+      "contact_id": "896555907275",
+      "job_title": "Managing Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "PRO.DI.GIO GmbH",
+        "domain": "prodigio.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Basel, Switzerland",
+        "distributes": "Directly imported trend products: bubble tea, gourmet marshmallows, pistachio sweets, drink cubes and catering supplies.",
+        "channels_supplied": "Kiosks, shops and boutiques, cafes, hotels and restaurants, pharmacies, hospitals, care homes and offices across Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Built a base of over 1,000 B2B customers since 2013 with Switzerland-wide delivery in two to four working days."
+        ],
+        "fit_rationale": "An owner-run direct importer with over 1,000 B2B accounts that already places imported sweets into kiosks and pharmacies, two channels where sugar-free confectionery sells well. Small enough that Diablo would get real attention."
+      }
+    },
+    {
+      "contact_id": "896558234820",
+      "job_title": "Directeur et Fondateur de Authentic Food Solutions (Swiss Deli Distribution SA)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Swiss Deli Distribution SA (Authentic Food Solutions)",
+        "domain": "authenticfoodsolutions.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Bussigny, Switzerland",
+        "distributes": "Pastries, panini, snacks and dips, cookies, dried fruit and sweets, bubble tea, smoothies and related equipment.",
+        "channels_supplied": "Over 200 HORECA customers across Switzerland, including tea rooms, leisure parks, aquatic centres and refreshment kiosks.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has launched roughly one new snacking concept a year since 2010 for Swiss HORECA customers."
+        ],
+        "fit_rationale": "Supplies snack counters and kiosks in leisure venues that need packaged sweets and cookies, and delivers anywhere in Switzerland within 48 hours. It is based in Vaud and Bern coverage is national rather than local, so it ranks lower."
+      }
+    },
+    {
+      "contact_id": "896553822452",
+      "job_title": "Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "The Asia Company S.A.",
+        "domain": "theasiacompany.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Muenchenstein, Switzerland",
+        "distributes": "Asian and European foods: fresh produce, dry goods including snacks, drinks, frozen goods including desserts, and non-food.",
+        "channels_supplied": "Swiss restaurants and retailers, delivered in refrigerated vehicles.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Founded in 2010 in Muenchenstein to import Asian and European foods for Swiss restaurants and retailers.",
+          "ISO 22000 certified since 2021, delivering with its own refrigerated vehicles."
+        ],
+        "fit_rationale": "A Basel-area importer and wholesaler 6 km from the city centre with its own trade customer base among Asian restaurants and shops. Snacks are a listed category, but European sugar free sweets would be a new line for it."
+      }
+    },
+    {
+      "contact_id": "896552868051",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Vermo AG",
+        "domain": "vermo.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Inwil, Switzerland",
+        "distributes": "Ice cream, frozen, dairy, convenience, dry goods and vegan and vegetarian ranges.",
+        "channels_supplied": "Not confirmed; profile suggests foodservice. Basel coverage not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A long-established independent foodservice supplier with a dry goods range. Directory data only and based in central Switzerland."
+      }
+    },
+    {
+      "contact_id": "896559784142",
+      "job_title": "Head of Purchasing",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "Caporaso AG",
+        "domain": "caporaso.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Wuerenlingen, Switzerland",
+        "distributes": "Italian specialty foods, over 1,800 products including pasta, preserves, processed meat and seasonal sweets such as panettone.",
+        "channels_supplied": "Gastronomy and retail across Switzerland, ordered via its HOGASHOP online shop and delivered by its own logistics.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family-run Italian food importer founded in 1982, supplying gastronomy and retail across Switzerland with its own logistics."
+        ],
+        "fit_rationale": "A family-run importer with national reach into both retail and foodservice, including Basel. Fit depends on its appetite for non-Italian confectionery, as its current sweets are Italian seasonal lines."
+      }
+    },
+    {
+      "contact_id": "896555199689",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Chef Gourmet SA",
+        "domain": "chefgourmet.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Cousset, Switzerland",
+        "distributes": "Frozen bakery and pastry (including Bridor mini pastries), dry products and bakery ingredients for chefs.",
+        "channels_supplied": "Swiss chefs, restaurants and hotels, with field sales in western Switzerland and the Zurich region.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Supplies hotel and restaurant kitchens with sweet bakery items, so sugar-free biscuits or syrups could ride on its routes. Its focus on frozen bakery makes Diablo's ambient retail packs a secondary fit."
+      }
+    },
+    {
+      "contact_id": "896529800423",
+      "job_title": "Head of Customer Service",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "claro fair trade AG",
+        "domain": "claro.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Orpund, Switzerland",
+        "distributes": "Fair trade coffee, tea, chocolate, confectionery, bars, chips, baking and breakfast goods.",
+        "channels_supplied": "Over 100 claro world shops and partner shops in Switzerland through a B2B shop login, plus its own web shop.",
+        "sf_brands_carried": "Carries third-party lines such as fairafric chocolate; no sugar-free brand found.",
+        "what_they_do_well": [
+          "Swiss fair trade pioneer since 1977, supplying over 100 world shops and partner shops."
+        ],
+        "fit_rationale": "A Bern-canton importer with a ready network of independent shops buying chocolate and sweets. It is conditional because claro sources mainly fair trade products and is also a brand in its own right, so Diablo may not meet its sourcing criteria."
+      }
+    },
+    {
+      "contact_id": "896555552976",
+      "job_title": "CFO",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Divina Food AG",
+        "domain": "divinafood.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Dietikon, Switzerland",
+        "distributes": "Imported Italian specialities and own-produced fresh dairy such as mozzarella and ricotta; over 1,000 products.",
+        "channels_supplied": "Gastronomy, retail and industrial customers across Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A national importer serving both retail and foodservice. No confectionery in its current range, so this is a low-probability extension pitch."
+      }
+    },
+    {
+      "contact_id": "896531888353",
+      "job_title": "Key-Account-Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Ernst Welti AG",
+        "domain": "ernst-welti.swiss",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Wholesale of food, vegetables and fruit and other goods.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A general food wholesaler that could carry packaged sweets, but its focus appears to be fresh produce. Directory data only."
+      }
+    },
+    {
+      "contact_id": "896529927363",
+      "job_title": "Group HR Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Foodex Suisse",
+        "domain": "foodex.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Geneva region, Switzerland (head office town not confirmed)",
+        "distributes": "Japanese and Asian foodservice products: rice, noodles, sauces, seafood, ready dishes, desserts, drinks and packaging.",
+        "channels_supplied": "Japanese and Asian restaurants, grocery stores, hotels, cafes and bars across Switzerland, with dry, frozen and fresh delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Operating in Switzerland since 2001 with dry, frozen and fresh logistics."
+        ],
+        "fit_rationale": "Has tri-temperature logistics and grocery store customers, which would handle chocolate safely. Fit is limited because it is owned by a Japanese drinks group and focuses on Asian cuisine."
+      }
+    },
+    {
+      "contact_id": "896450652371",
+      "job_title": "Marketing",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Gustoso AG",
+        "domain": "gustoso.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Fulenbach, Switzerland",
+        "distributes": "Gourmet foods including pasta, South Tyrolean apple juice and gift sets; directory also lists confectionery and snacks.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A gourmet importer and wholesaler whose gift sets could take premium sugar free chocolate. Directory data only."
+      }
+    },
+    {
+      "contact_id": "896553068770",
+      "job_title": "Inhaber/Geschäftsführung",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Marinello & Co. AG",
+        "domain": "marinello.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Confectionery and snacks, dairy, frozen food and ready meals, fruit and vegetables (Italian focus, Picobello).",
+        "channels_supplied": "Listed as importer, distributor, wholesaler and retailer; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An Italian food importer and wholesaler with confectionery and snacks in its listed range. Directory data only; Basel coverage not confirmed."
+      }
+    },
+    {
+      "contact_id": "896531302593",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Naturalex Sarl",
+        "domain": "naturalex.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Geneva, Switzerland",
+        "distributes": "Organic and eco-friendly goods including confectionery and snacks, grains, spreads, drinks and tea and coffee.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An organic importer and distributor carrying confectionery and snacks. Geneva based and also registered as Naturalex Agency SA, so confirm it holds stock and serves German-speaking Switzerland."
+      }
+    },
+    {
+      "contact_id": "896560046267",
+      "job_title": "Warehouse Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Nurissa AG",
+        "domain": "nurissa.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Biel/Bienne, Switzerland",
+        "distributes": "Snacks, cold drinks and coffee through vending machines, plus fruit boxes and water dispensers.",
+        "channels_supplied": "Workplace vending for over 3,000 business customers in the Bern canton region and western Switzerland.",
+        "sf_brands_carried": "Runs its own nuri health label that scores about 100 snacks and drinks, with a penalty for sugar.",
+        "what_they_do_well": [
+          "Third-generation family company founded in 1962, serving over 3,000 customers.",
+          "Developed the nuri health and sustainability snack label with the Bern University of Applied Sciences."
+        ],
+        "fit_rationale": "A Bern-canton family firm that actively looks for healthier snacks for its machines and penalises sugar in its own label. Diablo bars and sweets would score well, but it is a vending operator rather than a classic distributor, so volumes depend on its machine estate."
+      }
+    },
+    {
+      "contact_id": "896553822454",
+      "job_title": "Head of Trade - South Asia",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "The Asia Company S.A.",
+        "domain": "theasiacompany.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Muenchenstein, Switzerland",
+        "distributes": "Asian and European foods: fresh produce, dry goods including snacks, drinks, frozen goods including desserts, and non-food.",
+        "channels_supplied": "Swiss restaurants and retailers, delivered in refrigerated vehicles.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Founded in 2010 in Muenchenstein to import Asian and European foods for Swiss restaurants and retailers.",
+          "ISO 22000 certified since 2021, delivering with its own refrigerated vehicles."
+        ],
+        "fit_rationale": "A Basel-area importer and wholesaler 6 km from the city centre with its own trade customer base among Asian restaurants and shops. Snacks are a listed category, but European sugar free sweets would be a new line for it."
+      }
+    },
+    {
+      "contact_id": "896552868054",
+      "job_title": "Area Sales Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Vermo AG",
+        "domain": "vermo.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Inwil, Switzerland",
+        "distributes": "Ice cream, frozen, dairy, convenience, dry goods and vegan and vegetarian ranges.",
+        "channels_supplied": "Not confirmed; profile suggests foodservice. Basel coverage not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A long-established independent foodservice supplier with a dry goods range. Directory data only and based in central Switzerland."
+      }
+    },
+    {
+      "contact_id": "896559784143",
+      "job_title": "Area Sales Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Caporaso AG",
+        "domain": "caporaso.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Wuerenlingen, Switzerland",
+        "distributes": "Italian specialty foods, over 1,800 products including pasta, preserves, processed meat and seasonal sweets such as panettone.",
+        "channels_supplied": "Gastronomy and retail across Switzerland, ordered via its HOGASHOP online shop and delivered by its own logistics.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family-run Italian food importer founded in 1982, supplying gastronomy and retail across Switzerland with its own logistics."
+        ],
+        "fit_rationale": "A family-run importer with national reach into both retail and foodservice, including Basel. Fit depends on its appetite for non-Italian confectionery, as its current sweets are Italian seasonal lines."
+      }
+    },
+    {
+      "contact_id": "896555199691",
+      "job_title": "Chef Pâtissier/ Berater",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Chef Gourmet SA",
+        "domain": "chefgourmet.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Cousset, Switzerland",
+        "distributes": "Frozen bakery and pastry (including Bridor mini pastries), dry products and bakery ingredients for chefs.",
+        "channels_supplied": "Swiss chefs, restaurants and hotels, with field sales in western Switzerland and the Zurich region.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Supplies hotel and restaurant kitchens with sweet bakery items, so sugar-free biscuits or syrups could ride on its routes. Its focus on frozen bakery makes Diablo's ambient retail packs a secondary fit."
+      }
+    },
+    {
+      "contact_id": "896529800424",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "claro fair trade AG",
+        "domain": "claro.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Orpund, Switzerland",
+        "distributes": "Fair trade coffee, tea, chocolate, confectionery, bars, chips, baking and breakfast goods.",
+        "channels_supplied": "Over 100 claro world shops and partner shops in Switzerland through a B2B shop login, plus its own web shop.",
+        "sf_brands_carried": "Carries third-party lines such as fairafric chocolate; no sugar-free brand found.",
+        "what_they_do_well": [
+          "Swiss fair trade pioneer since 1977, supplying over 100 world shops and partner shops."
+        ],
+        "fit_rationale": "A Bern-canton importer with a ready network of independent shops buying chocolate and sweets. It is conditional because claro sources mainly fair trade products and is also a brand in its own right, so Diablo may not meet its sourcing criteria."
+      }
+    },
+    {
+      "contact_id": "896555552977",
+      "job_title": "Buyer / Sales Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Divina Food AG",
+        "domain": "divinafood.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Dietikon, Switzerland",
+        "distributes": "Imported Italian specialities and own-produced fresh dairy such as mozzarella and ricotta; over 1,000 products.",
+        "channels_supplied": "Gastronomy, retail and industrial customers across Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A national importer serving both retail and foodservice. No confectionery in its current range, so this is a low-probability extension pitch."
+      }
+    },
+    {
+      "contact_id": "896531888351",
+      "job_title": "Marketing & E-Commerce Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Ernst Welti AG",
+        "domain": "ernst-welti.swiss",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Wholesale of food, vegetables and fruit and other goods.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A general food wholesaler that could carry packaged sweets, but its focus appears to be fresh produce. Directory data only."
+      }
+    },
+    {
+      "contact_id": "896529927362",
+      "job_title": "Sales Director France",
+      "seniority": "Directors",
+      "rank": 3,
+      "company": {
+        "name": "Foodex Suisse",
+        "domain": "foodex.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Geneva region, Switzerland (head office town not confirmed)",
+        "distributes": "Japanese and Asian foodservice products: rice, noodles, sauces, seafood, ready dishes, desserts, drinks and packaging.",
+        "channels_supplied": "Japanese and Asian restaurants, grocery stores, hotels, cafes and bars across Switzerland, with dry, frozen and fresh delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Operating in Switzerland since 2001 with dry, frozen and fresh logistics."
+        ],
+        "fit_rationale": "Has tri-temperature logistics and grocery store customers, which would handle chocolate safely. Fit is limited because it is owned by a Japanese drinks group and focuses on Asian cuisine."
+      }
+    },
+    {
+      "contact_id": "896450652372",
+      "job_title": "Sales Office",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Gustoso AG",
+        "domain": "gustoso.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Fulenbach, Switzerland",
+        "distributes": "Gourmet foods including pasta, South Tyrolean apple juice and gift sets; directory also lists confectionery and snacks.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A gourmet importer and wholesaler whose gift sets could take premium sugar free chocolate. Directory data only."
+      }
+    },
+    {
+      "contact_id": "896553068769",
+      "job_title": "Leiter Verkauf, Mitglied der Geschäftsleitung",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Marinello & Co. AG",
+        "domain": "marinello.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Confectionery and snacks, dairy, frozen food and ready meals, fruit and vegetables (Italian focus, Picobello).",
+        "channels_supplied": "Listed as importer, distributor, wholesaler and retailer; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An Italian food importer and wholesaler with confectionery and snacks in its listed range. Directory data only; Basel coverage not confirmed."
+      }
+    },
+    {
+      "contact_id": "896531302596",
+      "job_title": "Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Naturalex Sarl",
+        "domain": "naturalex.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Geneva, Switzerland",
+        "distributes": "Organic and eco-friendly goods including confectionery and snacks, grains, spreads, drinks and tea and coffee.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An organic importer and distributor carrying confectionery and snacks. Geneva based and also registered as Naturalex Agency SA, so confirm it holds stock and serves German-speaking Switzerland."
+      }
+    },
+    {
+      "contact_id": "896560045304",
+      "job_title": "Area Sales Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "Nurissa AG",
+        "domain": "nurissa.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Biel/Bienne, Switzerland",
+        "distributes": "Snacks, cold drinks and coffee through vending machines, plus fruit boxes and water dispensers.",
+        "channels_supplied": "Workplace vending for over 3,000 business customers in the Bern canton region and western Switzerland.",
+        "sf_brands_carried": "Runs its own nuri health label that scores about 100 snacks and drinks, with a penalty for sugar.",
+        "what_they_do_well": [
+          "Third-generation family company founded in 1962, serving over 3,000 customers.",
+          "Developed the nuri health and sustainability snack label with the Bern University of Applied Sciences."
+        ],
+        "fit_rationale": "A Bern-canton family firm that actively looks for healthier snacks for its machines and penalises sugar in its own label. Diablo bars and sweets would score well, but it is a vending operator rather than a classic distributor, so volumes depend on its machine estate."
+      }
+    },
+    {
+      "contact_id": "896553822451",
+      "job_title": "Member of the Management Board",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "The Asia Company S.A.",
+        "domain": "theasiacompany.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Muenchenstein, Switzerland",
+        "distributes": "Asian and European foods: fresh produce, dry goods including snacks, drinks, frozen goods including desserts, and non-food.",
+        "channels_supplied": "Swiss restaurants and retailers, delivered in refrigerated vehicles.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Founded in 2010 in Muenchenstein to import Asian and European foods for Swiss restaurants and retailers.",
+          "ISO 22000 certified since 2021, delivering with its own refrigerated vehicles."
+        ],
+        "fit_rationale": "A Basel-area importer and wholesaler 6 km from the city centre with its own trade customer base among Asian restaurants and shops. Snacks are a listed category, but European sugar free sweets would be a new line for it."
+      }
+    },
+    {
+      "contact_id": "896552868052",
+      "job_title": "Gebietsverkaufsleitung / Key Account",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Vermo AG",
+        "domain": "vermo.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Inwil, Switzerland",
+        "distributes": "Ice cream, frozen, dairy, convenience, dry goods and vegan and vegetarian ranges.",
+        "channels_supplied": "Not confirmed; profile suggests foodservice. Basel coverage not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A long-established independent foodservice supplier with a dry goods range. Directory data only and based in central Switzerland."
+      }
+    },
+    {
+      "contact_id": "896559784140",
+      "job_title": "Leiterin HR",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Caporaso AG",
+        "domain": "caporaso.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Wuerenlingen, Switzerland",
+        "distributes": "Italian specialty foods, over 1,800 products including pasta, preserves, processed meat and seasonal sweets such as panettone.",
+        "channels_supplied": "Gastronomy and retail across Switzerland, ordered via its HOGASHOP online shop and delivered by its own logistics.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family-run Italian food importer founded in 1982, supplying gastronomy and retail across Switzerland with its own logistics."
+        ],
+        "fit_rationale": "A family-run importer with national reach into both retail and foodservice, including Basel. Fit depends on its appetite for non-Italian confectionery, as its current sweets are Italian seasonal lines."
+      }
+    },
+    {
+      "contact_id": "896555199688",
+      "job_title": "Sales Representative",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Chef Gourmet SA",
+        "domain": "chefgourmet.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Cousset, Switzerland",
+        "distributes": "Frozen bakery and pastry (including Bridor mini pastries), dry products and bakery ingredients for chefs.",
+        "channels_supplied": "Swiss chefs, restaurants and hotels, with field sales in western Switzerland and the Zurich region.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Supplies hotel and restaurant kitchens with sweet bakery items, so sugar-free biscuits or syrups could ride on its routes. Its focus on frozen bakery makes Diablo's ambient retail packs a secondary fit."
+      }
+    },
+    {
+      "contact_id": "896529800426",
+      "job_title": "Teamleiter Lagerlogistik",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "claro fair trade AG",
+        "domain": "claro.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Orpund, Switzerland",
+        "distributes": "Fair trade coffee, tea, chocolate, confectionery, bars, chips, baking and breakfast goods.",
+        "channels_supplied": "Over 100 claro world shops and partner shops in Switzerland through a B2B shop login, plus its own web shop.",
+        "sf_brands_carried": "Carries third-party lines such as fairafric chocolate; no sugar-free brand found.",
+        "what_they_do_well": [
+          "Swiss fair trade pioneer since 1977, supplying over 100 world shops and partner shops."
+        ],
+        "fit_rationale": "A Bern-canton importer with a ready network of independent shops buying chocolate and sweets. It is conditional because claro sources mainly fair trade products and is also a brand in its own right, so Diablo may not meet its sourcing criteria."
+      }
+    },
+    {
+      "contact_id": "896555552978",
+      "job_title": "Stv. Leiter Foodservice ID",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Divina Food AG",
+        "domain": "divinafood.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Dietikon, Switzerland",
+        "distributes": "Imported Italian specialities and own-produced fresh dairy such as mozzarella and ricotta; over 1,000 products.",
+        "channels_supplied": "Gastronomy, retail and industrial customers across Switzerland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A national importer serving both retail and foodservice. No confectionery in its current range, so this is a low-probability extension pitch."
+      }
+    },
+    {
+      "contact_id": "896531888352",
+      "job_title": "Geschäftsführer Und Inhaber, Geschäftsführer",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Ernst Welti AG",
+        "domain": "ernst-welti.swiss",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Wholesale of food, vegetables and fruit and other goods.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A general food wholesaler that could carry packaged sweets, but its focus appears to be fresh produce. Directory data only."
+      }
+    },
+    {
+      "contact_id": "896529927361",
+      "job_title": "Country Sales Director Italy",
+      "seniority": "Directors",
+      "rank": 4,
+      "company": {
+        "name": "Foodex Suisse",
+        "domain": "foodex.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Geneva region, Switzerland (head office town not confirmed)",
+        "distributes": "Japanese and Asian foodservice products: rice, noodles, sauces, seafood, ready dishes, desserts, drinks and packaging.",
+        "channels_supplied": "Japanese and Asian restaurants, grocery stores, hotels, cafes and bars across Switzerland, with dry, frozen and fresh delivery.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Operating in Switzerland since 2001 with dry, frozen and fresh logistics."
+        ],
+        "fit_rationale": "Has tri-temperature logistics and grocery store customers, which would handle chocolate safely. Fit is limited because it is owned by a Japanese drinks group and focuses on Asian cuisine."
+      }
+    },
+    {
+      "contact_id": "896553068768",
+      "job_title": "CO-Geschäftsführung",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Marinello & Co. AG",
+        "domain": "marinello.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zurich, Switzerland",
+        "distributes": "Confectionery and snacks, dairy, frozen food and ready meals, fruit and vegetables (Italian focus, Picobello).",
+        "channels_supplied": "Listed as importer, distributor, wholesaler and retailer; customers not named.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An Italian food importer and wholesaler with confectionery and snacks in its listed range. Directory data only; Basel coverage not confirmed."
+      }
+    },
+    {
+      "contact_id": "896531302594",
+      "job_title": "Dietitian-nutritionist",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Naturalex Sarl",
+        "domain": "naturalex.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Geneva, Switzerland",
+        "distributes": "Organic and eco-friendly goods including confectionery and snacks, grains, spreads, drinks and tea and coffee.",
+        "channels_supplied": "Not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An organic importer and distributor carrying confectionery and snacks. Geneva based and also registered as Naturalex Agency SA, so confirm it holds stock and serves German-speaking Switzerland."
+      }
+    },
+    {
+      "contact_id": "896560045305",
+      "job_title": "Responsable Succursale de Neuchâtel & Shop Bienne",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Nurissa AG",
+        "domain": "nurissa.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Biel/Bienne, Switzerland",
+        "distributes": "Snacks, cold drinks and coffee through vending machines, plus fruit boxes and water dispensers.",
+        "channels_supplied": "Workplace vending for over 3,000 business customers in the Bern canton region and western Switzerland.",
+        "sf_brands_carried": "Runs its own nuri health label that scores about 100 snacks and drinks, with a penalty for sugar.",
+        "what_they_do_well": [
+          "Third-generation family company founded in 1962, serving over 3,000 customers.",
+          "Developed the nuri health and sustainability snack label with the Bern University of Applied Sciences."
+        ],
+        "fit_rationale": "A Bern-canton family firm that actively looks for healthier snacks for its machines and penalises sugar in its own label. Diablo bars and sweets would score well, but it is a vending operator rather than a classic distributor, so volumes depend on its machine estate."
+      }
+    },
+    {
+      "contact_id": "896553822453",
+      "job_title": "Kauffrau Import / Einkauf /Verkaufsinnendienst",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "The Asia Company S.A.",
+        "domain": "theasiacompany.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Muenchenstein, Switzerland",
+        "distributes": "Asian and European foods: fresh produce, dry goods including snacks, drinks, frozen goods including desserts, and non-food.",
+        "channels_supplied": "Swiss restaurants and retailers, delivered in refrigerated vehicles.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Founded in 2010 in Muenchenstein to import Asian and European foods for Swiss restaurants and retailers.",
+          "ISO 22000 certified since 2021, delivering with its own refrigerated vehicles."
+        ],
+        "fit_rationale": "A Basel-area importer and wholesaler 6 km from the city centre with its own trade customer base among Asian restaurants and shops. Snacks are a listed category, but European sugar free sweets would be a new line for it."
+      }
+    },
+    {
+      "contact_id": "896552868053",
+      "job_title": "Leitung Finanzen & Personal",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Vermo AG",
+        "domain": "vermo.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Inwil, Switzerland",
+        "distributes": "Ice cream, frozen, dairy, convenience, dry goods and vegan and vegetarian ranges.",
+        "channels_supplied": "Not confirmed; profile suggests foodservice. Basel coverage not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A long-established independent foodservice supplier with a dry goods range. Directory data only and based in central Switzerland."
+      }
+    }
+  ]
 }
