@@ -7495,22 +7495,22 @@
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "voigt.ch": {
-    "name": "Voigt AG",
+    "name": "Avosano AG (formerly Voigt AG)",
     "based_out_of": "Romanshorn, Switzerland",
-    "market": "Zurich, Switzerland",
+    "market": "St. Gallen, Switzerland",
     "category": "Distributors",
     "channels": [
       "distributors"
     ],
-    "fit_rationale": "Family owned pharma wholesaler working with the Toppharm pharmacy group, which has outlets in Zurich. Smaller than Galexis, so a niche food line may get more attention. Head office city and domain are from prior knowledge and should be verified.",
+    "fit_rationale": "A Thurgau based wholesaler next to St. Gallen that reaches pharmacies, drugstores and health food stores, the channel where diabetic and sugar-free lines sell. Its registered purpose covers dietary products, but a confectionery range is not confirmed, so check first whether it lists food lines.",
     "what_they_do_well": [
-      "Supplies self dispensing doctors and works with the Toppharm pharmacy cooperation."
+      "Family business founded in 1904 that keeps 32,000 articles in stock and delivers within three hours."
     ],
-    "distributes": "Pharmaceutical and health product wholesale.",
-    "channels_supplied": "Self dispensing doctors and pharmacies, including the Toppharm cooperation.",
+    "distributes": "Pharmaceutical, dietary and cosmetic products as a full range wholesaler; about 32,000 articles held in stock.",
+    "channels_supplied": "Pharmacies, drugstores, medical suppliers and health food stores across German-speaking Switzerland, including Eastern Switzerland. Sister wholesaler Amedis belongs to the same Avosano holding.",
     "sf_brands_carried": "",
-    "added": "2026-10-13",
-    "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json",
+    "added": "2026-10-20",
+    "research_file": "research/2026-10-20/J0005_2026-10-20_st-gallen-switzerland_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "volg.ch": {
