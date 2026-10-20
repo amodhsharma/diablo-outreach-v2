@@ -148,7 +148,7 @@ def test_skill_scripts_end_to_end(repo):
     plan = json.loads((repo / "work" / "plan.json").read_text())
     assert [c["template"] for c in plan["channels"]] == ["distributor", "marketplace_seller", "retailer"]
     prompt = (repo / "work" / "channel_2_prompt.md").read_text()
-    assert "{{" not in prompt and "Minimum 8 companies" in prompt and "at most 60 web searches" in prompt
+    assert "{{" not in prompt and "Minimum 8 companies" in prompt and "at most 120 web searches" in prompt
     assert "Known Foods Pvt Ltd (knownfoods.in)" in prompt  # same country
     assert "Lead Elsewhere" in prompt  # in the pipeline anywhere
     assert "Other Kenya" not in prompt  # another country, not in the pipeline
