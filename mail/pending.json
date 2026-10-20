@@ -1,5 +1,149 @@
 {
-  "generated_at": "2026-10-20T03:30:37+00:00",
+  "generated_at": "2026-10-20T05:10:02+00:00",
   "target": "test",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "895931470039",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "BARLU Lebensmittel-Service GmbH",
+        "domain": "barlu.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Velten, Germany",
+        "distributes": "Foodservice wholesale of fish, meat, produce, frozen food and some confectionery and snacks.",
+        "channels_supplied": "Gastronomy customers in Berlin, Leipzig, Dresden, Halle and Frankfurt (Oder), with a shop in Berlin Tempelhof.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Regional foodservice wholesaler next to Berlin with a Tempelhof outlet. Fresh protein focus makes confectionery marginal."
+      }
+    },
+    {
+      "contact_id": "895951301878",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Dovgan GmbH",
+        "domain": "dovgan.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Hamburg, Germany",
+        "distributes": "Imported Eastern European, Polish, Balkan, oriental and Vietnamese foods, including sweets and baked goods, plus frozen and food service ranges.",
+        "channels_supplied": "German food retail including REWE, and Eastern European food shops. Supply into Jena not confirmed.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Described by Lebensmittel Zeitung (2015) as the market leader for Eastern European specialities in German food retail."
+        ],
+        "fit_rationale": "An importer with sweets in its range and access to REWE and to the Russian and Eastern European shops found in Jena. Its focus is ethnic food, so sugar free sweets would sit outside its core story."
+      }
+    },
+    {
+      "contact_id": "895893128386",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Genuport Trade GmbH",
+        "domain": "genuport.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Norderstedt, Germany",
+        "distributes": "Imported branded confectionery, biscuits, snacks, cereals and sports nutrition from almost 30 countries, about 50 brands including Cadbury, Weetabix, Fazer, Reese's and Rocky Mountain.",
+        "channels_supplied": "German food retail nationally (LEH) including Edeka and Rewe online shops, Amazon, fitness studios and its own B2C shop veritastii.de. Berlin coverage is through national retail, not a named Berlin account.",
+        "sf_brands_carried": "Multipower, Grenade and Oatsnack (protein and fitness lines); no sugar-free confectionery brand named.",
+        "what_they_do_well": [
+          "Family business trading since 1949, about 160 staff and roughly 130 million euros revenue in 2025.",
+          "Runs its own field sales force of about 60 people."
+        ],
+        "fit_rationale": "Family-owned specialist importer whose whole business is bringing foreign confectionery and snack brands into German retail, with British brands already in the portfolio. A sugar-free chocolate and biscuits range would fill a gap next to its fitness lines without a direct competitor."
+      }
+    },
+    {
+      "contact_id": "895900880109",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "tabacon TABAKWAREN GmbH & Co. KG",
+        "domain": "tabacon.de",
+        "location": "Jena, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Ronneburg, Germany",
+        "distributes": "Tobacco (about 98 percent of sales), confectionery, drinks and spirits, smoking accessories and prepaid cards.",
+        "channels_supplied": "Shops, kiosks and petrol stations across eastern Germany and Bavaria, from a Thuringian base near Gera.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family owned wholesaler supplying over 2,700 shops, kiosks and petrol stations from Rugen to Passau with more than 4,000 items.",
+          "Reported sales above 380 million euros, with branches in Berlin and Nurnberg as well as Ronneburg."
+        ],
+        "fit_rationale": "Family owned Thuringian wholesaler about 50 km from Jena with a decision maker who can be reached, already adding sweets to kiosk and petrol station deliveries. Sugar free sweets would be a differentiated add-on to a range that is still mostly tobacco."
+      }
+    },
+    {
+      "contact_id": "895893128385",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Genuport Trade GmbH",
+        "domain": "genuport.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Norderstedt, Germany",
+        "distributes": "Imported branded confectionery, biscuits, snacks, cereals and sports nutrition from almost 30 countries, about 50 brands including Cadbury, Weetabix, Fazer, Reese's and Rocky Mountain.",
+        "channels_supplied": "German food retail nationally (LEH) including Edeka and Rewe online shops, Amazon, fitness studios and its own B2C shop veritastii.de. Berlin coverage is through national retail, not a named Berlin account.",
+        "sf_brands_carried": "Multipower, Grenade and Oatsnack (protein and fitness lines); no sugar-free confectionery brand named.",
+        "what_they_do_well": [
+          "Family business trading since 1949, about 160 staff and roughly 130 million euros revenue in 2025.",
+          "Runs its own field sales force of about 60 people."
+        ],
+        "fit_rationale": "Family-owned specialist importer whose whole business is bringing foreign confectionery and snack brands into German retail, with British brands already in the portfolio. A sugar-free chocolate and biscuits range would fill a gap next to its fitness lines without a direct competitor."
+      }
+    },
+    {
+      "contact_id": "895893128387",
+      "job_title": "HR-Generalist / Jr. HR Business Partner",
+      "seniority": "C-suite",
+      "rank": 3,
+      "company": {
+        "name": "Genuport Trade GmbH",
+        "domain": "genuport.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Norderstedt, Germany",
+        "distributes": "Imported branded confectionery, biscuits, snacks, cereals and sports nutrition from almost 30 countries, about 50 brands including Cadbury, Weetabix, Fazer, Reese's and Rocky Mountain.",
+        "channels_supplied": "German food retail nationally (LEH) including Edeka and Rewe online shops, Amazon, fitness studios and its own B2C shop veritastii.de. Berlin coverage is through national retail, not a named Berlin account.",
+        "sf_brands_carried": "Multipower, Grenade and Oatsnack (protein and fitness lines); no sugar-free confectionery brand named.",
+        "what_they_do_well": [
+          "Family business trading since 1949, about 160 staff and roughly 130 million euros revenue in 2025.",
+          "Runs its own field sales force of about 60 people."
+        ],
+        "fit_rationale": "Family-owned specialist importer whose whole business is bringing foreign confectionery and snack brands into German retail, with British brands already in the portfolio. A sugar-free chocolate and biscuits range would fill a gap next to its fitness lines without a direct competitor."
+      }
+    },
+    {
+      "contact_id": "895893128384",
+      "job_title": "Sales Director bei Genuport Trade GmbH",
+      "seniority": "Directors",
+      "rank": 4,
+      "company": {
+        "name": "Genuport Trade GmbH",
+        "domain": "genuport.de",
+        "location": "Berlin, Germany",
+        "channel": "Distributors",
+        "based_out_of": "Norderstedt, Germany",
+        "distributes": "Imported branded confectionery, biscuits, snacks, cereals and sports nutrition from almost 30 countries, about 50 brands including Cadbury, Weetabix, Fazer, Reese's and Rocky Mountain.",
+        "channels_supplied": "German food retail nationally (LEH) including Edeka and Rewe online shops, Amazon, fitness studios and its own B2C shop veritastii.de. Berlin coverage is through national retail, not a named Berlin account.",
+        "sf_brands_carried": "Multipower, Grenade and Oatsnack (protein and fitness lines); no sugar-free confectionery brand named.",
+        "what_they_do_well": [
+          "Family business trading since 1949, about 160 staff and roughly 130 million euros revenue in 2025.",
+          "Runs its own field sales force of about 60 people."
+        ],
+        "fit_rationale": "Family-owned specialist importer whose whole business is bringing foreign confectionery and snack brands into German retail, with British brands already in the portfolio. A sugar-free chocolate and biscuits range would fill a gap next to its fitness lines without a direct competitor."
+      }
+    }
+  ]
 }
