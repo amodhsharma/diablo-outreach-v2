@@ -1,0 +1,274 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0003",
+  "location": "Bern, Switzerland",
+  "run_date": "2026-10-20",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 11,
+      "searches_used": 100
+    }
+  ],
+  "companies": [
+    {
+      "name": "easytrade distribution AG",
+      "based_out_of": "Lucerne, Switzerland",
+      "domain": "easytradedistribution.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Imported snacks (popcorn, filled dates, dried mango, cotton candy), drinks and tobacco alternatives.",
+      "channels_supplied": "Kiosks, retail chains and B2B wholesale resellers in all Swiss language regions, plus its own B2B and B2C web shops.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A young, owner-run import partner that takes exclusive Swiss rights for snack brands and sells them into kiosks and chains with its own field team. Diablo's impulse-size sweets and bars suit its kiosk route, though its tobacco-alternative lines mean the fit should be checked.",
+      "what_they_do_well": [
+        "Holds exclusive Swiss rights for nine of its ten brands and ships from two own warehouses.",
+        "Runs its own field sales team that visits dealers on site."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://easytradedistribution.ch/ueber-uns/"
+      ]
+    },
+    {
+      "name": "PRO.DI.GIO GmbH",
+      "based_out_of": "Basel, Switzerland",
+      "domain": "prodigio.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Directly imported trend products: bubble tea, gourmet marshmallows, pistachio sweets, drink cubes and catering supplies.",
+      "channels_supplied": "Kiosks, shops and boutiques, cafes, hotels and restaurants, pharmacies, hospitals, care homes and offices across Switzerland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An owner-run direct importer with over 1,000 B2B accounts that already places imported sweets into kiosks and pharmacies, two channels where sugar-free confectionery sells well. Small enough that Diablo would get real attention.",
+      "what_they_do_well": [
+        "Built a base of over 1,000 B2B customers since 2013 with Switzerland-wide delivery in two to four working days."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://b2b.prodigio.ch/"
+      ]
+    },
+    {
+      "name": "Fideco AG",
+      "based_out_of": "Murten, Switzerland",
+      "domain": "fideco.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Foodservice range of over 6,000 products: dairy, fruit and vegetables, Asian and oriental foods, patisserie and bakery, meat, fish and seafood.",
+      "channels_supplied": "About 2,000 customers including restaurants, staff canteens, care homes, hospitals, hotels and resellers; started in Bern and delivers six days a week.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Murten sits on the Bern border and the business began in Bern, so its delivery network covers the Bern catering and care market. Care homes and hospitals are natural buyers of no-added-sugar desserts, biscuits and sweets.",
+      "what_they_do_well": [
+        "Grew from a Bern storeroom in 1987 to over 6,000 products and about 2,000 customers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://cervo.swiss/en/culture/magazine/fideco-la-source-du-bon-gout",
+        "https://fideco.ch/UEber-Fideco/",
+        "https://bestfoodimporters.com/company/fideco-ag/"
+      ]
+    },
+    {
+      "name": "H&R Gastro AG",
+      "based_out_of": "Interlaken, Switzerland",
+      "domain": "hr-gastro.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Foodservice wholesale range of over 3,600 items: fresh, frozen and ambient (economat) food, coffee, own butchery products and non-food supplies.",
+      "channels_supplied": "Hotels and restaurants across the Berner Oberland, through delivery and an online shop.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent family wholesaler covering the tourist hotels of the Bern canton's Oberland, where breakfast buffets and minibars need packaged sweets and spreads. A sugar-free line would give it a point of difference with hotel buyers.",
+      "what_they_do_well": [
+        "Independent family business trading since 1847, now supplying over 3,600 items to Berner Oberland hospitality.",
+        "Produces about 300 items in the Berner Oberland, including its own butchery range."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.hr-gastro.ch/Ueber-uns/Geschichte",
+        "https://www.hr-gastro.ch/Produkt/Sortiment/Online-Shop",
+        "https://www.plattformj.ch/artikel/199680/"
+      ]
+    },
+    {
+      "name": "Nurissa AG",
+      "based_out_of": "Biel/Bienne, Switzerland",
+      "domain": "nurissa.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Snacks, cold drinks and coffee through vending machines, plus fruit boxes and water dispensers.",
+      "channels_supplied": "Workplace vending for over 3,000 business customers in the Bern canton region and western Switzerland.",
+      "sf_brands_carried": "Runs its own nuri health label that scores about 100 snacks and drinks, with a penalty for sugar.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Bern-canton family firm that actively looks for healthier snacks for its machines and penalises sugar in its own label. Diablo bars and sweets would score well, but it is a vending operator rather than a classic distributor, so volumes depend on its machine estate.",
+      "what_they_do_well": [
+        "Third-generation family company founded in 1962, serving over 3,000 customers.",
+        "Developed the nuri health and sustainability snack label with the Bern University of Applied Sciences."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.nurissa.ch/ueber-uns/unternehmen/",
+        "https://www.foodaktuell.ch/2024/05/23/ein-label-fuer-gesunde-und-nachhaltige-snacks-aus-dem-automaten",
+        "https://www.bfh.ch/de/aktuell/medienmitteilungen/2024/bfh-hafl-und-nurissa-revolutionieren-die-pausenverpflegung/"
+      ]
+    },
+    {
+      "name": "claro fair trade AG",
+      "based_out_of": "Orpund, Switzerland",
+      "domain": "claro.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Fair trade coffee, tea, chocolate, confectionery, bars, chips, baking and breakfast goods.",
+      "channels_supplied": "Over 100 claro world shops and partner shops in Switzerland through a B2B shop login, plus its own web shop.",
+      "sf_brands_carried": "Carries third-party lines such as fairafric chocolate; no sugar-free brand found.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Bern-canton importer with a ready network of independent shops buying chocolate and sweets. It is conditional because claro sources mainly fair trade products and is also a brand in its own right, so Diablo may not meet its sourcing criteria.",
+      "what_they_do_well": [
+        "Swiss fair trade pioneer since 1977, supplying over 100 world shops and partner shops."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.claro.ch/pages/ueber-claro"
+      ]
+    },
+    {
+      "name": "Swiss Deli Distribution SA (Authentic Food Solutions)",
+      "based_out_of": "Bussigny, Switzerland",
+      "domain": "authenticfoodsolutions.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Pastries, panini, snacks and dips, cookies, dried fruit and sweets, bubble tea, smoothies and related equipment.",
+      "channels_supplied": "Over 200 HORECA customers across Switzerland, including tea rooms, leisure parks, aquatic centres and refreshment kiosks.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Supplies snack counters and kiosks in leisure venues that need packaged sweets and cookies, and delivers anywhere in Switzerland within 48 hours. It is based in Vaud and Bern coverage is national rather than local, so it ranks lower.",
+      "what_they_do_well": [
+        "Has launched roughly one new snacking concept a year since 2010 for Swiss HORECA customers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.authenticfoodsolutions.ch/a-propos",
+        "https://www.nalios.com/en/partners/swiss-deli-distribution-sa-29134"
+      ]
+    },
+    {
+      "name": "Siani Food",
+      "based_out_of": "Zaeziwil, Switzerland",
+      "domain": "siani-food.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Frozen Middle Eastern foods (falafel, pastries, baklava), dips and sauces, gluten-free frozen baked goods.",
+      "channels_supplied": "Distributors, retailers and a web shop across Switzerland; all Globus Delikatessa shops take its dips.",
+      "sf_brands_carried": "Gluten-free bakery line; no sugar-free range found.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Bern-canton importer with a listing at Globus Delikatessa and a free-from line, so it knows the special-diet buyer. Its range is frozen and chilled, so ambient sugar-free sweets would be a new category for it.",
+      "what_they_do_well": [
+        "Supplies hummus, tahini and aubergine dips to all Globus Delikatessa shops."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://siani-food.com/en/about-us/",
+        "https://bestfoodimporters.com/company/siani-food/"
+      ]
+    },
+    {
+      "name": "Foodex Suisse",
+      "based_out_of": "Geneva region, Switzerland (head office town not confirmed)",
+      "domain": "foodex.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Japanese and Asian foodservice products: rice, noodles, sauces, seafood, ready dishes, desserts, drinks and packaging.",
+      "channels_supplied": "Japanese and Asian restaurants, grocery stores, hotels, cafes and bars across Switzerland, with dry, frozen and fresh delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Has tri-temperature logistics and grocery store customers, which would handle chocolate safely. Fit is limited because it is owned by a Japanese drinks group and focuses on Asian cuisine.",
+      "what_they_do_well": [
+        "Operating in Switzerland since 2001 with dry, frozen and fresh logistics."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://foodex.ch/index.php?Itemid=275&lang=de"
+      ]
+    },
+    {
+      "name": "Chef Gourmet SA",
+      "based_out_of": "Cousset, Switzerland",
+      "domain": "chefgourmet.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Frozen bakery and pastry (including Bridor mini pastries), dry products and bakery ingredients for chefs.",
+      "channels_supplied": "Swiss chefs, restaurants and hotels, with field sales in western Switzerland and the Zurich region.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Supplies hotel and restaurant kitchens with sweet bakery items, so sugar-free biscuits or syrups could ride on its routes. Its focus on frozen bakery makes Diablo's ambient retail packs a secondary fit.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.chefgourmet.ch/index-de.htm",
+        "https://us.kompass.com/z/ch/a/sugar-confectionery/03670/"
+      ]
+    },
+    {
+      "name": "Henri Probst SA",
+      "based_out_of": "Evilard, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Imported Spanish and Italian foods, including olives, and raw materials for foodservice and the food industry.",
+      "channels_supplied": "Foodservice and food industry customers, plus an online store.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long-standing importer based in the Bern canton just above Biel. It describes itself as both agent and importer, so stockholding must be confirmed before outreach.",
+      "what_they_do_well": [
+        "Has operated as an importer of food products for more than 70 years."
+      ],
+      "confidence": "low",
+      "source_urls": [
+        "https://www.foodswinesfromspain.com/en/certified-restaurants-from-spain/food-and-wine-stores/h/henri-probst-sa",
+        "https://ranq.ch/en/industries/wholesale-food-luxury-items/bern-canton"
+      ]
+    }
+  ]
+}
