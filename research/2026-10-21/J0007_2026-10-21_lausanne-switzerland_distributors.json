@@ -1,0 +1,252 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0007",
+  "location": "Lausanne, Switzerland",
+  "run_date": "2026-10-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 10,
+      "searches_used": 109
+    }
+  ],
+  "companies": [
+    {
+      "name": "ebi-pharm AG",
+      "based_out_of": "Kirchlindach, Switzerland",
+      "domain": "ebi-pharm.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Natural health products, dietary supplements, breakfast products and wholefoods (for example BioKing muesli, seeds and nuts), skin care and animal health.",
+      "channels_supplied": "Pharmacies, drugstores, health food stores (Reformhäuser), organic shops, naturopaths, doctors and wholesalers in German and French speaking Switzerland.",
+      "sf_brands_carried": "BioKing organic breakfast and wholefood range; no sugar free confectionery brand seen.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family run brand distributor whose whole model is placing third party health brands into pharmacies and drugstores, which is the natural home for a no added sugar range. It already handles better-for-you food (BioKing) next to supplements, and it reports serving western Switzerland, so Lausanne pharmacies are within reach.",
+      "what_they_do_well": [
+        "Distributes the BioKing organic range across Swiss pharmacies, drugstores, Reformhäuser and organic shops.",
+        "Runs its own dedicated sales team calling on the specialist trade."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.ebi-pharm.ch/wissen/ebi-aktuell/BioKing---aus-Prinzip-Bio",
+        "https://www.ebi-pharm.ch/unternehmen/partner",
+        "https://www.ebi-pharm.ch/wissen/ebi-aktuell/das-ebi-pharm-verkaufsteam"
+      ]
+    },
+    {
+      "name": "Galexis AG",
+      "based_out_of": "Niederbipp, Switzerland",
+      "domain": "galexis.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Pharmaceuticals and OTC, cosmetics, food and dietary supplements, baby care and medical supplies.",
+      "channels_supplied": "Pharmacies, drugstores, doctors, hospitals and care homes across Switzerland, served from distribution centres in Niederbipp and Lausanne-Ecublens.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Galexis runs a distribution centre in Ecublens on the edge of Lausanne and lists 'Alimentation et compléments alimentaires' as an assortment group, so a sugar free snack listing would reach every Romandie pharmacy and drugstore it serves. It is a large generalist, so Diablo would need a clear diabetic or better-for-you pharmacy story to win a listing; whether it already stocks sugar free confectionery is not confirmed.",
+      "what_they_do_well": [
+        "Supplying the Swiss healthcare trade since 1927, with a distribution centre at Lausanne-Ecublens.",
+        "Describes its range as the broadest pharmaceutical and non-pharma assortment in Switzerland."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.galexis.com/fr/a-propos-galexis/index.php",
+        "https://www.galexis.com/fr/partenaires-industriels/logistique/assortiment.php"
+      ]
+    },
+    {
+      "name": "Padula Food (Samas SA)",
+      "based_out_of": "Crissier, Switzerland",
+      "domain": "padulafood.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Italian food for professionals: biscuits and desserts, coffee, charcuterie, flours, cheese, oils and vegetables, pasta, sauces and wine.",
+      "channels_supplied": "Restaurants, hotels, delicatessens and supermarkets; named clients include Aligro, Cavalieri & Fils and Fleur de Pains.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An importer and wholesaler based in Crissier, five minutes from Lausanne, that already sells a biscuits and desserts category to delis, cafés and the Aligro cash and carry. Diablo biscuits and spreads could sit beside its Italian sweet range, although its focus is Italian origin products. The samas.ch site now redirects to padulafood.ch, so the trading name should be checked before outreach.",
+      "what_they_do_well": [
+        "Supplies Aligro as well as Lausanne area restaurants, delicatessens and bakeries with Italian products."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://padulafood.ch/",
+        "https://padulafood.ch/product-category/biscuits-desserts/",
+        "https://bestfoodimporters.com/company/samas-sa"
+      ]
+    },
+    {
+      "name": "Multifood SA",
+      "based_out_of": "Gals, Switzerland",
+      "domain": "multifood.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Fresh, frozen and dry foods for foodservice, including confectionery products, ice cream, dairy, meat, fish, pasta and drinks.",
+      "channels_supplied": "Restaurants, hotels, canteens and other foodservice professionals, with a French language web shop aimed at western Switzerland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A foodservice wholesaler on the language border near Neuchâtel with a dedicated confectionery products category, giving Diablo a route into Vaud restaurants, cafés and institutional catering. Foodservice is a secondary channel for portion packs and syrups rather than retail bars.",
+      "what_they_do_well": [
+        "Carries a dedicated confectionery products range alongside fresh and frozen lines for foodservice professionals."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.multifood.ch/produits/produits-secs/produits-confiserie?page=2",
+        "https://www.multifood.ch/multifood-et-vous/nos-implantations",
+        "https://bestfoodimporters.com/company/multifood-sa/"
+      ]
+    },
+    {
+      "name": "GEMMA Gastronomie SA",
+      "based_out_of": "Orbe, Switzerland",
+      "domain": "gemma.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Imported chilled and frozen food sourced mainly from France, Italy, Belgium, the Netherlands and Spain; a directory also lists confectionery and snacks.",
+      "channels_supplied": "All national retail chains (not named on its site) and specialist foodservice wholesalers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family run importer 30 km from Lausanne that already places European brands with the national chains and offers key account and category management. Its core is chilled and frozen goods, so Diablo ambient confectionery would be a range extension; confectionery is listed only in a directory and not confirmed on its own site.",
+      "what_they_do_well": [
+        "Has imported European chilled and frozen products for the Swiss market since 1993 and states it works with all national retail chains."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://gemma.ch/en/about-us/",
+        "https://gemma.ch/en/our-partners/",
+        "https://bestfoodimporters.com/company/gemma-gastronomie-sa/"
+      ]
+    },
+    {
+      "name": "Atlantismar Sàrl",
+      "based_out_of": "Bussigny, Switzerland",
+      "domain": "atlantismar.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Portuguese food and drink: frozen fish, cod, seafood, meat and vegetables, wines, spirits and soft drinks; a directory also lists confectionery and snacks.",
+      "channels_supplied": "Portuguese community shops, restaurants and its own outlet in the Lausanne area (customer names not published).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An owner run importer in Bussigny, on the western edge of Lausanne, serving the large Portuguese community trade in Vaud. Fit for Diablo depends on its confectionery range, which is listed in a directory but not confirmed on its own site.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.atlantismar.ch/fr/Produits-congeles/MORUE.htm",
+        "https://www.atlantismar.ch/fr/Boissons/Spiritueux.htm",
+        "https://bestfoodimporters.com/company/atlantismar-sarl/"
+      ]
+    },
+    {
+      "name": "Fromita SA",
+      "based_out_of": "Mendrisio, Switzerland",
+      "domain": "fromita.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Imported chilled and ambient food, mainly from Italy; a directory lists vegan cheese and deli alternatives, gluten free and organic food and confectionery.",
+      "channels_supplied": "B2B trade customers ordering through its digital platform, with delivery throughout Switzerland.",
+      "sf_brands_carried": "Gluten free and organic lines per directory listing; brands not named.",
+      "competing_brand_flag": false,
+      "fit_rationale": "Its free-from and organic focus suits Diablo, and it delivers across Switzerland including Vaud. It is based in Ticino with no confirmed Lausanne customer base, and its own site does not name a confectionery range, so it is conditional.",
+      "what_they_do_well": [],
+      "confidence": "high",
+      "source_urls": [
+        "https://fromita.ch/en/",
+        "https://bestfoodimporters.com/company/fromita-sa/"
+      ]
+    },
+    {
+      "name": "Gastrogel Sàrl",
+      "based_out_of": "Echallens, Switzerland",
+      "domain": "gastrogel.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Italian, Spanish, Portuguese and Swiss fresh, dry and frozen foods: pasta, flour, cheese, seafood and wines (brands include Barilla, De Cecco, Mulino Caputo and El Pastor).",
+      "channels_supplied": "Restaurants and food trade customers delivered on its own route plan from Echallens (customer names not published).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A local importer 15 km north of Lausanne with its own delivery routes, which could add Diablo as a side line for its hospitality customers. It does not list sweets or confectionery today, so it ranks low.",
+      "what_they_do_well": [
+        "Founded in 2004, it imports and distributes leading brands such as Barilla, De Cecco and Mulino Caputo."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.gastrogel.ch/",
+        "https://bestfoodimporters.com/company/gastrogel-sarl/"
+      ]
+    },
+    {
+      "name": "Hugo Dubno AG",
+      "based_out_of": "Switzerland (head office town not confirmed)",
+      "domain": "dubno.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Premium delicacies and fresh speciality foods, including truffles, vinegars and partner brands such as Simonini and Masse.",
+      "channels_supplied": "Retailers and wholesalers such as Manor, plus resellers, gastronomy and corporate customers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A premium importer that already supplies Manor, which has stores in Lausanne, and offers customs, logistics and key account services to brands. Its range is fresh delicacy led with no confectionery seen, so Diablo would be outside its core.",
+      "what_they_do_well": [
+        "Quoted by Manor's head of fresh products purchasing as a reliable partner with top product quality."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.dubno.ch/en/branche/detailhandel-und-grosshandel",
+        "https://www.dubno.ch/fr/dubno/sur-nous"
+      ]
+    },
+    {
+      "name": "Bio Royal Sàrl",
+      "based_out_of": "Onnens, Switzerland",
+      "domain": "bio-royal.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Organic flours, grains and superfoods such as chickpea flour, teff and quinoa, plus supplements.",
+      "channels_supplied": "Organic and health food trade (customers not named).",
+      "sf_brands_carried": "Organic and health food lines (own range, brands not named).",
+      "competing_brand_flag": false,
+      "fit_rationale": "A small Vaud based organic and health food distributor whose customers overlap with Diablo's better-for-you shoppers. Its range is ingredients rather than snacks and its size is unknown, so it is low priority.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bio-royal.com/copie-de-teff-farine",
+        "https://bestfoodimporters.com/company/bio-royal-sarl/"
+      ]
+    }
+  ]
+}
