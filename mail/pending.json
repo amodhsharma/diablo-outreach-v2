@@ -1,5 +1,170 @@
 {
-  "generated_at": "2026-10-20T13:00:52+00:00",
+  "generated_at": "2026-10-20T15:30:55+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "896840343762",
+      "job_title": "Sales Director & Executive Board Member",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Fideco AG",
+        "domain": "fideco.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Murten, Switzerland",
+        "distributes": "Foodservice range of over 6,000 products: dairy, fruit and vegetables, Asian and oriental foods, patisserie and bakery, meat, fish and seafood.",
+        "channels_supplied": "About 2,000 customers including restaurants, staff canteens, care homes, hospitals, hotels and resellers; started in Bern and delivers six days a week.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Grew from a Bern storeroom in 1987 to over 6,000 products and about 2,000 customers."
+        ],
+        "fit_rationale": "Murten sits on the Bern border and the business began in Bern, so its delivery network covers the Bern catering and care market. Care homes and hospitals are natural buyers of no-added-sugar desserts, biscuits and sweets."
+      }
+    },
+    {
+      "contact_id": "896842144974",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "H&R Gastro AG",
+        "domain": "hr-gastro.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Interlaken, Switzerland",
+        "distributes": "Foodservice wholesale range of over 3,600 items: fresh, frozen and ambient (economat) food, coffee, own butchery products and non-food supplies.",
+        "channels_supplied": "Hotels and restaurants across the Berner Oberland, through delivery and an online shop.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Independent family business trading since 1847, now supplying over 3,600 items to Berner Oberland hospitality.",
+          "Produces about 300 items in the Berner Oberland, including its own butchery range."
+        ],
+        "fit_rationale": "An independent family wholesaler covering the tourist hotels of the Bern canton's Oberland, where breakfast buffets and minibars need packaged sweets and spreads. A sugar-free line would give it a point of difference with hotel buyers."
+      }
+    },
+    {
+      "contact_id": "896840343761",
+      "job_title": "Supply Chain Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Fideco AG",
+        "domain": "fideco.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Murten, Switzerland",
+        "distributes": "Foodservice range of over 6,000 products: dairy, fruit and vegetables, Asian and oriental foods, patisserie and bakery, meat, fish and seafood.",
+        "channels_supplied": "About 2,000 customers including restaurants, staff canteens, care homes, hospitals, hotels and resellers; started in Bern and delivers six days a week.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Grew from a Bern storeroom in 1987 to over 6,000 products and about 2,000 customers."
+        ],
+        "fit_rationale": "Murten sits on the Bern border and the business began in Bern, so its delivery network covers the Bern catering and care market. Care homes and hospitals are natural buyers of no-added-sugar desserts, biscuits and sweets."
+      }
+    },
+    {
+      "contact_id": "896842144972",
+      "job_title": "Head of Logistics",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "H&R Gastro AG",
+        "domain": "hr-gastro.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Interlaken, Switzerland",
+        "distributes": "Foodservice wholesale range of over 3,600 items: fresh, frozen and ambient (economat) food, coffee, own butchery products and non-food supplies.",
+        "channels_supplied": "Hotels and restaurants across the Berner Oberland, through delivery and an online shop.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Independent family business trading since 1847, now supplying over 3,600 items to Berner Oberland hospitality.",
+          "Produces about 300 items in the Berner Oberland, including its own butchery range."
+        ],
+        "fit_rationale": "An independent family wholesaler covering the tourist hotels of the Bern canton's Oberland, where breakfast buffets and minibars need packaged sweets and spreads. A sugar-free line would give it a point of difference with hotel buyers."
+      }
+    },
+    {
+      "contact_id": "896840343763",
+      "job_title": "Deputy Sales Director",
+      "seniority": "Directors",
+      "rank": 3,
+      "company": {
+        "name": "Fideco AG",
+        "domain": "fideco.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Murten, Switzerland",
+        "distributes": "Foodservice range of over 6,000 products: dairy, fruit and vegetables, Asian and oriental foods, patisserie and bakery, meat, fish and seafood.",
+        "channels_supplied": "About 2,000 customers including restaurants, staff canteens, care homes, hospitals, hotels and resellers; started in Bern and delivers six days a week.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Grew from a Bern storeroom in 1987 to over 6,000 products and about 2,000 customers."
+        ],
+        "fit_rationale": "Murten sits on the Bern border and the business began in Bern, so its delivery network covers the Bern catering and care market. Care homes and hospitals are natural buyers of no-added-sugar desserts, biscuits and sweets."
+      }
+    },
+    {
+      "contact_id": "896842144973",
+      "job_title": "Category Manager",
+      "seniority": "Managers",
+      "rank": 3,
+      "company": {
+        "name": "H&R Gastro AG",
+        "domain": "hr-gastro.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Interlaken, Switzerland",
+        "distributes": "Foodservice wholesale range of over 3,600 items: fresh, frozen and ambient (economat) food, coffee, own butchery products and non-food supplies.",
+        "channels_supplied": "Hotels and restaurants across the Berner Oberland, through delivery and an online shop.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Independent family business trading since 1847, now supplying over 3,600 items to Berner Oberland hospitality.",
+          "Produces about 300 items in the Berner Oberland, including its own butchery range."
+        ],
+        "fit_rationale": "An independent family wholesaler covering the tourist hotels of the Bern canton's Oberland, where breakfast buffets and minibars need packaged sweets and spreads. A sugar-free line would give it a point of difference with hotel buyers."
+      }
+    },
+    {
+      "contact_id": "896840343760",
+      "job_title": "Head of Marketing & Digital",
+      "seniority": "Heads and junior directors",
+      "rank": 4,
+      "company": {
+        "name": "Fideco AG",
+        "domain": "fideco.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Murten, Switzerland",
+        "distributes": "Foodservice range of over 6,000 products: dairy, fruit and vegetables, Asian and oriental foods, patisserie and bakery, meat, fish and seafood.",
+        "channels_supplied": "About 2,000 customers including restaurants, staff canteens, care homes, hospitals, hotels and resellers; started in Bern and delivers six days a week.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Grew from a Bern storeroom in 1987 to over 6,000 products and about 2,000 customers."
+        ],
+        "fit_rationale": "Murten sits on the Bern border and the business began in Bern, so its delivery network covers the Bern catering and care market. Care homes and hospitals are natural buyers of no-added-sugar desserts, biscuits and sweets."
+      }
+    },
+    {
+      "contact_id": "896842144975",
+      "job_title": "Category Manager",
+      "seniority": "Managers",
+      "rank": 4,
+      "company": {
+        "name": "H&R Gastro AG",
+        "domain": "hr-gastro.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Interlaken, Switzerland",
+        "distributes": "Foodservice wholesale range of over 3,600 items: fresh, frozen and ambient (economat) food, coffee, own butchery products and non-food supplies.",
+        "channels_supplied": "Hotels and restaurants across the Berner Oberland, through delivery and an online shop.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Independent family business trading since 1847, now supplying over 3,600 items to Berner Oberland hospitality.",
+          "Produces about 300 items in the Berner Oberland, including its own butchery range."
+        ],
+        "fit_rationale": "An independent family wholesaler covering the tourist hotels of the Bern canton's Oberland, where breakfast buffets and minibars need packaged sweets and spreads. A sugar-free line would give it a point of difference with hotel buyers."
+      }
+    }
+  ]
 }
