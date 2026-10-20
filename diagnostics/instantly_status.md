@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-20T05:39:19+00:00 (UTC).
+Checked 2026-10-20T07:30:42+00:00 (UTC).
 
 ## Mailboxes
 
@@ -8,16 +8,16 @@ Checked 2026-10-20T05:39:19+00:00 (UTC).
 
 ### Needs attention
 
-- **admin@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
-- **admin@diablosnosugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
-- **dana@diabloexport.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
-- **elize@diabloexport.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **admin@diablosfreesugar.com**: Ready but button 4 will not give it to new campaigns: ask for it to be added to the sending mailboxes
+- **admin@diablosnosugar.com**: Ready but button 4 will not give it to new campaigns: ask for it to be added to the sending mailboxes
+- **dana@diabloexport.com**: Ready but button 4 will not give it to new campaigns: ask for it to be added to the sending mailboxes
+- **elize@diabloexport.com**: Ready but button 4 will not give it to new campaigns: ask for it to be added to the sending mailboxes
 - **info@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
-- **info@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
-- **joshua@diabloexport.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **info@diablosfreesugar.com**: Ready but button 4 will not give it to new campaigns: ask for it to be added to the sending mailboxes
+- **joshua@diabloexport.com**: Ready but button 4 will not give it to new campaigns: ask for it to be added to the sending mailboxes
 - **offers@diablosugarfree.com**: This is the main company domain (diablosugarfree.com): never use it for cold email
 - **sales@diablosfreesugar.com**: Warm-up is off: keep it on, also while the mailbox sends campaigns
-- **sales@diablosfreesugar.com**: Ready but not used by this month's campaign (Diablo | OCT2026): open the campaign, Settings, Accounts To Use, and add it
+- **sales@diablosfreesugar.com**: Ready but button 4 will not give it to new campaigns: ask for it to be added to the sending mailboxes
 
 ### Every mailbox
 
@@ -26,64 +26,20 @@ Checked 2026-10-20T05:39:19+00:00 (UTC).
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (16 of 16) | Dana - | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (12 of 12) | Elize - | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (16 of 16) | Elize - | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | OCT2026 |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (55 of 55) | Joshua from Diablo | 30 | none |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (8 of 8) | Joshua - | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (7 of 7) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (39 of 39) | Joshua from Diablo | 30 | Diablo | OCT2026 | Company inboxes, Diablo | Dublin, Ireland | Retailers | OCT2026, Diablo | OCT2026 |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (39 of 39) | Joshua from Diablo | 30 | none |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
 
 
-## Campaign: Diablo | OCT2026 | Company inboxes
+## Campaigns
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
-- Last healthy send: 2026-10-20T05:23:42.388Z
-- schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 10, "sent": 1, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 1, "limit_hit": false}`
-- accounts_summary: `{"total_connected": 2, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 1}}`
-- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
-- follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-20T05:23:42.424Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-20T05:23:42.388Z"}`
-- Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
-- Open tracking: off
-- Leads: 1
-  - 1 Completed, emailed
-- Emails in the sequence: 1 (characters in each body: [2305])
-
-## Campaign: Diablo | Dublin, Ireland | Retailers | OCT2026
-
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
-- Mailboxes it sends from: sales@diablosnosugar.com
-- Link tracking: **ON** (should be off: switch it off in the campaign Options)
-- Open tracking: **ON** (should be off: switch it off in the campaign Options)
-- Leads: 0
-- Emails in the sequence: 1 (characters in each body: [2209])
-
-## Campaign: Diablo | OCT2026
-
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
-- Last healthy send: 2026-10-19T12:21:06.198Z
-- schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 30, "sent": 17, "limit_hit": false}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 17, "limit_hit": false}`
-- accounts_summary: `{"total_connected": 2, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
-- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
-- follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-19T12:30:05.491Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-19T12:21:06.198Z"}`
-- Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
-- Link tracking: off
-- Open tracking: off
-- Leads: 4
-  - 2 Completed, emailed, replied
-  - 2 Completed, emailed
-- Emails in the sequence: 1 (characters in each body: [2209])
+- No Diablo campaigns yet: button 4 creates one when it first sends.
 
 
 ## Keys
@@ -100,8 +56,4 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Where every company is in its loop
 
-- **Löwenzahn Cash & Carry GmbH**: next is the next email, 3 days after the last one, due 23 Oct 11:09 IST; blocklist: clear
-
-| Company | Order | Person (job title) | Lead Status | Emailed |
-|---|---|---|---|---|
-| Löwenzahn Cash & Carry GmbH | 1 | Company inbox (from website) | Reminder sent | 20 Oct 10:53 IST, 20 Oct 11:09 IST |
+- No company is being emailed right now.
