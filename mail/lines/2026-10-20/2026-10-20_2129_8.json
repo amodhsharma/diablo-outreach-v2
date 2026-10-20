@@ -1,0 +1,64 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-20",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-20T15:30:55+00:00",
+  "lines": [
+    {
+      "contact_id": "896840343762",
+      "company_name": "Fideco AG",
+      "personal_line": "Your team's work in growing a single Bern storeroom into a range of thousands of products speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "896840343761",
+      "company_name": "Fideco AG",
+      "personal_line": "We hold your team in high regard for growing a business that began in a Bern storeroom into a broad food supplier. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "896840343763",
+      "company_name": "Fideco AG",
+      "personal_line": "We have great respect for the way your team has built a broad food range for customers in and around Bern. With such established reach across the region, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "896840343760",
+      "company_name": "Fideco AG",
+      "personal_line": "Your range, from dairy to fish and seafood, reflects a careful choice of products for customers in and around Bern. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "896842144974",
+      "company_name": "H&R Gastro AG",
+      "personal_line": "We have great respect for the way your team, as an independent family business, has served the Berner Oberland for generations. With such established reach across delivery and your online shop, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "896842144972",
+      "company_name": "H&R Gastro AG",
+      "personal_line": "Your team's work in keeping an independent family business trading for generations speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "896842144973",
+      "company_name": "H&R Gastro AG",
+      "personal_line": "We hold your team in high regard for the range of products it makes itself in the Berner Oberland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "896842144975",
+      "company_name": "H&R Gastro AG",
+      "personal_line": "Your range, from coffee to your own butchery products, reflects a careful choice of products for the Berner Oberland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "C"
+    }
+  ]
+}
