@@ -256,7 +256,8 @@ def _ranks(errors, companies, group_key):
 CATALOGUE_WORDS = re.compile(
     r"\b(chocolates?|pralines?|confectionery|confections?|sweets|candy|candies|gumm(?:y|ies)|jelly|jellies|"
     r"toffees?|dragees?|chewing gum|biscuits?|cookies?|wafers?|cakes?|muffins?|bars?|snacks?|spreads?|"
-    r"peanut butter|jams?|syrups?|toppings?|dessert sauces?|advent calendars?|gift boxes)\b", re.I)
+    r"peanut butter|jams?|syrups?|toppings?|dessert sauces?|advent calendars?|gift boxes|"
+    r"imports and builds packaged food brands)\b", re.I)  # the brand-builder exception, 21 Oct 2026
 
 
 def check_catalogue(errors, companies):
@@ -285,7 +286,8 @@ WEAK_FIT_WORDS = re.compile(
     r"brand in its own right|own production|own manufactur|manufactures its own|makes its own|"
     r"produces its own|own brands? (?:range|line)|its own label|"
     # 21 Oct 2026 (GastroPfaff, Gustoso, GEMMA): the range is only in a directory, or not for shops
-    r"directory (?:also )?lists|directory data only|per (?:the )?directory|rather than retail", re.I)
+    r"directory (?:also )?lists|directory data only|per (?:the )?directory|rather than retail|"
+    r"outside its (?:\w+ )?focus", re.I)  # Covin, 21 Oct 2026
 
 
 def check_weak_fit(errors, companies):
