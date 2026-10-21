@@ -11,3 +11,6 @@ Start where trade buyers are listed: wholesale trade bodies, symbol group and bu
 
 WHAT GOOD FIT LOOKS LIKE
 The model: a wholesaler that lists many branded sweets, chocolate, biscuits and snacks from other companies, holds them in its own warehouse or depot and supplies kiosks, independent grocers, convenience stores or vending operators. Prioritise, in this order: imports or lists European or UK branded confectionery and snacks; runs a symbol group or supplies many independent convenience, grocery or pharmacy stores; a mid-size, owner-run business where a decision maker can be reached; already carries sugar-free, no-added-sugar or better-for-you lines without a direct competitor; depots or strong regional coverage in the market.
+
+HOW THE HARD RULES APPLY
+All nine apply in full. Rule 4: confirm the wholesaler's own warehouse, depot or cash and carry stores and write it after "Storage: " in the fit rationale. Rule 7: cash and carry and foodservice wholesalers count only when they sell branded packaged confectionery or snacks for resale, not only catering packs and ingredients for kitchens.

@@ -14,3 +14,6 @@ Use the seller's own company website if it has one. A marketplace storefront pag
 
 WHAT GOOD FIT LOOKS LIKE
 Prioritise: already sells sugar-free, keto, diabetic-friendly or better-for-you snacks without a direct competitor; sells on several marketplaces; visible volume (ratings counts or best-seller ranks); already resells European brands; a legal company name that can be traced. Name the marketplaces each seller uses in "channels_supplied".
+
+HOW THE HARD RULES APPLY
+Rules 1 to 3: leave out sellers that sell only their own brand or goods they make. Rule 4: the seller must buy and hold its own stock (no drop-shippers, no sellers that only list other people's stock). Rule 5: it must already sell at least one category from Diablo's catalogue on its storefront. Rule 6: leave out sellers whose main lines are not food (for example electronics, cosmetics or medicines). Rules 7 and 8 apply as written. Rule 9: open its own website, or its storefront when it has none.

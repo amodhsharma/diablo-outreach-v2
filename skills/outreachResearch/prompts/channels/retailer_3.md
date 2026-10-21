@@ -11,3 +11,6 @@ Retailer websites and store locators, supplier or "sell with us" pages, retail t
 
 WHAT GOOD FIT LOOKS LIKE
 Prioritise: already stocks sugar-free, no-added-sugar or better-for-you confectionery without a direct competitor; a clear supplier onboarding route (a supplier portal or "become a supplier" page); number of stores or online reach in the market; already stocks European brands. Mention the store count in the fit rationale when known.
+
+HOW THE HARD RULES APPLY
+Rules 1 to 3: leave out retailers that mainly sell what they make themselves (bakeries, patisseries, chocolatiers and sweet shops with their own production) and retailers that stock only their own label. Rule 4: the retailer must buy stock and sell it from its own shops or its own online shop; no storage line is needed. Rule 5: it must already stock at least one category from Diablo's catalogue. Rule 6: pharmacy and drugstore chains count when they sell packaged food or snacks on their shelves; leave out those selling only medicines and care products. Rule 7: leave out shops for trade professionals only. Rule 8: leave out delicatessens, gourmet shops, wine shops and single cuisine grocers unless branded confectionery or biscuits are a clear part of the shelf. Rule 9 applies in full.

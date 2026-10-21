@@ -22,16 +22,16 @@ DIABLO'S CATALOGUE (from Diablo's online shop, 21 Oct 2026)
 - Gifting and seasonal: gift boxes, variety packs and advent calendars
 A company qualifies only if it already sells at least one of these broad categories (chocolate, sweets, gummies, biscuits, cookies, wafers, cakes, cereal bars, spreads, peanut butter, jams, syrups or dessert toppings) as branded packaged goods for resale.
 
-HARD RULES (decided by Diablo on 21 Oct 2026; a company that breaks any one is never listed: put it in checked_and_excluded with the reason in brackets)
+HARD RULES (decided by Diablo on 21 Oct 2026; they apply to every channel, as far as each one applies, and HOW THE HARD RULES APPLY under WHAT THIS CHANNEL MEANS says how. A company that breaks any one is never listed: put it in checked_and_excluded with the reason in brackets)
 1. No company that mainly supplies its own products, whether bakery and pastry goods, raw materials or semi-finished products ("own products"). We sell our own branded, labelled products, so the company must sell other companies' brands.
 2. No company that sells its own catalogue of products, own brand or own label: it will not sell ours ("own range").
 3. No company that sells generic goods it makes itself ("makes its own goods").
-4. Distributors and wholesalers must have their own storage where our products can be held: a warehouse, depot or logistics centre. Confirm it and say where it is in the fit rationale ("Storage: ..."). If you cannot confirm it, leave the company out ("no storage confirmed").
+4. The company must buy and hold our products itself. Distributors and wholesalers must have their own storage where our products can be held: a warehouse, depot or logistics centre. Confirm it and say where it is in the fit rationale ("Storage: ..."). If you cannot confirm it, leave the company out ("no storage confirmed"). Other channels: see HOW THE HARD RULES APPLY.
 5. The company must already sell at least one category from DIABLO'S CATALOGUE above, confirmed on its own website or another solid source. Name those categories in "distributes" using the catalogue's words ("nothing from our catalogue").
 6. Food must be the company's main business. Leave out pharmacy and drugstore wholesalers whose main lines are medicines, medical equipment or generic pharmacy products, packaging suppliers, and drinks-only or wine-only merchants ("not a food business").
 7. Leave out suppliers of ingredients, raw materials, semi-finished products or bulk catering packs for professionals (gelato and pastry makers, bakeries, restaurants, hotels and caterers), even when their range includes chocolate, syrups or toppings ("ingredients for professionals").
 8. Leave out fine food, delicatessen, gourmet and artisanal specialists (cheese, charcuterie, truffles, wine, preserves) and importers of one country's cuisine (for example Italian or Mexican food), unless branded packaged confectionery or biscuits for resale are a clear part of their range ("deli or cuisine specialist"). Searching in a local language must not turn the search into a search for that country's cuisine: in an Italian speaking city look for confectionery and snack distributors, not Italian food importers.
-9. Open the company's own website. If it does not load, leave the company out ("website does not open").
+9. Open the company's own website (a marketplace seller with no website of its own: its storefront). If it does not load, leave the company out ("website does not open").
 
 LEARNING FROM DIABLO'S REVIEW OF THE SWISS RESEARCH (21 Oct 2026)
 Left out by Diablo, and why (never list companies like these):
@@ -58,11 +58,11 @@ Do not list these companies; we already work with them, are negotiating with the
 Do not list brand owners, exporters, or competitors that make sugar-free products, except in the checked-and-excluded list.
 Never list sales and marketing agencies, brokers or brand representation companies that do not buy and hold stock, even when they call themselves distributors; put them in checked_and_excluded with the reason "agency".
 
-DEPTH AND COMPLETENESS
-- Minimum {{MIN}} companies. If you cannot find {{FLOOR}} genuine ones, say so explicitly with the real count and explain what limits the market. Do not pad the list with irrelevant names.
-- Quality before count: list only companies that pass every HARD RULE and whose range you have confirmed. A shorter list of confirmed companies is better than a long list with unconfirmed ones.
-- Work through the market systematically. Cover national players that serve {{MARKET}}, strong regional and local players and specialist or niche players. Regional and specialist names matter as much as the obvious national ones.
-- Do not stop early because the obvious names are covered. The value of this work is in the second and third tier names.
+DEPTH, COUNT AND REJECTING
+- {{MIN}} is the most companies to list, not a target. There is no need to fill every place: list only the companies that pass every HARD RULE. Ten good companies are worth more than fifty doubtful ones, and Diablo would rather see a short list than reject names afterwards.
+- Reject firmly. When a company breaks a rule, or you are unsure whether it passes, do not list it, not even at tier 3: put it in checked_and_excluded with its reason. "Could take Diablo as a side line", "fit is conditional", "confectionery not confirmed" or "worth checking" all mean reject. Rejecting a weak company is a good result, not a failure.
+- Search deeply, list strictly. Work through the market systematically: national players that serve {{MARKET}}, strong regional and local players and specialist or niche players, beyond the obvious names. Keep searching for more companies that pass, but never list a weak one to make up the number.
+- If fewer than {{FLOOR}} companies pass, that is fine: give the real count in shortfall_note and say what limits the market (for example how many you checked and rejected, and why).
 
 RESEARCH METHODOLOGY AND SOURCES
 - Go beyond the first page of search results. Use the sources listed under WHERE TO LOOK above.
@@ -83,7 +83,7 @@ OUTPUT FIELDS (one entry per company, company level only)
 10. Found the company from: the source URL(s)
 
 TIERING AND RANKING
-- Tier 1: best fit, prioritise for outreach. Tier 2: viable, approach after tier 1. Tier 3: possible but lower priority or conditional.
+- Every listed company passes every HARD RULE; the tiers only rank good companies. Tier 1: best fit, prioritise for outreach. Tier 2: a good fit with less reach or fewer of our categories. Tier 3: passes every rule but is small or reaches few shops. Never use tier 3 for a doubtful or conditional fit: reject it instead.
 - Explain the logic of the cut in two or three sentences.
 - Rank within each tier, starting at 1.
 - Fit means relevance to a sugar-free confectionery and snacks range, not simply size. Use WHAT GOOD FIT LOOKS LIKE above. The more of DIABLO'S CATALOGUE a company already sells from other brands, the higher it ranks.
@@ -138,7 +138,7 @@ RULES
 - WRITING: British English. No em dashes or en dashes. No Oxford commas.
 
 QUALITY CONTROL (do this before you save)
-- Go through every company against the nine HARD RULES once more. Move any that breaks one to checked_and_excluded with its reason.
+- Go through every company against the nine HARD RULES once more, as they apply to this channel. Move any that breaks one to checked_and_excluded with its reason.
 - Every company's "distributes" names at least one category from DIABLO'S CATALOGUE; the check refuses the file otherwise.
 - Every company has a domain or "no domain", a confidence and a source.
 - No company appears twice. Excluded companies do not appear in the list.

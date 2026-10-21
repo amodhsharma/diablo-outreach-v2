@@ -11,3 +11,6 @@ Trade association and supplier association member lists, importer directories (f
 
 WHAT GOOD FIT LOOKS LIKE
 Prioritise, in this order: handles European or UK branded confectionery and snacks; a mid-size business where a decision maker can be reached; named access to retail, pharmacy, convenience or online channels in the market; already carries sugar-free or better-for-you lines without a direct competitor.
+
+HOW THE HARD RULES APPLY
+All nine apply as far as they fit the channel as typed. Rule 4: a company that sells to the trade must have its own warehouse or depot (write it after "Storage: " in the fit rationale); a company that sells to shoppers must buy stock and sell it from its own shops or online shop. When unsure whether a rule is met, reject the company.

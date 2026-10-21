@@ -11,3 +11,6 @@ Start where trade buyers are listed: national importer and supplier association 
 
 WHAT GOOD FIT LOOKS LIKE
 The model: a distributor that buys other companies' branded sweets, chocolate, biscuits and snacks, holds them in its own warehouse and sells them on to supermarkets, independent shops, kiosks or vending. Prioritise, in this order: imports European or UK branded confectionery and snacks; a mid-size, owner-run importer where a decision maker can be reached; named access to retail, convenience or pharmacy chains in the market; already carries sugar-free or better-for-you lines without a direct competitor; import licence and cold chain for chocolate. A mid-size specialist importer may outrank a large generalist.
+
+HOW THE HARD RULES APPLY
+All nine apply in full. Rule 4: confirm the distributor's own warehouse, depot or logistics centre and write it after "Storage: " in the fit rationale. Rule 6: pharmacy distributors count only when packaged food or confectionery is a main line, not a side group next to medicines and medical supplies.
