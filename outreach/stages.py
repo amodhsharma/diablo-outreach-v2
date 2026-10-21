@@ -16,6 +16,10 @@ account itself, so the code works whatever the account calls a choice internally
     They replied                               In Progress                   In Progress
     Any dead end (rejected, not interested,    Unqualified                   Unqualified
     no reply, opted out, bounced)
+    The company is Unqualified (by a person                                  Unqualified company
+    or the loop, 21 Oct 2026): its other
+    contacts, so a contact's own Unqualified
+    stays apart
     A colleague at the company answered for                                  "Colleague replied: positive",
     everyone (19 Oct 2026): the others are                                   "Colleague replied: negative" or
     never emailed and show what happened                                     "Colleague replied"
@@ -51,6 +55,9 @@ STAGES = {
         "colleague_replied": "Colleague replied",
         # Someone at the company opted out (19 Oct 2026): blocklisted, unsubscribed or asked to stop.
         "colleague_opted_out": "Colleague opted out",
+        # The company is Unqualified (21 Oct 2026, Ariel): every other contact there, kept apart from
+        # a contact's own "Unqualified".
+        "company_unqualified": "Unqualified company",
     },
 }
 COLLEAGUE_STAGES = ("colleague_positive", "colleague_negative", "colleague_replied", "colleague_opted_out")
@@ -69,13 +76,15 @@ NEW_OPTION_VALUES = {
                  "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
                  "Unqualified": "UNQUALIFIED", "Colleague replied: positive": "COLLEAGUE_REPLIED_POSITIVE",
                  "Colleague replied: negative": "COLLEAGUE_REPLIED_NEGATIVE",
-                 "Colleague replied": "COLLEAGUE_REPLIED", "Colleague opted out": "COLLEAGUE_OPTED_OUT"},
+                 "Colleague replied": "COLLEAGUE_REPLIED", "Colleague opted out": "COLLEAGUE_OPTED_OUT",
+                 "Unqualified company": "UNQUALIFIED_COMPANY"},
 }
 
 # Later stages win: a status only ever moves forward.
 ORDER = {"": 0, "found": 0, "missing_info": 0, "copy_ready": 0, "approved": 0,
          "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3,
-         "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2}
+         "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2,
+         "company_unqualified": 3}
 TEAM = "team"
 
 

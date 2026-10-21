@@ -317,6 +317,45 @@ COLLEAGUE_STAGE = {"marked interested": "colleague_positive", "replied": "collea
                    "opted out earlier": "colleague_opted_out"}
 
 
+# Contacts left alone when their company is Unqualified: their own Unqualified, a status that already
+# says what happened at the company, one a person set by hand, and those already done.
+KEEP_WHEN_COMPANY_CLOSED = ("closed", "company_unqualified", TEAM) + COLLEAGUE_STAGES
+
+
+def close_company_contacts(hs, statuses, log=print):
+    """Every AUTO-OUTREACH contact at an AUTO-OUTREACH company whose Lead Status is Unqualified (set by a
+    person or by the loop) becomes "Unqualified company" (agreed 21 Oct 2026), with the reason written
+    in "Outreach stopped because" and on its timeline. Returns how many contacts changed."""
+    if not statuses.has("contacts", "company_unqualified"):
+        log('The contact Lead Status choice "Unqualified company" is missing; run button 1 to add it. '
+            "Contacts at Unqualified companies were left as they are.")
+        return 0
+    companies = hs.tagged_search("companies", [statuses.filter("companies", "closed")],
+                                 ["name", STOP_REASON], max_results=5000)
+    if not companies:
+        return 0
+    everyone = contacts_by_company(hs, [c["id"] for c in companies])
+    updates, reasons = [], []
+    for company in companies:
+        props = company.get("properties", {})
+        why = (props.get(STOP_REASON) or "").strip()
+        text = f"The company is Unqualified ({today()})" + (f": {why}" if why else "")
+        changed = 0
+        for c in everyone.get(company["id"]) or []:
+            if statuses.of("contacts", c) in KEEP_WHEN_COMPANY_CLOSED:
+                continue
+            updates.append((c["id"], statuses.props("contacts", "company_unqualified")))
+            reasons.append((c["id"], text))
+            changed += 1
+        if changed:
+            log(f'{props.get("name")}: the company is Unqualified, so {changed} contact(s) there are now '
+                '"Unqualified company"')
+    if updates:
+        hs.update_tagged("contacts", updates)
+        stop_reasons(hs, "contacts", reasons, log)
+    return len(updates)
+
+
 def mark_colleagues(hs, statuses, company_contacts, answered_ids, stage, log=print, name=""):
     """Give everyone at the company who has not answered themselves the colleague Lead Status, so
     gate 2 no longer shows them as waiting. Skipped quietly when the account lacks the choice
@@ -438,6 +477,11 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
 
     moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads,
                     blocked=blocked, opt_out_rows=opt_out_rows)
+    try:  # 21 Oct 2026: the contacts of every Unqualified company become "Unqualified company"
+        moved["company_contacts_closed"] = close_company_contacts(hs, statuses, log)
+    except Exception as err:  # never stops the run; tried again next run
+        log(f"Could not mark the contacts of Unqualified companies: {str(err)[:200]}")
+        moved["company_contacts_closed"] = 0
     out_dir = run_dir("sync")
     write_json(out_dir / "changes.json", {"contacts": changed, "companies": company_updates,
                                           "next_in_line": moved})

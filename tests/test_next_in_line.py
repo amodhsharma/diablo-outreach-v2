@@ -590,3 +590,25 @@ def test_more_words_mark_an_automatic_answer():
     ]
     for e in real:
         assert not sync.is_auto_reply(e), e
+
+
+def test_contacts_of_an_unqualified_company_become_unqualified_company():
+    """21 Oct 2026 (Ariel): when a company is Unqualified, by a person or by the loop, its other contacts
+    become "Unqualified company", kept apart from a contact's own "Unqualified"."""
+    from outreach.stages import LeadStatus
+    hs = FakeCRM()
+    cid, (p1, p2, p3) = company_with_three(hs, "Closed Foods", "closed.in")
+    hs.records["companies"][cid][LS] = "Unqualified"  # a person set the company to Unqualified
+    hs.records["contacts"][p1][LS] = "UNQUALIFIED"  # p1's own reason stays
+    hs.records["contacts"][p2][LS] = "REMINDER_SENT"
+    other, (q1, _, _) = company_with_three(hs, "Open Foods", "open.in")
+    hs.records["companies"][other][LS] = "Attempted to Contact"
+    team = hs.add("contacts", email="t@closed.in", **{LS: "Emailed"})  # a person took this one over
+    hs.links[team] = [cid]
+    statuses = LeadStatus(hs)
+    assert sync.close_company_contacts(hs, statuses, log=lambda *_: None) == 2
+    assert status_of(hs, p1) == "UNQUALIFIED"
+    assert status_of(hs, p2) == status_of(hs, p3) == "UNQUALIFIED_COMPANY"
+    assert status_of(hs, team) == "Emailed" and status_of(hs, q1) == "APPROVED_TO_SEND"
+    assert hs.records["contacts"][p2]["diablo_stop_reason"].startswith("The company is Unqualified")
+    assert sync.close_company_contacts(hs, statuses, log=lambda *_: None) == 0  # nothing twice

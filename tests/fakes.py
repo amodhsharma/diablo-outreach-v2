@@ -17,7 +17,8 @@ LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": 
                        "FORWARD_SENT": "Forward sent", "REMINDER_SENT": "Reminder sent",
                        "COLLEAGUE_REPLIED_POSITIVE": "Colleague replied: positive",
                        "COLLEAGUE_REPLIED_NEGATIVE": "Colleague replied: negative",
-                       "COLLEAGUE_REPLIED": "Colleague replied", "COLLEAGUE_OPTED_OUT": "Colleague opted out"}
+                       "COLLEAGUE_REPLIED": "Colleague replied", "COLLEAGUE_OPTED_OUT": "Colleague opted out",
+                       "UNQUALIFIED_COMPANY": "Unqualified company"}
 
 
 class FakeCRM(TagGuard):
