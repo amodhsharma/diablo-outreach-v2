@@ -1,0 +1,158 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0008",
+  "location": "Lugano, Switzerland",
+  "run_date": "2026-10-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 6,
+      "searches_used": 101
+    }
+  ],
+  "companies": [
+    {
+      "name": "Lamda SA",
+      "based_out_of": "Davesco-Soragno (Lugano), Switzerland",
+      "domain": "lamda-sa.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Confectionery and bakery products, pastry and frozen desserts, flours and couscous, dairy, fresh pasta and gourmet foods.",
+      "channels_supplied": "Trade customers in Ticino and Switzerland; its site does not name specific retail chains or foodservice accounts.",
+      "sf_brands_carried": "No sugar free range found; carries the organic Molino Filippini Linea Bio.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Lugano based, owner scale importer whose business started in confectionery and bakery and whose model is bringing foreign (mainly Italian) brands into Switzerland. A sugar free biscuit and chocolate range would add a better for you line that it does not yet carry.",
+      "what_they_do_well": [
+        "Trading since 1990 as a warehouse and seller of confectionery and bakery products.",
+        "Brought brands such as Parmalat, Val d'Enza, Dolcisapori, Pasta Amato and Molini Filippini to the Swiss market."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.lamda-sa.ch/",
+        "https://bestfoodimporters.com/company/lamda-sa/"
+      ]
+    },
+    {
+      "name": "Bernasconi SA",
+      "based_out_of": "Cadempino, Switzerland",
+      "domain": "bernasconifood.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Cheese, cured meats, dry goods (pasta, rice, oils, sauces), eggs, dairy and desserts, sweet and savoury baked goods, jams and spreads, beverages and an own label range.",
+      "channels_supplied": "Shops, butchers, bars, restaurants, hotels, caterers and event organisers in Ticino; no sales to private customers or export.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long established Lugano area wholesaler that already sells sweet baked goods, jams and spreads to independent shops and bars, which suits Diablo's biscuits and spreads. Its core is cheese and charcuterie, so confectionery would be a range extension rather than a core category.",
+      "what_they_do_well": [
+        "Four generations in food wholesale, tracing back to 1937 in Melide and based in Cadempino since 2000.",
+        "Supplies shops, bars, restaurants, hotels and caterers across Ticino from its own range."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.bernasconifood.ch/",
+        "https://bestfoodimporters.com/company/bernasconi-sa/"
+      ]
+    },
+    {
+      "name": "Ghioldi SA",
+      "based_out_of": "Stabio, Switzerland",
+      "domain": "ghioldisa.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Cheese, cured meats and general groceries, plus frozen and ready made foods, pasta, oils and gourmet products.",
+      "channels_supplied": "Wholesale and retail trade from Stabio; specific chains not named on its site.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An importer, distributor and wholesaler near the Italian border with IFS certified logistics, which suggests it can handle branded packaged goods for retail. Confectionery is not confirmed in its range, so fit depends on appetite to add snacks.",
+      "what_they_do_well": [
+        "Holds IFS Logistics and IFS Broker certification."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.ghioldisa.ch/it/contatti",
+        "https://bestfoodimporters.com/company/ghioldi-sa/",
+        "https://onlineinfo.ch/company/ghioldi-sa---che-106-977-537/pdf"
+      ]
+    },
+    {
+      "name": "Delizie & Sapori Sagl",
+      "based_out_of": "Vacallo, Switzerland",
+      "domain": "deliziesapori.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Italian specialities from small producers: confectionery and snacks, breadsticks, olive oil, vegetables in oil, pasta, spices, tea, coffee and wine.",
+      "channels_supplied": "Not confirmed; directory lists it as an importer and supplier.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A small Mendrisiotto importer of gourmet Italian products, including confectionery and snacks, that could place a premium sugar free line with delis. Its own catalogue page could not be read, so range and channels are unconfirmed.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://bestfoodimporters.com/company/delizie-sapori-sagl/",
+        "http://www.deliziesapori.ch/catalogo.php"
+      ]
+    },
+    {
+      "name": "Ti-Gel Sagl",
+      "based_out_of": "Sant'Antonino, Switzerland",
+      "domain": "ti-gel.ch",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Ingredients, frozen fruit, packaging and equipment for gelaterie and pastry shops.",
+      "channels_supplied": "Gelaterie, pastry shops and bakeries in Ticino (from its own site's section titles; customers not named).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Supplies the Ticino artisan gelato and pastry trade, a possible outlet for Diablo syrups, spreads and baking chocolate. It is an ingredients and equipment supplier rather than a packaged snacks distributor, so fit is conditional; its pages could not be read in full.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ti-gel.ch/",
+        "https://www.ti-gel.ch/it/gelato/",
+        "https://www.ti-gel.ch/it/pastry-2/"
+      ]
+    },
+    {
+      "name": "Erimex SA",
+      "based_out_of": "Chiasso, Switzerland",
+      "domain": "no domain",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Food, wine, beverages and meat products, with a focus on Romanatti branded goods (per its registered purpose).",
+      "channels_supplied": "Not confirmed.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Registered food importer and wholesaler in Chiasso, but its registry activity code is that of a food trade agent and local.ch marks the listing as closed, so it may not buy and hold stock. Verify status before any outreach.",
+      "what_they_do_well": [],
+      "confidence": "low",
+      "source_urls": [
+        "https://onlineinfo.ch/firma/erimex-sa---che-107-978-462/pdf",
+        "https://graph.swiss/companies/erimex-sa/1096784",
+        "https://www.local.ch/de/q/tessin-kanton/lebensmittel-en-gros"
+      ]
+    }
+  ]
+}
