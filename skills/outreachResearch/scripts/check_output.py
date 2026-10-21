@@ -257,7 +257,8 @@ CATALOGUE_WORDS = re.compile(
     r"\b(chocolates?|pralines?|confectionery|confections?|sweets|candy|candies|gumm(?:y|ies)|jelly|jellies|"
     r"toffees?|dragees?|chewing gum|biscuits?|cookies?|wafers?|cakes?|muffins?|bars?|snacks?|spreads?|"
     r"peanut butter|jams?|syrups?|toppings?|dessert sauces?|advent calendars?|gift boxes|"
-    r"imports and builds packaged food brands)\b", re.I)  # the brand-builder exception, 21 Oct 2026
+    r"imports and builds packaged food brands|imports foreign food to order for its customers)\b",
+    re.I)  # the two importer exceptions of HARD RULE 5 (21 Oct 2026: Rufenberg and Conaxess; Fromita)
 
 
 def check_catalogue(errors, companies):
