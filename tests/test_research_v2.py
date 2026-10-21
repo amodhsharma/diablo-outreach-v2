@@ -577,3 +577,22 @@ def test_weak_fit_check_refuses_hedged_and_low_confidence_companies():
          "fit_rationale": "A national kiosk and confectionery wholesaler. Storage: own warehouse in Lutry."},
     ])
     assert len(errors) == 2 and "range extension" in errors[0] and "low confidence" in errors[1]
+
+
+def test_weak_fit_check_refuses_own_products_and_non_distributors():
+    """21 Oct 2026 (claro, Nurissa): own-product signs and "rather than a distributor" are refused."""
+    import importlib.util
+    path = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "scripts" / "check_output.py"
+    spec = importlib.util.spec_from_file_location("check_output_own", path)
+    co = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(co)
+    errors = []
+    co.check_weak_fit(errors, [
+        {"name": "Fair trade", "confidence": "medium", "distributes": "Chocolate and bars.",
+         "fit_rationale": "An importer that is also a brand in its own right."},
+        {"name": "Vending", "confidence": "high", "distributes": "Snacks and coffee in machines.",
+         "fit_rationale": "A vending operator rather than a classic distributor."},
+        {"name": "Snack importer", "confidence": "medium", "distributes": "Imported snacks and sweets.",
+         "fit_rationale": "Takes Swiss rights for snack brands and sells them into kiosks and chains."},
+    ])
+    assert len(errors) == 2 and "Fair trade" in errors[0] and "Vending" in errors[1]

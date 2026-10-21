@@ -270,8 +270,8 @@ def check_catalogue(errors, companies):
                           'sells, or leave the company out with the reason "nothing from our catalogue"')
 
 
-# Hedged fits that Diablo rejected in the Swiss review (21 Oct 2026, HARD RULE 11). None of the four
-# best Swiss finds uses them; 18 of the 30 rejected companies did.
+# Hedged fits and own-product signs that Diablo rejected in the Swiss review (21 Oct 2026, HARD RULES
+# 1, 2 and 11). None of the six good Swiss finds uses them.
 WEAK_FIT_WORDS = re.compile(
     r"range extension|would be new|new (?:category|line) for|new to its|would need to extend|"
     r"not (?:its|a) core|outside its core|not a confectionery specialist|"
@@ -279,7 +279,11 @@ WEAK_FIT_WORDS = re.compile(
     r"not confirmed in its range|does not (?:yet )?(?:carry|list|stock|sell) (?:sweets|confectionery|snacks)|"
     r"no (?:sweets|confectionery)(?: range)?(?: was)? (?:seen|found|today)|carries no confectionery|"
     r"side line|as an add-on|conditional|lower priority|check first|listed only in a directory|"
-    r"depends on (?:its )?appetite", re.I)
+    r"depends on (?:its )?appetite|"
+    # 21 Oct 2026 (claro, Nurissa): it sells its own products, or is not a distributor at all
+    r"rather than a (?:classic |true |real |traditional )?(?:distributor|wholesaler|importer)|"
+    r"brand in its own right|own production|own manufactur|manufactures its own|makes its own|"
+    r"produces its own|own brands? (?:range|line)|its own label", re.I)
 
 
 def check_weak_fit(errors, companies):

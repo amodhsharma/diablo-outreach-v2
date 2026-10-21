@@ -23,13 +23,13 @@ DIABLO'S CATALOGUE (from Diablo's online shop, 21 Oct 2026)
 A company qualifies only if it already sells at least one of these broad categories (chocolate, sweets, gummies, biscuits, cookies, wafers, cakes, cereal bars, spreads, peanut butter, jams, syrups or dessert toppings) as branded packaged goods for resale.
 
 HARD RULES (decided by Diablo on 21 Oct 2026; they apply to every channel, as far as each one applies, and HOW THE HARD RULES APPLY under WHAT THIS CHANNEL MEANS says how. A company that breaks any one is never listed: put it in checked_and_excluded with the reason in brackets)
-1. No company that mainly supplies its own products, whether bakery and pastry goods, raw materials or semi-finished products ("own products"). We sell our own branded, labelled products, so the company must sell other companies' brands.
+1. No company that mainly supplies its own products, whether bakery and pastry goods, raw materials or semi-finished products ("own products"). We sell our own branded, labelled products, so the company must sell other companies' brands. Before listing a company, read its About page in the local language for signs that it makes or brands what it sells (own production, own manufacturing, own brand, "Eigenproduktion", "Herstellung", "fabrication maison", "produzione propria") and leave it out when it does.
 2. No company that sells its own catalogue of products, own brand or own label: it will not sell ours ("own range").
 3. No company that sells generic goods it makes itself ("makes its own goods").
 4. The company must buy and hold our products itself. Distributors and wholesalers must have their own storage where our products can be held: a warehouse, depot or logistics centre. Confirm it and say where it is in the fit rationale ("Storage: ..."). If you cannot confirm it, leave the company out ("no storage confirmed"). Other channels: see HOW THE HARD RULES APPLY.
 5. The company must already sell at least one category from DIABLO'S CATALOGUE above as a real part of its range, seen on its own website (product pages, product categories or brand list). A directory, registry or trade listing alone never proves it. One catalogue word among a range that is mostly something else does not count either: table-top sweeteners, honey, flour, baking ingredients and fruit puree are not our catalogue. Name the categories in "distributes" using the catalogue's words ("nothing from our catalogue").
-6. Food must be the company's main business. Leave out pharmacy and drugstore wholesalers whose main lines are medicines, medical equipment or generic pharmacy products, packaging suppliers, and drinks-only or wine-only merchants ("not a food business").
-7. Leave out suppliers of ingredients, raw materials, semi-finished products or bulk catering packs for professionals (gelato and pastry makers, bakeries, restaurants, hotels and caterers), even when their range includes chocolate, syrups or toppings ("ingredients for professionals").
+6. Food must be the company's main business. Leave out pharmacy and drugstore wholesalers whose main lines are medicines, medical equipment or generic pharmacy products, packaging suppliers, drinks-only or wine-only merchants, and coffee-led service companies such as office coffee and vending operators that run their own machines ("not a food business"). A wholesaler that supplies vending operators with packaged snacks still counts.
+7. Leave out suppliers of ingredients, raw materials, semi-finished products or bulk catering packs for professionals (gelato and pastry makers, bakeries, restaurants, hotels and caterers), even when their range includes chocolate, syrups or toppings ("ingredients for professionals"). The same goes for broadline foodservice wholesalers whose customers cook with what they buy (restaurant, hotel, canteen, hospital and care home kitchens): Diablo's packs are sold to shoppers as they are. A supplier of snack counters and kiosks that sell packs as they are (for example in leisure parks or pools) still counts, at tier 3.
 8. Leave out fine food, delicatessen, gourmet and artisanal specialists (cheese, charcuterie, truffles, wine, preserves), importers of one country's or one region's cuisine (for example Italian, Mexican, Greek or Asian food) and ethnic or world food wholesalers (for example African, Asian, Middle Eastern or Latin American foods for ethnic shops), unless branded packaged confectionery or biscuits for resale are a clear part of their range ("deli or cuisine specialist"). Searching in a local language must not turn the search into a search for that country's cuisine: in an Italian speaking city look for confectionery and snack distributors, not Italian food importers.
 9. Open the company's own website (a marketplace seller with no website of its own: its storefront). If it does not load, leave the company out ("website does not open"). Give its current domain: when an old domain redirects to a new name, give the new one.
 10. Leave out chilled and frozen food specialists: Diablo's products are ambient ("chilled or frozen specialist").
@@ -50,11 +50,18 @@ Left out by Diablo, and why (never list companies like these):
 - Oils, teas, flours, spices, sweeteners, honey, cosmetics and cleaning products, where "spreads" was the only catalogue word: Hima La Vie.
 - A pharmaceutical wholesale group (pharmacy supply chain), whose dietary products were only a registered purpose: Avosano (formerly Voigt).
 - Frozen pastry, flour and couscous, fresh pasta and dairy, where "confectionery" meant Italian pastry: Lamda.
+- Broadline foodservice wholesalers for restaurant, hotel, canteen and care home kitchens: Fideco, H&R Gastro, Chef Gourmet (frozen pastry for chefs).
+- A Japanese and Asian food supplier: Foodex.
+- Their own products: claro fair trade (a brand in its own right), PRO.DI.GIO (makes what it sells).
+- A coffee-led vending operator running its own machines: Nurissa.
+- Raw materials and wines, with confectionery only in a directory: Gustoso.
 The best finds, the model to follow:
 - 1001 Distributions: a wholesaler selling branded sweets, chewing gum and snacks to supermarkets and shops through a B2B webshop for retail professionals.
 - Ch. Margot & Cie: a national kiosk and confectionery wholesaler with over 3,000 branded items and more than 2,500 trade clients.
 - Cadar: a purchasing centre and wholesaler for independent grocers with its own warehouse of more than 4,000 m2.
 - Provianda: a wholesaler of branded confectionery, wafers, bars and snacks for vending operators and workplace catering.
+- easytrade distribution: an owner-run importer that takes Swiss rights for foreign snack brands and sells them into kiosks, retail chains and wholesalers with its own field team.
+- A good tier 3 find: Authentic Food Solutions (Swiss Deli Distribution), which supplies packaged sweets, cookies and snacks to snack counters and kiosks in leisure parks and pools across Switzerland.
 
 WHAT THIS CHANNEL MEANS
 {{CHANNEL_RULES}}
