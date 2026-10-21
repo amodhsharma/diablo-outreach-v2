@@ -199,6 +199,8 @@ def build(job_id=None, location=None, manual=False, work=None, today=None):
             _, rules = read_template(entry["template"], suffix)
             check = (f"python3 skills/outreachResearch/scripts/check_output.py part {entry['output_file']} "
                      f"--exclusions {work / 'exclusions.txt'}")
+            if rq.prompt_version(settings) >= 3:
+                check += " --catalogue"  # 21 Oct 2026: each company must sell something from our catalogue
             values = {
                 "{{CHANNEL_RULES}}": rules,
                 "{{CATEGORY_AS_TYPED}}": line["channel"],

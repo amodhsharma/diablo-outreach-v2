@@ -104,9 +104,17 @@ Finish with three lines:
 
 ## What the files are
 
-- Two versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
+- Three versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
   `settings.yaml` picks one, and prepare_run.py writes the chosen version into `work/`:
-  - version 2 (in use): `prompts/channel_prompt_2.md` and `prompts/channels/*_2.md`. No agencies,
+  - version 3 (in use from 21 Oct 2026): `prompts/channel_prompt_3.md` and `prompts/channels/*_3.md`.
+    Version 2 plus Diablo's nine hard rules (no company selling its own products, own range or
+    goods it makes; distributors and wholesalers need their own storage; it must already sell
+    something from Diablo's catalogue; no pharmacy, packaging or drinks-only suppliers; no
+    ingredients for professionals; no deli or single cuisine specialists; the website must open),
+    the full catalogue and the lessons from Ariel's review of the Swiss research. Its check
+    command adds `--catalogue`, which refuses a company whose "distributes" names nothing from
+    the catalogue;
+  - version 2: `prompts/channel_prompt_2.md` and `prompts/channels/*_2.md`. No agencies,
     importer directories and trade press as starting points (confirmed on the company's own
     website), ranking by fit, importers of European or UK brands first, 30 companies wanted;
   - version 1 (the originals, kept unchanged): `prompts/channel_prompt.md` and

@@ -251,7 +251,26 @@ def _ranks(errors, companies, group_key):
         seen[key] = c.get("name")
 
 
-def check_part(data, exclusions=(set(), set())):
+# Diablo's catalogue in broad words (decided 21 Oct 2026, from the online shop). With --catalogue
+# (research prompt version 3), "What they distribute" must name at least one of them.
+CATALOGUE_WORDS = re.compile(
+    r"\b(chocolates?|pralines?|confectionery|confections?|sweets|candy|candies|gumm(?:y|ies)|jelly|jellies|"
+    r"toffees?|dragees?|chewing gum|biscuits?|cookies?|wafers?|cakes?|muffins?|bars?|snacks?|spreads?|"
+    r"peanut butter|jams?|syrups?|toppings?|dessert sauces?|advent calendars?|gift boxes)\b", re.I)
+
+
+def check_catalogue(errors, companies):
+    for c in companies:
+        if not isinstance(c, dict) or not isinstance(c.get("name"), str):
+            continue
+        if not CATALOGUE_WORDS.search(str(c.get("distributes") or "")):
+            errors.append(f'Company "{c["name"].strip()}": What they distribute names nothing from Diablo\'s '
+                          'catalogue (chocolate, sweets, gummies, biscuits, cookies, wafers, cakes, bars, '
+                          'spreads, peanut butter, jams, syrups or dessert toppings); name the categories it '
+                          'sells, or leave the company out with the reason "nothing from our catalogue"')
+
+
+def check_part(data, exclusions=(set(), set()), catalogue=False):
     errors = []
     if not _keys(errors, "The file", data, PART_KEYS):
         return errors
@@ -276,6 +295,8 @@ def check_part(data, exclusions=(set(), set())):
     _duplicates(errors, companies)
     _excluded(errors, companies, exclusions)
     _ranks(errors, companies, lambda c: "")
+    if catalogue:
+        check_catalogue(errors, companies)
     return errors
 
 
@@ -369,6 +390,8 @@ def main(argv=None):
     p.add_argument("file")
     p.add_argument("--report", default="")
     p.add_argument("--exclusions", default="")
+    p.add_argument("--catalogue", action="store_true",
+                   help="each company must sell something from Diablo's catalogue (prompt version 3)")
     args = p.parse_args(argv)
     try:
         data = json.loads(Path(args.file).read_text(encoding="utf-8"))
@@ -377,7 +400,7 @@ def main(argv=None):
         return 1
     exclusions = load_exclusions(args.exclusions)
     if args.kind == "part":
-        errors = check_part(data, exclusions)
+        errors = check_part(data, exclusions, catalogue=args.catalogue)
     else:
         report = Path(args.report).read_text(encoding="utf-8") if args.report else None
         errors = check_final(data, report, exclusions)

@@ -427,16 +427,24 @@ def test_country_short_forms_match():
 
 
 def test_prompt_versions_side_by_side(repo):
-    """Version 2 (default) uses the _2 prompts; version 1 still uses the untouched originals."""
+    """Version 3 (in use from 21 Oct 2026) uses the _3 prompts; 2 and 1 still use their untouched files."""
     prompts = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "prompts"
     for name in ["channel_prompt", "channels/distributor", "channels/wholesaler", "channels/retailer",
                  "channels/general", "channels/marketplace_seller"]:
-        assert (prompts / f"{name}.md").exists() and (prompts / f"{name}_2.md").exists()
+        for suffix in ("", "_2", "_3"):
+            assert (prompts / f"{name}{suffix}.md").exists()
+    assert run_script(repo, "prepare_run.py").returncode == 0
+    plan = json.loads((repo / "work" / "plan.json").read_text())
+    three = (repo / "work" / "channel_1_prompt.md").read_text()
+    assert plan["prompt_version"] == 3 and "HARD RULES" in three and "DIABLO'S CATALOGUE" in three
+    assert "syrups" in three and "Storage: " in three and "--catalogue" in three
+    settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    settings.write_text(settings.read_text().replace("prompt_version: 3", "prompt_version: 2"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
     new = (repo / "work" / "channel_1_prompt.md").read_text()
     assert plan["prompt_version"] == 2 and "reason \"agency\"" in new and "bestfoodimporters.com" in new
-    settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    assert "HARD RULES" not in new and "--catalogue" not in new
     settings.write_text(settings.read_text().replace("prompt_version: 2", "prompt_version: 1"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
@@ -448,7 +456,10 @@ def test_version_2_numbers(tmp_path):
     f = tmp_path / "s.yaml"
     f.write_text("prompt_version: 2\ndefault_companies: 60\nmin_floor: 30\ndefault_companies_2: 30\nmin_floor_2: 15\n")
     assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (30, 15)
-    f.write_text(f.read_text().replace("prompt_version: 2", "prompt_version: 1"))
+    f.write_text(f.read_text().replace("prompt_version: 2", "prompt_version: 3"))
+    assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (30, 15)
+    assert rq.prompt_suffix(rq.load_research_settings(f)) == "_3"
+    f.write_text(f.read_text().replace("prompt_version: 3", "prompt_version: 1"))
     assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (60, 30)
 
 
@@ -523,3 +534,27 @@ def test_job_numbers_never_start_again_and_fill_in_hubspot(tmp_path, monkeypatch
     assert "diablo_job_number" not in hs.records["companies"][d]  # not an AUTO-OUTREACH record
     hs.missing_properties = {("companies", "diablo_job_number")}
     assert job_numbers.run("test", hs, log=lambda *_: None, folder=folder) == {"filled": 0}
+
+
+def test_catalogue_check_refuses_companies_that_sell_nothing_we_make():
+    """21 Oct 2026 (Ariel's review of the Swiss research): with --catalogue, every company must already sell
+    something from Diablo's catalogue. Only the version 3 check command carries the flag."""
+    import importlib.util
+    path = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "scripts" / "check_output.py"
+    spec = importlib.util.spec_from_file_location("check_output_cat", path)
+    co = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(co)
+
+    def company(name, distributes):
+        return {"name": name, "distributes": distributes}
+
+    errors = []
+    co.check_catalogue(errors, [
+        company("Wine house", "Italian wines, olive oil and pasta."),
+        company("Ingredients", "Ingredients, frozen fruit, packaging and equipment for gelaterie."),
+        company("Kiosk wholesaler", "Chocolate, chewing gum, beverages and kiosk articles."),
+        company("Vending", "Packaged confectionery, wafers and protein bars."),
+        company("Syrups", "Coffee, syrups and dessert toppings for cafes."),
+    ])
+    assert len(errors) == 2 and "Wine house" in errors[0] and "Ingredients" in errors[1]
+    assert "nothing from our catalogue" in errors[0]
