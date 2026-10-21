@@ -74,7 +74,11 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt_7.md` (in use from 20 Oct 2026, later the same day): as lines_prompt_6.md,
+- `prompts/lines_prompt_8.md` (in use from 21 Oct 2026): as lines_prompt_7.md, plus when the research
+  shows a company focuses on vegan products, its note names its vegan sweets or snacks and ends with
+  ", and several of ours are vegan too" (for example "distributes vegan snacks and sweets, and several
+  of ours are vegan too"). The check allows "ours" only in that exact ending.
+- `prompts/lines_prompt_7.md` (used from 20 Oct 2026, later the same day): as lines_prompt_6.md,
   plus the note must read like a person wrote it: what they sell and to which kind of shop, never
   their premises or format (cash and carry, depot, warehouse) or vague buyers ("trade customers",
   "food retail"). Wrong: "stocks confectionery in its cash and carry for small retailers".

@@ -439,7 +439,7 @@ def test_writing_prompt_7_the_note_reads_like_a_person_wrote_it():
     new = (skill / "prompts" / "lines_prompt_7.md").read_text()
     assert "stocks confectionery in its cash and carry for small retailers" in new and "## The four styles" in new
     assert "cash and carry for small retailers" not in (skill / "prompts" / "lines_prompt_6.md").read_text()
-    assert 'prompts" / "lines_prompt_7.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    assert "lines_prompt_7.md" in (skill / "scripts" / "prepare_lines.py").read_text()
     base = {"contact_id": "1", "company_name": "Alpenhof Import AG", "style": "D",
             "personal_line": "We hold your team in high regard for introducing three European confectionery brands to Swiss retail. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business."}
     def problems(note):
@@ -452,3 +452,22 @@ def test_writing_prompt_7_the_note_reads_like_a_person_wrote_it():
         assert problems(note), note
     for note in ("stocks confectionery for independent shops", "is in the distribution space for confectionery products"):
         assert problems(note) == [], note
+
+
+def test_writing_prompt_8_vegan_note():
+    """Ariel, 21 Oct 2026 (honeydew): a vegan company's note says several of ours are vegan too."""
+    from pathlib import Path
+    import check_lines
+    skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
+    assert 'prompts" / "lines_prompt_8.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    assert "several of ours are vegan too" in (skill / "prompts" / "lines_prompt_8.md").read_text()
+    assert "vegan" not in (skill / "prompts" / "lines_prompt_7.md").read_text()
+
+    def problems(note):
+        errs = []
+        check_lines.note_problems(errs, "x", note, "honeydew GmbH")
+        return errs
+    assert problems("distributes vegan snacks and sweets, and several of ours are vegan too") == []
+    assert any("vegan" in e for e in problems("distributes snacks and sweets, and several of ours are vegan too"))
+    assert any('"our"' in e for e in problems("distributes vegan snacks like ours"))
+    assert problems("distributes vegan snacks and sweets") == []

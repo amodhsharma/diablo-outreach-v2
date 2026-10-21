@@ -132,12 +132,24 @@ def _emoji(text):
     return any(unicodedata.category(ch) == "So" or ord(ch) > 0xFFFF for ch in text)
 
 
+# 21 Oct 2026 (Ariel, honeydew): a vegan company's note may end with this exact tail, the only time it
+# says "ours". The part before it follows every usual rule and must say "vegan".
+VEGAN_TAIL = ", and several of ours are vegan too"
+
+
 def note_problems(errors, where, note, company):
     """The company note's own rules: it follows "we noticed <company name>", so it starts with a
     small letter, never repeats the name and speaks only about the company."""
     if not isinstance(note, str) or not note.strip():
         errors.append(f"{where}: company_note must be text")
         return
+    if note.rstrip().lower().endswith(VEGAN_TAIL):
+        note = note.rstrip()[:-len(VEGAN_TAIL)]
+        if not re.search(r"(?<![a-z])vegan(?![a-z])", note.lower()):
+            errors.append(f'{where}: "{VEGAN_TAIL.strip(", ")}" is only for a note about the company\'s vegan '
+                          "products; say what vegan sweets or snacks it sells")
+        if not note.strip():
+            return
     n = len(_words(note))
     if not NOTE_WORDS[0] <= n <= NOTE_WORDS[1]:
         errors.append(f"{where}: company note must be {NOTE_WORDS[0]} to {NOTE_WORDS[1]} words (found {n})")
@@ -161,7 +173,7 @@ def note_problems(errors, where, note, company):
         errors.append(f"{where}: company note must be one clause with no full stop at the end")
     if company and re.search(re.escape(company), note, re.I):
         errors.append(f"{where}: the company note must not repeat the company name")
-    if _FIRST_PERSON.search(note) or re.search(r"(?<![A-Za-z'’])(we|our|us|you|your)(?![A-Za-z'’])", note, re.I):
+    if _FIRST_PERSON.search(note) or re.search(r"(?<![A-Za-z'’])(we|our|ours|us|you|your)(?![A-Za-z'’])", note, re.I):
         errors.append(f'{where}: the company note must not say "I", "we", "our" or "you"')
     low = note.lower()
     for word in BANNED:

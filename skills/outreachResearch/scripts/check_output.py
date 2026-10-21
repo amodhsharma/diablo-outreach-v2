@@ -283,7 +283,9 @@ WEAK_FIT_WORDS = re.compile(
     # 21 Oct 2026 (claro, Nurissa): it sells its own products, or is not a distributor at all
     r"rather than a (?:classic |true |real |traditional )?(?:distributor|wholesaler|importer)|"
     r"brand in its own right|own production|own manufactur|manufactures its own|makes its own|"
-    r"produces its own|own brands? (?:range|line)|its own label", re.I)
+    r"produces its own|own brands? (?:range|line)|its own label|"
+    # 21 Oct 2026 (GastroPfaff, Gustoso, GEMMA): the range is only in a directory, or not for shops
+    r"directory (?:also )?lists|directory data only|per (?:the )?directory|rather than retail", re.I)
 
 
 def check_weak_fit(errors, companies):
