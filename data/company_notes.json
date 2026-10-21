@@ -756,6 +756,26 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
   },
+  "bernasconifood.ch": {
+    "name": "Bernasconi SA",
+    "based_out_of": "Cadempino, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A long established Lugano area wholesaler that already sells sweet baked goods, jams and spreads to independent shops and bars, which suits Diablo's biscuits and spreads. Its core is cheese and charcuterie, so confectionery would be a range extension rather than a core category.",
+    "what_they_do_well": [
+      "Four generations in food wholesale, tracing back to 1937 in Melide and based in Cadempino since 2000.",
+      "Supplies shops, bars, restaurants, hotels and caterers across Ticino from its own range."
+    ],
+    "distributes": "Cheese, cured meats, dry goods (pasta, rice, oils, sauces), eggs, dairy and desserts, sweet and savoury baked goods, jams and spreads, beverages and an own label range.",
+    "channels_supplied": "Shops, butchers, bars, restaurants, hotels, caterers and event organisers in Ticino; no sales to private customers or export.",
+    "sf_brands_carried": "",
+    "added": "2026-10-21",
+    "research_file": "research/2026-10-21/J0008_2026-10-21_lugano-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "bestway.co.uk": {
     "name": "Bestway Wholesale",
     "based_out_of": "London, United Kingdom",
@@ -1984,6 +2004,23 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "deliziesapori.ch": {
+    "name": "Delizie & Sapori Sagl",
+    "based_out_of": "Vacallo, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A small Mendrisiotto importer of gourmet Italian products, including confectionery and snacks, that could place a premium sugar free line with delis. Its own catalogue page could not be read, so range and channels are unconfirmed.",
+    "what_they_do_well": [],
+    "distributes": "Italian specialities from small producers: confectionery and snacks, breadsticks, olive oil, vegetables in oil, pasta, spices, tea, coffee and wine.",
+    "channels_supplied": "Not confirmed; directory lists it as an importer and supplier.",
+    "sf_brands_carried": "",
+    "added": "2026-10-21",
+    "research_file": "research/2026-10-21/J0008_2026-10-21_lugano-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "delsud.com.ar": {
     "name": "Droguería del Sud S.A.",
@@ -3393,6 +3430,24 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "ghioldisa.ch": {
+    "name": "Ghioldi SA",
+    "based_out_of": "Stabio, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "An importer, distributor and wholesaler near the Italian border with IFS certified logistics, which suggests it can handle branded packaged goods for retail. Confectionery is not confirmed in its range, so fit depends on appetite to add snacks.",
+    "what_they_do_well": [
+      "Holds IFS Logistics and IFS Broker certification."
+    ],
+    "distributes": "Cheese, cured meats and general groceries, plus frozen and ready made foods, pasta, oils and gourmet products.",
+    "channels_supplied": "Wholesale and retail trade from Stabio; specific chains not named on its site.",
+    "sf_brands_carried": "",
+    "added": "2026-10-21",
+    "research_file": "research/2026-10-21/J0008_2026-10-21_lugano-switzerland_distributors.json"
+  },
   "gianellidistribuidoramayorista.com.ar": {
     "name": "Gianelli Distribuidora Mayorista",
     "based_out_of": "Córdoba, Argentina",
@@ -4572,6 +4627,26 @@
     "sf_brands_carried": "Meriendita Light, Savona Fit, BIBA sugar-free almond drink; no direct sugar-free confectionery competitor seen.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "lamda-sa.ch": {
+    "name": "Lamda SA",
+    "based_out_of": "Davesco-Soragno (Lugano), Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Lugano based, owner scale importer whose business started in confectionery and bakery and whose model is bringing foreign (mainly Italian) brands into Switzerland. A sugar free biscuit and chocolate range would add a better for you line that it does not yet carry.",
+    "what_they_do_well": [
+      "Trading since 1990 as a warehouse and seller of confectionery and bakery products.",
+      "Brought brands such as Parmalat, Val d'Enza, Dolcisapori, Pasta Amato and Molini Filippini to the Swiss market."
+    ],
+    "distributes": "Confectionery and bakery products, pastry and frozen desserts, flours and couscous, dairy, fresh pasta and gourmet foods.",
+    "channels_supplied": "Trade customers in Ticino and Switzerland; its site does not name specific retail chains or foodservice accounts.",
+    "sf_brands_carried": "No sugar free range found; carries the organic Molino Filippini Linea Bio.",
+    "added": "2026-10-21",
+    "research_file": "research/2026-10-21/J0008_2026-10-21_lugano-switzerland_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "lapa.ch": {
@@ -7545,6 +7620,22 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "ti-gel.ch": {
+    "name": "Ti-Gel Sagl",
+    "based_out_of": "Sant'Antonino, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Supplies the Ticino artisan gelato and pastry trade, a possible outlet for Diablo syrups, spreads and baking chocolate. It is an ingredients and equipment supplier rather than a packaged snacks distributor, so fit is conditional; its pages could not be read in full.",
+    "what_they_do_well": [],
+    "distributes": "Ingredients, frozen fruit, packaging and equipment for gelaterie and pastry shops.",
+    "channels_supplied": "Gelaterie, pastry shops and bakeries in Ticino (from its own site's section titles; customers not named).",
+    "sf_brands_carried": "",
+    "added": "2026-10-21",
+    "research_file": "research/2026-10-21/J0008_2026-10-21_lugano-switzerland_distributors.json"
   },
   "todays.co.uk": {
     "name": "Today's Group",
