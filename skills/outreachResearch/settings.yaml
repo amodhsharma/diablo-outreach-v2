@@ -2,7 +2,11 @@
 # Edit on GitHub with the pencil icon. One "name: number" per line.
 
 # Which research prompts are used (agreed 14 Oct 2026):
-#   3 = in use from 21 Oct 2026: prompts/channel_prompt_3.md and prompts/channels/*_3.md, version 2
+#   4 = in use from 21 Oct 2026 (evening): prompts/channel_prompt_4.md and prompts/channels/*_4.md, the
+#       final version after Ariel's review of all 97 Swiss companies (J0001 to J0008): eleven hard
+#       rules for every channel, how to check each company, the review's rejects and models grouped
+#       by reason, and only the marketplace channel may list a company without its own website.
+#   3 = used on 21 Oct 2026: prompts/channel_prompt_3.md and prompts/channels/*_3.md, version 2
 #       plus Diablo's nine hard rules, the full catalogue and the lessons from the Swiss review; the
 #       check refuses a company that sells nothing from the catalogue. Same numbers as version 2.
 #   2 = the new prompts (prompts/channel_prompt_2.md and prompts/channels/*_2.md), with
@@ -10,7 +14,7 @@
 #   1 = the original prompts (prompts/channel_prompt.md and prompts/channels/*.md), with
 #       default_companies and min_floor
 # To go back, change 3 to 2 or 1. Every set is kept unchanged side by side.
-prompt_version: 3
+prompt_version: 4
 
 # Companies wanted per Channel when the "Companies wanted" box is left empty.
 default_companies: 60

@@ -104,9 +104,16 @@ Finish with three lines:
 
 ## What the files are
 
-- Three versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
+- Four versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
   `settings.yaml` picks one, and prepare_run.py writes the chosen version into `work/`:
-  - version 3 (in use from 21 Oct 2026): `prompts/channel_prompt_3.md` and `prompts/channels/*_3.md`.
+  - version 4 (in use from 21 Oct 2026, evening): `prompts/channel_prompt_4.md` and
+    `prompts/channels/*_4.md`. The final version after Ariel reviewed all 97 Swiss companies
+    (J0001 to J0008): who Diablo wants, eleven hard rules for every channel (each channel template
+    says how they apply to it), how to check each company step by step (website, About page, range,
+    storage, then decide), the review's rejects and approved models grouped by reason, 50 as a
+    maximum and firm rejection. Its check (`--catalogue`) also refuses a company without its own
+    website, except for marketplace sellers;
+  - version 3 (used on 21 Oct 2026): `prompts/channel_prompt_3.md` and `prompts/channels/*_3.md`.
     Version 2 plus Diablo's nine hard rules (no company selling its own products, own range or
     goods it makes; distributors and wholesalers need their own storage; it must already sell
     something from Diablo's catalogue; no pharmacy, packaging or drinks-only suppliers; no

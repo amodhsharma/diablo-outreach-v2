@@ -428,18 +428,23 @@ def test_country_short_forms_match():
 
 
 def test_prompt_versions_side_by_side(repo):
-    """Version 3 (in use from 21 Oct 2026) uses the _3 prompts; 2 and 1 still use their untouched files."""
+    """Version 4 (in use from 21 Oct 2026) uses the _4 prompts; 3, 2 and 1 still use their own files."""
     prompts = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "prompts"
     for name in ["channel_prompt", "channels/distributor", "channels/wholesaler", "channels/retailer",
                  "channels/general", "channels/marketplace_seller"]:
-        for suffix in ("", "_2", "_3"):
+        for suffix in ("", "_2", "_3", "_4"):
             assert (prompts / f"{name}{suffix}.md").exists()
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
     three = (repo / "work" / "channel_1_prompt.md").read_text()
-    assert plan["prompt_version"] == 3 and "HARD RULES" in three and "DIABLO'S CATALOGUE" in three
+    assert plan["prompt_version"] == 4 and "HARD RULES" in three and "DIABLO'S CATALOGUE" in three
     assert "syrups" in three and "Storage: " in three and "--catalogue" in three
+    assert "HOW TO CHECK EACH COMPANY" in three and "LEARNING FROM DIABLO'S REVIEW" in three
     settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    settings.write_text(settings.read_text().replace("prompt_version: 4", "prompt_version: 3"))
+    assert run_script(repo, "prepare_run.py").returncode == 0
+    v3 = (repo / "work" / "channel_1_prompt.md").read_text()
+    assert "HARD RULES" in v3 and "HOW TO CHECK EACH COMPANY" not in v3
     settings.write_text(settings.read_text().replace("prompt_version: 3", "prompt_version: 2"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
@@ -460,6 +465,9 @@ def test_version_2_numbers(tmp_path):
     f.write_text(f.read_text().replace("prompt_version: 2", "prompt_version: 3"))
     assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (30, 15)
     assert rq.prompt_suffix(rq.load_research_settings(f)) == "_3"
+    f.write_text(f.read_text().replace("prompt_version: 3", "prompt_version: 4"))
+    assert rq.prompt_suffix(rq.load_research_settings(f)) == "_4"
+    f.write_text(f.read_text().replace("prompt_version: 4", "prompt_version: 3"))
     f.write_text(f.read_text().replace("prompt_version: 3", "prompt_version: 1"))
     assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (60, 30)
 
@@ -596,3 +604,20 @@ def test_weak_fit_check_refuses_own_products_and_non_distributors():
          "fit_rationale": "Takes Swiss rights for snack brands and sells them into kiosks and chains."},
     ])
     assert len(errors) == 2 and "Fair trade" in errors[0] and "Vending" in errors[1]
+
+
+def test_v4_check_refuses_no_website_except_for_marketplace_sellers():
+    """21 Oct 2026 (MGM Group, De Simoni, Halal Import had no website): only marketplace sellers may list
+    a company without its own website."""
+    import importlib.util
+    path = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "scripts" / "check_output.py"
+    spec = importlib.util.spec_from_file_location("check_output_site", path)
+    co = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(co)
+    companies = [{"name": "No Site AG", "domain": "no domain"}, {"name": "Site AG", "domain": "site.ch"}]
+    errors = []
+    co.check_own_website(errors, companies, "distributors")
+    assert len(errors) == 1 and "No Site AG" in errors[0]
+    errors = []
+    co.check_own_website(errors, companies, "Amazon sellers")
+    assert errors == []

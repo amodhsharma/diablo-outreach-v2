@@ -1,0 +1,16 @@
+matches: wholesal, cash and carry, cash & carry, buying group
+---
+WHO COUNTS
+Wholesalers, cash and carry operators and wholesale buying groups that buy other companies' branded, packaged sweets, chocolate, biscuits or snacks, hold them in stock and sell them as they are to retailers, kiosks, petrol station shops, convenience stores, vending operators, health food shops or pharmacies in the market. They may buy from importers rather than import directly. Wholesalers that run a symbol group, act as a purchasing centre for independent grocers or supply a network of kiosks and convenience stores count fully.
+
+LEAVE OUT
+Retailers that sell only to consumers, brand owners, exporters and logistics-only providers. Sales and marketing agencies, brokers and brand representation companies that do not buy and hold stock, even when they call themselves wholesalers. Foodservice wholesalers whose customers are kitchens (restaurants, hotels, canteens, hospitals and care homes). Everything else the HARD RULES leave out: own products or own label, ingredients, delicatessen and cuisine specialists, pharmacy, drinks and coffee businesses, chilled and frozen specialists, no website, and anything that sells nothing from Diablo's catalogue.
+
+WHERE TO LOOK
+Start where trade buyers are listed: wholesale trade bodies, symbol group and buying group member lists, kiosk and convenience trade associations, national importer and supplier association member lists, importer directories (for example bestfoodimporters.com, Europages, Kompass) and the country's grocery, kiosk and convenience trade press. Also B2B web shops for retailers, cash and carry directories, trade show exhibitor lists and company registries. Search for the right kind of business: confectionery wholesaler, kiosk wholesaler, sweets and snacks wholesale, and the market's words for them. Use a directory only to find a company, then check it on its own website.
+
+WHAT GOOD FIT LOOKS LIKE
+The model: a wholesaler that lists many branded sweets, chocolate, biscuits and snacks from other companies, holds them in its own warehouse or depot and supplies kiosks, independent grocers, convenience stores or vending operators (in the Swiss review: Ch. Margot & Cie, 1001 Distributions, Fortura, BAIRO, Bizzyvends, Cadar, Provianda). Prioritise, in this order: lists European or UK branded confectionery and snacks; supplies many independent convenience, kiosk, grocery or pharmacy stores, or runs a symbol group; a mid-size, owner-run business where a decision maker can be reached; already carries sugar-free, no-added-sugar or better-for-you lines without a direct competitor; depots or strong regional coverage in the market.
+
+HOW THE HARD RULES APPLY
+All eleven apply in full. Rule 4: confirm the wholesaler's own warehouse, depot or cash and carry stores and write it after "Storage: " in the fit rationale. Rule 7: cash and carry and foodservice wholesalers count only when they sell branded packaged confectionery or snacks for resale, not only catering packs and products for kitchens; a supplier of snack counters and kiosks in leisure venues counts at tier 3. Rule 8: an ethnic wholesaler counts only with its own sweets or snacks section and shop customers (AM Food, TATKO).

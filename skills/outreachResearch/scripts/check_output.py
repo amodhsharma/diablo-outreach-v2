@@ -304,6 +304,21 @@ def check_weak_fit(errors, companies):
                           '"weak fit" (HARD RULE 11)')
 
 
+MARKETPLACE_WORDS = re.compile(r"marketplace|amazon|temu|noon|flipkart|ebay|online seller|e-?commerce seller|"
+                               r"third[ -]party seller|reseller", re.I)
+
+
+def check_own_website(errors, companies, channel):
+    """HARD RULE 9 (21 Oct 2026, MGM Group, De Simoni, Halal Import): every company has its own website,
+    except a marketplace seller, whose storefront is its source."""
+    if MARKETPLACE_WORDS.search(str(channel or "")):
+        return
+    for c in companies:
+        if isinstance(c, dict) and isinstance(c.get("name"), str) and c.get("domain") == NO_DOMAIN:
+            errors.append(f'Company "{c["name"].strip()}": no website of its own; leave it out with the reason '
+                          '"no website" (HARD RULE 9)')
+
+
 def check_part(data, exclusions=(set(), set()), catalogue=False):
     errors = []
     if not _keys(errors, "The file", data, PART_KEYS):
@@ -332,6 +347,7 @@ def check_part(data, exclusions=(set(), set()), catalogue=False):
     if catalogue:  # research prompt version 3
         check_catalogue(errors, companies)
         check_weak_fit(errors, companies)
+        check_own_website(errors, companies, data.get("channel"))
     return errors
 
 
