@@ -36,6 +36,8 @@ CONTACT_SOURCE = "diablo_contact_source"
 # Why the pipeline stopped emailing a contact or company (19 Oct 2026), e.g. "Opted out: on
 # Instantly's blocklist (19 Oct 2026)". Written only where button 1 has created the field.
 STOP_REASON = "diablo_stop_reason"
+# The research job that found a company, e.g. "J0001" (21 Oct 2026), so companies can be filtered by job.
+JOB_NUMBER = "diablo_job_number"
 # Where a contact came from (19 Oct 2026): a person found in Apollo, or the company's own contact
 # address from its website when Apollo held nobody. Company inboxes also carry this job title, so
 # they are recognised even before the field exists in an account.
@@ -79,6 +81,9 @@ INDUSTRY_TYPES = (
 # 19 Oct 2026), created in the "Diablo outreach" group.
 NEW_PROPERTIES = {
     "companies": [
+        text(JOB_NUMBER, "Job Number",
+             "The research job that found this company, e.g. J0001 (research/queue.csv in GitHub). Filter on "
+             "it to see one job's companies (added 21 Oct 2026)."),
         text(STOP_REASON, "Outreach stopped because",
              "Why the pipeline stopped emailing this company, e.g. \"A contact opted out (19 Oct 2026)\" "
              "(added 19 Oct 2026)."),

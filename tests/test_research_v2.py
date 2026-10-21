@@ -309,7 +309,10 @@ def test_import_adds_companies_and_marks_the_queue(import_env):
     added = names["No Site Traders"]
     assert added["hs_lead_status"] == "Missing Info" and added["industry_type"] == "Distributor Wholesaler"
     assert added["country"] == "India" and added["city"] == "Mumbai" and added["hs_ideal_customer_profile"] == "tier_1"
-    assert added["lead_source"] == "AUTO-OUTREACH" and not any(k.startswith("diablo_") for k in added)
+    assert added["lead_source"] == "AUTO-OUTREACH"
+    # 21 Oct 2026: the only Diablo field on a company is the job that found it.
+    assert {k for k in added if k.startswith("diablo_")} == {"diablo_job_number"}
+    assert added["diablo_job_number"].startswith("J")
     assert names["Old"] == {"name": "Old", "domain": "alphafoods.in"}  # the team's record: untouched
     assert hs.records["companies"] and common.load_company_notes() == {}  # no domain: no email notes
     rows = rq.load()
@@ -489,3 +492,34 @@ def test_several_cities_in_one_box_become_one_job_each():
     with pytest.raises(rq.QueueError):
         rq.add_many(rows, "Berlin, Bremen, Germny", "distributors")
     assert rows == before
+
+
+def test_job_numbers_never_start_again_and_fill_in_hubspot(tmp_path, monkeypatch):
+    """21 Oct 2026: "Job Number" on companies, to filter by job; job IDs never repeat."""
+    import json as _json
+    from outreach import job_numbers, research_queue as rq
+    from .fakes import FakeCRM
+    # The queue was cleared, but the last job given was J0008: the next is J0009, not J0001.
+    rq.LAST_ID_FILE.write_text("J0008\n")
+    rows = []
+    results = rq.add_many(rows, "Bern, Switzerland", "retailers", on="2026-10-21")
+    assert results[0][0] == "J0009"
+    rq.save_last_job_id(rows)
+    assert rq.LAST_ID_FILE.read_text().strip() == "J0009"
+    # Companies imported before the field existed get it from the research files.
+    folder = tmp_path / "research"
+    (folder / "2026-10-20").mkdir(parents=True)
+    (folder / "2026-10-20" / "J0001_x.json").write_text(_json.dumps({"job_id": "J0001", "companies": [
+        {"name": "Fortura AG", "domain": "fortura.ch"}, {"name": "MGM Group AG", "domain": "no domain"}]}))
+    hs = FakeCRM()
+    a = hs.add("companies", name="Fortura AG", domain="www.fortura.ch")
+    b = hs.add("companies", name="MGM Group AG")
+    c = hs.add("companies", name="Done AG", domain="done.ch", diablo_job_number="J0002")
+    d = hs.add("companies", name="Team record", domain="fortura.ch", tagged=False)
+    out = job_numbers.run("test", hs, log=lambda *_: None, folder=folder)
+    assert out["filled"] == 2
+    assert hs.records["companies"][a]["diablo_job_number"] == hs.records["companies"][b]["diablo_job_number"] == "J0001"
+    assert hs.records["companies"][c]["diablo_job_number"] == "J0002"  # never changed once set
+    assert "diablo_job_number" not in hs.records["companies"][d]  # not an AUTO-OUTREACH record
+    hs.missing_properties = {("companies", "diablo_job_number")}
+    assert job_numbers.run("test", hs, log=lambda *_: None, folder=folder) == {"filled": 0}

@@ -31,7 +31,7 @@ from .common import (
 )
 from .hubspot_client import HubSpot, HubSpotError
 from .import_checks import INBOX_NOTE, Checker
-from .schema import INDUSTRY_TYPE, TIER
+from .schema import INDUSTRY_TYPE, JOB_NUMBER, TIER
 from .stages import LeadStatus
 
 SKILL = ROOT / "skills" / "outreachResearch"
@@ -177,6 +177,9 @@ def import_file(path, rows, hs, settings, log=print, checker=None, target="live"
     if data["companies"]:
         statuses = LeadStatus(hs)
         records, notes = hubspot_records(data, statuses)
+        if job_id and hs.has_property("companies", JOB_NUMBER):  # 21 Oct 2026: filter companies by job
+            for r in records:
+                r[JOB_NUMBER] = job_id
         known = already_in_hubspot(hs, records, target)
         checker = checker or default_checker(log)
         checker.prefetch(r.get("domain") for i, r in enumerate(records) if i not in known)

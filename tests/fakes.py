@@ -48,6 +48,8 @@ class FakeCRM(TagGuard):
         op = f["operator"]
         if op == "HAS_PROPERTY":
             return val not in (None, "")
+        if op == "NOT_HAS_PROPERTY":
+            return val in (None, "")
         if op == "EQ":
             return str(val).lower() == str(f["value"]).lower()
         if op == "GTE":

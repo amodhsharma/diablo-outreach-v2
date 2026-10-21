@@ -33,3 +33,10 @@ def no_real_keys_or_reports(tmp_path, monkeypatch):
     from outreach import sync
     monkeypatch.delenv("INSTANTLY_BLOCKLIST_KEY", raising=False)
     monkeypatch.setattr(sync, "LAST_RUN", tmp_path / "sync_last_run.md")
+
+
+@pytest.fixture(autouse=True)
+def no_real_job_counter(tmp_path, monkeypatch):
+    """No test reads or writes the real research/last_job_id.txt."""
+    from outreach import research_queue
+    monkeypatch.setattr(research_queue, "LAST_ID_FILE", tmp_path / "last_job_id.txt")

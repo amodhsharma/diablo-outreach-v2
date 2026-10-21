@@ -93,15 +93,17 @@ def test_live_gets_exactly_four_fields_and_five_choices():
     hs = live_like()
     before = {obj: [dict(o) for o in hs.props[obj]["hs_lead_status"]["options"]] for obj in ("companies", "contacts")}
     summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
-    # the two groups, the five contact fields and (19 Oct 2026) the company's "Outreach stopped because"
-    assert summary["created"] == 8
+    # the two groups, the five contact fields, (19 Oct 2026) the company's "Outreach stopped because"
+    # and (21 Oct 2026) its "Job Number"
+    assert summary["created"] == 9
     # GATE1: Approved for outreach; "New, Personal line filled", GATE2: Approved to send, and (14 Oct 2026)
     # "Forward sent" and "Reminder sent", and (19 Oct 2026) the three "Colleague replied" choices and
     # "Colleague opted out"
     assert summary["updated"] == 9
     assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, COMPANY_NOTE, ORDER,
                                          CONTACT_SOURCE, STOP_REASON}
-    assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type", STOP_REASON}
+    assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type", STOP_REASON,
+                                          "diablo_job_number"}
     assert labels(hs, "companies")[-1:] == ["GATE1: Approved for outreach"]
     assert sorted(labels(hs, "contacts")[-8:]) == sorted(["New, Personal line filled", "GATE2: Approved to send",
                                                          "Forward sent", "Reminder sent", "Colleague replied: positive",
@@ -152,7 +154,7 @@ def test_type_conflict_is_reported_not_overwritten():
 def test_schema_rules():
     assert [s["name"] for s in NEW_PROPERTIES["contacts"]] == [PERSONAL_LINE, COMPANY_NOTE, ORDER, CONTACT_SOURCE,
                                                                STOP_REASON]
-    assert [s["name"] for s in NEW_PROPERTIES["companies"]] == [STOP_REASON]  # 19 Oct 2026
+    assert [s["name"] for s in NEW_PROPERTIES["companies"]] == ["diablo_job_number", STOP_REASON]
     assert all(s["name"].startswith("diablo_") for s in NEW_PROPERTIES["contacts"])
 
 

@@ -123,6 +123,14 @@ jobs:
           APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY }}
         run: python -m outreach.import_research --target "$TARGET" --skip-if-not-configured
 
+      - name: "Fill in Job Number on companies that do not have it yet"
+        id: jobs
+        if: env.ACTION == 'Automatic run' || env.ACTION == 'Import new research'
+        continue-on-error: true
+        env:
+          HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+        run: python -m outreach.job_numbers --target "$TARGET" --skip-if-not-configured
+
       # Switched off on 15 Oct 2026 (Ariel): no city is added from the automatic list any more.
       # Markets are researched only when someone adds them (button 2, "Add a market"). To switch it
       # back on, remove the # in front of the lines below and set auto_markets.enabled to true in
@@ -138,7 +146,8 @@ jobs:
       - name: "After: save the queue and lists"
         if: always()
         run: |
-          bash .github/scripts/save_changes.sh "Research: $ACTION" research/queue.csv data/company_notes.json \
+          bash .github/scripts/save_changes.sh "Research: $ACTION" research/queue.csv research/last_job_id.txt \
+            data/company_notes.json \
             data/known_companies.csv data/known_companies_state.json data/known_companies_test.csv \
             data/known_companies_test_state.json data/pipeline_target.txt
 
@@ -148,6 +157,7 @@ jobs:
           failed=""
           [ "${{ steps.known.outcome }}" = "failure" ] && failed="$failed 'already in HubSpot' list;"
           [ "${{ steps.import.outcome }}" = "failure" ] && failed="$failed research import;"
+          [ "${{ steps.jobs.outcome }}" = "failure" ] && failed="$failed Job Number;"
           [ "${{ steps.auto.outcome }}" = "failure" ] && failed="$failed automatic city list;"
           if [ -n "$failed" ]; then echo "::error::These steps failed:$failed open them above for the reason."; exit 1; fi
           echo "Every step worked."

@@ -28,6 +28,9 @@ from . import countries
 
 ROOT = Path(__file__).resolve().parent.parent
 QUEUE_FILE = ROOT / "research" / "queue.csv"
+# The highest job ID ever given (21 Oct 2026): job IDs never start again at J0001 when the queue is
+# cleared, so "Job Number" in HubSpot always points to one job.
+LAST_ID_FILE = ROOT / "research" / "last_job_id.txt"
 EXCLUDED_FILE = ROOT / "data" / "excluded_countries.txt"
 SETTINGS_FILE = ROOT / "skills" / "outreachResearch" / "settings.yaml"
 
@@ -202,9 +205,26 @@ def today():
     return dt.date.today().isoformat()
 
 
+def last_job_number(path=None):
+    """The highest job number ever given, from research/last_job_id.txt (0 when there is none)."""
+    try:
+        text = Path(path or LAST_ID_FILE).read_text(encoding="utf-8").strip()
+    except OSError:
+        return 0
+    return int(text[1:]) if re.fullmatch(r"J\d+", text) else 0
+
+
+def save_last_job_id(rows, path=None):
+    numbers = [int(r["job_id"][1:]) for r in rows if re.fullmatch(r"J\d+", r["job_id"])]
+    top = max(numbers + [last_job_number(path)])
+    if top:
+        Path(path or LAST_ID_FILE).write_text(f"J{top:04d}\n", encoding="utf-8")
+
+
 def next_job_id(rows):
     numbers = [int(r["job_id"][1:]) for r in rows if re.fullmatch(r"J\d+", r["job_id"])]
-    return f"J{(max(numbers) + 1) if numbers else 1:04d}"
+    numbers.append(last_job_number())
+    return f"J{max(numbers) + 1:04d}"
 
 
 def covered_by(rows, row):
@@ -466,6 +486,7 @@ def main(argv=None):
         return 1
     if args.action != "show":
         save(rows)
+        save_last_job_id(rows)
     _summary("\n## The queue (newest first)\n\n" + markdown(rows))
     return 0
 
