@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-21T13:32:11+00:00 (UTC).
+Checked 2026-10-21T16:31:58+00:00 (UTC).
 
 ## Mailboxes
 
@@ -30,9 +30,9 @@ Checked 2026-10-21T13:32:11+00:00 (UTC).
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (63 of 63) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (22 of 22) | Joshua - | 30 | none |
-| offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (13 of 13) | Offers - | 30 | none |
+| offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (21 of 21) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (41 of 41) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (42 of 42) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
 
