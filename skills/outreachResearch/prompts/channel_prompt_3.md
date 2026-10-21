@@ -27,11 +27,13 @@ HARD RULES (decided by Diablo on 21 Oct 2026; they apply to every channel, as fa
 2. No company that sells its own catalogue of products, own brand or own label: it will not sell ours ("own range").
 3. No company that sells generic goods it makes itself ("makes its own goods").
 4. The company must buy and hold our products itself. Distributors and wholesalers must have their own storage where our products can be held: a warehouse, depot or logistics centre. Confirm it and say where it is in the fit rationale ("Storage: ..."). If you cannot confirm it, leave the company out ("no storage confirmed"). Other channels: see HOW THE HARD RULES APPLY.
-5. The company must already sell at least one category from DIABLO'S CATALOGUE above, confirmed on its own website or another solid source. Name those categories in "distributes" using the catalogue's words ("nothing from our catalogue").
+5. The company must already sell at least one category from DIABLO'S CATALOGUE above as a real part of its range, seen on its own website (product pages, product categories or brand list). A directory, registry or trade listing alone never proves it. One catalogue word among a range that is mostly something else does not count either: table-top sweeteners, honey, flour, baking ingredients and fruit puree are not our catalogue. Name the categories in "distributes" using the catalogue's words ("nothing from our catalogue").
 6. Food must be the company's main business. Leave out pharmacy and drugstore wholesalers whose main lines are medicines, medical equipment or generic pharmacy products, packaging suppliers, and drinks-only or wine-only merchants ("not a food business").
 7. Leave out suppliers of ingredients, raw materials, semi-finished products or bulk catering packs for professionals (gelato and pastry makers, bakeries, restaurants, hotels and caterers), even when their range includes chocolate, syrups or toppings ("ingredients for professionals").
-8. Leave out fine food, delicatessen, gourmet and artisanal specialists (cheese, charcuterie, truffles, wine, preserves) and importers of one country's cuisine (for example Italian or Mexican food), unless branded packaged confectionery or biscuits for resale are a clear part of their range ("deli or cuisine specialist"). Searching in a local language must not turn the search into a search for that country's cuisine: in an Italian speaking city look for confectionery and snack distributors, not Italian food importers.
-9. Open the company's own website (a marketplace seller with no website of its own: its storefront). If it does not load, leave the company out ("website does not open").
+8. Leave out fine food, delicatessen, gourmet and artisanal specialists (cheese, charcuterie, truffles, wine, preserves), importers of one country's or one region's cuisine (for example Italian, Mexican, Greek or Asian food) and ethnic or world food wholesalers (for example African, Asian, Middle Eastern or Latin American foods for ethnic shops), unless branded packaged confectionery or biscuits for resale are a clear part of their range ("deli or cuisine specialist"). Searching in a local language must not turn the search into a search for that country's cuisine: in an Italian speaking city look for confectionery and snack distributors, not Italian food importers.
+9. Open the company's own website (a marketplace seller with no website of its own: its storefront). If it does not load, leave the company out ("website does not open"). Give its current domain: when an old domain redirects to a new name, give the new one.
+10. Leave out chilled and frozen food specialists: Diablo's products are ambient ("chilled or frozen specialist").
+11. Never list a company at low confidence, and never list one whose fit depends on something you could not confirm. When your own fit rationale would need words such as "range extension", "would be new to its range", "not its core", "side line", "add-on", "conditional", "check first", "confectionery not confirmed" or "lower priority", the company is rejected ("weak fit"). The check refuses these words and low confidence.
 
 LEARNING FROM DIABLO'S REVIEW OF THE SWISS RESEARCH (21 Oct 2026)
 Left out by Diablo, and why (never list companies like these):
@@ -43,6 +45,11 @@ Left out by Diablo, and why (never list companies like these):
 - A packaging and drinks supplier: Oasis Drink.
 - Deli and artisanal food: Saya, Bevanar & Dorga, Koronekes.
 - A website that did not open: Attitude Bio.
+- Chilled and frozen food importers, with confectionery only in a directory listing: GEMMA Gastronomie.
+- Ethnic and world food wholesalers with a mostly savoury range and their own private label: Depot Yussuf.
+- Oils, teas, flours, spices, sweeteners, honey, cosmetics and cleaning products, where "spreads" was the only catalogue word: Hima La Vie.
+- A pharmaceutical wholesale group (pharmacy supply chain), whose dietary products were only a registered purpose: Avosano (formerly Voigt).
+- Frozen pastry, flour and couscous, fresh pasta and dairy, where "confectionery" meant Italian pastry: Lamda.
 The best finds, the model to follow:
 - 1001 Distributions: a wholesaler selling branded sweets, chewing gum and snacks to supermarkets and shops through a B2B webshop for retail professionals.
 - Ch. Margot & Cie: a national kiosk and confectionery wholesaler with over 3,000 branded items and more than 2,500 trade clients.
@@ -130,7 +137,7 @@ Save one JSON file at {{OUTPUT_FILE}} with exactly this shape and these keys (us
 - Reply in one line: the number of companies, the searches used, and PASSED or the problems left.
 
 RULES
-- UNCERTAINTY: flag anything you are unsure about in the text rather than presenting it as fact, and lower the confidence.
+- UNCERTAINTY: if you are unsure whether a company passes a HARD RULE, reject it. Flag only small uncertainties (for example exact delivery area) in the text.
 - STATUS: list only active companies. Put closed, merged or acquired companies in checked_and_excluded, naming the acquirer.
 - CITATION: every company needs at least one source URL.
 - CONTACTS: do not invent or include contact names, emails or phone numbers. Company level detail only. Contacts come from a separate system.
@@ -139,7 +146,7 @@ RULES
 
 QUALITY CONTROL (do this before you save)
 - Go through every company against the nine HARD RULES once more, as they apply to this channel. Move any that breaks one to checked_and_excluded with its reason.
-- Every company's "distributes" names at least one category from DIABLO'S CATALOGUE; the check refuses the file otherwise.
+- Every company's "distributes" names at least one category from DIABLO'S CATALOGUE, no company is at low confidence and no fit rationale hedges (HARD RULE 11); the check refuses the file otherwise.
 - Every company has a domain or "no domain", a confidence and a source.
 - No company appears twice. Excluded companies do not appear in the list.
 - Tiers and ranks have no gaps or repeats within a tier.

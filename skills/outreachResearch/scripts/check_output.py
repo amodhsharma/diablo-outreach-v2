@@ -270,6 +270,32 @@ def check_catalogue(errors, companies):
                           'sells, or leave the company out with the reason "nothing from our catalogue"')
 
 
+# Hedged fits that Diablo rejected in the Swiss review (21 Oct 2026, HARD RULE 11). None of the four
+# best Swiss finds uses them; 18 of the 30 rejected companies did.
+WEAK_FIT_WORDS = re.compile(
+    r"range extension|would be new|new (?:category|line) for|new to its|would need to extend|"
+    r"not (?:its|a) core|outside its core|not a confectionery specialist|"
+    r"(?:confectionery|sweets|snacks?|biscuits)(?: range)? (?:is |are )?not (?:yet )?(?:confirmed|listed|carried)|"
+    r"not confirmed in its range|does not (?:yet )?(?:carry|list|stock|sell) (?:sweets|confectionery|snacks)|"
+    r"no (?:sweets|confectionery)(?: range)?(?: was)? (?:seen|found|today)|carries no confectionery|"
+    r"side line|as an add-on|conditional|lower priority|check first|listed only in a directory|"
+    r"depends on (?:its )?appetite", re.I)
+
+
+def check_weak_fit(errors, companies):
+    for c in companies:
+        if not isinstance(c, dict) or not isinstance(c.get("name"), str):
+            continue
+        name = c["name"].strip()
+        if c.get("confidence") == "low":
+            errors.append(f'Company "{name}": low confidence; confirm it on its own website or leave it out '
+                          '(HARD RULE 11)')
+        m = WEAK_FIT_WORDS.search(f'{c.get("fit_rationale") or ""} {c.get("distributes") or ""}')
+        if m:
+            errors.append(f'Company "{name}": the fit is hedged ("{m.group(0)}"); leave it out with the reason '
+                          '"weak fit" (HARD RULE 11)')
+
+
 def check_part(data, exclusions=(set(), set()), catalogue=False):
     errors = []
     if not _keys(errors, "The file", data, PART_KEYS):
@@ -295,8 +321,9 @@ def check_part(data, exclusions=(set(), set()), catalogue=False):
     _duplicates(errors, companies)
     _excluded(errors, companies, exclusions)
     _ranks(errors, companies, lambda c: "")
-    if catalogue:
+    if catalogue:  # research prompt version 3
         check_catalogue(errors, companies)
+        check_weak_fit(errors, companies)
     return errors
 
 
@@ -391,7 +418,8 @@ def main(argv=None):
     p.add_argument("--report", default="")
     p.add_argument("--exclusions", default="")
     p.add_argument("--catalogue", action="store_true",
-                   help="each company must sell something from Diablo's catalogue (prompt version 3)")
+                   help="prompt version 3: each company must sell something from Diablo's catalogue, at "
+                        "medium or high confidence, with no hedged fit")
     args = p.parse_args(argv)
     try:
         data = json.loads(Path(args.file).read_text(encoding="utf-8"))

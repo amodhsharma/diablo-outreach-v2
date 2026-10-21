@@ -559,3 +559,21 @@ def test_catalogue_check_refuses_companies_that_sell_nothing_we_make():
     ])
     assert len(errors) == 2 and "Wine house" in errors[0] and "Ingredients" in errors[1]
     assert "nothing from our catalogue" in errors[0]
+
+
+def test_weak_fit_check_refuses_hedged_and_low_confidence_companies():
+    """21 Oct 2026 (HARD RULE 11): hedged fits and low confidence are rejected, the model finds pass."""
+    import importlib.util
+    path = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "scripts" / "check_output.py"
+    spec = importlib.util.spec_from_file_location("check_output_weak", path)
+    co = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(co)
+    errors = []
+    co.check_weak_fit(errors, [
+        {"name": "Chilled", "confidence": "high", "distributes": "Chilled and frozen food.",
+         "fit_rationale": "Its core is chilled goods, so Diablo would be a range extension."},
+        {"name": "Directory", "confidence": "low", "distributes": "Sweets.", "fit_rationale": "A sweets trader."},
+        {"name": "Kiosk wholesaler", "confidence": "high", "distributes": "Chocolate, chewing gum and kiosk articles.",
+         "fit_rationale": "A national kiosk and confectionery wholesaler. Storage: own warehouse in Lutry."},
+    ])
+    assert len(errors) == 2 and "range extension" in errors[0] and "low confidence" in errors[1]
