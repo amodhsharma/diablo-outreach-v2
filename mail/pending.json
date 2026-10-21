@@ -1,5 +1,186 @@
 {
-  "generated_at": "2026-10-21T09:30:44+00:00",
+  "generated_at": "2026-10-21T12:31:52+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "897908648166",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "1001 Distributions (Mangenot O.S. Déstockage)",
+        "domain": "1001-distributions.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Roche, Switzerland",
+        "distributes": "Branded confectionery, chewing gum, snacks, dried fruit and nuts, groceries, drinks, household and non-food goods.",
+        "channels_supplied": "B2B webshop restricted to Swiss retail professionals such as supermarkets and other shops; delivers across Switzerland.",
+        "sf_brands_carried": "None identified on its site.",
+        "what_they_do_well": [
+          "Runs a B2B webshop reserved for Swiss retail professionals with brands such as Barilla, Pringles and Stimorol."
+        ],
+        "fit_rationale": "A Romandie wholesaler that sells branded sweets and snacks such as Stimorol, Nestlé YES and Pringles to independent supermarkets and shops. It could list Diablo quickly for Geneva independents, though its destocking model may favour price-led deals; worth checking."
+      }
+    },
+    {
+      "contact_id": "897772412137",
+      "job_title": "Logistics Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Cadar SA",
+        "domain": "cadar.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Fleurier, Switzerland",
+        "distributes": "Dry and fresh grocery for independent food shops, including dairy, frozen, drinks and organic and health food.",
+        "channels_supplied": "Independent grocers across Switzerland through its à la carte and mafée store concepts; Geneva coverage not stated on its site.",
+        "sf_brands_carried": "Organic and health food listed as a category; no sugar-free confectionery brand named.",
+        "what_they_do_well": [
+          "Founded in 1975 by ten shopkeepers and now runs a warehouse of more than 4,000 m2 with over 50 staff."
+        ],
+        "fit_rationale": "A purchasing centre and wholesaler for independent grocers that can put Diablo onto many small Romandie shelves at once. Geneva coverage needs to be confirmed, but its network of independent shops suits a no-added-sugar range."
+      }
+    },
+    {
+      "contact_id": "897934402764",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Ch. Margot & Cie SA",
+        "domain": "margot.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lutry, Switzerland",
+        "distributes": "Tobacco and confectionery wholesale: chocolate, chewing gum, beverages and kiosk articles, over 3,000 items.",
+        "channels_supplied": "Kiosks, tobacconists and convenience retailers; more than 2,500 trade clients with delivery across all of Switzerland and service in French and German.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Trading since 1934 and now supplies more than 2,500 clients across Switzerland from a range of over 3,000 items."
+        ],
+        "fit_rationale": "One of the few independent national kiosk and confectionery wholesalers left after Lekkerland Schweiz was dissolved, and it delivers nationwide, so Lucerne kiosks can be reached. Sugar-free chocolate and sweets suit its impulse and counter range. Its Lucerne coverage is stated as nationwide rather than named, so this should be checked on first contact."
+      }
+    },
+    {
+      "contact_id": "897895666920",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Provianda GmbH",
+        "domain": "provianda.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Zofingen, Switzerland",
+        "distributes": "Packaged confectionery, wafers, bars including a protein bar range, snacks and beverages sold by the carton.",
+        "channels_supplied": "Vending operators and staff catering (Betriebsverpflegung) through its own B2B web shop.",
+        "sf_brands_carried": "Has a protein bar category; no sugar-free brand was seen on the pages checked.",
+        "what_they_do_well": [
+          "Wholesale supplier to the vending and staff catering sector since 2009, stocking brands such as Lion, KitKat, Milka and Knoppers."
+        ],
+        "fit_rationale": "A mid-size, owner-managed wholesaler built around vending and workplace catering, a channel where sugar-free bars, chocolate and biscuits sell as a better-for-you option. It already lists branded bars such as Lion, KitKat and Knoppers, so Diablo would sit beside them as the healthier line. Zofingen is about 45 km from Lucerne, but its delivery area is not stated."
+      }
+    },
+    {
+      "contact_id": "897772412134",
+      "job_title": "Buyer",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Cadar SA",
+        "domain": "cadar.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Fleurier, Switzerland",
+        "distributes": "Dry and fresh grocery for independent food shops, including dairy, frozen, drinks and organic and health food.",
+        "channels_supplied": "Independent grocers across Switzerland through its à la carte and mafée store concepts; Geneva coverage not stated on its site.",
+        "sf_brands_carried": "Organic and health food listed as a category; no sugar-free confectionery brand named.",
+        "what_they_do_well": [
+          "Founded in 1975 by ten shopkeepers and now runs a warehouse of more than 4,000 m2 with over 50 staff."
+        ],
+        "fit_rationale": "A purchasing centre and wholesaler for independent grocers that can put Diablo onto many small Romandie shelves at once. Geneva coverage needs to be confirmed, but its network of independent shops suits a no-added-sugar range."
+      }
+    },
+    {
+      "contact_id": "897934402762",
+      "job_title": "Responsable Logistique/administratif",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Ch. Margot & Cie SA",
+        "domain": "margot.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lutry, Switzerland",
+        "distributes": "Tobacco and confectionery wholesale: chocolate, chewing gum, beverages and kiosk articles, over 3,000 items.",
+        "channels_supplied": "Kiosks, tobacconists and convenience retailers; more than 2,500 trade clients with delivery across all of Switzerland and service in French and German.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Trading since 1934 and now supplies more than 2,500 clients across Switzerland from a range of over 3,000 items."
+        ],
+        "fit_rationale": "One of the few independent national kiosk and confectionery wholesalers left after Lekkerland Schweiz was dissolved, and it delivers nationwide, so Lucerne kiosks can be reached. Sugar-free chocolate and sweets suit its impulse and counter range. Its Lucerne coverage is stated as nationwide rather than named, so this should be checked on first contact."
+      }
+    },
+    {
+      "contact_id": "897772412135",
+      "job_title": "Collaboratrice Marketing & Communication",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Cadar SA",
+        "domain": "cadar.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Fleurier, Switzerland",
+        "distributes": "Dry and fresh grocery for independent food shops, including dairy, frozen, drinks and organic and health food.",
+        "channels_supplied": "Independent grocers across Switzerland through its à la carte and mafée store concepts; Geneva coverage not stated on its site.",
+        "sf_brands_carried": "Organic and health food listed as a category; no sugar-free confectionery brand named.",
+        "what_they_do_well": [
+          "Founded in 1975 by ten shopkeepers and now runs a warehouse of more than 4,000 m2 with over 50 staff."
+        ],
+        "fit_rationale": "A purchasing centre and wholesaler for independent grocers that can put Diablo onto many small Romandie shelves at once. Geneva coverage needs to be confirmed, but its network of independent shops suits a no-added-sugar range."
+      }
+    },
+    {
+      "contact_id": "897934402763",
+      "job_title": "Responsable des Finances",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Ch. Margot & Cie SA",
+        "domain": "margot.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Lutry, Switzerland",
+        "distributes": "Tobacco and confectionery wholesale: chocolate, chewing gum, beverages and kiosk articles, over 3,000 items.",
+        "channels_supplied": "Kiosks, tobacconists and convenience retailers; more than 2,500 trade clients with delivery across all of Switzerland and service in French and German.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Trading since 1934 and now supplies more than 2,500 clients across Switzerland from a range of over 3,000 items."
+        ],
+        "fit_rationale": "One of the few independent national kiosk and confectionery wholesalers left after Lekkerland Schweiz was dissolved, and it delivers nationwide, so Lucerne kiosks can be reached. Sugar-free chocolate and sweets suit its impulse and counter range. Its Lucerne coverage is stated as nationwide rather than named, so this should be checked on first contact."
+      }
+    },
+    {
+      "contact_id": "897772412136",
+      "job_title": "Assistante de Direction & Responsable Marketing",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Cadar SA",
+        "domain": "cadar.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Fleurier, Switzerland",
+        "distributes": "Dry and fresh grocery for independent food shops, including dairy, frozen, drinks and organic and health food.",
+        "channels_supplied": "Independent grocers across Switzerland through its à la carte and mafée store concepts; Geneva coverage not stated on its site.",
+        "sf_brands_carried": "Organic and health food listed as a category; no sugar-free confectionery brand named.",
+        "what_they_do_well": [
+          "Founded in 1975 by ten shopkeepers and now runs a warehouse of more than 4,000 m2 with over 50 staff."
+        ],
+        "fit_rationale": "A purchasing centre and wholesaler for independent grocers that can put Diablo onto many small Romandie shelves at once. Geneva coverage needs to be confirmed, but its network of independent shops suits a no-added-sugar range."
+      }
+    }
+  ]
 }
