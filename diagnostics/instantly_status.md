@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-21T12:49:53+00:00 (UTC).
+Checked 2026-10-21T13:32:11+00:00 (UTC).
 
 ## Mailboxes
 
@@ -77,39 +77,39 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
 - 20 contacts approved to send
-- Waiting: contact 896460639466 (j***@uhlmann.ch) at F. Uhlmann-Eyraud SA: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896460639468 (p***@uhlmann.ch) at F. Uhlmann-Eyraud SA: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896460639469 (l***@uhlmann.ch) at F. Uhlmann-Eyraud SA: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896459613380 (r***@webstar.ch) at E. Weber & Cie AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896459613381 (d***@webstar.ch) at E. Weber & Cie AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896459613382 (s***@webstar.ch) at E. Weber & Cie AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896460854488 (f***@neuenschwanderag.com) at Neuenschwander R. & H. AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896460854490 (d***@neuenschwanderag.com) at Neuenschwander R. & H. AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896460854491 (j***@neuenschwanderag.com) at Neuenschwander R. & H. AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896461045997 (j***@biopartner.ch) at Bio Partner Schweiz AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896461045998 (l***@biopartner.ch) at Bio Partner Schweiz AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896461046000 (a***@biopartner.ch) at Bio Partner Schweiz AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896460860622 (c***@conaxesstrade.com) at Conaxess Trade Switzerland AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896460860623 (a***@conaxesstrade.com) at Conaxess Trade Switzerland AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896460860624 (j***@conaxesstrade.com) at Conaxess Trade Switzerland AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896383370466 (s***@rca.ch) at R.C. Andreae AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896383370467 (j***@rca.ch) at R.C. Andreae AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896449689844 (m***@fortura.ch) at Fortura AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896449689845 (a***@fortura.ch) at Fortura AG: the company's last email was under 3 days ago (one email every 3 days per company)
-- Waiting: contact 896449689846 (i***@fortura.ch) at Fortura AG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 896460639466 (j***@uhlmann.ch) at F. Uhlmann-Eyraud SA: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896460639468 (p***@uhlmann.ch) at F. Uhlmann-Eyraud SA: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896460639469 (l***@uhlmann.ch) at F. Uhlmann-Eyraud SA: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896459613380 (r***@webstar.ch) at E. Weber & Cie AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896459613381 (d***@webstar.ch) at E. Weber & Cie AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896459613382 (s***@webstar.ch) at E. Weber & Cie AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896460854488 (f***@neuenschwanderag.com) at Neuenschwander R. & H. AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896460854490 (d***@neuenschwanderag.com) at Neuenschwander R. & H. AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896460854491 (j***@neuenschwanderag.com) at Neuenschwander R. & H. AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896461045997 (j***@biopartner.ch) at Bio Partner Schweiz AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896461045998 (l***@biopartner.ch) at Bio Partner Schweiz AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896461046000 (a***@biopartner.ch) at Bio Partner Schweiz AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896460860622 (c***@conaxesstrade.com) at Conaxess Trade Switzerland AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896460860623 (a***@conaxesstrade.com) at Conaxess Trade Switzerland AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896460860624 (j***@conaxesstrade.com) at Conaxess Trade Switzerland AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896383370466 (s***@rca.ch) at R.C. Andreae AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896383370467 (j***@rca.ch) at R.C. Andreae AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896449689844 (m***@fortura.ch) at Fortura AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896449689845 (a***@fortura.ch) at Fortura AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
+- Waiting: contact 896449689846 (i***@fortura.ch) at Fortura AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
 - 20 approved contacts wait their turn (one person per company at a time)
 
 ## Where every company is in its loop
 
-- **F. Uhlmann-Eyraud SA**: next is the next email, 3 days after the last one, due 23 Oct 15:52 IST; blocklist: clear
-- **E. Weber & Cie AG**: next is the next email, 3 days after the last one, due 23 Oct 16:01 IST; blocklist: clear
-- **Neuenschwander R. & H. AG**: next is the next email, 3 days after the last one, due 23 Oct 16:10 IST; blocklist: clear
-- **Bio Partner Schweiz AG**: next is the next email, 3 days after the last one, due 23 Oct 16:11 IST; blocklist: clear
-- **Conaxess Trade Switzerland AG**: next is the next email, 3 days after the last one, due 23 Oct 16:28 IST; blocklist: clear
-- **R.C. Andreae AG**: next is the next email, 3 days after the last one, due 23 Oct 16:30 IST; blocklist: clear
-- **Rufenberg Trading GmbH**: next is the next email, 3 days after the last one, due 23 Oct 16:37 IST; blocklist: clear
-- **Fortura AG**: next is the next email, 3 days after the last one, due 23 Oct 16:49 IST; blocklist: clear
-- **Biofair-Naturapart GmbH**: next is the next email, 3 days after the last one, due 23 Oct 16:27 IST; blocklist: clear
+- **F. Uhlmann-Eyraud SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 15:52 IST; blocklist: clear
+- **E. Weber & Cie AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:01 IST; blocklist: clear
+- **Neuenschwander R. & H. AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:10 IST; blocklist: clear
+- **Bio Partner Schweiz AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:11 IST; blocklist: clear
+- **Conaxess Trade Switzerland AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:28 IST; blocklist: clear
+- **R.C. Andreae AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:30 IST; blocklist: clear
+- **Rufenberg Trading GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:37 IST; blocklist: clear
+- **Fortura AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:49 IST; blocklist: clear
+- **Biofair-Naturapart GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:27 IST; blocklist: clear
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
 |---|---|---|---|---|
