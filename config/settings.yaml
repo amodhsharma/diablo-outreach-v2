@@ -142,8 +142,10 @@ send:
   # reminder (after a week) described above are kept, not removed, and come back when this is set
   # to true. Up to 4 contacts are still found and approved, in case an address does not work: when
   # person 1's email bounces, the introduction goes to the next approved person at the next run.
-  # A company inbox (info@ and the like) keeps its one reminder.
   follow_ups_to_people: false
+  # The company inbox's one reminder (info@ and the like, templates.reminder_company_inbox) is
+  # switched off too (21 Oct 2026, Ariel, the same evening); kept, set to true to bring it back.
+  reminder_to_company_inbox: false
   # With follow-ups off: days after the introduction with no reply before the company and the
   # person emailed become "Contacted, but no response, unqualified" (the others there become
   # "Unqualified company"). A reply after that is still seen in Instantly.

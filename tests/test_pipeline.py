@@ -27,6 +27,7 @@ def settings():
     s["send"]["sending_accounts"] = ["ariel@getdiablo-test.com"]
     s["send"]["booking_link"] = "https://book.example/diablo"  # the real link is not set yet ("xxx")
     s["send"]["follow_ups_to_people"] = True  # the full loop (kept, switched off since 21 Oct 2026)
+    s["send"]["reminder_to_company_inbox"] = True
     return s
 
 

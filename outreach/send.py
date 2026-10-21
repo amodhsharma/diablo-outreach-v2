@@ -417,7 +417,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         # One person per company at a time: only the one next in line goes now.
         company_contacts = annotate(everyone.get(company_id) or [c], statuses, in_instantly)
         due, why = decide(company_contacts, company_stage, gap, follow_ups=one_email[0],
-                          no_reply_days=one_email[1])
+                          no_reply_days=one_email[1], inbox_reminder=one_email[2])
         if why != "next" or not due or due["id"] != c["id"]:  # only person 1 goes through the campaign
             waiting += 1
             log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "

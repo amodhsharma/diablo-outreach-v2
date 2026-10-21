@@ -711,7 +711,8 @@ def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None, 
             touches, _, _ = company_mail(emails_api, contacts)
             mark_sent(contacts, touches)
         _, why = decide(contacts, statuses.of("companies", company), gap, now, touches=touches, min_same_days=min_same,
-                        follow_ups=one_email[0], no_reply_days=one_email[1])
+                        follow_ups=one_email[0], no_reply_days=one_email[1],
+                        inbox_reminder=one_email[2])
         when = due_at(contacts, touches, why, gap, min_same, one_email[1])
         line = f"- **{name}**: next is {NEXT_STEP.get(why, why)}" + (f", due {ist(when)}" if when else "")
         if blocked is not None and getattr(blocked, "ok", True):
@@ -873,7 +874,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             continue
         due, why = decide(contacts, statuses.of("companies", company), gap, now,
                           touches=touches, min_same_days=min_same,
-                          follow_ups=one_email[0], no_reply_days=one_email[1])
+                          follow_ups=one_email[0], no_reply_days=one_email[1],
+                        inbox_reminder=one_email[2])
         if why == "no_reply":
             no_response(company, name, contacts)
             continue

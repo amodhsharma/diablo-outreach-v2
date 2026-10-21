@@ -166,11 +166,13 @@ def touch_times(contact, touches=None):
 
 
 def follow_up_settings(send_settings):
-    """(follow-ups to people on?, days to wait for a reply when they are off) from settings send.
-    Switched off on 21 Oct 2026 (Ariel: follow-ups make us look desperate); the forwards and the
-    reminder are kept in the code and come back when follow_ups_to_people is set to true."""
+    """(follow-ups to people on?, days to wait for a reply when they are off, company inbox reminder
+    on?) from settings send. Switched off on 21 Oct 2026 (Ariel: follow-ups make us look desperate,
+    and later the same day the company inbox reminder too); the forwards and the reminders are kept
+    in the code and come back when the settings are set to true."""
     s = send_settings or {}
-    return bool(s.get("follow_ups_to_people", True)), float(s.get("no_reply_after_days", 7))
+    return (bool(s.get("follow_ups_to_people", True)), float(s.get("no_reply_after_days", 7)),
+            bool(s.get("reminder_to_company_inbox", True)))
 
 
 def _decide_one_email(contacts, states, now, touches, no_reply_days):
@@ -193,7 +195,7 @@ def _decide_one_email(contacts, states, now, touches, no_reply_days):
 
 
 def decide(contacts, company_stage, gap_days, now=None, touches=None, min_same_days=7,
-           follow_ups=True, no_reply_days=7):
+           follow_ups=True, no_reply_days=7, inbox_reminder=True):
     """(the contact to email next or None, why). Contacts must be annotated (see annotate). why is
     one of: next (person 1's introduction, through the campaign), forward (the next person, a
     forward of the chain), reminder (person 1's one reminder, a reply in their thread), stopped,
@@ -209,8 +211,9 @@ def decide(contacts, company_stage, gap_days, now=None, touches=None, min_same_d
         return None, "stopped"
     if "queued" in states:
         return None, "waiting"
-    # 21 Oct 2026: follow-ups to people switched off (a company inbox keeps its one reminder).
-    if not follow_ups and not any(is_company_inbox(c) for c in contacts):
+    # 21 Oct 2026: follow-ups to people switched off; a company inbox keeps its one reminder only when
+    # inbox_reminder is on (switched off the same evening).
+    if not follow_ups and not (inbox_reminder and any(is_company_inbox(c) for c in contacts)):
         return _decide_one_email(contacts, states, now, touches, no_reply_days)
     reached = [c for c in contacts if c["state"] in ("sent", "bounced") and touch_times(c, touches)]
     emailed = [c for c in contacts if c["state"] == "sent"]

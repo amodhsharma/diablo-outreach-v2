@@ -30,6 +30,7 @@ def settings():
     # These tests cover the whole loop with its forwards and reminder, which is kept in the code but
     # switched off since 21 Oct 2026 (follow_ups_to_people: false); the off mode has its own tests.
     s["send"]["follow_ups_to_people"] = True
+    s["send"]["reminder_to_company_inbox"] = True
     return s
 
 
@@ -620,8 +621,8 @@ def test_contacts_of_an_unqualified_company_become_unqualified_company():
 
 def test_with_follow_ups_off_only_the_introduction_goes():
     """21 Oct 2026 (Ariel): no forwards and no reminder to people; a bounce passes the introduction on at
-    once; no reply within no_reply_after_days ends the loop. A company inbox keeps its one reminder."""
-    kw = dict(min_same_days=7, follow_ups=False, no_reply_days=7)
+    once; no reply within no_reply_after_days ends the loop. The company inbox reminder is off too."""
+    kw = dict(min_same_days=7, follow_ups=False, no_reply_days=7, inbox_reminder=False)
     four = [person("p1", 1), person("p2", 2, "approved"), person("p3", 3, "approved"), person("p4", 4, "approved")]
     fresh = [dict(p, state="approved") for p in four]
     assert decide(fresh, "approved", 3, touches={}, **kw)[1] == "next"
@@ -634,8 +635,9 @@ def test_with_follow_ups_off_only_the_introduction_goes():
     all_bounced = [dict(p, state="bounced") for p in four]
     assert decide(all_bounced, "in_outreach", 3, touches={}, **kw) == (None, "no_reply")
     inbox = [dict(person("i1", 1), properties={**person("i1", 1)["properties"], "jobtitle": INBOX_TITLE})]
-    due, why = decide(inbox, "in_outreach", 3, touches={"i1": days_ago(7.1)}, **kw)
-    assert (due["id"], why) == ("i1", "reminder")  # the company inbox keeps its reminder
+    assert decide(inbox, "in_outreach", 3, touches={"i1": days_ago(7.1)}, **kw) == (None, "no_reply")
+    due, why = decide(inbox, "in_outreach", 3, touches={"i1": days_ago(7.1)}, **{**kw, "inbox_reminder": True})
+    assert (due["id"], why) == ("i1", "reminder")  # kept in the code, back when switched on
 
 
 def test_with_follow_ups_off_the_company_closes_after_a_week(settings):
