@@ -28,7 +28,7 @@ from .instantly_client import Instantly, InstantlyError
 from .instantly_timezones import instantly_timezone
 from .next_in_line import (
     COMPANY_PROPS, CONTACT_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view,
-    is_company_inbox, last_campaign, lead_for, tagged_company_of,
+    follow_up_settings, is_company_inbox, last_campaign, lead_for, tagged_company_of,
 )
 from .schema import COMPANY_NOTE, PERSONAL_LINE
 from .stages import COMPANY_STOPPED, LeadStatus, forward
@@ -317,6 +317,7 @@ WAIT_REASONS = {
     "reminder": "the company's loop is done; Sync sends person 1 their reminder",
     "waiting_same_person": "the company's loop is done; person 1's reminder waits for its week",
     "no_reply": "the company's loop is finished with no reply",
+    "waiting_for_reply": "person 1 was emailed and the company is waiting for their reply (no follow-ups)",
     "next": "a more senior approved person at the company goes first",
 }
 
@@ -396,6 +397,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
 
     prefix = settings["sync"]["campaign_prefix"]
     gap = float(settings["send"].get("next_contact_after_days", 4))
+    one_email = follow_up_settings(settings["send"])  # 21 Oct 2026: follow-ups to people off
     in_instantly = instantly_view(instantly, prefix)
     notes = load_company_notes()
     everyone = contacts_by_company(hs, list(companies))
@@ -414,7 +416,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             continue
         # One person per company at a time: only the one next in line goes now.
         company_contacts = annotate(everyone.get(company_id) or [c], statuses, in_instantly)
-        due, why = decide(company_contacts, company_stage, gap)
+        due, why = decide(company_contacts, company_stage, gap, follow_ups=one_email[0],
+                          no_reply_days=one_email[1])
         if why != "next" or not due or due["id"] != c["id"]:  # only person 1 goes through the campaign
             waiting += 1
             log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "

@@ -8,6 +8,7 @@ import pytest
 
 from outreach import common, send, sync
 from outreach.common import load_settings
+from outreach.schema import INBOX_TITLE
 
 from .fakes import FakeCRM, FakeEmails, FakeInstantly
 
@@ -26,6 +27,9 @@ def settings():
     s = load_settings()
     s["send"]["sending_accounts"] = ["ariel@getdiablo-test.com"]
     s["send"]["booking_link"] = "https://book.example/diablo"  # the real link is not set yet ("xxx")
+    # These tests cover the whole loop with its forwards and reminder, which is kept in the code but
+    # switched off since 21 Oct 2026 (follow_ups_to_people: false); the off mode has its own tests.
+    s["send"]["follow_ups_to_people"] = True
     return s
 
 
@@ -127,7 +131,7 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     assert sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)["no_reply"] == 0
     emails.emails[-1]["timestamp_email"] = ago(3.1)
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert moved["no_reply"] == 1 and hs.records["companies"][cid][LS] == "Unqualified"
+    assert moved["no_reply"] == 1 and hs.records["companies"][cid][LS] == "Contacted, but no response, unqualified"  # 21 Oct 2026
     assert len(emails.forwards) == 2 and len(emails.replies) == 1
 
 
@@ -171,7 +175,7 @@ def test_one_person_only_gets_a_reminder_after_a_week_then_unqualified(settings)
     assert sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)["reminders_sent"] == 1
     emails.emails[-1]["timestamp_email"] = ago(3.1)
     assert sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)["no_reply"] == 1
-    assert hs.records["companies"][cid][LS] == "Unqualified"
+    assert hs.records["companies"][cid][LS] == "Contacted, but no response, unqualified"
 
 
 def test_waits_for_gate_two_before_moving_on(settings):
@@ -548,7 +552,7 @@ def test_a_reminder_hubspot_already_holds_is_never_sent_again(settings):
     hs.records["contacts"][p1][LS] = "REMINDER_SENT"
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["reminders_sent"] == 0 and not emails.replies
-    assert moved["no_reply"] == 1 and hs.records["companies"][cid][LS] == "Unqualified"
+    assert moved["no_reply"] == 1 and hs.records["companies"][cid][LS] == "Contacted, but no response, unqualified"
 
 
 def test_a_key_without_the_blocklist_permission_is_explained(monkeypatch, settings):
@@ -612,3 +616,39 @@ def test_contacts_of_an_unqualified_company_become_unqualified_company():
     assert status_of(hs, team) == "Emailed" and status_of(hs, q1) == "APPROVED_TO_SEND"
     assert hs.records["contacts"][p2]["diablo_stop_reason"].startswith("The company is Unqualified")
     assert sync.close_company_contacts(hs, statuses, log=lambda *_: None) == 0  # nothing twice
+
+
+def test_with_follow_ups_off_only_the_introduction_goes():
+    """21 Oct 2026 (Ariel): no forwards and no reminder to people; a bounce passes the introduction on at
+    once; no reply within no_reply_after_days ends the loop. A company inbox keeps its one reminder."""
+    kw = dict(min_same_days=7, follow_ups=False, no_reply_days=7)
+    four = [person("p1", 1), person("p2", 2, "approved"), person("p3", 3, "approved"), person("p4", 4, "approved")]
+    fresh = [dict(p, state="approved") for p in four]
+    assert decide(fresh, "approved", 3, touches={}, **kw)[1] == "next"
+    assert decide(four, "in_outreach", 3, touches={"p1": days_ago(3)}, **kw) == (None, "waiting_for_reply")
+    assert decide(four, "in_outreach", 3, touches={"p1": days_ago(6.9)}, **kw) == (None, "waiting_for_reply")
+    assert decide(four, "in_outreach", 3, touches={"p1": days_ago(7.1)}, **kw) == (None, "no_reply")
+    bounced = [dict(four[0], state="bounced")] + four[1:]
+    due, why = decide(bounced, "in_outreach", 3, touches={"p1": days_ago(0.1)}, **kw)
+    assert (due["id"], why) == ("p2", "next")  # at once, not after 3 days
+    all_bounced = [dict(p, state="bounced") for p in four]
+    assert decide(all_bounced, "in_outreach", 3, touches={}, **kw) == (None, "no_reply")
+    inbox = [dict(person("i1", 1), properties={**person("i1", 1)["properties"], "jobtitle": INBOX_TITLE})]
+    due, why = decide(inbox, "in_outreach", 3, touches={"i1": days_ago(7.1)}, **kw)
+    assert (due["id"], why) == ("i1", "reminder")  # the company inbox keeps its reminder
+
+
+def test_with_follow_ups_off_the_company_closes_after_a_week(settings):
+    settings["send"]["follow_ups_to_people"] = False
+    from outreach.stages import LeadStatus
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.5)
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["forwards_sent"] == 0 and moved["no_reply"] == 0 and status_of(hs, p2) == "APPROVED_TO_SEND"
+    emails.emails[0]["timestamp_email"] = ago(7.2)
+    lead(instantly, "p1@noble.in")["timestamp_last_contact"] = ago(7.2)
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["no_reply"] == 1 and moved["forwards_sent"] == 0 and moved["reminders_sent"] == 0
+    assert hs.records["companies"][cid][LS] == "Contacted, but no response, unqualified"
+    assert status_of(hs, p1) == "CONTACTED_NO_RESPONSE_UNQUALIFIED"
+    assert status_of(hs, p2) == status_of(hs, p3) == "UNQUALIFIED_COMPANY"  # in the same run
+    assert emails.forwards == [] and emails.replies == []

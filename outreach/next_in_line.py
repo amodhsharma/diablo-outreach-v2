@@ -165,11 +165,40 @@ def touch_times(contact, touches=None):
     return [contact["sent_at"]] if contact.get("sent_at") else []
 
 
-def decide(contacts, company_stage, gap_days, now=None, touches=None, min_same_days=7):
+def follow_up_settings(send_settings):
+    """(follow-ups to people on?, days to wait for a reply when they are off) from settings send.
+    Switched off on 21 Oct 2026 (Ariel: follow-ups make us look desperate); the forwards and the
+    reminder are kept in the code and come back when follow_ups_to_people is set to true."""
+    s = send_settings or {}
+    return bool(s.get("follow_ups_to_people", True)), float(s.get("no_reply_after_days", 7))
+
+
+def _decide_one_email(contacts, states, now, touches, no_reply_days):
+    """Follow-ups off: person 1's introduction is the only email. A bounced address passes the
+    introduction to the next approved person at once; no reply within no_reply_days ends the loop."""
+    emailed = [c for c in contacts if c["state"] == "sent"]
+    if emailed:
+        times = [t for c in emailed for t in touch_times(c, touches)]
+        if not times:
+            return None, "waiting"
+        if now - max(times) < dt.timedelta(days=no_reply_days):
+            return None, "waiting_for_reply"
+        return None, "no_reply"
+    approved = sorted((c for c in contacts if c["state"] == "approved"), key=rank_of)
+    if approved:
+        return approved[0], "next"
+    if "pending" in states:
+        return None, "waiting_for_gate_2"
+    return (None, "no_reply") if "bounced" in states else (None, "nothing")
+
+
+def decide(contacts, company_stage, gap_days, now=None, touches=None, min_same_days=7,
+           follow_ups=True, no_reply_days=7):
     """(the contact to email next or None, why). Contacts must be annotated (see annotate). why is
     one of: next (person 1's introduction, through the campaign), forward (the next person, a
     forward of the chain), reminder (person 1's one reminder, a reply in their thread), stopped,
-    waiting, waiting_for_gate_2, waiting_same_person, waiting_for_emails_key, no_reply, nothing.
+    waiting, waiting_for_gate_2, waiting_same_person, waiting_for_emails_key, waiting_for_reply,
+    no_reply, nothing. With follow_ups False (21 Oct 2026) only the introduction goes to people.
 
     touches: {contact id: [times they were emailed]} from Instantly, or None when unknown."""
     now = now or dt.datetime.now(dt.timezone.utc)
@@ -180,6 +209,9 @@ def decide(contacts, company_stage, gap_days, now=None, touches=None, min_same_d
         return None, "stopped"
     if "queued" in states:
         return None, "waiting"
+    # 21 Oct 2026: follow-ups to people switched off (a company inbox keeps its one reminder).
+    if not follow_ups and not any(is_company_inbox(c) for c in contacts):
+        return _decide_one_email(contacts, states, now, touches, no_reply_days)
     reached = [c for c in contacts if c["state"] in ("sent", "bounced") and touch_times(c, touches)]
     emailed = [c for c in contacts if c["state"] == "sent"]
     times = [t for c in reached for t in touch_times(c, touches)]

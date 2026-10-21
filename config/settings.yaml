@@ -137,6 +137,17 @@ send:
   # reply, the company becomes Unqualified. Any reply or opt-out stops the company at once.
   # Forwards and the reminder need the GitHub secret INSTANTLY_EMAILS_KEY (scope emails:all).
   next_contact_after_days: 3
+  # FOLLOW-UPS TO PEOPLE SWITCHED OFF (21 Oct 2026, Ariel: follow-ups make us look desperate). Only
+  # person 1's introduction is sent; the forwards to colleagues (every 3 days) and person 1's
+  # reminder (after a week) described above are kept, not removed, and come back when this is set
+  # to true. Up to 4 contacts are still found and approved, in case an address does not work: when
+  # person 1's email bounces, the introduction goes to the next approved person at the next run.
+  # A company inbox (info@ and the like) keeps its one reminder.
+  follow_ups_to_people: false
+  # With follow-ups off: days after the introduction with no reply before the company and the
+  # person emailed become "Contacted, but no response, unqualified" (the others there become
+  # "Unqualified company"). A reply after that is still seen in Instantly.
+  no_reply_after_days: 7
   rotation:
     min_days_same_person: 7
     # Instantly forwards an email with our note on top. If the test shows the earlier email is not

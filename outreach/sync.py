@@ -42,11 +42,12 @@ from .common import PipelineError, check_target, ist, load_company_notes, load_s
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .next_in_line import (
-    COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, instantly_view, is_company_inbox,
+    COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, follow_up_settings, instantly_view,
+    is_company_inbox,
     last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from .stages import COLLEAGUE_STAGES, TEAM, LeadStatus, forward
+from .stages import COLLEAGUE_STAGES, EMAILED, TEAM, LeadStatus, forward
 
 
 def lead_result(lead):
@@ -319,7 +320,7 @@ COLLEAGUE_STAGE = {"marked interested": "colleague_positive", "replied": "collea
 
 # Contacts left alone when their company is Unqualified: their own Unqualified, a status that already
 # says what happened at the company, one a person set by hand, and those already done.
-KEEP_WHEN_COMPANY_CLOSED = ("closed", "company_unqualified", TEAM) + COLLEAGUE_STAGES
+KEEP_WHEN_COMPANY_CLOSED = ("closed", "company_unqualified", "no_response", TEAM) + COLLEAGUE_STAGES
 
 
 def close_company_contacts(hs, statuses, log=print):
@@ -332,6 +333,9 @@ def close_company_contacts(hs, statuses, log=print):
         return 0
     companies = hs.tagged_search("companies", [statuses.filter("companies", "closed")],
                                  ["name", STOP_REASON], max_results=5000)
+    if statuses.has("companies", "no_response"):  # 21 Oct 2026: no reply in time
+        companies += hs.tagged_search("companies", [statuses.filter("companies", "no_response")],
+                                      ["name", STOP_REASON], max_results=5000)
     if not companies:
         return 0
     everyone = contacts_by_company(hs, [c["id"] for c in companies])
@@ -647,14 +651,20 @@ NEXT_STEP = {
     "waiting_same_person": "person 1's reminder, a week after their introduction",
     "waiting_for_gate_2": "someone to be approved at GATE2", "waiting_for_emails_key":
     "the GitHub secret INSTANTLY_EMAILS_KEY", "stopped": "nothing (someone replied or a person took over)",
-    "no_reply": "Unqualified (the loop is finished)", "nothing": "nothing (nobody approved)",
+    "no_reply": "Contacted, but no response, unqualified (the loop is finished)",
+    "nothing": "nothing (nobody approved)",
+    "waiting_for_reply": "a reply to person 1's introduction (no follow-ups are sent)",
 }
 
 
-def due_at(contacts, touches, why, gap_days, min_same_days):
-    """When the company's next email is due, for the waiting reasons, or None."""
+def due_at(contacts, touches, why, gap_days, min_same_days, no_reply_days=7):
+    """When the company's next email is due, for the waiting reasons, or None. For
+    waiting_for_reply (follow-ups off), when the company closes if nobody replies."""
     import datetime as _dt
     times = [t for c in contacts if c.get("state") in ("sent", "bounced") for t in touch_times(c, touches)]
+    if why == "waiting_for_reply":
+        sent = [t for c in contacts if c.get("state") == "sent" for t in touch_times(c, touches)]
+        return max(sent) + _dt.timedelta(days=no_reply_days) if sent else None
     if why == "waiting" and times:
         return max(times) + _dt.timedelta(days=gap_days)
     if why == "waiting_same_person":
@@ -686,6 +696,7 @@ def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None, 
     leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
     gap = float(settings["send"].get("next_contact_after_days", 3))
     min_same = float((settings["send"].get("rotation") or {}).get("min_days_same_person", 7))
+    one_email = follow_up_settings(settings["send"])
     companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
                                  COMPANY_PROPS, max_results=5000)
     if not companies:
@@ -699,8 +710,9 @@ def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None, 
         if emails_api is not None:
             touches, _, _ = company_mail(emails_api, contacts)
             mark_sent(contacts, touches)
-        _, why = decide(contacts, statuses.of("companies", company), gap, now, touches=touches, min_same_days=min_same)
-        when = due_at(contacts, touches, why, gap, min_same)
+        _, why = decide(contacts, statuses.of("companies", company), gap, now, touches=touches, min_same_days=min_same,
+                        follow_ups=one_email[0], no_reply_days=one_email[1])
+        when = due_at(contacts, touches, why, gap, min_same, one_email[1])
         line = f"- **{name}**: next is {NEXT_STEP.get(why, why)}" + (f", due {ist(when)}" if when else "")
         if blocked is not None and getattr(blocked, "ok", True):
             found = stop_signals(contacts, blocked, leads)
@@ -774,6 +786,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     gap = float(settings["send"].get("next_contact_after_days", 3))
     rot = settings["send"].get("rotation") or {}
     min_same = float(rot.get("min_days_same_person", 7))
+    one_email = follow_up_settings(settings["send"])  # 21 Oct 2026: follow-ups to people off
     companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
                                  COMPANY_PROPS, max_results=5000)
     result = {"next_contacts_added": 0, "forwards_sent": 0, "reminders_sent": 0, "no_reply": 0,
@@ -786,6 +799,19 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     notes = load_company_notes()
     contact_updates, company_updates = [], []
     sent_rows, waiting_rows = [], []
+
+    def no_response(company, name, contacts):
+        """The loop is finished with no reply (21 Oct 2026): the company and everyone emailed there
+        become "Contacted, but no response, unqualified" (Unqualified in an account where button 1 has
+        not added that choice yet); the others there become "Unqualified company" in the same run."""
+        company_updates.append((company["id"], statuses.props_or("companies", "no_response", "closed")))
+        for c in contacts:
+            if c.get("state") == "sent" and statuses.of("contacts", c) in EMAILED:
+                contact_updates.append((c["id"], statuses.props_or("contacts", "no_response", "closed")))
+        result["no_reply"] += 1
+        sent_rows.append(f"| {name} | - | No reply: company set to Contacted, but no response, unqualified |")
+        log(f"{name}: no reply to the introduction; the company is now \"Contacted, but no response, "
+            "unqualified\"")
 
     def stop_company(company, name, contacts, found):
         """An opt-out at the company: that person and the company are Unqualified, everyone else
@@ -846,12 +872,10 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             log(f"{name}: someone replied; nobody else there is emailed")
             continue
         due, why = decide(contacts, statuses.of("companies", company), gap, now,
-                          touches=touches, min_same_days=min_same)
+                          touches=touches, min_same_days=min_same,
+                          follow_ups=one_email[0], no_reply_days=one_email[1])
         if why == "no_reply":
-            company_updates.append((company["id"], statuses.props("companies", "closed")))
-            result["no_reply"] += 1
-            sent_rows.append(f"| {name} | - | Loop finished with no reply: company set to Unqualified |")
-            log(f"{name}: the loop is finished with no reply; the company is now Unqualified")
+            no_response(company, name, contacts)
             continue
         if why in ("waiting", "waiting_same_person", "waiting_for_gate_2", "nothing", "stopped"):
             when = due_at(contacts, touches, why, gap, min_same)
@@ -897,11 +921,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 # Instantly's record of it is missing. The loop ends after the usual gap.
                 last = max(touch_times(due, touches) or [None], key=lambda t: t or parse_time("1970-01-01"))
                 if last is None or (now or dt.datetime.now(dt.timezone.utc)) - last >= dt.timedelta(days=gap):
-                    company_updates.append((company["id"], statuses.props("companies", "closed")))
-                    result["no_reply"] += 1
-                    sent_rows.append(f"| {name} | - | Loop finished with no reply: company set to Unqualified |")
-                    log(f"{name}: the reminder was already sent; the loop is finished with no reply, so the company "
-                        "is now Unqualified")
+                    no_response(company, name, contacts)
                 continue
             if not past:
                 log(f"{name}: could not find person 1's email to reply to; will try again next run")
@@ -950,7 +970,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     _summary(sent_rows, waiting_rows, opt_out_rows, blocklist["now"])
     log(f"Loop: {result['forwards_sent']} forwards, {result['reminders_sent']} reminders, "
         f"{result['next_contacts_added']} introductions added, {result['replied']} companies replied, "
-        f"{result['no_reply']} finished with no reply (now Unqualified)")
+        f"{result['no_reply']} finished with no reply (now Contacted, but no response, unqualified)")
     return result
 
 

@@ -98,17 +98,20 @@ def test_live_gets_exactly_four_fields_and_five_choices():
     assert summary["created"] == 9
     # GATE1: Approved for outreach; "New, Personal line filled", GATE2: Approved to send, and (14 Oct 2026)
     # "Forward sent" and "Reminder sent", and (19 Oct 2026) the three "Colleague replied" choices and
-    # "Colleague opted out", and (21 Oct 2026) "Unqualified company"
-    assert summary["updated"] == 10
+    # "Colleague opted out", and (21 Oct 2026) "Unqualified company" and, on both, "Contacted, but no
+    # response, unqualified"
+    assert summary["updated"] == 12
     assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, COMPANY_NOTE, ORDER,
                                          CONTACT_SOURCE, STOP_REASON}
     assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type", STOP_REASON,
                                           "diablo_job_number"}
-    assert labels(hs, "companies")[-1:] == ["GATE1: Approved for outreach"]
-    assert sorted(labels(hs, "contacts")[-9:]) == sorted(["New, Personal line filled", "GATE2: Approved to send",
-                                                         "Forward sent", "Reminder sent", "Colleague replied: positive",
-                                                         "Colleague replied: negative", "Colleague replied",
-                                                         "Colleague opted out", "Unqualified company"])
+    assert sorted(labels(hs, "companies")[-2:]) == sorted(["GATE1: Approved for outreach",
+                                                          "Contacted, but no response, unqualified"])
+    assert sorted(labels(hs, "contacts")[-10:]) == sorted(["New, Personal line filled", "GATE2: Approved to send",
+                                                          "Forward sent", "Reminder sent", "Colleague replied: positive",
+                                                          "Colleague replied: negative", "Colleague replied",
+                                                          "Colleague opted out", "Unqualified company",
+                                                          "Contacted, but no response, unqualified"])
     for obj in ("companies", "contacts"):  # the team's choices are sent back exactly as they were
         assert hs.props[obj]["hs_lead_status"]["options"][:len(before[obj])] == before[obj]
     assert len(hs.props["companies"]["industry_type"]["options"]) == 6  # live's own field: untouched
@@ -139,7 +142,7 @@ def test_refuses_live_account_without_flag_but_a_dry_run_only_reads():
     shown = []
     summary = setup_hubspot.run(hs, dry_run=True, log=shown.append)
     assert all(method == "GET" for method, _ in hs.calls)
-    assert summary["updated"] == 10 and any("[would add]" in line for line in shown)
+    assert summary["updated"] == 12 and any("[would add]" in line for line in shown)
     assert "New, Personal line filled" not in labels(hs, "contacts")
 
 
@@ -170,7 +173,7 @@ def test_live_never_gets_other_choices_or_fields():
     summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
     assert summary["conflict"] == 2  # reported, not added
     assert "Missing Info" not in labels(hs, "companies") and "lead_source" not in hs.props["contacts"]
-    assert labels(hs, "companies")[-1] == "GATE1: Approved for outreach"
+    assert "GATE1: Approved for outreach" in labels(hs, "companies")[-2:]
 
 
 def test_every_run_shows_the_key_steps_and_a_plain_reason(tmp_path, monkeypatch):

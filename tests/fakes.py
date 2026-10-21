@@ -9,7 +9,8 @@ from outreach.schema import TAG, TAG_PROPERTY
 LIVE_COMPANY_STATUS = {"New": "New", "Missing Info": "Missing Info", "Emailed": "Emailed",
                        "In Progress": "In Progress", "Unqualified": "Unqualified",
                        "Attempted to Contact": "Attempted to Contact", "Won": "Won",
-                       "GATE1: Approved for outreach": "GATE1: Approved for outreach"}
+                       "GATE1: Approved for outreach": "GATE1: Approved for outreach",
+                       "Contacted, but no response, unqualified": "Contacted, but no response, unqualified"}
 LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": "Emailed",
                        "IN_PROGRESS": "In Progress", "UNQUALIFIED": "Unqualified",
                        "ATTEMPTED_TO_CONTACT": "Attempted to Contact", "WON": "WON",
@@ -18,7 +19,8 @@ LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": 
                        "COLLEAGUE_REPLIED_POSITIVE": "Colleague replied: positive",
                        "COLLEAGUE_REPLIED_NEGATIVE": "Colleague replied: negative",
                        "COLLEAGUE_REPLIED": "Colleague replied", "COLLEAGUE_OPTED_OUT": "Colleague opted out",
-                       "UNQUALIFIED_COMPANY": "Unqualified company"}
+                       "UNQUALIFIED_COMPANY": "Unqualified company",
+                       "CONTACTED_NO_RESPONSE_UNQUALIFIED": "Contacted, but no response, unqualified"}
 
 
 class FakeCRM(TagGuard):

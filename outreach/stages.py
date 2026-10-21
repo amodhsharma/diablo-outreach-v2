@@ -15,7 +15,9 @@ account itself, so the code works whatever the account calls a choice internally
     Person 1's one reminder sent                                             Reminder sent
     They replied                               In Progress                   In Progress
     Any dead end (rejected, not interested,    Unqualified                   Unqualified
-    no reply, opted out, bounced)
+    opted out, bounced)
+    No reply in time (21 Oct 2026; follow-ups  "Contacted, but no response,   the same, for the person
+    to people are off)                         unqualified"                  emailed
     The company is Unqualified (by a person                                  Unqualified company
     or the loop, 21 Oct 2026): its other
     contacts, so a contact's own Unqualified
@@ -39,6 +41,8 @@ STAGES = {
         "in_outreach": "Attempted to Contact",
         "replied": "In Progress",
         "closed": "Unqualified",
+        # 21 Oct 2026 (Ariel): the introduction got no reply in time; no follow-ups are sent.
+        "no_response": "Contacted, but no response, unqualified",
     },
     "contacts": {
         "found": "New",
@@ -58,6 +62,8 @@ STAGES = {
         # The company is Unqualified (21 Oct 2026, Ariel): every other contact there, kept apart from
         # a contact's own "Unqualified".
         "company_unqualified": "Unqualified company",
+        # 21 Oct 2026 (Ariel): the person emailed did not reply in time.
+        "no_response": "Contacted, but no response, unqualified",
     },
 }
 COLLEAGUE_STAGES = ("colleague_positive", "colleague_negative", "colleague_replied", "colleague_opted_out")
@@ -70,21 +76,23 @@ EMAILED = ("in_outreach", "forwarded", "reminded")
 NEW_OPTION_VALUES = {
     "companies": {"GATE1: Approved for outreach": "GATE1: Approved for outreach", "Missing Info": "Missing Info",
                   "New": "New", "Attempted to Contact": "Attempted to Contact",
-                  "In Progress": "In Progress", "Unqualified": "Unqualified"},
+                  "In Progress": "In Progress", "Unqualified": "Unqualified",
+                  "Contacted, but no response, unqualified": "Contacted, but no response, unqualified"},
     "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
                  "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "Forward sent": "FORWARD_SENT",
                  "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
                  "Unqualified": "UNQUALIFIED", "Colleague replied: positive": "COLLEAGUE_REPLIED_POSITIVE",
                  "Colleague replied: negative": "COLLEAGUE_REPLIED_NEGATIVE",
                  "Colleague replied": "COLLEAGUE_REPLIED", "Colleague opted out": "COLLEAGUE_OPTED_OUT",
-                 "Unqualified company": "UNQUALIFIED_COMPANY"},
+                 "Unqualified company": "UNQUALIFIED_COMPANY",
+                 "Contacted, but no response, unqualified": "CONTACTED_NO_RESPONSE_UNQUALIFIED"},
 }
 
 # Later stages win: a status only ever moves forward.
 ORDER = {"": 0, "found": 0, "missing_info": 0, "copy_ready": 0, "approved": 0,
          "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3,
          "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2,
-         "company_unqualified": 3}
+         "company_unqualified": 3, "no_response": 3}
 TEAM = "team"
 
 
@@ -155,4 +163,4 @@ def forward(old_stage, new_stage):
 
 
 # A company in one of these stages gets no more emails.
-COMPANY_STOPPED = {"replied", "closed", TEAM}
+COMPANY_STOPPED = {"replied", "closed", "no_response", TEAM}
