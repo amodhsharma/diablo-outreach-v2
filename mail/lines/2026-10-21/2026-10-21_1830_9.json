@@ -1,0 +1,71 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-21",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-21T12:31:52+00:00",
+  "lines": [
+    {
+      "contact_id": "897908648166",
+      "company_name": "1001 Distributions (Mangenot O.S. Déstockage)",
+      "personal_line": "Your team's work in running a dedicated webshop for shops and supermarkets, with brands such as Pringles and Stimorol, speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies confectionery and snacks to supermarkets and independent shops",
+      "style": "B"
+    },
+    {
+      "contact_id": "897772412137",
+      "company_name": "Cadar SA",
+      "personal_line": "We have great respect for the way your team supplies independent food shops across Switzerland. With such established reach across the à la carte and mafée store concepts, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "897934402764",
+      "company_name": "Ch. Margot & Cie SA",
+      "personal_line": "We hold your team in high regard for building one of the few independent national kiosk and confectionery wholesale businesses in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "supplies chocolate and confectionery to kiosks and convenience stores",
+      "style": "D"
+    },
+    {
+      "contact_id": "897895666920",
+      "company_name": "Provianda GmbH",
+      "personal_line": "Your team's work in supplying the vending sector with brands such as Lion, KitKat and Knoppers speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies confectionery and snacks to vending operators",
+      "style": "B"
+    },
+    {
+      "contact_id": "897772412134",
+      "company_name": "Cadar SA",
+      "personal_line": "We hold your team in high regard for growing from a business founded by shopkeepers into a supplier to independent grocers across Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "897934402762",
+      "company_name": "Ch. Margot & Cie SA",
+      "personal_line": "We have great respect for the way your team delivers chocolate and confectionery to kiosks and convenience retailers across Switzerland. With such established reach across the kiosk and convenience trade, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies chocolate and confectionery to kiosks and convenience stores",
+      "style": "A"
+    },
+    {
+      "contact_id": "897772412135",
+      "company_name": "Cadar SA",
+      "personal_line": "Your team's work in building the à la carte and mafée store concepts for independent grocers speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "897934402763",
+      "company_name": "Ch. Margot & Cie SA",
+      "personal_line": "Your team's work in supplying kiosks and convenience retailers across Switzerland in both French and German speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies chocolate and confectionery to kiosks and convenience stores",
+      "style": "B"
+    },
+    {
+      "contact_id": "897772412136",
+      "company_name": "Cadar SA",
+      "personal_line": "Your range, from dairy and frozen to drinks and health food, reflects a careful choice of products for independent food shops. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "C"
+    }
+  ]
+}
