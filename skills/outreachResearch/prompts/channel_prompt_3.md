@@ -57,7 +57,9 @@ Left out by Diablo, and why (never list companies like these):
 - Raw materials and wines, with confectionery only in a directory: Gustoso, Divina Food (Italian specialities, its own dairy and wine).
 - Fruit, vegetable and frozen foodservice suppliers, with confectionery only in a directory: GastroPfaff, Vermo.
 - A health food wholesaler with its own brands, cosmetics and supplements: Phag.
-- Gourmet importers of one country's food: Iberpasion (Spanish), MY IZAKAYA (Japanese drinks for restaurants).
+- Gourmet importers of one country's food: Iberpasion (Spanish), MY IZAKAYA (Japanese drinks for restaurants), LAPA (Italian, for pizzerias), Caporaso and Marinello (Italian), Greek Gourmet (Greek cheese), The Asia Company (Asian food for restaurants).
+- Fresh produce wholesalers and a new food trader with no confirmed range: Ernst Welti, Isbilir.
+- A pharmacy-centred wholesaler with its own brand: Pharmapost.
 The best finds, the model to follow:
 - 1001 Distributions: a wholesaler selling branded sweets, chewing gum and snacks to supermarkets and shops through a B2B webshop for retail professionals.
 - Ch. Margot & Cie: a national kiosk and confectionery wholesaler with over 3,000 branded items and more than 2,500 trade clients.
@@ -65,6 +67,8 @@ The best finds, the model to follow:
 - Provianda: a wholesaler of branded confectionery, wafers, bars and snacks for vending operators and workplace catering.
 - easytrade distribution: an owner-run importer that takes Swiss rights for foreign snack brands and sells them into kiosks, retail chains and wholesalers with its own field team.
 - honeydew: an importer and distributor of vegan snack and sweet brands for retailers.
+- Bizzyvends: a wholesaler of imported branded snacks and candy for kiosks, late-night shops, petrol stations and online shops.
+- Naturalex: an organic importer whose range includes confectionery and snacks (found in a directory; confirm it on its own site).
 - AM Food: a Balkan specialities importer with its own snacks and sweets section, selling to food shops across Switzerland.
 - A good tier 3 find: Authentic Food Solutions (Swiss Deli Distribution), which supplies packaged sweets, cookies and snacks to snack counters and kiosks in leisure parks and pools across Switzerland.
 
