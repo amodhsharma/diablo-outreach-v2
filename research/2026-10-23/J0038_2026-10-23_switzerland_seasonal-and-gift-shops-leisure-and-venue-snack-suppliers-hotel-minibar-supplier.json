@@ -1,0 +1,203 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0038",
+  "location": "Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 36
+    },
+    {
+      "channel": "leisure and venue snack suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 58
+    },
+    {
+      "channel": "hotel minibar suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 53
+    },
+    {
+      "channel": "snack subscription boxes",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 51
+    },
+    {
+      "channel": "promotional merchandise companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 31
+    }
+  ],
+  "companies": [
+    {
+      "name": "geschenkidee.ch GmbH",
+      "based_out_of": "Switzerland",
+      "domain": "geschenkidee.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gifts with a chocolate and sweets section: chocolate bars, pralines, chocolate gift boxes, biscuits (Laeckerli) and herbal sweets from Toblerone, Lindt, Spruengli, Laeckerli Huus and Ricola; food and drink advent calendars",
+      "channels_supplied": "Its own online shop to consumers and companies across Switzerland",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Switzerland's largest online gift shop already sells 37 chocolate and sweets products from other brands, plus seasonal advent calendars with food. Diablo's gift boxes, chocolate boxes and advent calendars fit its occasion-led range for Christmas, Easter and birthdays. Head office town is not stated on the pages checked.",
+      "what_they_do_well": [
+        "Described as the largest online gift provider in Switzerland, with several thousand items in its range.",
+        "Its own advent calendars nearly sold out before late November in 2020."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.geschenkidee.ch/geschenkartikel/essen-getraenke/schokolade-suesses",
+        "https://www.geschenkidee.ch/anlass/adventskalender/essen-getraenke",
+        "https://www.horizont.net/schweiz/nachrichten/geschenkidee.ch-das-angebot-an-selbstproduzierten-adventskalendern-wird-ausgebaut-194356"
+      ]
+    },
+    {
+      "name": "Geschenkkoerbe.ch",
+      "based_out_of": "Flawil, Switzerland",
+      "domain": "geschenkkoerbe.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift baskets and gift boxes filled with branded biscuits and wafers (Jakob's Basler Leckerly, Straumann Hueppen), snacks (MiAdelita tortilla chips), tea and dried fruit; Easter and Christmas baskets",
+      "channels_supplied": "Its own online shop to consumers and a corporate gifts service for employees and business partners, with delivery to many addresses",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online gift basket shop that buys other companies' packaged biscuits, wafers and snacks and sells them as they are in seasonal and corporate gift baskets. Diablo's biscuits, wafers, chocolate and gift boxes suit its Christmas, Easter and company gift baskets, and its corporate catalogue reaches business buyers.",
+      "what_they_do_well": [
+        "Runs a dedicated corporate gifts service with personalisation, a printed catalogue and shipping to many addresses from one order."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.geschenkkoerbe.ch/geschenkkorb-helvetia",
+        "https://www.geschenkkoerbe.ch/geschenkkoerbe/geschenkkoerbe-nach-korbart/geschenkbox/",
+        "https://handelsverband.swiss/?p=55648"
+      ]
+    },
+    {
+      "name": "Swiss Food Box",
+      "based_out_of": "Switzerland",
+      "domain": "swissfoodbox.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift and subscription boxes of Swiss chocolate, sweets and cookies from brands such as Ragusa, Cailler and Kaegi, plus savoury Swiss food; over 100 products sold singly or in boxes",
+      "channels_supplied": "Its own online shop, with one-off orders and monthly subscription boxes shipped worldwide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run online gift box seller that buys branded Swiss chocolate, sweets and cookies and resells them as they are in Swiss Chocolate and Swiss Sweets boxes. Diablo's chocolate, sweets and biscuits fit its build-your-box range. Tier 3 because it is small and its head office town is not stated on its website.",
+      "what_they_do_well": [
+        "Trading as a family business since 2016, when its first box shipped."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://swissfoodbox.ch/",
+        "https://meetings.myswitzerland.com/en-in/planning/venues/themed-proposals/hybrid-meetings-in-switzerland/delivery-service-for-gift-and-food-boxes/"
+      ]
+    },
+    {
+      "name": "Organisation Deval Sàrl",
+      "based_out_of": "Vétroz, Switzerland",
+      "domain": "organisationdeval.ch",
+      "channel_category": [
+        "leisure and venue snack suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded chocolate bars and countlines (Mars, Snickers, Twix, Kit Kat, Kinder Bueno, Lion, Cailler, Lindt), sweets, gummies and chewing gum (Haribo, Mentos, Ricola, Fini, Stimorol, Tic Tac), plus drinks and general groceries",
+      "channels_supplied": "Trade customers in Valais and Vaud through a B2B web shop with professional pricing; customer types are not named on its website",
+      "sf_brands_carried": "Werther's sugar-free box and sugar-free chewing gum (Mentos, Stimorol)",
+      "competing_brand_flag": true,
+      "fit_rationale": "A confectionery-led wholesaler founded by the Revaz brothers whose shop sells other companies' branded chocolate bars and sweets in counter cases priced for single-unit resale, the format kiosks and snack counters use. Diablo's chocolate bars, sweets and gummies would sit beside the Mars, Ferrero and Haribo lines it already sells to Valais and Vaud trade buyers. Storage: sells from its own stock through a B2B web shop with prices, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs a B2B web shop with around 550 branded items and trade prices, with free delivery from CHF 250 across Valais and Vaud."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.organisationdeval.ch/",
+        "https://www.organisationdeval.ch/collections/chocolats",
+        "https://www.organisationdeval.ch/collections/bonbons",
+        "https://www.organisationdeval.ch/pages/contact"
+      ]
+    },
+    {
+      "name": "OH MY BOX KLG",
+      "based_out_of": "Rudolfstetten, Switzerland",
+      "domain": "ohmybox.ch",
+      "channel_category": [
+        "snack subscription boxes"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Snack gift boxes with chocolate bars (Lindt, Kinder Bueno, Knoppers, Raffaello, M&M's, Smarties), chocolate spreads (mini Nutella), gummies and jelly sweets (Haribo), lollipops and gum, biscuits and cookies, plus salty snacks and drinks",
+      "channels_supplied": "Own Shopify online shop delivering across Switzerland to consumers, plus custom corporate gift boxes for employees and clients",
+      "sf_brands_carried": "A protein snack box is offered; no sugar-free brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Swiss snack box seller that buys well-known branded chocolate, sweets and biscuits and packs them into themed boxes (kids, birthday, protein, military) for shoppers and companies. Diablo's chocolate bars, gummies, cookies and spreads would slot straight into a sugar-free or protein box. Tier 3 because its boxes are one-off and corporate orders, with no subscription plan shown on its website, and it is a small founder-run business.",
+      "what_they_do_well": [
+        "Runs a corporate gifting line with custom packaging, company logo and greeting card for employee and client gifts."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ohmybox.ch/en",
+        "https://ohmybox.ch/en/collections/snackboxen",
+        "https://ohmybox.ch/en/collections/snackboxen/products/mega-snackbox-deluxe",
+        "https://ohmybox.ch/en/pages/about-us"
+      ]
+    },
+    {
+      "name": "Food Agentur GmbH",
+      "based_out_of": "Switzerland (town not stated on its website)",
+      "domain": "foodagentur.ch",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Edible promotional gifts: branded sweets and gummies (Haribo Goldbären and Primavera, Skittles, Tic Tac), chocolate (Toblerone, Lindt), Dextro Energy glucose sweets, chewing gum and snacks, supplied with the customer's logo",
+      "channels_supplied": "Companies, SMEs, start-ups and event organisers buying giveaways and corporate gifts; references include SBB, Sunrise, Holcim and Raiffeisen",
+      "sf_brands_carried": "Sugar-free gummy bears offered, brand not named on its website",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss promotional specialist whose whole range is food, reselling other brands' packaged sweets and chocolate such as Haribo, Toblerone, Lindt and Dextro Energy as logo giveaways, so Diablo's sugar-free sweets and chocolate suit its health-minded corporate gift buyers. Tier 3 because it sells to companies buying giveaways, not to shops. Storage: sells at fixed CHF prices through its own web shop, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Over 27 years in promotional products, with corporate references including SBB, Sunrise, Holcim, Raiffeisen and Hublot."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://foodagentur.ch/",
+        "https://foodagentur.ch/suessigkeiten/",
+        "https://foodagentur.ch/fixpreis-produkte/"
+      ]
+    }
+  ]
+}
