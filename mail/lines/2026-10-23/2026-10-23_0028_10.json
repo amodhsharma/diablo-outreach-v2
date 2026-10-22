@@ -1,0 +1,78 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-22T18:31:47+00:00",
+  "lines": [
+    {
+      "contact_id": "899325438179",
+      "company_name": "Coop Pronto",
+      "personal_line": "We have great respect for the way your team serves its customers in Switzerland. With such established reach across your shops, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "899325438178",
+      "company_name": "Coop Pronto",
+      "personal_line": "Your team's work in building Coop Pronto speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "899325438180",
+      "company_name": "Coop Pronto",
+      "personal_line": "Your range, from shelf to shelf, reflects a careful choice of products for customers across Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "899332654274",
+      "company_name": "Prima",
+      "personal_line": "Your range, from shelf to shelf, reflects a careful choice of products for your franchise and partner shops. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "899332654275",
+      "company_name": "Prima",
+      "personal_line": "We have great respect for the way your team supports its franchise and partner shops. With such established reach across Switzerland, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "899332654276",
+      "company_name": "Prima",
+      "personal_line": "We hold your team in high regard for building the Prima franchise and partner concepts. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "899343440066",
+      "company_name": "Toga Food",
+      "personal_line": "We hold your team in high regard for acting as the full import, sales and marketing partner for European brand manufacturers. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "imports branded European confectionery and snacks",
+      "style": "D"
+    },
+    {
+      "contact_id": "899343440064",
+      "company_name": "Toga Food",
+      "personal_line": "Your team's work in earning IFS Logistic and IFS Broker certification speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "imports branded European confectionery and snacks",
+      "style": "B"
+    },
+    {
+      "contact_id": "899343440065",
+      "company_name": "Toga Food",
+      "personal_line": "We have great respect for the way your team takes European confectionery and snack brands to Swiss retailers. With such established reach, from the smallest orders to full truckloads, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "imports branded European confectionery and snacks",
+      "style": "A"
+    },
+    {
+      "contact_id": "899343440063",
+      "company_name": "Toga Food",
+      "personal_line": "Your range, from confectionery and snacks to spreads and gourmet products, reflects a careful choice of European brands for Swiss retailers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "imports branded European confectionery and snacks",
+      "style": "C"
+    }
+  ]
+}
