@@ -1,0 +1,46 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0028",
+  "location": "Bern, Switzerland",
+  "run_date": "2026-10-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 61
+    }
+  ],
+  "companies": [
+    {
+      "name": "LOLA (Stiftung Contact)",
+      "based_out_of": "Bern, Switzerland",
+      "domain": "lola.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Organic and vegan groceries with chocolate, wafer bars, crisps and snacks from other brands such as iChoc, Love Raw, Real and Rapunzel spreads; site categories for chocolate and sweets, biscuits and bars",
+      "channels_supplied": "Two neighbourhood shops in Bern (Lorraine and Mattenhof) and its own online shop",
+      "sf_brands_carried": "Better-for-you vegan and organic brands such as iChoc and Love Raw; no direct sugar-free competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "LOLA runs two organic neighbourhood shops in Bern plus an online shop, and its own shop pages list other brands' chocolate, wafer bars and crisps. Its vegan focus suits Diablo's vegan muesli bars, wafer, cookie, peanut butters and jams.",
+      "what_they_do_well": [
+        "Runs two Bern neighbourhood shops, LOLA Lorraine and LOLA Mattenhof, alongside its own online shop."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://lola.ch/quartierlaeden/",
+        "https://lola.ch/shop/page/13/",
+        "https://www.nachhaltigleben.ch/food/die-groessten-biolaeden-in-der-region-bern-7437",
+        "https://www.nau.ch/lifestyle/food/berner-bioladen-wachstumsschub-nach-alnatura-aus-sorgen-bleiben-67093057"
+      ]
+    }
+  ]
+}
