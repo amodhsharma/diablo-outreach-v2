@@ -139,7 +139,8 @@ If the first Step 2 said `NOTHING TO DO`, the summary is one line: "Nothing wait
   - version 5 (in use from 22 Oct 2026): `prompts/channel_prompt_5.md` and
     `prompts/channels/*_5.md`. Version 4 loosened after Ariel found it too strict: reject only on
     evidence, list a company that passes even when a detail such as the warehouse is not on its
-    website (state it plainly, tier 3 if needed), sports nutrition and fitness shops, online
+    website (state it plainly, tier 3 if needed), sports shops (also sports equipment shops with
+    healthy food), sports nutrition and fitness shops, online
     health shops, snack vending and petrol station chains count, closing-down companies are out,
     and the lessons from Ariel's review of the HubSpot companies (beeovita, Big Biceps, Barkat).
     Same `--catalogue` check as version 4;

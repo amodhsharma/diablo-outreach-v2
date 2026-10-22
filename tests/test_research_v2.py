@@ -441,6 +441,7 @@ def test_prompt_versions_side_by_side(repo):
     assert plan["prompt_version"] == 5 and "HARD RULES" in five and "Reject on evidence" in five
     assert "sports nutrition and fitness shops" in five and "--catalogue" in five
     assert "warehouse not named on its website" in five and "beeovita" in five
+    assert "sports equipment shops" in five and "Unihockey Center" in five
     assert "Never use tier 3 for a doubtful" not in five
     settings = repo / "skills" / "outreachResearch" / "settings.yaml"
     settings.write_text(settings.read_text().replace("prompt_version: 5", "prompt_version: 4"))
