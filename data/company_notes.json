@@ -2488,6 +2488,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "drogi.ch": {
+    "name": "drogi.ch GmbH",
+    "based_out_of": "Luetisburg, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Swiss online drugstore with a sports nutrition range that already sells bars and sweets from outside brands. Diablo's bars and sweets would sit with these health-conscious lines. Tier 3 because it is a smaller online shop.",
+    "what_they_do_well": [
+      "Online drugstore with over 25 years in the drugstore trade."
+    ],
+    "distributes": "Protein bars and protein snacks from other brands (More Protein, ESN) and glucose sweets (Livsane) in its sports nutrition range",
+    "channels_supplied": "Its own online drugstore shipping across Switzerland by DPD, and a drugstore in Escholzmatt",
+    "sf_brands_carried": "Protein bars and snacks from More Protein and ESN",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "drogueriadicar.com.pe": {
     "name": "Droguería y Distribuidora Dicar S.A.C.",
     "based_out_of": "Lima, Peru",
@@ -3250,6 +3269,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
+  },
+  "freefromfood.ch": {
+    "name": "Free From Food (Publipoint Sagl)",
+    "based_out_of": "Quartino, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Ticino online free-from shop with biscuits and sweet snacks categories stocked with outside brands. Diablo's cookies, biscuits and wafers suit shoppers who already buy special diet products. Tier 3 because it is a small online shop and its delivery area is not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Gluten-free biscuits, sweet snacks, savoury snacks and breakfast products from other brands (Nutrifree, Le Veneziane, Barilla)",
+    "channels_supplied": "Its own online shop based in Ticino, shipping orders to shoppers",
+    "sf_brands_carried": "Free-from (gluten-free) biscuits and snacks from Nutrifree",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "fresco.ge": {
     "name": "Fresco (Fresco Group)",
@@ -6015,6 +6051,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "nowfit.store": {
+    "name": "NOWFIT Sports Nutrition Sagl",
+    "based_out_of": "Lugano, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Lugano-based sports nutrition retailer that already sells bars and wafer cookies from other brands to health-conscious shoppers, and also supplies gyms, food stores and vending operators. Diablo's bars, wafers and cookies match that shelf. It holds stock at its Viganello warehouse.",
+    "what_they_do_well": [
+      "Sells from its Lugano warehouse to shoppers and to gyms, food stores, shopping centres and vending operators, with sales offices in Wallisellen and Meyrin."
+    ],
+    "distributes": "Protein bars, keto wafer cookies and protein snacks from other brands (Pro Nutrition, Ethic Sport) alongside sports nutrition",
+    "channels_supplied": "Its own online shop, direct sales at its Viganello (Lugano) office and warehouse by appointment, and gyms, fitness centres, food stores, shopping centres and vending operators",
+    "sf_brands_carried": "Keto wafer cookies and high protein bars from Pro Nutrition and Ethic Sport",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "nurissa.ch": {
     "name": "Nurissa AG",
     "based_out_of": "Biel/Bienne, Switzerland",
@@ -6083,6 +6138,25 @@
     "sf_brands_carried": "Protein bars and healthy snacks (brands not verified).",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "nutrirsi.ch": {
+    "name": "NutrirSi Bio Market",
+    "based_out_of": "Lugano, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Lugano organic shop with an online shop that carries Swiss and foreign organic brands, including bars, chocolate and spreads. Diablo's vegan bars, jams and peanut butters suit its shoppers. Tier 3 because it is a single shop.",
+    "what_they_do_well": [
+      "Sells the leading Swiss and foreign organic brands from one shop in central Lugano with free home delivery."
+    ],
+    "distributes": "Organic, vegan and gluten-free food including bars (Rawbite), chocolate and spreads (Rapunzel) and biscuits and bars (Rhythm 108)",
+    "channels_supplied": "Its shop at Via Carlo Frasca 4, Lugano, and its online shop with free delivery",
+    "sf_brands_carried": "Better-for-you snacks from Rawbite and Rhythm 108",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "nutsinbulk.ie": {
     "name": "Nuts in Bulk (Outlet Wholefood Company)",
@@ -6606,6 +6680,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "powershop.ch": {
+    "name": "Powershop Luescher + Co.",
+    "based_out_of": "Safenwil, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Swiss sports nutrition shop with a bars category stocked from outside brands such as Weider. Diablo's bars and snacks suit its fitness shoppers. Tier 3 because the bars range seen is small and delivery to Ticino is not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Protein bars (Weider) in a sports nutrition range from many brands (ESN, Optimum Nutrition, Powerbar, Sponser)",
+    "channels_supplied": "Its own Swiss online sports nutrition shop and its shop in Safenwil",
+    "sf_brands_carried": "Weider 32% protein bars",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "premier-stores.co.uk": {
     "name": "Premier Stores (Booker)",
@@ -8553,6 +8644,22 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "vitaminplus.ch": {
+    "name": "Vitaminplus (Welldro AG)",
+    "based_out_of": "Sargans, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "The online shop of the Welldro drugstores, with a healthy snacks section and bars from outside brands. Diablo's bars and snacks fit its health-conscious shoppers. Tier 3 because food is a small shelf in a mostly supplements range and the drugstore count is not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Protein bars (Sponser, Lifefood) and a healthy snacks section alongside vitamins and natural food",
+    "channels_supplied": "Its online shop with druggist advice, and the Welldro drugstores",
+    "sf_brands_carried": "Lifefood raw bars and Sponser protein bars",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json"
   },
   "vitaserv.ch": {
     "name": "VitaServ (Schneeberger vitaserv.ch)",
