@@ -1,0 +1,208 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0025",
+  "location": "Switzerland",
+  "run_date": "2026-10-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 46
+    },
+    {
+      "channel": "pharmacy and drugstore chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 29
+    },
+    {
+      "channel": "health food and organic retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 41
+    },
+    {
+      "channel": "kiosk and convenience wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 47
+    },
+    {
+      "channel": "online sellers",
+      "template": "marketplace_seller",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 37
+    }
+  ],
+  "companies": [
+    {
+      "name": "Müller Schweiz (Drogerie Müller)",
+      "based_out_of": "Ulm, Germany",
+      "domain": "mueller.ch",
+      "channel_category": [
+        "retailers",
+        "pharmacy and drugstore chains",
+        "health food and organic retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate (about 600 lines), gummies (208), biscuits (206), hard sweets and lollipops, snacks and cereal bars, chewing gum, plus an organic Naturshop food range; brands include Haribo, Trolli, Lotus, Lindt, Ritter Sport and Bahlsen",
+      "channels_supplied": "About 90 Müller drugstores in Switzerland, growing with 10 former Alnatura sites, and the mueller.ch online shop with store pickup",
+      "sf_brands_carried": "SilaVit sugar-free sweets; better-for-you brands such as Koro, Nucao and Not Guilty",
+      "competing_brand_flag": false,
+      "fit_rationale": "A fast-growing drugstore chain whose Swiss sweets aisle already carries about 170 other brands of chocolate, gummies, biscuits and bars. It has almost no sugar-free confectionery on the shelf, so Diablo fills a clear gap across about 90 stores.",
+      "what_they_do_well": [
+        "Grew to about 90 Swiss stores by December 2025 and took over 10 former Alnatura sites from Migros Zürich.",
+        "Lists about 600 chocolate lines and 208 fruit gum lines in its Swiss sweets category."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.mueller.ch/c/drogerie/lebensmittel/suessigkeiten/",
+        "https://www.blick.ch/wirtschaft/mueller-gegen-rossmann-welche-rolle-spielt-die-migros-deutsche-drogerie-riesen-bekaempfen-sich-in-der-schweiz-id21481771.html",
+        "https://www.blick.ch/wirtschaft/migros-findet-nachfolgeloesung-das-passiert-mit-den-25-alnatura-filialen-in-der-schweiz-id21220519.html",
+        "https://www.mueller.ch/c/naturshop/lebensmittel/suessigkeiten/",
+        "https://lebensmittelpraxis.de/lp-international/189-lpinternational-nachrichten/43484-handelskonzern-expandiert-mueller-investiert-28-millionen-euro-in-schweizer-filialnetz.html",
+        "https://latele.ch/articles/l-allemand-mueller-reprend-dix-surfaces-des-supermarches-alnatura"
+      ]
+    },
+    {
+      "name": "Amavita Apotheken (Galenicare)",
+      "based_out_of": "Bern, Switzerland",
+      "domain": "amavita.ch",
+      "channel_category": [
+        "pharmacy and drugstore chains"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Biscuits, chocolate and bars (its own shop category Biscuits, Schokolade & Riegel), sweets, toffees and chewing gum, jams and spreads (Konfitüren, Pürees & Aufstriche)",
+      "channels_supplied": "209 Amavita pharmacies across Switzerland and the amavita.ch online shop with pharmacy pickup",
+      "sf_brands_carried": "Ricola sugar-free sweets with stevia; Schär gluten-free biscuits; Rhythm108 vegan chocolate bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Switzerland's largest branded pharmacy network has a food shelf in its own shop with a Biscuits, Schokolade & Riegel category (Gerber, Schär, Rhythm108, Isostar) and 155 sweets and chewing gum items, many sugar free. Its health-minded shoppers suit Diablo's no-added-sugar chocolate, biscuits and bars.",
+      "what_they_do_well": [
+        "Largest branded pharmacy network in Switzerland, with 209 pharmacies at 30 June 2026.",
+        "Stocks a wide sugar-free sweets range, including Ricola stevia pastilles."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.amavita.ch/de/p/gerber-hafer-chocolat-biscuits-bio-160-g-7075136",
+        "https://www.amavita.ch/de/c/ernaehrung-gesundheit/esswaren/kaugummi-bonbons-fe03l2029l30218",
+        "https://www.amavita.ch/de/p/rhythm108-super-coconut-dark-chocolate-bar-glutenfrei-vegan-33-g-7809668",
+        "https://www.galenica.com/galenica23Assets/bin/en/corporate-information/260806_investorpraesentation-2026.pdf"
+      ]
+    },
+    {
+      "name": "Coop Vitality",
+      "based_out_of": "Bern, Switzerland",
+      "domain": "coopvitality.ch",
+      "channel_category": [
+        "pharmacy and drugstore chains"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Biscuits, cookies, wafers, muffins and snack bars (194 items in Schokoladen-Riegel & Snacks), sweets and chewing gum (156 items), spreads (Brotaufstriche)",
+      "channels_supplied": "87 Coop Vitality pharmacies, many inside Coop stores, and the coopvitality.ch online shop",
+      "sf_brands_carried": "Ricola sugar-free sweets with stevia; Fisherman's Friend sugar-free; MIRADENT xylitol gum; Schär gluten-free biscuits and wafers",
+      "competing_brand_flag": false,
+      "fit_rationale": "Pharmacy chain with a real food department in its own shop: 194 snack items from brands such as Schär, Taste of Nature, Kookie Cat and De Rit, plus 156 sweets with a strong sugar-free share. Diablo's sugar-free biscuits, wafers and bars match that shelf, and its sites sit in high-footfall Coop locations.",
+      "what_they_do_well": [
+        "Runs 87 pharmacies as a joint venture between Galenica and Coop.",
+        "Lists 194 snacks, biscuits and bars from brands such as Schär and Taste of Nature online."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.coopvitality.ch/de/c/ernaehrung-sport/lebensmittel/schokoladen-riegel-snacks-fe03l2029l30063",
+        "https://www.coopvitality.ch/de/c/ernaehrung-sport/lebensmittel/bonbons-kaugummi-fe03l2029l30218",
+        "https://www.galenica.com/galenica23Assets/bin/en/corporate-information/260806_investorpraesentation-2026.pdf"
+      ]
+    },
+    {
+      "name": "Ketoshop",
+      "based_out_of": "Thalwil, Switzerland",
+      "domain": "ketoshop.ch",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sugar-free and low-carb chocolate, gummies, cookies, snack bars and nut butter from other brands such as Simply Keto, Rebelle, Elly Momberg, BeKeto, FattBar, OKONO and Birkengold.",
+      "channels_supplied": "Own online shop shipping across Switzerland from stock, with pickup in Thalwil.",
+      "sf_brands_carried": "Simply Keto, Rebelle, Elly Momberg, BeKeto, FattBar, OKONO, Birkengold (xylitol chocolate).",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Swiss online retailer built around sugar-free and low-carb eating whose Riegel, Snacks and Schoggi section already sells chocolate, gummies, cookies and bars from many other brands. Its shoppers look for exactly what Diablo makes, though Simply Keto and Rebelle compete directly.",
+      "what_they_do_well": [
+        "Ships keto and low-carb products across Switzerland directly from its own stock."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ketoshop.ch/nahrungsmittel/riegel-snacks-schoggi/",
+        "https://ketoshop.ch/ueber-uns/",
+        "https://ketoshop.ch/kontakt/"
+      ]
+    },
+    {
+      "name": "Green-Shop (Impexbo Sarl)",
+      "based_out_of": "Arnex-sur-Orbe, Switzerland",
+      "domain": "green-shop.ch",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Organic biscuits and cookies (Bisson, Werz, Pural, De Rit, Rapunzel), chocolate (Rapunzel, Naturata, Claro, Optimys), sweets, bars, jams and chocolate spreads.",
+      "channels_supplied": "Own online shop delivering across Switzerland, with a depot and Bio-Drive pickup in Arnex-sur-Orbe.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A French-speaking Swiss organic online grocer that sells 36 biscuit lines and 32 chocolates from other brands, plus sweets, bars, jams and spreads. It reaches shoppers in Romandie, where few health food retailers have an online shelf of branded sweets.",
+      "what_they_do_well": [
+        "Runs its own depot and free Bio-Drive pickup point in Arnex-sur-Orbe."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.green-shop.ch/collections/biscuits",
+        "https://www.green-shop.ch/collections/chocolats"
+      ]
+    },
+    {
+      "name": "GourmandisesBoutique",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "gourmandisesboutique.com",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Branded sweets, gummies (Haribo, Trolli), chocolate (Lindt, Cailler, Kinder, KitKat), biscuits and salty snacks, with vegan, gluten free and lactose free lines",
+      "channels_supplied": "Own web shop with delivery across Switzerland and live selling on TikTok",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva online sweets shop that resells other companies' branded confectionery, chocolate and biscuits to Swiss shoppers and tracks its own stock by product. Its vegan and free-from lines suit Diablo's vegan wafers, cookies and spreads. It is small, so it ranks in tier 3.",
+      "what_they_do_well": [
+        "Sells live on TikTok as well as through its own Swiss web shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.gourmandisesboutique.com/boutique/",
+        "https://www.gourmandisesboutique.com/"
+      ]
+    }
+  ]
+}
