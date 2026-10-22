@@ -1,0 +1,50 @@
+{
+  "about": "How 'Add a market' (button 2) covers a whole market (agreed 22 Oct 2026). Edit on GitHub with the pencil icon: keep the quotes and commas. What you type in button 2 is searched harder and first: each typed channel is split into the narrower searches below, gets a bigger search budget and a follow-up search when it fills all its places. Everything else is searched too, lighter and after: every country_channel across the whole country, then the country's other main cities (research lists them) with the city_channels only.",
+  "country_channels": [
+    "distributors",
+    "wholesalers",
+    "kiosk and convenience wholesalers",
+    "retailers",
+    "pharmacy and drugstore chains",
+    "health food and organic retailers",
+    "online sellers",
+    "petrol station and convenience chains",
+    "travel retail",
+    "sports shops and sports nutrition shops",
+    "diabetic, low sugar and keto shops",
+    "gluten free and free from shops",
+    "vegan and vegetarian shops",
+    "halal food distributors",
+    "kosher food distributors",
+    "kosher shops",
+    "corporate gifting and hamper companies",
+    "office snack and pantry suppliers",
+    "snack vending operators",
+    "hospital and care home shops",
+    "seasonal and gift shops",
+    "leisure and venue snack suppliers",
+    "hotel minibar suppliers",
+    "snack subscription boxes",
+    "promotional merchandise companies"
+  ],
+  "city_channels": [
+    "retailers",
+    "sports shops and sports nutrition shops",
+    "office snack and pantry suppliers",
+    "snack vending operators",
+    "corporate gifting and hamper companies",
+    "seasonal and gift shops"
+  ],
+  "typed_city_extra_channels": [
+    "distributors",
+    "wholesalers"
+  ],
+  "narrower_searches": {
+    "distributors": ["distributors", "confectionery importers", "snack distributors", "health food distributors", "British food importers"],
+    "wholesalers": ["wholesalers", "confectionery wholesalers", "cash and carry wholesalers", "kiosk wholesalers"],
+    "retailers": ["retailers", "supermarket chains", "independent grocers", "convenience store chains"],
+    "online sellers": ["online sellers", "online sweets shops", "online grocery shops", "marketplace sellers"],
+    "pharmacy and drugstore chains": ["pharmacy chains", "drugstore chains"],
+    "health food and organic retailers": ["health food shops", "organic shops"]
+  }
+}

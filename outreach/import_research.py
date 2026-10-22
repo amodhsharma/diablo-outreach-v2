@@ -230,11 +230,34 @@ def import_file(path, rows, hs, settings, log=print, checker=None, target="live"
                               output_file=name)
             continue
         rq.set_status(rows, job_id, line["channel"], status, reason, ran_on=data["run_date"], output_file=name)
+    queued = queue_next(rows, job_id, data, settings)
     return (f"{name}: {created} companies added to HubSpot ({created - missing} as New, {missing} as Missing Info: "
             f"no working website or nobody in Apollo), {existing} already in HubSpot, {len(dropped)} left out "
             "(low confidence and failed a check)" + (f": {'; '.join(dropped)}" if dropped else "")
             + (f". {inbox} of the New ones have nobody in Apollo; their website's contact address will be "
-               "emailed" if inbox else ""))
+               "emailed" if inbox else "") + queued)
+
+
+def queue_next(rows, job_id, data, settings):
+    """"Add a market" (22 Oct 2026): after a job is imported, queue what comes next by itself: a
+    follow-up search for each channel searched harder that filled all its places, a lighter search
+    of each of the country's other main cities (from the job that lists them), and stop a channel's
+    city searches after two cities in a row found nothing. Returns a short note for the summary."""
+    notes = []
+    follow = rq.queue_follow_ups(rows, job_id, settings)
+    if follow:
+        notes.append(f"follow-up searches queued: {', '.join(follow)}")
+    if data.get("main_cities"):
+        cities = rq.queue_cities(rows, job_id, data["main_cities"], settings)
+        if cities:
+            notes.append(f"other main cities queued: {', '.join(cities)}")
+    stopped = rq.stop_empty_channels(rows, job_id)
+    if stopped:
+        notes.append(f"{len(stopped)} city searches stopped (two cities in a row found nothing): "
+                     + ", ".join(sorted({f"{r['channel']} in {r['location']}" for r in stopped})))
+    if follow or data.get("main_cities"):
+        rq.save_last_job_id(rows)
+    return ("; " + "; ".join(notes)) if notes else ""
 
 
 def default_checker(log=print):

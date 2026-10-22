@@ -36,9 +36,36 @@ from outreach import research_queue as rq  # noqa: E402
 from check_output import NO_DOMAIN, clean_domain  # noqa: E402
 
 NOTHING_TO_DO = 3
-# Which template a typed Channel uses: the first whose "matches:" words appear in it.
-TEMPLATE_ORDER = ("marketplace_seller", "wholesaler", "distributor", "retailer")
+# Which template a typed Channel uses: the first whose "matches:" words appear in it. The five
+# specialist rule sheets (22 Oct 2026, prompt version 5 only) come first, so "kosher food distributors"
+# uses the kosher sheet rather than the distributor one; a prompt version without them skips them.
+TEMPLATE_ORDER = ("kosher_shop", "kosher_distributor", "halal_distributor", "petrol_convenience", "hospital_shop",
+                  "marketplace_seller", "wholesaler", "distributor", "retailer")
 LOCATION_SEARCHES = 20  # searches for the manager's market structure and barriers
+
+# 22 Oct 2026 ("Add a market" covers the whole market): the job that lists the country's other main
+# cities asks the manager for them too; GitHub then queues a lighter search of each city.
+CITIES_SECTION = """
+
+MAIN CITIES (this job only)
+Also save a JSON file at {{CITIES_FILE}}: the country's main business cities, where food importers,
+wholesalers and shop chains are based, at most {{MAX_CITIES}}, the most important first, each with the
+main language spoken there. Use the country's usual spelling
+in English. Exactly this shape:
+[{"city": "Hamburg", "language": "German"}, {"city": "Munich", "language": "German"}]
+Use no more than five of your searches for it, or none if you already know the cities well.
+"""
+
+# A follow-up search (a channel searched harder filled all its places last time).
+FOLLOW_UP_SECTION = """
+
+FOLLOW-UP SEARCH
+An earlier search of this channel in {{MARKET}} filled all its places. Search again with new angles:
+other search words and local-language terms, other directories, association member lists, trade show
+exhibitor lists and business listings, smaller and regional players, and kinds of business within this
+channel the first search did not cover. The companies it found are on the exclusion list: never list
+them again.
+"""
 
 
 def ist_today():
@@ -68,9 +95,13 @@ def read_template(name, suffix=None):
 
 
 def choose_template(channel, suffix=None):
-    """The closest of the four templates for a typed Channel, else "general"."""
+    """The closest template for a typed Channel, else "general"."""
     text = " " + " ".join(re.findall(r"[a-z0-9&-]+", channel.lower())) + " "
+    if suffix is None:
+        suffix = rq.prompt_suffix(rq.load_research_settings())
     for name in TEMPLATE_ORDER:
+        if not (SKILL / "prompts" / "channels" / f"{name}{suffix}.md").exists():
+            continue  # a specialist sheet this prompt version does not have
         words, _ = read_template(name, suffix)
         if any(w in text for w in words):
             return name
@@ -148,6 +179,26 @@ def exclusion_lines(country, limit, target=None):
     return prompt, full, len(lines)
 
 
+def earlier_finds(rows, line):
+    """Companies the earlier searches of this Location and channel found (for a follow-up search),
+    as "- Name (domain)" lines, read from their research files."""
+    out, seen = [], set()
+    for r in rows:
+        if r["output_file"] and rq.same_scope(r, line) and r["job_id"] != line["job_id"]:
+            path = ROOT / r["output_file"]
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            for c in data.get("companies", []):
+                key = (c.get("name") or "").lower()
+                if key and key not in seen:
+                    seen.add(key)
+                    domain = c.get("domain")
+                    out.append(f"- {c['name']} ({domain})" if domain and domain != NO_DOMAIN else f"- {c['name']}")
+    return out
+
+
 def output_paths(run_date, job_id, location, channels):
     folder = ROOT / "research" / run_date
     base = f"{job_id}_{run_date}_{slug(location, 40)}_{slug('-'.join(channels), 80)}"
@@ -175,6 +226,8 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
     country = country_of(job_location)
     languages = lines[0]["languages"] or "the main local languages"
     max_searches = int(settings.get("max_searches_per_channel", 60))
+    max_deep = int(settings.get("max_searches_deep", max_searches))
+    list_cities = any(line.get("list_cities") == "yes" for line in lines)
     target = pipeline_target()
     excl, full, total_known = exclusion_lines(country, int(settings.get("max_exclusions_in_prompt", 500)), target)
     (work / "exclusions.txt").write_text("\n".join(full) + ("\n" if full else ""), encoding="utf-8")
@@ -188,6 +241,7 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
         floor = min(int(settings.get("min_floor", 30)), wanted)
         entry = {
             "index": i, "channel": line["channel"], "template": choose_template(line["channel"], suffix),
+            "depth": line.get("depth", ""),
             "companies_wanted": wanted, "floor": floor, "status": "run", "reason": "",
             "prompt_file": "", "output_file": str(work / f"channel_{i}.json"),
         }
@@ -202,6 +256,12 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
                      f"--exclusions {work / 'exclusions.txt'}")
             if rq.prompt_version(settings) >= 3:
                 check += " --catalogue"  # 21 Oct 2026: each company must sell something from our catalogue
+            harder = line.get("depth") in (rq.DEEP, rq.FOLLOW_UP)  # typed in button 2: searched harder
+            channel_exclude = exclude_text
+            if line.get("depth") == rq.FOLLOW_UP:
+                earlier = earlier_finds(rows, line)
+                if earlier:
+                    channel_exclude = "\n".join(earlier + excl) or "none"
             values = {
                 "{{CHANNEL_RULES}}": rules,
                 "{{CATEGORY_AS_TYPED}}": line["channel"],
@@ -209,14 +269,14 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
                 "{{MARKET}}": job_location,
                 "{{COUNTRY}}": country,
                 "{{LANGUAGES}}": languages,
-                "{{EXCLUDE}}": exclude_text,
+                "{{EXCLUDE}}": channel_exclude,
                 "{{MIN}}": str(wanted),
                 "{{FLOOR}}": str(floor),
-                "{{MAX_SEARCHES}}": str(max_searches),
+                "{{MAX_SEARCHES}}": str(max_deep if harder else max_searches),
                 "{{OUTPUT_FILE}}": entry["output_file"],
                 "{{CHECK_COMMAND}}": check,
             }
-            prompt = base_prompt
+            prompt = base_prompt + (FOLLOW_UP_SECTION if line.get("depth") == rq.FOLLOW_UP else "")
             for key, value in values.items():
                 prompt = prompt.replace(key, value)
             left = re.findall(r"\{\{[A-Z_]+\}\}", prompt)
@@ -236,6 +296,9 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
             "{{MAX_SEARCHES}}": str(LOCATION_SEARCHES), "{{OUTPUT_FILE}}": str(work / "location.md"),
         }.items():
             loc = loc.replace(key, value)
+        if list_cities:
+            loc += (CITIES_SECTION.replace("{{CITIES_FILE}}", str(work / "cities.json"))
+                    .replace("{{MAX_CITIES}}", str(settings.get("max_cities_per_market", 8))))
         location_prompt = str(work / "location_prompt.md")
         Path(location_prompt).write_text(loc, encoding="utf-8")
 
@@ -252,6 +315,7 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
         "exclusions_known": total_known, "target": target, "work": str(work),
         "location_prompt": location_prompt, "location_file": str(work / "location.md"),
         "closing_file": str(work / "closing.md"),
+        "list_cities": list_cities, "cities_file": str(work / "cities.json"),
         "output_json": str(json_path.relative_to(ROOT)), "output_report": str(report_path.relative_to(ROOT)),
         "replaces": replaces,
         "channels": channels,
@@ -290,12 +354,16 @@ def main(argv=None):
         print("Test account: no 'already in HubSpot' list; the first companies found are used")
     for c in plan["channels"]:
         if c["status"] == "run":
+            how = {rq.DEEP: ", searched harder", rq.FOLLOW_UP: ", follow-up search"}.get(c.get("depth"), "")
             print(f"- Channel {c['index']}: {c['channel']} -> template {c['template']}, "
-                  f"{c['companies_wanted']} wanted, prompt {c['prompt_file']}")
+                  f"{c['companies_wanted']} wanted{how}, prompt {c['prompt_file']}")
         else:
             print(f"- Channel {c['index']}: {c['channel']} -> ON HOLD: {c['reason']}")
     for old in plan["replaces"]:
         print(f"Retry: this run replaces {old}")
+    if plan.get("list_cities"):
+        print(f"This job also lists the country's main cities: save them to {plan['cities_file']} "
+              "(the location prompt says how)")
     print(f"Plan saved to {Path(plan['work']) / 'plan.json'}")
     return 0
 

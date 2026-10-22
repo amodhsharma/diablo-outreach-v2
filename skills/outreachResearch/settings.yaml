@@ -37,6 +37,17 @@ min_floor_2: 25
 # each city; a research run takes longer).
 max_searches_per_channel: 120
 
+# "Add a market" covers the whole market (22 Oct 2026; the channels are in config/coverage.json).
+# What you type in button 2 is searched harder: more web searches for each of its channels...
+max_searches_deep: 200
+# ...and, when a channel fills all its places, a follow-up search with new angles, at most this many
+# times for the same Location and channel.
+max_follow_ups: 2
+# Most channels in one job (each channel is one helper working at the same time).
+channels_per_job: 5
+# Most other main cities research lists for a country; GitHub then queues a lighter search of each.
+max_cities_per_market: 8
+
 # Most companies listed in the prompt's exclusion list.
 max_exclusions_in_prompt: 500
 

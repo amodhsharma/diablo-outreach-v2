@@ -680,3 +680,250 @@ def test_run_lock_one_run_at_a_time():
     assert rl.held_by_other(fresh, "b", now) and not rl.held_by_other(fresh, "a", now)
     assert not rl.held_by_other(stale, "b", now)  # a run that stopped without releasing
     assert not rl.held_by_other(None, "b", now)
+
+
+# ---- "Add a market" covers the whole market (22 Oct 2026) --------------------
+
+COVER = {
+    "country_channels": ["distributors", "wholesalers", "retailers", "online sellers", "kosher shops",
+                         "snack vending operators"],
+    "city_channels": ["retailers", "snack vending operators"],
+    "typed_city_extra_channels": ["distributors"],
+    "narrower_searches": {"distributors": ["distributors", "confectionery importers"],
+                          "retailers": ["retailers", "independent grocers"]},
+}
+SET = {"channels_per_job": 3, "max_follow_ups": 2, "max_cities_per_market": 2}
+
+
+def cover():
+    return {**COVER, "narrower_searches": {rq.norm_channel(k): v for k, v in COVER["narrower_searches"].items()}}
+
+
+def market(rows, location, channels=""):
+    return rq.add_market(rows, location, channels, "German", added_by="ariel", on="2026-10-23",
+                         settings=SET, coverage=cover())
+
+
+def summary(result):
+    return [(lines[0]["location"], lines[0]["depth"], lines[0]["list_cities"], [r["channel"] for r in lines])
+            for _, lines in result["jobs"]]
+
+
+def test_add_market_country_only_covers_every_channel_country_wide():
+    rows = []
+    result = market(rows, "germany")
+    assert summary(result) == [
+        ("Germany", rq.COUNTRY, "yes", ["distributors", "wholesalers", "retailers"]),
+        ("Germany", rq.COUNTRY, "", ["online sellers", "kosher shops", "snack vending operators"])]
+    assert {r["status"] for r in rows} == {rq.WAITING} and len(rows) == 6
+
+
+def test_add_market_typed_cities_are_searched_harder_first_then_the_country():
+    rows = []
+    result = market(rows, "Hamburg, Munich, Germany")
+    jobs = summary(result)
+    assert jobs[0] == ("Hamburg, Germany", rq.DEEP, "", ["retailers", "independent grocers", "snack vending operators"])
+    assert jobs[1] == ("Hamburg, Germany", rq.DEEP, "", ["distributors", "confectionery importers"])
+    assert [j[0] for j in jobs[2:4]] == ["Munich, Germany"] * 2
+    assert jobs[4][:3] == ("Germany", rq.COUNTRY, "yes")  # then the whole country, listing the cities
+    ids = [j for j, _ in result["jobs"]]
+    assert ids == sorted(ids)  # the typed cities run first
+
+
+def test_add_market_typed_channels_searched_harder_and_the_rest_too():
+    rows = []
+    jobs = summary(market(rows, "Germany", "distributors, Diabetic shops"))
+    assert jobs[0] == ("Germany", rq.DEEP, "", ["distributors", "confectionery importers", "Diabetic shops"])
+    light = [c for j in jobs[1:] for c in j[3]]
+    assert "distributors" not in light and "retailers" in light and jobs[1][2] == "yes"
+    # Cities and channels typed: the channels in the cities at full depth, then country-wide, then the rest.
+    rows = []
+    jobs = summary(market(rows, "Hamburg, Germany", "retailers"))
+    assert jobs[0] == ("Hamburg, Germany", rq.DEEP, "", ["retailers", "independent grocers"])
+    assert jobs[1] == ("Germany", rq.COUNTRY, "yes", ["retailers", "distributors", "wholesalers"])
+
+
+def test_add_market_never_repeats_what_is_covered():
+    rows = []
+    rq.add(rows, "Germany", "wholesalers", on="2026-10-01")
+    rq.add(rows, "Hamburg, Germany", "retailers", on="2026-10-01")
+    result = market(rows, "Hamburg, Germany", "retailers")
+    hamburg = result["jobs"][0][1]
+    assert hamburg[0]["status"] == rq.ON_HOLD and "already covered" in result["warnings"][0]  # typed: on hold
+    light = [r["channel"] for _, lines in result["jobs"][1:] for r in lines]
+    assert "wholesalers" not in light and result["skipped"] == 1  # not typed: simply left out
+    with pytest.raises(rq.QueueError):
+        market([], "Hamburg, Germny")
+
+
+def finish(rows, job_id, found, ran_on="2026-10-24"):
+    for r in rows:
+        if r["job_id"] == job_id:
+            r["status"] = rq.DONE if found >= int(r["companies_wanted"]) else rq.DONE_FEWER
+            r["reason"] = f"{found} found" + ("" if r["status"] == rq.DONE else ", floor 25; see the report")
+            r["ran_on"] = ran_on
+
+
+def test_a_channel_searched_harder_that_fills_its_places_gets_a_follow_up():
+    rows = []
+    result = market(rows, "Germany", "distributors")
+    deep = result["jobs"][0][0]
+    finish(rows, deep, 50)
+    first = rq.queue_follow_ups(rows, deep, SET, on="2026-10-24")
+    assert len(first) == 1
+    follow = [r for r in rows if r["job_id"] == first[0]]
+    assert [r["channel"] for r in follow] == ["distributors", "confectionery importers"]
+    assert {r["depth"] for r in follow} == {rq.FOLLOW_UP} and follow[0]["status"] == rq.WAITING
+    assert rq.is_repeat_now(rows, follow[0]) is None  # it is meant to repeat the Location and channel
+    finish(rows, first[0], 50)
+    second = rq.queue_follow_ups(rows, first[0], SET)
+    finish(rows, second[0], 50)
+    assert rq.queue_follow_ups(rows, second[0], SET) == []  # at most max_follow_ups
+    # A lighter channel or one that did not fill its places gets none.
+    country = result["jobs"][1][0]
+    finish(rows, country, 50)
+    assert rq.queue_follow_ups(rows, country, SET) == []
+
+
+def test_the_country_job_queues_the_other_main_cities_lighter():
+    rows = []
+    result = market(rows, "Hamburg, Germany")
+    lister = next(j for j, lines in result["jobs"] if lines[0]["list_cities"] == "yes")
+    other = result["jobs"][-1][0]
+    assert rq.queue_cities(rows, other, [{"city": "Berlin", "language": "German"}], SET, cover()) == []
+    new = rq.queue_cities(rows, lister, [{"city": "Hamburg", "language": "German"},
+                                         {"city": "Munich", "language": "German"},
+                                         {"city": "Cologne", "language": ""},
+                                         {"city": "Berlin", "language": "German"}], SET, cover())
+    cities = [r for r in rows if r["job_id"] in new]
+    assert [r["location"] for r in cities] == ["Munich, Germany", "Munich, Germany", "Cologne, Germany",
+                                               "Cologne, Germany"]  # Hamburg was typed; at most two cities
+    assert {r["depth"] for r in cities} == {rq.CITY} and {r["added_by"] for r in cities} == {rq.AUTO_BY}
+    assert [r["channel"] for r in cities[:2]] == ["retailers", "snack vending operators"]
+    assert cities[2]["languages"] == "German"  # no language given: the market's
+    # Markets added by hand run before the other cities.
+    rq.add(rows, "Lyon, France", "distributors", added_by="ariel", on="2026-10-30")
+    waiting = [r for r in rows if r["status"] == rq.WAITING and r["depth"] != rq.CITY]
+    for r in waiting:
+        if r["location"] != "Lyon, France":
+            r["status"] = rq.DONE
+    assert rq.waiting_job(rows)[1][0]["location"] == "Lyon, France"
+
+
+def test_a_channel_stops_after_two_empty_cities():
+    rows = []
+    result = market(rows, "Germany")
+    lister = result["jobs"][0][0]
+    big = {**SET, "max_cities_per_market": 4}
+    new = rq.queue_cities(rows, lister, [{"city": c, "language": "German"}
+                                         for c in ("Munich", "Cologne", "Leipzig", "Bremen")], big, cover())
+    for job_id, found in zip(new[:2], (0, 0)):
+        for r in rows:
+            if r["job_id"] == job_id:
+                r["status"], r["reason"], r["ran_on"] = rq.DONE_FEWER, (
+                    "0 found, floor 25" if r["channel"] == "retailers" else "3 found, floor 25"), "2026-10-24"
+    stopped = rq.stop_empty_channels(rows, new[1])
+    assert {(r["location"], r["channel"]) for r in stopped} == {("Leipzig, Germany", "retailers"),
+                                                               ("Bremen, Germany", "retailers")}
+    assert all("two cities in a row" in r["reason"] for r in stopped)
+    vending = [r for r in rows if r["job_id"] in new[2:] and r["channel"] == "snack vending operators"]
+    assert {r["status"] for r in vending} == {rq.WAITING}
+
+
+def test_main_cities_pass_the_check_and_reach_the_report():
+    data = final_file()
+    data["main_cities"] = [{"city": "Pune", "language": "Marathi"}]
+    assert check_output.check_final(data) == []
+    data["main_cities"] = [{"city": "Pune"}]
+    assert any("main_cities" in e for e in check_output.check_final(data))
+
+
+def test_import_queues_follow_ups_and_cities(import_env, monkeypatch):
+    root, folder = import_env
+    rows = []
+    result = rq.add_market(rows, "Mumbai, India", "distributors", wanted="2", added_by="ariel",
+                           on="2026-10-08", settings=SET, coverage=cover())
+    rq.save(rows)
+    deep, lister = result["jobs"][0][0], next(j for j, l in result["jobs"] if l[0]["list_cities"] == "yes")
+    data = final_file(deep)
+    data["channels"] = [dict(data["channels"][0], channel="distributors"),
+                        dict(data["channels"][0], channel="confectionery importers", companies_found=0)]
+    data["companies"] = data["companies"][:1]
+    data["channels"][0]["companies_found"] = 2
+    data["companies"].append(dict(company(name="Beta", domain="beta.in", rank=2), channel_category=["distributors"]))
+    (folder / f"{deep}_mumbai.json").write_text(json.dumps(data))
+    country = final_file(lister)
+    country["location"] = "India"
+    country["channels"] = [{"channel": r["channel"], "template": "distributor", "status": "done", "reason": "",
+                            "companies_wanted": 2, "companies_found": 0, "searches_used": 3}
+                           for r in result["jobs"][1][1]]
+    country["companies"] = []
+    country["main_cities"] = [{"city": "Pune", "language": "Marathi"}, {"city": "Mumbai", "language": "Hindi"}]
+    (folder / f"{lister}_india.json").write_text(json.dumps(country))
+    lines = import_research.run("test", FakeCRM(), log=quiet)
+    assert "follow-up searches queued" in lines[0] and "other main cities queued" in lines[1]
+    rows = rq.load()
+    follow = [r for r in rows if r["depth"] == rq.FOLLOW_UP]
+    assert [r["channel"] for r in follow] == ["distributors"]  # only the channel that filled its places
+    assert sorted({r["location"] for r in rows if r["depth"] == rq.CITY}) == ["Pune, India"]  # Mumbai was typed
+    assert rq.last_job_number() == max(int(r["job_id"][1:]) for r in rows)
+
+
+def test_prepare_run_searches_typed_channels_harder_and_asks_for_cities(repo):
+    rows = []
+    rq.add_market(rows, "Germany", "distributors", added_by="ariel", on="2026-10-07",
+                  settings=SET, coverage=cover())
+    rq.save(rows, repo / "research" / "queue.csv")
+    out = run_script(repo, "prepare_run.py")
+    assert out.returncode == 0 and "searched harder" in out.stdout
+    prompt = (repo / "work" / "channel_1_prompt.md").read_text()
+    assert "at most 200 web searches" in prompt and "FOLLOW-UP SEARCH" not in prompt
+    assert '"list_cities": false' in (repo / "work" / "plan.json").read_text()
+    # The country job: normal budget, and the manager lists the main cities.
+    rows = rq.load(repo / "research" / "queue.csv")
+    deep = rows[0]["job_id"]
+    for r in rows:
+        if r["job_id"] == deep:
+            r["status"], r["reason"], r["output_file"] = rq.DONE, "50 found", "research/x/old.json"
+    (repo / "research" / "x").mkdir(parents=True)
+    (repo / "research" / "x" / "old.json").write_text(json.dumps({"companies": [
+        {"name": "Earlier Find GmbH", "domain": "earlier.de"}]}))
+    rq.queue_follow_ups(rows, deep, SET)
+    rq.save(rows, repo / "research" / "queue.csv")
+    out = run_script(repo, "prepare_run.py")
+    plan = json.loads((repo / "work" / "plan.json").read_text())
+    assert plan["list_cities"] is True and "MAIN CITIES" in (repo / "work" / "location_prompt.md").read_text()
+    assert "at most 120 web searches" in (repo / "work" / "channel_1_prompt.md").read_text()
+    # The follow-up: harder, new angles, and the earlier finds excluded.
+    follow = [r["job_id"] for r in rows if r["depth"] == rq.FOLLOW_UP][0]
+    out = run_script(repo, "prepare_run.py", "--manual", "--job", follow)
+    prompt = (repo / "work" / "channel_1_prompt.md").read_text()
+    assert "FOLLOW-UP SEARCH" in prompt and "Earlier Find GmbH (earlier.de)" in prompt
+    assert "at most 200 web searches" in prompt
+
+
+def test_the_five_specialist_rule_sheets():
+    import prepare_run
+    picks = {ch: prepare_run.choose_template(ch, "_5") for ch in (
+        "halal food distributors", "kosher food distributors", "kosher shops",
+        "petrol station and convenience chains", "hospital and care home shops",
+        "kiosk and convenience wholesalers", "distributors")}
+    assert picks == {"halal food distributors": "halal_distributor", "kosher food distributors": "kosher_distributor",
+                     "kosher shops": "kosher_shop", "petrol station and convenience chains": "petrol_convenience",
+                     "hospital and care home shops": "hospital_shop",
+                     "kiosk and convenience wholesalers": "wholesaler", "distributors": "distributor"}
+    assert prepare_run.choose_template("kosher shops", "_4") == "retailer"  # version 4 has no such sheet
+    for name in ("halal_distributor", "kosher_distributor", "kosher_shop", "petrol_convenience", "hospital_shop"):
+        words, body = prepare_run.read_template(name, "_5")
+        assert words and "HOW THE HARD RULES APPLY" in body
+    coverage = rq.load_coverage()
+    assert "halal food distributors" in coverage["country_channels"]
+    assert set(coverage["city_channels"]) <= set(coverage["country_channels"])
+
+
+def test_button_2_market_command(tmp_path, monkeypatch):
+    monkeypatch.setattr(rq, "QUEUE_FILE", tmp_path / "queue.csv")
+    assert rq.main(["market", "--location", "Austria", "--languages", "German", "--by", "ariel"]) == 0
+    rows = rq.load()
+    assert rows and {r["depth"] for r in rows} == {rq.COUNTRY} and rows[0]["list_cities"] == "yes"
+    assert rq.last_job_number() == max(int(r["job_id"][1:]) for r in rows)

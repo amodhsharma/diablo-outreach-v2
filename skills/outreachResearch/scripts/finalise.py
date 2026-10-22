@@ -100,6 +100,27 @@ def _carry_over(plan, notes):
     return rows, companies
 
 
+def main_cities(plan, notes):
+    """The country's main cities, when this job lists them (22 Oct 2026, "Add a market"): read from
+    work/cities.json, tidied to [{"city": ..., "language": ...}]. None when the job does not list them."""
+    if not plan.get("list_cities"):
+        return None
+    path = Path(plan.get("cities_file") or Path(plan["work"]) / "cities.json")
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        notes["warnings"].append("The main cities were not saved, so no other cities are queued this time.")
+        return []
+    out, seen = [], set()
+    for entry in raw if isinstance(raw, list) else []:
+        if isinstance(entry, dict) and str(entry.get("city") or "").strip():
+            city = tidy_text(str(entry["city"]))
+            if city.lower() not in seen:
+                seen.add(city.lower())
+                out.append({"city": city, "language": tidy_text(str(entry.get("language") or ""))})
+    return out
+
+
 def merge(work):
     plan = load_plan(work)
     exclusions = load_exclusions(Path(work) / "exclusions.txt")
@@ -195,6 +216,9 @@ def merge(work):
         "replaces": plan.get("replaces", []), "channels": channel_rows,
         "companies": merged,
     }
+    cities = main_cities(plan, notes)
+    if cities is not None:
+        final["main_cities"] = cities
     out = ROOT / plan["output_json"]
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(final, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -301,6 +325,11 @@ def report(work):
               closing or not_written.format("no companies were found to compare"),
               "", "## Barriers to entry", "",
               location.get("barriers to entry") or not_written.format("the barriers were not written"), ""]
+    if "main_cities" in final:  # 22 Oct 2026: GitHub queues a lighter search of each of these cities
+        lines += ["## Other main cities", "",
+                  "GitHub queues a lighter search of each of these cities when this job is imported:", ""]
+        lines += [f"- {c['city']}" + (f" ({c['language']})" if c["language"] else "") for c in final["main_cities"]]
+        lines += [""] if final["main_cities"] else ["- None were saved.", ""]
 
     text = "\n".join(lines)
     report_path = ROOT / plan["output_report"]

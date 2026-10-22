@@ -3,7 +3,11 @@ name: '2 - Research'
 # One button for everything research (agreed 14 Oct 2026). Replaces 2a to 2g.
 #
 # Press it (Actions tab > "2 - Research" > Run workflow) and pick "What to do":
-#   Add a market              type Location and Channels (and, if you like, languages and how many)
+#   Add a market              type the Location (country last; cities first if you like), and if you like
+#                             Channels, languages and how many. Always covers the whole market (22 Oct
+#                             2026): what you type is searched harder and first, then every other
+#                             channel across the country, then the country's other main cities (lighter;
+#                             config/coverage.json lists the channels)
 #   Cancel a market           type the Job ID (and a Channel to cancel only that one)
 #   Try a failed market again type the Job ID (and a Channel)
 #   Allow a repeat            type the Job ID (and a Channel) of a market researched before
@@ -32,10 +36,10 @@ on:
         options: ["Add a market", "Cancel a market", "Try a failed market again", "Allow a repeat", "Automatic run"]
         default: "Add a market"
       location:
-        description: "Add a market: Location, country last (e.g. Lyon, France). Several cities: Hamburg, Munich, Cologne, Germany (one job each). A misspelt country stops the button"
+        description: "Add a market: Location, country last (e.g. Germany, or Hamburg, Munich, Germany). The whole market is always covered; cities typed are searched harder. A misspelt country stops the button"
         default: ""
       channels:
-        description: "Add a market: Channels, the types of company to find, separated by commas (e.g. distributors, wholesalers, retailers)"
+        description: "Add a market (optional): Channels to search harder, separated by commas (e.g. distributors). Every other channel is searched too, lighter"
         default: ""
       languages:
         description: "Add a market (optional): languages to also search local sources in (e.g. French). Empty = the main local languages"
@@ -87,9 +91,9 @@ jobs:
         run: |
           case "$ACTION" in
             "Add a market")
-              if [ -z "$LOCATION" ] || [ -z "$CHANNELS" ]; then
-                echo "::error::Type the Location and the Channels to add a market."; exit 1; fi
-              python -m outreach.research_queue add --location "$LOCATION" --channels "$CHANNELS" \
+              if [ -z "$LOCATION" ]; then
+                echo "::error::Type the Location (country last) to add a market."; exit 1; fi
+              python -m outreach.research_queue market --location "$LOCATION" --channels "$CHANNELS" \
                 --languages "$LANGUAGES" --wanted "$WANTED" --by "$BY" ;;
             "Cancel a market"|"Try a failed market again"|"Allow a repeat")
               if [ -z "$JOB" ]; then echo "::error::Type the Job ID, e.g. J0003."; exit 1; fi

@@ -36,6 +36,9 @@ FINAL_COMPANY_KEYS = [
 ]
 PART_KEYS = ["channel", "searches_used", "tier_logic", "checked_and_excluded", "shortfall_note", "companies"]
 FINAL_KEYS = ["format", "job_id", "location", "run_date", "run_type", "replaces", "channels", "companies"]
+# 22 Oct 2026: the job that lists the country's other main cities ("Add a market") adds them here,
+# [{"city": "Hamburg", "language": "German"}, ...]; GitHub queues a lighter search of each.
+FINAL_OPTIONAL_KEYS = ["main_cities"]
 CHANNEL_KEYS = ["channel", "template", "status", "reason", "companies_wanted", "companies_found",
                 "searches_used"]
 CHANNEL_STATUSES = ("done", "failed", "on_hold")
@@ -386,6 +389,13 @@ def check_report(errors, text, companies):
 
 def check_final(data, report_text=None, exclusions=(set(), set())):
     errors = []
+    if isinstance(data, dict) and "main_cities" in data:
+        cities = data["main_cities"]
+        if not isinstance(cities, list) or not all(
+                isinstance(x, dict) and set(x) == {"city", "language"} and isinstance(x["city"], str)
+                and isinstance(x["language"], str) for x in cities):
+            errors.append('The file: main_cities must be a list of {"city": ..., "language": ...}')
+        data = {k: v for k, v in data.items() if k not in FINAL_OPTIONAL_KEYS}
     if not _keys(errors, "The file", data, FINAL_KEYS):
         return errors
     if data["format"] != FORMAT:

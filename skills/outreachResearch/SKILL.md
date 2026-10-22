@@ -68,7 +68,9 @@ In **one message**, start every task below so they run in parallel:
   the prompt says, save the file it names, run the check it gives until it prints PASSED (at most
   three tries) and reply in one line. Do not touch any other file and do not push to git."
 - **You (manager):** do the Location research yourself: follow `work/location_prompt.md` and save
-  `work/location.md`. Stay within its search limit.
+  `work/location.md`. Stay within its search limit. When `plan.json` says `"list_cities": true`, the
+  location prompt also asks for the country's main business cities: save them to `work/cities.json`
+  as it says. GitHub then queues a lighter search of each city by itself.
 
 If the Agent tool is not available, research the Channels yourself one after another, each
 exactly as its prompt says, and add a warning line to `work/closing.md` later saying the
@@ -176,3 +178,11 @@ If the first Step 2 said `NOTHING TO DO`, the summary is one line: "Nothing wait
   the jobs finished, in `research/run_lock.json`), prepare_run.py (Step 2), finalise.py (Steps 4
   and 5), check_output.py (the strict check, also used by GitHub before importing).
 - `settings.yaml`: `max_jobs_per_run` (8) is the most jobs one run works through.
+- "Add a market" covers the whole market (22 Oct 2026). Each line in the queue has a `depth`:
+  `deep` (typed in button 2: split into narrower searches in `config/coverage.json`, a bigger search
+  budget, `max_searches_deep`, and a follow-up search when a channel fills all its places, at most
+  `max_follow_ups` times), `follow-up`, `country` (every other channel across the country, lighter)
+  or `city` (the other main cities, lighter; a channel stops after two cities in a row found
+  nothing). The scripts handle all of it; you research each job exactly as its plan says.
+- Five specialist rule sheets (prompt version 5): `halal_distributor`, `kosher_distributor`,
+  `kosher_shop`, `petrol_convenience` and `hospital_shop`, picked before the four main templates.

@@ -1,13 +1,14 @@
 {
   "title": "Diablo outreach channels",
   "updated": "2026-10-22",
-  "about": "Every outreach channel: the ones research runs today and the new ones suggested on 22 Oct 2026, from Ariel's product certificates sheet (92 products; the sheet itself was not changed). type_in_button_2 is what to type in the Channels box of button 2 (2 - Research). ready_to_run says whether today's research rules handle it, or it needs its own rule sheet first.",
+  "about": "Every outreach channel: the ones research runs today and the new ones suggested on 22 Oct 2026, from Ariel's product certificates sheet (92 products; the sheet itself was not changed). type_in_button_2 is what to type in the Channels box of button 2 (2 - Research). ready_to_run says whether today's research rules handle it, or it needs its own rule sheet first. From 22 Oct 2026 'Add a market' searches every channel in config/coverage.json (the list the research uses); this file stays the reference.",
   "summary": {
     "all_channels": 26,
     "in_use": 8,
     "new": 18,
     "new_ready_on_general_rules": 13,
-    "new_needing_own_rule_sheet": 5
+    "new_needing_own_rule_sheet": 0,
+    "new_with_own_rule_sheet": 5
   },
   "channels": [
     {
@@ -149,8 +150,8 @@
       "who_they_are": "Forecourt shops and convenience chains",
       "why_it_fits_diablo": "Impulse-size products",
       "came_from": "Suggested earlier",
-      "research_rules_today": "Retailer",
-      "ready_to_run": "Needs its own rule sheet first (retailer rules leave forecourt shops out today)",
+      "research_rules_today": "Petrol station and convenience (own rule sheet)",
+      "ready_to_run": "Yes, own rule sheet (22 Oct 2026)",
       "priority": "Medium"
     },
     {
@@ -226,8 +227,8 @@
       "who_they_are": "Halal grocery suppliers with packaged sweets, biscuits or snacks",
       "why_it_fits_diablo": "35 halal products",
       "came_from": "Suggested earlier and From your product sheet",
-      "research_rules_today": "Distributor",
-      "ready_to_run": "Needs its own rule sheet first (cuisine rule 8 rejects it today)",
+      "research_rules_today": "Halal distributor (own rule sheet)",
+      "ready_to_run": "Yes, own rule sheet (22 Oct 2026)",
       "priority": "High"
     },
     {
@@ -237,8 +238,8 @@
       "who_they_are": "Kosher grocery importers and distributors",
       "why_it_fits_diablo": "56 kosher products (OU, IKC, Badatz, SKA, Triangle K)",
       "came_from": "From your product sheet",
-      "research_rules_today": "Distributor",
-      "ready_to_run": "Needs its own rule sheet first (cuisine rule 8 rejects it today)",
+      "research_rules_today": "Kosher distributor (own rule sheet)",
+      "ready_to_run": "Yes, own rule sheet (22 Oct 2026)",
       "priority": "High"
     },
     {
@@ -248,8 +249,8 @@
       "who_they_are": "Kosher supermarkets and grocers",
       "why_it_fits_diablo": "56 kosher products",
       "came_from": "From your product sheet",
-      "research_rules_today": "Retailer",
-      "ready_to_run": "Needs its own rule sheet first (cuisine rule 8 rejects it today)",
+      "research_rules_today": "Kosher shop (own rule sheet)",
+      "ready_to_run": "Yes, own rule sheet (22 Oct 2026)",
       "priority": "High"
     },
     {
@@ -270,8 +271,8 @@
       "who_they_are": "Shops and kiosks in hospitals and care homes that sell packs as they are (not kitchens)",
       "why_it_fits_diablo": "Single-serve packs",
       "came_from": "From your product sheet",
-      "research_rules_today": "Retailer",
-      "ready_to_run": "Needs its own rule sheet first (rule 7 rejects care home suppliers today)",
+      "research_rules_today": "Hospital and care home shop (own rule sheet)",
+      "ready_to_run": "Yes, own rule sheet (22 Oct 2026)",
       "priority": "Medium"
     },
     {
