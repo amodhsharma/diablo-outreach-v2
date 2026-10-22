@@ -3721,6 +3721,25 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "geschenkkoerbe.ch": {
+    "name": "Geschenkkoerbe.ch (kommerce GmbH)",
+    "based_out_of": "Flawil, Switzerland",
+    "market": "Switzerland",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A national gift basket retailer whose shop has its own Schokolade und Suesses, Snacks und Chips and Suessgebaeck und Kekse categories stocked with other companies' brands, sold to over 3,000 Swiss companies. Diablo's chocolate, biscuits and gift boxes fit its employee and partner baskets. Storage: sells from its own stock with next working day delivery, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Says over 3,000 Swiss companies use its business gift baskets.",
+      "Member of HANDELSVERBAND.swiss with next working day delivery on orders by 18:00."
+    ],
+    "distributes": "Gift baskets and gift boxes with chocolate, wafers, biscuits, sweets and chips from other brands (Straumann Hueppen, Jakob's Basler Leckerly, La Perla di Torino, Choba Choba, Gottlieber, Patatas Nana), plus advent calendars",
+    "channels_supplied": "Own online shop to consumers and companies; corporate gifts for employees and business partners with logo personalisation",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
+  },
   "ghioldisa.ch": {
     "name": "Ghioldi SA",
     "based_out_of": "Stabio, Switzerland",
@@ -3863,6 +3882,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0025_2026-10-22_switzerland_retailers-pharmacy-and-drugstore-chains-health-food-and-organic-retailers-kiosk.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "grabandgo.ch": {
+    "name": "Grab&Go Luzern",
+    "based_out_of": "Lucerne, Switzerland",
+    "market": "Switzerland",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Supplies custom snack and drink vending machines to businesses and schools and sells a wide branded sweets range through its own shop and online shop. It already stocks sugar-free sweets and protein bars, so Diablo chocolate, gummies and biscuits match its customers. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Stocks well over 100 confectionery brands across sweets, chocolate, biscuits and bars.",
+      "Supplies private customers, retailers and wholesalers with no minimum order value."
+    ],
+    "distributes": "Chocolate, gummies and jelly sweets, hard sweets, lollies, chewing gum, biscuits and bars from other brands (Haribo, Trolli, Oreo, Milka, Snickers, Reese's, Eti, Kinder) plus savoury snacks and drinks",
+    "channels_supplied": "Snack and drink vending machines placed with companies, offices, schools and waiting areas; its own shop in Lucerne; its online shop; resale to retailers and wholesalers",
+    "sf_brands_carried": "Sugar-free Fisherman's Friend, Vivil, Orbit and Sweetie People Sugar Free Mega Mix; protein brands Grenade, PowerBar and Lenny & Larry's",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "grapetree.co.uk": {
@@ -6516,6 +6555,25 @@
     "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "ohmybox.ch": {
+    "name": "OH MY BOX KLG",
+    "based_out_of": "Rudolfstetten, Switzerland",
+    "market": "Switzerland",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "It buys other companies' branded sweets, chocolate and biscuits and packs them into snack and gift boxes for shoppers and for companies' staff. Diablo's chocolate, sweets and gift boxes fit its boxes, and a protein box shows a health-minded line. Storage: ships every box from its own warehouse (Lager), named on its About page.",
+    "what_they_do_well": [
+      "Builds custom company gift boxes with logo and greeting card, shipped direct to employees."
+    ],
+    "distributes": "Snack boxes and gift boxes filled with branded chocolate, sweets and biscuits (Lindt, Kinder, Haribo, M&M's, Knoppers, Smarties, Nutella), including a protein snack box",
+    "channels_supplied": "Its own online shop with delivery across Switzerland, and custom boxes for companies to give to staff and clients",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "onestop.co.uk": {
     "name": "One Stop",
     "based_out_of": "Walsall, United Kingdom",
@@ -7399,6 +7457,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "roseverpflegt.ch": {
+    "name": "Rose Betriebsverpflegung AG",
+    "based_out_of": "Hinwil, Switzerland",
+    "market": "Switzerland",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers",
+      "snack vending operators"
+    ],
+    "fit_rationale": "Its filling product order list shows around 150 items in which branded chocolate bars, biscuits, cakes and bars outnumber coffee, all sold as they are to employees. It curates the range per site and already lists better-for-you bars. Storage: sells from its own stock with its own logistics team and route planning, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Family business with about 35 staff serving over 1,000 refreshment points for around 450 customers.",
+      "Calls itself the Swiss market leader in premium workplace catering, active since 2009."
+    ],
+    "distributes": "Chocolate bars (Snickers, Bounty, Kinder Bueno, Kaegi-Fret, Pick Up), biscuits (Kambly, Spitzbueb), cakes, cookies, cereal and protein bars (Balisto, Barebells), chewing gum (Mentos), crisps and nuts in workplace vending machines",
+    "channels_supplied": "Workplace vending and food machines: over 1,000 refreshment points for about 450 company customers, with sales teams for western and eastern Switzerland",
+    "sf_brands_carried": "Barebells protein bars (no added sugar)",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
+  },
   "rossmannonline.ch": {
     "name": "ROSSMANN Schweiz AG",
     "based_out_of": "Burgwedel, Germany",
@@ -7940,6 +8018,43 @@
     "sf_brands_carried": "None identified.",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "snack-that.ch": {
+    "name": "Snack That GmbH",
+    "based_out_of": "Lucerne, Switzerland",
+    "market": "Switzerland",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers",
+      "snack vending operators"
+    ],
+    "fit_rationale": "A healthy snack vending operator that fills and maintains its own machines with a sweet category and granola bars, aimed at health-conscious staff. Product brands are not named on its website. Storage: fills its machines from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Healthy sweet and savoury snacks, granola bars, drinks and meals in vending machines",
+    "channels_supplied": "Healthy snack vending machines at companies, schools, hospitals and gyms; free of rent from 250 users per site",
+    "sf_brands_carried": "Healthy snacks range; brands not named on its website",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
+  },
+  "snack24-7.ch": {
+    "name": "Snack24 GmbH",
+    "based_out_of": "Matzingen, Switzerland",
+    "market": "Switzerland",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers",
+      "snack vending operators"
+    ],
+    "fit_rationale": "A snack-led vending operator whose product page shows branded chocolate, gummies, biscuits, wafers and healthy bars, with a range put together for each company. Its healthy alternatives shelf suits Diablo's bars and cookies. Storage: fills its own machines from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Offers a separate healthy alternatives range of protein bars, rice cakes and vegan snacks for staff."
+    ],
+    "distributes": "Chocolate bars (Snickers, Twix, KitKat, Mars, Milka), gummies (Haribo, Skittles), biscuits, wafers and cakes (Oreo, Prinzen, Mikado), protein bars, vegan snacks, crisps and drinks in vending machines",
+    "channels_supplied": "Snack vending machines placed at offices, warehouses and workshops, from small teams to sites with over 100 employees",
+    "sf_brands_carried": "Protein bars and vegan snacks in a healthy alternatives section; brands not named",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "soanpro.com.pe": {
@@ -8721,6 +8836,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
+  "tout-o-mat.ch": {
+    "name": "Tout-O-Mat",
+    "based_out_of": "Vevey, Switzerland",
+    "market": "Switzerland",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family-run vending operator founded in 1973 that runs snack machines and automatic shops for workplaces and clinics. It is listed at tier 3 because its website shows snack brands only in images and gives no fleet size.",
+    "what_they_do_well": [
+      "Independent family company trading since 1973.",
+      "Joined the European Vending and Coffee Service Association in August 2023."
+    ],
+    "distributes": "Snacks and chocolate (Malteser and Ragusa shown) in its cold drink and snack machines and automatic shops, plus hot drinks and fresh products",
+    "channels_supplied": "Vending machines and automatic shops in workplaces, shops and clinics in French speaking Switzerland",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
+  },
   "trago.co.uk": {
     "name": "Trago Mills",
     "based_out_of": "Liskeard, United Kingdom",
@@ -9040,6 +9174,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json"
+  },
+  "vending.ch": {
+    "name": "Vending Service AG",
+    "based_out_of": "Fulenbach, Switzerland",
+    "market": "Switzerland",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A national vending operator with about 160 staff whose teams fill, service and clean its snack machines, with snacks as the largest section of its product range. The snack brands it stocks are not named on its website. Storage: sells fill products from its own stock through 10 branches, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Trading in Switzerland since 1991 with about 160 employees.",
+      "Runs 10 branches covering German and French speaking Switzerland."
+    ],
+    "distributes": "Snacks for its snack machines (a snacks section in its product range), cold drinks and coffee",
+    "channels_supplied": "Workplace snack, drink and coffee machines across Switzerland from 10 branches (Aarau, Basel, Bern, Geneva, Lausanne, Lucerne, Neuchatel, Solothurn, Zug, Zurich)",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
   },
   "vendordistribuciones.com.ar": {
     "name": "Vendor Distribuciones",
@@ -9415,6 +9568,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "wiant.ch": {
+    "name": "wiant (Impact Schweiz Gruppe GmbH)",
+    "based_out_of": "Steinhausen, Switzerland",
+    "market": "Switzerland",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A corporate gift box company built around better-for-you brainfood snacks and chocolate from Swiss brands and food startups, which matches Diablo's health-conscious positioning. Its permanent suppliers are Swiss brands and it considers other products on request. Storage: assembles and ships the boxes itself, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Says it has sent over 50,000 boxes for more than 150 companies.",
+      "Handles selection, packing and delivery end to end for corporate clients."
+    ],
+    "distributes": "Curated corporate gift boxes with chocolate, snacks, nuts, dried fruit and drinks from other brands",
+    "channels_supplied": "Companies buying employee and client gift boxes, shipped to offices or private addresses across Switzerland",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "wibgus.com": {
     "name": "Natural Foods Peru (Wibgus SAC)",
