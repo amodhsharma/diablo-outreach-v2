@@ -134,9 +134,16 @@ If the first Step 2 said `NOTHING TO DO`, the summary is one line: "Nothing wait
 
 ## What the files are
 
-- Four versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
+- Five versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
   `settings.yaml` picks one, and prepare_run.py writes the chosen version into `work/`:
-  - version 4 (in use from 21 Oct 2026, evening): `prompts/channel_prompt_4.md` and
+  - version 5 (in use from 22 Oct 2026): `prompts/channel_prompt_5.md` and
+    `prompts/channels/*_5.md`. Version 4 loosened after Ariel found it too strict: reject only on
+    evidence, list a company that passes even when a detail such as the warehouse is not on its
+    website (state it plainly, tier 3 if needed), sports nutrition and fitness shops, online
+    health shops, snack vending and petrol station chains count, closing-down companies are out,
+    and the lessons from Ariel's review of the HubSpot companies (beeovita, Big Biceps, Barkat).
+    Same `--catalogue` check as version 4;
+  - version 4 (used from 21 Oct 2026, evening, to 22 Oct 2026): `prompts/channel_prompt_4.md` and
     `prompts/channels/*_4.md`. The final version after Ariel reviewed all 97 Swiss companies
     (J0001 to J0008): who Diablo wants, eleven hard rules for every channel (each channel template
     says how they apply to it), how to check each company step by step (website, About page, range,

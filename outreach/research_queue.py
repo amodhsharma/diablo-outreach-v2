@@ -85,9 +85,10 @@ def load_research_settings(path=None):
 def prompt_version(settings):
     """1 = the original research prompts, 2 = the _2 prompts (the default when not set),
     3 = the _3 prompts (21 Oct 2026: Diablo's hard rules and catalogue), 4 = the _4 prompts (21 Oct
-    2026: the final version after Diablo's review of all the Swiss research, for every channel)."""
+    2026: the final version after Diablo's review of all the Swiss research, for every channel),
+    5 = the _5 prompts (22 Oct 2026: version 4 loosened, reject on evidence, sports nutrition shops)."""
     value = str(settings.get("prompt_version", 2)).strip()
-    return {"1": 1, "3": 3, "4": 4}.get(value, 2)
+    return {"1": 1, "3": 3, "4": 4, "5": 5}.get(value, 2)
 
 
 def prompt_suffix(settings):

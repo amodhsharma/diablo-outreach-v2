@@ -150,7 +150,7 @@ def test_skill_scripts_end_to_end(repo):
     assert [c["template"] for c in plan["channels"]] == ["distributor", "marketplace_seller", "retailer"]
     prompt = (repo / "work" / "channel_2_prompt.md").read_text()
     assert "{{" not in prompt and "8 is the most companies to list, not a target" in prompt and "at most 120 web searches" in prompt
-    assert "HOW THE HARD RULES APPLY" in prompt and "Reject firmly" in prompt  # 21 Oct 2026
+    assert "HOW THE HARD RULES APPLY" in prompt and "Reject on evidence" in prompt  # 22 Oct 2026 (version 5)
     assert "Known Foods Pvt Ltd (knownfoods.in)" in prompt  # same country
     assert "Lead Elsewhere" in prompt  # in the pipeline anywhere
     assert "Other Kenya" not in prompt  # another country, not in the pipeline
@@ -429,19 +429,28 @@ def test_country_short_forms_match():
 
 
 def test_prompt_versions_side_by_side(repo):
-    """Version 4 (in use from 21 Oct 2026) uses the _4 prompts; 3, 2 and 1 still use their own files."""
+    """Version 5 (in use from 22 Oct 2026) uses the _5 prompts; 4, 3, 2 and 1 still use their own files."""
     prompts = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "prompts"
     for name in ["channel_prompt", "channels/distributor", "channels/wholesaler", "channels/retailer",
                  "channels/general", "channels/marketplace_seller"]:
-        for suffix in ("", "_2", "_3", "_4"):
+        for suffix in ("", "_2", "_3", "_4", "_5"):
             assert (prompts / f"{name}{suffix}.md").exists()
+    assert run_script(repo, "prepare_run.py").returncode == 0
+    plan = json.loads((repo / "work" / "plan.json").read_text())
+    five = (repo / "work" / "channel_1_prompt.md").read_text()
+    assert plan["prompt_version"] == 5 and "HARD RULES" in five and "Reject on evidence" in five
+    assert "sports nutrition and fitness shops" in five and "--catalogue" in five
+    assert "warehouse not named on its website" in five and "beeovita" in five
+    assert "Never use tier 3 for a doubtful" not in five
+    settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    settings.write_text(settings.read_text().replace("prompt_version: 5", "prompt_version: 4"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
     three = (repo / "work" / "channel_1_prompt.md").read_text()
     assert plan["prompt_version"] == 4 and "HARD RULES" in three and "DIABLO'S CATALOGUE" in three
     assert "syrups" in three and "Storage: " in three and "--catalogue" in three
     assert "HOW TO CHECK EACH COMPANY" in three and "LEARNING FROM DIABLO'S REVIEW" in three
-    settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    assert "Reject on evidence" not in three
     settings.write_text(settings.read_text().replace("prompt_version: 4", "prompt_version: 3"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     v3 = (repo / "work" / "channel_1_prompt.md").read_text()
@@ -468,6 +477,10 @@ def test_version_2_numbers(tmp_path):
     assert rq.prompt_suffix(rq.load_research_settings(f)) == "_3"
     f.write_text(f.read_text().replace("prompt_version: 3", "prompt_version: 4"))
     assert rq.prompt_suffix(rq.load_research_settings(f)) == "_4"
+    f.write_text(f.read_text().replace("prompt_version: 4", "prompt_version: 5"))
+    assert rq.prompt_suffix(rq.load_research_settings(f)) == "_5"
+    assert rq.load_research_settings(f)["default_companies"] == 30
+    f.write_text(f.read_text().replace("prompt_version: 5", "prompt_version: 4"))
     f.write_text(f.read_text().replace("prompt_version: 4", "prompt_version: 3"))
     f.write_text(f.read_text().replace("prompt_version: 3", "prompt_version: 1"))
     assert (rq.load_research_settings(f)["default_companies"], rq.load_research_settings(f)["min_floor"]) == (60, 30)
