@@ -1,0 +1,216 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0033",
+  "location": "Lausanne, Switzerland",
+  "run_date": "2026-10-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 9,
+      "searches_used": 54
+    }
+  ],
+  "companies": [
+    {
+      "name": "VELOMANIA (Bikes Center SA)",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "velomania.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Bikes and equipment plus a nutrition shelf of energy bars, gels and sports drinks from Clif Bar, PowerBar, Sponser, Enervit, Baouw, Overstim's and Dynamic (71 products)",
+      "channels_supplied": "Its own stores in Lausanne, Crissier, Vevey, Villeneuve, Montagny-pres-Yverdon, Geneva, Meyrin, Conthey, Fribourg and Neuchatel, plus its e-shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Romandie cycling chain with stores in Lausanne and Crissier and a nutrition category of other brands' energy bars and snacks sold to active, health-conscious shoppers. Diablo's muesli and cereal bars suit its checkout and nutrition shelves across about 11 Swiss stores.",
+      "what_they_do_well": [
+        "Grew from Bikes Center (2007) into a network of Swiss stores renamed VELOMANIA in 2022, including Lausanne and Crissier."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.velomania.ch/fr/9-nutrition-soins",
+        "https://www.velomania.ch/fr/cc/2-velomania-a-propos-de-nous",
+        "https://www.velomania.ch/fr/c/2-mentions-legales"
+      ]
+    },
+    {
+      "name": "Transa Backpacking AG",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "transa.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Outdoor equipment plus an outdoor food section of 121 items: energy bars, snacks, powdered drinks and trekking meals from Clif Bar, Power Bar, Sponser, Peak Punk, Winforce, Baouw and Naak",
+      "channels_supplied": "Its own outdoor stores and its online shop with Swiss Post delivery and free store pick-up",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss outdoor retailer whose energy bars category alone lists 59 products from nine brands, sold to hikers and active shoppers. Lausanne shoppers are served through its online shop; a Lausanne store is not shown on the pages read.",
+      "what_they_do_well": [
+        "Carries 15 outdoor food brands including Clif Bar, Power Bar and Sponser in one dedicated outdoor food section."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.transa.ch/en/c/equipment/outdoor-kitchen/outdoor-food/",
+        "https://www.transa.ch/en/c/equipment/outdoor-kitchen/outdoor-food/energy-bars/"
+      ]
+    },
+    {
+      "name": "Bodysport",
+      "based_out_of": "Switzerland",
+      "domain": "bodysport.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Sports nutrition with protein bars, diet bars and snacks, protein treats, spreads and 0 kcal syrups and sauces from brands such as PhD Nutrition, Biotech USA, Nutrend and Scitec",
+      "channels_supplied": "Its online shop with 24 hour delivery across Switzerland",
+      "sf_brands_carried": "0 kcal syrups and sauces; Biotech USA Zero Bar",
+      "competing_brand_flag": false,
+      "fit_rationale": "A French language Swiss sports nutrition shop with separate categories for bars, diet snacks, protein treats, spreads and 0 kcal syrups, matching Diablo's bars, spreads and dessert toppings. Head office city is not stated on its website.",
+      "what_they_do_well": [
+        "Swiss sports nutrition retailer since 2009, offering 24 hour delivery and free shipping from CHF 80."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bodysport.ch/"
+      ]
+    },
+    {
+      "name": "Planet Endurance",
+      "based_out_of": "Ecublens, Switzerland",
+      "domain": "planet-endurance.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Running and trail equipment with a dietetics section of energy bars, energy gels, sports drinks and fruit pastes from Baouw and Naak",
+      "channels_supplied": "Its store in Ecublens next to Lausanne and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A running and trail specialist on the edge of Lausanne whose dietetics shelf sells other brands' energy bars and snacks to endurance athletes. It is a single store, so its reach is small.",
+      "what_they_do_well": [
+        "Running and trail running specialist store in Ecublens beside Lausanne, with an online shop and free delivery from CHF 100."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://planet-endurance.ch/",
+        "https://planet-endurance.ch/etiquette-produit/magasin-course-a-pied-lausanne/"
+      ]
+    },
+    {
+      "name": "KDC Nutrition",
+      "based_out_of": "Vouvry, Switzerland",
+      "domain": "kdcnutrition.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Sports nutrition with protein bars (Ethic Sport), protein snacks (LifePro) and protein spreads from third-party brands",
+      "channels_supplied": "Its online shop with delivery in Switzerland and click and collect in Vouvry",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A French language Swiss sports nutrition shop selling other brands' bars, snacks and spreads, which match Diablo's bars and spreads. It is a small online shop with one pick-up point.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.kdcnutrition.ch/fr/"
+      ]
+    },
+    {
+      "name": "Sparposten.ch",
+      "based_out_of": "Matzingen, Switzerland",
+      "domain": "sparposten.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Branded drugstore and care products with a sweets section: Santiveri biscuits (including sugar-free Maria biscuits), Juanola sweets and Multicentrum gummies",
+      "channels_supplied": "Its online shop delivering across Switzerland and Liechtenstein",
+      "sf_brands_carried": "Santiveri sugar-free Maria biscuits",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Swiss online shop for branded products and special offers with its own sweets category of other brands, including sugar-free biscuits. The sweets section is small and the range is mostly care products.",
+      "what_they_do_well": [
+        "Swiss online shop for branded products, remainder stock and special offers, delivering to Switzerland, Germany and Liechtenstein."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sparposten.ch/Suessigkeiten/"
+      ]
+    },
+    {
+      "name": "SamaraNatura (BioSamara GmbH)",
+      "based_out_of": "Switzerland",
+      "domain": "samaranatura.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Organic healthy snacks: energy bars, salty snacks and trail mix from brands such as Rawbite, Roo'Bar and Naturkostbar",
+      "channels_supplied": "Its online shop with delivery in Switzerland and pick-up",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss organic and vegan online health shop whose snacks section sells other brands' energy bars, which suits Diablo's vegan muesli bars. Head office city is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://samaranatura.ch/snacks/",
+        "https://www.swissveg.ch/fr/online-shops?language=fr"
+      ]
+    },
+    {
+      "name": "La Bonbonnerie",
+      "based_out_of": "Switzerland",
+      "domain": "labonbonnerie.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Branded sweets and gummies (Haribo, Trolli), chocolate bars (Snickers), cookies and soft drinks, including loose bulk sweets",
+      "channels_supplied": "Its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online sweets shop selling other brands' gummies, chocolate bars and cookies, matching Diablo's sweets, chocolate and biscuits. It was founded in 2025, so its reach is small, and its delivery area is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://labonbonnerie.ch/"
+      ]
+    },
+    {
+      "name": "Running Concept (Michel Renck Sports)",
+      "based_out_of": "Basel, Switzerland",
+      "domain": "running-concept.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Running equipment with a dietetics section of energy bars, gels and fruit puree from Maurten and Baouw",
+      "channels_supplied": "Its Basel store and its French and German language online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A running specialist with an online shop in French that sells other brands' energy bars to endurance runners. It has one store in Basel, and its delivery area is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.running-concept.ch/fr/69-dietetique"
+      ]
+    }
+  ]
+}
