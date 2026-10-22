@@ -34,3 +34,7 @@ max_searches_per_channel: 120
 
 # Most companies listed in the prompt's exclusion list.
 max_exclusions_in_prompt: 500
+
+# Most jobs one research run works through, one after another (22 Oct 2026). Each job is still its
+# own job: its own files, commit and HubSpot import. When more are waiting, the next run carries on.
+max_jobs_per_run: 8

@@ -367,10 +367,12 @@ def is_retry(row):
     return row["status"] == WAITING and bool(row["output_file"])
 
 
-def waiting_job(rows, job_id=None, location=None):
+def waiting_job(rows, job_id=None, location=None, skip=()):
     """The job to research: the one named, else a retry first, else the oldest with a Waiting
-    line, markets added by hand before automatic ones (optionally only for one Location). Returns (job_id, its Waiting lines) or (None, [])."""
-    waiting = [r for r in rows if r["status"] == WAITING]
+    line, markets added by hand before automatic ones (optionally only for one Location). Returns (job_id, its Waiting lines) or (None, []).
+    skip: jobs this run already finished (22 Oct 2026), still Waiting until GitHub imports them."""
+    skip = {s.strip().upper() for s in skip}
+    waiting = [r for r in rows if r["status"] == WAITING and r["job_id"].upper() not in skip]
     if job_id:
         job_id = job_id.strip().upper()
         waiting = [r for r in waiting if r["job_id"] == job_id]

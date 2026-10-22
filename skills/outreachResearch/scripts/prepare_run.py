@@ -14,7 +14,8 @@ Usage (from the repository's top folder):
     python3 skills/outreachResearch/scripts/prepare_run.py --manual --location "Mumbai, India"
     python3 skills/outreachResearch/scripts/prepare_run.py --manual --job J0003
 
-Exit code 0 = a plan was written; 3 = nothing to do (no waiting job).
+Exit code 0 = a plan was written; 3 = nothing to do (no waiting job, or this run already finished
+max_jobs_per_run jobs). Jobs this run already finished (run_lock.py) are skipped.
 """
 
 import argparse
@@ -157,10 +158,10 @@ def output_paths(run_date, job_id, location, channels):
     return folder / f"{name}.json", folder / f"{name}_report.md"
 
 
-def build(job_id=None, location=None, manual=False, work=None, today=None):
+def build(job_id=None, location=None, manual=False, work=None, today=None, skip=()):
     settings = rq.load_research_settings()
     rows = rq.load()
-    job_id, lines = rq.waiting_job(rows, job_id=job_id, location=location)
+    job_id, lines = rq.waiting_job(rows, job_id=job_id, location=location, skip=skip)
     if not job_id:
         return None
     work = Path(work or ROOT / "work")
@@ -266,7 +267,17 @@ def main(argv=None):
     p.add_argument("--location", default="", help="run the oldest waiting job for this Location")
     p.add_argument("--work", default="", help="work folder (default: work/ in the repository)")
     args = p.parse_args(argv)
-    plan = build(args.job or None, args.location or None, args.manual, args.work or None)
+    # 22 Oct 2026: a run works through the waiting jobs one after another (run_lock.py); the jobs it
+    # already finished are skipped (they stay Waiting until GitHub imports them), and it stops after
+    # max_jobs_per_run jobs.
+    import run_lock
+    done = run_lock.done_in_this_run()
+    limit = int(rq.load_research_settings().get("max_jobs_per_run", 8))
+    if len(done) >= limit:
+        print(f"RUN LIMIT REACHED: this run has finished {len(done)} jobs ({', '.join(done)}), the most "
+              f"for one run; the next run carries on with the rest.")
+        return NOTHING_TO_DO
+    plan = build(args.job or None, args.location or None, args.manual, args.work or None, skip=done)
     if not plan:
         what = f" for {args.job or args.location}" if (args.job or args.location) else ""
         print(f"NOTHING TO DO: no job is waiting in the queue{what}.")

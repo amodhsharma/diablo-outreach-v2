@@ -2,6 +2,7 @@
 the strict check, the nightly HubSpot list and the import into HubSpot."""
 
 import copy
+import datetime as dt
 import json
 import shutil
 import subprocess
@@ -621,3 +622,46 @@ def test_v4_check_refuses_no_website_except_for_marketplace_sellers():
     errors = []
     co.check_own_website(errors, companies, "Amazon sellers")
     assert errors == []
+
+
+def test_a_run_works_through_the_jobs_one_after_another(repo):
+    """22 Oct 2026: a run skips the jobs it already finished (still Waiting until GitHub imports them)
+    and stops after max_jobs_per_run jobs; each job keeps its own files and import."""
+    rows = rq.load(repo / "research" / "queue.csv")
+    first = rows[0]["job_id"]
+    rq.add(rows, "Lyon, France", "distributors", added_by="ariel", on="2026-10-08")
+    rq.save(rows, repo / "research" / "queue.csv")
+    second = [r["job_id"] for r in rows if r["location"] == "Lyon, France"][0]
+    assert rq.waiting_job(rows)[0] == first and rq.waiting_job(rows, skip=[first])[0] == second
+    assert rq.waiting_job(rows, skip=[first, second]) == (None, [])
+
+    stamp = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    lock = {"run_id": "abc", "kind": "scheduled", "started": stamp, "updated": stamp, "job": "", "done": [first]}
+    (repo / "research" / "run_lock.json").write_text(json.dumps(lock))
+    (repo / ".research_run_id").write_text("abc\n")
+    out = run_script(repo, "prepare_run.py")
+    assert out.returncode == 0 and f"Job {second}:" in out.stdout  # the finished one is skipped
+    lock["done"] = [first, second]
+    (repo / "research" / "run_lock.json").write_text(json.dumps(lock))
+    assert "NOTHING TO DO" in run_script(repo, "prepare_run.py").stdout
+    settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    settings.write_text(settings.read_text().replace("max_jobs_per_run: 8", "max_jobs_per_run: 2"))
+    out = run_script(repo, "prepare_run.py")
+    assert out.returncode == 3 and "RUN LIMIT REACHED" in out.stdout
+    # Another run's lock (a different run ID) never makes this run skip anything.
+    (repo / ".research_run_id").write_text("other\n")
+    assert f"Job {first}:" in run_script(repo, "prepare_run.py").stdout
+
+
+def test_run_lock_one_run_at_a_time():
+    import importlib.util
+    path = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "scripts" / "run_lock.py"
+    spec = importlib.util.spec_from_file_location("run_lock_test", path)
+    rl = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(rl)
+    now = dt.datetime.now(dt.timezone.utc)
+    fresh = {"run_id": "a", "updated": (now - dt.timedelta(minutes=50)).isoformat()}
+    stale = {"run_id": "a", "updated": (now - dt.timedelta(hours=2, minutes=5)).isoformat()}
+    assert rl.held_by_other(fresh, "b", now) and not rl.held_by_other(fresh, "a", now)
+    assert not rl.held_by_other(stale, "b", now)  # a run that stopped without releasing
+    assert not rl.held_by_other(None, "b", now)
