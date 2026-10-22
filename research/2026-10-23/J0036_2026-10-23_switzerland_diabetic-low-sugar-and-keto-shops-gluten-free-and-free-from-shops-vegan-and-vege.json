@@ -1,0 +1,401 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0036",
+  "location": "Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "diabetic, low sugar and keto shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 35
+    },
+    {
+      "channel": "gluten free and free from shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 7,
+      "searches_used": 49
+    },
+    {
+      "channel": "vegan and vegetarian shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 36
+    },
+    {
+      "channel": "halal food distributors",
+      "template": "halal_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 42
+    },
+    {
+      "channel": "kosher food distributors",
+      "template": "kosher_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 42
+    }
+  ],
+  "companies": [
+    {
+      "name": "Fiberpasta.ch",
+      "based_out_of": "Switzerland",
+      "domain": "fiberpasta.ch",
+      "channel_category": [
+        "diabetic, low sugar and keto shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Chocolate with no added sugar (Ottochocolates milk and dark bars, erythritol chocolate drops) in a low carb sweets section, alongside imported low-GI pasta and low carb baking goods",
+      "channels_supplied": "Direct to shoppers through its own Swiss online shop",
+      "sf_brands_carried": "Ottochocolates no-added-sugar milk and dark chocolate; erythritol-sweetened chocolate drops",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Swiss online shop for low-GI food started by a team managing their own blood sugar, with a low carb sweets section of other brands' sugar-free chocolate. Diablo's no-added-sugar chocolate, biscuits and spreads match its shoppers exactly. It is small, with five chocolate lines today, and its head office town is not stated on its website.",
+      "what_they_do_well": [
+        "Imports Italian Fiberpasta low-GI pasta directly and sells it to Swiss shoppers managing blood sugar."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.fiberpasta.ch/products/milchschokolade-zuckerfrei",
+        "https://www.fiberpasta.ch/collections/schokolade-ohne-zuckerzusatz-1",
+        "https://www.fiberpasta.ch/pages/uber-uns"
+      ]
+    },
+    {
+      "name": "Body Nutrition",
+      "based_out_of": "Switzerland",
+      "domain": "bodynutrition.ch",
+      "channel_category": [
+        "diabetic, low sugar and keto shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Protein and diet bars from other brands (for example +Watt chocolate protein bars) and dietetic and protein foods",
+      "channels_supplied": "Direct to shoppers through its own online shop, shipped nationwide from its Swiss warehouse",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss sports nutrition and healthy food online shop with more than 500 products from certified brands, including bars and a dietetic and protein foods section for health-conscious shoppers. Diablo's muesli bars, cookies and spreads suit that shelf. Small, and its head office town is not stated on its website.",
+      "what_they_do_well": [
+        "Stocks over 500 products in its own Swiss warehouse with fast nationwide delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bodynutrition.ch/products/choco-egg-28",
+        "https://bodynutrition.ch/en/collections/protein-bars"
+      ]
+    },
+    {
+      "name": "ZRMB Marketplace AG (Zur Rose Shop)",
+      "based_out_of": "Switzerland (city not stated on its shop)",
+      "domain": "zurrose-shop.ch",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Gluten free food range of 832 products including sweets (Süsswaren), snacks, biscuits and cookies from Schär, Kookie Cat and Blumenbrot, plus a no added sugar filter",
+      "channels_supplied": "Own Swiss online pharmacy and health shop, backed by Medbase and Zur Rose",
+      "sf_brands_carried": "No added sugar filter with 154 gluten free products; Schär, Morga, ma vie sans Gluten",
+      "competing_brand_flag": false,
+      "fit_rationale": "A national online pharmacy and health shop with one of the largest gluten free food ranges in Switzerland, including 82 sweets and 74 snacks from other brands. Its no added sugar filter gives Diablo's chocolate, biscuits and spreads a natural shelf for health-conscious and diabetic shoppers.",
+      "what_they_do_well": [
+        "Lists 832 gluten free food products, led by Schär, Morga and ma vie sans Gluten."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.zurrose-shop.ch/de/glutenfreie-lebensmittel/c/K26J2B",
+        "https://www.zurrose-shop.ch/fr/aliments-sans-gluten/c/K26J2B"
+      ]
+    },
+    {
+      "name": "gluten-frei.ch",
+      "based_out_of": "Switzerland (city not stated on its website)",
+      "domain": "gluten-frei.ch",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Exclusively gluten free food: cookies, muffins, cakes and donuts, bars and balls, candies and sweets, salty snacks and cereals from Schär, Jerry's, Piaceri Mediterranei, Bauck and Hammermühle",
+      "channels_supplied": "Own online shop delivering to Switzerland and Liechtenstein",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A dedicated gluten free online shop whose categories already include cookies, cakes, bars and sweets from other brands, so Diablo's gluten free lines sit in existing categories. It sources from suppliers rather than making its products; the operator's name and city are not stated on the home page.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.gluten-frei.ch/en/"
+      ]
+    },
+    {
+      "name": "Vitafy GmbH (vitafy.ch)",
+      "based_out_of": "Munich, Germany",
+      "domain": "vitafy.ch",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Health and fitness food from over 200 brands: chocolate, chewing gum, bars, cookies, nut nougat and fruit spreads, low carb products",
+      "channels_supplied": "Own Swiss online shop priced in CHF, free delivery from CHF 85",
+      "sf_brands_carried": "Xucker (xylitol and erythritol chocolate, gum and spreads); low carb and protein bars",
+      "competing_brand_flag": true,
+      "fit_rationale": "An online health shop with a Swiss storefront in CHF that already sells sugar free chocolate, spreads, bars and cookies from other brands to health-conscious shoppers. Xucker on its shelf competes directly with Diablo.",
+      "what_they_do_well": [
+        "Offers over 6,000 products from more than 200 brands across fitness, low carb and vegan nutrition."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vitafy.ch/xucker.html",
+        "https://bestfoodimporters.com/company/vitafy-gmbh/"
+      ]
+    },
+    {
+      "name": "Simone Sans Gluten",
+      "based_out_of": "Sierre, Switzerland",
+      "domain": "simonesansgluten.ch",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "100% gluten free grocery with a sweet section (Moments Doux): biscuits, madeleines, donuts and chocolate snacks from Piaceri Mediterranei (Golomix, Quadrotti), plus savoury, flours and drinks",
+      "channels_supplied": "Own shop in Sierre (Valais) and its online shop",
+      "sf_brands_carried": "Announced an organic and vegan range with low or no sugar for 2026",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run gluten free and lactose free shop in Valais that imports selected brands and sells biscuits and chocolate snacks online and in store. Tier 3 because it is a single shop; it plans a low or no sugar range for 2026, which suits Diablo.",
+      "what_they_do_well": [
+        "Runs a 100% gluten free shop in Sierre with its own online shop and daily take-away meals."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://simonesansgluten.ch/i/qui-sommes-nous",
+        "https://simonesansgluten.ch/p/golomix-biscuit"
+      ]
+    },
+    {
+      "name": "Glutenfree Gusto Italiano",
+      "based_out_of": "Kemptthal, Switzerland",
+      "domain": "glutenfree-gustoitaliano.ch",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gluten free grocery with Dessert and Snack sections: sweet and salty snacks, biscuits and sponge cakes from Schär, Mulino Bianco, La Granja and Nutrifree",
+      "channels_supplied": "Own online shop and a shop at The Valley, Kemptthal, near Zurich",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An owner-run gluten free shop near Zurich with its own Dessert and Snack sections of branded packaged biscuits and snacks sold to shoppers, which is where Diablo's gluten free biscuits and chocolate would sit. Tier 3 because it is a single shop with an Italian-led range.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://glutenfree-gustoitaliano.ch/"
+      ]
+    },
+    {
+      "name": "direkt-apotheke.ch",
+      "based_out_of": "Switzerland (city not stated on its website)",
+      "domain": "direkt-apotheke.ch",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "99 gluten free products including a bars, cookies and snacks section: Schär biscuits, waffles and Melto bars, nakd bars, chocolate biscuits",
+      "channels_supplied": "Own Swiss online pharmacy and drugstore shop delivering across Switzerland",
+      "sf_brands_carried": "nakd (no added sugar fruit and nut bars)",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online pharmacy shop with its own gluten free bars, cookies and snacks section from other brands, a good shelf for Diablo's biscuits and bars. Tier 3 because the range is small and the operator is not named on its pages.",
+      "what_they_do_well": [
+        "Says its roots go back to a pharmacy with health expertise since 1967."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://direkt-apotheke.ch/collections/glutenfreie-ernahrung",
+        "https://direkt-apotheke.ch/collections/glutenfreie-riegel-kekse-und-snacks",
+        "https://direkt-apotheke.ch/"
+      ]
+    },
+    {
+      "name": "online-apotheke.ch",
+      "based_out_of": "Bern, Switzerland",
+      "domain": "online-apotheke.ch",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Coeliac range with biscuits, chocolate biscuits, cereal bars and snacks from Schär, Nature & Cie and Céliane",
+      "channels_supplied": "Own Swiss online pharmacy and drugstore, shipped from its Bern warehouse",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online pharmacy and drugstore whose coeliac section already sells gluten free biscuits, bars and snacks from other brands. Tier 3 because the range is about 24 items; the operator's legal name is not shown on that page.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.online-apotheke.ch/zoeliakie"
+      ]
+    },
+    {
+      "name": "Gingi (Handelssociete Aksu & Winkler)",
+      "based_out_of": "Allschwil, Switzerland",
+      "domain": "gingi.ch",
+      "channel_category": [
+        "vegan and vegetarian shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Vegan food and non-food online shop with a Lebensmittel section including chocolate, muesli and cheese alternatives, plus vegan proteins and supplements from brands such as Sunwarrior, PROFUEL and Vitabay",
+      "channels_supplied": "Its own online shop, delivering only within Switzerland",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss vegan online shop that resells other brands and has its own chocolate category, so Diablo's vegan muesli bars, wafer, cookie, peanut butters and jams match its shoppers. Tier 3 because it is a small owner-run webshop; its brand list in the chocolate category could not be opened and its order volume is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.gingi.ch/about/",
+        "https://www.gingi.ch/web-shop/lebensmittel/schokolade",
+        "https://www.gingi.ch/web-shop/nahrungserg%C3%A4nzung-vitamine-proteine-amino-s%C3%A4uren-sportlernahrung/proteine/",
+        "https://www.vgt.ch/doc/vegan-einkaufen/index.htm"
+      ]
+    },
+    {
+      "name": "Yasmin Food GmbH",
+      "based_out_of": "Rheinfelden, Switzerland",
+      "domain": "yasminfood.ch",
+      "channel_category": [
+        "halal food distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Arab and halal food with a large sweets section: biscuits, wafers, chocolate, pralines, toffees, chewing gum, marshmallows, dragees, Turkish delight and crisps from brands such as Ulker, Dingo, Elegance, LaVita, Eva, Nabhan and Nached",
+      "channels_supplied": "Its own online shop and app, delivering to shoppers across Switzerland, mainly the Arab community",
+      "sf_brands_carried": "Elegance Light Sugar sandwich wafer (reduced sugar, not a direct competitor)",
+      "competing_brand_flag": false,
+      "fit_rationale": "An importer of Arab food that buys directly from producers and sells over 50 branded biscuit, wafer, chocolate and sweets lines to Muslim and Arab shoppers in Switzerland, so Diablo's halal certified biscuits, wafers and chocolate fit its Dessert and Chips range. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs a dedicated online shop and app for Arab food across Switzerland, with 26 biscuit and 26 sweets and chocolate lines."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://yasminfood.ch/de/ueber-uns/",
+        "https://yasminfood.ch/de/produkt-kategorie/dessert-chips-2/kekse/",
+        "https://yasminfood.ch/de/produkt-kategorie/dessert-chips-2/suessigkeiten-schokolade/"
+      ]
+    },
+    {
+      "name": "TurkishMarket.ch",
+      "based_out_of": "Bern, Switzerland",
+      "domain": "turkishmarket.ch",
+      "channel_category": [
+        "halal food distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Turkish food and halal meat with sweets, biscuits and snacks: Ulker biscuits, Turkish delight, pismaniye, Argeta spreads, popcorn and roasted chickpeas",
+      "channels_supplied": "Its own online shop with delivery to shoppers across Switzerland",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A halal Turkish online grocer that already sells Ulker biscuits and other packaged sweets and snacks to Muslim shoppers nationwide, so Diablo's halal biscuits and sweets suit its range. Tier 3 because it is a small single online shop and its sweets range is narrow. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Delivers Turkish groceries and halal meat to shoppers anywhere in Switzerland from its online shop."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.turkishmarket.ch/en",
+        "https://www.islam.ch/business-directory/turkishmarket/"
+      ]
+    },
+    {
+      "name": "TEK Eins GmbH (TEK1 Metzgerei & Lebensmittel)",
+      "based_out_of": "Bachenbuelach, Switzerland",
+      "domain": "tekeins.ch",
+      "channel_category": [
+        "halal food distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Halal Turkish supermarket range with a snacks and sweets section, including Turkish delight and baklava, alongside meat, fruit, vegetables, cheese and staples",
+      "channels_supplied": "Its own supermarket in the Parkallee shopping centre, Bachenbuelach",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A halal supermarket that imports its range itself and has its own snacks and sweets section for Muslim shoppers, a natural shelf for Diablo's halal sweets and biscuits. Tier 3 because it is a single shop and its website does not name the sweets brands it carries. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Describes itself as a large importer, buying its supermarket range directly to control quality."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.tekeins.ch/"
+      ]
+    },
+    {
+      "name": "Koscher City (Bloch-Erlanger AG)",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "koschercity.ch",
+      "channel_category": [
+        "kosher food distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Kosher groceries with a confectionery and bakery goods department: sweets, lollipops, marshmallows and kosher Haribo gummies, plus wine, dairy, meat and fish",
+      "channels_supplied": "Its own Koscher City supermarket in Zurich; its operator Bloch-Erlanger AG, a family importer and wholesaler in Schubelbach, supplies Coop stores directly with Coop's kosher range",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Koscher City calls itself the largest kosher food shop in Switzerland and its website lists a confectionery department, while press reports name imported US and Canadian sweets and kosher Haribo on its shelves. Its operator Bloch-Erlanger imports kosher goods and runs Coop's kosher range, so one contact reaches both the main kosher shop and the national chain's kosher shelf. Storage: sells from its own stock in the Zurich supermarket; Bloch-Erlanger is listed as a food wholesaler in Schubelbach, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs the kosher range for Coop, supplying its stores directly (NZZ).",
+        "Bloch-Erlanger has traded since 1990 and Koscher City claims the largest kosher range in Switzerland."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://koschercity.ch/de/",
+        "https://koschercity.ch/de/ueber-uns/index.html",
+        "https://www.nzz.ch/wirtschaft/kreativitaet-im-koscheren-mikrokosmos-ld.1435981",
+        "https://reformiert.info/de/schwerpunkt/milchig-fleischig-oder-neutral-ein-rundgang-durch-koschere-geschaefte-in-zuerich-19333.html",
+        "https://business-monitor.ch/en/companies/155305-bloch-erlanger-ag"
+      ]
+    },
+    {
+      "name": "LeShuk",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "leshuk.ch",
+      "channel_category": [
+        "kosher food distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Kosher groceries including Israeli snacks such as Bamba and Bissli, silan, hummus, bread and baked goods, dairy, meat and Israeli wines",
+      "channels_supplied": "Its own kosher supermarket in Zurich (Waffenplatzstrasse, with a second address on Austrasse listed by Chabad)",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "One of only two kosher supermarkets in Zurich, listed by the Swiss Jewish federation and the Basel and Zurich kosher lists, selling branded packaged Israeli snacks to kosher shoppers. Tier 3 because the website did not open; trading confirmed on local.ch, which shows current opening hours. Its sweets range beyond snacks is not stated.",
+      "what_they_do_well": [
+        "Listed as a kosher supermarket by the Swiss Federation of Jewish Communities and the IGB Basel kosher list."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.local.ch/de/d/zuerich/8002/wein-weinhandel/leshuk-Uxqex4LmZCas89Km4tQK4Q",
+        "https://wanderlog.com/place/details/7280283/leshuk--koscher-lebensmittel--weine",
+        "https://lozart.ch/metzgerei/zurich/leshuk/",
+        "https://swissjews.ch/en/jewish-life/kosher/shopping"
+      ]
+    }
+  ]
+}
