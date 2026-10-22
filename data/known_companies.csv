@@ -3303,6 +3303,7 @@ id,name,domain,country,why
 382896633032,Alfa Labs,alfalabs.com.br,,other
 381156226270,Alfa Market,alfamarketonline.com,,other
 421725107425,Alfa mart,alfamart.co.id,Indonesia,other
+455680604390,Alfa Pharm CJSC,alfapharm.am,Armenia,other
 421739448524,Alfa Protein,alfaproteini.si,,other
 421799506142,Alfa Trade,alfatrade.lt,Lithuania,other
 381061801203,Alfa Tradelinks Pte Ltd,alfatradelinks.com,,other
@@ -8263,11 +8264,11 @@ id,name,domain,country,why
 451193022702,Bäcker Görtz GmbH,baeckergoertz.de,Germany,other
 426293060818,Bäckerei Hamma,hamma.de,Germany,other
 426294368462,Bäckerei Kraus GmbH,unwiderstehlich-gut.de,Germany,other
-426293213380,Bäckerei Nussbaumer AG,beck-nussbaumer.ch,Switzerland,other
+426293213380,Bäckerei Nussbaumer AG,beck-nussbaumer.ch,Switzerland,auto-outreach
 426292845769,Bådin,baadin.com,Norway,other
 426293140700,Béquet Confections,bequetconfections.com,United States,other
 426293214410,BÖCKELS Beste GmbH,boeckels-beste.de,Germany,other
-421768311998,BÖDELI CENTER,boedeli-center.ch,Switzerland,other
+421768311998,BÖDELI CENTER,boedeli-center.ch,Switzerland,auto-outreach
 426292875479,Bönor & Blad AB,bonorochblad.se,Sweden,other
 426249666807,Bønnen Danmark,bonnen.dk,Denmark,other
 449170245826,Bülent Börekçilik,bulentborekcilik.com,Turkey,other
@@ -14213,7 +14214,7 @@ id,name,domain,country,why
 431951190204,Eccellenze Italiane,eccellenzeitalianesrl.com,Italy,other
 421752092884,Eccomi,eccomisupermercati.it,Italy,other
 425255536873,Ece Boya Kimya,eceboya.com,Tuerkiye,other
-421812135124,ECF Group,ecfgroup.com,Switzerland,other
+421812135124,ECF Group,ecfgroup.com,Switzerland,auto-outreach
 382809269452,ECHAMP,echamp.eu,,other
 381150824645,Echo Vietnam,echovietnam.com,,other
 421761086684,ECHOstore sustainable lifestyle,echostore.ph,Philippines,other
@@ -15003,13 +15004,13 @@ id,name,domain,country,why
 421730415830,EPbar,energijosproduktai.lt,Lithuania,other
 381054553328,Epermarket,epermarket.com,China,other
 421797910742,Epermarket - Shanghai expats,nogogo.cn,china,other
-425252051164,EPFL,epfl.ch,Switzerland,other
+425252051164,EPFL,epfl.ch,Switzerland,auto-outreach
 426293080292,Epic Brewing,epicbrewing.com,United States,other
 426291315960,"EPIC Enterprises, Inc.",epicenterprisesinc.com,United States,other
 421706544362,EPIC Food Supply,epicfoodsupply.com,United Kingdom,other
 421732448453,Epic Foods,epic.co.zm,Zambia,other
 425186882770,Epic Foods Co,epicfoods.com,Finland,other
-425251080408,Epic Partners SA,epicip.com,Switzerland,other
+425251080408,Epic Partners SA,epicip.com,Switzerland,auto-outreach
 421713737930,Epice Scop,epice.org,France,other
 381321962741,Epicenter K,on.epicentrk.ua,,other
 421734029545,Epicentr K,,Ukrain,other
@@ -15023,7 +15024,7 @@ id,name,domain,country,why
 381314813127,Epicurean Fine Foods & Pharmacy,,,other
 421715510466,Epicurean Fine Foods And Pharmacy,epicureanantigua.com,Antigua,other
 421794106597,Epicurean Foods,epicurean-foods.com,USA,other
-421796157674,Epicurious brothers,epicuriousbrothers.ch,Switzerland,other
+421796157674,Epicurious brothers,epicuriousbrothers.ch,Switzerland,auto-outreach
 421764572402,Epicurium Ltd,epicurium.co.uk,England,other
 421806751949,Epiczen,epiczen.co.uk,England,other
 387391187134,Epikurean,epikureanresorts.com,,other
@@ -15193,7 +15194,7 @@ id,name,domain,country,why
 421711945960,Estância Supermercados,estanciaevoce.com.br,bresil,other
 385694452950,Estância Supermercados,estanciasupermercados.com.br,,other
 421755551968,"Et Gastro, S.r.o.",etgastro.cz,Czech Republic,other
-421708429510,ET Trade Tech®,eureka-market.com,Switzerland,other
+421708429510,ET Trade Tech®,eureka-market.com,Switzerland,auto-outreach
 426253213894,"ETA Kamnik, d.o.o.",natureta.si,Slovenia,other
 421804920013,Etablissement DUPLEIX,allobonbons.com,France,other
 381338163449,etalianfood,etalianfood.com,,other
@@ -15203,7 +15204,7 @@ id,name,domain,country,why
 421761085655,Eternaim,eternaim.com,Indonesia,other
 421761249473,ETG,etgworld.co,Mauritius,other
 381079770314,ETG S.r.l,europeantraders.com,,other
-425206868167,ETH Zürich,fgcz.ch,Switzerland,other
+425206868167,ETH Zürich,fgcz.ch,Switzerland,auto-outreach
 381172456641,Ether Choclate,etherchocolate.com,,other
 421808559341,Ethical Superstore,sparketail.com,England,other
 421768245450,Ethical Wares,ethicalwares.com,,other
@@ -16188,7 +16189,7 @@ id,name,domain,country,why
 421761067194,Fekra Holding,sweetandmore.co,,other
 382839187677,Fekra Holding Co.,fekraholding.com,,other
 426230642894,Felbro Culinary Specialties LLC,felbro.com,United States,other
-426293154008,FELD ZU TISCH - Lebensmittel Netzwerk Basel,feldzutisch.ch,Switzerland,other
+426293154008,FELD ZU TISCH - Lebensmittel Netzwerk Basel,feldzutisch.ch,Switzerland,auto-outreach
 426291245249,Feldts Fisk & Skaldjur AB,fisk.se,Sweden,other
 381052472548,FelfÃ¶ldi Foods,felfoldi.hu,Hungary,other
 452712387789,Felicia Healthcare Group,felicia.md,Moldova,other
@@ -16255,7 +16256,7 @@ id,name,domain,country,why
 421713585357,Ferrero,ferrero.com,Luxembourg,other
 381052474610,Ferrero,ferrero.com.br,Brazil,other
 426292941015,Ferrero France SA,ferrero.fr,France,other
-425010656451,Ferring Pharmaceuticals,ferring.com,Switzerland,other
+425010656451,Ferring Pharmaceuticals,ferring.com,Switzerland,auto-outreach
 426293173490,ferrowine,ferrowine.it,Italy,other
 426293045449,Ferráspari,ferraspari.com.br,Brazil,other
 426251448561,Ferus Artisan Ales,ferusales.com,United States,other
@@ -16453,7 +16454,7 @@ id,name,domain,country,why
 425196059859,FirstPort (UK),firstport.co.uk,United Kingdom,other
 421711874280,FIS,fis.ba,Bosnia,other
 421746646240,"Fischer Foods Of New York, Inc.",fischerfoods.net,USA,other
-421744860402,Fischermätteli Lade O. Herde,fischermaetteli-lade.ch,Switzerland,other
+421744860402,Fischermätteli Lade O. Herde,fischermaetteli-lade.ch,Switzerland,auto-outreach
 421710143728,fischers foodland,svharbor.com,,other
 426294606035,Fish & Frog srl,fishandfrog.com,Italy,other
 426294335694,Fish King Seafood,fishkingseafood.com,United States,other
@@ -17229,7 +17230,7 @@ id,name,domain,country,why
 381241430239,FOUR E-COMMERCE IMPORTACAO E EXPORTACAO LTDA,,,other
 426292699340,Four Fathers Brewing Co.,fourfathersbrewing.ca,Canada,other
 426204139727,Four Food Gıda Sanayi ve Ticaret Şirketi,fourfood.com.tr,Tuerkiye,other
-426294212853,Four Hundred (MG),fourhundredcoffee.com,Switzerland,other
+426294212853,Four Hundred (MG),fourhundredcoffee.com,Switzerland,auto-outreach
 381059966179,Four Kross,fourkross.com,,other
 381072355525,Four Rivers Co-op,fourriversco-op.crs,Canada,other
 381345494227,Four Seas Group,fourseassh.com,,other
@@ -17584,7 +17585,7 @@ id,name,domain,country,why
 421748427965,Frischmarkt Millrath,frischmarkt-millrath.de,Germany,other
 381068980455,frisco.pl,frisco.pl,,other
 426294445254,Frisino Winery,frisino.com,Italy,other
-426294205672,FRISK FISK Trivisano,friskfisk.ch,Switzerland,other
+426294205672,FRISK FISK Trivisano,friskfisk.ch,Switzerland,auto-outreach
 426294431972,Frismar,frismar.com,Brazil,other
 381461853430,FrissFood,frissfood.hu,,other
 448114971857,Frit Ravich,fritravich.com,Spain,other
@@ -17726,7 +17727,7 @@ id,name,domain,country,why
 426209672425,FruVa Fruchtimport GmbH & Co. KG,fruva.de,Germany,other
 421764616387,fruvegho,fruvegho.cl,"Chile, America",other
 426224051387,Fruver,fruver.org,Argentina,other
-421761254616,FRUVER AG,fruver.ch,Switzerland,other
+421761254616,FRUVER AG,fruver.ch,Switzerland,auto-outreach
 426265408711,Fruvita d.o.o.,fruvita.com,Serbia,other
 381147044055,FRUZCO CHILE S.A.,grupofruzco.cl,Chili,other
 425255442620,fruzco.cl,fruzco.cl,,other
@@ -17931,7 +17932,7 @@ id,name,domain,country,why
 381115408582,Galaxy Delights,,,other
 381329248454,Galaxy Distribution,,,other
 421748369610,Galaxy Trading Limited,galaxytradinglimited.co.uk,England,other
-425251065035,Galderma,galderma.com,Switzerland,other
+425251065035,Galderma,galderma.com,Switzerland,auto-outreach
 421759186106,GALE DISTRIBUIDORA LTDA,galedistribuidora.com.br,Brazil,other
 421728799976,GALEC - E.LECLERC Purchasing Group,recrutement.leclerc,France,other
 382423489736,Galenica,galenicare.com,,other
@@ -17960,7 +17961,7 @@ id,name,domain,country,why
 421761230052,galletasnutrih,galletasnutrih.com,Peru,other
 421723269321,Galli Atacadista,galliatacadista.com.br,Brazil,other
 426294169838,Galli Enoteca,gallienoteca.it,Italy,other
-425252051172,Galliker Transport AG,galliker.com,Switzerland,other
+425252051172,Galliker Transport AG,galliker.com,Switzerland,auto-outreach
 421801415929,Gallo,gallovending.it,Italy,other
 421730437355,Gallson,gallson.sk,Slovakia,other
 421770025181,galmart,galmart.kz,Kazakhstan,other
@@ -18506,7 +18507,7 @@ id,name,domain,country,why
 381070748903,Gismod,gismodcommerce.com,,other
 381079768270,Git Usa Inc.,gitfood.com,USA,other
 421755623615,Git' N Split,gitnsplit.com,USA,other
-426299851980,GITS Streetfood,achtvier.ch,Switzerland,other
+426299851980,GITS Streetfood,achtvier.ch,Switzerland,auto-outreach
 381067131095,GittiGidiyor,gittigidiyor.com,,other
 426293158133,Giugni e Secomandi S.A.S. di Trentin Marzia Francesca e C.,caffegiugni.com,Italy,other
 382876707015,Givanas,givanas.com,,other
@@ -18539,7 +18540,7 @@ id,name,domain,country,why
 426205916355,Glass Canned Wines,glasscannedwines.com,Spain,other
 381320165613,Glassmere Fuel,glassmerefuel.com,USA,other
 421741248716,glatt kosher store,glattkosherstore.com,United States,other
-421728764090,Glatt SpÃ¤tkauf Kiosk,glatt-kiosk.ch,Switzerland,other
+421728764090,Glatt SpÃ¤tkauf Kiosk,glatt-kiosk.ch,Switzerland,auto-outreach
 421753804995,Glatz Gmbh,glatz.co.at,Austria,other
 381068980420,glazier foodservice,glazierfoodservice.com,USA,other
 426224045299,GLCC Co.,glccflavors.com,United States,other
@@ -18691,7 +18692,7 @@ id,name,domain,country,why
 421804930235,globalfoodhub,globalfoodhub.com,Netherlands,other
 425255310559,globalfoodmerchant.com,globalfoodmerchant.com,,other
 425255509191,globalfoodslimited.com,globalfoodslimited.com,,other
-421744880881,globalfoodtraders.world,globalfoodtraders.world,Switzerland,other
+421744880881,globalfoodtraders.world,globalfoodtraders.world,Switzerland,auto-outreach
 426293059824,Globalimar Europa S.L.,globalimar.com,Spain,other
 426294125794,GloballExport Brasil Company & Services,globallexportbrazil.com,Brazil,other
 421708334287,Globally Brands,globallybrands.com,Poland,other
@@ -18807,7 +18808,7 @@ id,name,domain,country,why
 381414208724,Go Green- Vietnam,gogreenvn.com,,other
 421708304604,Go Natural,gonatural.pt,Portugal,other
 425255462105,Go Nuts,gonuts.fr,France,other
-421715544313,Go Poschta Au GmbH,goposchta.ch,Switzerland,other
+421715544313,Go Poschta Au GmbH,goposchta.ch,Switzerland,auto-outreach
 421732294901,go potatoes,gopotatoes.co.nz,New Zealand,other
 421728830665,Go Pro Now Brands,gopronowbrands.co.uk,England,other
 421713723613,Go Soft Stuff,gosoftstuff.com,England,other
@@ -19206,7 +19207,7 @@ id,name,domain,country,why
 426249645242,Gourmet Produkter as,gourmetprodukter.no,Norway,other
 381320167659,Gourmet Royal International Ltd,thegourmetroyal.com,UK,other
 421803194601,gourmet sans gene,gourmetsansgene.com,,other
-426292810965,Gourmet Star AG,gourmetstar.ch,Switzerland,other
+426292810965,Gourmet Star AG,gourmetstar.ch,Switzerland,auto-outreach
 421737629930,Gourmet Studio,gourmet-studio.lv,Lativa,other
 421762759892,Gourmet Trading Co.,gourmettrading.com,USA,other
 421739607242,Gourmet Versand,gourmet-versand.com,germany,other
@@ -19577,7 +19578,7 @@ id,name,domain,country,why
 421710215406,GreenSpoon,greenspoon.co.ke,Kenya,other
 381140026562,greenspruce,greenspruce.se,Sweden,other
 421761206459,GreensSupermarket,greensonline.co.zw,Zimbabwe,other
-426292847811,GreenTime - Homemade food at work.,mygreentime.com,Switzerland,other
+426292847811,GreenTime - Homemade food at work.,mygreentime.com,Switzerland,auto-outreach
 381154243809,Greenweez,greenweez.com,France,other
 426292847810,Greenwitch HEALTH,greenwitch.dk,Denmark,other
 425255376115,Greenwood Care Inc,greenwoodcare.com,United States,other
@@ -20975,7 +20976,7 @@ id,name,domain,country,why
 382071120099,Hero,hero.ch,,other
 426262218995,Hero Canada,babygourmet.com,Canada,other
 451539794146,Hero Czech,hero.cz,,other
-421794114788,Hero Group,hero-group.ch,Switzerland,other
+421794114788,Hero Group,hero-group.ch,Switzerland,auto-outreach
 426293236949,Hero Italia S.p.A.,hero.it,Italy,other
 381345491167,Hero Supermarket,hero.co.id,Indonesia,other
 388075750597,Herodion Hotel,herodion.gr,,other
@@ -21226,7 +21227,7 @@ id,name,domain,country,why
 425252539590,Hochschule für Technik Stuttgart,hft-stuttgart.de,Germany,other
 425252618438,Hochschule Hannover,hs-hannover.de,Germany,other
 425183405299,Hochschule Weserbergland,hsw-hameln.de,Germany,other
-426222231766,Hochstrasser AG,hochstrasser.ch,Switzerland,other
+426222231766,Hochstrasser AG,hochstrasser.ch,Switzerland,auto-outreach
 381290057938,Hock Lam (1998) Pte Ltd,hocklam.com,,other
 426291311858,Hock Lian Huat Foodstuff Industry Pte Ltd,hlhfoods.com,Singapore,other
 421797779650,HOCK SENG FOOD PTE LTD,hosengroup.com,Singapore,other
@@ -21472,7 +21473,7 @@ id,name,domain,country,why
 421746840822,Hortifruti Direto do Campo Itajaí,hortifrutidiretodocampo.com.br,Brazil,other
 425213905123,Hortifruti Fartura,hortifrutifartura.com.br,Brazil,other
 381250363595,"Horus E-Commerce Co., Ltd.",,,other
-426294125787,Hosberg AG,hosberg.ch,Switzerland,other
+426294125787,Hosberg AG,hosberg.ch,Switzerland,auto-outreach
 425255338226,Hose,hose.ba,Bosnia and Herzegovina,other
 421706524893,Hose Komerc,hosekomerc.ba,Bosnia,other
 425211959530,"Hoshino Resort Co., Ltd.",hoshinoresorts.com,Japan,other
@@ -22532,7 +22533,7 @@ id,name,domain,country,why
 421746770122,intersnack,intersnack.sk,Slovakia,other
 421732403436,Intersnack Adria d.o.o.,intersnack.hr,Croatia,other
 426293159103,Intersnack Slovenia,intersnack.si,Slovenia,other
-426211223775,Intersnack Switzerland Ltd.,intersnack.ch,Switzerland,other
+426211223775,Intersnack Switzerland Ltd.,intersnack.ch,Switzerland,auto-outreach
 421808570599,INTERSPAR,interspar.at,,other
 421748433133,INTERSPAR Hypermarket Salzburg Lehen,,Austria,other
 421804951797,Intersport,intersport.fr,France,other
@@ -23560,7 +23561,7 @@ id,name,domain,country,why
 381156024517,justasianfood,justasianfood.com,usa,other
 381289824499,JustBite,en.justbite.eu,,other
 421801467082,JustCandy,justcandyaus.com.au,Australia,other
-426291316941,justDrink.ch,justdrink.ch,Switzerland,other
+426291316941,justDrink.ch,justdrink.ch,Switzerland,auto-outreach
 446896434419,Justerini & Brooks,justerinis.com,United Kingdom,other
 426294212834,justfood,justfood.pro,Russia,other
 421732269243,JustHaat,justhaat.com,England,other
@@ -24830,7 +24831,7 @@ id,name,domain,country,why
 421708341440,KÃƒÂ¤fer,feinkost-kaefer.de,Germany,other
 381052474575,KÃƒÂ¤rkkÃƒÂ¤inen,,,other
 381460072673,KÃƒÂ¼resel Tedarik,kureseltedarik.com,,other
-426262218993,KÄSESWISS,kaseswiss.ch,Switzerland,other
+426262218993,KÄSESWISS,kaseswiss.ch,Switzerland,auto-outreach
 381079557346,KÄ°M GRUP,kimmarket.com,Turkey,other
 421715574976,köllektiv eG,koellektiv.org,Germany,other
 426292946112,König Units Ltd.,konigunits.hu,Hungary,other
@@ -25019,7 +25020,7 @@ id,name,domain,country,why
 426292908248,La Nova Pizzeria,lanova.com,United States,other
 421713750242,la nueva distribuidora,lanuevadistribuidora.mercadoshops.com.ar,Argentina,other
 426292758773,La Nuova Era - Italian Coffee Machines,lanuovaera.com,Italy,other
-426224047305,La Nébuleuse,lanebuleuse.ch,Switzerland,other
+426224047305,La Nébuleuse,lanebuleuse.ch,Switzerland,auto-outreach
 421812132060,LA Oferta,laoferta.cl,"Chile, America",other
 421728854212,LA OSA coop - Tu supermercado cooperativo de Madrid,laosa.coop,Spain,other
 381339939059,La Oveja,,,other
@@ -26161,7 +26162,7 @@ id,name,domain,country,why
 383299722455,Loji,loji.com.br,,other
 425251009744,lojinhadasespeciarias.com.br,lojinhadasespeciarias.com.br,Brazil,other
 421790576872,LOKA Food&Beverage,lokafoodbeverage.com,Cambodia,other
-426294335702,LOKAL,lokalfeldberg.ch,Switzerland,other
+426294335702,LOKAL,lokalfeldberg.ch,Switzerland,auto-outreach
 426299746529,Lokalbox,lokalbox.dk,Denmark,other
 432525708517,Lokumal & Co,lokumal.com.hk,,other
 421710117106,LOL Intersnack & Foods Limited,,Jamaica,other
@@ -26249,7 +26250,7 @@ id,name,domain,country,why
 421746802875,Loon Fung,loonfung.co.uk,United Kingdom,other
 382184092883,Loon Fung,loonfung.com,,other
 421735800006,Loop Neighborhood,loopneighborhood.com,,other
-426265414854,Loosli Getränke AG,loosli-getraenke.ch,Switzerland,other
+426265414854,Loosli Getränke AG,loosli-getraenke.ch,Switzerland,auto-outreach
 421757423862,Looters,looters.co.za,South Africa,other
 425183405253,Loparshop.se,loparshop.se,Sweden,other
 421748364495,Lopes Supermercados,superlopes.com.br,Brazil,other
@@ -26643,7 +26644,7 @@ id,name,domain,country,why
 381052483794,macadams food,macadamsfoods.com,,other
 421739490541,Macado,macado.be,Belgium,other
 381141709040,"Macar & Sons, Inc.",,,other
-426246428897,Macardo - Schweizer Edeldestillerie,macardo.ch,Switzerland,other
+426246428897,Macardo - Schweizer Edeldestillerie,macardo.ch,Switzerland,auto-outreach
 426251433188,MacArthur Beverage,bassins.com,United States,other
 425255438539,Macc Care,macccare.com,United Kingdom,other
 426294184153,MacCARB Inc,maccarb.com,United States,other
@@ -26729,7 +26730,7 @@ id,name,domain,country,why
 381549023431,Maersk,maersk.com,,other
 426292699338,Maes Honey Miel,maeshoney.com,Spain,other
 421708341478,Maesai Shopping,tourismthailand.org,,other
-426249650390,Maestral AG,maestral.ch,Switzerland,other
+426249650390,Maestral AG,maestral.ch,Switzerland,auto-outreach
 425186879721,Maestrani Schweizer Schokoladen AG,maestrani.ch,Switzerland,other
 426293175537,Maestro Vin by Gin Maestro,ginmaestro.dk,Denmark,other
 381148854458,Mafco For Trading & Agencies,mafco-trading.com,,other
@@ -27061,7 +27062,7 @@ id,name,domain,country,why
 425252770009,Mantra Group,mantragroup.com.au,Australia,other
 421788817605,Mantra Group,mantrahotels.com,australia,other
 385802663138,Mantra Hotels,mantra.com.au,,other
-426294402241,MANU Gelato,manugelato.ch,Switzerland,other
+426294402241,MANU Gelato,manugelato.ch,Switzerland,auto-outreach
 381150818523,Manuel Gonzalez Cuesta,codetel.net.do,,other
 381061803232,Manuel Market,manueltrade.com,,other
 421710194885,Manufactum Gruppe,manufactum.de,Germany,other
@@ -27466,7 +27467,7 @@ id,name,domain,country,why
 421739615455,Massy Stores,shopmassystoresbb.com,Barbados,other
 421735875806,Massy Stores Guyana,massystoresgy.com,Guyana,other
 421750407416,Massy Stores Trinidad,massystorestt.com,"Port of Spain, Trinidad and Tobago",other
-426236110062,MASTAI Comestibles,mastai.ch,Switzerland,other
+426236110062,MASTAI Comestibles,mastai.ch,Switzerland,auto-outreach
 421710132462,Master ATS Supermercados,mastersonda.com.br,Brazil,other
 426294513878,Master Distillers,masterdistillers.net,Netherlands,other
 421794194628,Master Distribuidora,masterdis.com.br,Brazil,other
@@ -28965,7 +28966,7 @@ id,name,domain,country,why
 381170430198,molisi,molisi.to,,other
 421764656345,molitalia,molitalia.com.pe,Peru,other
 382884192468,Molitalia S.A.,molitalia.com,,other
-426262227154,Molkerei Fuchs (Fuchs + Co. AG),fuchsmilch.ch,Switzerland,other
+426262227154,Molkerei Fuchs (Fuchs + Co. AG),fuchsmilch.ch,Switzerland,auto-outreach
 421708328184,Molla,molla.cz,Czech Republic,other
 421750385850,Mollie Stone's Markets,molliestones.com,USA,other
 421764577487,Mollie's Sweet Shop,molliessweetshop.com,England,other
@@ -31406,7 +31407,7 @@ id,name,domain,country,why
 426205907147,Olio Dante S.p.A.,oliodante.com,Italy,other
 426292206820,Olio Glorioso,olioglorioso.it,Italy,other
 426294379759,OLIO GOLD STAR,goldfood.it,Italy,other
-426249651399,olio sicilia - paese del sole,olio-paesedelsole.ch,Switzerland,other
+426249651399,olio sicilia - paese del sole,olio-paesedelsole.ch,Switzerland,auto-outreach
 426294540483,Olis Bargalló,olisbargallo.com,Spain,other
 421761210591,Olis Trading,olis-trading.com,Egypt,other
 387233064176,Olissippo Hotels,olissippohotels.com,,other
@@ -31618,7 +31619,7 @@ id,name,domain,country,why
 421708430539,Ooooby NZ,ooooby.co.nz,New Zealand,other
 381338165477,Opal Export,opalint.co.il,,other
 425205027061,Opalbond Nutrition,opalbond.co.uk,United Kingdom,other
-426294188275,Opaline,opaline-factory.ch,Switzerland,other
+426294188275,Opaline,opaline-factory.ch,Switzerland,auto-outreach
 451873878246,OPCO Santé,opco-sante.fr,,other
 421728803053,Open 25 HS,open25.com.ar,Argentina,other
 421708432608,Open Beach Distribution,openbeachdistribution.com,Spain,other
@@ -32275,7 +32276,7 @@ id,name,domain,country,why
 421725049080,Paode Acucar,,,other
 381329254605,paodeacucar,paodeacucar.com,Brazil,other
 421710148805,PAODEACUCAR.COM,,,other
-426294188250,Paolo Basso Wine,paolobasso.store,Switzerland,other
+426294188250,Paolo Basso Wine,paolobasso.store,Switzerland,auto-outreach
 381141705968,Papa Group,papagroupbd.com,,other
 425186879695,Papa's Pizzeria,papaspizzeria.info,United Kingdom,other
 426292976871,Papacream India,papacream.com,India,other
@@ -34890,7 +34891,7 @@ id,name,domain,country,why
 381243190480,Real Pro,realpro.com.gr,Grocery,other
 381054358749,Real Service S.a.,realservice.com.pe,,other
 381338171622,Real Supps,realsupps.nl,Netherlands,other
-426236104923,Real Swiss Cheese GmbH,realswisscheese.ch,Switzerland,other
+426236104923,Real Swiss Cheese GmbH,realswisscheese.ch,Switzerland,auto-outreach
 421768294644,Real Tobacco,realtobacco.be,Belgium,other
 428799806664,Real Trading,realtrading.co.uk,,other
 421788807414,Real Value IGA Supermarket,realvalueiga.com,Grenada,other
@@ -35868,7 +35869,7 @@ id,name,domain,country,why
 426224064749,Rue de France Importadora,ruedefrance.com.br,Brazil,other
 381063312631,ruedaquerueda,ruedaquerueda.com.ar,,other
 454666029304,Rufenberg Trading GmbH,rufenberg.swiss,Switzerland,auto-outreach
-426292784372,Rugenbräu AG,rugenbraeu.ch,Switzerland,other
+426292784372,Rugenbräu AG,rugenbraeu.ch,Switzerland,auto-outreach
 421728698560,Ruhi,ruhi.co.uk,England,other
 421715478755,"Ruiz GalÃ¡n, S.L.",supermercadosruizgalan.com,Spain,other
 381145215212,Ruka Wholesalers and distributors,ruka.nz,New Zealand,other
@@ -36688,7 +36689,7 @@ id,name,domain,country,why
 421803390144,Schwartz Ltd,schwartzltd.co.uk,England,other
 421761157309,Schwebel Lebensmittelmarkt GmbH,edeka-schwebel.de,Germany,other
 425068094667,Schweitzer GmbH+Co. Internationale Spedition KG,schweitzer-spedition.de,Germany,other
-426293118176,Schweizer Obstverband (SOV),swissfruit.ch,Switzerland,other
+426293118176,Schweizer Obstverband (SOV),swissfruit.ch,Switzerland,auto-outreach
 421799583951,Schwyzer Milchhuus AG,milchhuus.ch,Switzerland,other
 426293235956,Schysst käk,schysstkak.se,Sweden,other
 426230669560,"Schönbergers Kaffeegreissler, Beans and Machines GmbH",beans-and-machines.at,Austria,other
@@ -36878,7 +36879,7 @@ id,name,domain,country,why
 425255360719,Selenta Group,selentagroup.com,Spain,other
 381066937540,Selerant,selerant.com,USA,other
 381129729264,SELEX Gruppo Commerciale SpA,vivincomunicazione.it,,other
-426262220991,selezione Sartorio,selezione-sartorio.ch,Switzerland,other
+426262220991,selezione Sartorio,selezione-sartorio.ch,Switzerland,auto-outreach
 421804921049,Selfly Store,selflystore.com,Philippines,other
 421741224160,Selfridges,selfridges.co.uk,England,other
 381070529776,Selfridges Retail LTD,selfridges.com,,other
@@ -37530,7 +37531,7 @@ id,name,domain,country,why
 425205027057,Similarweb,similarweb.com,United States,other
 381115411664,Simita Trading,simita-trading.com,,other
 421806801093,Simmel,simmel.de,Germany,other
-426293119209,Simmentaler Braumanufaktur AG,simmentalerbier.ch,Switzerland,other
+426293119209,Simmentaler Braumanufaktur AG,simmentalerbier.ch,Switzerland,auto-outreach
 425251012809,Simmer,simmereats.com,United Kingdom,other
 421771765980,Simmo World Food,simmoworldfood.com,Sweden,other
 425252579542,SIMMONDS TRANSPORT LIMITED,simmondstransport.co.uk,United Kingdom,other
@@ -37573,7 +37574,7 @@ id,name,domain,country,why
 381156028665,Simply Heavenly Foods,simplyheavenlyfoods.co.uk,,other
 421764567273,Simply Keto,simplyketo.de,,other
 425201487090,Simply Medical,simplymedical.com,United States,other
-426293031155,Simply Souperlicious - Nourish Yourself,simplysouperlicious.com,Switzerland,other
+426293031155,Simply Souperlicious - Nourish Yourself,simplysouperlicious.com,Switzerland,auto-outreach
 381241427191,Simply Wild,simplywild.ie,,other
 421797830844,simplychocolate,simplychocolate.dk,Denmark,other
 425185088704,SimplyCook,simplycook.com,United Kingdom,other
@@ -38376,7 +38377,7 @@ id,name,domain,country,why
 421752001749,Sovrano Llc,sovrano.am,Armenia,other
 425252658420,Soxy,soxy.com,Canada,other
 426292967660,Soyamigo,soyamigo.com,Mexico,other
-426292909257,Soyana,soyana.ch,Switzerland,other
+426292909257,Soyana,soyana.ch,Switzerland,auto-outreach
 421788750071,Soysuper,soysuper.com,,other
 421737598168,Soyuz Foods International Incorporated,soyuzfoods.com.ph,Philippines,other
 421766490341,SOYYIGIT GROUP,soyyigit.com.tr,Turkey,other
@@ -39122,7 +39123,7 @@ id,name,domain,country,why
 431608692937,SUBU Connect,subuconnect.com,,other
 426230668483,Suburbia Spirits OG,suburbia-spirits.com,Austria,other
 425252544702,Subway,subway.com,United States,other
-426236111092,Succ.E.Brughera SA,brughera.ch,Switzerland,other
+426236111092,Succ.E.Brughera SA,brughera.ch,Switzerland,auto-outreach
 381157903581,Succezz,succezz.com.hk,Hong Kong,other
 426230665451,Succurrere,succurrere.com,United States,other
 385911123184,Sucden,sucden.com,,other
@@ -41409,7 +41410,7 @@ id,name,domain,country,why
 421726846180,The Good Grocer,thegoodgrocer.com.au,Australia,other
 425252234437,The Good Health Company,thegoodhealthcompany.co.uk,United Kingdom,other
 381338169569,The Good Kind Supermarket,thegoodkindgrocery.com,,other
-426292363487,The Good Life Coffee,thegoodlifecoffee.com,Switzerland,other
+426292363487,The Good Life Coffee,thegoodlifecoffee.com,Switzerland,auto-outreach
 421757400272,The Good Seed Market,goodseedmarket.com,,other
 421794130115,The Good Stuff,tgspl.in,india,other
 421788774611,The Goodness Project,thegoodnessproject.co.uk,Denmark,other
@@ -42053,7 +42054,7 @@ id,name,domain,country,why
 426293208306,Tiny Organics,tinyorganics.com,United States,other
 426293206213,Tiny Pies®,tinypies.com,United States,other
 421770094826,Tiny World,tinyworld.in,India,other
-426291345643,TINYFISH  l Food for Friends,tinyfish.ch,Switzerland,other
+426291345643,TINYFISH  l Food for Friends,tinyfish.ch,Switzerland,auto-outreach
 381316595901,Tionale Pte Ltd,tionale.com.sg,Singapore,other
 425252450533,TIP Group,tip-group.com,Netherlands,other
 421764606185,Tip Top Ice Cream,tiptop.co.nz,French Polynisia,other
@@ -42127,7 +42128,7 @@ id,name,domain,country,why
 421710139596,Tobacconist On King St,,,other
 426294538438,Tobago Gold,tobagogold.com,Netherlands,other
 421790515435,Tobe,tobe.mc,Monaco,other
-426292875476,Tobi Seeobst AG,tobi-fruechte.ch,Switzerland,other
+426292875476,Tobi Seeobst AG,tobi-fruechte.ch,Switzerland,auto-outreach
 421799528644,Tobi Sweets Mexico,dulceriatobi.shop,Mexico,other
 421750232275,Tobra Invest,tobra.ro,Romania,other
 426292939977,Toby's Estate Coffee Roasters,tobysestate.com.au,Australia,other
@@ -42867,7 +42868,7 @@ id,name,domain,country,why
 421803216084,Turbo's Shop,,,other
 381061573876,Turc Trade,turctrade.com,,other
 421746793679,Turhan Supermarkt,turhansupermarkt.de,Germany,other
-426262221009,Turicum Distillery GmbH,turicum-distillery.com,Switzerland,other
+426262221009,Turicum Distillery GmbH,turicum-distillery.com,Switzerland,auto-outreach
 387313662179,Turim,turimhoteis.com,,other
 381241432295,Turkana Food Inc,turkanafood.com,,other
 381115410645,Turkish airlines,thy.com,,other
@@ -43434,7 +43435,7 @@ id,name,domain,country,why
 425255582967,University of South Wales,southwales.ac.uk,United Kingdom,other
 425206865143,University of Southampton Business School,southampton.ac.uk,United Kingdom,other
 425252234435,University of St Andrews,st-andrews.ac.uk,United Kingdom,other
-425183405297,University of St.Gallen,unisg.ch,Switzerland,other
+425183405297,University of St.Gallen,unisg.ch,Switzerland,auto-outreach
 425206868171,University of Staffordshire,staffs.ac.uk,United Kingdom,other
 425252113647,University of Strathclyde,strath.ac.uk,United Kingdom,other
 425255485683,University of Sunderland,sunderland.ac.uk,United Kingdom,other
@@ -43458,7 +43459,7 @@ id,name,domain,country,why
 425252233403,Université Grenoble Alpes,univ-grenoble-alpes.fr,France,other
 425205019851,Université Paris Dauphine - PSL,psl.eu,France,other
 425252051168,Université Paris Descartes Faculté de Chirurgie  Dentaire,parisdescartes.fr,France,other
-425206868173,Université Paris-Saclay,universite-paris-saclay.fr,Switzerland,other
+425206868173,Université Paris-Saclay,universite-paris-saclay.fr,Switzerland,auto-outreach
 425181529290,Université Polytechnique Hauts-de-France,uphf.fr,France,other
 386466576614,Universo Automatico,universoautomatico.it,,other
 421732312281,Universo DB,universodb.com.br,Brazil,other
@@ -43579,7 +43580,7 @@ id,name,domain,country,why
 381318378712,usafoods,usafoods.com.au,,other
 386552654019,USAGodis,usagodis.se,,other
 426299883723,Usaha Berkat Trading,u-berkat.biz,Malaysia,other
-421737664733,Usak Brugg Supermarkt & Metzgerei,usakbrugg.ch,Switzerland,other
+421737664733,Usak Brugg Supermarkt & Metzgerei,usakbrugg.ch,Switzerland,auto-outreach
 421734080732,UScandy Germany,uscandy.de,Germany,other
 421711890631,USCandy-DE,kercel.com,,other
 426207711475,USelectIt,uselectit.com,United States,other
@@ -44266,8 +44267,8 @@ id,name,domain,country,why
 426292948190,Vinterra Wines,vinterrawines.com,Hong Kong,other
 426294514893,VINTIMTIM,vintimtim.com,Brazil,other
 426207730880,Vinu Food Products,vinufoods.in,United States,other
-426236112083,Vinum Divinum GmbH,vinumdivinum.ch,Switzerland,other
-426230669523,Vinum SA,vinum.swiss,Switzerland,other
+426236112083,Vinum Divinum GmbH,vinumdivinum.ch,Switzerland,auto-outreach
+426230669523,Vinum SA,vinum.swiss,Switzerland,auto-outreach
 426299851977,VINUR,vinurherbs.com,Egypt,other
 381341724884,Vinyasa Food,vinyasafood.com,Kenya,other
 426299703519,Vinícola Retorno,vinicolaretorno.com,Mexico,other
@@ -44367,7 +44368,7 @@ id,name,domain,country,why
 426297851069,Vital Greenz Integrated Services LLP,vitalgreenz.in,India,other
 421734038766,Vital International,vil.co.tz,Tanzania,other
 421744864470,"Vital Pharmaceuticals, Inc VPX",vpxsports.com,USA,other
-426292392145,Vital Speisehaus AG,speisehaus.ch,Switzerland,other
+426292392145,Vital Speisehaus AG,speisehaus.ch,Switzerland,auto-outreach
 421762851043,Vital Supply Trading,vitalsupplytrading.com,Somalia,other
 421794128061,vital-max,vital-max.eu,Hungary,other
 383090360555,VitalAbo,vitalabo.com,,other
@@ -46033,7 +46034,7 @@ id,name,domain,country,why
 421706501345,Zgoda,pssplock.pl,Poland,other
 426294168801,ZhangZhou Excellent,zyexcellent.com,China,other
 426294301914,"ZhangZhou Excellent Import and  Export Co., Ltd",excellentproduct.com.cn,China,other
-425252519137,ZHAW Institute of Computer Science (InIT),aisnet.org,Switzerland,other
+425252519137,ZHAW Institute of Computer Science (InIT),aisnet.org,Switzerland,auto-outreach
 421804956866,Zhengzhou Cheerful Trading,zzcheerful.en.alibaba.com,china,other
 421732350151,Zhengzhou Cheerful Trading Co,hncheerful.en.alibaba.com,china,other
 421750269170,Zhimin Co Ltd,zhimin.com.tw,Taiwan,other
@@ -46146,8 +46147,8 @@ id,name,domain,country,why
 421790589173,Zvijezda,zvijezda.hr,Croatia,other
 425255508162,ZW HR Consulting,zwhrconsulting.com,China,other
 421739504876,Zwarabase,,Germany,other
-421711947978,Zweifel,zweifel.ch,Switzerland,other
-426294540485,Zweifel Weine & Getränke AG | Zweifel 1898 AG,zweifel1898.ch,Switzerland,other
+421711947978,Zweifel,zweifel.ch,Switzerland,auto-outreach
+426294540485,Zweifel Weine & Getränke AG | Zweifel 1898 AG,zweifel1898.ch,Switzerland,auto-outreach
 381318373583,Zweirad Stadler,zweirad-stadler.de,,other
 421746691283,Zwitserse Apotheek,zwitserseapotheek.be,Belgium,other
 421710151917,Zyan Distribution,zyandistribution.com,Poland,other
