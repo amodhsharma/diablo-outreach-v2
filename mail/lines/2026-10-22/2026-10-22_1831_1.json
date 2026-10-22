@@ -1,0 +1,15 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-22",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-22T12:31:00+00:00",
+  "lines": [
+    {
+      "contact_id": "898791683283",
+      "company_name": "Unihockey Center",
+      "personal_line": "We hold your team in high regard for the way it serves its customers across Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    }
+  ]
+}
