@@ -74,7 +74,13 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt_8.md` (in use from 21 Oct 2026): as lines_prompt_7.md, plus when the research
+- `prompts/lines_prompt_9.md` (in use from 22 Oct 2026): as lines_prompt_8.md, plus sports shops
+  (sports equipment, sports nutrition and fitness shops): their website may show nothing like our
+  products, so the personal line fills its [brackets] with something health related (how the team
+  serves athletes and active, health-conscious customers), and the note names the snacks they sell
+  to health-conscious customers or, with none in the research, is exactly "is in the sports retail
+  space for health-conscious customers" (the one note the check allows without a range word).
+- `prompts/lines_prompt_8.md` (used on 21 and 22 Oct 2026): as lines_prompt_7.md, plus when the research
   shows a company focuses on vegan products, its note names its vegan sweets or snacks and ends with
   ", and several of ours are vegan too" (for example "distributes vegan snacks and sweets, and several
   of ours are vegan too"). The check allows "ours" only in that exact ending.

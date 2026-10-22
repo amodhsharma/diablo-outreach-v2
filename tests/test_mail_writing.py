@@ -459,7 +459,7 @@ def test_writing_prompt_8_vegan_note():
     from pathlib import Path
     import check_lines
     skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
-    assert 'prompts" / "lines_prompt_8.md"' in (skill / "scripts" / "prepare_lines.py").read_text()
+    assert "lines_prompt_8.md" in (skill / "scripts" / "prepare_lines.py").read_text()  # 9 is in use from 22 Oct 2026
     assert "several of ours are vegan too" in (skill / "prompts" / "lines_prompt_8.md").read_text()
     assert "vegan" not in (skill / "prompts" / "lines_prompt_7.md").read_text()
 
@@ -471,3 +471,26 @@ def test_writing_prompt_8_vegan_note():
     assert any("vegan" in e for e in problems("distributes snacks and sweets, and several of ours are vegan too"))
     assert any('"our"' in e for e in problems("distributes vegan snacks like ours"))
     assert problems("distributes vegan snacks and sweets") == []
+
+
+def test_writing_prompt_9_sports_shops():
+    """Ariel, 22 Oct 2026: for sports shops, add something health related, as their site may show
+    nothing like our products."""
+    from pathlib import Path
+    import check_lines
+    skill = Path(__file__).resolve().parents[1] / "skills" / "outreachMailWriting"
+    new = (skill / "prompts" / "lines_prompt_9.md").read_text()
+    assert "## Sports shops" in new and check_lines.SPORTS_NOTE in new and "## The four styles" in new
+    assert "Sports shops" not in (skill / "prompts" / "lines_prompt_8.md").read_text()  # kept as it was
+    assert "lines_prompt_9.md" in (skill / "scripts" / "prepare_lines.py").read_text()
+    base = {"contact_id": "1", "company_name": "Unihockey Center", "style": "A",
+            "personal_line": "We have great respect for the way your team equips athletes and active, health-conscious customers. With such established reach across its shop and online store, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio."}
+    def problems(note):
+        errs = []
+        check_lines.check_line(errs, dict(base, company_note=note))
+        return errs
+    for note in ("is in the sports retail space for health-conscious customers",
+                 "sells sports nutrition and snacks to health-conscious customers"):
+        assert problems(note) == [], (note, problems(note))
+    assert any("must name our range" in e for e in problems("is in the sports retail space for athletes"))
+    assert problems("sells healthy food to health-conscious customers")  # "healthy" stays banned

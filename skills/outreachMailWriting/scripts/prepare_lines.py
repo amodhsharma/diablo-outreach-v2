@@ -147,7 +147,9 @@ def main(argv=None):
     # lines_prompt_3.md, lines_prompt_2.md and lines_prompt.md are kept unchanged.
     # lines_prompt_8.md (21 Oct 2026): as lines_prompt_7.md, plus a vegan company's note ends with
     # ", and several of ours are vegan too". lines_prompt_7.md is kept unchanged.
-    prompt = (SKILL / "prompts" / "lines_prompt_8.md").read_text(encoding="utf-8")
+    # lines_prompt_9.md (22 Oct 2026): as lines_prompt_8.md, plus sports shops: the note and the personal
+    # line speak to their health-conscious customers. lines_prompt_8.md is kept unchanged.
+    prompt = (SKILL / "prompts" / "lines_prompt_9.md").read_text(encoding="utf-8")
     prompt = prompt.replace("{{count}}", str(len(batch)))
     prompt = prompt.replace("{{contacts_json}}", json.dumps(batch, indent=2, ensure_ascii=False))
     (WORK / "prompt.md").write_text(prompt, encoding="utf-8")

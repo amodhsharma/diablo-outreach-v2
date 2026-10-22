@@ -135,6 +135,9 @@ def _emoji(text):
 # 21 Oct 2026 (Ariel, honeydew): a vegan company's note may end with this exact tail, the only time it
 # says "ours". The part before it follows every usual rule and must say "vegan".
 VEGAN_TAIL = ", and several of ours are vegan too"
+# 22 Oct 2026 (Ariel, sports shops): the one fixed note that needs no word for our range, for a sports
+# shop whose research names no snacks. It speaks to its health-conscious customers instead.
+SPORTS_NOTE = "is in the sports retail space for health-conscious customers"
 
 
 def note_problems(errors, where, note, company):
@@ -158,7 +161,7 @@ def note_problems(errors, where, note, company):
         if re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", low_note):
             errors.append(f'{where}: the company note mentions "{word}", which has nothing to do with our range '
                           "(and we do not sell ingredients); write about the sweets, snacks or shops instead")
-    if not NOTE_RANGE.search(low_note):
+    if not NOTE_RANGE.search(low_note) and " ".join(low_note.split()) != SPORTS_NOTE:
         errors.append(f"{where}: the company note must name our range (sweets, chocolate, confectionery, biscuits, "
                       "snacks or sugar free products); with nothing specific in the research write "
                       '"is in the distribution space for confectionery products" (retailers: "is in the retail '
