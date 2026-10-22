@@ -8165,6 +8165,25 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "vitaserv.ch": {
+    "name": "VitaServ (Schneeberger vitaserv.ch)",
+    "based_out_of": "Basel, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Basel-based online drugstore with over 25,000 items from nearly 5,000 brands, already selling other companies' biscuits, chocolate, bars, spreads and sweets in a dedicated health food section. Its shoppers already buy stevia-sweetened and better-for-you lines, so Diablo's no-added-sugar chocolate, biscuits and spreads match the shelf it runs today.",
+    "what_they_do_well": [
+      "Family drugstore business since 1961, online since 2001, delivering over 25,000 products within 24 hours across Switzerland."
+    ],
+    "distributes": "Online drugstore with a health food (Reformhaus) section: biscuits, snacks, chocolate and bars (Schaer, Ovomaltine, Pural, Chokay, Iswari, YFood), jams and spreads, sweets, chewing gum and glucose, alongside care and health products.",
+    "channels_supplied": "Sells direct to shoppers across Switzerland and Liechtenstein through its own online shop, with free Swiss Post delivery and click and collect in Basel.",
+    "sf_brands_carried": "Ricola sugar-free stevia sweets, Vicks sugar-free sweets, Schaer gluten-free biscuits and snacks; no direct competitor to Diablo seen.",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0027_2026-10-22_basel-switzerland_retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "voigt.ch": {
     "name": "Avosano AG (formerly Voigt AG)",
     "based_out_of": "Romanshorn, Switzerland",
