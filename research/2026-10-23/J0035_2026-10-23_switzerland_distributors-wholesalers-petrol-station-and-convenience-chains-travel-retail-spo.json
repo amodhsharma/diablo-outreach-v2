@@ -1,0 +1,443 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0035",
+  "location": "Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 35
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 42
+    },
+    {
+      "channel": "petrol station and convenience chains",
+      "template": "petrol_convenience",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 36
+    },
+    {
+      "channel": "travel retail",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 43
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 13,
+      "searches_used": 43
+    }
+  ],
+  "companies": [
+    {
+      "name": "AVIA Distribution SA",
+      "based_out_of": "Le Mont-sur-Lausanne, Switzerland",
+      "domain": "adsa.ch",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Station shop range with biscuits, chocolate and snacks (Pringles, Zweifel chips, Swiss chocolate), ice cream, drinks and everyday groceries",
+      "channels_supplied": "Its own AVIA station shops in western Switzerland (for example Carouge and Cartigny), alongside AVIA stations with SPAR shops",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "AVIA member for French-speaking Switzerland that runs its own AVIA-branded station shops, whose shop pages list biscuits, chocolate and chips from other brands. Diablo's chocolate bars, biscuits and wafers fit that impulse shelf. Shop count is not stated on its website, so it sits in tier 3.",
+      "what_they_do_well": [
+        "Runs AVIA stations with shops across Vaud, Geneva and Valais, opening the first AVIA hydrogen station in Puidoux in 2023."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.adsa.ch/stations/stations-avec-shops/carouge",
+        "https://www.adsa.ch/fr/stations.html",
+        "https://avia.ch/en/avia/avia-member-companies/",
+        "https://www.adsa.ch/fileadmin/user_upload/adsa.ch/files/2023_05_10_Communique_de_presse_Ouverture_station_service_a_hydrogene_AVIA_a_Puidoux_FR.pdf"
+      ]
+    },
+    {
+      "name": "Schaetzle AG",
+      "based_out_of": "Luzern, Switzerland",
+      "domain": "schaetzle.ch",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Station shop range with sweets (Suesswaren), snacks, drinks, fresh food and hygiene products",
+      "channels_supplied": "Its own AVIA shops in central Switzerland (for example Bremgarten, Eschenbach and Otelfingen) within a network of about 80 stations; most other shops are SPAR express",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "AVIA member running about 80 stations in central Switzerland, with its own AVIA shops open 365 days a year that sell sweets and snacks. Diablo's chocolate, sweets and bars suit those shelves. Most of its shop stations carry SPAR express, so only its own AVIA shops buy for themselves, which keeps it in tier 3; the number of own shops is not stated on its website.",
+      "what_they_do_well": [
+        "Operates about 80 AVIA stations across central Switzerland, with shops open 365 days a year."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.schaetzle.ch/tankstellen/avia-shops",
+        "https://avia.ch/en/avia/avia-member-companies/"
+      ]
+    },
+    {
+      "name": "Jungfraubahnen (Top of Europe Shops)",
+      "based_out_of": "Interlaken, Switzerland",
+      "domain": "jungfrau.ch",
+      "channel_category": [
+        "travel retail"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Chocolate and sweets, mainly Lindt (Maitre Chocolatiers, Goldhase, LINDOR), plus Swiss souvenirs and treats from local farmers",
+      "channels_supplied": "Top of Europe Flagship Store Interlaken, Top of Europe Shop Jungfraujoch, Grindelwald Terminal and Grindelwald-First shops",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The mountain railway runs four Top of Europe tourist shops with a chocolate and sweets section from other brands, mainly Lindt. It is small, with four shops, and its supplier route is not stated on its website.",
+      "what_they_do_well": [
+        "Runs a Top of Europe Flagship Store on Interlaken's Hoeheweg, open daily until 22:00, plus a shop at 3,454 metres on Jungfraujoch."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://jungfrau.ch/en-gb/shopping",
+        "https://www.jungfrau.ch/en-gb/souvenirs-and-gifts/"
+      ]
+    },
+    {
+      "name": "update Fitness",
+      "based_out_of": "Münchwilen, Switzerland",
+      "domain": "update-fitness.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein bars and snacks from Barebells and Chiefs, alongside protein drinks",
+      "channels_supplied": "Its own nutrition shop online and its fitness studios across Switzerland",
+      "sf_brands_carried": "Barebells and Chiefs protein bars (no added sugar positioning)",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss fitness chain with about 100 studios whose nutrition shop has a bars and snacks category with other brands such as Barebells and Chiefs. Its health-conscious members are Diablo's target shopper, and the studio network gives a large number of points of sale.",
+      "what_they_do_well": [
+        "Runs about 100 fitness studios across Switzerland, per its own location list."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.update-fitness.ch/shop/"
+      ]
+    },
+    {
+      "name": "Shark Fitness AG",
+      "based_out_of": "Wettingen, Switzerland",
+      "domain": "sharkfitness.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Protein bars from All Stars, Barebells, Chiefs, Enervit, Inkospor, Sponser and Weider (49 bars listed)",
+      "channels_supplied": "Its own stores in Wettingen and Wil (SG) and its online shop",
+      "sf_brands_carried": "Weider bars with no added sugar, Inkospor zero sugar bar",
+      "competing_brand_flag": false,
+      "fit_rationale": "A fitness equipment retailer with two stores and an online shop that carries 49 protein bars from eight brands, including no added sugar lines. Diablo's muesli and yoghurt coated bars and wafers fit the same health shelf.",
+      "what_they_do_well": [
+        "Carries bars from eight brands including Barebells, Weider and Enervit in its Sporternährung section."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.sharkfitness.ch/de/sporternaehrung/riegel-/protein-riegel/"
+      ]
+    },
+    {
+      "name": "NutriFitness Suisse",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "nutrifitness.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Snacks and bars, keto bars, peanut butter and nut spreads from Pronutrition, Bio Pour Tous, Powerfood One, Applied Nutrition and others",
+      "channels_supplied": "Its own shop in Geneva (Pâquis) and its online shop delivering across Switzerland",
+      "sf_brands_carried": "Pronutrition keto bars and wraps",
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent sports nutrition shop in Geneva, open since 2015, with a snacks and bars category and peanut butter from other brands. Diablo's bars, peanut butter and spreads match the shelf, and its online shop reaches all of Switzerland.",
+      "what_they_do_well": [
+        "Trading from its Geneva shop at Rue des Pâquis since April 2015."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://nutrifitness.ch/",
+        "https://nutrifitness.ch/a-propos-nutrifit-complements-alimentaires-geneve/"
+      ]
+    },
+    {
+      "name": "Sportini.ch",
+      "based_out_of": "Switzerland",
+      "domain": "sportini.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Protein bars, protein sweets, desserts and sweets, syrups and sauces from Barebells, Olimp, Nutrend, BodyAttack, USN and others",
+      "channels_supplied": "Its own online shop, delivering across Switzerland by Swiss Post",
+      "sf_brands_carried": "Barebells; syrups and sauces section",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss sports nutrition web shop with dedicated protein bars, protein sweets, desserts and syrups and sauces categories from many brands. Diablo's bars, sweets and dessert toppings fit three of its existing categories. Head office town not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.sportini.ch/"
+      ]
+    },
+    {
+      "name": "saneq GmbH",
+      "based_out_of": "Windisch, Switzerland",
+      "domain": "saneq.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Energy and low carb protein bars and peanut butter from Sponser, Isostar and Powerfood One",
+      "channels_supplied": "Its own online shop with delivery across Switzerland and a showroom in Spreitenbach",
+      "sf_brands_carried": "Low carb protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online sports and health retailer whose sports nutrition category holds 383 products, including bars and peanut butter from other brands. Diablo's bars and peanut butter fit this range directly.",
+      "what_they_do_well": [
+        "Lists 383 sports nutrition products from brands such as Sponser and Powerfood One."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.saneq.ch/c/sportnahrung"
+      ]
+    },
+    {
+      "name": "Bergfreunde (berg-freunde.ch)",
+      "based_out_of": "Kusterdingen, Germany",
+      "domain": "berg-freunde.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Energy bars from Clif Bar, PowerBar and Chimpanzee (62 bars), snacks and trekking food",
+      "channels_supplied": "Its Swiss online shop for outdoor and mountain sports, with free shipping to Switzerland over CHF 100",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An outdoor sports online retailer with a Swiss storefront whose outdoor food category lists 62 bars and 28 snacks from other brands. Diablo's muesli bars and snacks suit hikers and climbers buying on the same page.",
+      "what_they_do_well": [
+        "Trusted Shops rating of 4.81 out of 5 shown on its Swiss shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.berg-freunde.ch/outdoor-lebensmittel/",
+        "https://www.berg-freunde.ch/trekkingnahrung/"
+      ]
+    },
+    {
+      "name": "Bieler Sport",
+      "based_out_of": "Bonaduz, Switzerland",
+      "domain": "bielersport.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sports nutrition shelf with energy bars and gels from Hammer, Sponser and Winforce",
+      "channels_supplied": "Its own stores in Bonaduz and Chur and its website",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family run running, biking and Nordic ski retailer founded in 1986 with two stores in Graubünden and a sports nutrition shelf from three brands. Small reach; individual bar products are not listed on its home page.",
+      "what_they_do_well": [
+        "Family run specialist for running, biking and Nordic skiing since 1986, with stores in Bonaduz and Chur."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bielersport.ch/"
+      ]
+    },
+    {
+      "name": "POWERLAB The Run Store",
+      "based_out_of": "Uster, Switzerland",
+      "domain": "powerlab.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Energy bars, protein bars, fruit chews and gels from Amacx, Powerbar, Sponser, Winforce and others",
+      "channels_supplied": "Its own running shop in Uster ZH and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A running specialist near Zurich with an online nutrition category holding bars and chews from several brands. Diablo's bars and gummies fit the shelf; a single store limits reach.",
+      "what_they_do_well": [
+        "Running specialist offering consultations by appointment alongside its shop in Uster."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.powerlab.ch/collections/ernahrung",
+        "https://www.powerlab.ch/en"
+      ]
+    },
+    {
+      "name": "Run Store Zurich",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "runstorezurich.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Energy and recovery bars from Veloforte and Neversecond, plus gels",
+      "channels_supplied": "Its own shop in Zurich Niederdorf, its online shop and its sister Cycle Store Zurich",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Zurich old town running shop with an online energy bars collection from European brands such as Veloforte. Diablo's bars and chocolate fit its premium European positioning; one store and a small range keep it at tier 3.",
+      "what_they_do_well": [
+        "Stocks Italian brand Veloforte and Neversecond fuel bars for runners."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.runstorezurich.com/de/collections/energy-bars"
+      ]
+    },
+    {
+      "name": "Rennshop Wüthrich AG",
+      "based_out_of": "Burgdorf, Switzerland",
+      "domain": "rennshop.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Energy bars, drink powders and energy gels from Sponser and Winforce",
+      "channels_supplied": "Its own bike store in Burgdorf and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Burgdorf bike retailer whose shop has a Powerriegel, drink powder and gel category from other brands. A single store and a small food shelf put it at tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.rennshop.ch/"
+      ]
+    },
+    {
+      "name": "cycling-parts.ch",
+      "based_out_of": "Switzerland",
+      "domain": "cycling-parts.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Bars, gels and ampoules from Clif Bar, Sponser and Squirt",
+      "channels_supplied": "Its own Swiss online bike parts shop, shipping from stock",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online bike parts shop with a sports nutrition category of bars and gels from other brands, shipped from its own stock. Online only and a small food range; head office town not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cycling-parts.ch/Sportnahrung/Getraenke/Riegel-und-Gels/"
+      ]
+    },
+    {
+      "name": "Hardloop",
+      "based_out_of": "France",
+      "domain": "hardloop.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Energy bars, vegan gummies, chews and outdoor meals from Maurten, Powerbar, 226ERS, Tā Energy and Trek'n Eat",
+      "channels_supplied": "Its Swiss online outdoor shop (hardloop.ch)",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An outdoor sports web shop active since 2015 with a Swiss storefront and an outdoor food category of bars and gummies from other brands. Based outside Switzerland with a small food shelf; head office city not stated on its website.",
+      "what_they_do_well": [
+        "Active in outdoor sports retail since 2015, per its About section."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.hardloop.ch/shop/5641-outdoornahrung"
+      ]
+    },
+    {
+      "name": "CYCLZ",
+      "based_out_of": "Appenzell, Switzerland",
+      "domain": "cyclz.shop",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Carbohydrate bars and gels from Maurten",
+      "channels_supplied": "Its own online shop for cycling and triathlon clothing and accessories (no store)",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An owner run Swiss cycling and triathlon web shop that sells Maurten bars and gels alongside clothing. Very small reach and a single nutrition brand keep it at the bottom of tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cyclz.shop/en/collections/maurten-sportnahrung"
+      ]
+    }
+  ],
+  "main_cities": [
+    {
+      "city": "Zurich",
+      "language": "German"
+    },
+    {
+      "city": "Geneva",
+      "language": "French"
+    },
+    {
+      "city": "Basel",
+      "language": "German"
+    },
+    {
+      "city": "Bern",
+      "language": "German"
+    },
+    {
+      "city": "Lausanne",
+      "language": "French"
+    },
+    {
+      "city": "Lucerne",
+      "language": "German"
+    },
+    {
+      "city": "St. Gallen",
+      "language": "German"
+    },
+    {
+      "city": "Lugano",
+      "language": "Italian"
+    }
+  ]
+}
