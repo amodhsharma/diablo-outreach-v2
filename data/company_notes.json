@@ -1200,6 +1200,25 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "boostbar.ch": {
+    "name": "Boostbar",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Zurich-based operator running around 1,000 connected vending points whose Kiosk concept sells sweet and salty snacks, biscuits, protein bars and vegan cookies from other brands. It buys a deliberately healthier range for workplaces, which suits Diablo's sugar-free chocolate, bars and biscuits. Storage: sells from its own stock, warehouse not named on its website; it runs its own delivery routes and 60+ technicians across Switzerland.",
+    "what_they_do_well": [
+      "Grew to around 1,000 Boostbar points of sale since its founding in 2020, with customers such as Swisscom and Geberit.",
+      "Reports food waste below 2% thanks to fully digital machines that optimise refilling."
+    ],
+    "distributes": "Branded sweet and salty snacks, Kambly biscuits, Dar-Vida, protein bars, vegan cookies, cake, plus drinks, frozen meals and coffee in connected vending machines and unstaffed kiosks and markets",
+    "channels_supplied": "Workplace vending points for over 300 business customers such as Swisscom, Geberit, Siemens and Stadtspital Triemli Zurich, across Switzerland",
+    "sf_brands_carried": "About a third of the range has a healthy plus (protein-rich, reduced-calorie or organic); Freely Handustry plant-based snacks; no direct sugar-free competitor named",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
+  },
   "boots.com": {
     "name": "Boots",
     "based_out_of": "Nottingham, United Kingdom",
@@ -1751,6 +1770,25 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "clickfinger.ch": {
+    "name": "clickfinger.ch GmbH",
+    "based_out_of": "Studen, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Swiss online party and seasonal shop that sells other companies' branded sweets next to balloons, decorations and party items, shipped from its own Swiss warehouse with next-day delivery. It is small and its sweets section is 17 lines, so it sits in tier 3; Diablo's gummies and variety packs fit its party and celebration shoppers.",
+    "what_they_do_well": [
+      "Ships orders placed by 14:00 the same day from its own Swiss warehouse, with 453 reviews, 83 percent at five stars."
+    ],
+    "distributes": "Party and seasonal supplies with a candy and sweets section of 17 lines, including Vidal and Dr. Sour gummies, Mallow marshmallows and lollipops",
+    "channels_supplied": "Own online shop to shoppers across Switzerland and Liechtenstein",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "cobefar.com.pe": {
     "name": "Cobefar",
     "based_out_of": "Lima, Peru",
@@ -2094,6 +2132,25 @@
     "sf_brands_carried": "Protein and better for you lines such as Grenade, Applied Nutrition, Ufit and Eat Real; no direct sugar free confectionery competitor seen.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "cyclestorezurich.com": {
+    "name": "Cycle Store Zurich",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A central Zurich bike shop with bike fitting, workshop and rental that also sells energy bars from three other brands in store and online. It is a single shop with a small food shelf, so it sits in tier 3.",
+    "what_they_do_well": [
+      "Offers bike fitting, a workshop and rental alongside brands such as Specialized and Trek in central Zurich."
+    ],
+    "distributes": "Energy bars and protein recovery bars from STYRKR, Maurten and Veloforte, plus energy gels",
+    "channels_supplied": "Its own bike shop at Werdmuehleplatz in central Zurich and its own online store",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "cycling-parts.ch": {
     "name": "cycling-parts.ch",
@@ -2837,6 +2894,25 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "ei-weiss.ch": {
+    "name": "Eiweiss GmbH (eiweiss der kraftladen)",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Zurich sports nutrition shop in Zurich West that stocks protein and energy bars from several other brands. It is a single shop, so its reach is small; no online shop is shown on its website.",
+    "what_they_do_well": [
+      "Runs a dedicated strength and sports nutrition shop in the Puls 5 building in Zurich West."
+    ],
+    "distributes": "Protein bars and energy bars from Weider, All Stars, Sponser, Multipower and Go Fitness, alongside sports nutrition",
+    "channels_supplied": "Its own sports nutrition shop in the Puls 5 building, Zurich West",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "eirespan.com": {
     "name": "Eirespan Distribution",
     "based_out_of": "Dublin, Ireland",
@@ -3201,6 +3277,24 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "felfel.ch": {
+    "name": "FELFEL",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "FELFEL was founded in Zurich and its USEGO service restocks offices weekly with popular snacks and drinks from top brands such as Kinder and Zweifel, sold to employees as they are. Diablo's chocolate, bars and biscuits would suit its health-led workplace offer. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Swiss family-run workplace catering business founded in Zurich in 2013, serving Switzerland and Liechtenstein."
+    ],
+    "distributes": "Branded packaged snacks and chocolate snacks (Kinder), crisps (Zweifel) and drinks through its USEGO office snack service, plus fresh meals, fruit boxes and coffee",
+    "channels_supplied": "Offices and workplaces across Switzerland and Liechtenstein through smart fridges and its USEGO snack and drinks service",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
   },
   "fenwick.co.uk": {
     "name": "Fenwick",
@@ -3863,6 +3957,25 @@
     "research_file": "research/2026-10-23/J0036_2026-10-23_switzerland_diabetic-low-sugar-and-keto-shops-gluten-free-and-free-from-shops-vegan-and-vege.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "godis.swiss": {
+    "name": "GODIS (Bonbons Suédois)",
+    "based_out_of": "Lausanne, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Speciality sweet shop selling other companies' branded Swedish sweets and chocolate, with delivery across Switzerland in one to three working days. It reaches Zurich only online, which is why it sits in tier 3; its vegan and gelatin-free focus suits Diablo's better-for-you sweets.",
+    "what_they_do_well": [
+      "Runs sweet shops in Lausanne and Nyon and delivers its Swedish sweets across Switzerland."
+    ],
+    "distributes": "Branded pick and mix sweets, gummies, sour sweets and chocolate from BUBS, Marabou, Grahns and Candy People, including vegan and gelatin-free ranges",
+    "channels_supplied": "Own sweet shops in Lausanne and Nyon and its own online shop delivering across Switzerland, including Zurich",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "goloshmayorista.com": {
     "name": "Golosh",
     "based_out_of": "Jesús María, Argentina",
@@ -4255,6 +4368,24 @@
     "sf_brands_carried": "Monty Bojangles truffles seen; no sugar-free brand identified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "heimatwerk.ch": {
+    "name": "Schweizer Heimatwerk",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Zurich gift and souvenir retailer whose online food section spans three pages, mostly branded chocolate and biscuits from other companies. Its two central Zurich shops serve visitors and gift buyers, so Diablo's gift boxes and chocolate fit the shelf; it sells mainly Swiss brands, so a sugar-free gift line would be a clear point of difference.",
+    "what_they_do_well": [
+      "Runs two shops in central Zurich, on Bahnhofstrasse and Uraniastrasse, listed by Zurich Tourism."
+    ],
+    "distributes": "Swiss gifts and souvenirs with a food section of chocolate bars and gift chocolate (Lindt, AZ, Toblerone, Taucherli, Garçoa) and Kambly biscuit tins",
+    "channels_supplied": "Own shops at Uraniastrasse and Bahnhofstrasse in Zurich and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
   },
   "heronfoods.com": {
     "name": "Heron Foods",
@@ -6145,6 +6276,25 @@
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "myfoodbox.ch": {
+    "name": "myfoodbox",
+    "based_out_of": "Huenenberg, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Swiss operator of food and snack vending machines for companies and public sites, showing Mars, Coca-Cola, Red Bull and Rivella as partners and Zurich canton and children's hospital references. Tier 3 because its website does not list its snack range in detail or its number of machines. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Lists Kanton Zuerich and Kispi Zuerich among its references for workplace vending."
+    ],
+    "distributes": "Snacks and chocolate bars from partner brands such as Mars, drinks (Coca-Cola, Red Bull, Rivella), fresh snacks and meals in food and snack vending machines, plus coffee machines",
+    "channels_supplied": "Food and snack vending for companies and public sites across Switzerland; references include Kanton Zuerich and Kispi Zuerich",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "mziuriholding.ge": {
     "name": "Mziuri",
     "based_out_of": "Tbilisi, Georgia",
@@ -6379,6 +6529,24 @@
     "sf_brands_carried": "Has a Chocolate and Sweet Snacks category; specific sugar-free brands could not be read from the site and Diablo did not appear in the pages checked.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "noury.ch": {
+    "name": "noury AG",
+    "based_out_of": "Langenthal, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "noury fills office smart fridges with sweet and salty snacks and chocolate from popular, well-known brands, sold to employees as they are, which suits Diablo's chocolate, bars and biscuits. It says it serves Switzerland from Langenthal; Zurich customers are not named on its website, which places it in tier 3. Storage: sells from its own stock with regular deliveries, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Founded in 2021, it offers modular workplace catering with a showroom in Lotzwil."
+    ],
+    "distributes": "Sweet and salty snacks, chocolate and nuts from well-known brands, plus fresh meals, drinks, fruit and coffee",
+    "channels_supplied": "Workplaces, schools and sports centres through noury smart fridges and markets",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
   },
   "nowfit.store": {
     "name": "NOWFIT Sports Nutrition Sagl",
@@ -6847,6 +7015,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "peachperfect.ch": {
+    "name": "Peach Perfect (core.iq GmbH)",
+    "based_out_of": "Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Swiss online shop built entirely around protein snacks, bars and shakes from other brands, including spreads and chocolate style snacks. Diablo's no added sugar chocolate, spreads and bars suit its health-conscious gym shoppers.",
+    "what_they_do_well": [
+      "Brings together protein snack brands such as Ahead, More Nutrition and ESN in one Swiss shop."
+    ],
+    "distributes": "Protein bars, chocolate chunks, nut spread and protein snacks from Ahead, More Nutrition, ESN, Snickers and Mars",
+    "channels_supplied": "Its own online protein snack shop shipping from Switzerland; gymfruits.ch and foodcore.ch redirect to it",
+    "sf_brands_carried": "High protein, lower sugar snacks from Ahead and More Nutrition; no direct sugar free confectionery competitor seen",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "pedidosya.com.ar": {
     "name": "PedidosYa Market",
@@ -8286,6 +8473,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "sts-store.ch": {
+    "name": "Swiss Top Services SA (STS)",
+    "based_out_of": "Bussigny-pres-Lausanne, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Swiss online sports nutrition and wellness store whose bars section lists protein cookies and wafers from several other brands. It also sells through Decathlon's Swiss marketplace, which widens its reach into Zurich shoppers. An STS-branded collection sits alongside the third-party brands.",
+    "what_they_do_well": [
+      "Sells its sports nutrition range through Decathlon Switzerland's marketplace as well as its own store."
+    ],
+    "distributes": "Protein bars, protein cookies, protein wafers, oat bars and energy bars from QNT, Dymatize, Be-Kind, Best Body Nutrition, Powerbar, Nutramino and Energy OatSnack",
+    "channels_supplied": "Its own online store sts-store.ch, a seller shop on the Decathlon Switzerland marketplace and a professional site sts-pro.ch",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "stutzer.ch": {
     "name": "Stutzer & Co. AG",
     "based_out_of": "Zurich, Switzerland",
@@ -8498,6 +8704,25 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "swiss-shop-1291.ch": {
+    "name": "Swiss Shop 1291 (Dolmetsch AG)",
+    "based_out_of": "Zug, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Souvenir and gift chain with two high footfall Zurich shops, open daily, that lists chocolate bars and gift items from another company's brand in its assortment. Diablo's gift boxes and chocolate suit its tourist and gift shoppers; the number of chocolate lines is not stated on its website.",
+    "what_they_do_well": [
+      "Part of Dolmetsch AG, trading since 1885 when it began as a knife and scissors business."
+    ],
+    "distributes": "Souvenirs and gifts including Swiss chocolate bars and chocolate gift items from Confiland, alongside Victorinox knives, watches and souvenirs",
+    "channels_supplied": "Own souvenir shops in Zurich main station (ShopVille) and on Limmatquai, plus Zermatt",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "swissfoodbox.ch": {
     "name": "Swiss Food Box",
