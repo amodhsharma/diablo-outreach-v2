@@ -1,5 +1,564 @@
 {
-  "generated_at": "2026-10-22T18:59:56+00:00",
+  "generated_at": "2026-10-22T21:33:14+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "899854188752",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Amavita Apotheken (Galenicare)",
+        "domain": "amavita.ch",
+        "location": "Switzerland",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Biscuits, chocolate and bars (its own shop category Biscuits, Schokolade & Riegel), sweets, toffees and chewing gum, jams and spreads (Konfitüren, Pürees & Aufstriche)",
+        "channels_supplied": "209 Amavita pharmacies across Switzerland and the amavita.ch online shop with pharmacy pickup",
+        "sf_brands_carried": "Ricola sugar-free sweets with stevia; Schär gluten-free biscuits; Rhythm108 vegan chocolate bars",
+        "what_they_do_well": [
+          "Largest branded pharmacy network in Switzerland, with 209 pharmacies at 30 June 2026.",
+          "Stocks a wide sugar-free sweets range, including Ricola stevia pastilles."
+        ],
+        "fit_rationale": "Switzerland's largest branded pharmacy network has a food shelf in its own shop with a Biscuits, Schokolade & Riegel category (Gerber, Schär, Rhythm108, Isostar) and 155 sweets and chewing gum items, many sugar free. Its health-minded shoppers suit Diablo's no-added-sugar chocolate, biscuits and bars."
+      }
+    },
+    {
+      "contact_id": "899910877433",
+      "job_title": "Responsable Centre D’exploitation",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "apo24.ch",
+        "domain": "apo24.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899794330843",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Bio für alle GmbH",
+        "domain": "biofueralle.ch",
+        "location": "Zurich, Switzerland",
+        "channel": "Retailers",
+        "based_out_of": "Horgen, Switzerland",
+        "distributes": "Organic online grocer with over 10,000 products, including a snacks and sweets section with chocolate, 165 sweet biscuits and cookies, peanut butter bites and other packaged snacks from other brands.",
+        "channels_supplied": "Its own online shop with weekly delivery to Zurich, Basel, Schaffhausen, Aarau and Luzern and pickup in Horgen.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Offers over 10,000 certified organic products with weekly delivery to Zurich, Basel, Schaffhausen, Aarau and Luzern."
+        ],
+        "fit_rationale": "Bio für alle sells other companies' organic chocolate, biscuits and snacks to households in the Zurich area from Horgen, with weekly delivery into the city. Diablo's vegan muesli bars, peanut butters, jams and vegan cookie suit its organic and plant-based shoppers."
+      }
+    },
+    {
+      "contact_id": "899910877425",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "bio-apo.ch",
+        "domain": "bio-apo.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899877548218",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Coop Vitality",
+        "domain": "coopvitality.ch",
+        "location": "Switzerland",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Biscuits, cookies, wafers, muffins and snack bars (194 items in Schokoladen-Riegel & Snacks), sweets and chewing gum (156 items), spreads (Brotaufstriche)",
+        "channels_supplied": "87 Coop Vitality pharmacies, many inside Coop stores, and the coopvitality.ch online shop",
+        "sf_brands_carried": "Ricola sugar-free sweets with stevia; Fisherman's Friend sugar-free; MIRADENT xylitol gum; Schär gluten-free biscuits and wafers",
+        "what_they_do_well": [
+          "Runs 87 pharmacies as a joint venture between Galenica and Coop.",
+          "Lists 194 snacks, biscuits and bars from brands such as Schär and Taste of Nature online."
+        ],
+        "fit_rationale": "Pharmacy chain with a real food department in its own shop: 194 snack items from brands such as Schär, Taste of Nature, Kookie Cat and De Rit, plus 156 sweets with a strong sugar-free share. Diablo's sugar-free biscuits, wafers and bars match that shelf, and its sites sit in high-footfall Coop locations."
+      }
+    },
+    {
+      "contact_id": "899792560358",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Green-Shop (Impexbo Sarl)",
+        "domain": "green-shop.ch",
+        "location": "Switzerland",
+        "channel": "Health food and organic retailers",
+        "based_out_of": "Arnex-sur-Orbe, Switzerland",
+        "distributes": "Organic biscuits and cookies (Bisson, Werz, Pural, De Rit, Rapunzel), chocolate (Rapunzel, Naturata, Claro, Optimys), sweets, bars, jams and chocolate spreads.",
+        "channels_supplied": "Own online shop delivering across Switzerland, with a depot and Bio-Drive pickup in Arnex-sur-Orbe.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs its own depot and free Bio-Drive pickup point in Arnex-sur-Orbe."
+        ],
+        "fit_rationale": "A French-speaking Swiss organic online grocer that sells 36 biscuit lines and 32 chocolates from other brands, plus sweets, bars, jams and spreads. It reaches shoppers in Romandie, where few health food retailers have an online shelf of branded sweets."
+      }
+    },
+    {
+      "contact_id": "899879354581",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "landi",
+        "domain": "landi.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899792554226",
+      "job_title": "Chief Operating Officer",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Lidl (Switzerland)",
+        "domain": "lidl.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899864948943",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Mago",
+        "domain": "mago.ch",
+        "location": "Switzerland",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899891377343",
+      "job_title": "Senior Sales Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "MES Group SA",
+        "domain": "mesgroup.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899852397780",
+      "job_title": "Leiterin Personal Schweiz",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Müller Schweiz (Drogerie Müller)",
+        "domain": "mueller.ch",
+        "location": "Switzerland",
+        "channel": "Retailers",
+        "based_out_of": "Ulm, Germany",
+        "distributes": "Chocolate (about 600 lines), gummies (208), biscuits (206), hard sweets and lollipops, snacks and cereal bars, chewing gum, plus an organic Naturshop food range; brands include Haribo, Trolli, Lotus, Lindt, Ritter Sport and Bahlsen",
+        "channels_supplied": "About 90 Müller drugstores in Switzerland, growing with 10 former Alnatura sites, and the mueller.ch online shop with store pickup",
+        "sf_brands_carried": "SilaVit sugar-free sweets; better-for-you brands such as Koro, Nucao and Not Guilty",
+        "what_they_do_well": [
+          "Grew to about 90 Swiss stores by December 2025 and took over 10 former Alnatura sites from Migros Zürich.",
+          "Lists about 600 chocolate lines and 208 fruit gum lines in its Swiss sweets category."
+        ],
+        "fit_rationale": "A fast-growing drugstore chain whose Swiss sweets aisle already carries about 170 other brands of chocolate, gummies, biscuits and bars. It has almost no sugar-free confectionery on the shelf, so Diablo fills a clear gap across about 90 stores."
+      }
+    },
+    {
+      "contact_id": "899859594470",
+      "job_title": "Product Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "ROLF HUGLI SA",
+        "domain": "hugli.ch",
+        "location": "Plan-les-Ouates, Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899767357645",
+      "job_title": "Workday Product Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "shop-apotheke.ch",
+        "domain": "shop-apotheke.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899872174278",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "snacks4you",
+        "domain": "snacks4you.com",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899854188753",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Amavita Apotheken (Galenicare)",
+        "domain": "amavita.ch",
+        "location": "Switzerland",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Biscuits, chocolate and bars (its own shop category Biscuits, Schokolade & Riegel), sweets, toffees and chewing gum, jams and spreads (Konfitüren, Pürees & Aufstriche)",
+        "channels_supplied": "209 Amavita pharmacies across Switzerland and the amavita.ch online shop with pharmacy pickup",
+        "sf_brands_carried": "Ricola sugar-free sweets with stevia; Schär gluten-free biscuits; Rhythm108 vegan chocolate bars",
+        "what_they_do_well": [
+          "Largest branded pharmacy network in Switzerland, with 209 pharmacies at 30 June 2026.",
+          "Stocks a wide sugar-free sweets range, including Ricola stevia pastilles."
+        ],
+        "fit_rationale": "Switzerland's largest branded pharmacy network has a food shelf in its own shop with a Biscuits, Schokolade & Riegel category (Gerber, Schär, Rhythm108, Isostar) and 155 sweets and chewing gum items, many sugar free. Its health-minded shoppers suit Diablo's no-added-sugar chocolate, biscuits and bars."
+      }
+    },
+    {
+      "contact_id": "899877547255",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Coop Vitality",
+        "domain": "coopvitality.ch",
+        "location": "Switzerland",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Biscuits, cookies, wafers, muffins and snack bars (194 items in Schokoladen-Riegel & Snacks), sweets and chewing gum (156 items), spreads (Brotaufstriche)",
+        "channels_supplied": "87 Coop Vitality pharmacies, many inside Coop stores, and the coopvitality.ch online shop",
+        "sf_brands_carried": "Ricola sugar-free sweets with stevia; Fisherman's Friend sugar-free; MIRADENT xylitol gum; Schär gluten-free biscuits and wafers",
+        "what_they_do_well": [
+          "Runs 87 pharmacies as a joint venture between Galenica and Coop.",
+          "Lists 194 snacks, biscuits and bars from brands such as Schär and Taste of Nature online."
+        ],
+        "fit_rationale": "Pharmacy chain with a real food department in its own shop: 194 snack items from brands such as Schär, Taste of Nature, Kookie Cat and De Rit, plus 156 sweets with a strong sugar-free share. Diablo's sugar-free biscuits, wafers and bars match that shelf, and its sites sit in high-footfall Coop locations."
+      }
+    },
+    {
+      "contact_id": "899792560359",
+      "job_title": "Ceo",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Green-Shop (Impexbo Sarl)",
+        "domain": "green-shop.ch",
+        "location": "Switzerland",
+        "channel": "Health food and organic retailers",
+        "based_out_of": "Arnex-sur-Orbe, Switzerland",
+        "distributes": "Organic biscuits and cookies (Bisson, Werz, Pural, De Rit, Rapunzel), chocolate (Rapunzel, Naturata, Claro, Optimys), sweets, bars, jams and chocolate spreads.",
+        "channels_supplied": "Own online shop delivering across Switzerland, with a depot and Bio-Drive pickup in Arnex-sur-Orbe.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs its own depot and free Bio-Drive pickup point in Arnex-sur-Orbe."
+        ],
+        "fit_rationale": "A French-speaking Swiss organic online grocer that sells 36 biscuit lines and 32 chocolates from other brands, plus sweets, bars, jams and spreads. It reaches shoppers in Romandie, where few health food retailers have an online shelf of branded sweets."
+      }
+    },
+    {
+      "contact_id": "899792554227",
+      "job_title": "Chief Human Resources Officer",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Lidl (Switzerland)",
+        "domain": "lidl.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899891377344",
+      "job_title": "Sales Agent",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "MES Group SA",
+        "domain": "mesgroup.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899852397781",
+      "job_title": "Sachbearbeiterin Personalwesen",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Müller Schweiz (Drogerie Müller)",
+        "domain": "mueller.ch",
+        "location": "Switzerland",
+        "channel": "Retailers",
+        "based_out_of": "Ulm, Germany",
+        "distributes": "Chocolate (about 600 lines), gummies (208), biscuits (206), hard sweets and lollipops, snacks and cereal bars, chewing gum, plus an organic Naturshop food range; brands include Haribo, Trolli, Lotus, Lindt, Ritter Sport and Bahlsen",
+        "channels_supplied": "About 90 Müller drugstores in Switzerland, growing with 10 former Alnatura sites, and the mueller.ch online shop with store pickup",
+        "sf_brands_carried": "SilaVit sugar-free sweets; better-for-you brands such as Koro, Nucao and Not Guilty",
+        "what_they_do_well": [
+          "Grew to about 90 Swiss stores by December 2025 and took over 10 former Alnatura sites from Migros Zürich.",
+          "Lists about 600 chocolate lines and 208 fruit gum lines in its Swiss sweets category."
+        ],
+        "fit_rationale": "A fast-growing drugstore chain whose Swiss sweets aisle already carries about 170 other brands of chocolate, gummies, biscuits and bars. It has almost no sugar-free confectionery on the shelf, so Diablo fills a clear gap across about 90 stores."
+      }
+    },
+    {
+      "contact_id": "899767357646",
+      "job_title": "Product Owner",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "shop-apotheke.ch",
+        "domain": "shop-apotheke.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899854188750",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 3,
+      "company": {
+        "name": "Amavita Apotheken (Galenicare)",
+        "domain": "amavita.ch",
+        "location": "Switzerland",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Biscuits, chocolate and bars (its own shop category Biscuits, Schokolade & Riegel), sweets, toffees and chewing gum, jams and spreads (Konfitüren, Pürees & Aufstriche)",
+        "channels_supplied": "209 Amavita pharmacies across Switzerland and the amavita.ch online shop with pharmacy pickup",
+        "sf_brands_carried": "Ricola sugar-free sweets with stevia; Schär gluten-free biscuits; Rhythm108 vegan chocolate bars",
+        "what_they_do_well": [
+          "Largest branded pharmacy network in Switzerland, with 209 pharmacies at 30 June 2026.",
+          "Stocks a wide sugar-free sweets range, including Ricola stevia pastilles."
+        ],
+        "fit_rationale": "Switzerland's largest branded pharmacy network has a food shelf in its own shop with a Biscuits, Schokolade & Riegel category (Gerber, Schär, Rhythm108, Isostar) and 155 sweets and chewing gum items, many sugar free. Its health-minded shoppers suit Diablo's no-added-sugar chocolate, biscuits and bars."
+      }
+    },
+    {
+      "contact_id": "899877547256",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 3,
+      "company": {
+        "name": "Coop Vitality",
+        "domain": "coopvitality.ch",
+        "location": "Switzerland",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Biscuits, cookies, wafers, muffins and snack bars (194 items in Schokoladen-Riegel & Snacks), sweets and chewing gum (156 items), spreads (Brotaufstriche)",
+        "channels_supplied": "87 Coop Vitality pharmacies, many inside Coop stores, and the coopvitality.ch online shop",
+        "sf_brands_carried": "Ricola sugar-free sweets with stevia; Fisherman's Friend sugar-free; MIRADENT xylitol gum; Schär gluten-free biscuits and wafers",
+        "what_they_do_well": [
+          "Runs 87 pharmacies as a joint venture between Galenica and Coop.",
+          "Lists 194 snacks, biscuits and bars from brands such as Schär and Taste of Nature online."
+        ],
+        "fit_rationale": "Pharmacy chain with a real food department in its own shop: 194 snack items from brands such as Schär, Taste of Nature, Kookie Cat and De Rit, plus 156 sweets with a strong sugar-free share. Diablo's sugar-free biscuits, wafers and bars match that shelf, and its sites sit in high-footfall Coop locations."
+      }
+    },
+    {
+      "contact_id": "899792554224",
+      "job_title": "Executive Director Controlling, Data&AI",
+      "seniority": "C-suite",
+      "rank": 3,
+      "company": {
+        "name": "Lidl (Switzerland)",
+        "domain": "lidl.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899767357647",
+      "job_title": "Principal Product Owner",
+      "seniority": "Top leadership",
+      "rank": 3,
+      "company": {
+        "name": "shop-apotheke.ch",
+        "domain": "shop-apotheke.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899854188751",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 4,
+      "company": {
+        "name": "Amavita Apotheken (Galenicare)",
+        "domain": "amavita.ch",
+        "location": "Switzerland",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Biscuits, chocolate and bars (its own shop category Biscuits, Schokolade & Riegel), sweets, toffees and chewing gum, jams and spreads (Konfitüren, Pürees & Aufstriche)",
+        "channels_supplied": "209 Amavita pharmacies across Switzerland and the amavita.ch online shop with pharmacy pickup",
+        "sf_brands_carried": "Ricola sugar-free sweets with stevia; Schär gluten-free biscuits; Rhythm108 vegan chocolate bars",
+        "what_they_do_well": [
+          "Largest branded pharmacy network in Switzerland, with 209 pharmacies at 30 June 2026.",
+          "Stocks a wide sugar-free sweets range, including Ricola stevia pastilles."
+        ],
+        "fit_rationale": "Switzerland's largest branded pharmacy network has a food shelf in its own shop with a Biscuits, Schokolade & Riegel category (Gerber, Schär, Rhythm108, Isostar) and 155 sweets and chewing gum items, many sugar free. Its health-minded shoppers suit Diablo's no-added-sugar chocolate, biscuits and bars."
+      }
+    },
+    {
+      "contact_id": "899877547257",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 4,
+      "company": {
+        "name": "Coop Vitality",
+        "domain": "coopvitality.ch",
+        "location": "Switzerland",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Bern, Switzerland",
+        "distributes": "Biscuits, cookies, wafers, muffins and snack bars (194 items in Schokoladen-Riegel & Snacks), sweets and chewing gum (156 items), spreads (Brotaufstriche)",
+        "channels_supplied": "87 Coop Vitality pharmacies, many inside Coop stores, and the coopvitality.ch online shop",
+        "sf_brands_carried": "Ricola sugar-free sweets with stevia; Fisherman's Friend sugar-free; MIRADENT xylitol gum; Schär gluten-free biscuits and wafers",
+        "what_they_do_well": [
+          "Runs 87 pharmacies as a joint venture between Galenica and Coop.",
+          "Lists 194 snacks, biscuits and bars from brands such as Schär and Taste of Nature online."
+        ],
+        "fit_rationale": "Pharmacy chain with a real food department in its own shop: 194 snack items from brands such as Schär, Taste of Nature, Kookie Cat and De Rit, plus 156 sweets with a strong sugar-free share. Diablo's sugar-free biscuits, wafers and bars match that shelf, and its sites sit in high-footfall Coop locations."
+      }
+    },
+    {
+      "contact_id": "899792554225",
+      "job_title": "Purchaising Director",
+      "seniority": "Directors",
+      "rank": 4,
+      "company": {
+        "name": "Lidl (Switzerland)",
+        "domain": "lidl.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899767357644",
+      "job_title": "Senior Product Owner CRM",
+      "seniority": "Top leadership",
+      "rank": 4,
+      "company": {
+        "name": "shop-apotheke.ch",
+        "domain": "shop-apotheke.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    }
+  ]
 }
