@@ -6807,6 +6807,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "rossmannonline.ch": {
+    "name": "ROSSMANN Schweiz AG",
+    "based_out_of": "Burgwedel, Germany",
+    "market": "Winterthur, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Rossmann runs 27 drugstores in German-speaking Switzerland, three of them in Winterthur, and its Swiss leaflets promote branded chocolate and sweets from Milka, Ritter Sport, Merci, Celebrations, Daim and Haribo. Rossmann-branded lines make up about 35% of its roughly 15,000 items, so most of the shelf comes from other companies' brands. A fast-growing chain with a branded confectionery shelf and no sugar-free sweets brand in its leaflets gives Diablo's chocolate and gummies a clear gap to fill.",
+    "what_they_do_well": [
+      "Opened its first Swiss store in December 2024 and now lists 27 Swiss stores, including three in Winterthur.",
+      "Its Swiss range of about 15,000 items mixes German brands with typical Swiss brands."
+    ],
+    "distributes": "Chocolate bars (Milka, Ritter Sport), chocolate boxes and pralines (Merci, Celebrations, Daim pralines), gummies and jelly sweets (Haribo), chocolate coated fruit, dragees and mints (Wrigley's Extra) and snack bars, alongside drugstore, beauty and health products.",
+    "channels_supplied": "Its own 27 drugstores in Switzerland, three of them in Winterthur (Archhoefe City Mall, Shopping Seen and Roemerstrasse), supported by weekly leaflets and a Swiss customer app.",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0031_2026-10-22_winterthur-switzerland_retailers.json"
+  },
   "rufenberg.swiss": {
     "name": "Rufenberg Trading GmbH",
     "based_out_of": "Rüfenacht, Switzerland",
