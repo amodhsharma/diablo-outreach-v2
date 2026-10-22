@@ -1,0 +1,393 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0039",
+  "location": "Zurich, Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 51
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 31
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 36
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 38
+    },
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 57
+    }
+  ],
+  "companies": [
+    {
+      "name": "Peach Perfect (core.iq GmbH)",
+      "based_out_of": "Switzerland",
+      "domain": "peachperfect.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein bars, chocolate chunks, nut spread and protein snacks from Ahead, More Nutrition, ESN, Snickers and Mars",
+      "channels_supplied": "Its own online protein snack shop shipping from Switzerland; gymfruits.ch and foodcore.ch redirect to it",
+      "sf_brands_carried": "High protein, lower sugar snacks from Ahead and More Nutrition; no direct sugar free confectionery competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online shop built entirely around protein snacks, bars and shakes from other brands, including spreads and chocolate style snacks. Diablo's no added sugar chocolate, spreads and bars suit its health-conscious gym shoppers.",
+      "what_they_do_well": [
+        "Brings together protein snack brands such as Ahead, More Nutrition and ESN in one Swiss shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.peachperfect.ch/en",
+        "https://www.gymfruits.ch/en",
+        "https://www.foodcore.ch/en"
+      ]
+    },
+    {
+      "name": "Swiss Top Services SA (STS)",
+      "based_out_of": "Bussigny-pres-Lausanne, Switzerland",
+      "domain": "sts-store.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Protein bars, protein cookies, protein wafers, oat bars and energy bars from QNT, Dymatize, Be-Kind, Best Body Nutrition, Powerbar, Nutramino and Energy OatSnack",
+      "channels_supplied": "Its own online store sts-store.ch, a seller shop on the Decathlon Switzerland marketplace and a professional site sts-pro.ch",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online sports nutrition and wellness store whose bars section lists protein cookies and wafers from several other brands. It also sells through Decathlon's Swiss marketplace, which widens its reach into Zurich shoppers. An STS-branded collection sits alongside the third-party brands.",
+      "what_they_do_well": [
+        "Sells its sports nutrition range through Decathlon Switzerland's marketplace as well as its own store."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://sts-store.ch/en",
+        "https://sts-store.ch/en/collections/barre",
+        "https://www.decathlon.ch/de/mp/seller/swisstopservices/96d8cdc3-83e1-4e41-b65f-84562f593819"
+      ]
+    },
+    {
+      "name": "Body Nutrition",
+      "based_out_of": "Switzerland",
+      "domain": "bodynutrition.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Protein bars and protein snacks, including protein cookie dough, from brands such as Applied Nutrition, BPR, Body Attack, Ostrovit and Optimum Nutrition",
+      "channels_supplied": "Its own online store with nationwide Swiss delivery from a Swiss warehouse, plus partner accounts",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online sports nutrition store that presents itself as official Swiss reseller for Applied Nutrition, +Watt and BPR and keeps a protein bars collection from other brands. Its stock is held in a Swiss warehouse for fast delivery nationwide, including Zurich. Head office town is not stated on its website.",
+      "what_they_do_well": [
+        "Official Swiss reseller for Applied Nutrition, +Watt and BPR, shipping from a Swiss warehouse."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bodynutrition.ch/en",
+        "https://bodynutrition.ch/en/collections/protein-bars"
+      ]
+    },
+    {
+      "name": "Eiweiss GmbH (eiweiss der kraftladen)",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "ei-weiss.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars and energy bars from Weider, All Stars, Sponser, Multipower and Go Fitness, alongside sports nutrition",
+      "channels_supplied": "Its own sports nutrition shop in the Puls 5 building, Zurich West",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Zurich sports nutrition shop in Zurich West that stocks protein and energy bars from several other brands. It is a single shop, so its reach is small; no online shop is shown on its website.",
+      "what_they_do_well": [
+        "Runs a dedicated strength and sports nutrition shop in the Puls 5 building in Zurich West."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.ei-weiss.ch/",
+        "https://www.ei-weiss.ch/sortiment"
+      ]
+    },
+    {
+      "name": "Cycle Store Zurich",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "cyclestorezurich.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Energy bars and protein recovery bars from STYRKR, Maurten and Veloforte, plus energy gels",
+      "channels_supplied": "Its own bike shop at Werdmuehleplatz in central Zurich and its own online store",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A central Zurich bike shop with bike fitting, workshop and rental that also sells energy bars from three other brands in store and online. It is a single shop with a small food shelf, so it sits in tier 3.",
+      "what_they_do_well": [
+        "Offers bike fitting, a workshop and rental alongside brands such as Specialized and Trek in central Zurich."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cyclestorezurich.com/online-store/nutrition"
+      ]
+    },
+    {
+      "name": "FELFEL",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "felfel.ch",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded packaged snacks and chocolate snacks (Kinder), crisps (Zweifel) and drinks through its USEGO office snack service, plus fresh meals, fruit boxes and coffee",
+      "channels_supplied": "Offices and workplaces across Switzerland and Liechtenstein through smart fridges and its USEGO snack and drinks service",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "FELFEL was founded in Zurich and its USEGO service restocks offices weekly with popular snacks and drinks from top brands such as Kinder and Zweifel, sold to employees as they are. Diablo's chocolate, bars and biscuits would suit its health-led workplace offer. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Swiss family-run workplace catering business founded in Zurich in 2013, serving Switzerland and Liechtenstein."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://felfel.ch/en/usego-kiosk",
+        "https://felfel.ch/en",
+        "https://www.bilanz.ch/unternehmen/felfel-boostbar-oder-selecta-essen-automaten-fuer-bueros/61wrtr1"
+      ]
+    },
+    {
+      "name": "noury AG",
+      "based_out_of": "Langenthal, Switzerland",
+      "domain": "noury.ch",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sweet and salty snacks, chocolate and nuts from well-known brands, plus fresh meals, drinks, fruit and coffee",
+      "channels_supplied": "Workplaces, schools and sports centres through noury smart fridges and markets",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "noury fills office smart fridges with sweet and salty snacks and chocolate from popular, well-known brands, sold to employees as they are, which suits Diablo's chocolate, bars and biscuits. It says it serves Switzerland from Langenthal; Zurich customers are not named on its website, which places it in tier 3. Storage: sells from its own stock with regular deliveries, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Founded in 2021, it offers modular workplace catering with a showroom in Lotzwil."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.noury.ch/verpflegung",
+        "https://www.noury.ch/ueber-uns"
+      ]
+    },
+    {
+      "name": "Boostbar",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "boostbar.ch",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Branded sweet and salty snacks, Kambly biscuits, Dar-Vida, protein bars, vegan cookies, cake, plus drinks, frozen meals and coffee in connected vending machines and unstaffed kiosks and markets",
+      "channels_supplied": "Workplace vending points for over 300 business customers such as Swisscom, Geberit, Siemens and Stadtspital Triemli Zurich, across Switzerland",
+      "sf_brands_carried": "About a third of the range has a healthy plus (protein-rich, reduced-calorie or organic); Freely Handustry plant-based snacks; no direct sugar-free competitor named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Zurich-based operator running around 1,000 connected vending points whose Kiosk concept sells sweet and salty snacks, biscuits, protein bars and vegan cookies from other brands. It buys a deliberately healthier range for workplaces, which suits Diablo's sugar-free chocolate, bars and biscuits. Storage: sells from its own stock, warehouse not named on its website; it runs its own delivery routes and 60+ technicians across Switzerland.",
+      "what_they_do_well": [
+        "Grew to around 1,000 Boostbar points of sale since its founding in 2020, with customers such as Swisscom and Geberit.",
+        "Reports food waste below 2% thanks to fully digital machines that optimise refilling."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://boostbar.ch/",
+        "https://boostbar.ch/konzept-kiosk/",
+        "https://boostbar.ch/sortiment",
+        "https://boostbar.ch/uber-uns",
+        "https://boostbar.ch/verpflegung",
+        "https://www.bilanz.ch/unternehmen/felfel-und-boostbar-mahlzeit-automaten-erobern-schweizer-bueros/61wrtr1"
+      ]
+    },
+    {
+      "name": "myfoodbox",
+      "based_out_of": "Huenenberg, Switzerland",
+      "domain": "myfoodbox.ch",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Snacks and chocolate bars from partner brands such as Mars, drinks (Coca-Cola, Red Bull, Rivella), fresh snacks and meals in food and snack vending machines, plus coffee machines",
+      "channels_supplied": "Food and snack vending for companies and public sites across Switzerland; references include Kanton Zuerich and Kispi Zuerich",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Swiss operator of food and snack vending machines for companies and public sites, showing Mars, Coca-Cola, Red Bull and Rivella as partners and Zurich canton and children's hospital references. Tier 3 because its website does not list its snack range in detail or its number of machines. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Lists Kanton Zuerich and Kispi Zuerich among its references for workplace vending."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.myfoodbox.ch/",
+        "https://hrfestival.ch/en/ausstellende/myfoodbox/"
+      ]
+    },
+    {
+      "name": "geschenkidee.ch (Opari AG)",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "geschenkidee.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Gift articles with a chocolate and sweets section of 37 products (chocolate bars, pralines, Toblerone, Lindt, Sprüngli and Läckerli Huus gifts), food and drink advent calendars and gift sets and baskets",
+      "channels_supplied": "Own online shop to shoppers across Switzerland, plus a B2B shop for employee and client gifts",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Zurich based online gift shop that calls itself Switzerland's largest selection of gift articles and already sells other companies' chocolate and sweets, advent calendars and gift sets. Diablo's gift boxes, advent calendars and chocolate fit its seasonal and corporate gifting range, and no sugar-free sweets were seen in its chocolate section.",
+      "what_they_do_well": [
+        "Revenue rose 26 percent in 2020, with 80 percent growth in spring 2020, and it launched designed advent calendars for her and him.",
+        "Serves over 300,000 customers a year, according to Ringier's 2021 sale announcement."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.geschenkidee.ch/geschenkartikel/essen-getraenke/schokolade-suesses",
+        "https://geschenkidee.ch/geschenkartikel/adventskalender/adventskalender-essen-trinken",
+        "https://www.geschenkidee.ch/impressum",
+        "https://www.ringier.com/ringier-sells-geschenkidee-ch-to-a-swiss-investor-group-advised-by-sme/",
+        "https://www.horizont.net/schweiz/nachrichten/schoene-bescherung-geschenkidee.ch-geht-26-prozent-in-die-hoehe-189774"
+      ]
+    },
+    {
+      "name": "Schweizer Heimatwerk",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "heimatwerk.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Swiss gifts and souvenirs with a food section of chocolate bars and gift chocolate (Lindt, AZ, Toblerone, Taucherli, Garçoa) and Kambly biscuit tins",
+      "channels_supplied": "Own shops at Uraniastrasse and Bahnhofstrasse in Zurich and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Zurich gift and souvenir retailer whose online food section spans three pages, mostly branded chocolate and biscuits from other companies. Its two central Zurich shops serve visitors and gift buyers, so Diablo's gift boxes and chocolate fit the shelf; it sells mainly Swiss brands, so a sugar-free gift line would be a clear point of difference.",
+      "what_they_do_well": [
+        "Runs two shops in central Zurich, on Bahnhofstrasse and Uraniastrasse, listed by Zurich Tourism."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.heimatwerk.ch/en/produkte/essen-trinken-1/esswaren-4?d=2",
+        "https://www.heimatwerk.ch/produkte/essen-trinken-1",
+        "https://www.zuerich.com/de/besuchen/shopping/schweizer-heimatwerk"
+      ]
+    },
+    {
+      "name": "Swiss Shop 1291 (Dolmetsch AG)",
+      "based_out_of": "Zug, Switzerland",
+      "domain": "swiss-shop-1291.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Souvenirs and gifts including Swiss chocolate bars and chocolate gift items from Confiland, alongside Victorinox knives, watches and souvenirs",
+      "channels_supplied": "Own souvenir shops in Zurich main station (ShopVille) and on Limmatquai, plus Zermatt",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Souvenir and gift chain with two high footfall Zurich shops, open daily, that lists chocolate bars and gift items from another company's brand in its assortment. Diablo's gift boxes and chocolate suit its tourist and gift shoppers; the number of chocolate lines is not stated on its website.",
+      "what_they_do_well": [
+        "Part of Dolmetsch AG, trading since 1885 when it began as a knife and scissors business."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.swiss-shop-1291.ch/en/assortment-brands/",
+        "https://www.swiss-shop-1291.ch/en/branches/",
+        "https://www.swiss-shop-1291.ch/en/about-us/"
+      ]
+    },
+    {
+      "name": "GODIS (Bonbons Suédois)",
+      "based_out_of": "Lausanne, Switzerland",
+      "domain": "godis.swiss",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Branded pick and mix sweets, gummies, sour sweets and chocolate from BUBS, Marabou, Grahns and Candy People, including vegan and gelatin-free ranges",
+      "channels_supplied": "Own sweet shops in Lausanne and Nyon and its own online shop delivering across Switzerland, including Zurich",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Speciality sweet shop selling other companies' branded Swedish sweets and chocolate, with delivery across Switzerland in one to three working days. It reaches Zurich only online, which is why it sits in tier 3; its vegan and gelatin-free focus suits Diablo's better-for-you sweets.",
+      "what_they_do_well": [
+        "Runs sweet shops in Lausanne and Nyon and delivers its Swedish sweets across Switzerland."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.godis.swiss/de/swedish-candy-in-switzerland",
+        "https://www.godis.swiss/"
+      ]
+    },
+    {
+      "name": "clickfinger.ch GmbH",
+      "based_out_of": "Studen, Switzerland",
+      "domain": "clickfinger.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Party and seasonal supplies with a candy and sweets section of 17 lines, including Vidal and Dr. Sour gummies, Mallow marshmallows and lollipops",
+      "channels_supplied": "Own online shop to shoppers across Switzerland and Liechtenstein",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Swiss online party and seasonal shop that sells other companies' branded sweets next to balloons, decorations and party items, shipped from its own Swiss warehouse with next-day delivery. It is small and its sweets section is 17 lines, so it sits in tier 3; Diablo's gummies and variety packs fit its party and celebration shoppers.",
+      "what_they_do_well": [
+        "Ships orders placed by 14:00 the same day from its own Swiss warehouse, with 453 reviews, 83 percent at five stars."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://clickfinger.ch/collections/candy-suessigkeiten",
+        "https://clickfinger.ch/",
+        "https://www.local.ch/de/q/studen-be/online-shopping"
+      ]
+    }
+  ]
+}
