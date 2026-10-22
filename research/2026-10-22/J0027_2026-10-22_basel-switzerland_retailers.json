@@ -1,0 +1,47 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0027",
+  "location": "Basel, Switzerland",
+  "run_date": "2026-10-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 53
+    }
+  ],
+  "companies": [
+    {
+      "name": "VitaServ (Schneeberger vitaserv.ch)",
+      "based_out_of": "Basel, Switzerland",
+      "domain": "vitaserv.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Online drugstore with a health food (Reformhaus) section: biscuits, snacks, chocolate and bars (Schaer, Ovomaltine, Pural, Chokay, Iswari, YFood), jams and spreads, sweets, chewing gum and glucose, alongside care and health products.",
+      "channels_supplied": "Sells direct to shoppers across Switzerland and Liechtenstein through its own online shop, with free Swiss Post delivery and click and collect in Basel.",
+      "sf_brands_carried": "Ricola sugar-free stevia sweets, Vicks sugar-free sweets, Schaer gluten-free biscuits and snacks; no direct competitor to Diablo seen.",
+      "competing_brand_flag": false,
+      "fit_rationale": "Basel-based online drugstore with over 25,000 items from nearly 5,000 brands, already selling other companies' biscuits, chocolate, bars, spreads and sweets in a dedicated health food section. Its shoppers already buy stevia-sweetened and better-for-you lines, so Diablo's no-added-sugar chocolate, biscuits and spreads match the shelf it runs today.",
+      "what_they_do_well": [
+        "Family drugstore business since 1961, online since 2001, delivering over 25,000 products within 24 hours across Switzerland."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vitaserv.ch/de/impressum",
+        "https://www.vitaserv.ch/shop/blog/index.php/herzlich-willkommen-bei-der-online-drogerie-vitaserv-ch/",
+        "https://www.vitaserv.ch/ki/ernaehrung/reformhaus.html",
+        "https://www.vitaserv.ch/pi/ernaehrung/reformhaus/biscuits-snacks-schokolade-riegel/choc-ovo-stange-neu-20-g.html",
+        "https://www.vitaserv.ch/pi/ernaehrung/bonbons-kaugummi-traubenzucker/bonbons/ricola-eucalyptus-bonbons-oz-m-stevia-btl-125-g.html"
+      ]
+    }
+  ]
+}
