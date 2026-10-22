@@ -1,0 +1,367 @@
+{
+  "title": "Diablo outreach channels",
+  "updated": "2026-10-22",
+  "about": "Every outreach channel: the ones research runs today and the new ones suggested on 22 Oct 2026, from Ariel's product certificates sheet (92 products; the sheet itself was not changed). type_in_button_2 is what to type in the Channels box of button 2 (2 - Research). ready_to_run says whether today's research rules handle it, or it needs its own rule sheet first.",
+  "summary": {
+    "all_channels": 26,
+    "in_use": 8,
+    "new": 18,
+    "new_ready_on_general_rules": 13,
+    "new_needing_own_rule_sheet": 5
+  },
+  "channels": [
+    {
+      "number": 1,
+      "channel": "Distributors and importers",
+      "type_in_button_2": "distributors",
+      "who_they_are": "Buy other companies' branded sweets and snacks, hold them in their own warehouse and sell them to shops, kiosks and vending",
+      "why_it_fits_diablo": "Core channel: every product is sugar free or no added sugar",
+      "came_from": "In use",
+      "research_rules_today": "Distributor",
+      "ready_to_run": "Yes, in use",
+      "priority": "High"
+    },
+    {
+      "number": 2,
+      "channel": "Wholesalers and cash and carry",
+      "type_in_button_2": "wholesalers",
+      "who_they_are": "Buy and hold branded sweets and snacks and sell them in bulk to shops, kiosks and convenience stores",
+      "why_it_fits_diablo": "Core channel",
+      "came_from": "In use",
+      "research_rules_today": "Wholesaler",
+      "ready_to_run": "Yes, in use",
+      "priority": "High"
+    },
+    {
+      "number": 3,
+      "channel": "Kiosk and convenience wholesalers",
+      "type_in_button_2": "kiosk and convenience wholesalers",
+      "who_they_are": "Supply kiosks, petrol station shops and convenience stores",
+      "why_it_fits_diablo": "Single-serve bars, buttons, wafers and cookies",
+      "came_from": "In use",
+      "research_rules_today": "Wholesaler",
+      "ready_to_run": "Yes, in use",
+      "priority": "High"
+    },
+    {
+      "number": 4,
+      "channel": "Retailers (supermarket and grocery chains)",
+      "type_in_button_2": "retailers",
+      "who_they_are": "Chains and shops that buy direct and sell to shoppers",
+      "why_it_fits_diablo": "Whole range",
+      "came_from": "In use",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, in use",
+      "priority": "High"
+    },
+    {
+      "number": 5,
+      "channel": "Pharmacy and drugstore chains",
+      "type_in_button_2": "pharmacy and drugstore chains",
+      "who_they_are": "Pharmacy and drugstore chains with a food or snack shelf",
+      "why_it_fits_diablo": "Sugar free and no added sugar range",
+      "came_from": "In use",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, in use",
+      "priority": "High"
+    },
+    {
+      "number": 6,
+      "channel": "Health food and organic retailers",
+      "type_in_button_2": "health food and organic retailers",
+      "who_they_are": "Health food, organic and free-from shops and chains",
+      "why_it_fits_diablo": "Sugar free, gluten free and vegan products",
+      "came_from": "In use",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, in use",
+      "priority": "Medium"
+    },
+    {
+      "number": 7,
+      "channel": "Online and marketplace sellers",
+      "type_in_button_2": "online sellers",
+      "who_they_are": "Companies that buy stock and resell it on Amazon and other marketplaces",
+      "why_it_fits_diablo": "Whole range",
+      "came_from": "In use",
+      "research_rules_today": "Marketplace seller",
+      "ready_to_run": "Yes, in use",
+      "priority": "Medium"
+    },
+    {
+      "number": 8,
+      "channel": "Any other channel typed",
+      "type_in_button_2": "(anything else)",
+      "who_they_are": "Whatever is typed, read literally",
+      "why_it_fits_diablo": null,
+      "came_from": "In use",
+      "research_rules_today": "General",
+      "ready_to_run": "Yes, in use",
+      "priority": "-"
+    },
+    {
+      "number": 9,
+      "channel": "Corporate gifting and hamper companies",
+      "type_in_button_2": "corporate gifting and hamper companies",
+      "who_they_are": "Gift boxes and hampers for companies, Christmas and events",
+      "why_it_fits_diablo": "Advent calendar, chocolate boxes (115g, 142g) and gift boxes",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "General",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "High"
+    },
+    {
+      "number": 10,
+      "channel": "Office snack and pantry suppliers",
+      "type_in_button_2": "office snack and pantry suppliers",
+      "who_they_are": "Deliver snacks to offices and stock workplace pantries",
+      "why_it_fits_diablo": "Single-serve bars (30g), muffins (45g), cookies (34g, 44g)",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "General",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "High"
+    },
+    {
+      "number": 11,
+      "channel": "Snack vending operators",
+      "type_in_button_2": "snack vending operators",
+      "who_they_are": "Install snack machines and choose what goes in them (not coffee-led)",
+      "why_it_fits_diablo": "Single-serve packs",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "General",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "High"
+    },
+    {
+      "number": 12,
+      "channel": "Travel retail",
+      "type_in_button_2": "travel retail",
+      "who_they_are": "Airport shops, duty free, railway station shops, airline and train trolleys",
+      "why_it_fits_diablo": "Single-serve packs and gift boxes",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "Medium"
+    },
+    {
+      "number": 13,
+      "channel": "Petrol station and convenience chains",
+      "type_in_button_2": "petrol station and convenience chains",
+      "who_they_are": "Forecourt shops and convenience chains",
+      "why_it_fits_diablo": "Impulse-size products",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Needs its own rule sheet first (retailer rules leave forecourt shops out today)",
+      "priority": "Medium"
+    },
+    {
+      "number": 14,
+      "channel": "Leisure and venue snack suppliers",
+      "type_in_button_2": "leisure and venue snack suppliers",
+      "who_they_are": "Cinemas, leisure parks, pools, stadiums and ski resort shops that sell packs as they are",
+      "why_it_fits_diablo": "Single-serve packs (tier 3, like Authentic Food Solutions)",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "General",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "Low"
+    },
+    {
+      "number": 15,
+      "channel": "Hotel minibar and amenity suppliers",
+      "type_in_button_2": "hotel minibar suppliers",
+      "who_they_are": "Stock hotel minibars and in-room treats",
+      "why_it_fits_diablo": "Chocolate bars, buttons, sweets",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "General",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "Low"
+    },
+    {
+      "number": 16,
+      "channel": "Sports nutrition shops and gym suppliers",
+      "type_in_button_2": "sports nutrition shops and gym suppliers",
+      "who_they_are": "Sports nutrition shops and suppliers to gyms and fitness clubs",
+      "why_it_fits_diablo": "Muesli bars, sugar free snacks",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "Medium"
+    },
+    {
+      "number": 17,
+      "channel": "Snack subscription boxes",
+      "type_in_button_2": "snack subscription boxes",
+      "who_they_are": "Monthly snack or diet boxes posted to shoppers",
+      "why_it_fits_diablo": "Whole range",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "General",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "Low"
+    },
+    {
+      "number": 18,
+      "channel": "Diabetic, low sugar and keto shops",
+      "type_in_button_2": "diabetic, low sugar and keto shops",
+      "who_they_are": "Shops and websites for people managing sugar, low carb and keto",
+      "why_it_fits_diablo": "All 92 products are sugar free or no added sugar (no health claims in research or emails)",
+      "came_from": "Suggested earlier and From your product sheet",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "High"
+    },
+    {
+      "number": 19,
+      "channel": "Promotional and branded merchandise companies",
+      "type_in_button_2": "promotional merchandise companies",
+      "who_they_are": "Giveaways and co-branded sweets for events",
+      "why_it_fits_diablo": "Chocolate and sweets",
+      "came_from": "Suggested earlier",
+      "research_rules_today": "General",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "Low"
+    },
+    {
+      "number": 20,
+      "channel": "Halal food distributors and shops with a sweets range",
+      "type_in_button_2": "halal food distributors",
+      "who_they_are": "Halal grocery suppliers with packaged sweets, biscuits or snacks",
+      "why_it_fits_diablo": "35 halal products",
+      "came_from": "Suggested earlier and From your product sheet",
+      "research_rules_today": "Distributor",
+      "ready_to_run": "Needs its own rule sheet first (cuisine rule 8 rejects it today)",
+      "priority": "High"
+    },
+    {
+      "number": 21,
+      "channel": "Kosher food distributors",
+      "type_in_button_2": "kosher food distributors",
+      "who_they_are": "Kosher grocery importers and distributors",
+      "why_it_fits_diablo": "56 kosher products (OU, IKC, Badatz, SKA, Triangle K)",
+      "came_from": "From your product sheet",
+      "research_rules_today": "Distributor",
+      "ready_to_run": "Needs its own rule sheet first (cuisine rule 8 rejects it today)",
+      "priority": "High"
+    },
+    {
+      "number": 22,
+      "channel": "Kosher shops",
+      "type_in_button_2": "kosher shops",
+      "who_they_are": "Kosher supermarkets and grocers",
+      "why_it_fits_diablo": "56 kosher products",
+      "came_from": "From your product sheet",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Needs its own rule sheet first (cuisine rule 8 rejects it today)",
+      "priority": "High"
+    },
+    {
+      "number": 23,
+      "channel": "Gluten-free and free-from specialists",
+      "type_in_button_2": "gluten free and free from shops",
+      "who_they_are": "Coeliac shops, free-from distributors and allergy-friendly online stores",
+      "why_it_fits_diablo": "35 gluten free (many certified); free from egg 51, peanuts 41, dairy 26, nuts 16",
+      "came_from": "From your product sheet",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "High"
+    },
+    {
+      "number": 24,
+      "channel": "Hospital and care home shops",
+      "type_in_button_2": "hospital and care home shops",
+      "who_they_are": "Shops and kiosks in hospitals and care homes that sell packs as they are (not kitchens)",
+      "why_it_fits_diablo": "Single-serve packs",
+      "came_from": "From your product sheet",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Needs its own rule sheet first (rule 7 rejects care home suppliers today)",
+      "priority": "Medium"
+    },
+    {
+      "number": 25,
+      "channel": "Seasonal and gift shops",
+      "type_in_button_2": "seasonal and gift shops",
+      "who_they_are": "Christmas, gift and souvenir shops",
+      "why_it_fits_diablo": "Advent calendar, chocolate boxes, gift boxes",
+      "came_from": "From your product sheet",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "Medium"
+    },
+    {
+      "number": 26,
+      "channel": "Vegan and vegetarian specialists",
+      "type_in_button_2": "vegan and vegetarian shops",
+      "who_they_are": "Vegan and vegetarian shops and distributors",
+      "why_it_fits_diablo": "13 vegan (most not on pack), 88 vegetarian, 87 gelatin free",
+      "came_from": "From your product sheet",
+      "research_rules_today": "Retailer",
+      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
+      "priority": "Low"
+    }
+  ],
+  "product_evidence": [
+    {
+      "certificate_or_claim": "Sugar free or no added sugar",
+      "products": 92,
+      "channels_it_supports": "Diabetic, low sugar and keto shops; pharmacies and drugstores; health food"
+    },
+    {
+      "certificate_or_claim": "Kosher (OU, IKC, Badatz, SKA, Triangle K)",
+      "products": 56,
+      "channels_it_supports": "Kosher food distributors; kosher shops"
+    },
+    {
+      "certificate_or_claim": "Gluten free",
+      "products": 35,
+      "channels_it_supports": "Gluten-free and free-from specialists"
+    },
+    {
+      "certificate_or_claim": "Halal",
+      "products": 35,
+      "channels_it_supports": "Halal food distributors and shops"
+    },
+    {
+      "certificate_or_claim": "Egg free",
+      "products": 51,
+      "channels_it_supports": "Free-from specialists"
+    },
+    {
+      "certificate_or_claim": "Peanut free",
+      "products": 41,
+      "channels_it_supports": "Free-from specialists"
+    },
+    {
+      "certificate_or_claim": "Dairy free",
+      "products": 26,
+      "channels_it_supports": "Free-from specialists"
+    },
+    {
+      "certificate_or_claim": "Nut free",
+      "products": 16,
+      "channels_it_supports": "Free-from specialists"
+    },
+    {
+      "certificate_or_claim": "Vegetarian",
+      "products": 88,
+      "channels_it_supports": "Vegan and vegetarian specialists"
+    },
+    {
+      "certificate_or_claim": "Gelatin free",
+      "products": 87,
+      "channels_it_supports": "Vegan and vegetarian specialists"
+    },
+    {
+      "certificate_or_claim": "Vegan",
+      "products": 13,
+      "channels_it_supports": "Vegan and vegetarian specialists"
+    },
+    {
+      "certificate_or_claim": "Single-serve packs (bars 30g, muffins 45g, buttons 22g, cookies 34g and 44g, wafer 30g)",
+      "products": null,
+      "channels_it_supports": "Vending, office snacks, travel retail, hospital shops, kiosks"
+    },
+    {
+      "certificate_or_claim": "Advent calendar, chocolate boxes, gift boxes",
+      "products": null,
+      "channels_it_supports": "Corporate gifting, seasonal and gift shops"
+    }
+  ]
+}
