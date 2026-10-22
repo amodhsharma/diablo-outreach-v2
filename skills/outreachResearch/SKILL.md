@@ -142,6 +142,8 @@ If the first Step 2 said `NOTHING TO DO`, the summary is one line: "Nothing wait
     website (state it plainly, tier 3 if needed), sports shops (also sports equipment shops with
     healthy food), sports nutrition and fitness shops, online
     health shops, snack vending and petrol station chains count, closing-down companies are out,
+    small shops are also searched in local business listings (local.ch, search.ch), and a shop whose
+    website will not load but whose listing shows it trading is listed at tier 3,
     and the lessons from Ariel's review of the HubSpot companies (beeovita, Big Biceps, Barkat).
     Same `--catalogue` check as version 4;
   - version 4 (used from 21 Oct 2026, evening, to 22 Oct 2026): `prompts/channel_prompt_4.md` and

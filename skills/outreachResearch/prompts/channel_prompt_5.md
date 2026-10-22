@@ -39,6 +39,7 @@ HARD RULES (decided by Diablo on 21 Oct 2026 and loosened on 22 Oct 2026, becaus
    - One catalogue word in a range that is mostly something else does not count. Table-top sweeteners, honey, flour, baking ingredients, fruit puree, nut mixes and Italian pastry are not our catalogue.
    - For shops (retailers, pharmacies and drugstores, sports nutrition and health shops, online shops), a sweets, snacks, bars or biscuits section with other brands is enough, even when it is a small part of the shop.
    - A sports shop, including a sports equipment shop, passes with any food or nutrition shelf (bars, snacks, sports nutrition or other healthy food), even a small one. Name that food in "distributes", for example "energy bars and healthy snacks" (Unihockey Center, 22 Oct 2026).
+   - A general supermarket, grocery shop, kiosk or convenience store sells packaged sweets and snacks by its nature. When its own website does not open, its business listing as such a shop is enough for this rule (see rule 9), unless the listing shows a single-cuisine grocer (rule 8).
    - Name the categories in "distributes" with the catalogue's words. When the company carries a known sweets or biscuit brand (for example Eti, Haribo, Trolli, Lotus), name that category too.
    - Two exceptions, both for importers that would buy Diablo's products abroad and hold them:
      a. An importer whose About page says its business is bringing foreign packaged food or snack brands into the market's shops and building them there passes this rule even when its brand list shows no sweets. Write "imports and builds packaged food brands" in "distributes".
@@ -51,6 +52,10 @@ HARD RULES (decided by Diablo on 21 Oct 2026 and loosened on 22 Oct 2026, becaus
    - Searching in a local language must not turn into a search for that country's cuisine: in an Italian speaking city, look for confectionery and snack distributors, not Italian food importers.
 9. The company must have its own website, it must open, and it must show that the company still sells food today ("no website", "website does not open", "no longer sells food").
    - A marketplace seller with no website of its own: its storefront must open.
+   - A website that will not load is not the same as a closed business (decided 22 Oct 2026). Small shop websites sometimes loop or block automated visitors while opening fine for a person. Before rejecting, try the domain again with and without "www". If it still does not load:
+     - a shop (supermarket, grocery, kiosk, convenience, health food, sports or sweet shop) whose business listing (local.ch or search.ch in Switzerland, a Google business listing, or the country's yellow pages) shows it open and trading is listed at tier 3, with "website did not open; trading confirmed on <the listing's site>" in the fit rationale;
+     - distributors, wholesalers and importers still need a website that opens (Terrapon, 21 Oct 2026);
+     - a dead domain, a closed business or a shop that no listing shows trading is still rejected ("website does not open").
    - Give the current domain: when an old domain redirects to a new name, give the new one.
    - Directories and trade press can be years old. A food and OTC distributor found that way had stopped selling food the year before.
    - A company that is closing down or in liquidation is out ("closing down"), however good the fit (Big Biceps, 22 Oct 2026).
@@ -89,6 +94,7 @@ Approved by Diablo, the models to follow:
 LEARNING FROM DIABLO'S REVIEW OF ITS OWN HUBSPOT COMPANIES (22 Oct 2026)
 - A good fit that was wrongly rejected: beeovita, an online health shop whose "biscuits, snacks and chocolate" section sells other brands. Always open the shop's product categories before deciding; a general home page can hide the food section.
 - Sports nutrition shops fit: Diablo sells to health-conscious people, so a sports nutrition shop that sells bars and snacks to them is a good partner. Big Biceps was such a fit and was left out only because it is going into liquidation. For the same reason Unihockey Center, a sports equipment shop that also stocks healthy food, is a fit.
+- A small supermarket that was missed: Stern Market. Its website looped and web searches for its name only found Christmas "star markets", but a Google search shows a supermarket in Switzerland. Small shops are found through business listings, and a website that will not load is not a closed business (rule 9).
 - Rightly rejected: Barkat Cash + Carry, a world food wholesaler (Asian and Mediterranean food, spices, fresh and frozen) whose own website shows no sweets or snacks section (rule 8). Only an outside directory listed confectionery.
 
 WHAT THIS CHANNEL MEANS
@@ -110,6 +116,8 @@ RESEARCH METHODOLOGY AND SOURCES
 - Directories and association member lists are good places to find companies, especially mid-size importers that rarely appear in general search results. Use them only to find a company, then confirm it on the company's own website (HOW TO CHECK EACH COMPANY).
 - Search for the right kind of business, not for food in general: confectionery, sweets and snacks wholesalers, importers and distributors, kiosk and convenience suppliers, and the market's words for them.
 - LOCAL-LANGUAGE RESEARCH: search in {{LANGUAGES}} as well as English. Many of the best regional players have no English web presence.
+- SMALLER COMPANIES (decided 22 Oct 2026): small shops and owner-run traders rarely appear in trade directories or general results. Also look in local business listings: local.ch and search.ch in Switzerland, Google business listings, and the country's yellow pages elsewhere. Search with the town and the local words for the kind of business (for example "Supermarkt", "Lebensmittelladen", "Kiosk", "épicerie", "alimentari").
+- COMMON WORDS IN NAMES: when a name is also an everyday word (for example "Stern", "Sonne", "Central", "Star"), search the name with the town and the kind of business before deciding that nothing can be found.
 
 OUTPUT FIELDS (one entry per company, company level only)
 1. Company name
@@ -120,7 +128,7 @@ OUTPUT FIELDS (one entry per company, company level only)
 6. Whether they already carry sugar-free, no-added-sugar, diabetic or better-for-you ranges, and which brands; flag any that compete directly with Diablo
 7. Fit rationale for Diablo, two or three sentences, specific not generic; for distributors and wholesalers, end with "Storage: " and the warehouse or depot you confirmed
 8. What they do well: one or two specific, true points about their track record that the company would be proud of, each backed by one of the source URLs. For example brands they have launched or built in the market, how they get products onto shelves (own field sales, in-store merchandising), which chains they supply, or how long they have been trading. Never generic praise ("a great company"); leave the list empty if nothing specific can be verified
-9. Confidence: high (two or more independent sources, including its own website), medium (its own website confirms the range); low is never listed
+9. Confidence: high (two or more independent sources, including its own website), medium (its own website confirms the range, or, for a shop whose website will not load, its business listing confirms it is trading, under rule 9); low is never listed
 10. Found the company from: the source URL(s), including the page of its own website that confirms the range
 
 TIERING AND RANKING
