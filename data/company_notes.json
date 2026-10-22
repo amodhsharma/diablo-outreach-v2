@@ -4930,6 +4930,25 @@
     "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "lola.ch": {
+    "name": "LOLA (Stiftung Contact)",
+    "based_out_of": "Bern, Switzerland",
+    "market": "Bern, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "LOLA runs two organic neighbourhood shops in Bern plus an online shop, and its own shop pages list other brands' chocolate, wafer bars and crisps. Its vegan focus suits Diablo's vegan muesli bars, wafer, cookie, peanut butters and jams.",
+    "what_they_do_well": [
+      "Runs two Bern neighbourhood shops, LOLA Lorraine and LOLA Mattenhof, alongside its own online shop."
+    ],
+    "distributes": "Organic and vegan groceries with chocolate, wafer bars, crisps and snacks from other brands such as iChoc, Love Raw, Real and Rapunzel spreads; site categories for chocolate and sweets, biscuits and bars",
+    "channels_supplied": "Two neighbourhood shops in Bern (Lorraine and Mattenhof) and its own online shop",
+    "sf_brands_carried": "Better-for-you vegan and organic brands such as iChoc and Love Raw; no direct sugar-free competitor seen",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0028_2026-10-22_bern-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "lynasfoodservice.com": {
     "name": "Lynas Foodservice",
     "based_out_of": "Coleraine, United Kingdom",
