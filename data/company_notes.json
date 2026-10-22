@@ -924,6 +924,25 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "biofueralle.ch": {
+    "name": "Bio für alle GmbH",
+    "based_out_of": "Horgen, Switzerland",
+    "market": "Zurich, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Bio für alle sells other companies' organic chocolate, biscuits and snacks to households in the Zurich area from Horgen, with weekly delivery into the city. Diablo's vegan muesli bars, peanut butters, jams and vegan cookie suit its organic and plant-based shoppers.",
+    "what_they_do_well": [
+      "Offers over 10,000 certified organic products with weekly delivery to Zurich, Basel, Schaffhausen, Aarau and Luzern."
+    ],
+    "distributes": "Organic online grocer with over 10,000 products, including a snacks and sweets section with chocolate, 165 sweet biscuits and cookies, peanut butter bites and other packaged snacks from other brands.",
+    "channels_supplied": "Its own online shop with weekly delivery to Zurich, Basel, Schaffhausen, Aarau and Luzern and pickup in Horgen.",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0026_2026-10-22_zurich-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "biogast.at": {
     "name": "BIOGAST GmbH",
     "based_out_of": "Vienna, Austria",
