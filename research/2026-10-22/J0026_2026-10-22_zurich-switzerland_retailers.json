@@ -1,0 +1,146 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0026",
+  "location": "Zurich, Switzerland",
+  "run_date": "2026-10-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 78
+    }
+  ],
+  "companies": [
+    {
+      "name": "Müller Handels AG Schweiz (Müller Drogeriemarkt)",
+      "based_out_of": "Ulm, Germany",
+      "domain": "mueller.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Drugstore chain with a food shelf of about 1,300 sweets items: chocolate (600), gummies and jelly sweets (208), biscuits and wafers (206), hard sweets and lollipops (128), snacks and bars (107) and chewing gum; brands include Haribo, Trolli, Lindt, Milka, Ritter Sport, Lotus, Manner and Ferrero.",
+      "channels_supplied": "About 91 own stores in Switzerland, including new inner-city stores in Zurich taken over from Migros Zurich in 2026, plus its online shop mueller.ch.",
+      "sf_brands_carried": "Frankonia, Naschlabor, SilaVit sugar-free sweets, sensident and Not Guilty.",
+      "competing_brand_flag": true,
+      "fit_rationale": "Müller sells other companies' branded chocolate, gummies, biscuits, wafers and bars to shoppers in about 91 Swiss stores and online, so Diablo's range sits on an existing shelf. It is opening ten more inner-city stores in Zurich in 2026 and already lists German and European brands, the profile Diablo's packs are made for.",
+      "what_they_do_well": [
+        "Took over ten former Alnatura sites from Migros Zurich from January 2026 for inner-city drugstores.",
+        "Runs about 91 Swiss stores with some 190,000 items, around 11,000 of them specific to Switzerland."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.mueller.ch/c/drogerie/lebensmittel/suessigkeiten/",
+        "https://www.mueller.ch/c/drogerie/lebensmittel/suessigkeiten/schokolade/",
+        "https://www.horizont.net/schweiz/nachrichten/schweiz-mueller-uebernimmt-zehn-migros-standorte-230413",
+        "https://lebensmittelpraxis.de/lp-international/189-lpinternational-nachrichten/43484-handelskonzern-expandiert-mueller-investiert-28-millionen-euro-in-schweizer-filialnetz.html"
+      ]
+    },
+    {
+      "name": "Amavita (Galenica)",
+      "based_out_of": "Bern, Switzerland",
+      "domain": "amavita.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Pharmacy chain with a food shelf: about 197 biscuits, chocolate and bars items (Schär, Ovomaltine, Rapunzel, Stella, Taste of Nature, BETT'R, De Rit) plus a chewing gum and sweets category with sugar-free Ricola sweets.",
+      "channels_supplied": "209 Amavita pharmacies across Switzerland, including Zurich Hauptbahnhof (Bahnhof Apotheke and Shopville) and Dietikon, plus the amavita.ch online shop.",
+      "sf_brands_carried": "Ricola sweets without sugar sweetened with stevia, BETT'R wafer without sugar, Taste of Nature Low Sugar bars.",
+      "competing_brand_flag": true,
+      "fit_rationale": "Amavita already sells other brands' chocolate, biscuits, wafers, bars and sweets on a health-led shelf in 209 pharmacies, with stores at Zurich main station. Its shoppers look for better-for-you and free from products, which matches Diablo's no-added-sugar positioning.",
+      "what_they_do_well": [
+        "The largest branded pharmacy network in Switzerland, with 209 pharmacies at mid-2026."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.amavita.ch/de/c/ernaehrung-gesundheit/esswaren/biscuits-schokolade-riegel-fe03l2029l30063",
+        "https://www.amavita.ch/de/c/ernaehrung-gesundheit/esswaren/kaugummi-bonbons-fe03l2029l30218",
+        "https://www.amavita.ch/de/apotheke-finden/amavita-bahnhof-apotheke-zurich",
+        "https://www.galenica.com/galenica23Assets/bin/en/corporate-information/260806_investorpraesentation-2026.pdf"
+      ]
+    },
+    {
+      "name": "Coop Vitality AG",
+      "based_out_of": "Bern, Switzerland",
+      "domain": "coopvitality.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Pharmacy chain with a food shelf of about 194 chocolate bars, snacks, biscuits, wafers, muffins and cereal bars from brands such as Schär, Taste of Nature, De Rit, Céliane, Kookie Cat and Schnitzer.",
+      "channels_supplied": "87 Coop Vitality pharmacies, including Zurich Bahnhofstrasse, Stauffacher, Letzipark, Sihlcity, Wiedikon, Oerlikon and Zurich Airport, plus the coopvitality.ch online shop.",
+      "sf_brands_carried": "Taste of Nature bars, Schär gluten-free biscuits and wafers (better-for-you, not sugar-free).",
+      "competing_brand_flag": false,
+      "fit_rationale": "Coop Vitality sells other brands' biscuits, wafers, muffins and bars to shoppers in 87 pharmacies, at least seven of them in the city of Zurich. A health-led snack shelf with no sugar-free confectionery seen is an open space for Diablo's chocolate, wafers and cookies.",
+      "what_they_do_well": [
+        "Runs pharmacies at Zurich Bahnhofstrasse, Sihlcity, Letzipark, Stauffacher, Wiedikon, Oerlikon and Zurich Airport."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.coopvitality.ch/de/c/ernaehrung-sport/lebensmittel/schokoladen-riegel-snacks-fe03l2029l30063",
+        "https://www.coopvitality.ch/de/apotheke-finden/coop-vitality-zurich-bahnhofstrasse",
+        "https://business-monitor.ch/fr/companies/197807-coop-vitality-ag",
+        "https://www.galenica.com/galenica23Assets/bin/en/corporate-information/260806_investorpraesentation-2026.pdf"
+      ]
+    },
+    {
+      "name": "Ketoshop.ch",
+      "based_out_of": "Thalwil, Switzerland",
+      "domain": "ketoshop.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Swiss keto and low carb online shop with a bars, snacks and chocolate category (OKONO, Adonis bars and chocolate), sugar-free gummies (REBELLE gummy bears, cola bottles, sour cherries), spreads and jams (Simply Keto, BeKeto) and syrups.",
+      "channels_supplied": "Its own online shop with delivery across Switzerland and pickup from its stock in Thalwil, canton Zurich.",
+      "sf_brands_carried": "REBELLE sugar-free gummies, OKONO keto bars and chocolate, Adonis bars, Simply Keto spreads.",
+      "competing_brand_flag": true,
+      "fit_rationale": "Ketoshop is a sugar-free and low carb specialist next to Zurich that already sells other brands' gummies, chocolate, bars and spreads to shoppers who avoid sugar, the exact Diablo buyer. Its shelf has sugar-free gummies and keto bars but few chocolate, biscuit or wafer lines, so Diablo's range fills a visible gap.",
+      "what_they_do_well": [
+        "Runs a dedicated Swiss keto and low carb shop with its own stock in Thalwil and direct pickup."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ketoshop.ch/",
+        "https://ketoshop.ch/nahrungsmittel/riegel-snacks-schoggi/saure-gummibaerchen-rebelle",
+        "https://ketoshop.ch/nahrungsmittel/riegel-snacks-schoggi/dark-chocolate-bar-okono",
+        "https://ketoshop.ch/direktabholung/"
+      ]
+    },
+    {
+      "name": "Bio für alle GmbH",
+      "based_out_of": "Horgen, Switzerland",
+      "domain": "biofueralle.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Organic online grocer with over 10,000 products, including a snacks and sweets section with chocolate, 165 sweet biscuits and cookies, peanut butter bites and other packaged snacks from other brands.",
+      "channels_supplied": "Its own online shop with weekly delivery to Zurich, Basel, Schaffhausen, Aarau and Luzern and pickup in Horgen.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Bio für alle sells other companies' organic chocolate, biscuits and snacks to households in the Zurich area from Horgen, with weekly delivery into the city. Diablo's vegan muesli bars, peanut butters, jams and vegan cookie suit its organic and plant-based shoppers.",
+      "what_they_do_well": [
+        "Offers over 10,000 certified organic products with weekly delivery to Zurich, Basel, Schaffhausen, Aarau and Luzern."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://biofueralle.ch/",
+        "https://biofueralle.ch/Feingebaeck-Knabbereien-suess",
+        "https://www.biofueralle.ch/snacks/schokolade/14747/dunkle-nougat-100g"
+      ]
+    }
+  ]
+}
