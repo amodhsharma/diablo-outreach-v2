@@ -1,0 +1,55 @@
+# Research report: Winterthur, Switzerland
+
+Job J0031 | Scheduled run | 2026-10-22
+
+| Channel | Template | Status | Companies | Searches |
+|---|---|---|---|---|
+| retailers | retailer | Done | 1 of 50 wanted | 79 |
+
+## Warnings
+
+- "retailers" found 1 companies, fewer than the floor of 25: One company passes. Almost every food retailer serving Winterthur is already on the exclusion list: Migros, Coop, Denner, Aldi, Lidl, Volg, Spar, Manor, Globus, Otto's, Jumbo, Landi, Valora, Coop Pronto, migrolino, Mueller, Amavita, Sun Store, Coop Vitality, Galaxus, Brack, Farmy and the main Swiss online sweets shops. Of the 35 other retailers checked, most were pharmacies, single shops, own-brand or deli sellers, or businesses with no sweets range. Note that rossmann.de is on the exclusion list, so outreach to the Swiss business should be coordinated with any existing Rossmann contact.
+
+## Market structure
+
+Packaged confectionery reaches Winterthur shoppers mainly through the national grocery chains, which buy centrally. Coop and Migros dominate food retail: a Nielsen Retail Monitor comparison reported in November 2025 put Coop at 43% and Migros at 37.4% of food and near food sales. Although Winterthur lies in the canton of Zurich, its Migros supermarkets are run by the regional cooperative Migros Ostschweiz (based in Gossau SG), not Migros Zürich, so any regional listing would pass through Ostschweiz; national ranges are set centrally (unverified for confectionery). Coop reported 2025 turnover of CHF 35.4 billion and says it gained market share. Below the two leaders sit the discounters (Denner, Aldi, Lidl), drugstore and pharmacy chains with a food shelf, organic and health food shops supplied by specialist wholesalers, kiosks and convenience formats at the busy Winterthur station, and online grocery and snack shops. For a foreign brand the real gatekeepers are the central category buyers of Coop and Migros and the importers and wholesalers that already supply independents and kiosks.
+Sources: [Coop takes over the top position in food (blue News)](https://www.bluewin.ch/en/news/coop-overtakes-migros-in-core-business-2944481.html), [Migros Supermarkt Winterthur Seen (Migros Ostschweiz)](https://shared.migros.ch/fallback/dam/jcr:7a9787a2-d25a-4893-a556-445267ebca5f/Medienmitteilung%20Umbauabschluss%20Winterthur%20Seen.pdf), [Coop 2025 Umsatzrekord (Blick)](https://www.blick.ch/wirtschaft/ueber-35-milliarden-franken-coop-erzielt-2025-umsatzrekord-und-gewinnt-marktanteile-id21572060.html)
+
+## Companies by Channel
+
+Full details for every company (Domain of the found company, what they distribute, why they fit, Found the company from) are in the JSON file next to this report.
+
+<!-- companies:start -->
+
+### retailers
+
+Tier 1 is a multi-store chain with stores in Winterthur that already sells many branded chocolates and sweets from other companies to shoppers. Tier 2 would be a good fit with fewer stores or fewer of our categories, and tier 3 a small retailer that still passes every rule; no company qualified for either. Every company was checked on its own website before listing.
+
+**Tier 1**
+
+| Rank | Company |
+|---|---|
+| 1 | ROSSMANN Schweiz AG |
+
+<!-- companies:end -->
+
+## Checked and excluded
+
+- **retailers:** DROPA (Dr. Baehler Dropa AG) (Not a food business: drugstore and pharmacy chain built on its own care and health brands; its Reform range is grains, muesli and bouillon with no sweets or snacks (rules 2 and 6).); dm-drogerie markt (No Swiss stores or Swiss website of its own found; in Switzerland it supplies its own brands to other retailers (own range, rule 2; no website, rule 9).); Aperto (Acquired by Coop, which is on the exclusion list (status: acquired).); Alfies E-Commerce AG (alfies.ch) (Weak fit: quick-delivery online supermarket for the city of Zurich and nearby towns; delivery to Winterthur not confirmed and no sweets range shown on its site (rule 11).); BENU Apotheken (benu.ch) (Not a food business: pharmacy chain whose food is throat lozenges, diet and protein bars inside a medicines range (rules 5 and 6).); TopPharm (toppharm.ch) (Not a food business: pharmacy group; its shop shows medicines, lozenges and nutrition drinks, no sweets shelf (rule 6).); Zur Rose / Medbase (Swiss pharmacy business now part of the Migros group, which is on the exclusion list; also pharmacy-centred (rule 6).); Online-Apotheke.ch (Not a food business: online pharmacy in Bern whose food is diet, protein and medical nutrition products (rule 6).); drogi.ch (Not a food business: online drugstore; food is supplements, teas and sweeteners, no chocolate, biscuits or sweets (rules 5 and 6).); swidro drogerie (swidro.ch) (Not a food business: network of drugstores and pharmacies with no store in Winterthur and no sweets range shown (rules 5 and 6).); Raegeboge Winterthur (raegeboge.com) (Single organic shop with bistro; branded sweets or snacks not shown on its website (rule 5; single small shop).); L'Ultimo Bacio (ultimobacio.ch) (Three organic shop-bistros; website shows wine, cheese, bread and cosmetics, no sweets or snacks range (rule 5).); Nature First AG (naturefirst.ch) (Pharmacy and drugstore in Winterthur old town; food range not shown on its website (rules 5 and 6).); Vitafy (vitafy.ch) (Sports nutrition and supplements shop led by its own and exclusive brands (rules 2 and 6).); vitaminplus.ch (Online health shop led by vitamins and supplements; chocolate and bars are a few items in a mostly different range (rules 5 and 6).); nu3.ch (Website could not be read and the range is led by its own brand (rules 2 and 9).); KoRo (koro-shop.ch) (Sells its own brand range (rule 2).); Lehner Versand AG (lehner-versand.ch) (Not a food business: mail-order and store chain for bedding, fashion and household goods with no food category (rule 6).); Drinks of the World AG (beerworld.ch) (Not a food business: drinks-only shops selling beer, wine, spirits and soft drinks (rule 6).); Piccantino (niceshops GmbH) (Spice-led online shop based outside Switzerland; sweets are a small part of a spices and pantry range (rules 5 and 8).); Swiss Food (swissfood.store) (Exports Swiss food abroad rather than selling to shoppers in Winterthur (does not serve the market).); Halk Pazari (halkpazari.ch) (Deli or cuisine specialist: Turkish and Middle Eastern market with own bakery and butcher; no branded sweets section shown (rules 1 and 8).); BalkanKing (balkanking.ch) (Run by MAGO Swiss AG, which is on the exclusion list (Mago).); Bio Vivo (bio-vivo.ch) (Deli or cuisine specialist: oils, spices, honey and gifts in Lucerne (rule 8).); Greenist (greenist.ch) (Online health shop based in Hamburg, Germany; online retailers based outside the market are left out for this channel.); Veganer-Shop (veganer-shop.ch) (Weak fit: vegan shop led by bulk ingredients, flours and sweeteners, with many items sold out and no chocolate or biscuits listed (rules 5 and 11).); Bliib Gsund Natur-Versand AG (bliib-gsund-versand.ch) (Range of other companies' brands not confirmed; linked products appear to be a house range (rules 2 and 11).); Cantasy (cantasy.ch) (Weak fit: small online candy shop in Oberhasli; direct buying not confirmed, and the channel admits independents only when they buy direct (rule 11).); Gummibaerchen Shop (gummibaerchen-shop.ch) (Weak fit: online gummy shop with no company name or address on its website (rule 11).); Pick and Mix Candy GmbH (pickandmix.ch) (Sells loose Swedish pick and mix sweets in its own mixes, not branded consumer packs (rules 2 and 8).); OH MY BOX KLG (ohmybox.ch) (Gift and corporate snack box company; brands in its boxes not named on its website (rule 11).); Snackspot / Vendspot (snackspot.ch) (Sells vending machines to businesses rather than selling sweets to shoppers (rule 6).); MyShop Kiosk Winti (myshop-winti.ch) (Single small kiosk with no buying function, shown as currently closed (rule 9).); Gottlieber Sweets and Coffee (Brand owner selling its own wafer rolls and sweets (rule 1).); Action (Non-food discount chain, left out for this channel.).
+
+## Closing analysis
+
+- Only one Winterthur retailer passed every rule: approach ROSSMANN Schweiz AG first. It runs 27 drugstores in German-speaking Switzerland, three of them in Winterthur, and its leaflets show a branded confectionery shelf with no sugar-free sweets brand, a gap for Diablo's chocolate and gummies.
+- Rossmann's German business (rossmann.de) is already on the exclusion list, so coordinate this approach with any existing Rossmann contact.
+- No second or third company passed the rules; almost every retailer serving Winterthur is already on the exclusion list from earlier Swiss jobs.
+
+## Barriers to entry
+
+- Concentration: Coop and Migros together hold about 80% of food sales, so a brand outside them depends on discounters, specialists and kiosks. Coop has bought jointly with other European retailers through buying alliances (Coopernic from 2006), which strengthens its terms with brands.
+- Listing fees and margin norms: no verified figures found for Swiss listing fees, retailer margins or distributor credit terms; assume central listing negotiations and promotional contributions (unverified).
+- Labelling: mandatory information in at least one official language (German for Winterthur), minimum 1.2 mm font, the name and address of the responsible business (the head office need not be in Switzerland) and the country of production.
+- Claims: nutrition claims such as "zuckerfrei" are governed by the FDHA Ordinance on Food Information (LIV, Article 29 and Annex 13); the claim must be listed there and its conditions met. The exact Swiss wording for "no added sugar" was not checked here.
+- Sweeteners and polyols: permitted additives are set by the Swiss Additives Ordinance (ZuV), revised in 2024; it broadly follows EU additive rules, but the exact uses for steviol glycosides, polyols and the laxative warning were not verified in this run.
+- Duty: under the UK Switzerland trade agreement UK processed agricultural products face no higher tariffs than EU ones, provided UK rules of origin are met (EUR1 or origin declaration). Switzerland still charges variable agricultural components on processed goods such as chocolate, so duty is not zero.
+- Shelf life at entry: no Swiss specific rule found; retailer minimums are set by each buyer (unverified).
+Sources: [Food labelling (FSVO)](https://www.blv.admin.ch/en/food-labelling), [Nutrition and health claims (BLV)](https://www.blv.admin.ch/de/naehrwert-und-gesundheitsbezogene-angaben), [Zusatzstoffverordnung 2024 notes (BLV)](https://www.blv.admin.ch/dam/de/sd-web/z0RqaHwvny6S/erlaeuterungen-zusatzstoffverordnung-2024-de.pdf), [Summary of the UK Switzerland trade agreement (GOV.UK)](https://www.gov.uk/guidance/summary-of-the-uk-switzerland-trade-agreement), [Processed agricultural products (SECO)](https://www.seco.admin.ch/en/processed-agricultural-products), [Coop joins European distributor alliance (swissinfo)](https://swissinfo.ch/eng/coop-joins-european-distributor-alliance/679878)
