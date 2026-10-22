@@ -1,0 +1,287 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0032",
+  "location": "Geneva, Switzerland",
+  "run_date": "2026-10-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 12,
+      "searches_used": 67
+    }
+  ],
+  "companies": [
+    {
+      "name": "Ochsner Sport",
+      "based_out_of": "Dietikon, Switzerland",
+      "domain": "ochsnersport.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sports nutrition shelf with protein and energy bars and snacks from Barebells, Chimpanzee, Powerbar, Sponser and Winforce (bars)",
+      "channels_supplied": "About 100 Ochsner Sport stores in Switzerland, including Geneva Balexert, Geneva Rue du Marche and Carouge, plus its online shop ochsnersport.ch",
+      "sf_brands_carried": "Barebells protein bars with no added sugar positioning; no direct Diablo competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "Switzerland's largest sporting goods chain sells branded bars to health-conscious shoppers, with 284 nutrition products online and three stores in the Geneva area. Diablo's muesli and yoghurt coated bars fit next to Barebells and Chimpanzee on its nutrition shelf.",
+      "what_they_do_well": [
+        "Grew to 100 Swiss stores in 2025 by taking over 24 former SportX stores.",
+        "Runs three stores in the Geneva area: Balexert, Rue du Marche and Carouge."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.ochsnersport.ch/fr-ch/c/tous-nutrition-1361",
+        "https://www.ochsnersport.ch/fr-ch/storefinder/geneve-avenue-louis-casai-27-osp970",
+        "https://www.ochsnersport.ch/fr-ch/storefinder/geneve-rue-du-marche-91011-osp400",
+        "https://www.blick.ch/life/gesundheit/fitness/neu-mit-100-stores-in-der-ganzen-schweiz-zuhause-das-plant-ochsner-sport-mit-den-sportx-filialen-id20713491.html"
+      ]
+    },
+    {
+      "name": "Alna Dietetique & Bio",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "alna-dietetique.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Sugar-free chocolate, biscuits, healthy snacks, muesli and keto products from other brands (chocolate, biscuits, snacks)",
+      "channels_supplied": "Its shop at Rue de Cornavin in central Geneva and its online shop with delivery across Switzerland and click and collect",
+      "sf_brands_carried": "Belvas no added sugar chocolates and truffles; Chokay organic chocolate",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Geneva health food shop with dedicated sugar-free chocolate, biscuits, snacks and keto sections, exactly the shelf Diablo's no added sugar range belongs on. It sells other brands such as Belvas and Chokay and ships across Switzerland from its online shop.",
+      "what_they_do_well": [
+        "Runs a central Geneva shop beside Cornavin plus a national online shop with free delivery from CHF 80."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.alna-dietetique.ch/",
+        "https://www.alna-dietetique.ch/shop/category/alimentation-specialisee-chocolats-78",
+        "https://www.loisirs.ch/dossier/plus-de-50-adresses-ou-acheter-des-produits-bio-locaux-et-sains-a-geneve/"
+      ]
+    },
+    {
+      "name": "LowPrice Sagl",
+      "based_out_of": "Lugano, Switzerland",
+      "domain": "lowprice.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Sweets and confectionery from about 30 brands including Haribo, Chupa Chups, Mentos, Tic Tac, Fruittella and Dietorelle, plus groceries (sweets, gummies, chocolate)",
+      "channels_supplied": "Online grocery and household shop delivering across Switzerland, including Geneva",
+      "sf_brands_carried": "Dietorelle sugar-free sweets",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Swiss online discount grocer whose sweets section carries about 30 third-party confectionery brands and delivers nationwide, Geneva included. It already lists sugar-free sweets, so Diablo's gummies and hard sweets fit its range.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.lowprice.ch/fr/8080-des-sucreries"
+      ]
+    },
+    {
+      "name": "Shayn",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "shayn.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Sports nutrition with a food, bars and snacks section: Barebells and Grenade protein bars, M&M'S protein bars, protein croissants and peanut butter powder (bars, snacks)",
+      "channels_supplied": "Its sports nutrition shop on Boulevard de Saint-Georges in Geneva and its online shop with delivery",
+      "sf_brands_carried": "Barebells and Grenade Carb Killa low sugar protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva sports nutrition specialist that mainly sells third-party brands such as Optimum Nutrition, Barebells and Grenade, with its own food, bars and snacks section. Diablo's bars, cookies and spreads suit its health-conscious customers.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://en.shayn.ch/",
+        "https://en.shayn.ch/collections/barebells",
+        "https://en.shayn.ch/products/grenade-carb-killa-60gr"
+      ]
+    },
+    {
+      "name": "Pharmacies BENU",
+      "based_out_of": "Liebefeld, Switzerland",
+      "domain": "benu.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Pharmacy and health products with sports nutrition and dietetic food, including Chiefs and Sponser protein bars (bars)",
+      "channels_supplied": "BENU pharmacy network in Switzerland and its online shop benu.ch with delivery nationwide, Geneva included; Geneva store count not stated on its website",
+      "sf_brands_carried": "Chiefs and Sponser protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss pharmacy chain whose online shop sells branded protein bars in its sports nutrition and dietetics sections, giving Diablo's bars a pharmacy food shelf. Its network and online shop reach shoppers across Switzerland, including Geneva.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.benu.ch/fr/a/chiefs-protein-bar-crispy-cookie-12x55-g-7798810",
+        "https://www.benu.ch/fr/a/sponser-crunchy-protein-peanut-caramel-50-g-7774581",
+        "https://www.benu.ch/fr/"
+      ]
+    },
+    {
+      "name": "NutriFitness",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "nutrifitness.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sports nutrition with snacks and spreads: Pronutrition keto sandwich bars and protein spread, peanut butter from Pronutrition and Bodyattack, Nutry peanut butter cups (bars, spreads, peanut butter, snacks)",
+      "channels_supplied": "Its showroom at Rue des Paquis in Geneva and its online shop delivering across Switzerland",
+      "sf_brands_carried": "Pronutrition keto snacks and protein spread",
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent Geneva sports nutrition retailer, trading since 2015, that sells other brands' keto bars, protein spreads and peanut butter. Diablo's spreads, peanut butter and bars fit; it is a single showroom with online sales, so its reach is small.",
+      "what_they_do_well": [
+        "Independent Geneva sports nutrition retailer trading since April 2015, with a Paquis showroom and national delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://nutrifitness.ch/a-propos-nutrifit-complements-alimentaires-geneve/",
+        "https://nutrifitness.ch/boutique/"
+      ]
+    },
+    {
+      "name": "Running Planet Geneve",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "runningplanetgeneve.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Running and trail equipment with a nutrition shelf of 65 products: energy bars and gels from Overstims, Naak, Baouw, Atlet, Maurten and Isostar (bars)",
+      "channels_supplied": "Its running shop on Avenue de Frontenex in Geneva and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva running and trail specialist, open since 2010, that sells energy bars from several brands to sporty shoppers. It is a single shop, so it fits as a small partner for Diablo's bars.",
+      "what_they_do_well": [
+        "Geneva running, trail and triathlon specialist since 2010, offering gait analysis and coaching."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.runningplanetgeneve.ch/fr/",
+        "https://www.runningplanetgeneve.ch/fr/216-nutrition"
+      ]
+    },
+    {
+      "name": "SansGluGlu (Le P'tit Mag)",
+      "based_out_of": "La Ferriere, Switzerland",
+      "domain": "sansgluglu.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Gluten-free grocery with a biscuits and sweet section of about 280 items: biscuits, chocolate, cakes and sweet snacks (biscuits, chocolate, cakes, snacks)",
+      "channels_supplied": "Its shop in La Ferriere and its online shop delivering across Switzerland, Geneva included; brand list not stated on its home page",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A specialist free-from shop whose online range includes about 280 biscuits, chocolate and cake lines and ships nationwide. It reaches Geneva only by delivery and its brand list is not stated on its home page, hence tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sansgluglu.ch/",
+        "https://sansgluglu.ch/categorie-produit/biscuits-sucre/"
+      ]
+    },
+    {
+      "name": "Veganer-Shop.ch",
+      "based_out_of": null,
+      "domain": "veganer-shop.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Vegan grocery with snacks and sweets: gummies, fruit bars, chocolate bars, spreads and jams from Okovital, Allos and Granovita (gummies, bars, chocolate, spreads, jams)",
+      "channels_supplied": "Swiss online shop delivering by Swiss Post across Switzerland, Geneva included; operator and city not stated on its website",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss vegan online shop with snacks, sweets, spreads and jams from other brands, a match for Diablo's vegan bars, peanut butters, jams and toppings. It sells online only and its operator is not named on its home page, so it ranks in tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://veganer-shop.ch/"
+      ]
+    },
+    {
+      "name": "Bachli Bergsport",
+      "based_out_of": "Nanikon, Switzerland",
+      "domain": "baechli-bergsport.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Mountain sports equipment with a food section: Amacx and Winforce bars, Clif Bar, Chimpanzee and outdoor snacks (bars, snacks)",
+      "channels_supplied": "15 stores in Switzerland, the nearest to Geneva in Lausanne and Conthey, plus its online shop delivering nationwide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss mountain sports chain with 15 stores that sells branded energy bars and snacks to outdoor shoppers. It has no Geneva store and reaches Geneva through its online shop and its Lausanne store, hence tier 3.",
+      "what_they_do_well": [
+        "Runs 15 mountain sports stores across Switzerland, two of them in French-speaking Switzerland."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.baechli-bergsport.ch/de/ausrustung/camping/nahrung",
+        "https://www.baechli-bergsport.ch/de/filialen"
+      ]
+    },
+    {
+      "name": "HighPowered Fitness",
+      "based_out_of": "Rothenthurm, Switzerland",
+      "domain": "highpowered.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Fitness supplements and equipment with protein and energy bars from Barebells and TREK (bars)",
+      "channels_supplied": "Online shop shipping from its warehouse in Rothenthurm across Switzerland, Geneva included",
+      "sf_brands_carried": "Barebells protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss fitness online shop that sells Barebells and TREK bars alongside Optimum Nutrition and other brands to gym-goers nationwide. It sells online only and reaches Geneva by delivery, so it sits in tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://highpowered.ch/en/collections/protein-supplements-protein-bars-energy-bars"
+      ]
+    },
+    {
+      "name": "Veloplus",
+      "based_out_of": null,
+      "domain": "veloplus.ch",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Cycling equipment with a food section of energy bars and gels from Powerbar, Sponser and Peak Punk (bars)",
+      "channels_supplied": "Veloplus bike stores in Switzerland and its online shop delivering nationwide; a Geneva store is not stated on its website",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss cycling retailer with its own food section of branded energy bars for riders. It reaches Geneva shoppers through its online shop; store locations were not read, hence tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.veloplus.ch/shop/ausruestung/ernaehrung/riegel/powerbar-energize-original-21-carb-mix-energieriegel-chocolate-2005036",
+        "https://www.veloplus.ch/shop/ausruestung/ernaehrung/riegel/sponser-oat-pack-energieriegel-macadamia-und-chufas-macadamia-chufas-2005062",
+        "https://www.veloplus.ch/shop/ausruestung/ernaehrung/riegel/peak-punk-craft-bar-energieriegel-38g-33007034"
+      ]
+    }
+  ]
+}
