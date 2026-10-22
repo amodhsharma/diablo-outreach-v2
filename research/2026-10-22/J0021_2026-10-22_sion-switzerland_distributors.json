@@ -1,0 +1,20 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0021",
+  "location": "Sion, Switzerland",
+  "run_date": "2026-10-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "Distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 86
+    }
+  ],
+  "companies": []
+}
