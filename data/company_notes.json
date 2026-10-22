@@ -1071,6 +1071,25 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "bodysport.ch": {
+    "name": "Bodysport",
+    "based_out_of": "Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A French language Swiss sports nutrition shop with separate categories for bars, diet snacks, protein treats, spreads and 0 kcal syrups, matching Diablo's bars, spreads and dessert toppings. Head office city is not stated on its website.",
+    "what_they_do_well": [
+      "Swiss sports nutrition retailer since 2009, offering 24 hour delivery and free shipping from CHF 80."
+    ],
+    "distributes": "Sports nutrition with protein bars, diet bars and snacks, protein treats, spreads and 0 kcal syrups and sauces from brands such as PhD Nutrition, Biotech USA, Nutrend and Scitec",
+    "channels_supplied": "Its online shop with 24 hour delivery across Switzerland",
+    "sf_brands_carried": "0 kcal syrups and sauces; Biotech USA Zero Bar",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "bolay.swiss": {
     "name": "Bolay SA",
     "based_out_of": "Gland, Switzerland",
@@ -4587,6 +4606,23 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0003_2026-10-19_vienna-austria_distributors.json"
   },
+  "kdcnutrition.ch": {
+    "name": "KDC Nutrition",
+    "based_out_of": "Vouvry, Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A French language Swiss sports nutrition shop selling other brands' bars, snacks and spreads, which match Diablo's bars and spreads. It is a small online shop with one pick-up point.",
+    "what_they_do_well": [],
+    "distributes": "Sports nutrition with protein bars (Ethic Sport), protein snacks (LifePro) and protein spreads from third-party brands",
+    "channels_supplied": "Its online shop with delivery in Switzerland and click and collect in Vouvry",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "ketoshop.ch": {
     "name": "Ketoshop",
     "based_out_of": "Thalwil, Switzerland",
@@ -4753,6 +4789,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "labonbonnerie.ch": {
+    "name": "La Bonbonnerie",
+    "based_out_of": "Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Swiss online sweets shop selling other brands' gummies, chocolate bars and cookies, matching Diablo's sweets, chocolate and biscuits. It was founded in 2025, so its reach is small, and its delivery area is not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Branded sweets and gummies (Haribo, Trolli), chocolate bars (Snickers), cookies and soft drinks, including loose bulk sweets",
+    "channels_supplied": "Its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "lacasadelkioskero.com.ar": {
     "name": "La Casa del Kioskero",
@@ -6483,6 +6536,25 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json"
   },
+  "planet-endurance.ch": {
+    "name": "Planet Endurance",
+    "based_out_of": "Ecublens, Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A running and trail specialist on the edge of Lausanne whose dietetics shelf sells other brands' energy bars and snacks to endurance athletes. It is a single store, so its reach is small.",
+    "what_they_do_well": [
+      "Running and trail running specialist store in Ecublens beside Lausanne, with an online shop and free delivery from CHF 100."
+    ],
+    "distributes": "Running and trail equipment with a dietetics section of energy bars, energy gels, sports drinks and fruit pastes from Baouw and Naak",
+    "channels_supplied": "Its store in Ecublens next to Lausanne and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "planetorganic.com": {
     "name": "Planet Organic",
     "based_out_of": "London, United Kingdom",
@@ -6950,6 +7022,23 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json"
   },
+  "running-concept.ch": {
+    "name": "Running Concept (Michel Renck Sports)",
+    "based_out_of": "Basel, Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A running specialist with an online shop in French that sells other brands' energy bars to endurance runners. It has one store in Basel, and its delivery area is not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Running equipment with a dietetics section of energy bars, gels and fruit puree from Maurten and Baouw",
+    "channels_supplied": "Its Basel store and its French and German language online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "runningplanetgeneve.ch": {
     "name": "Running Planet Geneve",
     "based_out_of": "Geneva, Switzerland",
@@ -7019,6 +7108,22 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "samaranatura.ch": {
+    "name": "SamaraNatura (BioSamara GmbH)",
+    "based_out_of": "Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Swiss organic and vegan online health shop whose snacks section sells other brands' energy bars, which suits Diablo's vegan muesli bars. Head office city is not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Organic healthy snacks: energy bars, salty snacks and trail mix from brands such as Rawbite, Roo'Bar and Naturkostbar",
+    "channels_supplied": "Its online shop with delivery in Switzerland and pick-up",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json"
   },
   "sanpablomayorista.com": {
     "name": "San Pablo S.R.L.",
@@ -7398,6 +7503,25 @@
     "sf_brands_carried": "Not verified.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
+  },
+  "sparposten.ch": {
+    "name": "Sparposten.ch",
+    "based_out_of": "Matzingen, Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Swiss online shop for branded products and special offers with its own sweets category of other brands, including sugar-free biscuits. The sweets section is small and the range is mostly care products.",
+    "what_they_do_well": [
+      "Swiss online shop for branded products, remainder stock and special offers, delivering to Switzerland, Germany and Liechtenstein."
+    ],
+    "distributes": "Branded drugstore and care products with a sweets section: Santiveri biscuits (including sugar-free Maria biscuits), Juanola sweets and Multicentrum gummies",
+    "channels_supplied": "Its online shop delivering across Switzerland and Liechtenstein",
+    "sf_brands_carried": "Santiveri sugar-free Maria biscuits",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "springvalefoods.co.uk": {
     "name": "Springvale Foods",
@@ -8073,6 +8197,24 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "transa.ch": {
+    "name": "Transa Backpacking AG",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Swiss outdoor retailer whose energy bars category alone lists 59 products from nine brands, sold to hikers and active shoppers. Lausanne shoppers are served through its online shop; a Lausanne store is not shown on the pages read.",
+    "what_they_do_well": [
+      "Carries 15 outdoor food brands including Clif Bar, Power Bar and Sponser in one dedicated outdoor food section."
+    ],
+    "distributes": "Outdoor equipment plus an outdoor food section of 121 items: energy bars, snacks, powdered drinks and trekking meals from Clif Bar, Power Bar, Sponser, Peak Punk, Winforce, Baouw and Naak",
+    "channels_supplied": "Its own outdoor stores and its online shop with Swiss Post delivery and free store pick-up",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json"
+  },
   "transgourmet.at": {
     "name": "Transgourmet Oesterreich GmbH",
     "based_out_of": "Traun, Austria",
@@ -8285,6 +8427,24 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "velomania.ch": {
+    "name": "VELOMANIA (Bikes Center SA)",
+    "based_out_of": "Geneva, Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Romandie cycling chain with stores in Lausanne and Crissier and a nutrition category of other brands' energy bars and snacks sold to active, health-conscious shoppers. Diablo's muesli and cereal bars suit its checkout and nutrition shelves across about 11 Swiss stores.",
+    "what_they_do_well": [
+      "Grew from Bikes Center (2007) into a network of Swiss stores renamed VELOMANIA in 2022, including Lausanne and Crissier."
+    ],
+    "distributes": "Bikes and equipment plus a nutrition shelf of energy bars, gels and sports drinks from Clif Bar, PowerBar, Sponser, Enervit, Baouw, Overstim's and Dynamic (71 products)",
+    "channels_supplied": "Its own stores in Lausanne, Crissier, Vevey, Villeneuve, Montagny-pres-Yverdon, Geneva, Meyrin, Conthey, Fribourg and Neuchatel, plus its e-shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json"
   },
   "veloplus.ch": {
     "name": "Veloplus",
