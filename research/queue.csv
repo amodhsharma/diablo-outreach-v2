@@ -37,11 +37,11 @@ J0031,"Winterthur, Switzerland",retailers,German,50,amodhsharma,2026-10-22,"Done
 J0032,"Geneva, Switzerland",retailers,french,50,amodhsharma,2026-10-22,"Done, fewer than wanted","12 found, floor 25; see the report",,2026-10-22,research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json,,,
 J0033,"Lausanne, Switzerland",retailers,french,50,amodhsharma,2026-10-22,"Done, fewer than wanted","9 found, floor 25; see the report",,2026-10-22,research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json,,,
 J0034,"Lugano, Switzerland",retailers,italian,50,amodhsharma,2026-10-22,"Done, fewer than wanted","7 found, floor 25; see the report",,2026-10-22,research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json,,,
-J0035,Switzerland,distributors,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,yes
-J0035,Switzerland,wholesalers,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,yes
-J0035,Switzerland,petrol station and convenience chains,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,yes
-J0035,Switzerland,travel retail,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,yes
-J0035,Switzerland,sports shops and sports nutrition shops,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,yes
+J0035,Switzerland,distributors,"German, French, Italian",50,amodhsharma,2026-10-22,"Done, fewer than wanted","0 found, floor 25; see the report",,2026-10-23,research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json,,country,yes
+J0035,Switzerland,wholesalers,"German, French, Italian",50,amodhsharma,2026-10-22,"Done, fewer than wanted","0 found, floor 25; see the report",,2026-10-23,research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json,,country,yes
+J0035,Switzerland,petrol station and convenience chains,"German, French, Italian",50,amodhsharma,2026-10-22,"Done, fewer than wanted","2 found, floor 25; see the report",,2026-10-23,research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json,,country,yes
+J0035,Switzerland,travel retail,"German, French, Italian",50,amodhsharma,2026-10-22,"Done, fewer than wanted","1 found, floor 25; see the report",,2026-10-23,research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json,,country,yes
+J0035,Switzerland,sports shops and sports nutrition shops,"German, French, Italian",50,amodhsharma,2026-10-22,"Done, fewer than wanted","13 found, floor 25; see the report",,2026-10-23,research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json,,country,yes
 J0036,Switzerland,"diabetic, low sugar and keto shops","German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,
 J0036,Switzerland,gluten free and free from shops,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,
 J0036,Switzerland,vegan and vegetarian shops,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,
@@ -57,3 +57,43 @@ J0038,Switzerland,leisure and venue snack suppliers,"German, French, Italian",50
 J0038,Switzerland,hotel minibar suppliers,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,
 J0038,Switzerland,snack subscription boxes,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,
 J0038,Switzerland,promotional merchandise companies,"German, French, Italian",50,amodhsharma,2026-10-22,Waiting,,,,,,country,
+J0039,"Zurich, Switzerland",sports shops and sports nutrition shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0039,"Zurich, Switzerland",office snack and pantry suppliers,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0039,"Zurich, Switzerland",snack vending operators,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0039,"Zurich, Switzerland",corporate gifting and hamper companies,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0039,"Zurich, Switzerland",seasonal and gift shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0040,"Geneva, Switzerland",sports shops and sports nutrition shops,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0040,"Geneva, Switzerland",office snack and pantry suppliers,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0040,"Geneva, Switzerland",snack vending operators,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0040,"Geneva, Switzerland",corporate gifting and hamper companies,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0040,"Geneva, Switzerland",seasonal and gift shops,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0041,"Basel, Switzerland",sports shops and sports nutrition shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0041,"Basel, Switzerland",office snack and pantry suppliers,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0041,"Basel, Switzerland",snack vending operators,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0041,"Basel, Switzerland",corporate gifting and hamper companies,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0041,"Basel, Switzerland",seasonal and gift shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0042,"Bern, Switzerland",sports shops and sports nutrition shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0042,"Bern, Switzerland",office snack and pantry suppliers,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0042,"Bern, Switzerland",snack vending operators,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0042,"Bern, Switzerland",corporate gifting and hamper companies,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0042,"Bern, Switzerland",seasonal and gift shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0043,"Lausanne, Switzerland",sports shops and sports nutrition shops,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0043,"Lausanne, Switzerland",office snack and pantry suppliers,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0043,"Lausanne, Switzerland",snack vending operators,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0043,"Lausanne, Switzerland",corporate gifting and hamper companies,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0043,"Lausanne, Switzerland",seasonal and gift shops,French,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0044,"Lucerne, Switzerland",sports shops and sports nutrition shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0044,"Lucerne, Switzerland",office snack and pantry suppliers,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0044,"Lucerne, Switzerland",snack vending operators,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0044,"Lucerne, Switzerland",corporate gifting and hamper companies,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0044,"Lucerne, Switzerland",seasonal and gift shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0045,"St. Gallen, Switzerland",sports shops and sports nutrition shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0045,"St. Gallen, Switzerland",office snack and pantry suppliers,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0045,"St. Gallen, Switzerland",snack vending operators,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0045,"St. Gallen, Switzerland",corporate gifting and hamper companies,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0045,"St. Gallen, Switzerland",seasonal and gift shops,German,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0046,"Lugano, Switzerland",sports shops and sports nutrition shops,Italian,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0046,"Lugano, Switzerland",office snack and pantry suppliers,Italian,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0046,"Lugano, Switzerland",snack vending operators,Italian,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0046,"Lugano, Switzerland",corporate gifting and hamper companies,Italian,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,
+J0046,"Lugano, Switzerland",seasonal and gift shops,Italian,50,automatic city list,2026-10-22,Waiting,"Other main city, listed by J0035",,,,,city,

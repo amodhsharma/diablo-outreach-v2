@@ -52,6 +52,24 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "adsa.ch": {
+    "name": "AVIA Distribution SA",
+    "based_out_of": "Le Mont-sur-Lausanne, Switzerland",
+    "market": "Switzerland",
+    "category": "Petrol station and convenience chains",
+    "channels": [
+      "petrol station and convenience chains"
+    ],
+    "fit_rationale": "AVIA member for French-speaking Switzerland that runs its own AVIA-branded station shops, whose shop pages list biscuits, chocolate and chips from other brands. Diablo's chocolate bars, biscuits and wafers fit that impulse shelf. Shop count is not stated on its website, so it sits in tier 3.",
+    "what_they_do_well": [
+      "Runs AVIA stations with shops across Vaud, Geneva and Valais, opening the first AVIA hydrogen station in Puidoux in 2023."
+    ],
+    "distributes": "Station shop range with biscuits, chocolate and snacks (Pringles, Zweifel chips, Swiss chocolate), ice cream, drinks and everyday groceries",
+    "channels_supplied": "Its own AVIA station shops in western Switzerland (for example Carouge and Cartigny), alongside AVIA stations with SPAR shops",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
   "afblakemore.com": {
     "name": "A.F. Blakemore and Son",
     "based_out_of": "Tipton, United Kingdom",
@@ -828,6 +846,24 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json"
   },
+  "berg-freunde.ch": {
+    "name": "Bergfreunde (berg-freunde.ch)",
+    "based_out_of": "Kusterdingen, Germany",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An outdoor sports online retailer with a Swiss storefront whose outdoor food category lists 62 bars and 28 snacks from other brands. Diablo's muesli bars and snacks suit hikers and climbers buying on the same page.",
+    "what_they_do_well": [
+      "Trusted Shops rating of 4.81 out of 5 shown on its Swiss shop."
+    ],
+    "distributes": "Energy bars from Clif Bar, PowerBar and Chimpanzee (62 bars), snacks and trekking food",
+    "channels_supplied": "Its Swiss online shop for outdoor and mountain sports, with free shipping to Switzerland over CHF 100",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
   "bernasconifood.ch": {
     "name": "Bernasconi SA",
     "based_out_of": "Cadempino, Switzerland",
@@ -921,6 +957,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "bielersport.ch": {
+    "name": "Bieler Sport",
+    "based_out_of": "Bonaduz, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A family run running, biking and Nordic ski retailer founded in 1986 with two stores in Graubünden and a sports nutrition shelf from three brands. Small reach; individual bar products are not listed on its home page.",
+    "what_they_do_well": [
+      "Family run specialist for running, biking and Nordic skiing since 1986, with stores in Bonaduz and Chur."
+    ],
+    "distributes": "Sports nutrition shelf with energy bars and gels from Hammer, Sponser and Winforce",
+    "channels_supplied": "Its own stores in Bonaduz and Chur and its website",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
   "bio-royal.com": {
     "name": "Bio Royal Sàrl",
@@ -2040,6 +2094,40 @@
     "sf_brands_carried": "Protein and better for you lines such as Grenade, Applied Nutrition, Ufit and Eat Real; no direct sugar free confectionery competitor seen.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "cycling-parts.ch": {
+    "name": "cycling-parts.ch",
+    "based_out_of": "Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Swiss online bike parts shop with a sports nutrition category of bars and gels from other brands, shipped from its own stock. Online only and a small food range; head office town not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Bars, gels and ampoules from Clif Bar, Sponser and Squirt",
+    "channels_supplied": "Its own Swiss online bike parts shop, shipping from stock",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "cyclz.shop": {
+    "name": "CYCLZ",
+    "based_out_of": "Appenzell, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An owner run Swiss cycling and triathlon web shop that sells Maurten bars and gels alongside clothing. Very small reach and a single nutrition brand keep it at the bottom of tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Carbohydrate bars and gels from Maurten",
+    "channels_supplied": "Its own online shop for cycling and triathlon clothing and accessories (no store)",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "dapna.ge": {
     "name": "Dapna",
@@ -3919,6 +4007,24 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "hardloop.ch": {
+    "name": "Hardloop",
+    "based_out_of": "France",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An outdoor sports web shop active since 2015 with a Swiss storefront and an outdoor food category of bars and gummies from other brands. Based outside Switzerland with a small food shelf; head office city not stated on its website.",
+    "what_they_do_well": [
+      "Active in outdoor sports retail since 2015, per its About section."
+    ],
+    "distributes": "Energy bars, vegan gummies, chews and outdoor meals from Maurten, Powerbar, 226ERS, Tā Energy and Trek'n Eat",
+    "channels_supplied": "Its Swiss online outdoor shop (hardloop.ch)",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
   "harrisonsdirect.co.uk": {
     "name": "Albert Harrison and Co (Harrisons Direct)",
     "based_out_of": "Padiham, United Kingdom",
@@ -4587,6 +4693,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "jungfrau.ch": {
+    "name": "Jungfraubahnen (Top of Europe Shops)",
+    "based_out_of": "Interlaken, Switzerland",
+    "market": "Switzerland",
+    "category": "Travel retail",
+    "channels": [
+      "travel retail"
+    ],
+    "fit_rationale": "The mountain railway runs four Top of Europe tourist shops with a chocolate and sweets section from other brands, mainly Lindt. It is small, with four shops, and its supplier route is not stated on its website.",
+    "what_they_do_well": [
+      "Runs a Top of Europe Flagship Store on Interlaken's Hoeheweg, open daily until 22:00, plus a shop at 3,454 metres on Jungfraujoch."
+    ],
+    "distributes": "Chocolate and sweets, mainly Lindt (Maitre Chocolatiers, Goldhase, LINDOR), plus Swiss souvenirs and treats from local farmers",
+    "channels_supplied": "Top of Europe Flagship Store Interlaken, Top of Europe Shop Jungfraujoch, Grindelwald Terminal and Grindelwald-First shops",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
   "kadonawholesale.ie": {
     "name": "Kadona Wholesale",
@@ -6123,6 +6247,25 @@
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "nutrifitness.ch": {
+    "name": "NutriFitness Suisse",
+    "based_out_of": "Geneva, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An independent sports nutrition shop in Geneva, open since 2015, with a snacks and bars category and peanut butter from other brands. Diablo's bars, peanut butter and spreads match the shelf, and its online shop reaches all of Switzerland.",
+    "what_they_do_well": [
+      "Trading from its Geneva shop at Rue des Pâquis since April 2015."
+    ],
+    "distributes": "Snacks and bars, keto bars, peanut butter and nut spreads from Pronutrition, Bio Pour Tous, Powerfood One, Applied Nutrition and others",
+    "channels_supplied": "Its own shop in Geneva (Pâquis) and its online shop delivering across Switzerland",
+    "sf_brands_carried": "Pronutrition keto bars and wraps",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "nutripoint.com.pe": {
     "name": "NutriPoint",
     "based_out_of": "Lima, Peru",
@@ -6681,6 +6824,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "powerlab.ch": {
+    "name": "POWERLAB The Run Store",
+    "based_out_of": "Uster, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A running specialist near Zurich with an online nutrition category holding bars and chews from several brands. Diablo's bars and gummies fit the shelf; a single store limits reach.",
+    "what_they_do_well": [
+      "Running specialist offering consultations by appointment alongside its shop in Uster."
+    ],
+    "distributes": "Energy bars, protein bars, fruit chews and gels from Amacx, Powerbar, Sponser, Winforce and others",
+    "channels_supplied": "Its own running shop in Uster ZH and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
   "powershop.ch": {
     "name": "Powershop Luescher + Co.",
     "based_out_of": "Safenwil, Switzerland",
@@ -6977,6 +7138,23 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "rennshop.ch": {
+    "name": "Rennshop Wüthrich AG",
+    "based_out_of": "Burgdorf, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Burgdorf bike retailer whose shop has a Powerriegel, drink powder and gel category from other brands. A single store and a small food shelf put it at tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Energy bars, drink powders and energy gels from Sponser and Winforce",
+    "channels_supplied": "Its own bike store in Burgdorf and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "richmondmarketing.com": {
     "name": "Richmond Marketing",
     "based_out_of": "Dublin, Ireland",
@@ -7148,6 +7326,24 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json"
   },
+  "runstorezurich.com": {
+    "name": "Run Store Zurich",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Zurich old town running shop with an online energy bars collection from European brands such as Veloforte. Diablo's bars and chocolate fit its premium European positioning; one store and a small range keep it at tier 3.",
+    "what_they_do_well": [
+      "Stocks Italian brand Veloforte and Neversecond fuel bars for runners."
+    ],
+    "distributes": "Energy and recovery bars from Veloforte and Neversecond, plus gels",
+    "channels_supplied": "Its own shop in Zurich Niederdorf, its online shop and its sister Cycle Store Zurich",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
   "sabex.at": {
     "name": "Sabex Handelsgesellschaft m.b.H.",
     "based_out_of": "Vienna, Austria",
@@ -7215,6 +7411,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json"
+  },
+  "saneq.ch": {
+    "name": "saneq GmbH",
+    "based_out_of": "Windisch, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Swiss online sports and health retailer whose sports nutrition category holds 383 products, including bars and peanut butter from other brands. Diablo's bars and peanut butter fit this range directly.",
+    "what_they_do_well": [
+      "Lists 383 sports nutrition products from brands such as Sponser and Powerfood One."
+    ],
+    "distributes": "Energy and low carb protein bars and peanut butter from Sponser, Isostar and Powerfood One",
+    "channels_supplied": "Its own online shop with delivery across Switzerland and a showroom in Spreitenbach",
+    "sf_brands_carried": "Low carb protein bars",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "sanpablomayorista.com": {
     "name": "San Pablo S.R.L.",
@@ -7324,6 +7539,24 @@
     "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "schaetzle.ch": {
+    "name": "Schaetzle AG",
+    "based_out_of": "Luzern, Switzerland",
+    "market": "Switzerland",
+    "category": "Petrol station and convenience chains",
+    "channels": [
+      "petrol station and convenience chains"
+    ],
+    "fit_rationale": "AVIA member running about 80 stations in central Switzerland, with its own AVIA shops open 365 days a year that sell sweets and snacks. Diablo's chocolate, sweets and bars suit those shelves. Most of its shop stations carry SPAR express, so only its own AVIA shops buy for themselves, which keeps it in tier 3; the number of own shops is not stated on its website.",
+    "what_they_do_well": [
+      "Operates about 80 AVIA stations across central Switzerland, with shops open 365 days a year."
+    ],
+    "distributes": "Station shop range with sweets (Suesswaren), snacks, drinks, fresh food and hygiene products",
+    "channels_supplied": "Its own AVIA shops in central Switzerland (for example Bremgarten, Eschenbach and Otelfingen) within a network of about 80 stations; most other shops are SPAR express",
+    "sf_brands_carried": "",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
   "seinet.ch": {
     "name": "Seinet AG",
     "based_out_of": "Luzern, Switzerland",
@@ -7406,6 +7639,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "sharkfitness.ch": {
+    "name": "Shark Fitness AG",
+    "based_out_of": "Wettingen, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A fitness equipment retailer with two stores and an online shop that carries 49 protein bars from eight brands, including no added sugar lines. Diablo's muesli and yoghurt coated bars and wafers fit the same health shelf.",
+    "what_they_do_well": [
+      "Carries bars from eight brands including Barebells, Weider and Enervit in its Sporternährung section."
+    ],
+    "distributes": "Protein bars from All Stars, Barebells, Chiefs, Enervit, Inkospor, Sponser and Weider (49 bars listed)",
+    "channels_supplied": "Its own stores in Wettingen and Wil (SG) and its online shop",
+    "sf_brands_carried": "Weider bars with no added sugar, Inkospor zero sugar bar",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "sharm.ge": {
     "name": "Charm Trading (Sharm Trading)",
@@ -7613,6 +7865,22 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "sportini.ch": {
+    "name": "Sportini.ch",
+    "based_out_of": "Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Swiss sports nutrition web shop with dedicated protein bars, protein sweets, desserts and syrups and sauces categories from many brands. Diablo's bars, sweets and dessert toppings fit three of its existing categories. Head office town not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Protein bars, protein sweets, desserts and sweets, syrups and sauces from Barebells, Olimp, Nutrend, BodyAttack, USN and others",
+    "channels_supplied": "Its own online shop, delivering across Switzerland by Swiss Post",
+    "sf_brands_carried": "Barebells; syrups and sauces section",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
   "springvalefoods.co.uk": {
     "name": "Springvale Foods",
@@ -8446,6 +8714,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "update-fitness.ch": {
+    "name": "update Fitness",
+    "based_out_of": "Münchwilen, Switzerland",
+    "market": "Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Swiss fitness chain with about 100 studios whose nutrition shop has a bars and snacks category with other brands such as Barebells and Chiefs. Its health-conscious members are Diablo's target shopper, and the studio network gives a large number of points of sale.",
+    "what_they_do_well": [
+      "Runs about 100 fitness studios across Switzerland, per its own location list."
+    ],
+    "distributes": "Protein bars and snacks from Barebells and Chiefs, alongside protein drinks",
+    "channels_supplied": "Its own nutrition shop online and its fitness studios across Switzerland",
+    "sf_brands_carried": "Barebells and Chiefs protein bars (no added sugar positioning)",
+    "added": "2026-10-22",
+    "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
   "uplegger.de": {
     "name": "Uplegger Food Company GmbH",
