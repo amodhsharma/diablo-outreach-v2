@@ -1,0 +1,78 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0046",
+  "location": "Lugano, Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 49
+    },
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 53
+    }
+  ],
+  "companies": [
+    {
+      "name": "Balmelli Sport (Società Anonima Giovanni Balmelli \"Faspea\")",
+      "based_out_of": "Lugano, Switzerland",
+      "domain": "balmelli-sport.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sports nutrition shelf with energy bars and gels brands Enervit, Named, Sponser and Winforce, for use before, during and after sport",
+      "channels_supplied": "Its own shops in central Lugano: Balmelli Sport, Balmellino (children) and Outlet Sport by Balmelli, plus an online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Lugano's long-established independent sports shop, with a sports nutrition shelf of other brands and staff who advise athletes on what to take. Tier 3 because it is a single family business and its website names the nutrition brands but not the individual products.",
+      "what_they_do_well": [
+        "Family business since 1918, in its Palazzo delle Dogane location since 1962, now run by the third generation."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.balmelli-sport.ch/balmelli-sport-lugano/integratori/integratori_sportivi.html5",
+        "https://www.balmelli-sport.ch/balmelli-lugano-storia.php"
+      ]
+    },
+    {
+      "name": "Fleurop-Interflora (Schweiz) AG",
+      "based_out_of": "Switzerland",
+      "domain": "fleurop.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Gift chocolate such as Munz chocolate bars and chocolate ladybirds from Maestrani and Milka bars, plus chocolate and sweets gift sets sold with flowers",
+      "channels_supplied": "Online gift and flower delivery through partner florists, with 90 minute express delivery in over 1,000 Swiss localities and a B2B gift service",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Switzerland's flower and gift delivery network already sells other brands' chocolate as gifts (Maestrani Munz, Milka) and has a Schokolade and Sweets gift set range, a good home for Diablo's chocolate boxes and gift packs. It delivers gifts across Switzerland, Lugano included, and runs a business gifts channel.",
+      "what_they_do_well": [
+        "Offers express delivery within 90 minutes in over 1,000 Swiss localities.",
+        "Business orders placed by 15:00 are delivered the same day across Switzerland."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.fleurop.ch/de/pl/schokolade-von-maestrani_ids-79",
+        "https://www.fleurop.ch/de/p/milka-alles-gute---110-g/ids-62786",
+        "https://b2b.fleurop.ch/en/s/chocolate-from-maestrani"
+      ]
+    }
+  ]
+}
