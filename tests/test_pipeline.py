@@ -479,3 +479,39 @@ def test_send_waits_for_a_company_without_country(settings):
     logs = []
     result = send.run("test", settings, hs, FakeInstantly(), log=logs.append)
     assert result["queued"] == 0 and any("no Country in HubSpot" in line for line in logs)
+
+
+def test_sync_repairs_emailed_contacts_set_back_to_gate_2(settings):
+    """Ariel, 23 Oct 2026: emailed contacts were bulk-set back to GATE2 by hand, so HubSpot showed
+    nobody as emailed. Button 4 puts them back from what Instantly holds: emailed with no reply goes
+    to Attempted to Contact, a reply to In Progress, not interested to Unqualified."""
+    hs = FakeCRM()
+    co = approved_company(hs, **{CO: "Attempted to Contact"})
+    sent = hs.add("contacts", email="a@noblefoods.in", jobtitle="CEO", **{CO: "APPROVED_TO_SEND"})
+    hs.links[sent] = [co]
+    co2 = approved_company(hs, name="Reply Co", domain="reply.in", **{CO: "Attempted to Contact"})
+    replied = hs.add("contacts", email="b@reply.in", **{CO: "APPROVED_TO_SEND"})
+    hs.links[replied] = [co2]
+    co3 = approved_company(hs, name="No Co", domain="no.in", **{CO: "Attempted to Contact"})
+    declined = hs.add("contacts", email="c@no.in", **{CO: "APPROVED_TO_SEND"})
+    hs.links[declined] = [co3]
+    waiting = hs.add("contacts", email="d@noblefoods.in", **{CO: "APPROVED_TO_SEND"})  # never in Instantly
+    hs.links[waiting] = [co]
+    instantly = FakeInstantly()
+    camp = instantly.create_campaign({"name": "Diablo | OCT2026"})["id"]
+    instantly.leads[camp] += [
+        {"email": "a@noblefoods.in", "timestamp_last_contact": "2026-10-21T09:00:00Z"},
+        {"email": "b@reply.in", "timestamp_last_contact": "2026-10-21T09:00:00Z", "email_reply_count": 1},
+        {"email": "c@no.in", "timestamp_last_contact": "2026-10-21T09:00:00Z", "email_reply_count": 1,
+         "lt_interest_status": -1}]
+    logs = []
+    sync.run("test", settings, hs, instantly, log=logs.append)
+    status = lambda cid: hs.records["contacts"][cid][CO]
+    assert status(sent) == "ATTEMPTED_TO_CONTACT"
+    assert status(replied) == "IN_PROGRESS" and hs.records["companies"][co2][CO] == "In Progress"
+    assert status(declined) == "UNQUALIFIED" and hs.records["companies"][co3][CO] == "Unqualified"
+    assert status(waiting) == "APPROVED_TO_SEND"  # not in Instantly: still waiting its turn
+    assert any("was at GATE2" in line for line in logs)
+    # The send step then emails nobody twice: person 1 is already emailed.
+    result = send.run("test", settings, hs, instantly, log=quiet)
+    assert result["queued"] == 0

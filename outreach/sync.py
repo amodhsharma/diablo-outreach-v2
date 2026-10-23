@@ -422,6 +422,9 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         old = statuses.of("contacts", r)
         if not forward(old, new):
             continue
+        if old == "approved":  # 23 Oct 2026: set back to GATE2 by hand, but Instantly already holds them
+            log(f"{p.get('jobtitle') or 'A contact'} was at GATE2: Approved to send, but Instantly already has "
+                f"them ({event}); set back to {statuses.label('contacts', statuses.props('contacts', new)[LEAD_STATUS])}")
         contact_updates.append((r["id"], statuses.props("contacts", new)))
         changed.append({"contact_id": r["id"], "from": old, "to": new, "event": event,
                         "company_to": company_stage, "jobtitle": p.get("jobtitle") or "contact"})
