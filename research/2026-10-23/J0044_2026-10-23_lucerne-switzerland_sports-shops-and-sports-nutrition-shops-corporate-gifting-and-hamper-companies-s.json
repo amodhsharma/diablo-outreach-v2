@@ -1,0 +1,186 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0044",
+  "location": "Lucerne, Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 58
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 70
+    },
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 61
+    }
+  ],
+  "companies": [
+    {
+      "name": "Triple X Fitness Shop GmbH (online-nutrition.ch)",
+      "based_out_of": "Lucerne, Switzerland",
+      "domain": "online-nutrition.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Protein and muesli bars, protein cookies, cake pastries, chocolate (including Mars, Snickers and M&M's protein lines), spreads and sugar-free syrups, alongside sports supplements",
+      "channels_supplied": "Its own Triple X Fitness Store at Löwenstrasse 5 in Lucerne and its online shop shipping across Switzerland and Liechtenstein",
+      "sf_brands_carried": "Barebells, Quest, Grenade, Mars and Snickers Hi Protein Low Sugar bars; Inlead sugar-free Choc Drops; a Sugarfree Sirup category",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Lucerne city centre sports nutrition store with an online shop whose Protein Bars and Snacks, Aufstriche and Sugarfree Sirup categories carry other companies' bars, cookies, chocolate, spreads and syrups. Its health-conscious shoppers already buy low sugar snacks, so Diablo's bars, cookies, spreads and syrups fit its shelf directly. Note: Inlead sugar-free chocolate drops and sugar-free syrups compete with Diablo.",
+      "what_they_do_well": [
+        "Runs a physical sports nutrition store in central Lucerne plus a national online shop shipping across Switzerland and Liechtenstein.",
+        "Carries a wide branded range including Barebells, ESN, More Nutrition, Optimum Nutrition, Quest and Grenade."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.online-nutrition.ch/",
+        "https://www.online-nutrition.ch/collections/snacks-bars-cookies-chips",
+        "https://www.online-nutrition.ch/policies/shipping-policy",
+        "https://search.ch/tel/luzern/loewenstrasse-5/triple-x-fitness-shop-gmbh.en.html"
+      ]
+    },
+    {
+      "name": "HarderSupps",
+      "based_out_of": "Zug, Switzerland",
+      "domain": "harder-supps.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein and oat bars, cookies (Lenny & Larry's, Mars), oatcakes and energy cakes, chocolate drops, fruit and peanut spreads, flavour syrups and protein snacks",
+      "channels_supplied": "Stores in Zug, Menziken AG and Lörrach (Germany) and its online shop priced in CHF",
+      "sf_brands_carried": "Mars Hi Protein Low Sugar; Inlead Choc Drops, Fruit Spread and Peanut Squeeze",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Swiss sports nutrition retailer whose Riegel and Snacks section lists 182 products from other brands, covering bars, cookies, cakes, chocolate and spreads, sold through its Zug store near Lucerne and online. Diablo's cookies, bars, spreads and syrups match categories it already sells. Note: Inlead sugar-free chocolate drops and spreads compete with Diablo.",
+      "what_they_do_well": [
+        "Runs three physical sports nutrition stores, including Zug in central Switzerland, alongside its online shop.",
+        "Its bars and snacks section lists 182 products from brands such as Lenny & Larry's, ESN, Oat King and Applied Nutrition."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://harder-supps.com/",
+        "https://harder-supps.com/collections/riegel-snacks-1",
+        "https://harder-supps.com/product/barebells-cookies-cream"
+      ]
+    },
+    {
+      "name": "Body Nutrition (bodynutrition.ch)",
+      "based_out_of": "Switzerland",
+      "domain": "bodynutrition.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Protein bars, energy bars, cookies, protein chips and sports drinks from Applied Nutrition, +Watt and GO ON, plus supplements",
+      "channels_supplied": "Its online shop delivering across Switzerland from a Swiss warehouse, with partner accounts for business customers",
+      "sf_brands_carried": "GO ON Protein Bar 33% with no added sugar; Applied Nutrition Diet Protein Bar",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online sports nutrition shop with 500+ products whose Snacks and Drinks section sells other brands' protein bars, energy bars and cookies, delivered nationwide including Lucerne. It already lists a no added sugar bar, so Diablo's bars and cookies suit its shoppers. Its town is not stated on its website.",
+      "what_they_do_well": [
+        "Ships nationwide from a Swiss warehouse with free delivery from CHF 80 and runs a partner account scheme for business buyers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bodynutrition.ch/collections/snacks-drinks",
+        "https://bodynutrition.ch/en/products/applied-nutrition-diet-protein-bar-45g",
+        "https://bodynutrition.ch/en/collections/protein-bars"
+      ]
+    },
+    {
+      "name": "Nutrition Factory (nutritionfactory.ch)",
+      "based_out_of": "Wehr, Germany",
+      "domain": "nutritionfactory.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars, protein cookies and protein snacks from Barebells, Twix, Snickers, ESN, More Nutrition and Olimp, plus supplements and drinks",
+      "channels_supplied": "Its online shop selling in CHF to Swiss shoppers, with free shipping over CHF 100",
+      "sf_brands_carried": "Barebells protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online sports nutrition shop selling to Swiss shoppers in CHF with a Protein Riegel and Cookies range from other brands. It is tier 3 because its footer gives a business address in Wehr, Germany and no Swiss store or warehouse is named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://nutritionfactory.ch/produkt/barebells-protein-riegel/"
+      ]
+    },
+    {
+      "name": "Casagrande AG",
+      "based_out_of": "Lucerne, Switzerland",
+      "domain": "casagrande.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Swiss chocolate and sweets (Lindt and Sprüngli, Toblerone, Cailler), Kambly biscuits and Pastilles des Alpes, alongside souvenirs, cuckoo clocks, pocket knives and watches",
+      "channels_supplied": "Tourists and shoppers through its souvenir stores in Lucerne old town (Grendelstrasse, Kapellgasse, Lion Monument, Hertensteinstrasse) and a St. Moritz branch",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Lucerne's largest souvenir and gift retailer, with a Chocolate and sweets category and brands such as Lindt, Toblerone, Cailler and Kambly among more than 18,000 articles. Diablo's chocolate gift boxes and variety packs suit its tourist gift shelf. Store count for the chocolate range is not stated on its website.",
+      "what_they_do_well": [
+        "Family business trading in Lucerne since 1948, now run by the third generation.",
+        "Described by Lucerne Tourism as the largest souvenir seller in Lucerne."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://casagrande.ch/en/",
+        "https://casagrande.ch/en/brands/",
+        "https://casagrande.ch/en/about/",
+        "https://casagrande.ch/en/stores/",
+        "https://www.luzern.com/de/erleben/shoppen-flanieren/shoppingfuehrer/"
+      ]
+    },
+    {
+      "name": "Changemaker",
+      "based_out_of": "Switzerland",
+      "domain": "changemaker.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Chocolate, chocolate coated fruit and nuts, cookies, spreads, granola, bars in gift boxes and chewing gum, sold as gifts with brands such as UTOPICK and Mahler & Co, plus a Christmas gift range",
+      "channels_supplied": "Shoppers through ten gift shops in German-speaking Switzerland, including Luzern Kramgasse, and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A sustainable gift shop chain with a store in Lucerne old town and a food and drink section selling chocolate, cookies, spreads and bars from small brands as gifts. Its focus on better-for-you, vegan and organic gifts matches Diablo's vegan cookies, spreads and bars.",
+      "what_they_do_well": [
+        "Featured by Lucerne Tourism among five Lucerne shops for creative Christmas gifts."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.changemaker.ch/produktkategorie/essen-trinken/",
+        "https://www.changemaker.ch/produktkategorie/weihnachtsgeschenke/",
+        "https://www.changemaker.ch/standorte/",
+        "https://www.luzern.com/de/blog/5-luzerner-shops-fuer-kreative-weihnachtsgeschenke"
+      ]
+    }
+  ]
+}
