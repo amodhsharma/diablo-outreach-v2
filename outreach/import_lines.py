@@ -141,12 +141,12 @@ def main(argv=None):
     except (PipelineError, HubSpotError) as err:
         print(f"ERROR: {err}", file=sys.stderr)
         lines, code = [f"ERROR: {err}"], 1
+    # 23 Oct 2026 (Ariel): the run's summary page only says something when there is something to say,
+    # in one line per lines file (the full detail stays in the step's log).
     summary = os.environ.get("GITHUB_STEP_SUMMARY")
-    if summary:
+    if summary and lines:
         with open(summary, "a", encoding="utf-8") as fh:
-            fh.write("## Email lines import\n\n" + "\n".join(f"- {l}" for l in lines or ["Nothing to import."])
-                     + "\n\nNext: in HubSpot, read the Outreach personal line of each contact on 'New, Personal line "
-                       "filled', then change their Lead Status to GATE2: Approved to send (gate 2).\n")
+            fh.write("## Email lines\n\n" + "\n".join(f"- {l.split(': ', 1)[-1]}" for l in lines) + "\n")
     return code
 
 
