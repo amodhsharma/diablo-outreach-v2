@@ -27,6 +27,7 @@ import re
 import sys
 
 from . import apollo_status, company_inbox
+from .job_owner import fill_owners, is_job_company, job_owner
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
 import json
@@ -139,6 +140,11 @@ def run(target, settings, hs, apollo, log=print):
         fill_contact_places(hs, log)
     except Exception as err:
         log(f"Could not fill in the contacts' Country: {str(err)[:200]}")
+    try:  # 23 Oct 2026: AUTO-OUTREACH companies and contacts with no owner get the job owner
+        fill_owners(hs, job_owner(settings), log)
+    except Exception as err:
+        log(f"Could not give the job owner to records with no owner: {str(err)[:200]}")
+    cfg = dict(cfg, _job_owner=job_owner(settings))
     approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")],
                                 COMPANY_PROPS + [apollo_status.STOP_REASON],
                                 max_results=cfg["companies_per_run"] * 3)
@@ -300,7 +306,8 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
             break
 
         category = channel_of(p, notes)
-        owner = p.get("hubspot_owner_id") or assigner.pick(market_of(p), category)
+        owner = p.get("hubspot_owner_id") or assigner.pick(market_of(p), category) or (
+            cfg.get("_job_owner") if is_job_company(p, notes) else None) or None  # 23 Oct 2026: the job owner
         if owner and not p.get("hubspot_owner_id"):
             hs.update_tagged("companies", [(cid, {"hubspot_owner_id": owner})])
             row["owner_id"] = owner

@@ -118,6 +118,12 @@ assignment:
   rules: []
   # Used when no rule matches. Empty means those companies stay unassigned.
   default_owners: []
+  # The HubSpot owner of everything the research jobs (J0001 to the latest) bring in (23 Oct 2026,
+  # Ariel): every company a job adds and every contact button 3 adds there, plus any job company or
+  # contact with no owner (filled in at every run of button 3). Records that already have an owner keep
+  # it; AUTO-OUTREACH records from before the jobs are left alone. An owner ID (HubSpot: Settings >
+  # Users & Teams); leave empty to switch it off.
+  job_owner_id: "38945050"
 
 send:
   contacts_per_run: 200
