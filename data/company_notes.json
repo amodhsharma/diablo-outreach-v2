@@ -1219,6 +1219,25 @@
     "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "bonbons-shop.com": {
+    "name": "Bonbons Shop",
+    "based_out_of": "Saint-Maurice, Switzerland",
+    "market": "Lausanne, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An online sweet shop for Romandie with sections for festive sweets, Halloween mystery bags and gift vouchers, which already sells Haribo and a sugar-free sweets range to shoppers. It is small and serves Lausanne by delivery; the brands in its sugar-free section are not named on its website.",
+    "what_they_do_well": [
+      "Runs dedicated halal, vegan and sugar-free sweets sections for shoppers across French-speaking Switzerland."
+    ],
+    "distributes": "Sweets: Haribo, gummies and jelly sweets, sour and sugared sweets, liquorice, halal, vegan and sugar-free sweets, party and festive sweets, mystery bags",
+    "channels_supplied": "Its own online shop for French-speaking Switzerland, with pickup at its Saint-Maurice premises",
+    "sf_brands_carried": "A sugar-free sweets category (brands not named on its website)",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0043_2026-10-23_lausanne-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "bonizzi.ch": {
     "name": "Alberto Bonizzi AG",
     "based_out_of": "Zürich, Switzerland",
@@ -1458,6 +1477,25 @@
     "sf_brands_carried": "Organic and health food listed as a category; no sugar-free confectionery brand named.",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json"
+  },
+  "cadeaux24.ch": {
+    "name": "Geschenkparadies.ch AG (cadeaux24.ch)",
+    "based_out_of": "Switzerland (town not shown on its website)",
+    "market": "Lausanne, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Swiss gift shop with a French site that already sells many branded chocolate, sweets and spread gifts and advent calendars to shoppers in Lausanne and Romandie. Diablo's gift boxes, variety packs and advent calendars fit its seasonal occasions directly, and it already lists a sugar-free sweets calendar (GIVYN).",
+    "what_they_do_well": [
+      "Runs a large Swiss advent calendar range for 2026, from Lindt and Ferrero chocolate to Haribo and sugar-free sweets."
+    ],
+    "distributes": "Gift and seasonal online shop: chocolate advent calendars and gift boxes (Lindt, Ferrero, Kinder), Nutella spread calendars, sweets (Haribo, Chupa Chups, American sweets boxes) and snacks (Pringles, Zweifel)",
+    "channels_supplied": "Its own online shops cadeaux24.ch (French) and geschenkparadies.ch (German), delivering to shoppers across Switzerland",
+    "sf_brands_carried": "GIVYN sugar-free sweets advent calendar",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0043_2026-10-23_lausanne-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "campograndeperu.com": {
     "name": "Campo Grande Perú",
