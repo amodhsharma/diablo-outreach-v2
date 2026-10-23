@@ -1,5 +1,44 @@
 {
-  "generated_at": "2026-10-23T01:00:30+00:00",
+  "generated_at": "2026-10-23T03:31:40+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "899803844813",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "NOWFIT Sports Nutrition Sagl",
+        "domain": "nowfit.store",
+        "location": "Lugano, Switzerland",
+        "channel": "Retailers",
+        "based_out_of": "Lugano, Switzerland",
+        "distributes": "Protein bars, keto wafer cookies and protein snacks from other brands (Pro Nutrition, Ethic Sport) alongside sports nutrition",
+        "channels_supplied": "Its own online shop, direct sales at its Viganello (Lugano) office and warehouse by appointment, and gyms, fitness centres, food stores, shopping centres and vending operators",
+        "sf_brands_carried": "Keto wafer cookies and high protein bars from Pro Nutrition and Ethic Sport",
+        "what_they_do_well": [
+          "Sells from its Lugano warehouse to shoppers and to gyms, food stores, shopping centres and vending operators, with sales offices in Wallisellen and Meyrin."
+        ],
+        "fit_rationale": "A Lugano-based sports nutrition retailer that already sells bars and wafer cookies from other brands to health-conscious shoppers, and also supplies gyms, food stores and vending operators. Diablo's bars, wafers and cookies match that shelf. It holds stock at its Viganello warehouse."
+      }
+    },
+    {
+      "contact_id": "899883189493",
+      "job_title": "Geschäftsführer | Mitinhaber",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vitaminplus (Welldro AG)",
+        "domain": "vitaminplus.ch",
+        "location": "Lugano, Switzerland",
+        "channel": "Retailers",
+        "based_out_of": "Sargans, Switzerland",
+        "distributes": "Protein bars (Sponser, Lifefood) and a healthy snacks section alongside vitamins and natural food",
+        "channels_supplied": "Its online shop with druggist advice, and the Welldro drugstores",
+        "sf_brands_carried": "Lifefood raw bars and Sponser protein bars",
+        "what_they_do_well": [],
+        "fit_rationale": "The online shop of the Welldro drugstores, with a healthy snacks section and bars from outside brands. Diablo's bars and snacks fit its health-conscious shoppers. Tier 3 because food is a small shelf in a mostly supplements range and the drugstore count is not stated on its website."
+      }
+    }
+  ]
 }
