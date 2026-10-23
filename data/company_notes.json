@@ -318,6 +318,25 @@
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "alur.ch": {
+    "name": "Alur Running Trail",
+    "based_out_of": "Carouge, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A running and trail specialist in Carouge whose brand page lists a nutrition shelf with Naak, Overstims and Maurten, all bars and energy food bought from outside brands. Tier 3 because it is one shop with no online shop shown.",
+    "what_they_do_well": [
+      "Offers gait analysis and sports podiatry alongside running brands such as Hoka, On and Asics."
+    ],
+    "distributes": "Energy bars and sports nutrition from Naak, Overstims and Maurten",
+    "channels_supplied": "Its single running and trail store in Carouge, Geneva",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "amavita.ch": {
     "name": "Amavita Apotheken (Galenicare)",
     "based_out_of": "Bern, Switzerland",
@@ -810,6 +829,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "bcyclet.com": {
+    "name": "Bcyclet",
+    "based_out_of": "Plan-les-Ouates, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Geneva bike shop that names healthy snacks in its accessories range, the same kind of food shelf as Unihockey Center. Tier 3 because it is one shop, its snack brands are not named on its website and its online shop is still being built.",
+    "what_they_do_well": [
+      "Carries premium cycling brands such as Colnago, Orbea, Apidura and Cafe du Cycliste."
+    ],
+    "distributes": "Healthy snacks alongside bikes and cycling accessories",
+    "channels_supplied": "Its single bike store in Plan-les-Ouates, Geneva",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
   },
   "benoitpopcorn.com": {
     "name": "Benoit Ciné Distribution (Benoit Promotion)",
@@ -1561,6 +1598,26 @@
     "research_file": "research/2026-10-19/J0003_2026-10-19_vienna-austria_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "cbonbons.ch": {
+    "name": "C'BONBONS",
+    "based_out_of": "Geneva, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Geneva online sweet shop with over 400 references from other brands, including a sugar-free and a vegan section, and gift products such as bonbonnières and mystery boxes. Diablo's gummies, hard sweets and gift boxes match its range directly. It has no physical shop, so it is tier 3.",
+    "what_they_do_well": [
+      "Offers over 400 sweet references with dedicated vegan and sugar-free sections.",
+      "Rated 4.5 out of 5 from 41 Trustpilot reviews."
+    ],
+    "distributes": "Sweets: gummies, jelly sweets, sour sweets, vegan and sugar-free sweets and hard sweets from brands such as Ricola and Hitschies, plus candy gift boxes, mystery boxes and pick and mix sweets",
+    "channels_supplied": "Its own online shop delivering across Switzerland, plus Uber Eats delivery in Geneva",
+    "sf_brands_carried": "Sugar-free fruit jellies and Ricola sugar-free; the sugar-free jelly brand is not named on its website",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "cdgroup.ch": {
     "name": "Choco-diffusion SA",
     "based_out_of": "Le Locle, Switzerland",
@@ -1875,6 +1932,26 @@
     "sf_brands_carried": "NEOH reduced-sugar bars; the wider Conaxess group lists Nick's, Keast KETO and TWEEK, but Swiss availability of these is not confirmed.",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json"
+  },
+  "confiserie-jellyfish.ch": {
+    "name": "Confiserie Jellyfish",
+    "based_out_of": "Carouge, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An owner-run sweet shop in Carouge selling traditional sweets from France, England, the Netherlands and Switzerland, with a sugar-free line and gift boxes for Christmas, Easter and events. Diablo's sugar-free sweets and gift boxes fit its celebration and gifting trade. One shop plus online, so tier 3.",
+    "what_they_do_well": [
+      "Builds custom sweet boxes for weddings, birthdays, baby showers and corporate events.",
+      "Stocks sweets from France, England, the Netherlands and Switzerland, including vegan and gluten-free options."
+    ],
+    "distributes": "Sweets from European makers: jelly sweets, wine gums, liquorice, toffees, hard sweets, sugar-free sweets and branded pastilles such as Leone and Vichy, sold for gifts and celebrations",
+    "channels_supplied": "Its own shop in Carouge, an online shop and sweet boxes for weddings, birthdays and corporate events",
+    "sf_brands_carried": "Sugar-free hard sweets listed; brands not named",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "coop.co.uk": {
     "name": "Co-op (Co-operative Group)",
@@ -7670,6 +7747,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "rochat-cycles.ch": {
+    "name": "Rochat Cycles",
+    "based_out_of": "Aubonne, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Lake Geneva bike retailer with a shop and a showroom in Geneva that stocks branded energy bars for cyclists in its shops. Diablo's vegan muesli bars fit next to the Baouw bars it already sells. No online shop is shown on its website.",
+    "what_they_do_well": [
+      "Has served cyclists around Lake Geneva since 1998, now with five sites including two in Geneva.",
+      "Took over the former Cycles Colin store in Vevey."
+    ],
+    "distributes": "Organic and vegan energy bars (Baouw) held in stock in its shops",
+    "channels_supplied": "Its own shops: Geneva (Rue du Perron), Geneva showroom, Aubonne road and MTB stores and Vevey",
+    "sf_brands_carried": "Baouw organic and vegan energy bars",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "rogerswholesalefoods.co.uk": {
     "name": "Rogers Wholesale Foods",
     "based_out_of": "Poole, United Kingdom",
@@ -8600,6 +8697,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
+  "supremefoodshop.ch": {
+    "name": "Supremefoodshop",
+    "based_out_of": "Villars-sur-Glane, Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Swiss sports nutrition shop that says it selects products from recognised brands and has bars, cookies, snacks and spreads categories, the closest match to Diablo's catalogue in this channel. It serves Geneva through its Swiss online shop; delivery area not stated on its website.",
+    "what_they_do_well": [
+      "Runs both a physical store at Cormanon Centre and a Swiss online shop for sports nutrition."
+    ],
+    "distributes": "Protein and energy bars, cookies, snacks, spreads and desserts from recognised sports nutrition brands such as BioTechUSA, Body Attack, Trec Nutrition, Powerstar Food and Best Body Nutrition",
+    "channels_supplied": "Its online shop for customers across Switzerland and its store at Cormanon Centre, Villars-sur-Glane",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "supta.ge": {
     "name": "Supta.ge (AID Group)",
     "based_out_of": "Tbilisi, Georgia",
@@ -8722,6 +8838,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "swiss-snackbox.com": {
+    "name": "Swiss Snack Box",
+    "based_out_of": "Switzerland",
+    "market": "Geneva, Switzerland",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A gift box company that buys full size packs from other brands such as Cailler, Kambly, Kägi and Zweifel and resells them in themed boxes, including to corporate clients. Small and founded in 2025, and its city and legal entity are not stated on its website. Storage: sells from its own stock, warehouse not named on its website; boxes are hand packed and dispatched from Switzerland.",
+    "what_they_do_well": [
+      "Builds themed boxes of 10 full size snacks from known brands such as Cailler, Kambly and Zweifel."
+    ],
+    "distributes": "Gift boxes of branded snacks: chocolate (Cailler), biscuits and pastries (Kambly, Kägi), crisps (Zweifel), sweet and savoury snacks and popcorn from Switzerland, Germany and the USA",
+    "channels_supplied": "Own online shop to shoppers and corporate clients, free delivery across Switzerland and shipping to Europe and Canada",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "swissfoodbox.ch": {
