@@ -1,5 +1,109 @@
 {
-  "generated_at": "2026-10-23T19:00:32+00:00",
+  "generated_at": "2026-10-23T21:31:46+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "900680388822",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Balmelli Sport (Società Anonima Giovanni Balmelli \"Faspea\")",
+        "domain": "balmelli-sport.ch",
+        "location": "Lugano, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Lugano, Switzerland",
+        "distributes": "Sports nutrition shelf with energy bars and gels brands Enervit, Named, Sponser and Winforce, for use before, during and after sport",
+        "channels_supplied": "Its own shops in central Lugano: Balmelli Sport, Balmellino (children) and Outlet Sport by Balmelli, plus an online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family business since 1918, in its Palazzo delle Dogane location since 1962, now run by the third generation."
+        ],
+        "fit_rationale": "Lugano's long-established independent sports shop, with a sports nutrition shelf of other brands and staff who advise athletes on what to take. Tier 3 because it is a single family business and its website names the nutrition brands but not the individual products."
+      }
+    },
+    {
+      "contact_id": "900719291608",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "derSportShop.ch",
+        "domain": "dersportshop.ch",
+        "location": "St. Gallen, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Gossau SG, Switzerland",
+        "distributes": "Sports nutrition from Sponser and Ultra Sports, makers of energy bars and gels, alongside running shoes, clothing and watches",
+        "channels_supplied": "Its own sports shop in Gossau near St. Gallen and its online shop sportshoponline.ch",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Specialist running and sports shop in Gossau stocking Hoka, Brooks, Mizuno, Salomon and Garmin, with an online shop."
+        ],
+        "fit_rationale": "A sports shop in Gossau, about 10 km from St. Gallen, whose website says it sells nutrition (Ernährung) with clothing and shoes, naming the sports nutrition brands Sponser and Ultra Sports. Its runners and endurance customers are the health-conscious shoppers Diablo targets. Tier 3 because it is a single small shop with limited opening hours and the size of its food shelf is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "900749199569",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Fleurop-Interflora (Schweiz) AG",
+        "domain": "fleurop.ch",
+        "location": "Lugano, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Switzerland",
+        "distributes": "Gift chocolate such as Munz chocolate bars and chocolate ladybirds from Maestrani and Milka bars, plus chocolate and sweets gift sets sold with flowers",
+        "channels_supplied": "Online gift and flower delivery through partner florists, with 90 minute express delivery in over 1,000 Swiss localities and a B2B gift service",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Offers express delivery within 90 minutes in over 1,000 Swiss localities.",
+          "Business orders placed by 15:00 are delivered the same day across Switzerland."
+        ],
+        "fit_rationale": "Switzerland's flower and gift delivery network already sells other brands' chocolate as gifts (Maestrani Munz, Milka) and has a Schokolade and Sweets gift set range, a good home for Diablo's chocolate boxes and gift packs. It delivers gifts across Switzerland, Lugano included, and runs a business gifts channel."
+      }
+    },
+    {
+      "contact_id": "900772810973",
+      "job_title": "Gründerin & Partner",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Gustobox GmbH",
+        "domain": "gustobox.ch",
+        "location": "St. Gallen, Switzerland",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Herisau, Switzerland",
+        "distributes": "Corporate gift boxes with chocolate and sweets (46 items), nuts, snacks and chips, syrups, honey and drinks from partner brands such as Bischofberger, Chocolaterie Koelbener, Gottlieber, Taucherli and Goba",
+        "channels_supplied": "Companies in Switzerland and Liechtenstein, including Raiffeisen, St. Galler Kantonalbank, Migros Ostschweiz and Adecco Group; delivery to client sites or direct to recipients by Swiss Post",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Hand-packs about 100,000 gifts a year with around 120 partner producers since 2015.",
+          "Counts St. Galler Kantonalbank, Raiffeisen and Migros Ostschweiz among its corporate clients."
+        ],
+        "fit_rationale": "The leading corporate gift box company next to St. Gallen, buying packaged chocolate, sweets and snacks from about 120 partner brands and hand-packing them into gifts for Eastern Swiss firms. Its partners are Swiss and Liechtenstein producers. Storage: packs from its own Manufaktur in Herisau, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "900749199568",
+      "job_title": "Coo/cmo",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Fleurop-Interflora (Schweiz) AG",
+        "domain": "fleurop.ch",
+        "location": "Lugano, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Switzerland",
+        "distributes": "Gift chocolate such as Munz chocolate bars and chocolate ladybirds from Maestrani and Milka bars, plus chocolate and sweets gift sets sold with flowers",
+        "channels_supplied": "Online gift and flower delivery through partner florists, with 90 minute express delivery in over 1,000 Swiss localities and a B2B gift service",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Offers express delivery within 90 minutes in over 1,000 Swiss localities.",
+          "Business orders placed by 15:00 are delivered the same day across Switzerland."
+        ],
+        "fit_rationale": "Switzerland's flower and gift delivery network already sells other brands' chocolate as gifts (Maestrani Munz, Milka) and has a Schokolade and Sweets gift set range, a good home for Diablo's chocolate boxes and gift packs. It delivers gifts across Switzerland, Lugano included, and runs a business gifts channel."
+      }
+    }
+  ]
 }
