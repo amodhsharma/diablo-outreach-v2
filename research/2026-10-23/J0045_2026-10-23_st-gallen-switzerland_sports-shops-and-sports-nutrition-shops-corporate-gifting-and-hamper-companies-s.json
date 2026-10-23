@@ -1,0 +1,199 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0045",
+  "location": "St. Gallen, Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 88
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 45
+    },
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 59
+    }
+  ],
+  "companies": [
+    {
+      "name": "online-nutrition.ch (Triple X Fitness Shop GmbH)",
+      "based_out_of": "Lucerne, Switzerland",
+      "domain": "online-nutrition.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein and oat bars, protein cookies, chocolate drops, wafers and snacks, chocolate hazelnut spread, peanut butter and fruit spread (jam), plus sports nutrition",
+      "channels_supplied": "Its own store in Lucerne and a Swiss online shop delivering across Switzerland, including St. Gallen",
+      "sf_brands_carried": "Low sugar bars from Mars, Snickers and Inlead (Zuckerarm choc drops); no direct sugar-free confectionery competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A multi-brand sports nutrition retailer whose Protein Bars and Snacks section lists 58 items from brands such as Barebells, Quest, Grenade, ESN and Oat King, and whose spreads section sells chocolate hazelnut spread, peanut butter and fruit spread. Diablo's bars, cookies, spreads and chocolate fit straight onto shelves already stocked with other brands for health-conscious shoppers. It serves St. Gallen through its national online shop.",
+      "what_they_do_well": [
+        "Runs a physical store in Lucerne alongside a national online shop.",
+        "Stocks bars and snacks from about 18 brands, including Barebells, Quest, Grenade and ESN."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.online-nutrition.ch/",
+        "https://www.online-nutrition.ch/collections/snacks-bars-cookies-chips",
+        "https://www.online-nutrition.ch/collections/aufstriche"
+      ]
+    },
+    {
+      "name": "Nutrition Factory",
+      "based_out_of": "Wehr, Germany",
+      "domain": "nutritionfactory.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars and wafer bars (Barebells, More Nutrition), soft cookies (Ahead), peanut butter (VAST) and sports nutrition",
+      "channels_supplied": "Online shop for Swiss customers, priced in CHF with free delivery in Switzerland from CHF 100",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss-facing online sports nutrition shop that sells bars, cookies and peanut butter from other brands alongside ESN, More Nutrition and Optimum Nutrition. Tier 3 because its listed address is in Germany and the dispatch location and Swiss reach are not stated on its website.",
+      "what_they_do_well": [
+        "Carries leading sports nutrition brands such as ESN, More Nutrition, Optimum Nutrition and Barebells for Swiss shoppers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://nutritionfactory.ch/marke/barebells/",
+        "https://nutritionfactory.ch/?store-page=ESN-c125654503"
+      ]
+    },
+    {
+      "name": "derSportShop.ch",
+      "based_out_of": "Gossau SG, Switzerland",
+      "domain": "dersportshop.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Sports nutrition from Sponser and Ultra Sports, makers of energy bars and gels, alongside running shoes, clothing and watches",
+      "channels_supplied": "Its own sports shop in Gossau near St. Gallen and its online shop sportshoponline.ch",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A sports shop in Gossau, about 10 km from St. Gallen, whose website says it sells nutrition (Ernährung) with clothing and shoes, naming the sports nutrition brands Sponser and Ultra Sports. Its runners and endurance customers are the health-conscious shoppers Diablo targets. Tier 3 because it is a single small shop with limited opening hours and the size of its food shelf is not stated on its website.",
+      "what_they_do_well": [
+        "Specialist running and sports shop in Gossau stocking Hoka, Brooks, Mizuno, Salomon and Garmin, with an online shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.dersportshop.ch/",
+        "https://www.findglocal.com/CH/Gossau/203959579678313/Der-Sport-Shop---Gossau"
+      ]
+    },
+    {
+      "name": "Gustobox GmbH",
+      "based_out_of": "Herisau, Switzerland",
+      "domain": "gustobox.ch",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Corporate gift boxes with chocolate and sweets (46 items), nuts, snacks and chips, syrups, honey and drinks from partner brands such as Bischofberger, Chocolaterie Koelbener, Gottlieber, Taucherli and Goba",
+      "channels_supplied": "Companies in Switzerland and Liechtenstein, including Raiffeisen, St. Galler Kantonalbank, Migros Ostschweiz and Adecco Group; delivery to client sites or direct to recipients by Swiss Post",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The leading corporate gift box company next to St. Gallen, buying packaged chocolate, sweets and snacks from about 120 partner brands and hand-packing them into gifts for Eastern Swiss firms. Its partners are Swiss and Liechtenstein producers. Storage: packs from its own Manufaktur in Herisau, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Hand-packs about 100,000 gifts a year with around 120 partner producers since 2015.",
+        "Counts St. Galler Kantonalbank, Raiffeisen and Migros Ostschweiz among its corporate clients."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://gustobox.ch/",
+        "https://gustobox.ch/ueber-uns",
+        "https://gustobox.ch/collect-concept/shop",
+        "https://www.gottlieber.ch/en/about-us/retailer"
+      ]
+    },
+    {
+      "name": "Cantasy",
+      "based_out_of": "Zurich, Switzerland",
+      "domain": "cantasy.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sweets and gummies from Haribo, Bubs and Katjes, imported sweets from many countries and custom candy mixes",
+      "channels_supplied": "Its own online candy shop, delivering in Switzerland",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online candy shop from Zurich selling branded and imported sweets in CHF to Swiss shoppers, including St. Gallen. It is small and its website does not state its company name or delivery area, hence tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://cantasy.ch/"
+      ]
+    },
+    {
+      "name": "Suess und Sauer",
+      "based_out_of": "Switzerland",
+      "domain": "suessundsauer.shop",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Sweets and gummies (Haribo, Trolli), chocolate bars (Snickers, Twix, Kinder), wafers (Balconi), crisps and snacks and a 2026 advent calendar",
+      "channels_supplied": "Its own online candy shop, shipping to Switzerland and Liechtenstein",
+      "sf_brands_carried": "Fisherman's Friend Sugarfree and zero sugar drinks",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss online candy shop selling many international sweet and chocolate brands plus a seasonal advent calendar to shoppers across Switzerland. It is small, many lines show as sold out and its company name is not on the home page, hence tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://suessundsauer.shop/"
+      ]
+    },
+    {
+      "name": "Monsterzeug",
+      "based_out_of": "Hannover, Germany",
+      "domain": "monsterzeug.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Sweet and chocolate gifts, including a sweets gift box with Haribo gummies, Hanuta wafers, Valensina sweets and Mars chocolate bars",
+      "channels_supplied": "Its Swiss online gift shop monsterzeug.ch, priced in CHF",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online gift shop with Swiss pricing whose 'Suesse Geschenke' and 'Schokoladen Geschenke' sections sell branded sweets and chocolate as gifts. It is based in Germany and its Swiss delivery terms are not stated on the pages seen, hence tier 3.",
+      "what_they_do_well": [
+        "Has run its online gift shop since 2008."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.monsterzeug.ch/Suessigkeiten-Geschenkbox.html",
+        "https://www.erfahrungen.com/mit/monsterzeug/"
+      ]
+    }
+  ]
+}
