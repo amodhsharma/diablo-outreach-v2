@@ -901,6 +901,25 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
+  "bergzeit.ch": {
+    "name": "Bergzeit",
+    "based_out_of": "Otterfing, Germany",
+    "market": "Basel, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A large outdoor and mountain sports web shop with a Swiss site whose sports nutrition section has its own energy bar category with Clif Bar and PowerBar. It reaches outdoor and sports shoppers in Basel and the rest of Switzerland online; it has no Basel store.",
+    "what_they_do_well": [
+      "Online outdoor retailer since 1999, running a dedicated Swiss shop in CHF."
+    ],
+    "distributes": "Energy bars, protein bars, cereal bars, energy gels and trekking food from other brands",
+    "channels_supplied": "Swiss online shop bergzeit.ch with prices in CHF and TWINT payment, delivering across Switzerland",
+    "sf_brands_carried": "Clif Bar, PowerBar Natural Energy and Natural Vegan Protein bars, Chimpanzee",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0041_2026-10-23_basel-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Nobody in Apollo at bergzeit.ch, but 25 with an email at bergzeit.de, the company's other website (its contact address uses it); button 3 searches there"
+  },
   "bernasconifood.ch": {
     "name": "Bernasconi SA",
     "based_out_of": "Cadempino, Switzerland",
@@ -7783,6 +7802,24 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "rosebikes.ch": {
+    "name": "ROSE Bikes Switzerland",
+    "based_out_of": "Meilen, Switzerland (part of ROSE Bikes, Bocholt, Germany)",
+    "market": "Basel, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A bike retailer whose Swiss online shop sells a nutrition range of other brands' bars, from Clif Bar and PowerBar to Multipower protein bars, to cyclists in Basel and across Switzerland. Its only Swiss store is in Meilen, so Basel is reached online.",
+    "what_they_do_well": [
+      "Opened a flagship store of over 800 m2 in Meilen with more Swiss branches planned."
+    ],
+    "distributes": "Carbohydrate bars, protein bars and oat snack bars from other brands",
+    "channels_supplied": "Swiss online shop rosebikes.ch and its Meilen store",
+    "sf_brands_carried": "PowerBar, Clif Bar, Xenofit, Dextro Energy, Enervit, Multipower",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0041_2026-10-23_basel-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
+  },
   "roseconfectionery.com": {
     "name": "Rose Confectionery",
     "based_out_of": "Dublin, Ireland",
@@ -8519,6 +8556,25 @@
     "sf_brands_carried": "Gluten free specialist; sugar free brands not verified.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "stadtlandkorb.ch": {
+    "name": "Stadt Land Korb (J&H Boutique GmbH)",
+    "based_out_of": "Diegten, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Basel-Landschaft hamper company whose Suesses collection holds 54 products from other brands such as Jakob's, Straumann and Tsueri Schoggi, assembled into corporate and private gift baskets. Its corporate volumes into Basel employers such as Roche, Lonza and Bachem give Diablo's gift boxes, chocolate and biscuits a route to large corporate buyers. Its range is built on Swiss suppliers, so Diablo's gifting and seasonal packs would be pitched as a better-for-you option. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Delivered 10,800 corporate gifts for PostFinance and further projects for Mercedes-Benz, Roche and Siemens.",
+      "Runs branded gift web shops where employees or clients choose their own gift."
+    ],
+    "distributes": "Gift baskets and gift sets with chocolate bars, chocolate coated almonds, toffees and cream sweets (Jakob's Basler Rahmtaefeli), biscuits and wafers (Jakob's Basler Leckerly, Straumann Hueppen) plus honey, syrups and drinks.",
+    "channels_supplied": "Own online shop to shoppers and corporate gifts for companies such as PostFinance, Roche, Lonza, Bachem, Mercedes-Benz, Siemens and Intersport, with branded employee gift web shops.",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0041_2026-10-23_basel-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
   },
   "staffordlynch.ie": {
     "name": "Stafford Lynch",
@@ -10096,6 +10152,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "xocolatl.ch": {
+    "name": "Xocolatl - Die Welt der Schokolade (Xocolatl GmbH)",
+    "based_out_of": "Basel, Switzerland",
+    "market": "Basel, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Basel chocolate and gift shop that stocks hundreds of chocolate bars from other makers, shelved like a library, alongside gift items. It is a single shop focused on ethically produced chocolate, so it is small and reaches no other shops. Website did not open; trading confirmed on basel.com and myswitzerland.com.",
+    "what_they_do_well": [
+      "Stocks handmade chocolate bars from over 40 manufacturers from many countries in one Basel old town shop."
+    ],
+    "distributes": "Chocolate bars from over 40 other manufacturers, pralines, dragees, drinking chocolates and chocolate gift items",
+    "channels_supplied": "Its own shop and café at Marktgasse 6 in Basel's old town, plus its own online shop for its house line",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0041_2026-10-23_basel-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "yaguar.com.ar": {
     "name": "Supermercados Mayoristas Yaguar S.A.",
