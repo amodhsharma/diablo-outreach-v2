@@ -1,0 +1,15 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-23T06:49:44+00:00",
+  "lines": [
+    {
+      "contact_id": "899793699050",
+      "company_name": "volgshop",
+      "personal_line": "Your team's work in running an online shop for customers in Switzerland speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    }
+  ]
+}
