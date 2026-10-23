@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-23T19:38:18+00:00 (UTC).
+Checked 2026-10-23T22:37:52+00:00 (UTC).
 
 ## Mailboxes
 
@@ -26,7 +26,7 @@ Checked 2026-10-23T19:38:18+00:00 (UTC).
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (45 of 45) | Dana from Diablo | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (40 of 40) | Elize from Diablo | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (44 of 44) | Elize from Diablo | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (60 of 60) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (32 of 32) | Joshua from Diablo | 30 | none |
@@ -60,14 +60,14 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - Campaign status: Active
 - Instantly says: **daily_limit_met**. Campaign has reached its daily sending limit
-- Instantly's explanation: The campaign is currently paused because it has hit its daily sending limit of 10 emails. It also cannot send because no email accounts are connected. To resume sending, wait for the daily limit to reset and connect at least one sending account.
+- Instantly's explanation: The campaign is currently paused because it has reached its daily sending limit of 10 emails for today. It also cannot send any emails as there are no connected email accounts. To resume sending, please connect at least one email account and consider increasing the daily sending limit if you need to send more emails per day.
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 10, "sent": 10, "limit_hit": true}`
 - new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 0, "available": 0, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
 - leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-23T19:31:28.548Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-23T22:33:36.288Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
 - Leads: 33
