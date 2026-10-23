@@ -1533,6 +1533,23 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
+  "cantasy.ch": {
+    "name": "Cantasy",
+    "based_out_of": "Zurich, Switzerland",
+    "market": "St. Gallen, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An online candy shop from Zurich selling branded and imported sweets in CHF to Swiss shoppers, including St. Gallen. It is small and its website does not state its company name or delivery area, hence tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Sweets and gummies from Haribo, Bubs and Katjes, imported sweets from many countries and custom candy mixes",
+    "channels_supplied": "Its own online candy shop, delivering in Switzerland",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0045_2026-10-23_st-gallen-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "caporaso.ch": {
     "name": "Caporaso AG",
     "based_out_of": "Wuerenlingen, Switzerland",
@@ -2558,6 +2575,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "dersportshop.ch": {
+    "name": "derSportShop.ch",
+    "based_out_of": "Gossau SG, Switzerland",
+    "market": "St. Gallen, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A sports shop in Gossau, about 10 km from St. Gallen, whose website says it sells nutrition (Ernährung) with clothing and shoes, naming the sports nutrition brands Sponser and Ultra Sports. Its runners and endurance customers are the health-conscious shoppers Diablo targets. Tier 3 because it is a single small shop with limited opening hours and the size of its food shelf is not stated on its website.",
+    "what_they_do_well": [
+      "Specialist running and sports shop in Gossau stocking Hoka, Brooks, Mizuno, Salomon and Garmin, with an online shop."
+    ],
+    "distributes": "Sports nutrition from Sponser and Ultra Sports, makers of energy bars and gels, alongside running shoes, clothing and watches",
+    "channels_supplied": "Its own sports shop in Gossau near St. Gallen and its online shop sportshoponline.ch",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0045_2026-10-23_st-gallen-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "dimexa.com.pe": {
     "name": "Dimexa S.A.",
@@ -4423,6 +4459,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "gustobox.ch": {
+    "name": "Gustobox GmbH",
+    "based_out_of": "Herisau, Switzerland",
+    "market": "St. Gallen, Switzerland",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "The leading corporate gift box company next to St. Gallen, buying packaged chocolate, sweets and snacks from about 120 partner brands and hand-packing them into gifts for Eastern Swiss firms. Its partners are Swiss and Liechtenstein producers. Storage: packs from its own Manufaktur in Herisau, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Hand-packs about 100,000 gifts a year with around 120 partner producers since 2015.",
+      "Counts St. Galler Kantonalbank, Raiffeisen and Migros Ostschweiz among its corporate clients."
+    ],
+    "distributes": "Corporate gift boxes with chocolate and sweets (46 items), nuts, snacks and chips, syrups, honey and drinks from partner brands such as Bischofberger, Chocolaterie Koelbener, Gottlieber, Taucherli and Goba",
+    "channels_supplied": "Companies in Switzerland and Liechtenstein, including Raiffeisen, St. Galler Kantonalbank, Migros Ostschweiz and Adecco Group; delivery to client sites or direct to recipients by Swiss Post",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0045_2026-10-23_st-gallen-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json"
   },
   "gustoso.ch": {
     "name": "Gustoso AG",
@@ -6373,6 +6428,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
+  },
+  "monsterzeug.ch": {
+    "name": "Monsterzeug",
+    "based_out_of": "Hannover, Germany",
+    "market": "St. Gallen, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An online gift shop with Swiss pricing whose 'Suesse Geschenke' and 'Schokoladen Geschenke' sections sell branded sweets and chocolate as gifts. It is based in Germany and its Swiss delivery terms are not stated on the pages seen, hence tier 3.",
+    "what_they_do_well": [
+      "Has run its online gift shop since 2008."
+    ],
+    "distributes": "Sweet and chocolate gifts, including a sweets gift box with Haribo gummies, Hanuta wafers, Valensina sweets and Mars chocolate bars",
+    "channels_supplied": "Its Swiss online gift shop monsterzeug.ch, priced in CHF",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0045_2026-10-23_st-gallen-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "morrisons.com": {
     "name": "Morrisons",
@@ -8872,6 +8946,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "suessundsauer.shop": {
+    "name": "Suess und Sauer",
+    "based_out_of": "Switzerland",
+    "market": "St. Gallen, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Swiss online candy shop selling many international sweet and chocolate brands plus a seasonal advent calendar to shoppers across Switzerland. It is small, many lines show as sold out and its company name is not on the home page, hence tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Sweets and gummies (Haribo, Trolli), chocolate bars (Snickers, Twix, Kinder), wafers (Balconi), crisps and snacks and a 2026 advent calendar",
+    "channels_supplied": "Its own online candy shop, shipping to Switzerland and Liechtenstein",
+    "sf_brands_carried": "Fisherman's Friend Sugarfree and zero sugar drinks",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0045_2026-10-23_st-gallen-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "suesswaren-grosshaendler.de": {
     "name": "Süßwaren Albrecht GmbH",
