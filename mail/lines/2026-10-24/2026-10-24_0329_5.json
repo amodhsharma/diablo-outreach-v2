@@ -1,0 +1,43 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-24",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-23T21:31:46+00:00",
+  "lines": [
+    {
+      "contact_id": "900680388822",
+      "company_name": "Balmelli Sport (Società Anonima Giovanni Balmelli \"Faspea\")",
+      "personal_line": "We have great respect for the way your team has served athletes and active families as a family business for generations. Your customers already put real effort into their sport, and we believe sugar free snacks next to the sports nutrition they come in for may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "equips athletes and active families with sports equipment and nutrition",
+      "style": "E"
+    },
+    {
+      "contact_id": "900719291608",
+      "company_name": "derSportShop.ch",
+      "personal_line": "We have great respect for the way your team advises runners and endurance athletes on the right shoes and gear. Your customers already train with care, and we believe sugar free snacks alongside the sports nutrition they come in for may suit those very same runners. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "specialises in running gear and sports nutrition for endurance athletes",
+      "style": "E"
+    },
+    {
+      "contact_id": "900749199569",
+      "company_name": "Fleurop-Interflora (Schweiz) AG",
+      "personal_line": "Your team's work in building express gift delivery through a nationwide network of partner florists speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "sells chocolate and sweets gift sets alongside its flowers",
+      "style": "B"
+    },
+    {
+      "contact_id": "900772810973",
+      "company_name": "Gustobox GmbH",
+      "personal_line": "We have great respect for the way your team hand-packs gifts from partner producers for companies and their people. Your corporate clients send gifts to a great many recipients, and we believe sugar free chocolate and sweets may suit those very same clients who would welcome such an option. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "puts together chocolate and sweets gift boxes for companies",
+      "style": "E"
+    },
+    {
+      "contact_id": "900749199568",
+      "company_name": "Fleurop-Interflora (Schweiz) AG",
+      "personal_line": "We hold your team in high regard for pairing flowers with chocolate and sweets gift sets through your partner florists. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "sells chocolate and sweets gift sets alongside its flowers",
+      "style": "D"
+    }
+  ]
+}
