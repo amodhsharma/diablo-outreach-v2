@@ -1,0 +1,130 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0043",
+  "location": "Lausanne, Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 59
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 50
+    },
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 72
+    }
+  ],
+  "companies": [
+    {
+      "name": "Body Nutrition",
+      "based_out_of": "Switzerland",
+      "domain": "bodynutrition.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sports nutrition with a snacks and drinks section: protein bars, energy bars, cookies and protein chips from other brands, plus low calorie sauces",
+      "channels_supplied": "Its own online shop, delivering to shoppers across Switzerland including Lausanne from a Swiss warehouse",
+      "sf_brands_carried": "Callowfit low calorie sauces; better for you bar and snack brands such as All Stars, Body Attack and Applied Nutrition",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Swiss online sports nutrition store with more than 500 products and its own snacks and drinks section selling protein bars, energy bars and cookies from other brands to health conscious shoppers. It already sells Callowfit low calorie sauces, which compete with Diablo's dessert toppings, so Diablo's bars, cookies and spreads would sit beside known brands. Tier 3 because it is a single online shop and its head office address is not stated on its website.",
+      "what_they_do_well": [
+        "States it is an authorised partner of Applied Nutrition, +Watt and BPR Nutrition.",
+        "Holds all its products in a warehouse in Switzerland for delivery across the country."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bodynutrition.ch/",
+        "https://bodynutrition.ch/collections/snacks-drinks",
+        "https://bodynutrition.ch/en/collections/callowfit"
+      ]
+    },
+    {
+      "name": "Geschenkparadies.ch AG (cadeaux24.ch)",
+      "based_out_of": "Switzerland (town not shown on its website)",
+      "domain": "cadeaux24.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift and seasonal online shop: chocolate advent calendars and gift boxes (Lindt, Ferrero, Kinder), Nutella spread calendars, sweets (Haribo, Chupa Chups, American sweets boxes) and snacks (Pringles, Zweifel)",
+      "channels_supplied": "Its own online shops cadeaux24.ch (French) and geschenkparadies.ch (German), delivering to shoppers across Switzerland",
+      "sf_brands_carried": "GIVYN sugar-free sweets advent calendar",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Swiss gift shop with a French site that already sells many branded chocolate, sweets and spread gifts and advent calendars to shoppers in Lausanne and Romandie. Diablo's gift boxes, variety packs and advent calendars fit its seasonal occasions directly, and it already lists a sugar-free sweets calendar (GIVYN).",
+      "what_they_do_well": [
+        "Runs a large Swiss advent calendar range for 2026, from Lindt and Ferrero chocolate to Haribo and sugar-free sweets."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cadeaux24.ch/occasion/calendrier-de-lavent"
+      ]
+    },
+    {
+      "name": "YourSurprise",
+      "based_out_of": "Zierikzee, Netherlands",
+      "domain": "yoursurprise.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Personalised gifts including branded chocolate and sweets: Lindt, Toblerone, Milka, Kinder, KitKat, Ritter Sport, Tony's Chocolonely, M&M's, Haribo sweets gift boxes, Mentos and Oreo biscuits",
+      "channels_supplied": "Its own online shop with a Swiss site in German and French (yoursurprise.ch and yoursurprise.ch/fr), selling to shoppers",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A European online gift shop with a French Swiss site that sells other companies' chocolate bars, sweets and biscuits in personalised gift packaging to shoppers, including in Lausanne. Diablo's chocolate bars, gift boxes and sweets would add a sugar-free gift option to a range with no sugar-free line shown.",
+      "what_they_do_well": [
+        "Sells personalised packs of well-known chocolate brands such as Lindt, Toblerone and Milka, with names, messages or photos on the packaging."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.yoursurprise.eu/chocolate-and-sweets/branded-chocolate"
+      ]
+    },
+    {
+      "name": "Bonbons Shop",
+      "based_out_of": "Saint-Maurice, Switzerland",
+      "domain": "bonbons-shop.com",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sweets: Haribo, gummies and jelly sweets, sour and sugared sweets, liquorice, halal, vegan and sugar-free sweets, party and festive sweets, mystery bags",
+      "channels_supplied": "Its own online shop for French-speaking Switzerland, with pickup at its Saint-Maurice premises",
+      "sf_brands_carried": "A sugar-free sweets category (brands not named on its website)",
+      "competing_brand_flag": null,
+      "fit_rationale": "An online sweet shop for Romandie with sections for festive sweets, Halloween mystery bags and gift vouchers, which already sells Haribo and a sugar-free sweets range to shoppers. It is small and serves Lausanne by delivery; the brands in its sugar-free section are not named on its website.",
+      "what_they_do_well": [
+        "Runs dedicated halal, vegan and sugar-free sweets sections for shoppers across French-speaking Switzerland."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bonbons-shop.com/"
+      ]
+    }
+  ]
+}
