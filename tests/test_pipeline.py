@@ -233,6 +233,8 @@ def test_hierarchy_levels(settings):
 
 
 def test_find_contacts_collects_the_top_four_once(settings):
+    # The mechanism with 4 per company (the setting before 23 Oct 2026); live uses 2, checked below.
+    settings["contacts"].update(per_company=4, max_reveals_per_company=5)
     hs = FakeCRM()
     cid = approved_company(hs, name="Big Co", domain="big.in")
     titles = ["Sales Executive", "Purchase Manager", "Assistant Director", "Regional Director",
@@ -439,3 +441,10 @@ def test_paid_lookups_are_saved_even_when_hubspot_refuses_a_contact(settings, mo
     assert [c["email"] for c in hs.records["contacts"].values()] == ["ok@noblefoods.in"]
     kept = find_contacts.load_skipped(find_contacts.KEPT_FILE)
     assert kept["p1"] == "not added" and kept["p2"] in hs.records["contacts"]
+
+
+def test_two_contacts_per_company_from_23_oct():
+    """Ariel, 23 Oct 2026: only person 1 is emailed for now, so 2 contacts per company are enough."""
+    from outreach.common import load_settings
+    cfg = load_settings()["contacts"]
+    assert cfg["per_company"] == 2 and cfg["max_reveals_per_company"] == 3
