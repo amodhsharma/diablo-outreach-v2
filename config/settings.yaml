@@ -10,10 +10,12 @@ contacts:
   # (see hierarchy below). They are emailed one at a time, most senior first (see send).
   # To go deeper after all of them got no reply, set the company back to Approved and run
   # "Find contacts" again: it reveals the next ones and never pays for the same person twice.
-  per_company: 4
+  # 2 from 23 Oct 2026 (Ariel: only person 1 is emailed for now, the second is the spare in case an
+  # address bounces); 4 before.
+  per_company: 2
   # Most emails to reveal per company while trying to reach per_company verified ones.
-  # Apollo charges about 1 credit per email revealed, verified or not.
-  max_reveals_per_company: 5
+  # Apollo charges about 1 credit per email revealed, verified or not. 3 from 23 Oct 2026 (5 before).
+  max_reveals_per_company: 3
   # Most companies to process in one run.
   companies_per_run: 25
   # Stop revealing emails once this many Apollo credits are used in one run.
@@ -140,7 +142,7 @@ send:
   # FOLLOW-UPS TO PEOPLE SWITCHED OFF (21 Oct 2026, Ariel: follow-ups make us look desperate). Only
   # person 1's introduction is sent; the forwards to colleagues (every 3 days) and person 1's
   # reminder (after a week) described above are kept, not removed, and come back when this is set
-  # to true. Up to 4 contacts are still found and approved, in case an address does not work: when
+  # to true. Up to 2 contacts are found and approved (23 Oct 2026), in case an address does not work: when
   # person 1's email bounces, the introduction goes to the next approved person at the next run.
   follow_ups_to_people: false
   # The company inbox's one reminder (info@ and the like, templates.reminder_company_inbox) is
