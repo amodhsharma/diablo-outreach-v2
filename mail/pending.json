@@ -1,24 +1,5 @@
 {
-  "generated_at": "2026-10-23T06:49:44+00:00",
+  "generated_at": "2026-10-23T06:59:52+00:00",
   "target": "live",
-  "contacts": [
-    {
-      "contact_id": "899793699050",
-      "job_title": "IT Project Manager",
-      "seniority": "Managers",
-      "rank": 1,
-      "company": {
-        "name": "volgshop",
-        "domain": "volgshop.ch",
-        "location": "Switzerland",
-        "channel": "Online Retailer",
-        "based_out_of": "",
-        "distributes": "",
-        "channels_supplied": "",
-        "sf_brands_carried": "",
-        "what_they_do_well": [],
-        "fit_rationale": ""
-      }
-    }
-  ]
+  "contacts": []
 }
