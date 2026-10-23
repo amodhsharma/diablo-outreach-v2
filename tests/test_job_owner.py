@@ -52,7 +52,12 @@ def test_records_with_no_owner_get_it_and_others_keep_theirs():
 
 def test_button_3_gives_new_contacts_the_job_owner(monkeypatch):
     monkeypatch.setattr(common, "NOTES_FILE", common.RUNS_DIR / "notes.json")
-    common.save_company_notes(NOTES | {"alpha.example": {"research_file": "research/2026-10-23/J0046_x.json"}})
+    common.save_company_notes({"alpha.example": {"research_file": "research/2026-10-23/J0046_x.json"},
+                               "old.example": {"research_file": "research/2026-10-14/J0003_old.json"}})
+    queue = common.RUNS_DIR / "queue.csv"
+    queue.write_text("job_id,output_file\nJ0046,research/2026-10-23/J0046_x.json\n")
+    monkeypatch.setattr(job_owner, "QUEUE_FILE", queue)
+    assert set(job_owner.job_notes()) == {"alpha.example"}  # notes from the test runs before 20 Oct do not count
     hs = FakeCRM()
     cid = hs.add("companies", name="Alpha", domain="alpha.example", country="Switzerland",
                  hs_lead_status="GATE1: Approved for outreach")

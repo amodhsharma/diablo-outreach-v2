@@ -1,7 +1,8 @@
 """The HubSpot owner of everything the research jobs bring in (agreed 23 Oct 2026, Ariel).
 
-"The jobs" are the research jobs J0001 to the latest: a company counts when a job added it to HubSpot
-(its domain is in data/company_notes.json, which every job import fills, or it carries a Job Number).
+"The jobs" are the research jobs J0001 to the latest in research/queue.csv: a company counts when one
+of them added it to HubSpot (data/company_notes.json names the job's file for its domain, or it carries
+a Job Number). Notes left from the test runs before 20 Oct 2026 do not count.
 Every company a job adds, and every contact button 3 adds at such a company, gets the owner set in
 config/settings.yaml (assignment.job_owner_id, a HubSpot owner ID). Job companies and their contacts
 with no owner get it at the start of every run of button 3, so the earlier jobs are filled in too. A
@@ -10,8 +11,12 @@ owner follows its company's owner when the company has one. AUTO-OUTREACH record
 from a job (for example from the earlier version of the pipeline) are left alone.
 """
 
-from .common import load_company_notes
+import csv
+
+from .common import ROOT, load_company_notes
 from .schema import JOB_NUMBER
+
+QUEUE_FILE = ROOT / "research" / "queue.csv"
 
 OWNER = "hubspot_owner_id"
 
@@ -22,10 +27,21 @@ def job_owner(settings):
     return str(value).strip() if value not in (None, "") else ""
 
 
-def is_job_company(props, notes=None):
-    """True when a research job added this company (J0001 onwards)."""
-    props = props.get("properties", props) or {}
+def job_notes(notes=None, queue_file=None):
+    """The company notes (by domain) of the companies the jobs in the queue added."""
     notes = load_company_notes() if notes is None else notes
+    try:
+        with open(queue_file or QUEUE_FILE, newline="", encoding="utf-8") as f:
+            files = {r.get("output_file") for r in csv.DictReader(f) if r.get("output_file")}
+    except OSError:
+        files = set()
+    return {d: n for d, n in notes.items() if n.get("research_file") in files}
+
+
+def is_job_company(props, notes=None):
+    """True when a research job (J0001 onwards) added this company. notes: job_notes()."""
+    props = props.get("properties", props) or {}
+    notes = job_notes() if notes is None else notes
     domain = (props.get("domain") or "").strip().lower()
     return bool(props.get(JOB_NUMBER)) or bool(domain and domain in notes)
 
@@ -36,7 +52,7 @@ def fill_owners(hs, owner, log=print, limit=5000, notes=None):
     done = {"companies": 0, "contacts": 0}
     if not owner:
         return done
-    notes = load_company_notes() if notes is None else notes
+    notes = job_notes() if notes is None else notes
     no_owner = [{"propertyName": OWNER, "operator": "NOT_HAS_PROPERTY"}]
     companies = [r for r in hs.tagged_search("companies", no_owner, [OWNER, "domain", JOB_NUMBER], max_results=limit)
                  if not (r.get("properties") or {}).get(OWNER) and is_job_company(r, notes)]
