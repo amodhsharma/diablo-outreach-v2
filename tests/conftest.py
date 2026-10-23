@@ -2,6 +2,14 @@ import pytest
 
 
 @pytest.fixture(autouse=True)
+def no_real_run_summary(monkeypatch):
+    """Tests never write to the GitHub run's summary page (23 Oct 2026, Ariel: the made-up companies of the
+    tests, such as Beta Foods and Noble Foods, showed up on every button's summary). A test that checks
+    the summary sets its own file."""
+    monkeypatch.delenv("GITHUB_STEP_SUMMARY", raising=False)
+
+
+@pytest.fixture(autouse=True)
 def no_real_websites(monkeypatch):
     """No test ever visits a real website for a company's contact address (company_inbox.py);
     tests that need one replace find_inbox themselves."""
