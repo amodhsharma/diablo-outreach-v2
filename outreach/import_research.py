@@ -30,6 +30,7 @@ from .common import (
     now_iso, save_company_notes, split_location,
 )
 from .hubspot_client import HubSpot, HubSpotError
+from .apollo_status import missing_apollo_props
 from .import_checks import INBOX_NOTE, Checker
 from .schema import INDUSTRY_TYPE, JOB_NUMBER, TIER
 from .stages import LeadStatus
@@ -195,8 +196,10 @@ def import_file(path, rows, hs, settings, log=print, checker=None, target="live"
             if decision == "keep" and reason and r.get("domain"):  # e.g. the company inbox note
                 notes[r["domain"]]["import_check"] = reason
                 inbox += reason == INBOX_NOTE
-            if decision == "missing_info":
-                r.update(statuses.props("companies", "missing_info"))
+            if decision in ("missing_info", "missing_apollo"):
+                # 23 Oct 2026: Apollo holding nobody has its own Lead Status, "Missing info on Apollo".
+                r.update(missing_apollo_props(hs, statuses) if decision == "missing_apollo"
+                         else statuses.props("companies", "missing_info"))
                 if r.get("domain"):
                     notes[r["domain"]]["import_check"] = reason
                 missing += 1
@@ -231,8 +234,8 @@ def import_file(path, rows, hs, settings, log=print, checker=None, target="live"
             continue
         rq.set_status(rows, job_id, line["channel"], status, reason, ran_on=data["run_date"], output_file=name)
     queued = queue_next(rows, job_id, data, settings)
-    return (f"{name}: {created} companies added to HubSpot ({created - missing} as New, {missing} as Missing Info: "
-            f"no working website or nobody in Apollo), {existing} already in HubSpot, {len(dropped)} left out "
+    return (f"{name}: {created} companies added to HubSpot ({created - missing} as New, {missing} as Missing Info or "
+            f"Missing info on Apollo: no working website or nobody in Apollo), {existing} already in HubSpot, {len(dropped)} left out "
             "(low confidence and failed a check)" + (f": {'; '.join(dropped)}" if dropped else "")
             + (f". {inbox} of the New ones have nobody in Apollo; their website's contact address will be "
                "emailed" if inbox else "") + queued)

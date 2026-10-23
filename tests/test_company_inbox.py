@@ -119,10 +119,10 @@ def test_import_keeps_a_company_with_a_website_inbox_as_new():
     checker.find_inbox = lambda domain, **k: "info@alpha.example" if domain == "alpha.example" else None
     decision, reason = checker.check("alpha.example", "high")
     assert decision == "keep" and "contact address on the company's website" in reason
-    assert checker.check("beta.example", "high") == ("missing_info", "Apollo holds nobody with an email at this website")
+    assert checker.check("beta.example", "high") == ("missing_apollo", "Apollo holds nobody with an email at this website")
     off = ic.Checker({"website": False}, apollo=NoOne(), log=quiet)  # switched off: Missing Info as before
     off.find_inbox = lambda domain, **k: "info@alpha.example"
-    assert off.check("alpha.example", "high")[0] == "missing_info"
+    assert off.check("alpha.example", "high")[0] == "missing_apollo"  # 23 Oct 2026: its own status
 
 
 def _settings():

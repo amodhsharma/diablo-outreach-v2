@@ -6,7 +6,11 @@ account itself, so the code works whatever the account calls a choice internally
 
     Step                                       Company                       Contact
     Research found it / contact found          New                           New
-    No website, or no contacts found           Missing Info
+    No website, or no contact found anywhere   Missing Info
+    by button 3
+    Apollo holds nobody and the website no     Missing info on Apollo
+    usable address (23 Oct 2026): set it to
+    GATE1 and button 3 searches everywhere
     Gate 1: a person approves the company      GATE1: Approved for outreach
     Email lines written                                                      "New, Personal line filled"
     Gate 2: a person approves the wording                                    GATE2: Approved to send
@@ -37,6 +41,9 @@ STAGES = {
     "companies": {
         "found": "New",
         "missing_info": "Missing Info",
+        # 23 Oct 2026 (Ariel): Apollo holds nobody and the website shows no usable address. A person may
+        # still set it to GATE1; button 3 then searches everywhere and gives it contacts or "Missing Info".
+        "missing_apollo": "Missing info on Apollo",
         "approved": "GATE1: Approved for outreach",
         "in_outreach": "Attempted to Contact",
         "replied": "In Progress",
@@ -75,7 +82,7 @@ EMAILED = ("in_outreach", "forwarded", "reminded")
 # account's style: companies use the label itself, contacts use capitals).
 NEW_OPTION_VALUES = {
     "companies": {"GATE1: Approved for outreach": "GATE1: Approved for outreach", "Missing Info": "Missing Info",
-                  "New": "New", "Attempted to Contact": "Attempted to Contact",
+                  "Missing info on Apollo": "Missing info on Apollo", "New": "New", "Attempted to Contact": "Attempted to Contact",
                   "In Progress": "In Progress", "Unqualified": "Unqualified",
                   "Contacted, but no response, unqualified": "Contacted, but no response, unqualified"},
     "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
@@ -89,7 +96,7 @@ NEW_OPTION_VALUES = {
 }
 
 # Later stages win: a status only ever moves forward.
-ORDER = {"": 0, "found": 0, "missing_info": 0, "copy_ready": 0, "approved": 0,
+ORDER = {"": 0, "found": 0, "missing_info": 0, "missing_apollo": 0, "copy_ready": 0, "approved": 0,
          "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3,
          "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2,
          "company_unqualified": 3, "no_response": 3}

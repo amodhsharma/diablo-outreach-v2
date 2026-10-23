@@ -26,7 +26,7 @@ import os
 import re
 import sys
 
-from . import company_inbox
+from . import apollo_status, company_inbox
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
 import json
@@ -139,7 +139,8 @@ def run(target, settings, hs, apollo, log=print):
         fill_contact_places(hs, log)
     except Exception as err:
         log(f"Could not fill in the contacts' Country: {str(err)[:200]}")
-    approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")], COMPANY_PROPS,
+    approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")],
+                                COMPANY_PROPS + [apollo_status.STOP_REASON],
                                 max_results=cfg["companies_per_run"] * 3)
     # Companies that already have their contacts wait for gate 2 and their emails, not for Apollo.
     # Only AUTO-OUTREACH contacts count (HubSpot may link a team contact by itself).
@@ -164,7 +165,14 @@ def run(target, settings, hs, apollo, log=print):
             save_skipped(skipped)
         if len(kept) != before[1]:
             save_skipped(kept, KEPT_FILE)
-    summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows}
+    try:  # 23 Oct 2026: "Missing info on Apollo" companies; never stops the run
+        apollo_status.tidy(hs, statuses, log)
+        summary_apollo = apollo_status.recheck(hs, apollo, statuses, log)
+    except Exception as err:
+        summary_apollo = {}
+        log(f'Could not check the "Missing info on Apollo" companies again: {str(err)[:200]}')
+    summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows,
+               "missing_info_on_apollo": summary_apollo}
     write_json(out_dir / "summary.json", summary)
     # The contacts just added, for step 3 of button 3 (agreed 15 Oct 2026): HubSpot's search can
     # take a minute to show new records, so the list of who needs lines adds these by their ID.
@@ -372,8 +380,11 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
             created = add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=inbox_email,
                                         place=place_of(p))
             inbox = bool(created)
-        if not created:
-            hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
+        if not created:  # 23 Oct 2026: nobody in Apollo and no usable address anywhere
+            hs.update_tagged("companies", [(cid, apollo_status.nowhere_props(hs, statuses))])
+        elif str(p.get(apollo_status.STOP_REASON) or "").startswith(apollo_status.APOLLO_NOBODY) \
+                and apollo_status.has_reason_field(hs):
+            hs.update_tagged("companies", [(cid, {apollo_status.STOP_REASON: ""})])  # contacts found after all
         status = "company inbox added" if inbox else "contacts found" if created else "no contacts found"
         with_email = sum(1 for x in people if x.get("has_email", True))
         row["contact_ids"] = [str(c["id"]) for c in created]  # for the list of who needs lines

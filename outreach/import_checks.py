@@ -126,6 +126,7 @@ def apollo_people(apollo, domain):
     return sum(1 for p in people if p.get("has_email", True))
 
 
+APOLLO_NOBODY_REASON = "Apollo holds nobody with an email at this website"
 INBOX_NOTE = ("No people in Apollo: the contact address on the company's website will be emailed "
               "(greeting the team and asking them to pass it on)")
 
@@ -197,7 +198,8 @@ class Checker:
             return None
 
     def check(self, domain, confidence, name=None):
-        """(decision, reason). decision: keep, missing_info or drop."""
+        """(decision, reason). decision: keep, missing_info, missing_apollo (23 Oct 2026: Apollo holds
+        nobody and the website shows no usable address) or drop."""
         try:
             reason = ""
             if not domain:
@@ -217,7 +219,7 @@ class Checker:
                         return "keep", other_domain_note(domain, other, people)
                     self.counts["company_inbox"] += 1
                     return "keep", INBOX_NOTE
-                reason = "Apollo holds nobody with an email at this website"
+                reason = APOLLO_NOBODY_REASON
                 self.counts["apollo"] += 1
         except Exception as err:
             self.log(f"Check skipped for {domain}: {type(err).__name__}")
@@ -227,4 +229,4 @@ class Checker:
         if self.drop_low and str(confidence or "").lower() == "low":
             self.counts["dropped"] += 1
             return "drop", reason
-        return "missing_info", reason
+        return ("missing_apollo" if reason == APOLLO_NOBODY_REASON else "missing_info"), reason

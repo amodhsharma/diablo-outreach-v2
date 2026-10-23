@@ -13,7 +13,11 @@ Rules for the address:
       1. the website itself moves visitors to it (a redirect), or
       2. its name matches the company's name (cofi.fr for "COFI (Comptoir France-Italie)"), or
       3. the website links to it (not a "site by ..." credit or a social network) and the address is
-         a purchasing, sales or general one (info@, contact@ ...).
+         a purchasing, sales or general one (info@, contact@ ...), or
+      4. the website's own pages (its impressum or legal notice) name the company that owns that
+         domain, with its legal form, and the address is a purchasing, sales or general one (agreed
+         23 Oct 2026, after McDrogerie: mcdrogerie.ch shows info@health-and-life.ch and its impressum
+         names health and life AG, which runs the shop).
     Addresses of web agencies, partners or anyone else are still never used;
   - never no-reply, privacy or data protection, jobs or careers, HR, press, webmaster or similar;
   - when there are several: purchasing first, then sales, then general (info@, office@ ...), then
@@ -50,7 +54,7 @@ _DOT = re.compile(r"\s*[\[\(\{]\s*(?:dot|DOT|punkt|\.)\s*[\]\)\}]\s*")
 # platforms every site links to.
 CREDIT_WORDS = re.compile(r"r[ée]alis[ée]|con[cç]u|conception|d[ée]velopp[ée]|cr[ée]{1,2} par|site by|website by|"
                           r"designed by|design by|made by|built by|powered by|propuls[ée]|webdesign|web design|"
-                          r"webagentur|agence|agency|erstellt|umsetzung|realizzat|creado|hosted|h[ée]berg",
+                          r"webagentur|agence|agency|erstellt|umsetzung|realizzat|creado|hosted|hosting|h[ée]berg",
                           re.I)
 PLATFORMS = ("facebook.com", "instagram.com", "linkedin.com", "twitter.com", "x.com", "youtube.com", "tiktok.com",
              "pinterest.com", "google.com", "goo.gl", "apple.com", "wordpress.org", "wordpress.com", "wix.com",
@@ -183,6 +187,42 @@ def sister_domains(page_html, base, domain):
     return out
 
 
+# Legal forms that follow a company's name in an impressum or legal notice ("health and life AG").
+LEGAL_FORMS = r"(?:ag|gmbh|sa|s\.a\.|s[aà]rl|sas|ltd|limited|llc|inc|bv|nv|srl|s\.r\.l\.|spa|s\.p\.a\.|kg|oy|ab|" \
+              r"a/s|plc|s\.r\.o\.|sp\. z o\.o\.|ug|se)"
+
+
+def _page_text(page_html):
+    text = re.sub(r"<(script|style)\b.*?</\1>", " ", page_html or "", flags=re.I | re.S)
+    text = html_lib.unescape(re.sub(r"<[^>]+>", " ", text)).lower()
+    return " ".join(text.split())
+
+
+def named_on_page(host, page_html):
+    """True when the page names the company that owns the domain, with its legal form: "health and
+    life AG" for health-and-life.ch, "COFI SA" for cofi.fr. The name part must be 3 letters or more."""
+    words = re.findall(r"[a-z0-9]+", _label(host))
+    if not words or len("".join(words)) < 3:
+        return False
+    pattern = r"(?<![a-z0-9])" + r"[\s\-&.]*".join(map(re.escape, words)) + r"[\s,]*" + LEGAL_FORMS + r"(?![a-z])"
+    text = _page_text(page_html)
+    for m in re.finditer(pattern, text):
+        # Never whoever built or hosts the site ("Webdesign: Webagence SA", "Hosting: Hostpoint AG").
+        if not CREDIT_WORDS.search(text[max(0, m.start() - 60):m.start()]):
+            return True
+    return False
+
+
+def named_domains(emails, domain, page_html):
+    """Other domains among the addresses whose owner the page names (rule 4 at the top)."""
+    out = set()
+    for e in emails:
+        host = e.rsplit("@", 1)[-1].lower()
+        if not on_domain(e, domain) and not _is_platform(host) and named_on_page(host, page_html):
+            out.add(_bare(host))
+    return out
+
+
 def own_domain(email, domain, name=None, redirected=(), linked=()):
     """True when the address is on the company's own domain or one that clearly belongs to it
     (see the rules at the top)."""
@@ -288,6 +328,7 @@ def find_inbox(domain, session=None, mail_check=None, timeout=(5, 8), name=None)
             redirected.add(moved)  # the website sends visitors to the company's other domain
         found += emails_in(home)
         linked |= sister_domains(home, home_url, domain)
+        linked |= named_domains(found, domain, home)  # rule 4: the page names the domain's owner
         queue += _links(home, home_url, domain)
         for d in redirected:
             queue += _links(home, home_url, d)
@@ -303,6 +344,7 @@ def find_inbox(domain, session=None, mail_check=None, timeout=(5, 8), name=None)
         if text:
             found += [e for e in emails_in(text) if e not in found]
             linked |= sister_domains(text, page_url, domain)
+            linked |= named_domains(found, domain, text)
         choice = best(found, domain, name, redirected, linked)
         if choice is not None and rank(choice) == 0:
             break  # a purchasing address: nothing better to find

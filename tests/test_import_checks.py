@@ -64,7 +64,7 @@ def test_checker_decisions():
                          "empty.example": [{"id": "2", "has_email": False}]})
     checker = ic.Checker({}, apollo=apollo, session=web, resolver=lambda d: True, log=lambda _: None)
     assert checker.check("good.example", "high") == ("keep", "")
-    assert checker.check("empty.example", "medium")[0] == "missing_info"
+    assert checker.check("empty.example", "medium")[0] == "missing_apollo"  # 23 Oct 2026: its own status
     assert checker.check("cheap.example", "high")[0] == "missing_info"
     assert checker.check("cheap.example", "low")[0] == "drop"
     assert checker.check("", "low")[0] == "drop" and checker.check("", "high")[0] == "missing_info"
