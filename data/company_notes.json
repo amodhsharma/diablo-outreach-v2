@@ -796,6 +796,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "balmelli-sport.ch": {
+    "name": "Balmelli Sport (Società Anonima Giovanni Balmelli \"Faspea\")",
+    "based_out_of": "Lugano, Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "Lugano's long-established independent sports shop, with a sports nutrition shelf of other brands and staff who advise athletes on what to take. Tier 3 because it is a single family business and its website names the nutrition brands but not the individual products.",
+    "what_they_do_well": [
+      "Family business since 1918, in its Palazzo delle Dogane location since 1962, now run by the third generation."
+    ],
+    "distributes": "Sports nutrition shelf with energy bars and gels brands Enervit, Named, Sponser and Winforce, for use before, during and after sport",
+    "channels_supplied": "Its own shops in central Lugano: Balmelli Sport, Balmellino (children) and Outlet Sport by Balmelli, plus an online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0046_2026-10-23_lugano-switzerland_sports-shops-and-sports-nutrition-shops-seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "barlu.de": {
     "name": "BARLU Lebensmittel-Service GmbH",
     "based_out_of": "Velten, Germany",
@@ -3625,6 +3644,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "fleurop.ch": {
+    "name": "Fleurop-Interflora (Schweiz) AG",
+    "based_out_of": "Switzerland",
+    "market": "Lugano, Switzerland",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Switzerland's flower and gift delivery network already sells other brands' chocolate as gifts (Maestrani Munz, Milka) and has a Schokolade and Sweets gift set range, a good home for Diablo's chocolate boxes and gift packs. It delivers gifts across Switzerland, Lugano included, and runs a business gifts channel.",
+    "what_they_do_well": [
+      "Offers express delivery within 90 minutes in over 1,000 Swiss localities.",
+      "Business orders placed by 15:00 are delivered the same day across Switzerland."
+    ],
+    "distributes": "Gift chocolate such as Munz chocolate bars and chocolate ladybirds from Maestrani and Milka bars, plus chocolate and sweets gift sets sold with flowers",
+    "channels_supplied": "Online gift and flower delivery through partner florists, with 90 minute express delivery in over 1,000 Swiss localities and a B2B gift service",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0046_2026-10-23_lugano-switzerland_sports-shops-and-sports-nutrition-shops-seasonal-and-gift-shops.json"
   },
   "florayfauna.pe": {
     "name": "Flora & Fauna",
