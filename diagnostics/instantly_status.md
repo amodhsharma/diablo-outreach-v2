@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-23T13:38:23+00:00 (UTC).
+Checked 2026-10-23T16:37:46+00:00 (UTC).
 
 ## Mailboxes
 
@@ -60,14 +60,14 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - Campaign status: Active
 - Instantly says: **daily_limit_met**. Campaign has reached its daily sending limit
-- Instantly's explanation: Your campaign has hit its daily sending limit, having already sent 10 emails today. It is currently paused because of this limit and also has no email accounts connected to send from. To ensure future emails can be sent, please connect the necessary sending accounts; the campaign should resume sending tomorrow after the daily limit resets.
+- Instantly's explanation: Your campaign is currently paused because it has reached its daily sending limit of 10 emails. Additionally, there are no email accounts connected to this campaign, which prevents any emails from being sent. To resume sending, you need to wait for the daily limit to reset and connect at least one email account to the campaign.
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 10, "sent": 10, "limit_hit": true}`
 - new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 0, "available": 0, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
 - leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-23T13:33:25.790Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-23T16:32:45.252Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
 - Leads: 33
