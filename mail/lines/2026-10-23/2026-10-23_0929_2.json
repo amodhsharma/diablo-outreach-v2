@@ -1,0 +1,22 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-23T03:31:40+00:00",
+  "lines": [
+    {
+      "contact_id": "899803844813",
+      "company_name": "NOWFIT Sports Nutrition Sagl",
+      "personal_line": "Your range, from keto wafer cookies to high protein bars, reflects a careful choice of brands for active, health-conscious customers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "sells protein bars and snacks to health-conscious customers",
+      "style": "C"
+    },
+    {
+      "contact_id": "899883189493",
+      "company_name": "Vitaminplus (Welldro AG)",
+      "personal_line": "Your range, from raw bars to protein bars, reflects a careful choice of products for health-conscious shoppers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "sells raw bars and protein snacks through its online shop",
+      "style": "C"
+    }
+  ]
+}
