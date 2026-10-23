@@ -3968,6 +3968,26 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
   },
+  "geschenkkorb.ch": {
+    "name": "geschenkkorb.ch",
+    "based_out_of": "Huettwilen, Switzerland",
+    "market": "Bern, Switzerland",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A one-woman corporate gifting business that has packed branded chocolate, biscuits and sweets into Christmas and Easter gift bags for companies since 2013. Diablo chocolate, gummies and wafers suit these bags for health-conscious staff. Tier 3 because it is small and seasonal; delivery area not stated on its website. Storage: buys and packs the sweets itself, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Has packed and shipped Samichlaus bags to companies and clubs since 2013.",
+      "Ships gifts individually to each employee or client address."
+    ],
+    "distributes": "Filled Samichlaus gift bags and Easter gift packs with chocolate (Kaegi, chocolate coins, Santas, eggs and bunnies), biscuits (Gottlieber Hueppen, Spitzbueb, Lebkuchen) and chewy sweets (Frutas)",
+    "channels_supplied": "Companies and clubs buying staff and client gifts, with shipping to each employee or client address",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0042_2026-10-23_bern-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "ghioldisa.ch": {
     "name": "Ghioldi SA",
     "based_out_of": "Stabio, Switzerland",
@@ -5105,6 +5125,25 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
+  "k-muscle-nutrition.ch": {
+    "name": "K-Muscle Nutrition",
+    "based_out_of": "Ostermundigen, Switzerland",
+    "market": "Bern, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An owner-run sports nutrition shop on the edge of Bern that sells bars, snacks, syrups and sauces from other brands such as Weider, Optimum Nutrition, More Nutrition and Rabeko to gym-goers. It already sells zero-sugar syrups, so Diablo's syrups, toppings, bars and cookies fit its shelf; it is tier 3 because it is a single small shop and its store count and delivery area are not stated beyond its Ostermundigen address.",
+    "what_they_do_well": [
+      "Founded by a bodybuilding champion who selects the brands it stocks, such as ESN, More Nutrition and Optimum Nutrition."
+    ],
+    "distributes": "Protein bars and wafer bars, food and snacks, zero-calorie syrups and sauces, plus protein powders and supplements",
+    "channels_supplied": "Own location at Bernstrasse 34 in Ostermundigen (Bern) with opening hours, and its own online shop",
+    "sf_brands_carried": "More Nutrition (Zerup zero syrup), Rabeko sauces, ESN, Weider, Optimum Nutrition and Stacker2 bars",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0042_2026-10-23_bern-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "kadonawholesale.ie": {
     "name": "Kadona Wholesale",
     "based_out_of": "Cavan, Ireland",
@@ -5475,6 +5514,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "lavanda.ch": {
+    "name": "Lavanda Feinkost Blaser & Dugumovic",
+    "based_out_of": "Burgdorf, Switzerland",
+    "market": "Bern, Switzerland",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "An Emmental hamper company 20 km from Bern whose Suesses und Salziges section lists 54 packaged sweets and snacks, including UK and Australian brands such as Mrs. Tilly's and Tim Tam. It builds gift sets for companies, so Diablo chocolate, biscuits and gift boxes would sit next to brands it already buys. Storage: sells from its own shop and online stock in Burgdorf, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Owner-run for 14 years with over 400 products from small makers in its shop and gift baskets.",
+      "Builds corporate gift sets with company logos, cards and volume discounts for employees and clients."
+    ],
+    "distributes": "Gift baskets and gift boxes with chocolate bars (Stella, Taucherli, Utopick), biscuits (Arnott's Tim Tam, Gottlieber Hueppen), fudge (Mrs. Tilly's), gummies (MamaMo), sweets and savoury snacks, plus coffee, tea and wine",
+    "channels_supplied": "Own shop in Burgdorf, online shop with delivery, and employee and client gift sets for companies with logo branding and volume discounts",
+    "sf_brands_carried": "Gluten-free and vegan section; Stella vegan chocolate; no direct sugar-free competitor seen",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0042_2026-10-23_bern-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "lekkerland.de": {
@@ -9778,6 +9837,26 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "vikingstore.ch": {
+    "name": "Vikingstore",
+    "based_out_of": "Biebelried, Germany (shops in Bern and St. Gallen, Switzerland)",
+    "market": "Bern, Switzerland",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A sports nutrition and combat sports specialist with a shop in Bern's old town and a national online shop of over 5,000 products, selling bars, cookies, snacks and spreads from brands such as All Stars, Barebells, Weider, Snickers and Oat King. Its shoppers are health-conscious athletes, and its bars and cookies section already favours low-sugar products, so Diablo's no-added-sugar bars, cookies and spreads sit naturally beside them.",
+    "what_they_do_well": [
+      "Owner-run for more than ten years, with shops in Bern and St. Gallen and over 5,000 products online.",
+      "Runs a dedicated bars and cookies section and a snacks and sweets section with spreads and protein crisps."
+    ],
+    "distributes": "Protein and energy bars, protein cookies, protein snacks and sweets, peanut butter and chocolate protein spreads, plus sports nutrition and combat sports gear",
+    "channels_supplied": "Own shop at Spitalgasse 36 in Bern city centre, a second shop in St. Gallen, and a Swiss online shop delivering across Switzerland",
+    "sf_brands_carried": "Low and no-added-sugar protein bars: Barebells, All Stars (Clean Bar, Vegan Protein Bar), Snickers Hi Protein Low Sugar, Dymatize Elite",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0042_2026-10-23_bern-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "vitafy.ch": {
     "name": "Vitafy GmbH (vitafy.ch)",
     "based_out_of": "Munich, Germany",
@@ -10100,6 +10179,26 @@
     "sf_brands_carried": "Koochikoo sugar free candies, Amazonia erythritol and monk fruit sweeteners, Schar, Bob's Red Mill, Nature's Path; runs a dedicated sugar free category.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "winterfreude.ch": {
+    "name": "Winterfreude",
+    "based_out_of": "Biberstein, Switzerland",
+    "market": "Bern, Switzerland",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A corporate gift bag company that fills Christmas bags with chocolate, sweets and biscuits and delivers them free across Switzerland, including Bern, with orders of 3,000 bags handled on request. Tier 3 because it sells one seasonal product and its website does not name the chocolate and sweets brands it buys. Storage: buys and packs the contents itself, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Handles corporate orders of 3,000 bags or more with free delivery across Switzerland.",
+      "Gives CHF 2 per bag to Stiftung Schloss Biberstein or the Ekkharthof."
+    ],
+    "distributes": "Printed jute Samichlaus gift bags with chocolate, sweets, Appenzeller Biberli biscuits, nuts and citrus fruit",
+    "channels_supplied": "Companies buying gifts for employees, customers and friends, delivered free throughout Switzerland from 10 bags",
+    "sf_brands_carried": "",
+    "added": "2026-10-23",
+    "research_file": "research/2026-10-23/J0042_2026-10-23_bern-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "worldofsweets.de": {
     "name": "World of Sweets GmbH",
