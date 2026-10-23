@@ -1,0 +1,232 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-23T12:34:36+00:00",
+  "lines": [
+    {
+      "contact_id": "900182561004",
+      "company_name": "AVIA Distribution SA",
+      "personal_line": "We have great respect for the way your team runs its AVIA station shops for people on the move. Your customers often buy quickly between journeys, and we believe sugar free snacks at the till may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "runs station shops selling chocolate, biscuits and snacks to drivers on the go",
+      "style": "E"
+    },
+    {
+      "contact_id": "900182561003",
+      "company_name": "AVIA Distribution SA",
+      "personal_line": "We have great respect for the way your team serves drivers through its AVIA station shops. Many of your customers stop only briefly on the road, and we believe sugar free snacks close to the till may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "runs station shops selling chocolate, biscuits and snacks to drivers on the go",
+      "style": "E"
+    },
+    {
+      "contact_id": "900347488445",
+      "company_name": "Bergfreunde (berg-freunde.ch)",
+      "personal_line": "We have great respect for the way your team equips hikers and climbers for the mountains. Your customers are active people who look after themselves, and we believe sugar free snacks alongside the gear and trail food they come in for may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "equips hikers and climbers online with outdoor gear and trail food",
+      "style": "E"
+    },
+    {
+      "contact_id": "900347488444",
+      "company_name": "Bergfreunde (berg-freunde.ch)",
+      "personal_line": "We have great respect for the way your team serves outdoor and mountain sports customers through its Swiss shop. Your customers plan carefully for long days outdoors, and we believe sugar free snacks next to the bars they already order may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "equips hikers and climbers online with outdoor gear and trail food",
+      "style": "E"
+    },
+    {
+      "contact_id": "900103853298",
+      "company_name": "Bieler Sport",
+      "personal_line": "We have great respect for the way your team has served runners, bikers and Nordic skiers as a family business since 1986. Your customers put real effort into staying active, and we believe sugar free snacks alongside the sports nutrition they come in for may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "equips runners and Nordic skiers, a community that takes its fitness seriously",
+      "style": "E"
+    },
+    {
+      "contact_id": "900103853299",
+      "company_name": "Bieler Sport",
+      "personal_line": "We have great respect for the way your team looks after runners, bikers and Nordic skiers in Bonaduz and Chur. Your customers take their training seriously, and we believe sugar free snacks next to the energy bars they already buy may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "equips runners and Nordic skiers, a community that takes its fitness seriously",
+      "style": "E"
+    },
+    {
+      "contact_id": "900106376438",
+      "company_name": "CYCLZ",
+      "personal_line": "We have great respect for the way your team equips cyclists and triathletes for training and racing. Your customers are committed athletes who look after themselves, and we believe sugar free snacks next to the bars and gels they already order may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "equips cyclists and triathletes with clothing and race nutrition",
+      "style": "E"
+    },
+    {
+      "contact_id": "900313309427",
+      "company_name": "direkt-apotheke.ch",
+      "personal_line": "Your range, from Schär biscuits to nakd bars, reflects a careful choice of gluten free products for the customers of a trusted online pharmacy. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "stocks gluten free biscuits and no added sugar bars online",
+      "style": "C"
+    },
+    {
+      "contact_id": "900313309428",
+      "company_name": "direkt-apotheke.ch",
+      "personal_line": "We have great respect for the way your team brings gluten free biscuits, bars and snacks to the customers of its online pharmacy. With such established reach across online pharmacy shoppers throughout Switzerland, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "stocks gluten free biscuits and no added sugar bars online",
+      "style": "A"
+    },
+    {
+      "contact_id": "900347697350",
+      "company_name": "Fiberpasta.ch",
+      "personal_line": "Your team's work in bringing low GI pasta and no added sugar chocolate to shoppers managing their blood sugar speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "sells no added sugar chocolate to shoppers in its online shop",
+      "style": "B"
+    },
+    {
+      "contact_id": "900328794305",
+      "company_name": "Glutenfree Gusto Italiano",
+      "personal_line": "We hold your team in high regard for offering gluten free desserts, biscuits and snacks from brands such as Schär and Mulino Bianco. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "sells gluten free biscuits and snacks in its shop and online",
+      "style": "D"
+    },
+    {
+      "contact_id": "900327058657",
+      "company_name": "Hardloop",
+      "personal_line": "We have great respect for the way your team has served outdoor sports enthusiasts since 2015. Your customers are active people who plan carefully for time outdoors, and we believe sugar free snacks next to the bars and trail food they already order may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "equips outdoor sports enthusiasts with gear and trail food online",
+      "style": "E"
+    },
+    {
+      "contact_id": "900327058658",
+      "company_name": "Hardloop",
+      "personal_line": "We have great respect for the way your team brings outdoor gear and trail food to its Swiss customers online. Your customers look after themselves on every climb and hike, and we believe sugar free snacks alongside the bars and gummies they already choose may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "equips outdoor sports enthusiasts with gear and trail food online",
+      "style": "E"
+    },
+    {
+      "contact_id": "900174857463",
+      "company_name": "Jungfraubahnen (Top of Europe Shops)",
+      "personal_line": "We have great respect for the way your team welcomes visitors to the Top of Europe shops, from Interlaken to Jungfraujoch. Many travellers pick up a treat on their journey, and we believe sugar free sweets and chocolate may suit those very same visitors. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "offers chocolate and souvenirs to visitors at its mountain shops",
+      "style": "E"
+    },
+    {
+      "contact_id": "900174857462",
+      "company_name": "Jungfraubahnen (Top of Europe Shops)",
+      "personal_line": "We have great respect for the way your team presents chocolate and Swiss souvenirs to visitors at the Top of Europe shops. Travellers often buy quickly between trains, and we believe sugar free sweets and chocolate may suit those very same visitors. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "offers chocolate and souvenirs to visitors at its mountain shops",
+      "style": "E"
+    },
+    {
+      "contact_id": "900347492592",
+      "company_name": "Koscher City (Bloch-Erlanger AG)",
+      "personal_line": "We have great respect for the way your team has built one of the widest kosher ranges in Switzerland and runs the kosher range for Coop. With such established reach across your own supermarket and Coop's stores, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies kosher sweets and confectionery to shoppers and supermarkets, and many of ours are kosher too",
+      "style": "A"
+    },
+    {
+      "contact_id": "900100766921",
+      "company_name": "NutriFitness Suisse",
+      "personal_line": "We have great respect for the way your team has served sports nutrition customers in Geneva since 2015. Your customers are active people who look after themselves, and we believe sugar free snacks and spreads alongside the nutrition they come in for may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "supplies bars and sports nutrition to active customers in its shop and online",
+      "style": "E"
+    },
+    {
+      "contact_id": "900326766800",
+      "company_name": "POWERLAB The Run Store",
+      "personal_line": "We have great respect for the way your team supports runners with consultations and specialist kit. Your customers train with real commitment, and we believe sugar free snacks next to the bars and chews they already buy may suit those very same runners. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "equips runners with expert advice and race nutrition",
+      "style": "E"
+    },
+    {
+      "contact_id": "900347125994",
+      "company_name": "Rennshop Wüthrich AG",
+      "personal_line": "We have great respect for the way your team equips cyclists from its store in Burgdorf. Your customers are active riders who look after themselves, and we believe sugar free snacks next to the energy bars they already buy may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "equips cyclists with bikes and ride nutrition",
+      "style": "E"
+    },
+    {
+      "contact_id": "900347488448",
+      "company_name": "Run Store Zurich",
+      "personal_line": "We have great respect for the way your team equips runners in the heart of the old town. Your customers take their training seriously, and we believe sugar free snacks alongside the Veloforte and Neversecond bars they already choose may suit those very same runners. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "equips runners with kit and premium fuel bars",
+      "style": "E"
+    },
+    {
+      "contact_id": "900311580862",
+      "company_name": "saneq GmbH",
+      "personal_line": "We have great respect for the way your team brings hundreds of sports nutrition products to active customers across Switzerland. Your customers are people who look after themselves, and we believe sugar free bars and spreads next to the nutrition they already order may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "offers protein bars and peanut butter to active customers online",
+      "style": "E"
+    },
+    {
+      "contact_id": "900345761014",
+      "company_name": "Schaetzle AG",
+      "personal_line": "We have great respect for the way your team keeps its AVIA shops open every day of the year for drivers. Your customers often buy quickly on the go, and we believe sugar free snacks at the till may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "runs station shops selling sweets and snacks to drivers on the go",
+      "style": "E"
+    },
+    {
+      "contact_id": "900345761015",
+      "company_name": "Schaetzle AG",
+      "personal_line": "We have great respect for the way your team serves drivers across its network of stations in central Switzerland. Many of your customers stop only briefly, and we believe sugar free snacks close to the till may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "runs station shops selling sweets and snacks to drivers on the go",
+      "style": "E"
+    },
+    {
+      "contact_id": "900100762871",
+      "company_name": "Shark Fitness AG",
+      "personal_line": "We have great respect for the way your team equips fitness enthusiasts in its stores and online. Your customers train with real commitment, and we believe sugar free snacks next to the protein bars they already choose may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "supplies fitness equipment and protein bars to active customers",
+      "style": "E"
+    },
+    {
+      "contact_id": "899797704925",
+      "company_name": "Sportini.ch",
+      "personal_line": "We have great respect for the way your team serves fitness customers with a wide choice of bars, sweets and syrups. Your customers look after what they eat while training, and we believe sugar free sweets and dessert toppings may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "offers protein bars and protein sweets to fitness customers online",
+      "style": "E"
+    },
+    {
+      "contact_id": "900326468808",
+      "company_name": "TEK Eins GmbH (TEK1 Metzgerei & Lebensmittel)",
+      "personal_line": "We have great respect for the way your team imports its supermarket range directly to control quality for its shoppers. With such established reach across your halal supermarket and its snacks and sweets section, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "sells halal snacks and sweets to shoppers in its supermarket, and a significant part of our range is halal certified",
+      "style": "A"
+    },
+    {
+      "contact_id": "900345517298",
+      "company_name": "update Fitness",
+      "personal_line": "We have great respect for the way your team runs about 100 fitness studios across Switzerland. Your members train regularly and look after themselves, and we believe sugar free snacks next to the protein bars they already buy may suit those very same members. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your business.",
+      "company_note": "runs fitness studios and a nutrition shop for its members",
+      "style": "E"
+    },
+    {
+      "contact_id": "900345517297",
+      "company_name": "update Fitness",
+      "personal_line": "We have great respect for the way your team brings fitness and nutrition together for members across its studios. Your members put real effort into their training, and we believe sugar free snacks alongside the bars in your nutrition shop may suit those very same members. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your business.",
+      "company_note": "runs fitness studios and a nutrition shop for its members",
+      "style": "E"
+    },
+    {
+      "contact_id": "900345443547",
+      "company_name": "Vitafy GmbH (vitafy.ch)",
+      "personal_line": "We hold your team in high regard for building a range of over 6,000 products from more than 200 brands across fitness, low carb and vegan nutrition. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "sells sugar free chocolate and spreads to health-conscious shoppers online",
+      "style": "D"
+    },
+    {
+      "contact_id": "900345443548",
+      "company_name": "Vitafy GmbH (vitafy.ch)",
+      "personal_line": "Your range, from Xucker chocolate to low carb protein bars, reflects a careful choice of brands for health and fitness shoppers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "sells sugar free chocolate and spreads to health-conscious shoppers online",
+      "style": "C"
+    },
+    {
+      "contact_id": "900347039933",
+      "company_name": "ZRMB Marketplace AG (Zur Rose Shop)",
+      "personal_line": "Your range, from Schär biscuits to Kookie Cat cookies, reflects a careful choice of gluten free brands for pharmacy and health shoppers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "stocks no added sugar and gluten free sweets and snacks online",
+      "style": "C"
+    },
+    {
+      "contact_id": "900347039932",
+      "company_name": "ZRMB Marketplace AG (Zur Rose Shop)",
+      "personal_line": "We hold your team in high regard for building one of the largest gluten free food ranges in Switzerland, with more than 800 products. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "stocks no added sugar and gluten free sweets and snacks online",
+      "style": "D"
+    }
+  ]
+}
