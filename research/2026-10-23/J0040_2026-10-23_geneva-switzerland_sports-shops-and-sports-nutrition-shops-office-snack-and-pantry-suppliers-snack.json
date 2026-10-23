@@ -1,0 +1,223 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0040",
+  "location": "Geneva, Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 32
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 33
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 48
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 57
+    },
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 49
+    }
+  ],
+  "companies": [
+    {
+      "name": "Supremefoodshop",
+      "based_out_of": "Villars-sur-Glane, Switzerland",
+      "domain": "supremefoodshop.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein and energy bars, cookies, snacks, spreads and desserts from recognised sports nutrition brands such as BioTechUSA, Body Attack, Trec Nutrition, Powerstar Food and Best Body Nutrition",
+      "channels_supplied": "Its online shop for customers across Switzerland and its store at Cormanon Centre, Villars-sur-Glane",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Swiss sports nutrition shop that says it selects products from recognised brands and has bars, cookies, snacks and spreads categories, the closest match to Diablo's catalogue in this channel. It serves Geneva through its Swiss online shop; delivery area not stated on its website.",
+      "what_they_do_well": [
+        "Runs both a physical store at Cormanon Centre and a Swiss online shop for sports nutrition."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.supremefoodshop.ch/"
+      ]
+    },
+    {
+      "name": "Rochat Cycles",
+      "based_out_of": "Aubonne, Switzerland",
+      "domain": "rochat-cycles.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Organic and vegan energy bars (Baouw) held in stock in its shops",
+      "channels_supplied": "Its own shops: Geneva (Rue du Perron), Geneva showroom, Aubonne road and MTB stores and Vevey",
+      "sf_brands_carried": "Baouw organic and vegan energy bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Lake Geneva bike retailer with a shop and a showroom in Geneva that stocks branded energy bars for cyclists in its shops. Diablo's vegan muesli bars fit next to the Baouw bars it already sells. No online shop is shown on its website.",
+      "what_they_do_well": [
+        "Has served cyclists around Lake Geneva since 1998, now with five sites including two in Geneva.",
+        "Took over the former Cycles Colin store in Vevey."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.rochat-cycles.ch/baouw-organic-vegan-nutrition/",
+        "https://www.rochat-cycles.ch/"
+      ]
+    },
+    {
+      "name": "Alur Running Trail",
+      "based_out_of": "Carouge, Switzerland",
+      "domain": "alur.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Energy bars and sports nutrition from Naak, Overstims and Maurten",
+      "channels_supplied": "Its single running and trail store in Carouge, Geneva",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A running and trail specialist in Carouge whose brand page lists a nutrition shelf with Naak, Overstims and Maurten, all bars and energy food bought from outside brands. Tier 3 because it is one shop with no online shop shown.",
+      "what_they_do_well": [
+        "Offers gait analysis and sports podiatry alongside running brands such as Hoka, On and Asics."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://alur.ch/nos-marques/",
+        "https://alur.ch/"
+      ]
+    },
+    {
+      "name": "Bcyclet",
+      "based_out_of": "Plan-les-Ouates, Switzerland",
+      "domain": "bcyclet.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Healthy snacks alongside bikes and cycling accessories",
+      "channels_supplied": "Its single bike store in Plan-les-Ouates, Geneva",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva bike shop that names healthy snacks in its accessories range, the same kind of food shelf as Unihockey Center. Tier 3 because it is one shop, its snack brands are not named on its website and its online shop is still being built.",
+      "what_they_do_well": [
+        "Carries premium cycling brands such as Colnago, Orbea, Apidura and Cafe du Cycliste."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bcyclet.com/store/"
+      ]
+    },
+    {
+      "name": "Swiss Snack Box",
+      "based_out_of": "Switzerland",
+      "domain": "swiss-snackbox.com",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift boxes of branded snacks: chocolate (Cailler), biscuits and pastries (Kambly, Kägi), crisps (Zweifel), sweet and savoury snacks and popcorn from Switzerland, Germany and the USA",
+      "channels_supplied": "Own online shop to shoppers and corporate clients, free delivery across Switzerland and shipping to Europe and Canada",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A gift box company that buys full size packs from other brands such as Cailler, Kambly, Kägi and Zweifel and resells them in themed boxes, including to corporate clients. Small and founded in 2025, and its city and legal entity are not stated on its website. Storage: sells from its own stock, warehouse not named on its website; boxes are hand packed and dispatched from Switzerland.",
+      "what_they_do_well": [
+        "Builds themed boxes of 10 full size snacks from known brands such as Cailler, Kambly and Zweifel."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://swiss-snackbox.com/",
+        "https://swiss-snackbox.com/products"
+      ]
+    },
+    {
+      "name": "C'BONBONS",
+      "based_out_of": "Geneva, Switzerland",
+      "domain": "cbonbons.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sweets: gummies, jelly sweets, sour sweets, vegan and sugar-free sweets and hard sweets from brands such as Ricola and Hitschies, plus candy gift boxes, mystery boxes and pick and mix sweets",
+      "channels_supplied": "Its own online shop delivering across Switzerland, plus Uber Eats delivery in Geneva",
+      "sf_brands_carried": "Sugar-free fruit jellies and Ricola sugar-free; the sugar-free jelly brand is not named on its website",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Geneva online sweet shop with over 400 references from other brands, including a sugar-free and a vegan section, and gift products such as bonbonnières and mystery boxes. Diablo's gummies, hard sweets and gift boxes match its range directly. It has no physical shop, so it is tier 3.",
+      "what_they_do_well": [
+        "Offers over 400 sweet references with dedicated vegan and sugar-free sections.",
+        "Rated 4.5 out of 5 from 41 Trustpilot reviews."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://cbonbons.ch/",
+        "https://cbonbons.ch/products/ricola-original-sans-sucre",
+        "https://cbonbons.ch/products/fruits-gelifies-sans-sucre",
+        "https://ch.trustpilot.com/review/cbonbons.ch"
+      ]
+    },
+    {
+      "name": "Confiserie Jellyfish",
+      "based_out_of": "Carouge, Switzerland",
+      "domain": "confiserie-jellyfish.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Sweets from European makers: jelly sweets, wine gums, liquorice, toffees, hard sweets, sugar-free sweets and branded pastilles such as Leone and Vichy, sold for gifts and celebrations",
+      "channels_supplied": "Its own shop in Carouge, an online shop and sweet boxes for weddings, birthdays and corporate events",
+      "sf_brands_carried": "Sugar-free hard sweets listed; brands not named",
+      "competing_brand_flag": false,
+      "fit_rationale": "An owner-run sweet shop in Carouge selling traditional sweets from France, England, the Netherlands and Switzerland, with a sugar-free line and gift boxes for Christmas, Easter and events. Diablo's sugar-free sweets and gift boxes fit its celebration and gifting trade. One shop plus online, so tier 3.",
+      "what_they_do_well": [
+        "Builds custom sweet boxes for weddings, birthdays, baby showers and corporate events.",
+        "Stocks sweets from France, England, the Netherlands and Switzerland, including vegan and gluten-free options."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.confiserie-jellyfish.ch/les-bonbons",
+        "https://www.confiserie-jellyfish.ch/a-propos",
+        "https://www.laroutedeben.ch/jellyfish-confiserie-carouge/",
+        "https://commerces-carouge.ch/commerce/confiserie-jellyfish/"
+      ]
+    }
+  ]
+}
