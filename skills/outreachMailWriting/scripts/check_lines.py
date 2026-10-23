@@ -78,6 +78,39 @@ STYLES = {
                       "be a worthwhile addition to your business."]},
 }
 
+# Channels outside our usual ones (23 Oct 2026, config/bond_channels.json): the first email shows the
+# personal line under the bold heading "Why we think our bond would be strong", so it gives the buyer's
+# reason: what the team does, who their customers are and why our sugar free range may suit them. These
+# contacts always get style E (not picked at random).
+BOND_STYLES = {
+    "E": {"name": "Why we think our bond would be strong",
+          "shape": "We have great respect for the way your team [what they do and for whom]. [Who their "
+                   "customers are, and why] we believe [our sugar free products] may suit those very same "
+                   "[customers]. We would be grateful for the opportunity to discuss whether this could be a "
+                   "worthwhile addition to your [shop / business / range].",
+          "opening": "We have great respect for the way your team",
+          "request": ["We would be grateful for the opportunity to discuss whether this could be a worthwhile "
+                      "addition to your shop.",
+                      "We would be grateful for the opportunity to discuss whether this could be a worthwhile "
+                      "addition to your shops.",
+                      "We would be grateful for the opportunity to discuss whether this could be a worthwhile "
+                      "addition to your business.",
+                      "We would be grateful for the opportunity to discuss whether this could be a worthwhile "
+                      "addition to your range.",
+                      "We would be grateful for the opportunity to discuss whether this could be a worthwhile "
+                      "addition to your service."]},
+}
+BOND_MAX_WORDS = 75
+BOND_SENTENCES = 3
+# The people the reason is about: a style E line must name them.
+BUYER_GROUP = re.compile(r"(?<![a-z])(customers?|clients?|guests?|visitors?|patients?|residents?|staff|"
+                         r"employees?|colleagues|members?|athletes?|players?|shoppers?|travell?ers?|"
+                         r"passengers?|people|teams?)(?![a-z])")
+# Words the note of a style E company may use although they are banned for the usual channels: a
+# hotel minibar supplier serves hotels, a pharmacy chain may run drugstores.
+BOND_NOTE_ALLOWED = ("hotels", "drugstore", "restaurants", "restaurant")
+BOND_NOTE_WORDS = (4, 16)
+
 # Words and phrases the lines must never use: health claims, over-the-top praise, casual words,
 # pushy sales talk and guesses about what the company has or has not thought of (14 Oct 2026).
 BANNED = [
@@ -115,13 +148,22 @@ def _plain(text):
 
 def style_problems(style, personal):
     """What is wrong with a line for its style, as plain sentences (empty when it fits)."""
-    rule = STYLES.get(str(style))
+    rule = STYLES.get(str(style)) or BOND_STYLES.get(str(style))
     if rule is None:
-        return [f'style must be one of {", ".join(STYLES)}, not "{style}"']
+        return [f'style must be one of {", ".join(list(STYLES) + list(BOND_STYLES))}, not "{style}"']
     out = []
     line = _plain(personal)
     if not line.startswith(_plain(rule["opening"])):
         out.append(f'style {style} lines must start "{rule["opening"]}"')
+    if str(style) in BOND_STYLES:
+        if "we believe" not in line:
+            out.append(f'style {style} lines must give the reason with "we believe" (who their customers are '
+                       "and why our sugar free range may suit them)")
+        if "sugar free" not in line:
+            out.append(f'style {style} lines must say "sugar free"')
+        if not BUYER_GROUP.search(line):
+            out.append(f"style {style} lines must name who the company serves (customers, staff, guests, "
+                       "visitors, patients, clients ...)")
     if not any(_plain(r) in line for r in rule["request"]):
         out.append(f'style {style} lines must include "{rule["request"][0]}"' if len(rule["request"]) == 1
                    else f'style {style} lines must end with one of: ' + " / ".join(f'"{r}"' for r in rule["request"]))
@@ -138,30 +180,56 @@ VEGAN_TAIL = ", and several of ours are vegan too"
 # 22 Oct 2026 (Ariel, sports shops): the one fixed note that needs no word for our range, for a sports
 # shop whose research names no snacks. It speaks to its health-conscious customers instead.
 SPORTS_NOTE = "is in the sports retail space for health-conscious customers"
+# 23 Oct 2026 (Ariel): a halal or kosher company's note may end with one of these exact tails, like the
+# vegan one. Diablo holds a halal certificate covering a significant part of the range; only part of
+# the range is kosher, and which supervision is not named in a first email.
+HALAL_TAIL = ", and a significant part of our range is halal certified"
+KOSHER_TAIL = ", and many of ours are kosher too"
+TAILS = ((VEGAN_TAIL, "vegan"), (HALAL_TAIL, "halal"), (KOSHER_TAIL, "kosher"))
 
 
-def note_problems(errors, where, note, company):
+def research_problems(note, info):
+    """23 Oct 2026 (Ariel, Unihockey Center): the note of a company outside our usual channels must not
+    say it sells sweets or snacks when its research names none. info: the contact's entry in the batch."""
+    company = (info or {}).get("company") or {}
+    research = " ".join(str(company.get(k) or "") for k in ("distributes", "sf_brands_carried", "fit_rationale",
+                                                           "channels_supplied"))
+    research += " " + " ".join(str(x) for x in company.get("what_they_do_well") or [])
+    if NOTE_RANGE.search(str(note or "").lower()) and not NOTE_RANGE.search(research.lower()):
+        return ["the company note says it sells sweets, snacks or confectionery, but its research names none; "
+                "say what the company does and who its customers are instead"]
+    return []
+
+
+def note_problems(errors, where, note, company, bond=False):
     """The company note's own rules: it follows "we noticed <company name>", so it starts with a
-    small letter, never repeats the name and speaks only about the company."""
+    small letter, never repeats the name and speaks only about the company. bond: a company outside
+    our usual channels (style E, 23 Oct 2026), whose note says what it does and for whom instead of
+    naming our range."""
     if not isinstance(note, str) or not note.strip():
         errors.append(f"{where}: company_note must be text")
         return
-    if note.rstrip().lower().endswith(VEGAN_TAIL):
-        note = note.rstrip()[:-len(VEGAN_TAIL)]
-        if not re.search(r"(?<![a-z])vegan(?![a-z])", note.lower()):
-            errors.append(f'{where}: "{VEGAN_TAIL.strip(", ")}" is only for a note about the company\'s vegan '
-                          "products; say what vegan sweets or snacks it sells")
-        if not note.strip():
-            return
+    for tail, word in TAILS:
+        if note.rstrip().lower().endswith(tail):
+            note = note.rstrip()[:-len(tail)]
+            if not re.search(r"(?<![a-z])" + word + r"(?![a-z])", note.lower()):
+                errors.append(f'{where}: "{tail.strip(", ")}" is only for a note about the company\'s {word} '
+                              f"products; say what {word} sweets or snacks it sells")
+            break
+    if not note.strip():
+        return
+    low_words = BOND_NOTE_WORDS if bond else NOTE_WORDS
     n = len(_words(note))
-    if not NOTE_WORDS[0] <= n <= NOTE_WORDS[1]:
-        errors.append(f"{where}: company note must be {NOTE_WORDS[0]} to {NOTE_WORDS[1]} words (found {n})")
+    if not low_words[0] <= n <= low_words[1]:
+        errors.append(f"{where}: company note must be {low_words[0]} to {low_words[1]} words (found {n})")
     low_note = note.lower()
     for word in NOTE_BANNED:  # nothing unrelated to sweets and snacks (19 Oct 2026, strain test)
+        if bond and word in BOND_NOTE_ALLOWED:
+            continue
         if re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", low_note):
             errors.append(f'{where}: the company note mentions "{word}", which has nothing to do with our range '
                           "(and we do not sell ingredients); write about the sweets, snacks or shops instead")
-    if not NOTE_RANGE.search(low_note) and " ".join(low_note.split()) != SPORTS_NOTE:
+    if not bond and not NOTE_RANGE.search(low_note) and " ".join(low_note.split()) != SPORTS_NOTE:
         errors.append(f"{where}: the company note must name our range (sweets, chocolate, confectionery, biscuits, "
                       "snacks or sugar free products); with nothing specific in the research write "
                       '"is in the distribution space for confectionery products" (retailers: "is in the retail '
@@ -188,7 +256,7 @@ def note_problems(errors, where, note, company):
         errors.append(f"{where}: the company note must not contain emails, phone numbers, links, placeholders or emojis")
 
 
-def check_line(errors, line, pending_ids=None):
+def check_line(errors, line, pending_ids=None, info=None):
     where = "A line"
     if not isinstance(line, dict):
         errors.append(f"{where}: must be an object")
@@ -217,19 +285,26 @@ def check_line(errors, line, pending_ids=None):
     letters = [ch for ch in subject if ch.isalpha()]
     if len(letters) > 4 and all(ch.isupper() for ch in letters):
         errors.append(f"{where}: the subject line must not be in capitals")
+    bond = str(line.get("style")) in BOND_STYLES
+    most_words = BOND_MAX_WORDS if bond else PERSONAL_MAX_WORDS
     n = len(_words(personal))
     if n == 0:
         errors.append(f"{where}: personal line is empty")
-    elif n > PERSONAL_MAX_WORDS:
-        errors.append(f"{where}: personal line is {n} words; the limit is {PERSONAL_MAX_WORDS}")
-    if _sentences(personal) > PERSONAL_MAX_SENTENCES:
+    elif n > most_words:
+        errors.append(f"{where}: personal line is {n} words; the limit is {most_words}")
+    if bond and _sentences(personal) != BOND_SENTENCES:
+        errors.append(f"{where}: a style E personal line must be exactly three sentences")
+    elif not bond and _sentences(personal) > PERSONAL_MAX_SENTENCES:
         errors.append(f"{where}: personal line must be one or two sentences")
     if "!" in personal:
         errors.append(f"{where}: no exclamation marks")
     if _FIRST_PERSON.search(personal):
         errors.append(f'{where}: the personal line must say "we", never "I", "me" or "my"')
     if "company_note" in line:
-        note_problems(errors, where, line["company_note"], company)
+        note_problems(errors, where, line["company_note"], company, bond=bond)
+        if bond and info is not None:
+            for problem in research_problems(line["company_note"], info):
+                errors.append(f"{where}: {problem}")
     if "style" in line:
         for problem in style_problems(line["style"], personal):
             errors.append(f"{where}: {problem}")
@@ -250,7 +325,9 @@ def check_line(errors, line, pending_ids=None):
             errors.append(f"{where}: no emojis in the {label}")
 
 
-def check_file(data, pending_ids=None):
+def check_file(data, pending_ids=None, contacts=None):
+    """contacts: {contact id: its entry in the batch} when known (finalise_lines.py), for the checks
+    against the research."""
     errors = []
     if not isinstance(data, dict):
         return ["The file: must be an object"]
@@ -274,7 +351,8 @@ def check_file(data, pending_ids=None):
         return errors
     seen = set()
     for line in lines:
-        check_line(errors, line, pending_ids)
+        info = (contacts or {}).get(str(line.get("contact_id"))) if isinstance(line, dict) else None
+        check_line(errors, line, pending_ids, info if contacts is not None else None)
         cid = str(line.get("contact_id")) if isinstance(line, dict) else None
         if cid in seen:
             errors.append(f"Contact {cid}: appears twice")

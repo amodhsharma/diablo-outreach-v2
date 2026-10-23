@@ -1,0 +1,18 @@
+{
+  "about": "Channels outside Diablo's usual ones (agreed 23 Oct 2026). Their first email gets the bold heading below, followed by the personal line, which gives the buyer's reason: who their customers are and why our products suit those customers. Every other channel (distributors, wholesalers, retailers, online sellers, health food, diabetic, free from, vegan, halal, kosher, seasonal and gift shops, snack subscription boxes) keeps the usual email with no heading. Button 4 sends these companies from their own campaign each month, e.g. \"Diablo | OCT2026 | Other channels\". Edit on GitHub with the pencil icon: keep the quotes and commas.",
+  "heading": "Why we think our bond would be strong",
+  "campaign_suffix": "Other channels",
+  "channels": {
+    "sports shops and sports nutrition shops": "their customers are active people who look after themselves; sugar free snacks next to the equipment or nutrition they come in for may suit those same customers",
+    "pharmacy and drugstore chains": "their customers include people cutting down on sugar; sugar free sweets and snacks may suit those same customers",
+    "office snack and pantry suppliers": "they keep offices stocked with snacks for staff; a sugar free choice may suit staff who want one",
+    "petrol station and convenience chains": "their customers buy quickly on the go; sugar free snacks at the till may suit those same customers",
+    "snack vending operators": "people pick a snack from their machines between meetings, classes or workouts; a sugar free choice may suit them",
+    "corporate gifting and hamper companies": "their corporate clients send gifts to many people; a sugar free option may suit clients who want one",
+    "hospital and care home shops": "their customers are patients, residents and visitors, many of whom watch their sugar; sugar free sweets may suit them",
+    "hotel minibar suppliers": "hotel guests look for a lighter choice in the minibar; sugar free snacks may suit those guests",
+    "leisure and venue snack suppliers": "visitors buy snacks on the spot at their venues; a sugar free choice may suit those visitors",
+    "travel retail": "travellers buy quickly on the go; sugar free snacks may suit those same travellers",
+    "promotional merchandise companies": "their corporate clients hand out branded gifts; branded sugar free treats may suit those clients"
+  }
+}

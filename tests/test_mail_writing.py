@@ -149,6 +149,12 @@ def test_export_lists_only_contacts_needing_lines(tmp_path, monkeypatch):
 def repo(tmp_path):
     copy_root = tmp_path / "repo"
     shutil.copytree(ROOT / "skills", copy_root / "skills", ignore=shutil.ignore_patterns("__pycache__"))
+    # prepare_lines.py reads the channels outside our usual ones (23 Oct 2026) from these two files.
+    (copy_root / "outreach").mkdir()
+    (copy_root / "outreach" / "__init__.py").write_text("")
+    shutil.copy(ROOT / "outreach" / "bond.py", copy_root / "outreach" / "bond.py")
+    (copy_root / "config").mkdir()
+    shutil.copy(ROOT / "config" / "bond_channels.json", copy_root / "config" / "bond_channels.json")
     (copy_root / "mail").mkdir()
     contacts = [{"contact_id": str(1000 + i), "job_title": "Director", "seniority": "Director", "rank": 1,
                  "company": {"name": f"Company {i}", "domain": f"c{i}.in", "location": "Mumbai, India",
@@ -197,7 +203,7 @@ def test_skill_scripts_end_to_end(repo):
 
     work = repo / "work_mail"
     assert all(c["style"]["letter"] in check_lines.STYLES and "[" in c["style"]["shape"] for c in batch["contacts"])
-    assert "The four styles" in prompt and '"letter"' in prompt
+    assert "## The styles" in prompt and '"letter"' in prompt  # lines_prompt_10.md from 23 Oct 2026
     (work / "draft.json").write_text(json.dumps({"lines": [draft_line("1000", batch),
                                                            dict(draft_line("1001", batch), personal_line="Amazing!")]}))
     out = run_script(repo, "finalise_lines.py")

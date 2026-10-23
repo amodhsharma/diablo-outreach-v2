@@ -7,7 +7,9 @@ description: Write the personal line (one of four styles) for Diablo outreach co
 
 You write two short pieces of text for each contact that needs them (from 15 Oct 2026): the
 **company note**, which finishes "we noticed <company> ..." in the first email (template 3), and a
-**personal line**, used when the email is forwarded to a colleague. Each contact is given one of four styles at random
+**personal line**, used when the email is forwarded to a colleague, and, for channels outside our
+usual ones (style E, from 23 Oct 2026), shown in the first email under the heading "Why we think our
+bond would be strong". Each contact is given one of four styles at random
 (agreed 14 Oct 2026); you fill that style's [brackets] from the company's research. The rest of the
 email, the subject line included, is a fixed template. The scripts in `scripts/` do every
 mechanical step; follow them exactly.
@@ -74,7 +76,16 @@ Finish with three lines:
 
 ## What the files are
 
-- `prompts/lines_prompt_9.md` (in use from 22 Oct 2026): as lines_prompt_8.md, plus sports shops
+- `prompts/lines_prompt_10.md` (in use from 23 Oct 2026): as lines_prompt_9.md, plus channels outside
+  our usual ones (listed in `config/bond_channels.json`: sports shops, pharmacies, office snack
+  suppliers, petrol stations, vending, corporate gifting, hospital shops, hotel minibars, leisure
+  venues, travel retail and promotional merchandise). Their contacts always get style E: the personal
+  line goes into the first email under the bold heading "Why we think our bond would be strong" and
+  gives the buyer's reason (who their customers are and why our sugar free range may suit them), and
+  the note says what the company does and for whom, never sweets its research does not show (the
+  check compares it with the research). Halal companies' notes may end ", and a significant part of
+  our range is halal certified" and kosher companies' ", and many of ours are kosher too".
+- `prompts/lines_prompt_9.md` (used on 22 and 23 Oct 2026): as lines_prompt_8.md, plus sports shops
   (sports equipment, sports nutrition and fitness shops): their website may show nothing like our
   products, so the personal line fills its [brackets] with something health related (how the team
   serves athletes and active, health-conscious customers), and the note names the snacks they sell

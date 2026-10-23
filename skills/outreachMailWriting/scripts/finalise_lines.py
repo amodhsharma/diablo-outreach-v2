@@ -78,15 +78,16 @@ def main(argv=None):
         return 1
     data = build(batch, draft)
     batch_ids = {str(c["contact_id"]) for c in batch["contacts"]}
+    by_id = {str(c["contact_id"]): c for c in batch["contacts"]}  # for the checks against the research
     dropped = []
     if args.drop_failing:
         kept = []
         for line in data["lines"]:
             errs = []
-            check_line(errs, line, batch_ids)
+            check_line(errs, line, batch_ids, by_id.get(str(line.get("contact_id"))))
             (dropped if errs else kept).append(line)
         data["lines"] = kept
-    errors = check_file(data, batch_ids)
+    errors = check_file(data, batch_ids, by_id)
     if errors:
         print("FAILED")
         for e in errors[:60]:

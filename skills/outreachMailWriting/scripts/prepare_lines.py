@@ -25,10 +25,12 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-from check_lines import STYLES  # noqa: E402
+from check_lines import BOND_STYLES, STYLES  # noqa: E402
 
 SKILL = HERE.parent
 ROOT = SKILL.parent.parent
+sys.path.insert(0, str(ROOT))
+from outreach.bond import bond_channel, bond_reason, load as load_bond  # noqa: E402  (standard library only)
 PENDING = ROOT / "mail" / "pending.json"
 LINES_DIR = ROOT / "mail" / "lines"
 WORK = ROOT / "work_mail"
@@ -95,8 +97,18 @@ def assign_styles(contacts, lines_dir=None, rng=None):
       - people at the same company get different styles, so a forwarded email never looks copied."""
     rng = rng or random.Random()
     used, by_company = style_history(lines_dir)
+    config = load_bond()
     for contact in contacts:
-        key = _company_key((contact.get("company") or {}).get("name"))
+        company = contact.get("company") or {}
+        # 23 Oct 2026: a company outside our usual channels always gets style E, whose line sits under the
+        # heading "Why we think our bond would be strong" and gives the buyer's reason.
+        channel = bond_channel(company.get("channel"), config)
+        if channel:
+            rule = BOND_STYLES["E"]
+            contact["style"] = {"letter": "E", "name": rule["name"], "shape": rule["shape"]}
+            contact["bond"] = {"channel": channel, "buyer_reason": bond_reason(channel, config)}
+            continue
+        key = _company_key(company.get("name"))
         had = by_company.setdefault(key, set())
         options = [s for s in STYLES if s not in had] or list(STYLES)
         least = min(used[s] for s in options)
@@ -149,7 +161,11 @@ def main(argv=None):
     # ", and several of ours are vegan too". lines_prompt_7.md is kept unchanged.
     # lines_prompt_9.md (22 Oct 2026): as lines_prompt_8.md, plus sports shops: the note and the personal
     # line speak to their health-conscious customers. lines_prompt_8.md is kept unchanged.
-    prompt = (SKILL / "prompts" / "lines_prompt_9.md").read_text(encoding="utf-8")
+    # lines_prompt_10.md (23 Oct 2026): as lines_prompt_9.md, plus channels outside our usual ones (style E:
+    # the buyer's reason under the heading "Why we think our bond would be strong", a note that says what
+    # the company does and for whom, never sweets its research does not show) and the halal and kosher
+    # note endings. lines_prompt_9.md is kept unchanged.
+    prompt = (SKILL / "prompts" / "lines_prompt_10.md").read_text(encoding="utf-8")
     prompt = prompt.replace("{{count}}", str(len(batch)))
     prompt = prompt.replace("{{contacts_json}}", json.dumps(batch, indent=2, ensure_ascii=False))
     (WORK / "prompt.md").write_text(prompt, encoding="utf-8")

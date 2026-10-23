@@ -19,8 +19,9 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from . import bond
 from .common import (
-    ROOT, PipelineError, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
+    ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
 )
 from .hubspot_client import HubSpot, HubSpotError
@@ -50,6 +51,27 @@ def campaign_name(prefix, month=None):
 
 
 PERSON, INBOX = "person", "company_inbox"
+# Channels outside our usual ones (23 Oct 2026, config/bond_channels.json): their own campaigns, whose
+# first email adds the bold heading "Why we think our bond would be strong" and the personal line.
+PERSON_OTHER, INBOX_OTHER = "person_other", "company_inbox_other"
+KINDS = (PERSON, INBOX, PERSON_OTHER, INBOX_OTHER)
+
+
+def other_suffix(config=None):
+    return " | " + ((config if config is not None else bond.load()).get("campaign_suffix") or "Other channels")
+
+
+def kind_for(inbox, other):
+    """The campaign kind for a company inbox or a person, at a usual or another channel."""
+    if other:
+        return INBOX_OTHER if inbox else PERSON_OTHER
+    return INBOX if inbox else PERSON
+
+
+def name_for_kind(kind, prefix, s, month=None):
+    """This month's campaign for a kind, e.g. "Diablo | OCT2026 | Company inboxes | Other channels"."""
+    base = inbox_campaign_name(prefix, s, month) if kind in (INBOX, INBOX_OTHER) else campaign_name(prefix, month)
+    return base + (other_suffix() if kind in (PERSON_OTHER, INBOX_OTHER) else "")
 
 
 def inbox_suffix(s):
@@ -63,7 +85,11 @@ def inbox_campaign_name(prefix, s, month=None):
 
 
 def kind_of_campaign(name, s):
-    return INBOX if str(name or "").endswith(inbox_suffix(s)) else PERSON
+    name = str(name or "")
+    other = name.endswith(other_suffix())
+    if other:
+        name = name[: -len(other_suffix())]
+    return kind_for(name.endswith(inbox_suffix(s)), other)
 
 
 def schedule_for(market, schedules):
@@ -201,6 +227,10 @@ def sequence_steps(s, kind=PERSON):
     first_path = paths.get("first_email") or "templates/template_1.json"
     if kind == INBOX:
         first_path = paths.get("first_email_company_inbox") or "templates/template_no_info_apollo_1.json"
+    elif kind == PERSON_OTHER:
+        first_path = paths.get("first_email_other_channels") or "templates/template_5.json"
+    elif kind == INBOX_OTHER:
+        first_path = paths.get("first_email_company_inbox_other_channels") or "templates/template_no_info_apollo_4.json"
     subject, body = _template(first_path, s)
     first = {"type": "email", "delay": 0, "delay_unit": "days",
              "variants": [{"subject": subject, "body": html_paragraphs(body)}]}
@@ -266,6 +296,10 @@ def campaign_body(name, market, settings, kind=None):
     if kind == INBOX:  # at most this many company inbox first emails per mailbox a day (19 Oct 2026)
         cap = int((s.get("company_inbox") or {}).get("daily_cap_per_mailbox", 5))
         daily_limit = cap * max(1, len(s["sending_accounts"]))
+    elif kind == PERSON_OTHER:  # 23 Oct 2026: channels outside our usual ones
+        daily_limit = int((s.get("other_channels") or {}).get("daily_limit", 15))
+    elif kind == INBOX_OTHER:
+        daily_limit = int((s.get("other_channels") or {}).get("company_inbox_daily_limit", 5))
     return {
         "name": name,
         "campaign_schedule": {
@@ -296,7 +330,7 @@ def refresh_campaign_content(instantly, settings, log=print):
     """Bring every Diablo campaign's emails in line with the templates, so a template change
     (or a fix such as the empty-body one) also reaches campaigns created earlier."""
     prefix = settings["sync"]["campaign_prefix"]
-    by_kind = {k: sequence_steps(settings["send"], k) for k in (PERSON, INBOX)}
+    by_kind = {k: sequence_steps(settings["send"], k) for k in KINDS}
     fixed = 0
     for camp in instantly.list_campaigns():
         if not str(camp.get("name") or "").startswith(prefix):
@@ -403,6 +437,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     everyone = contacts_by_company(hs, list(companies))
     groups, skipped, waiting = defaultdict(list), [], 0
     needs_note = first_email_uses(settings, "company_note")
+    bond_config = bond.load()
     for c in contacts:
         company_id = owner_of.get(str(c["id"]))
         company = companies.get(company_id)
@@ -431,7 +466,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         earlier = last_campaign(company_contacts)
         # A company stays in the campaign of its first email, so a reply there stops the others.
         # A company inbox (no people in Apollo, 19 Oct 2026) goes to the month's company inbox campaign.
-        kind = INBOX if is_company_inbox(c) else PERSON
+        # Channels outside our usual ones (23 Oct 2026) go to their own campaign with the bond heading.
+        kind = kind_for(is_company_inbox(c), bool(bond.bond_channel(channel_of(comp, notes), bond_config)))
         key = ("campaign", earlier, kind) if earlier else ("month", kind)
         groups[key].append((c, company_id, comp, company_stage))
     if waiting:
@@ -445,7 +481,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             campaign_id = key[1]
             name = next((n for n, i in existing.items() if i == campaign_id), f"campaign {campaign_id}")
         else:
-            name = inbox_campaign_name(prefix, settings["send"]) if kind == INBOX else campaign_name(prefix)
+            name = name_for_kind(kind, prefix, settings["send"])
             campaign_id = existing.get(name)
         leads = [lead_for(c, comp, notes) for c, _, comp, _ in members]
         plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})

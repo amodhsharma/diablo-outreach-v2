@@ -195,6 +195,11 @@ send:
     # "Hello <company> team,"; the _2 files are kept unchanged.
     first_email_company_inbox: templates/template_no_info_apollo_3.json
     reminder_company_inbox: templates/follow_up_no_info_apollo_3.json
+    # Channels outside our usual ones (23 Oct 2026, the list is in config/bond_channels.json): as
+    # template_4 and template_no_info_apollo_3, plus the bold heading "Why we think our bond would be
+    # strong" with the personal line under it (the buyer's reason). The earlier files are kept unchanged.
+    first_email_other_channels: templates/template_5.json
+    first_email_company_inbox_other_channels: templates/template_no_info_apollo_4.json
   company_inbox:
     # The month's company inbox campaign, e.g. "Diablo | OCT2026 | Company inboxes". Created
     # paused by button 4 like the main one; add its mailboxes in Instantly the same way.
@@ -202,6 +207,12 @@ send:
     # At most this many company inbox first emails per sending mailbox a day (agreed 19 Oct 2026);
     # set as that campaign's daily limit (5 x the number of sending mailboxes).
     daily_cap_per_mailbox: 5
+  # Channels outside our usual ones (23 Oct 2026): their own campaigns each month, e.g.
+  # "Diablo | OCT2026 | Other channels" and "Diablo | OCT2026 | Company inboxes | Other channels",
+  # created paused by button 4 like the others (start them in Instantly). Daily limits of each:
+  other_channels:
+    daily_limit: 15
+    company_inbox_daily_limit: 5
   # Booking link for the team's shared booking page. Template 2 shows it on its own line after
   # "Or if you would want to set up a call directly, you can do it from the link below." (agreed
   # 14 Oct 2026). The real Calendly link, set on 14 Oct 2026 (replacing the "xxx" placeholder). If
