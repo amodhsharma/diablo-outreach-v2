@@ -1,5 +1,473 @@
 {
-  "generated_at": "2026-10-23T16:00:54+00:00",
+  "generated_at": "2026-10-23T18:33:49+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "900594775226",
+      "job_title": "Co Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Bcyclet",
+        "domain": "bcyclet.com",
+        "location": "Geneva, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Plan-les-Ouates, Switzerland",
+        "distributes": "Healthy snacks alongside bikes and cycling accessories",
+        "channels_supplied": "Its single bike store in Plan-les-Ouates, Geneva",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Carries premium cycling brands such as Colnago, Orbea, Apidura and Cafe du Cycliste."
+        ],
+        "fit_rationale": "A Geneva bike shop that names healthy snacks in its accessories range, the same kind of food shelf as Unihockey Center. Tier 3 because it is one shop, its snack brands are not named on its website and its online shop is still being built."
+      }
+    },
+    {
+      "contact_id": "900591838417",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Bergzeit",
+        "domain": "bergzeit.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Otterfing, Germany",
+        "distributes": "Energy bars, protein bars, cereal bars, energy gels and trekking food from other brands",
+        "channels_supplied": "Swiss online shop bergzeit.ch with prices in CHF and TWINT payment, delivering across Switzerland",
+        "sf_brands_carried": "Clif Bar, PowerBar Natural Energy and Natural Vegan Protein bars, Chimpanzee",
+        "what_they_do_well": [
+          "Online outdoor retailer since 1999, running a dedicated Swiss shop in CHF."
+        ],
+        "fit_rationale": "A large outdoor and mountain sports web shop with a Swiss site whose sports nutrition section has its own energy bar category with Clif Bar and PowerBar. It reaches outdoor and sports shoppers in Basel and the rest of Switzerland online; it has no Basel store."
+      }
+    },
+    {
+      "contact_id": "900595765480",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Body Nutrition (bodynutrition.ch)",
+        "domain": "bodynutrition.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Switzerland",
+        "distributes": "Protein bars, energy bars, cookies, protein chips and sports drinks from Applied Nutrition, +Watt and GO ON, plus supplements",
+        "channels_supplied": "Its online shop delivering across Switzerland from a Swiss warehouse, with partner accounts for business customers",
+        "sf_brands_carried": "GO ON Protein Bar 33% with no added sugar; Applied Nutrition Diet Protein Bar",
+        "what_they_do_well": [
+          "Ships nationwide from a Swiss warehouse with free delivery from CHF 80 and runs a partner account scheme for business buyers."
+        ],
+        "fit_rationale": "A Swiss online sports nutrition shop with 500+ products whose Snacks and Drinks section sells other brands' protein bars, energy bars and cookies, delivered nationwide including Lucerne. It already lists a no added sugar bar, so Diablo's bars and cookies suit its shoppers. Its town is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "900587589831",
+      "job_title": "Chief Operating Officer",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Casagrande AG",
+        "domain": "casagrande.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Lucerne, Switzerland",
+        "distributes": "Swiss chocolate and sweets (Lindt and Sprüngli, Toblerone, Cailler), Kambly biscuits and Pastilles des Alpes, alongside souvenirs, cuckoo clocks, pocket knives and watches",
+        "channels_supplied": "Tourists and shoppers through its souvenir stores in Lucerne old town (Grendelstrasse, Kapellgasse, Lion Monument, Hertensteinstrasse) and a St. Moritz branch",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family business trading in Lucerne since 1948, now run by the third generation.",
+          "Described by Lucerne Tourism as the largest souvenir seller in Lucerne."
+        ],
+        "fit_rationale": "Lucerne's largest souvenir and gift retailer, with a Chocolate and sweets category and brands such as Lindt, Toblerone, Cailler and Kambly among more than 18,000 articles. Diablo's chocolate gift boxes and variety packs suit its tourist gift shelf. Store count for the chocolate range is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "900596032713",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Changemaker",
+        "domain": "changemaker.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Switzerland",
+        "distributes": "Chocolate, chocolate coated fruit and nuts, cookies, spreads, granola, bars in gift boxes and chewing gum, sold as gifts with brands such as UTOPICK and Mahler & Co, plus a Christmas gift range",
+        "channels_supplied": "Shoppers through ten gift shops in German-speaking Switzerland, including Luzern Kramgasse, and its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Featured by Lucerne Tourism among five Lucerne shops for creative Christmas gifts."
+        ],
+        "fit_rationale": "A sustainable gift shop chain with a store in Lucerne old town and a food and drink section selling chocolate, cookies, spreads and bars from small brands as gifts. Its focus on better-for-you, vegan and organic gifts matches Diablo's vegan cookies, spreads and bars."
+      }
+    },
+    {
+      "contact_id": "900590796992",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Confiserie Jellyfish",
+        "domain": "confiserie-jellyfish.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Carouge, Switzerland",
+        "distributes": "Sweets from European makers: jelly sweets, wine gums, liquorice, toffees, hard sweets, sugar-free sweets and branded pastilles such as Leone and Vichy, sold for gifts and celebrations",
+        "channels_supplied": "Its own shop in Carouge, an online shop and sweet boxes for weddings, birthdays and corporate events",
+        "sf_brands_carried": "Sugar-free hard sweets listed; brands not named",
+        "what_they_do_well": [
+          "Builds custom sweet boxes for weddings, birthdays, baby showers and corporate events.",
+          "Stocks sweets from France, England, the Netherlands and Switzerland, including vegan and gluten-free options."
+        ],
+        "fit_rationale": "An owner-run sweet shop in Carouge selling traditional sweets from France, England, the Netherlands and Switzerland, with a sugar-free line and gift boxes for Christmas, Easter and events. Diablo's sugar-free sweets and gift boxes fit its celebration and gifting trade. One shop plus online, so tier 3."
+      }
+    },
+    {
+      "contact_id": "900588810483",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "geschenkkorb.ch",
+        "domain": "geschenkkorb.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Huettwilen, Switzerland",
+        "distributes": "Filled Samichlaus gift bags and Easter gift packs with chocolate (Kaegi, chocolate coins, Santas, eggs and bunnies), biscuits (Gottlieber Hueppen, Spitzbueb, Lebkuchen) and chewy sweets (Frutas)",
+        "channels_supplied": "Companies and clubs buying staff and client gifts, with shipping to each employee or client address",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has packed and shipped Samichlaus bags to companies and clubs since 2013.",
+          "Ships gifts individually to each employee or client address."
+        ],
+        "fit_rationale": "A one-woman corporate gifting business that has packed branded chocolate, biscuits and sweets into Christmas and Easter gift bags for companies since 2013. Diablo chocolate, gummies and wafers suit these bags for health-conscious staff. Tier 3 because it is small and seasonal; delivery area not stated on its website. Storage: buys and packs the sweets itself, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "900595080414",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Geschenkparadies.ch AG (cadeaux24.ch)",
+        "domain": "cadeaux24.ch",
+        "location": "Lausanne, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Switzerland (town not shown on its website)",
+        "distributes": "Gift and seasonal online shop: chocolate advent calendars and gift boxes (Lindt, Ferrero, Kinder), Nutella spread calendars, sweets (Haribo, Chupa Chups, American sweets boxes) and snacks (Pringles, Zweifel)",
+        "channels_supplied": "Its own online shops cadeaux24.ch (French) and geschenkparadies.ch (German), delivering to shoppers across Switzerland",
+        "sf_brands_carried": "GIVYN sugar-free sweets advent calendar",
+        "what_they_do_well": [
+          "Runs a large Swiss advent calendar range for 2026, from Lindt and Ferrero chocolate to Haribo and sugar-free sweets."
+        ],
+        "fit_rationale": "A Swiss gift shop with a French site that already sells many branded chocolate, sweets and spread gifts and advent calendars to shoppers in Lausanne and Romandie. Diablo's gift boxes, variety packs and advent calendars fit its seasonal occasions directly, and it already lists a sugar-free sweets calendar (GIVYN)."
+      }
+    },
+    {
+      "contact_id": "900433923311",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "K-Muscle Nutrition",
+        "domain": "k-muscle-nutrition.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Ostermundigen, Switzerland",
+        "distributes": "Protein bars and wafer bars, food and snacks, zero-calorie syrups and sauces, plus protein powders and supplements",
+        "channels_supplied": "Own location at Bernstrasse 34 in Ostermundigen (Bern) with opening hours, and its own online shop",
+        "sf_brands_carried": "More Nutrition (Zerup zero syrup), Rabeko sauces, ESN, Weider, Optimum Nutrition and Stacker2 bars",
+        "what_they_do_well": [
+          "Founded by a bodybuilding champion who selects the brands it stocks, such as ESN, More Nutrition and Optimum Nutrition."
+        ],
+        "fit_rationale": "An owner-run sports nutrition shop on the edge of Bern that sells bars, snacks, syrups and sauces from other brands such as Weider, Optimum Nutrition, More Nutrition and Rabeko to gym-goers. It already sells zero-sugar syrups, so Diablo's syrups, toppings, bars and cookies fit its shelf; it is tier 3 because it is a single small shop and its store count and delivery area are not stated beyond its Ostermundigen address."
+      }
+    },
+    {
+      "contact_id": "900614415600",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Lavanda Feinkost Blaser & Dugumovic",
+        "domain": "lavanda.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Burgdorf, Switzerland",
+        "distributes": "Gift baskets and gift boxes with chocolate bars (Stella, Taucherli, Utopick), biscuits (Arnott's Tim Tam, Gottlieber Hueppen), fudge (Mrs. Tilly's), gummies (MamaMo), sweets and savoury snacks, plus coffee, tea and wine",
+        "channels_supplied": "Own shop in Burgdorf, online shop with delivery, and employee and client gift sets for companies with logo branding and volume discounts",
+        "sf_brands_carried": "Gluten-free and vegan section; Stella vegan chocolate; no direct sugar-free competitor seen",
+        "what_they_do_well": [
+          "Owner-run for 14 years with over 400 products from small makers in its shop and gift baskets.",
+          "Builds corporate gift sets with company logos, cards and volume discounts for employees and clients."
+        ],
+        "fit_rationale": "An Emmental hamper company 20 km from Bern whose Suesses und Salziges section lists 54 packaged sweets and snacks, including UK and Australian brands such as Mrs. Tilly's and Tim Tam. It builds gift sets for companies, so Diablo chocolate, biscuits and gift boxes would sit next to brands it already buys. Storage: sells from its own shop and online stock in Burgdorf, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "900433924336",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Nutrition Factory (nutritionfactory.ch)",
+        "domain": "nutritionfactory.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Wehr, Germany",
+        "distributes": "Protein bars, protein cookies and protein snacks from Barebells, Twix, Snickers, ESN, More Nutrition and Olimp, plus supplements and drinks",
+        "channels_supplied": "Its online shop selling in CHF to Swiss shoppers, with free shipping over CHF 100",
+        "sf_brands_carried": "Barebells protein bars",
+        "what_they_do_well": [],
+        "fit_rationale": "An online sports nutrition shop selling to Swiss shoppers in CHF with a Protein Riegel and Cookies range from other brands. It is tier 3 because its footer gives a business address in Wehr, Germany and no Swiss store or warehouse is named on its website."
+      }
+    },
+    {
+      "contact_id": "900612842715",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Rochat Cycles",
+        "domain": "rochat-cycles.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Aubonne, Switzerland",
+        "distributes": "Organic and vegan energy bars (Baouw) held in stock in its shops",
+        "channels_supplied": "Its own shops: Geneva (Rue du Perron), Geneva showroom, Aubonne road and MTB stores and Vevey",
+        "sf_brands_carried": "Baouw organic and vegan energy bars",
+        "what_they_do_well": [
+          "Has served cyclists around Lake Geneva since 1998, now with five sites including two in Geneva.",
+          "Took over the former Cycles Colin store in Vevey."
+        ],
+        "fit_rationale": "A Lake Geneva bike retailer with a shop and a showroom in Geneva that stocks branded energy bars for cyclists in its shops. Diablo's vegan muesli bars fit next to the Baouw bars it already sells. No online shop is shown on its website."
+      }
+    },
+    {
+      "contact_id": "900616125648",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "ROSE Bikes Switzerland",
+        "domain": "rosebikes.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Meilen, Switzerland (part of ROSE Bikes, Bocholt, Germany)",
+        "distributes": "Carbohydrate bars, protein bars and oat snack bars from other brands",
+        "channels_supplied": "Swiss online shop rosebikes.ch and its Meilen store",
+        "sf_brands_carried": "PowerBar, Clif Bar, Xenofit, Dextro Energy, Enervit, Multipower",
+        "what_they_do_well": [
+          "Opened a flagship store of over 800 m2 in Meilen with more Swiss branches planned."
+        ],
+        "fit_rationale": "A bike retailer whose Swiss online shop sells a nutrition range of other brands' bars, from Clif Bar and PowerBar to Multipower protein bars, to cyclists in Basel and across Switzerland. Its only Swiss store is in Meilen, so Basel is reached online."
+      }
+    },
+    {
+      "contact_id": "900611775724",
+      "job_title": "Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Stadt Land Korb (J&H Boutique GmbH)",
+        "domain": "stadtlandkorb.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Diegten, Switzerland",
+        "distributes": "Gift baskets and gift sets with chocolate bars, chocolate coated almonds, toffees and cream sweets (Jakob's Basler Rahmtaefeli), biscuits and wafers (Jakob's Basler Leckerly, Straumann Hueppen) plus honey, syrups and drinks.",
+        "channels_supplied": "Own online shop to shoppers and corporate gifts for companies such as PostFinance, Roche, Lonza, Bachem, Mercedes-Benz, Siemens and Intersport, with branded employee gift web shops.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Delivered 10,800 corporate gifts for PostFinance and further projects for Mercedes-Benz, Roche and Siemens.",
+          "Runs branded gift web shops where employees or clients choose their own gift."
+        ],
+        "fit_rationale": "A Basel-Landschaft hamper company whose Suesses collection holds 54 products from other brands such as Jakob's, Straumann and Tsueri Schoggi, assembled into corporate and private gift baskets. Its corporate volumes into Basel employers such as Roche, Lonza and Bachem give Diablo's gift boxes, chocolate and biscuits a route to large corporate buyers. Its range is built on Swiss suppliers, so Diablo's gifting and seasonal packs would be pitched as a better-for-you option. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "900587582703",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Supremefoodshop",
+        "domain": "supremefoodshop.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Villars-sur-Glane, Switzerland",
+        "distributes": "Protein and energy bars, cookies, snacks, spreads and desserts from recognised sports nutrition brands such as BioTechUSA, Body Attack, Trec Nutrition, Powerstar Food and Best Body Nutrition",
+        "channels_supplied": "Its online shop for customers across Switzerland and its store at Cormanon Centre, Villars-sur-Glane",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs both a physical store at Cormanon Centre and a Swiss online shop for sports nutrition."
+        ],
+        "fit_rationale": "A Swiss sports nutrition shop that says it selects products from recognised brands and has bars, cookies, snacks and spreads categories, the closest match to Diablo's catalogue in this channel. It serves Geneva through its Swiss online shop; delivery area not stated on its website."
+      }
+    },
+    {
+      "contact_id": "900595077315",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Swiss Snack Box",
+        "domain": "swiss-snackbox.com",
+        "location": "Geneva, Switzerland",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Switzerland",
+        "distributes": "Gift boxes of branded snacks: chocolate (Cailler), biscuits and pastries (Kambly, Kägi), crisps (Zweifel), sweet and savoury snacks and popcorn from Switzerland, Germany and the USA",
+        "channels_supplied": "Own online shop to shoppers and corporate clients, free delivery across Switzerland and shipping to Europe and Canada",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Builds themed boxes of 10 full size snacks from known brands such as Cailler, Kambly and Zweifel."
+        ],
+        "fit_rationale": "A gift box company that buys full size packs from other brands such as Cailler, Kambly, Kägi and Zweifel and resells them in themed boxes, including to corporate clients. Small and founded in 2025, and its city and legal entity are not stated on its website. Storage: sells from its own stock, warehouse not named on its website; boxes are hand packed and dispatched from Switzerland."
+      }
+    },
+    {
+      "contact_id": "900598296778",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vikingstore",
+        "domain": "vikingstore.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Biebelried, Germany (shops in Bern and St. Gallen, Switzerland)",
+        "distributes": "Protein and energy bars, protein cookies, protein snacks and sweets, peanut butter and chocolate protein spreads, plus sports nutrition and combat sports gear",
+        "channels_supplied": "Own shop at Spitalgasse 36 in Bern city centre, a second shop in St. Gallen, and a Swiss online shop delivering across Switzerland",
+        "sf_brands_carried": "Low and no-added-sugar protein bars: Barebells, All Stars (Clean Bar, Vegan Protein Bar), Snickers Hi Protein Low Sugar, Dymatize Elite",
+        "what_they_do_well": [
+          "Owner-run for more than ten years, with shops in Bern and St. Gallen and over 5,000 products online.",
+          "Runs a dedicated bars and cookies section and a snacks and sweets section with spreads and protein crisps."
+        ],
+        "fit_rationale": "A sports nutrition and combat sports specialist with a shop in Bern's old town and a national online shop of over 5,000 products, selling bars, cookies, snacks and spreads from brands such as All Stars, Barebells, Weider, Snickers and Oat King. Its shoppers are health-conscious athletes, and its bars and cookies section already favours low-sugar products, so Diablo's no-added-sugar bars, cookies and spreads sit naturally beside them."
+      }
+    },
+    {
+      "contact_id": "900598009073",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Winterfreude",
+        "domain": "winterfreude.ch",
+        "location": "Bern, Switzerland",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Biberstein, Switzerland",
+        "distributes": "Printed jute Samichlaus gift bags with chocolate, sweets, Appenzeller Biberli biscuits, nuts and citrus fruit",
+        "channels_supplied": "Companies buying gifts for employees, customers and friends, delivered free throughout Switzerland from 10 bags",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Handles corporate orders of 3,000 bags or more with free delivery across Switzerland.",
+          "Gives CHF 2 per bag to Stiftung Schloss Biberstein or the Ekkharthof."
+        ],
+        "fit_rationale": "A corporate gift bag company that fills Christmas bags with chocolate, sweets and biscuits and delivers them free across Switzerland, including Bern, with orders of 3,000 bags handled on request. Tier 3 because it sells one seasonal product and its website does not name the chocolate and sweets brands it buys. Storage: buys and packs the contents itself, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "900594775227",
+      "job_title": "Sociétaire et Gérant de Bcyclet Sàrl",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Bcyclet",
+        "domain": "bcyclet.com",
+        "location": "Geneva, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Plan-les-Ouates, Switzerland",
+        "distributes": "Healthy snacks alongside bikes and cycling accessories",
+        "channels_supplied": "Its single bike store in Plan-les-Ouates, Geneva",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Carries premium cycling brands such as Colnago, Orbea, Apidura and Cafe du Cycliste."
+        ],
+        "fit_rationale": "A Geneva bike shop that names healthy snacks in its accessories range, the same kind of food shelf as Unihockey Center. Tier 3 because it is one shop, its snack brands are not named on its website and its online shop is still being built."
+      }
+    },
+    {
+      "contact_id": "900591838418",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Bergzeit",
+        "domain": "bergzeit.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Otterfing, Germany",
+        "distributes": "Energy bars, protein bars, cereal bars, energy gels and trekking food from other brands",
+        "channels_supplied": "Swiss online shop bergzeit.ch with prices in CHF and TWINT payment, delivering across Switzerland",
+        "sf_brands_carried": "Clif Bar, PowerBar Natural Energy and Natural Vegan Protein bars, Chimpanzee",
+        "what_they_do_well": [
+          "Online outdoor retailer since 1999, running a dedicated Swiss shop in CHF."
+        ],
+        "fit_rationale": "A large outdoor and mountain sports web shop with a Swiss site whose sports nutrition section has its own energy bar category with Clif Bar and PowerBar. It reaches outdoor and sports shoppers in Basel and the rest of Switzerland online; it has no Basel store."
+      }
+    },
+    {
+      "contact_id": "900587589830",
+      "job_title": "Store Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Casagrande AG",
+        "domain": "casagrande.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Lucerne, Switzerland",
+        "distributes": "Swiss chocolate and sweets (Lindt and Sprüngli, Toblerone, Cailler), Kambly biscuits and Pastilles des Alpes, alongside souvenirs, cuckoo clocks, pocket knives and watches",
+        "channels_supplied": "Tourists and shoppers through its souvenir stores in Lucerne old town (Grendelstrasse, Kapellgasse, Lion Monument, Hertensteinstrasse) and a St. Moritz branch",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family business trading in Lucerne since 1948, now run by the third generation.",
+          "Described by Lucerne Tourism as the largest souvenir seller in Lucerne."
+        ],
+        "fit_rationale": "Lucerne's largest souvenir and gift retailer, with a Chocolate and sweets category and brands such as Lindt, Toblerone, Cailler and Kambly among more than 18,000 articles. Diablo's chocolate gift boxes and variety packs suit its tourist gift shelf. Store count for the chocolate range is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "900596032714",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Changemaker",
+        "domain": "changemaker.ch",
+        "location": "Lucerne, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Switzerland",
+        "distributes": "Chocolate, chocolate coated fruit and nuts, cookies, spreads, granola, bars in gift boxes and chewing gum, sold as gifts with brands such as UTOPICK and Mahler & Co, plus a Christmas gift range",
+        "channels_supplied": "Shoppers through ten gift shops in German-speaking Switzerland, including Luzern Kramgasse, and its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Featured by Lucerne Tourism among five Lucerne shops for creative Christmas gifts."
+        ],
+        "fit_rationale": "A sustainable gift shop chain with a store in Lucerne old town and a food and drink section selling chocolate, cookies, spreads and bars from small brands as gifts. Its focus on better-for-you, vegan and organic gifts matches Diablo's vegan cookies, spreads and bars."
+      }
+    },
+    {
+      "contact_id": "900616125649",
+      "job_title": "Product Owner PIM",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "ROSE Bikes Switzerland",
+        "domain": "rosebikes.ch",
+        "location": "Basel, Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Meilen, Switzerland (part of ROSE Bikes, Bocholt, Germany)",
+        "distributes": "Carbohydrate bars, protein bars and oat snack bars from other brands",
+        "channels_supplied": "Swiss online shop rosebikes.ch and its Meilen store",
+        "sf_brands_carried": "PowerBar, Clif Bar, Xenofit, Dextro Energy, Enervit, Multipower",
+        "what_they_do_well": [
+          "Opened a flagship store of over 800 m2 in Meilen with more Swiss branches planned."
+        ],
+        "fit_rationale": "A bike retailer whose Swiss online shop sells a nutrition range of other brands' bars, from Clif Bar and PowerBar to Multipower protein bars, to cyclists in Basel and across Switzerland. Its only Swiss store is in Meilen, so Basel is reached online."
+      }
+    }
+  ]
 }
