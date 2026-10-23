@@ -1,0 +1,155 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0041",
+  "location": "Basel, Switzerland",
+  "run_date": "2026-10-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 49
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 35
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 38
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 24
+    },
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 34
+    }
+  ],
+  "companies": [
+    {
+      "name": "Bergzeit",
+      "based_out_of": "Otterfing, Germany",
+      "domain": "bergzeit.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Energy bars, protein bars, cereal bars, energy gels and trekking food from other brands",
+      "channels_supplied": "Swiss online shop bergzeit.ch with prices in CHF and TWINT payment, delivering across Switzerland",
+      "sf_brands_carried": "Clif Bar, PowerBar Natural Energy and Natural Vegan Protein bars, Chimpanzee",
+      "competing_brand_flag": false,
+      "fit_rationale": "A large outdoor and mountain sports web shop with a Swiss site whose sports nutrition section has its own energy bar category with Clif Bar and PowerBar. It reaches outdoor and sports shoppers in Basel and the rest of Switzerland online; it has no Basel store.",
+      "what_they_do_well": [
+        "Online outdoor retailer since 1999, running a dedicated Swiss shop in CHF."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bergzeit.ch/ausruestung/basics/sportnahrung/energie-gel",
+        "https://www.bergzeit.ch/p/clif-bar-energie-riegel/5054542/",
+        "https://www.bergzeit.ch/powerbar-natural-vegan-protein-riegel/"
+      ]
+    },
+    {
+      "name": "ROSE Bikes Switzerland",
+      "based_out_of": "Meilen, Switzerland (part of ROSE Bikes, Bocholt, Germany)",
+      "domain": "rosebikes.ch",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Carbohydrate bars, protein bars and oat snack bars from other brands",
+      "channels_supplied": "Swiss online shop rosebikes.ch and its Meilen store",
+      "sf_brands_carried": "PowerBar, Clif Bar, Xenofit, Dextro Energy, Enervit, Multipower",
+      "competing_brand_flag": false,
+      "fit_rationale": "A bike retailer whose Swiss online shop sells a nutrition range of other brands' bars, from Clif Bar and PowerBar to Multipower protein bars, to cyclists in Basel and across Switzerland. Its only Swiss store is in Meilen, so Basel is reached online.",
+      "what_they_do_well": [
+        "Opened a flagship store of over 800 m2 in Meilen with more Swiss branches planned."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.rosebikes.ch/multipower-53-protein-bar-riegel-890415",
+        "https://www.rosebikes.ch/enervit-sport-competition-bar-kohlenhydrat-riegel-glutenfrei-2680939",
+        "https://www.rosebikes.com/bike-accessories/nutrition/bars/carbohydrate-bars",
+        "https://cyclingindustry.news/rose-bikes-to-launch-flagship-store-in-switzerland-10-additional-branches-planned"
+      ]
+    },
+    {
+      "name": "Stadt Land Korb (J&H Boutique GmbH)",
+      "based_out_of": "Diegten, Switzerland",
+      "domain": "stadtlandkorb.ch",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift baskets and gift sets with chocolate bars, chocolate coated almonds, toffees and cream sweets (Jakob's Basler Rahmtaefeli), biscuits and wafers (Jakob's Basler Leckerly, Straumann Hueppen) plus honey, syrups and drinks.",
+      "channels_supplied": "Own online shop to shoppers and corporate gifts for companies such as PostFinance, Roche, Lonza, Bachem, Mercedes-Benz, Siemens and Intersport, with branded employee gift web shops.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Basel-Landschaft hamper company whose Suesses collection holds 54 products from other brands such as Jakob's, Straumann and Tsueri Schoggi, assembled into corporate and private gift baskets. Its corporate volumes into Basel employers such as Roche, Lonza and Bachem give Diablo's gift boxes, chocolate and biscuits a route to large corporate buyers. Its range is built on Swiss suppliers, so Diablo's gifting and seasonal packs would be pitched as a better-for-you option. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Delivered 10,800 corporate gifts for PostFinance and further projects for Mercedes-Benz, Roche and Siemens.",
+        "Runs branded gift web shops where employees or clients choose their own gift."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://stadtlandkorb.ch/",
+        "https://stadtlandkorb.ch/collections/susses",
+        "https://stadtlandkorb.ch/collections/geschenkkorbe",
+        "https://stadtlandkorb.ch/pages/firmengeschenke_b2b"
+      ]
+    },
+    {
+      "name": "Xocolatl - Die Welt der Schokolade (Xocolatl GmbH)",
+      "based_out_of": "Basel, Switzerland",
+      "domain": "xocolatl.ch",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Chocolate bars from over 40 other manufacturers, pralines, dragees, drinking chocolates and chocolate gift items",
+      "channels_supplied": "Its own shop and café at Marktgasse 6 in Basel's old town, plus its own online shop for its house line",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Basel chocolate and gift shop that stocks hundreds of chocolate bars from other makers, shelved like a library, alongside gift items. It is a single shop focused on ethically produced chocolate, so it is small and reaches no other shops. Website did not open; trading confirmed on basel.com and myswitzerland.com.",
+      "what_they_do_well": [
+        "Stocks handmade chocolate bars from over 40 manufacturers from many countries in one Basel old town shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.basel.com/de/attraktionen/xocolatl-die-welt-der-schokolade-f2ac564aa9",
+        "https://www.myswitzerland.com/cs/zazitky/jidlo-a-vino/restaurace-1/xocolatl/"
+      ]
+    }
+  ]
+}
