@@ -448,3 +448,34 @@ def test_two_contacts_per_company_from_23_oct():
     from outreach.common import load_settings
     cfg = load_settings()["contacts"]
     assert cfg["per_company"] == 2 and cfg["max_reveals_per_company"] == 3
+
+
+def test_contacts_get_their_company_country(settings):
+    """Ariel, 23 Oct 2026: AUTO-OUTREACH contacts had no Country. New contacts get the company's
+    Country and City, and button 3 fills in the ones added before."""
+    hs = FakeCRM()
+    cid = approved_company(hs, name="Alp Foods", domain="alp.ch", country="Switzerland", city="Basel")
+    apollo = FakeApollo({"alp.ch": [{"id": "p1", "title": "Purchasing Manager"}]},
+                        {"p1": ("buyer@alp.ch", "verified")})
+    old_co = approved_company(hs, name="Old Co", domain="old.ch", country="Switzerland", city="Zug",
+                              **{CO: "Unqualified"})
+    old = hs.add("contacts", email="old@old.ch", **{CO: "APPROVED_TO_SEND"})
+    hs.links[old] = [old_co]
+    team = hs.add("contacts", tagged=False, email="team@old.ch")  # the team's own: never touched
+    hs.links[team] = [old_co]
+    find_contacts.run("test", settings, hs, apollo, log=quiet)
+    new = next(c for c in hs.records["contacts"].values() if c.get("email") == "buyer@alp.ch")
+    assert (new["country"], new["city"]) == ("Switzerland", "Basel")
+    assert (hs.records["contacts"][old]["country"], hs.records["contacts"][old]["city"]) == ("Switzerland", "Zug")
+    assert "country" not in hs.records["contacts"][team]
+
+
+def test_send_waits_for_a_company_without_country(settings):
+    hs = FakeCRM()
+    cid = approved_company(hs, name="Nowhere Co", domain="nowhere.in", country="")
+    contact = hs.add("contacts", email="a@nowhere.in", firstname="A", diablo_personal_line="L",
+                     diablo_company_note="imports European sweets", **{CO: "APPROVED_TO_SEND"})
+    hs.links[contact] = [cid]
+    logs = []
+    result = send.run("test", settings, hs, FakeInstantly(), log=logs.append)
+    assert result["queued"] == 0 and any("no Country in HubSpot" in line for line in logs)

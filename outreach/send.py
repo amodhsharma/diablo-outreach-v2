@@ -423,6 +423,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "
                 + WAIT_REASONS.get(why, "a more senior approved person at the company goes first"))
             continue
+        if not (comp.get("country") or "").strip():  # 23 Oct 2026: "a direct partner in <country>" needs it
+            waiting += 1
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: the company has no "
+                "Country in HubSpot, so the email could not name the market; fill in its Country")
+            continue
         earlier = last_campaign(company_contacts)
         # A company stays in the campaign of its first email, so a reply there stops the others.
         # A company inbox (no people in Apollo, 19 Oct 2026) goes to the month's company inbox campaign.

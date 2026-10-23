@@ -135,6 +135,10 @@ def run(target, settings, hs, apollo, log=print):
     statuses = LeadStatus(hs)
     assigner = Assigner(hs, settings, log)
     out_dir = run_dir("contacts")
+    try:  # 23 Oct 2026: every AUTO-OUTREACH contact carries its company's Country; never stops the run
+        fill_contact_places(hs, log)
+    except Exception as err:
+        log(f"Could not fill in the contacts' Country: {str(err)[:200]}")
     approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")], COMPANY_PROPS,
                                 max_results=cfg["companies_per_run"] * 3)
     # Companies that already have their contacts wait for gate 2 and their emails, not for Apollo.
@@ -189,7 +193,43 @@ def _mask(email):
 NOT_LOOKED = object()
 
 
-def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=NOT_LOOKED):
+def place_of(company_props):
+    """The company's Country and City for its contacts (23 Oct 2026, Ariel: contacts had no country)."""
+    out = {}
+    for key in ("country", "city"):
+        value = (company_props.get(key) or "").strip()
+        if value:
+            out[key] = value
+    return out
+
+
+def fill_contact_places(hs, log=print, limit=2000):
+    """AUTO-OUTREACH contacts with no Country get their company's Country and City (23 Oct 2026). Runs
+    at the start of every button 3 run, so contacts added before this change are filled in too.
+    Returns how many contacts changed."""
+    rows = hs.tagged_search("contacts", [{"propertyName": "country", "operator": "NOT_HAS_PROPERTY"}],
+                            ["email", "country", "city"], max_results=limit)
+    if not rows:
+        return 0
+    ids = [str(r["id"]) for r in rows]
+    links = hs.associated_ids("contacts", "companies", ids)
+    company_ids = sorted({c for cs in links.values() for c in cs})
+    companies = {str(r["id"]): r.get("properties", {})
+                 for r in hs.tagged_read("companies", company_ids, ["country", "city"])} if company_ids else {}
+    updates = []
+    for r in rows:
+        place = next((place_of(companies[c]) for c in links.get(str(r["id"])) or [] if c in companies
+                      and place_of(companies[c]).get("country")), None)
+        if place:
+            current = r.get("properties", {})
+            updates.append((r["id"], {k: v for k, v in place.items() if k == "country" or not current.get(k)}))
+    if updates:
+        hs.update_tagged("contacts", updates)
+        log(f"Filled in the Country (and City) of {len(updates)} contacts from their company")
+    return len(updates)
+
+
+def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=NOT_LOOKED, place=None):
     """The company's website contact address as its one contact, or [] (agreed 19 Oct 2026)."""
     if email is NOT_LOOKED:
         email = company_inbox.find_inbox(domain, name=name)
@@ -205,6 +245,7 @@ def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=NO
         "lastname": "",
         "jobtitle": INBOX_TITLE,
         "company": name or "",
+        **(place or {}),
         **statuses.props("contacts", "found"),
         **({"hubspot_owner_id": owner} if owner else {}),
         **({CONTACT_SOURCE: SOURCE_WEBSITE} if cfg.get("_source_field") else {}),
@@ -315,6 +356,7 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
                 "lastname": m.get("last_name") or "",
                 "jobtitle": m.get("title") or "",
                 "company": name or "",
+                **place_of(p),  # 23 Oct 2026: the company's Country and City
                 **statuses.props("contacts", "found"),
                 **({"hubspot_owner_id": owner} if owner else {}),
                 **({CONTACT_SOURCE: SOURCE_APOLLO} if cfg.get("_source_field") else {}),
@@ -327,7 +369,8 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
             hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
         inbox = False
         if not created and cfg.get("company_inbox_fallback"):
-            created = add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=inbox_email)
+            created = add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=inbox_email,
+                                        place=place_of(p))
             inbox = bool(created)
         if not created:
             hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
