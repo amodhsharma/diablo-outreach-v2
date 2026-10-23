@@ -323,10 +323,48 @@ COLLEAGUE_STAGE = {"marked interested": "colleague_positive", "replied": "collea
 KEEP_WHEN_COMPANY_CLOSED = ("closed", "company_unqualified", "no_response", TEAM) + COLLEAGUE_STAGES
 
 
-def close_company_contacts(hs, statuses, log=print):
+def colleague_answer(contacts, statuses, leads, blocked=None):
+    """The colleague Lead Status that the company's own answer calls for (23 Oct 2026), or None when
+    nobody at the company has answered. Read from Instantly for the contacts whose own Lead Status says
+    they answered (Replied or Unqualified), in the same order as a fresh reply: interested first, then an
+    opt-out, then not interested, then any other reply. A reply from someone now Unqualified counts as
+    not interested."""
+    found = set()
+    for c in contacts:
+        own = statuses.of("contacts", c)
+        if own not in ("replied", "closed"):
+            continue
+        p = c.get("properties", {})
+        email = (p.get("email") or "").lower()
+        lead = (leads or {}).get(email)
+        if str(p.get(STOP_REASON) or "").lower().startswith("opted out") or is_blocked(email, blocked):
+            found.add("colleague_opted_out")
+        if not lead:
+            continue
+        _, _, event = lead_result(lead)
+        if event == "marked interested":
+            found.add("colleague_positive")
+        elif event == "unsubscribed":
+            found.add("colleague_opted_out")
+        elif event == "marked not interested" or (event == "replied" and own == "closed"):
+            found.add("colleague_negative")
+        elif event == "replied":
+            found.add("colleague_replied")
+    for stage in ("colleague_positive", "colleague_opted_out", "colleague_negative", "colleague_replied"):
+        if stage in found:
+            if stage == "colleague_opted_out" and not statuses.has("contacts", stage):
+                stage = "colleague_negative"  # until button 1 adds "Colleague opted out"
+            return stage if statuses.has("contacts", stage) else None
+    return None
+
+
+def close_company_contacts(hs, statuses, log=print, leads=None, blocked=None):
     """Every AUTO-OUTREACH contact at an AUTO-OUTREACH company whose Lead Status is Unqualified (set by a
     person or by the loop) becomes "Unqualified company" (agreed 21 Oct 2026), with the reason written
-    in "Outreach stopped because" and on its timeline. Returns how many contacts changed."""
+    in "Outreach stopped because" and on its timeline. When someone at the company answered (Instantly
+    shows it), the others get the colleague Lead Status instead, such as "Colleague replied: negative"
+    (23 Oct 2026: contacts set back to GATE2 by hand get their right label back). Returns how many
+    contacts changed."""
     if not statuses.has("contacts", "company_unqualified"):
         log('The contact Lead Status choice "Unqualified company" is missing; run button 1 to add it. '
             "Contacts at Unqualified companies were left as they are.")
@@ -344,16 +382,18 @@ def close_company_contacts(hs, statuses, log=print):
         props = company.get("properties", {})
         why = (props.get(STOP_REASON) or "").strip()
         text = f"The company is Unqualified ({today()})" + (f": {why}" if why else "")
+        people = everyone.get(company["id"]) or []
+        stage = colleague_answer(people, statuses, leads, blocked) or "company_unqualified"
         changed = 0
-        for c in everyone.get(company["id"]) or []:
+        for c in people:
             if statuses.of("contacts", c) in KEEP_WHEN_COMPANY_CLOSED:
                 continue
-            updates.append((c["id"], statuses.props("contacts", "company_unqualified")))
+            updates.append((c["id"], statuses.props("contacts", stage)))
             reasons.append((c["id"], text))
             changed += 1
         if changed:
-            log(f'{props.get("name")}: the company is Unqualified, so {changed} contact(s) there are now '
-                '"Unqualified company"')
+            label = statuses.label("contacts", statuses.props("contacts", stage)[LEAD_STATUS])
+            log(f'{props.get("name")}: the company is Unqualified, so {changed} contact(s) there are now "{label}"')
     if updates:
         hs.update_tagged("contacts", updates)
         stop_reasons(hs, "contacts", reasons, log)
@@ -485,7 +525,8 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
     moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads,
                     blocked=blocked, opt_out_rows=opt_out_rows)
     try:  # 21 Oct 2026: the contacts of every Unqualified company become "Unqualified company"
-        moved["company_contacts_closed"] = close_company_contacts(hs, statuses, log)
+        moved["company_contacts_closed"] = close_company_contacts(hs, statuses, log, leads=leads,
+                                                                   blocked=blocked)
     except Exception as err:  # never stops the run; tried again next run
         log(f"Could not mark the contacts of Unqualified companies: {str(err)[:200]}")
         moved["company_contacts_closed"] = 0

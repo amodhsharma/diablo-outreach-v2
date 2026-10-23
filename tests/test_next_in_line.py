@@ -619,6 +619,46 @@ def test_contacts_of_an_unqualified_company_become_unqualified_company():
     assert sync.close_company_contacts(hs, statuses, log=lambda *_: None) == 0  # nothing twice
 
 
+def test_contacts_of_an_unqualified_company_get_the_colleague_answer_back():
+    """23 Oct 2026 (Ariel, Pistor): the head said no, his colleagues were set back to GATE2 by hand. They
+    get "Colleague replied: negative" back, not "Unqualified company"; other answers likewise."""
+    from outreach.stages import LeadStatus
+    hs = FakeCRM()
+    statuses = LeadStatus(hs)
+    quiet = dict(log=lambda *_: None)
+
+    def closed_company(name, domain, head_status, lead):
+        cid, (p1, p2, p3) = company_with_three(hs, name, domain)
+        hs.records["companies"][cid][LS] = "Unqualified"
+        hs.records["contacts"][p1][LS] = head_status
+        return {f"p1@{domain}": dict(lead, email=f"p1@{domain}")}, (p1, p2, p3)
+
+    leads, (p1, p2, p3) = closed_company("Pistor", "pistor.ch", "UNQUALIFIED",
+                                         {"status": 1, "lt_interest_status": -1, "email_reply_count": 1})
+    assert sync.close_company_contacts(hs, statuses, leads=leads, **quiet) == 2
+    assert status_of(hs, p1) == "UNQUALIFIED"
+    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_REPLIED_NEGATIVE"
+    assert sync.close_company_contacts(hs, statuses, leads=leads, **quiet) == 0  # nothing twice
+
+    # A plain reply from someone now Unqualified counts as not interested.
+    more, (_, q2, _) = closed_company("Plain", "plain.ch", "UNQUALIFIED", {"status": 1, "email_reply_count": 1})
+    assert sync.close_company_contacts(hs, statuses, leads={**leads, **more}, **quiet) == 2
+    assert status_of(hs, q2) == "COLLEAGUE_REPLIED_NEGATIVE"
+
+    # An unsubscribe: "Colleague opted out".
+    more, (_, r2, _) = closed_company("Unsub", "unsub.ch", "UNQUALIFIED", {"status": -2})
+    sync.close_company_contacts(hs, statuses, leads=more, **quiet)
+    assert status_of(hs, r2) == "COLLEAGUE_OPTED_OUT"
+
+    # Nobody answered (a bounce, or Unqualified by hand): "Unqualified company" as before.
+    more, (_, s2, _) = closed_company("Bounce", "bounce.ch", "UNQUALIFIED", {"status": -1})
+    sync.close_company_contacts(hs, statuses, leads=more, **quiet)
+    assert status_of(hs, s2) == "UNQUALIFIED_COMPANY"
+    _, (_, t2, _) = closed_company("ByHand", "byhand.ch", "APPROVED_TO_SEND", {})
+    sync.close_company_contacts(hs, statuses, leads={}, **quiet)
+    assert status_of(hs, t2) == "UNQUALIFIED_COMPANY"
+
+
 def test_with_follow_ups_off_only_the_introduction_goes():
     """21 Oct 2026 (Ariel): no forwards and no reminder to people; a bounce passes the introduction on at
     once; no reply within no_reply_after_days ends the loop. The company inbox reminder is off too."""
