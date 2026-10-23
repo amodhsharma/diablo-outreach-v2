@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-23T11:00:04+00:00 (UTC).
+Checked 2026-10-23T13:38:23+00:00 (UTC).
 
 ## Mailboxes
 
@@ -25,8 +25,8 @@ Checked 2026-10-23T11:00:04+00:00 (UTC).
 |---|---|---|---|---|---|---|---|---|
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
-| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (44 of 44) | Dana from Diablo | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (37 of 37) | Elize from Diablo | 30 | none |
+| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (45 of 45) | Dana from Diablo | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (40 of 40) | Elize from Diablo | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
 | info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (60 of 60) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (32 of 32) | Joshua from Diablo | 30 | none |
@@ -60,14 +60,14 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - Campaign status: Active
 - Instantly says: **daily_limit_met**. Campaign has reached its daily sending limit
-- Instantly's explanation: The campaign has reached its daily sending limit of 10 emails and will resume sending tomorrow once the limit resets. Currently, no email accounts are connected to the campaign, which is also preventing any emails from being sent. To ensure future successful deliveries, please connect at least one email account to the campaign.
+- Instantly's explanation: Your campaign has hit its daily sending limit, having already sent 10 emails today. It is currently paused because of this limit and also has no email accounts connected to send from. To ensure future emails can be sent, please connect the necessary sending accounts; the campaign should resume sending tomorrow after the daily limit resets.
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 10, "sent": 10, "limit_hit": true}`
 - new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 0, "available": 0, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
 - leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-23T10:58:16.241Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-23T13:33:25.790Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
 - Leads: 33
@@ -83,7 +83,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Blocklist
 
-- **Instantly's blocklist could not be read** (Instantly refused the key: it is not allowed to read the blocklist. Add the GitHub secret INSTANTLY_BLOCKLIST_KEY: an Instantly API key with the permission block_list_entries:read). Emails still go out; opt-outs already in HubSpot stay stopped, but new blocklist entries are not applied until it can be read again.
+- Instantly's blocklist: 0 entries (addresses and domains), read and checked before every forward, reminder and introduction.
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
@@ -164,66 +164,66 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Where every company is in its loop
 
-- **Toga Food**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:50 IST
-- **Prima**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:56 IST
-- **Coop Pronto**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:59 IST
-- **Unihockey Center**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:41 IST
-- **snacks4you**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:40 IST
-- **Lidl (Switzerland)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:05 IST
-- **Mago**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:49 IST
-- **MES Group SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:10 IST
-- **apo24.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:14 IST
-- **landi**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:19 IST
-- **shop-apotheke.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:23 IST
-- **ROLF HUGLI SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:28 IST
-- **F. Uhlmann-Eyraud SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 15:52 IST
-- **E. Weber & Cie AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:01 IST
-- **Neuenschwander R. & H. AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:10 IST
-- **Bio Partner Schweiz AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:11 IST
-- **Conaxess Trade Switzerland AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:28 IST
-- **R.C. Andreae AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:30 IST
-- **Rufenberg Trading GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:37 IST
-- **Fortura AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:49 IST
-- **Biofair-Naturapart GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:27 IST
-- **Bizzyvends B2B**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:22 IST
-- **Naturalex Sarl**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:23 IST
-- **Iberpasion GmbH**: next is the next email, 3 days after the last one
-- **AM Food GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:22 IST
-- **honeydew GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:23 IST
-- **Swiss Deli Distribution SA (Authentic Food Solutions)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:32 IST
-- **easytrade distribution AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:31 IST
-- **Provianda GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:31 IST
-- **Ch. Margot & Cie SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:32 IST
-- **Cadar SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:41 IST
-- **1001 Distributions (Mangenot O.S. Déstockage)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:40 IST
-- **Coop Vitality**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:32 IST
-- **Amavita Apotheken (Galenicare)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:37 IST
-- **Müller Schweiz (Drogerie Müller)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:41 IST
-- **Green-Shop (Impexbo Sarl)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:46 IST
-- **Bio für alle GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:58 IST
-- **LOLA (Stiftung Contact)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:03 IST
-- **ROSSMANN Schweiz AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:50 IST
-- **Ochsner Sport**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:55 IST
-- **LowPrice Sagl**: next is the next email, 3 days after the last one
-- **Running Planet Geneve**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:59 IST
-- **Bachli Bergsport**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:04 IST
-- **SansGluGlu (Le P'tit Mag)**: next is the next email, 3 days after the last one
-- **Veganer-Shop.ch**: next is the next email, 3 days after the last one
-- **HighPowered Fitness**: next is the next email, 3 days after the last one
-- **Veloplus**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:08 IST
-- **Alna Dietetique & Bio**: next is the next email, 3 days after the last one
-- **Pharmacies BENU**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:13 IST
-- **Running Concept (Michel Renck Sports)**: next is the next email, 3 days after the last one
-- **KDC Nutrition**: next is the next email, 3 days after the last one
-- **VELOMANIA (Bikes Center SA)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:17 IST
-- **Transa Backpacking AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:23 IST
-- **La Bonbonnerie**: next is the next email, 3 days after the last one
-- **Sparposten.ch**: next is the next email, 3 days after the last one
-- **SamaraNatura (BioSamara GmbH)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:26 IST
-- **Planet Endurance**: next is the next email, 3 days after the last one
-- **drogi.ch GmbH**: next is the next email, 3 days after the last one
-- **NOWFIT Sports Nutrition Sagl**: next is the next email, 3 days after the last one
-- **Vitaminplus (Welldro AG)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:32 IST
+- **Toga Food**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:50 IST; blocklist: clear
+- **Prima**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:56 IST; blocklist: clear
+- **Coop Pronto**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:59 IST; blocklist: clear
+- **Unihockey Center**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:41 IST; blocklist: clear
+- **snacks4you**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:40 IST; blocklist: clear
+- **Lidl (Switzerland)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:05 IST; blocklist: clear
+- **Mago**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:49 IST; blocklist: clear
+- **MES Group SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:10 IST; blocklist: clear
+- **apo24.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:14 IST; blocklist: clear
+- **landi**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:19 IST; blocklist: clear
+- **shop-apotheke.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:23 IST; blocklist: clear
+- **ROLF HUGLI SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:28 IST; blocklist: clear
+- **F. Uhlmann-Eyraud SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 15:52 IST; blocklist: clear
+- **E. Weber & Cie AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:01 IST; blocklist: clear
+- **Neuenschwander R. & H. AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:10 IST; blocklist: clear
+- **Bio Partner Schweiz AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:11 IST; blocklist: clear
+- **Conaxess Trade Switzerland AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:28 IST; blocklist: clear
+- **R.C. Andreae AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:30 IST; blocklist: clear
+- **Rufenberg Trading GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:37 IST; blocklist: clear
+- **Fortura AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:49 IST; blocklist: clear
+- **Biofair-Naturapart GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:27 IST; blocklist: clear
+- **Bizzyvends B2B**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:22 IST; blocklist: clear
+- **Naturalex Sarl**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:23 IST; blocklist: clear
+- **Iberpasion GmbH**: next is the next email, 3 days after the last one; blocklist: clear
+- **AM Food GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:22 IST; blocklist: clear
+- **honeydew GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:23 IST; blocklist: clear
+- **Swiss Deli Distribution SA (Authentic Food Solutions)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:32 IST; blocklist: clear
+- **easytrade distribution AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:31 IST; blocklist: clear
+- **Provianda GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:31 IST; blocklist: clear
+- **Ch. Margot & Cie SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:32 IST; blocklist: clear
+- **Cadar SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:41 IST; blocklist: clear
+- **1001 Distributions (Mangenot O.S. Déstockage)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:40 IST; blocklist: clear
+- **Coop Vitality**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:32 IST; blocklist: clear
+- **Amavita Apotheken (Galenicare)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:37 IST; blocklist: clear
+- **Müller Schweiz (Drogerie Müller)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:41 IST; blocklist: clear
+- **Green-Shop (Impexbo Sarl)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:46 IST; blocklist: clear
+- **Bio für alle GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:58 IST; blocklist: clear
+- **LOLA (Stiftung Contact)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:03 IST; blocklist: clear
+- **ROSSMANN Schweiz AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:50 IST; blocklist: clear
+- **Ochsner Sport**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:55 IST; blocklist: clear
+- **LowPrice Sagl**: next is the next email, 3 days after the last one; blocklist: clear
+- **Running Planet Geneve**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:59 IST; blocklist: clear
+- **Bachli Bergsport**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:04 IST; blocklist: clear
+- **SansGluGlu (Le P'tit Mag)**: next is the next email, 3 days after the last one; blocklist: clear
+- **Veganer-Shop.ch**: next is the next email, 3 days after the last one; blocklist: clear
+- **HighPowered Fitness**: next is the next email, 3 days after the last one; blocklist: clear
+- **Veloplus**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:08 IST; blocklist: clear
+- **Alna Dietetique & Bio**: next is the next email, 3 days after the last one; blocklist: clear
+- **Pharmacies BENU**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:13 IST; blocklist: clear
+- **Running Concept (Michel Renck Sports)**: next is the next email, 3 days after the last one; blocklist: clear
+- **KDC Nutrition**: next is the next email, 3 days after the last one; blocklist: clear
+- **VELOMANIA (Bikes Center SA)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:17 IST; blocklist: clear
+- **Transa Backpacking AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:23 IST; blocklist: clear
+- **La Bonbonnerie**: next is the next email, 3 days after the last one; blocklist: clear
+- **Sparposten.ch**: next is the next email, 3 days after the last one; blocklist: clear
+- **SamaraNatura (BioSamara GmbH)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:26 IST; blocklist: clear
+- **Planet Endurance**: next is the next email, 3 days after the last one; blocklist: clear
+- **drogi.ch GmbH**: next is the next email, 3 days after the last one; blocklist: clear
+- **NOWFIT Sports Nutrition Sagl**: next is the next email, 3 days after the last one; blocklist: clear
+- **Vitaminplus (Welldro AG)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:32 IST; blocklist: clear
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
 |---|---|---|---|---|
