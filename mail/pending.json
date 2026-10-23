@@ -1,5 +1,122 @@
 {
-  "generated_at": "2026-10-23T09:30:45+00:00",
+  "generated_at": "2026-10-23T10:49:28+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "900182561004",
+      "job_title": "Responsable du Réseau Stations-service",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "AVIA Distribution SA",
+        "domain": "adsa.ch",
+        "location": "Switzerland",
+        "channel": "Petrol station and convenience chains",
+        "based_out_of": "Le Mont-sur-Lausanne, Switzerland",
+        "distributes": "Station shop range with biscuits, chocolate and snacks (Pringles, Zweifel chips, Swiss chocolate), ice cream, drinks and everyday groceries",
+        "channels_supplied": "Its own AVIA station shops in western Switzerland (for example Carouge and Cartigny), alongside AVIA stations with SPAR shops",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs AVIA stations with shops across Vaud, Geneva and Valais, opening the first AVIA hydrogen station in Puidoux in 2023."
+        ],
+        "fit_rationale": "AVIA member for French-speaking Switzerland that runs its own AVIA-branded station shops, whose shop pages list biscuits, chocolate and chips from other brands. Diablo's chocolate bars, biscuits and wafers fit that impulse shelf. Shop count is not stated on its website, so it sits in tier 3."
+      }
+    },
+    {
+      "contact_id": "900103853298",
+      "job_title": "Business Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Bieler Sport",
+        "domain": "bielersport.ch",
+        "location": "Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Bonaduz, Switzerland",
+        "distributes": "Sports nutrition shelf with energy bars and gels from Hammer, Sponser and Winforce",
+        "channels_supplied": "Its own stores in Bonaduz and Chur and its website",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family run specialist for running, biking and Nordic skiing since 1986, with stores in Bonaduz and Chur."
+        ],
+        "fit_rationale": "A family run running, biking and Nordic ski retailer founded in 1986 with two stores in Graubünden and a sports nutrition shelf from three brands. Small reach; individual bar products are not listed on its home page."
+      }
+    },
+    {
+      "contact_id": "900291279092",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "McDrogerie Der Artikel wird zum Warenkorb hinzugefügt",
+        "domain": "mcdrogerie.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "899797704925",
+      "job_title": "Gründer, Inhaber, Geschäftsführer",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Sportini.ch",
+        "domain": "sportini.ch",
+        "location": "Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Switzerland",
+        "distributes": "Protein bars, protein sweets, desserts and sweets, syrups and sauces from Barebells, Olimp, Nutrend, BodyAttack, USN and others",
+        "channels_supplied": "Its own online shop, delivering across Switzerland by Swiss Post",
+        "sf_brands_carried": "Barebells; syrups and sauces section",
+        "what_they_do_well": [],
+        "fit_rationale": "A Swiss sports nutrition web shop with dedicated protein bars, protein sweets, desserts and syrups and sauces categories from many brands. Diablo's bars, sweets and dessert toppings fit three of its existing categories. Head office town not stated on its website."
+      }
+    },
+    {
+      "contact_id": "900182561003",
+      "job_title": "Responsable du Département du Détail de Lausanne",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "AVIA Distribution SA",
+        "domain": "adsa.ch",
+        "location": "Switzerland",
+        "channel": "Petrol station and convenience chains",
+        "based_out_of": "Le Mont-sur-Lausanne, Switzerland",
+        "distributes": "Station shop range with biscuits, chocolate and snacks (Pringles, Zweifel chips, Swiss chocolate), ice cream, drinks and everyday groceries",
+        "channels_supplied": "Its own AVIA station shops in western Switzerland (for example Carouge and Cartigny), alongside AVIA stations with SPAR shops",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs AVIA stations with shops across Vaud, Geneva and Valais, opening the first AVIA hydrogen station in Puidoux in 2023."
+        ],
+        "fit_rationale": "AVIA member for French-speaking Switzerland that runs its own AVIA-branded station shops, whose shop pages list biscuits, chocolate and chips from other brands. Diablo's chocolate bars, biscuits and wafers fit that impulse shelf. Shop count is not stated on its website, so it sits in tier 3."
+      }
+    },
+    {
+      "contact_id": "900103853299",
+      "job_title": "Mitinhaber & Verantwortlich für den Standort Chur",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Bieler Sport",
+        "domain": "bielersport.ch",
+        "location": "Switzerland",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Bonaduz, Switzerland",
+        "distributes": "Sports nutrition shelf with energy bars and gels from Hammer, Sponser and Winforce",
+        "channels_supplied": "Its own stores in Bonaduz and Chur and its website",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family run specialist for running, biking and Nordic skiing since 1986, with stores in Bonaduz and Chur."
+        ],
+        "fit_rationale": "A family run running, biking and Nordic ski retailer founded in 1986 with two stores in Graubünden and a sports nutrition shelf from three brands. Small reach; individual bar products are not listed on its home page."
+      }
+    }
+  ]
 }
