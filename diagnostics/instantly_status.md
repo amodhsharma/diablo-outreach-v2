@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-23T22:37:52+00:00 (UTC).
+Checked 2026-10-24T01:37:37+00:00 (UTC).
 
 ## Mailboxes
 
@@ -23,16 +23,16 @@ Checked 2026-10-23T22:37:52+00:00 (UTC).
 
 | Mailbox | Verdict | Sending | Warm-up | Warm-up score | Warm-up emails landing in inbox | Sender name | Daily limit | Campaigns using it |
 |---|---|---|---|---|---|---|---|---|
-| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
-| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
-| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (45 of 45) | Dana from Diablo | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (44 of 44) | Elize from Diablo | 30 | none |
+| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (64 of 64) | Aryeh | 30 | none |
+| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (64 of 64) | Diablo Admin | 30 | none |
+| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (44 of 44) | Dana from Diablo | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (43 of 43) | Elize from Diablo | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (60 of 60) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
-| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (32 of 32) | Joshua from Diablo | 30 | none |
-| offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (29 of 29) | Offers - | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (50 of 50) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
+| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (31 of 31) | Joshua from Diablo | 30 | none |
+| offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (27 of 27) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (41 of 41) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (31 of 31) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
 
@@ -60,20 +60,20 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - Campaign status: Active
 - Instantly says: **daily_limit_met**. Campaign has reached its daily sending limit
-- Instantly's explanation: The campaign is currently paused because it has reached its daily sending limit of 10 emails for today. It also cannot send any emails as there are no connected email accounts. To resume sending, please connect at least one email account and consider increasing the daily sending limit if you need to send more emails per day.
+- Instantly's explanation: The campaign is currently paused because it has reached its daily send limit of 10 emails. Additionally, there are no email accounts connected to send from, so please connect an account to allow sending to resume once the daily limit resets.
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 10, "sent": 10, "limit_hit": true}`
 - new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 0, "available": 0, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
 - leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-23T22:33:36.288Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-24T01:36:13.960Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
 - Leads: 33
-  - 19 Completed, emailed
-  - 13 Active, not yet emailed
-  - 1 Bounced, emailed
+  - 28 Completed, emailed
+  - 3 Active, not yet emailed
+  - 2 Bounced, emailed
 - Emails in the sequence: 1 (characters in each body: [2315])
 
 
@@ -204,23 +204,22 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - **LOLA (Stiftung Contact)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:03 IST; blocklist: clear
 - **ROSSMANN Schweiz AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:50 IST; blocklist: clear
 - **Ochsner Sport**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:55 IST; blocklist: clear
-- **LowPrice Sagl**: next is the next email, 3 days after the last one; blocklist: clear
+- **LowPrice Sagl**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:37 IST; blocklist: clear
 - **Running Planet Geneve**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:59 IST; blocklist: clear
 - **Bachli Bergsport**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:04 IST; blocklist: clear
-- **SansGluGlu (Le P'tit Mag)**: next is the next email, 3 days after the last one; blocklist: clear
-- **Veganer-Shop.ch**: next is the next email, 3 days after the last one; blocklist: clear
-- **HighPowered Fitness**: next is the next email, 3 days after the last one; blocklist: clear
+- **SansGluGlu (Le P'tit Mag)**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:37 IST; blocklist: clear
+- **Veganer-Shop.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:46 IST; blocklist: clear
 - **Veloplus**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:08 IST; blocklist: clear
-- **Alna Dietetique & Bio**: next is the next email, 3 days after the last one; blocklist: clear
+- **Alna Dietetique & Bio**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:55 IST; blocklist: clear
 - **Pharmacies BENU**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:13 IST; blocklist: clear
-- **Running Concept (Michel Renck Sports)**: next is the next email, 3 days after the last one; blocklist: clear
-- **KDC Nutrition**: next is the next email, 3 days after the last one; blocklist: clear
+- **Running Concept (Michel Renck Sports)**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:55 IST; blocklist: clear
+- **KDC Nutrition**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:04 IST; blocklist: clear
 - **VELOMANIA (Bikes Center SA)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:17 IST; blocklist: clear
 - **Transa Backpacking AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:23 IST; blocklist: clear
-- **La Bonbonnerie**: next is the next email, 3 days after the last one; blocklist: clear
-- **Sparposten.ch**: next is the next email, 3 days after the last one; blocklist: clear
+- **La Bonbonnerie**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:04 IST; blocklist: clear
+- **Sparposten.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:13 IST; blocklist: clear
 - **SamaraNatura (BioSamara GmbH)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:26 IST; blocklist: clear
-- **Planet Endurance**: next is the next email, 3 days after the last one; blocklist: clear
+- **Planet Endurance**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:16 IST; blocklist: clear
 - **drogi.ch GmbH**: next is the next email, 3 days after the last one; blocklist: clear
 - **NOWFIT Sports Nutrition Sagl**: next is the next email, 3 days after the last one; blocklist: clear
 - **Vitaminplus (Welldro AG)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:32 IST; blocklist: clear
@@ -323,27 +322,26 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 | Ochsner Sport | 2 | Head of Marketing | GATE2: Approved to send | not yet |
 | Ochsner Sport | 3 | Head of Service Ochsner Sport | GATE2: Approved to send | not yet |
 | Ochsner Sport | 4 | Head of Category Bike, Schnee- und Wassersport | GATE2: Approved to send | not yet |
-| LowPrice Sagl | 1 | Company inbox (from website) | Attempted to Contact | not yet |
+| LowPrice Sagl | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:37 IST |
 | Running Planet Geneve | 1 | Retail Buyer | Attempted to Contact | 23 Oct 13:59 IST |
 | Running Planet Geneve | 2 | Expert en Mécanique de Course à Pied | GATE2: Approved to send | not yet |
 | Bachli Bergsport | 1 | CEO | Attempted to Contact | 23 Oct 14:04 IST |
 | Bachli Bergsport | 2 | Agency Director | GATE2: Approved to send | not yet |
 | Bachli Bergsport | 3 | Einkaufsleiter / Head of Purchasing | GATE2: Approved to send | not yet |
 | Bachli Bergsport | 4 | Department Head | GATE2: Approved to send | not yet |
-| SansGluGlu (Le P'tit Mag) | 1 | Company inbox (from website) | Attempted to Contact | not yet |
-| Veganer-Shop.ch | 1 | Company inbox (from website) | Attempted to Contact | not yet |
-| HighPowered Fitness | 1 | Company inbox (from website) | Attempted to Contact | not yet |
+| SansGluGlu (Le P'tit Mag) | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:37 IST |
+| Veganer-Shop.ch | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:46 IST |
 | Veloplus | 1 | CEO | Attempted to Contact | 23 Oct 14:08 IST |
 | Veloplus | 2 | Head of Logistics | GATE2: Approved to send | not yet |
 | Veloplus | 3 | Head of Marketing | GATE2: Approved to send | not yet |
 | Veloplus | 4 | Purchasing Manager | GATE2: Approved to send | not yet |
-| Alna Dietetique & Bio | 1 | Company inbox (from website) | Attempted to Contact | not yet |
+| Alna Dietetique & Bio | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:55 IST |
 | Pharmacies BENU | 1 | Pharmacienne Responsable | Attempted to Contact | 23 Oct 14:13 IST |
 | Pharmacies BENU | 2 | Gestionnaire Informatique | GATE2: Approved to send | not yet |
 | Pharmacies BENU | 3 | Resp. Dpt IT | GATE2: Approved to send | not yet |
 | Pharmacies BENU | 4 | Management | GATE2: Approved to send | not yet |
-| Running Concept (Michel Renck Sports) | 1 | Company inbox (from website) | Attempted to Contact | not yet |
-| KDC Nutrition | 1 | Company inbox (from website) | Attempted to Contact | not yet |
+| Running Concept (Michel Renck Sports) | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:55 IST |
+| KDC Nutrition | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:04 IST |
 | VELOMANIA (Bikes Center SA) | 1 | Co-CEO | Attempted to Contact | 23 Oct 14:17 IST |
 | VELOMANIA (Bikes Center SA) | 2 | Accounting Manager | GATE2: Approved to send | not yet |
 | VELOMANIA (Bikes Center SA) | 3 | Store Leader | GATE2: Approved to send | not yet |
@@ -352,10 +350,10 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 | Transa Backpacking AG | 2 | CEO | GATE2: Approved to send | not yet |
 | Transa Backpacking AG | 3 | Finance Business Partner | GATE2: Approved to send | not yet |
 | Transa Backpacking AG | 4 | Chief Financial Officer | GATE2: Approved to send | not yet |
-| La Bonbonnerie | 1 | Company inbox (from website) | Attempted to Contact | not yet |
-| Sparposten.ch | 1 | Company inbox (from website) | Attempted to Contact | not yet |
+| La Bonbonnerie | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:04 IST |
+| Sparposten.ch | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:13 IST |
 | SamaraNatura (BioSamara GmbH) | 1 | Managing Director | Attempted to Contact | 23 Oct 14:26 IST |
-| Planet Endurance | 1 | Company inbox (from website) | Attempted to Contact | not yet |
+| Planet Endurance | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:16 IST |
 | drogi.ch GmbH | 1 | Company inbox (from website) | Attempted to Contact | not yet |
 | NOWFIT Sports Nutrition Sagl | 1 | Company inbox (from website) | Attempted to Contact | not yet |
 | Vitaminplus (Welldro AG) | 1 | Geschäftsführer | Mitinhaber | Attempted to Contact | 23 Oct 14:32 IST |
