@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-24T16:37:37+00:00 (UTC).
+Checked 2026-10-24T19:37:38+00:00 (UTC).
 
 ## Mailboxes
 
@@ -52,14 +52,14 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 - Campaign status: Active
 - Instantly says: **daily_limit_met**. Campaign has reached its daily sending limit
-- Instantly's explanation: Your campaign is currently paused because it has reached its daily sending limit of 10 emails. It also cannot send new emails because there are no email accounts connected. To resume sending, increase your campaign's daily limit and connect at least one email account.
+- Instantly's explanation: Your campaign is currently not sending because it has reached its daily limit of 10 emails for today. Furthermore, there are no email accounts connected to send from, which would prevent any future emails from going out. To resume sending, the daily limit will reset tomorrow, but you must also connect at least one email account.
 - schedule_status: `{"in_schedule": true}`
 - campaign_daily_limit: `{"limit": 10, "sent": 10, "limit_hit": true}`
 - new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
 - accounts_summary: `{"total_connected": 0, "available": 0, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
 - leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-24T16:36:34.047Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-24T19:31:33.055Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
 - Leads: 33
