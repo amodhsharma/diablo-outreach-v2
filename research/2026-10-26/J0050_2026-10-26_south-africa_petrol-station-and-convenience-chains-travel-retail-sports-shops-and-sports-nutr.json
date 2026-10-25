@@ -1,0 +1,717 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0050",
+  "location": "South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "petrol station and convenience chains",
+      "template": "petrol_convenience",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 20
+    },
+    {
+      "channel": "travel retail",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 48
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 18,
+      "searches_used": 41
+    },
+    {
+      "channel": "diabetic, low sugar and keto shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 61
+    },
+    {
+      "channel": "gluten free and free from shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 37
+    }
+  ],
+  "companies": [
+    {
+      "name": "Sasol (Sasol Delight convenience stores)",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "sasol.com",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate (Nestle Aero and Kit Kat, Cadbury Lunch Bar), sweets and gummies (Maynards, Allsorts, Mint Imperial, Mister Sweet), chewing gum and biscuits (Oreo), plus drinks and hot food",
+      "channels_supplied": "Sasol Delight shops at Sasol Convenience Centres across South Africa, owner-operated under Sasol's franchise format",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Sasol's own website runs Sasol Delight shop promotions on branded chocolate, sweets, gum and biscuits, including a Tiger Brands sweets deal valid to September 2026, so the chain buys and sells other companies' confectionery. Engineering News reported 409 Sasol Convenience Centres, each with a convenience shop, run under one franchise format, which gives a national buying point.",
+      "what_they_do_well": [
+        "Runs national supplier promotions in its Sasol Delight shops, such as a 2026 winter deal with Tiger Brands on Maynards and Allsorts sweets.",
+        "Added partners such as Seattle Coffee Company and Krispy Kreme to its convenience centres from 2023."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://sasol.com/our-businesses/energy/mobility/sasol-delight/sasol-delight-promotions",
+        "https://www.sasol.com/our-businesses/energy/mobility/sasol-competitions/fire-winter-deals-with-sasol-delight-and-tiger-brands",
+        "https://www.engineeringnews.co.za/article/retail-expansion-an-attainable-goal-2019-11-22",
+        "https://www.sasol.com/sasol-reveals-new-partnership-its-convenience-centres"
+      ]
+    },
+    {
+      "name": "TotalEnergies Marketing South Africa (Cafe Bonjour shops)",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "totalenergies.co.za",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Snacks, drinks, groceries and hygiene products in its station shops, plus pastries, sandwiches and pies in Cafe Bonjour",
+      "channels_supplied": "Cafe Bonjour shops at TotalEnergies service stations nationwide; some sites host OK Express stores",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Its own website says its station stores sell snacks, drinks and groceries alongside the Cafe Bonjour counter, across a network of over 547 service stations. The shop brand is run under one national banner, so it offers a central route into forecourt shops; the number of stations with a Bonjour shop and the buying model are not stated on its website.",
+      "what_they_do_well": [
+        "Runs one of South Africa's larger forecourt networks, with over 547 service stations as of 2025."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://totalenergies.co.za/petrol-stations/cafe-bonjour",
+        "https://en.wikipedia.org/wiki/Total_South_Africa"
+      ]
+    },
+    {
+      "name": "Big Five Duty Free",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "bigfivedutyfree.co.za",
+      "channel_category": [
+        "travel retail"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Duty free retail of liquor, fragrance, cosmetics, tobacco, accessories and confectionery, including chocolate (for example Amarula chocolate and milk chocolate lines)",
+      "channels_supplied": "Its own duty free stores in international departures and arrivals at OR Tambo, Cape Town, King Shaka and Lanseria airports, plus online pre-order with in-store collection",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The leading duty free operator in South Africa, with stores at the four main international airports and confectionery named as one of its core categories on its own About page. Gebr. Heinemann is a co-shareholder, bringing global confectionery buying, and the OR Tambo revamp is premiumising the confectionery offer, which suits Diablo's gift boxes, chocolate and seasonal packs. No sugar-free range is shown on its website.",
+      "what_they_do_well": [
+        "Described by the Moodie Davitt Report in October 2025 as Sub-Saharan Africa's leading travel retail operator.",
+        "Launched Distell's Amarula chocolate in its airport stores (2023)."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://bigfivedutyfree.co.za/about/",
+        "https://www.aci-africa.aero/?p=29267",
+        "https://digitalmag.theceomagazine.com/advertorial-big-five-duty-free/",
+        "https://moodiedavittreport.com/big-five-duty-free-welcomes-maponya-investment-holdings-as-shareholder-appoints-lloyd-mhlanga-as-ceo",
+        "https://www.gtrmag.com/blog/distell-brings-amarula-chocolate-to-big-five-duty-free"
+      ]
+    },
+    {
+      "name": "Brittans Sweets",
+      "based_out_of": "Rosebank, South Africa",
+      "domain": "brittans.co.za",
+      "channel_category": [
+        "travel retail"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded chocolate and sweets from other brands such as Cadbury, Hershey, Reese's, Toblerone, Mentos and Hubba Bubba, sold in its airport sweet shops and through online wholesale",
+      "channels_supplied": "Its own sweet shops in international and domestic departures at Cape Town International Airport, online wholesale orders and franchising",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An airport sweet shop operator that sells other companies' branded chocolate and sweets to travellers, with stores in both departure halls at Cape Town International Airport. It also sells sweets wholesale online and offers franchises, so a new sugar-free line can reach shoppers beyond the airport. Store count and the full range are not stated on its website.",
+      "what_they_do_well": [
+        "Holds sweet shop space in both international and domestic departures at Cape Town International Airport."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.brittans.co.za/",
+        "https://www.airports.co.za/CTIA/Documents/StoreDirectoryfinal.pdf"
+      ]
+    },
+    {
+      "name": "Sportsmans Warehouse",
+      "based_out_of": "South Africa",
+      "domain": "sportsmanswarehouse.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Energy bars, protein bars and sports snacks from USN, PVM, Racefood and Enduren, sold in a Fitness > Supplements > Snacks section",
+      "channels_supplied": "Own sports stores in malls across South Africa (Mall of Africa, Gateway, Rosebank, Eastgate and more) and its own online shop",
+      "sf_brands_carried": "USN protein bars and PVM energy bars (better-for-you); no sugar-free confectionery competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "Calls itself South Africa's largest sports store and already sells branded bars and snacks to health-conscious shoppers in its fitness section. Diablo's muesli and cereal bars and sugar-free snacks fit next to its USN and PVM bars. Store count not stated on its website.",
+      "what_they_do_well": [
+        "Sells bars from several local sports nutrition brands (USN, PVM, Racefood, Enduren) online and in store."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.sportsmanswarehouse.co.za/",
+        "https://www.sportsmanswarehouse.co.za/product/usn-protein-bar-chocolate-mint-40g/",
+        "https://www.sportsmanswarehouse.co.za/product/pvm-energy-bar-20g-pack-of-10/",
+        "https://www.racefood.co.za/",
+        "https://mallofafrica.co.za/store/sportsmans-warehouse/"
+      ]
+    },
+    {
+      "name": "Cycle Lab",
+      "based_out_of": "South Africa",
+      "domain": "cyclelab.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Energy bars and protein bars from PowerBar, PVM, Sponser and Racefood, plus gels and sports drinks",
+      "channels_supplied": "Own cycling stores in Cape Town, Edenvale, Polokwane, Pretoria, Fourways, Boksburg and Durban, and its own online shop",
+      "sf_brands_carried": "PowerBar natural protein and cereal bars (better-for-you); no sugar-free confectionery competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A multi-store cycling chain with a real bar shelf from several brands, serving endurance athletes who look for cleaner snacks. Diablo's muesli and cereal bars and sugar-free cookies suit its shoppers. Exact store count not stated on its website.",
+      "what_they_do_well": [
+        "Runs megastores such as Fourways and stocks bars from PowerBar, PVM, Sponser and Racefood."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.cyclelab.com/product/4005168-bar-pwrbar-natural-protein-salty-peanut-crunch",
+        "https://www.cyclelab.com/product/4010203-suppl-pvm-energy-bar-choc-caramel-nut-45g",
+        "https://www.cyclelab.com/product/sponsor-high-energy-salty-plus-nuts-bar-45g",
+        "https://www.cadencenutrition.com/pages/gauteng"
+      ]
+    },
+    {
+      "name": "Muscle Mecca",
+      "based_out_of": "South Africa",
+      "domain": "musclemeccasa.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein bars from Barebells and Nutri-Go, a Dubai style chocolate bar, protein drinks and sports supplements",
+      "channels_supplied": "Ten supplement stores (Cape Town, Centurion, Ermelo, Port Elizabeth, Roodepoort, Greenstone, Nelspruit, Pretoria, Randburg, Secunda) and its own online shop",
+      "sf_brands_carried": "Barebells protein bars (no added sugar); no direct sugar-free confectionery competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A ten-store sports nutrition chain that already sells branded protein bars and calls Barebells and Creme Supreme its lifestyle and functional food brands. Diablo's sugar-free chocolate, Dubai style chocolate and bars fit its health-conscious gym shoppers. It also offers franchises, so new stores may follow.",
+      "what_they_do_well": [
+        "Runs ten sports nutrition stores across South Africa with in-store pickup for online orders."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://musclemeccasa.co.za/",
+        "https://musclemeccasa.co.za/collections/barebells",
+        "https://musclemeccasa.co.za/collections/nutri-go",
+        "https://musclemeccasa.co.za/pages/franchise"
+      ]
+    },
+    {
+      "name": "Macgrif (Endurofix)",
+      "based_out_of": "Pietermaritzburg, South Africa",
+      "domain": "macgrif.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Energy bars (USN, Vooma, Racefood, Naak), energy waffles, chews and gummies (GU), gels and drink mixes",
+      "channels_supplied": "Its own online shop with delivery across South Africa",
+      "sf_brands_carried": "USN Zero Sugar hydrator and HIGH5 Zero tabs (drinks only); no sugar-free confectionery competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online endurance nutrition shop with separate bars, waffles and chews and gummies sections from many brands, sold nationwide. Diablo's muesli bars, wafers and sugar-free gummies fit its range for runners and cyclists.",
+      "what_they_do_well": [
+        "Stocks nine endurance brands including GU, HIGH5, Naak, Never Second, Racefood and 32Gi with 1 to 3 day delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://macgrif.com/",
+        "https://macgrif.com/blogs/knowledge-base/best-energy-gels-for-running-in-south-africa-2026-guide"
+      ]
+    },
+    {
+      "name": "Bash (TFG)",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "bash.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Energy bars from Racefood (Fastbar and Farbar) and sports nutrition from 32Gi and Gloot in its sports and wellness departments",
+      "channels_supplied": "Online shop of TFG, selling for chains including Totalsports and Sportscene",
+      "sf_brands_carried": "No sugar-free confectionery seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "TFG's online store sells sports goods for Totalsports and Sportscene and already lists Racefood bars and 32Gi nutrition. Diablo's bars and sugar-free snacks would sit alongside them for sport shoppers. Head office city taken from TFG's public profile; food range is small.",
+      "what_they_do_well": [
+        "Sells for 19 TFG store brands, including Totalsports and Sportscene, from one online shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bash.com/brands/racefood",
+        "https://bash.com/brands/32gi",
+        "https://bash.com/brands/gloot"
+      ]
+    },
+    {
+      "name": "Cape Union Mart",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "capeunionmart.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Snacks and energy bars in its Snacks & Nutrition section, including Racefood bars",
+      "channels_supplied": "Own outdoor and adventure stores in malls across South Africa (Canal Walk, Cavendish, Fourways Mall, Woodlands) and its own online shop",
+      "sf_brands_carried": "No sugar-free confectionery seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A national outdoor and travel chain with its own Snacks & Nutrition category, and Racefood names it as a stockist of its bars. Diablo's muesli bars, cookies and sugar-free sweets suit hikers and travellers. Products in the category did not load in this run, so brands beyond Racefood are not listed here.",
+      "what_they_do_well": [
+        "Racefood lists Cape Union Mart among its national retailers for energy bars."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.capeunionmart.co.za/c/gear-tech-snacks-nutrition",
+        "https://www.racefood.co.za/",
+        "https://en.wikipedia.org/wiki/Cape_Union_Mart"
+      ]
+    },
+    {
+      "name": "Olympic Cycles",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "olympiccycles.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Energy bars from Amacx, Cadence, Enduren, GU, HIGH5, Isostar, Maurten, Nutritech, PowerBar, Racefood and Voom, plus gels",
+      "channels_supplied": "Two cycling stores (Claremont and Kenilworth) and its own online shop",
+      "sf_brands_carried": "No sugar-free bars seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Cape Town cycling retailer with a dedicated bars collection of eleven brands sold online nationwide. Diablo's muesli and cereal bars would fit this shelf. Only two stores are shown.",
+      "what_they_do_well": [
+        "Runs one of the widest bar ranges seen in South African cycling retail, with eleven bar brands."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.olympiccycles.co.za/collections/bars",
+        "https://www.olympiccycles.co.za/collections/powerbar"
+      ]
+    },
+    {
+      "name": "CWC (Chris Willemse Cycles)",
+      "based_out_of": "South Africa",
+      "domain": "cwcycles.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Energy and protein bars from PowerBar, 32Gi and Racefood (Fastbar, Farbar), plus Nakd bars in its brand list and sports supplements",
+      "channels_supplied": "Own cycling stores (store locator on its website) and its own online shop",
+      "sf_brands_carried": "No sugar-free confectionery seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A cycling retailer with a nutrition and confectionery section that sells bars from several brands to endurance shoppers. Diablo's bars and sugar-free snacks fit that section. Store count and head office are not stated on its website.",
+      "what_they_do_well": [
+        "Carries a broad catalogue of about 500 brands, with bars from PowerBar, 32Gi and Racefood."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://cwcycles.co.za/products/training-nutrition/nutrition-confectionery/bars",
+        "https://cwcycles.co.za/product/4005226-bar-32gi-32gi-protein-bar-salted-caramel-65g",
+        "https://cwcycles.co.za/product/4012365-suppl-pwrbar-ride-bar-peanut-caramel"
+      ]
+    },
+    {
+      "name": "Biket",
+      "based_out_of": "Hillcrest, South Africa",
+      "domain": "biket.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Energy bars from Cadence and PowerBar, plus gels and drink mixes",
+      "channels_supplied": "One cycling store in Hillcrest, KwaZulu-Natal, and its own online shop with nationwide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Trek approved cycling shop with a cycling nutrition section that sells bars from other brands. Diablo's muesli and cereal bars suit its riders. Small, one store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://biket.co.za/collections/nutrition-skin-care"
+      ]
+    },
+    {
+      "name": "JOC Cycles",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "joccycles.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Energy bars from Amacx, PowerBar and Racefood, with Neversecond and Maurten bar sections",
+      "channels_supplied": "One cycling store in Mouille Point, Cape Town, and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A premium cycling store with an energy bars section from several brands. Diablo's bars fit next to them. Small, one store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.joccycles.co.za/product-category/nutrition/all-energy-bars/",
+        "https://www.joccycles.co.za/shop/racefood-fastbar/"
+      ]
+    },
+    {
+      "name": "AlphaPharm Nutrition",
+      "based_out_of": "Randburg, South Africa",
+      "domain": "alphapharmnutrition.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Protein bars in a Snacks, Bars & Drinks section, cream of rice and sports supplements from Applied Nutrition, NPL, TNT Mercury and others",
+      "channels_supplied": "One store in Randburg and its own online shop with nationwide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A multi-brand sports nutrition shop with its own snacks and bars section for gym shoppers. Diablo's sugar-free bars, cookies and spreads fit there. Small, one store; bar brands not named on its home page.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.alphapharmnutrition.co.za/"
+      ]
+    },
+    {
+      "name": "HealthTwin Supplements & Vitamins",
+      "based_out_of": "Centurion, South Africa",
+      "domain": "healthtwin.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Barebells protein bars, Creme Supreme and Gloot products, sports nutrition and vitamins",
+      "channels_supplied": "One store at Mall @ Reds, Centurion, and its own online shop with delivery across South Africa",
+      "sf_brands_carried": "Barebells protein bars (no added sugar)",
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent sports nutrition retailer that sells Barebells protein bars and other brands to health-conscious shoppers. Diablo's sugar-free bars and cookies fit its shelf. Small, one store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.healthtwin.co.za/products/barbells-protein-bar",
+        "https://www.healthtwin.co.za/pages/about-us",
+        "https://www.healthtwin.co.za/collections/gloot"
+      ]
+    },
+    {
+      "name": "Epic Sports",
+      "based_out_of": "Centurion, South Africa",
+      "domain": "epicsportsonline.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "PowerBar Energize energy bars, gels and HIGH5 and Maurten sports nutrition",
+      "channels_supplied": "Own sports store and online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A sports and cycling retailer whose online shop sells PowerBar energy bars and other endurance nutrition. Diablo's muesli bars suit its customers. Store count not stated; location from the Cadence Nutrition retailer list.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://epicsportsonline.co.za/product/powerbar-energize-original-cookies-cream/",
+        "https://www.cadencenutrition.com/pages/gauteng"
+      ]
+    },
+    {
+      "name": "Ridgeway Cycles",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "ridgewaycycles.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "NamedSport energy bars and Cadence nutrition in its supplements section",
+      "channels_supplied": "Cycling stores in Greenstone and Edenvale, Johannesburg, and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A cycling retailer that sells energy bars from other brands to riders. Diablo's bars fit this shelf. Small range.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ridgewaycycles.co.za/products/namedsport-energy-bar-wild-berries-35g",
+        "https://ridgewaycycles.co.za/products/cadence-marathon-red-berry-1"
+      ]
+    },
+    {
+      "name": "Cycleway",
+      "based_out_of": "Polokwane, South Africa",
+      "domain": "cycleway.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Energy bars, gels and chews from 32Gi, Cadence and PowerBar in a Bars & Gels section",
+      "channels_supplied": "One cycling store in Polokwane and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A cycling shop with its own Bars & Gels nutrition section that sells other brands. Diablo's bars and sugar-free gummies suit its riders. Small, one store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cycleway.co.za/product/32gi-bar-race-pro-25g/",
+        "https://www.cycleway.co.za/product/32gi-chews-sport-50g/",
+        "https://www.cycleway.co.za/about-us/"
+      ]
+    },
+    {
+      "name": "Bicycle Line",
+      "based_out_of": "Boksburg, South Africa",
+      "domain": "bicycleline.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Cadence Carbofuel energy bars and gels",
+      "channels_supplied": "Cycling shop and coffee bar, and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A cycling shop that sells Cadence energy bars in its nutrition section. Diablo's bars suit its riders. Small, one bar brand; location from the Cadence Nutrition retailer list.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bicycleline.co.za/collections/nutrition",
+        "https://www.cadencenutrition.com/pages/gauteng"
+      ]
+    },
+    {
+      "name": "Mellow Velo",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "mellowvelo.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Cadence energy bars in an Energy Bars section, plus gels, chews and recovery drinks",
+      "channels_supplied": "One cycling store at Broadacres Shopping Centre, Johannesburg, and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A cycling shop with Energy Bars and Chews sections in its hydration and nutrition range. Diablo's bars and sugar-free gummies fit. Small, one store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://mellowvelo.co.za/products/cadence-nutrition-carbo-fuel-energy-bar-salted-caramel"
+      ]
+    },
+    {
+      "name": "The Hanger Bike Co",
+      "based_out_of": "Somerset West, South Africa",
+      "domain": "thehangerbikeco.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 10,
+      "distributes": "Cadence Carbo Fuel energy bars, gels and Torq nutrition",
+      "channels_supplied": "One cycling store in Somerset West and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A cycling shop that sells Cadence energy bars and other brands' nutrition. Diablo's bars suit its riders. Small, one store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.thehangerbikeco.co.za/collections/cadence"
+      ]
+    },
+    {
+      "name": "TLC Pantry (The Low Carb Pantry)",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "tlcpantry.co.za",
+      "channel_category": [
+        "diabetic, low sugar and keto shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Low carb, keto, banting and sugar free foods: sugar free sweets and chocolate (Caring Candies), biscuits and biscotti (Gracious Bakers, Skinny Biscotti), jams (Leo's Little Jars), cakes, cookies, syrups, keto chips and breakfast bars",
+      "channels_supplied": "Its own shops in Bloubergstrand, Tyger Valley, Somerset West and Tokai, plus its own online shop",
+      "sf_brands_carried": "Caring Candies, Gracious Bakers, Skinny Biscotti, Leo's Little Jars, We Love Low Carb, Ketos",
+      "competing_brand_flag": true,
+      "fit_rationale": "A four-store Cape Town specialist for low carb, keto, banting and sugar free shoppers that already sells other brands' sugar free sweets, chocolate, biscuits and jams. Diablo's sugar free chocolate, biscuits, spreads and syrups match the shelves it already has. Caring Candies competes directly in sugar free sweets and chocolate.",
+      "what_they_do_well": [
+        "Runs four low carb shops across Cape Town (Bloubergstrand, Tyger Valley, Somerset West, Tokai) as well as an online shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://tlcpantry.co.za/",
+        "https://tlcpantry.co.za/product-tag/chocolates-and-sweets/",
+        "https://tlcpantry.co.za/product-tag/biscuits-rusks-crackers/"
+      ]
+    },
+    {
+      "name": "The Deli Online",
+      "based_out_of": "Durbanville, Cape Town, South Africa",
+      "domain": "shop.thedeli.co.za",
+      "channel_category": [
+        "diabetic, low sugar and keto shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Pantry foods and snacks with Sugar-Free and Banting/Keto sections: sugar free chocolate (Carb Smart), biscuits (Crunch 'n Munch), chocolate nut bars (Karoo), chocolate coated nuts and sweets",
+      "channels_supplied": "Its own online shop with nationwide delivery and collection from its Durbanville depot",
+      "sf_brands_carried": "Carb Smart sugar free chocolate",
+      "competing_brand_flag": true,
+      "fit_rationale": "An online-only food shop with dedicated Sugar-Free and Banting/Keto sections and a Snacks and Sweets section that lists other brands' chocolate, biscuits and bars. Tier 3 because it sells from one depot and much of its pantry range is nuts, seeds and dried fruit; its sugar free chocolate today is only Carb Smart, a direct competitor.",
+      "what_they_do_well": [
+        "Delivers nationwide from its Durbanville depot, with dedicated Sugar-Free and Banting/Keto sections in its online shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://shop.thedeli.co.za/",
+        "https://shop.thedeli.co.za/collections/sugar-free",
+        "https://shop.thedeli.co.za/collections/banting-keto/menu-lifestyle_health-keto_banting"
+      ]
+    },
+    {
+      "name": "Health Island",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "healthisland.co.za",
+      "channel_category": [
+        "diabetic, low sugar and keto shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Healthy snacks for diabetic, sugar free and low carb customers: snack bars, baked biscuits and rusks, nut and fruit mixes, savoury snacks and nougat in snack boxes and hampers, plus healthy vending",
+      "channels_supplied": "Its own online shop, corporate snack boxes and hampers delivered across South Africa, and healthy vending machines run through franchisees",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A healthy snack business that sources products from suppliers across the country and sells them as snack boxes, hampers and through healthy vending, with options for diabetic, sugar free and low carb customers. Diablo's bars, cookies and wafers suit its boxes and vending machines. Tier 3 because its website does not name the bar and biscuit brands it carries and gives no store or machine count.",
+      "what_they_do_well": [
+        "Runs healthy vending machines through a franchise model as well as nationwide snack box and hamper delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.healthisland.co.za/",
+        "https://www.healthisland.co.za/pages/about-us"
+      ]
+    },
+    {
+      "name": "Balans Health",
+      "based_out_of": "Bloemfontein, South Africa",
+      "domain": "balans.co.za",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sweets and chocolates, protein and snack bars, spreads and snacks, plus health foods, cereals and sweeteners",
+      "channels_supplied": "Own shop in Brandwag, Bloemfontein and its online shop with nationwide delivery",
+      "sf_brands_carried": "Caring Candies (sugar free sweets and chocolate), Wedgewood Nougat",
+      "competing_brand_flag": true,
+      "fit_rationale": "A dietitian-approved health shop with its own Sweets and Chocolates, Protein and Snack Bars and Spreads categories from many other brands, including the sugar free Caring Candies range. Diablo's sugar free chocolate, sweets and bars fit its shelf directly. Store count beyond its Bloemfontein shop is not stated on its website.",
+      "what_they_do_well": [
+        "Stocks around 100 health brands, all described as approved by dietitians and nutritional specialists, with free nationwide delivery over R400."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.balans.co.za/shop-online/",
+        "https://www.balans.co.za/"
+      ]
+    },
+    {
+      "name": "Anadea",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "anadea.co.za",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Chocolates, biscuits and rusks, kids snacks, nut butters and spreads, syrups and sweeteners from other brands",
+      "channels_supplied": "Its online health store with same-day collection in Century City, Cape Town",
+      "sf_brands_carried": "Nairn's gluten free biscuits, Conscious Kidz dairy free chocolate",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online natural health store listing over 200 brands, with Chocolates, Biscuits and Rusks and Butters and Spreads subcategories under Food and a gluten free kids snacks range. Diablo's biscuits, chocolate and spreads sit alongside brands it already stocks such as Nairn's.",
+      "what_they_do_well": [
+        "Carries over 200 natural and practitioner brands and holds a 4.8 star rating from 130 Google reviews."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.anadea.co.za/product-category/kids-baby/kids-baby-snacks/"
+      ]
+    },
+    {
+      "name": "Diabetic Accessories South Africa",
+      "based_out_of": "South Africa",
+      "domain": "diabeticaccessoriessa.com",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sugar free chocolates and sweets, biscuits and cookies, jam, spreads and rusks for people living with diabetes",
+      "channels_supplied": "Its online shop with countrywide shipping, and Namibia through Blue Care Dietitians",
+      "sf_brands_carried": "Stockley's sugar free sweets, Simpkins sugar free sweets",
+      "competing_brand_flag": true,
+      "fit_rationale": "A diabetes specialist shop whose food categories (chocolates, sweets, biscuits and cookies, jam and spreads) are as large a part of its site as its medical accessories, and it sells branded sugar free sweets such as Stockley's and Simpkins. Tier 3 because it is a small online shop and its head office town is not stated on its website.",
+      "what_they_do_well": [
+        "Ships countrywide and reaches Namibia through a dietitian stockist, Blue Care Dietitians."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.diabeticaccessoriessa.com/product-category/sweets/"
+      ]
+    },
+    {
+      "name": "The Deli",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "thedeli.co.za",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Snacks and sweets, sugar free chocolate, chocolate nut bars and biscuits in gluten free, sugar free and keto collections",
+      "channels_supplied": "Its online shop with nationwide delivery and a reduced rate for Cape Town",
+      "sf_brands_carried": "Carb Smart sugar free chocolate, Grumpy Snacks, Karoo",
+      "competing_brand_flag": true,
+      "fit_rationale": "An online health pantry with dedicated Gluten Free, Sugar Free and Banting Keto collections that already sells other brands' sugar free chocolate (Carb Smart) and chocolate snacks and bars (Karoo, Grumpy Snacks). Tier 3 because much of its range is bulk nuts and seeds and its store details are not shown on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://shop.thedeli.co.za/collections/sugar-free",
+        "https://shop.thedeli.co.za/collections/snacks-1/gluten-free"
+      ]
+    }
+  ]
+}
