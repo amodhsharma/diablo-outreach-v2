@@ -1,0 +1,410 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0048",
+  "location": "South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 63
+    },
+    {
+      "channel": "confectionery wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 8,
+      "searches_used": 48
+    },
+    {
+      "channel": "cash and carry wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 62
+    },
+    {
+      "channel": "kiosk wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 9,
+      "searches_used": 45
+    }
+  ],
+  "companies": [
+    {
+      "name": "ONEG Candy",
+      "based_out_of": "Marlboro, Johannesburg, South Africa",
+      "domain": "onegcandy.co.za",
+      "channel_category": [
+        "wholesalers",
+        "confectionery wholesalers",
+        "kiosk wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Imported branded confectionery, chocolate, gummies and jelly sweets, snacks and beverages from the US and UK (Hershey's, Reese's, Jelly Belly, Sour Patch Kids, Topps)",
+      "channels_supplied": "Checkers, Pick n Pay, SPAR and Engen forecourts, plus retailers across Southern Africa",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An importer and distributor of foreign branded sweets, chocolate and snacks that already places them in South Africa's main grocery chains and forecourts, which is the route Diablo needs. Adding European no-added-sugar chocolate and sweets sits next to its US and UK lines. Storage: sells from its own stock from its unit at Eastgate Business Park, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Names Checkers, Pick n Pay, SPAR and Engen as its most valued clients.",
+        "Has imported US and UK confectionery brands such as Hershey's, Reese's and Jelly Belly since 2015."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.onegcandy.co.za/"
+      ]
+    },
+    {
+      "name": "IBA Coastal",
+      "based_out_of": "Durban, South Africa",
+      "domain": "ibacoastal.co.za",
+      "channel_category": [
+        "confectionery wholesalers",
+        "kiosk wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Imported and local chocolate and candy (Reese's, Hershey's, Sour Patch Kids, Warheads), biscuits (Pepperidge Farm), sweets, snacks and drinks",
+      "channels_supplied": "Tuck shops, canteens, supermarkets, cash and carries, forecourts and franchise chains, including SuperSPAR, SPAR Express, Looters and Bargain Basket",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-run B2B snack and confectionery distributor that supplies supermarkets, forecourts, tuck shops and cash and carries in KwaZulu-Natal and Cape Town with over 200 imported lines. Its mix of imported chocolate, candy and biscuits for shops is exactly where Diablo's packs sit. Storage: delivers from its own stock with no walk-in premises, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Supplies SuperSPAR, SPAR Express, Looters and Bargain Basket stores.",
+        "Carries over 200 imported US products alongside a local range."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ibacoastal.co.za/"
+      ]
+    },
+    {
+      "name": "Artistic Visual Agency",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "artisticvisual.co.za",
+      "channel_category": [
+        "confectionery wholesalers",
+        "kiosk wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Imported chocolates, sweets and snacks (Reese's, Hershey's, M&M's, Twizzlers, Warheads, Nerds, Airheads), plus drinks and groceries",
+      "channels_supplied": "Retailers, wholesalers, convenience stores, foodservice partners and independent businesses in South Africa and neighbouring markets",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Wholesale and distribution business for imported FMCG brands, led by confectionery and snacks, supplying both retailers and other wholesalers. It names itself exclusive agent for brands such as Reese's and Joyride and publishes a trade catalogue. Storage: wholesales from its own stock in Halfway House, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Exclusive agent in South Africa for Reese's, Joyride and Sparkling Ice, according to its website."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.artisticvisual.co.za/",
+        "https://www.artisticvisual.co.za/brands"
+      ]
+    },
+    {
+      "name": "Market Anatolia",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "marketanatolia.co.za",
+      "channel_category": [
+        "confectionery wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded confectionery, chocolate and biscuits (Ulker, Eti, Haribo, Galaxy, Godiva, Nutella, Chupa Chups, Solen), Turkish delight, jam and other Turkish and international groceries",
+      "channels_supplied": "Trade-only B2B: retailers, chain stores, specialty stores, cash and carries and wholesalers, nationwide and into Southern Africa",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Trade-only importer and wholesaler built on brands like Ulker and Eti, with its own confectionery section and retail, chain and cash and carry customers, the same model as TATKO. It already sells by the case across South Africa and into neighbouring countries. Storage: warehouse at Grasso Business Park, Montague Gardens, Cape Town.",
+      "what_they_do_well": [
+        "Supplies trade customers across South Africa and exports into Botswana, Namibia, Mozambique, Kenya and Tanzania."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://marketanatolia.co.za/",
+        "https://marketanatolia.co.za/pages/wholesale"
+      ]
+    },
+    {
+      "name": "HH Foods Distributors",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "hhfoods.co.za",
+      "channel_category": [
+        "confectionery wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Imported and local sweets, gummies, lollipops, biscuits and chips from brands such as Jovy and N&F",
+      "channels_supplied": "Retailers and wholesalers across South Africa",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Distributor that supplies imported and local snacks, sweets and confectionery to retailers and wholesalers nationally, sourcing from Turkey, Brazil, India, Dubai, China and Malaysia. Its trade customer base covers the independent shops Diablo wants to reach. Storage: sells from its own stock in Blackheath, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Trading since 2006, sourcing sweets and snacks from six countries."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://hhfoods.co.za/",
+        "https://hhfoods.co.za/brand/jovy/",
+        "https://hhfoods.co.za/brand/gmp-foods/"
+      ]
+    },
+    {
+      "name": "Lick Your Lips Importers",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "lickyourlipsimporters.co.za",
+      "channel_category": [
+        "confectionery wholesalers",
+        "kiosk wholesalers",
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Imported sweets, liquorice, mints, chewing gum, chocolate peanuts and raisins and novelty sweets from Swizzels, Love Hearts, Beechies and Fini",
+      "channels_supplied": "Mostly retail stores nationally, plus dealers and online buyers",
+      "sf_brands_carried": "Beechies sugar-free chewing gum",
+      "competing_brand_flag": false,
+      "fit_rationale": "Imports sweets from around the world and distributes them mostly to retail stores across South Africa, with retail bags, counter lines and bulk sweets. It already sells UK sweets brands and a sugar-free gum, so a UK sugar-free range is a natural next listing. Storage: sells from its own stock with national delivery, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Imports and represents Beechies chewing gum and Love Hearts in South Africa."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.lickyourlipsimporters.co.za/about-us",
+        "https://www.lickyourlipsimporters.co.za/",
+        "https://bestfoodimporters.com/company/lick-your-lips-importers/",
+        "https://www.lickyourlipsimporters.co.za/bulk-sweets"
+      ]
+    },
+    {
+      "name": "SnacKing (CC Food and Beverage)",
+      "based_out_of": "Durban, South Africa",
+      "domain": "snacking.co.za",
+      "channel_category": [
+        "confectionery wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Imported snacks, biscuits, chocolate sticks and sweets (Munchy's, Meiji Hello Panda, Matilde Vicenzi, Fairy Bites) and drinks",
+      "channels_supplied": "Retail partners including SPAR, Clicks and Engen, plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Importer and distributor of imported snacks, biscuits and sweets whose products sit in SPAR, Clicks and Engen. Its Asian and European biscuit portfolio overlaps Diablo's biscuits and wafers. Storage: sells from its own stock with click-and-collect in Greyville, Durban, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Products stocked by SPAR, Clicks and Engen."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://snacking.co.za/",
+        "https://snacking.co.za/pages/brands"
+      ]
+    },
+    {
+      "name": "DS International",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "dsinternational.co.za",
+      "channel_category": [
+        "confectionery wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars (Barebells) and healthy snacks alongside imported sports nutrition and wellness brands",
+      "channels_supplied": "Over 800 retail stores nationwide, a wholesale distributor programme and its own online shop",
+      "sf_brands_carried": "Barebells protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Importer and distributor of international health and wellness brands, sold in over 800 retail stores, with a bars and healthy snacks section that already includes Barebells. Diablo's bars and cookies suit its health-conscious retail network; it sits in tier 3 because snacks are a smaller part of a range led by sports nutrition. Storage: fully owned and managed warehousing and distribution in Ormonde.",
+      "what_they_do_well": [
+        "Products sold in over 800 retail stores nationwide.",
+        "Importing international health brands since 2009 with its own warehousing."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://dsinternational.co.za/pages/about",
+        "https://dsinternational.co.za/collections/health-food-snacks"
+      ]
+    },
+    {
+      "name": "Kit Kat Group (Kit Kat Cash and Carry)",
+      "based_out_of": "Pretoria, South Africa",
+      "domain": "kitkatgroup.com",
+      "channel_category": [
+        "cash and carry wholesalers",
+        "kiosk wholesalers",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Groceries and FMCG with web shop categories for sweets, chocolate products, snack foods and sweet and snacks",
+      "channels_supplied": "Traders, spaza shops and households through cash and carry stores and Express stores in Gauteng, Limpopo and Mpumalanga, plus an online store",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-owned cash and carry group whose own web shop lists sweets, chocolate and snack categories sold in trade pack sizes to traders and shoppers. Its stores feed many independent and informal retailers in Gauteng and Limpopo, a direct route to spaza and tuck shop shelves. Storage: cash and carry stores, including a 20,000 m2 Pretoria West site, served by its own fleet of warehouse trucks.",
+      "what_they_do_well": [
+        "Trading since 1953, with wholesale since 1983; now runs 6 cash and carry stores, 19 Express stores and 3 Express cash and carry stores."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://kitkatgroup.com/Shop/Products/2/Sweets?Prop10=1001",
+        "https://kitkatgroup.com/Shop/Products/2/Chocolate%20Products",
+        "https://www.kitkatgroup.com/Shop/Products/2/Snack%20Foods",
+        "https://tradeintelligence.co.za/News/Read/701/kit-kat-group-ceo-riaz-gani-on-winning-in-hyper-segmentation-within-the-formal-independent-trade",
+        "https://enterprise-africa.net/kit-kat-cash-and-carry/",
+        "https://www.kitkatgroup.com/Shop/Products/2/Chocolate%20Products?Prop10=1001",
+        "https://kitkatgroup.com/Shop/Products/2/Biscuits",
+        "https://foodbevtrade.co.za/food-trading/food-trading-companies/",
+        "https://www.citizen.co.za/krugersdorp-news/news-headlines/2021/09/23/kit-kat-cash-carry-crown-mines-opens-in-time-for-heritage-day-2/"
+      ]
+    },
+    {
+      "name": "A5 Cash and Carry",
+      "based_out_of": "Durban, South Africa",
+      "domain": "a5cashandcarry.co.za",
+      "channel_category": [
+        "cash and carry wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Groceries with a confectionery section: sweets and chocolates (Bar One, Kit Kat, Star Pops, Bozza toffees, marshmallows) and biscuits and popcorn",
+      "channels_supplied": "Traders and households through about 11 cash and carry branches in Durban, Pietermaritzburg, Cape Town and Mthatha, an online shop and the A5 Online app",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A multi-branch cash and carry whose own web shop has a confectionery department with branded sweets, chocolates and biscuits. Its branches in KwaZulu-Natal, the Western Cape and the Eastern Cape reach many small retailers and tuck shops. Storage: cash and carry stores at about 11 branches, with an online shop showing stock and prices.",
+      "what_they_do_well": [
+        "Runs branches across three provinces, from Durban city and Umlazi to Mitchells Plain, Philippi and Mthatha."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://a5cashandcarry.co.za/product-category/confectionary/sweets-and-chocolates/",
+        "https://a5cashandcarry.co.za/product-category/confectionary/biscuits-and-popcorn/",
+        "https://a5cashandcarry.co.za/supplier/",
+        "https://www.yellowpages.net.za/places/ZA/cash-and-carry-wholesaler"
+      ]
+    },
+    {
+      "name": "Superb Hyper (Superb Cash and Carry)",
+      "based_out_of": "KwaDukuza, South Africa",
+      "domain": "superbhyper.co.za",
+      "channel_category": [
+        "cash and carry wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "FMCG with branded sweets, chocolate bars, chewing gum and biscuit bars (Twix, Manhattan, Mister Sweet, Clorets, Candy Land) including trade case packs",
+      "channels_supplied": "Households and trade customers through its KwaDukuza store, a retail web shop and the superbbulk.co.za wholesale site with traders deals",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run hybrid wholesaler and retailer, a cash and carry since 1985, whose own web shop lists many branded sweets and chocolates in single and trade case packs. It serves traders north of Durban with bulk buying and online delivery. Storage: sells from its own stock at its KwaDukuza cash and carry store with online delivery, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Family business since 1974, Superb Cash and Carry since 1985, hybrid wholesale and retail since 2008 and online delivery since 2022."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://superbhyper.co.za/about-us/",
+        "https://superbhyper.co.za/product/twix-chocolate-bar-50gr/",
+        "https://superbhyper.co.za/product/candy-land-bisca-biscuit-and-caramel-filled-chocolate-bar-40x30g/",
+        "https://www.pricecheck.co.za/offers/251842307/Beacon+Slab+Jelly+Tots+Popping+Candy+12X80GR"
+      ]
+    },
+    {
+      "name": "USA Imports Gauteng",
+      "based_out_of": "Midrand, South Africa",
+      "domain": "usaimports.co.za",
+      "channel_category": [
+        "kiosk wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Imported branded sweets, chocolate, candy and biscuits (Reese's, Hershey's, Nerds, Sour Patch, Pop Rocks, Dubble Bubble, Oreo) plus drinks",
+      "channels_supplied": "573 trade customers including SPAR South Rand and SPAR North Rand stores",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An importer and wholesaler with about 1,024 product lines and a trade order sheet, selling foreign branded sweets and biscuits to retailers. It shares its Halfway House address with Artistic Visual Agency, so outreach should be coordinated. Storage: own warehouse in Midrand, moved there in 2022.",
+      "what_they_do_well": [
+        "Serves 573 customers with about 1,024 product lines (2023).",
+        "Listed as a supplier with SPAR North Rand since 2013 and SPAR South Rand since 2021."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.usaimports.co.za/"
+      ]
+    },
+    {
+      "name": "OB Distributors (AN Wholesalers and Retail)",
+      "based_out_of": "Mbombela, South Africa",
+      "domain": "anwholesalers.co.za",
+      "channel_category": [
+        "kiosk wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sweets, biscuits and snacks from other brands (Broadway Sweets, Mondelez, Halls, Truda, Casamia, Oreo, Lay's) within more than 800 grocery, drinks and household lines",
+      "channels_supplied": "Independent retailers, spaza shops, wholesalers and buying groups across Mpumalanga",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An FMCG wholesaler whose stated customers are spaza shops and independent retailers, carrying branded sweets, biscuits and snacks. It gives Diablo a regional route into Mpumalanga's small shops. Storage: own warehouse in Mbombela.",
+      "what_they_do_well": [
+        "Stocks more than 800 fast-moving wholesale lines for spaza shops and independents."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://anwholesalers.co.za/"
+      ]
+    },
+    {
+      "name": "Sweets Brands",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "sweetsbrands.co.za",
+      "channel_category": [
+        "kiosk wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Chocolates, candies, mints and snacks from imported brands (Tayas, Solen, Pengo, Endearmints)",
+      "channels_supplied": "Trade customers only: supermarket chains, convenience stores, online stores and independent retailers across Southern Africa",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A trade-only FMCG distributor of imported confectionery for convenience stores and independents, trading since 2010. Tier 3 because its website names no address, warehouse or customer names. Storage: sells from its own stock through its web shop, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sweetsbrands.co.za/about-us/",
+        "https://sweetsbrands.co.za/product/tayas-choco-mint-200pcs/"
+      ]
+    },
+    {
+      "name": "Kingdoms Wholesale",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "kingdoms-wholesale.co.za",
+      "channel_category": [
+        "kiosk wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gummies and jelly sweets (sweet and sour worms, jelly mix, fruit pastels, sour rings) in cartons for resale",
+      "channels_supplied": "Independent retailers, spaza shops, tuck shops and convenience stores in Cape Town",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Cape Town wholesaler built to supply spaza shops, tuck shops and convenience stores, the core kiosk channel. Tier 3 because it is small, its range is narrow and its website does not name the brands it carries. Storage: sells from its own stock with delivery to qualifying areas, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://kingdoms-wholesale.co.za/"
+      ]
+    }
+  ]
+}
