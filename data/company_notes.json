@@ -446,6 +446,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "anadea.co.za": {
+    "name": "Anadea",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Health food and organic retailers",
+    "channels": [
+      "health food and organic retailers"
+    ],
+    "fit_rationale": "A natural health store and online shop with its own Snacks section (chocolates, biscuits and rusks) and a Butters and Spreads section, all from other brands. It says it buys direct from brands and distributors and carries around 200 brands, so Diablo's vegan spreads, chocolate and biscuits fit its shelf.",
+    "what_they_do_well": [
+      "Stocks around 200 natural health brands, bought direct from brands and distributors.",
+      "Delivers nationwide with same-day collection at its Century City store."
+    ],
+    "distributes": "Chocolates, biscuits and rusks, chips and crackers, nut butters and spreads, syrups and sweeteners, cereals and mueslis, plus supplements and natural care",
+    "channels_supplied": "Its own natural health store in Century City, Cape Town, and its online shop with nationwide delivery",
+    "sf_brands_carried": "Better-for-you brands such as Wazoogles, Buttanutt, Health Connection Wholefoods and Soaring Free Superfoods; no direct sugar-free confectionery competitor seen",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "anna-gold.at": {
     "name": "Anna Gold Handels GmbH",
     "based_out_of": "Vienna, Austria",
@@ -1614,6 +1634,25 @@
     "research_file": "research/2026-10-23/J0043_2026-10-23_lausanne-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "cakeprincess.co.za": {
+    "name": "Cake Princess",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Online sellers",
+    "channels": [
+      "online sellers"
+    ],
+    "fit_rationale": "A candy store selling imported branded sweets and snacks to shoppers online and in two Western Cape stores. Diablo's sweets, chocolate and biscuits suit its imported treats shelf. Tier 3 because it is small, with two stores, and its website names few brands.",
+    "what_they_do_well": [
+      "Runs two candy stores, at Cape Gate Lifestyle Centre and Laguna Mall, alongside its online shop."
+    ],
+    "distributes": "Imported snacks and sweets, viral sweets, cookies (Lotus Biscoff), chocolate and gifts",
+    "channels_supplied": "Own online shop with delivery and pick up; stores at Cape Gate Lifestyle Centre, Brackenfell and Laguna Mall, Langebaan",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "campograndeperu.com": {
     "name": "Campo Grande Perú",
     "based_out_of": "Lima, Peru",
@@ -2458,6 +2497,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "cyclelab.com": {
+    "name": "Cycle Lab",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A specialist cycling retailer whose nutrition section sells bars and energy products from other brands to active, health-conscious riders. It is tier 3 because its website does not show how many stores it runs.",
+    "what_they_do_well": [
+      "Stocks international sports nutrition brands such as Enervit, Named Sport and GU in its nutrition section.",
+      "Publishes ride fuelling guides for events such as the 947 Ride Joburg."
+    ],
+    "distributes": "Cycling equipment plus a training and nutrition section with bars, gels and sachets from brands such as GU, Enervit, Named Sport and Biogen",
+    "channels_supplied": "Its own cycling stores (flagship at Fourways Retail Park, Sandton) and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "cyclestorezurich.com": {
     "name": "Cycle Store Zurich",
     "based_out_of": "Zurich, Switzerland",
@@ -2712,6 +2771,25 @@
     "added": "2026-10-23",
     "research_file": "research/2026-10-23/J0045_2026-10-23_st-gallen-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "diabeticaccessoriessa.com": {
+    "name": "Diabetic Accessories South Africa",
+    "based_out_of": "South Africa",
+    "market": "South Africa",
+    "category": "Health food and organic retailers",
+    "channels": [
+      "health food and organic retailers"
+    ],
+    "fit_rationale": "An online shop for diabetic shoppers whose Sweets category alone lists 31 products, including other brands such as Stockley's and Simpkins, plus chocolates, biscuits, jams and spreads. Tier 3 because it is a small online shop that also sells diabetic accessories; head office city not stated on its website.",
+    "what_they_do_well": [
+      "Serves diabetic shoppers nationwide with a 31-product sugar-free sweets category."
+    ],
+    "distributes": "Sugar-free sweets, chocolates, biscuits, rusks, jams and spreads for diabetics, alongside diabetic accessories",
+    "channels_supplied": "Its own online shop with countrywide shipping; refers Namibian customers to a local stockist",
+    "sf_brands_carried": "Stockley's Sugar Free Sweets and Simpkins sugar-free sweets",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "dimexa.com.pe": {
     "name": "Dimexa S.A.",
@@ -5756,6 +5834,24 @@
     "research_file": "research/2026-10-23/J0036_2026-10-23_switzerland_diabetic-low-sugar-and-keto-shops-gluten-free-and-free-from-shops-vegan-and-vege.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "kosherworld.co.za": {
+    "name": "KosherWorld",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Online sellers",
+    "channels": [
+      "online sellers"
+    ],
+    "fit_rationale": "A kosher supermarket with its own online store and a chocolate and sweets department, serving the Johannesburg Jewish community. Many Diablo products are kosher, so its sweets and chocolate shelves suit Diablo's range. Tier 3 because it is a single supermarket and its chocolate department page did not open.",
+    "what_they_do_well": [
+      "Describes itself as the only truly kosher supermarket in South Africa, trading seven days a week outside Shabbat."
+    ],
+    "distributes": "Kosher supermarket range including a chocolate and sweets department, snacks and groceries",
+    "channels_supplied": "Supermarket in Glenhazel, Johannesburg and an online store at shop.kosherworld.co.za; an OK Franchise Division member",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json"
+  },
   "krsweets.co.za": {
     "name": "KR Sweets",
     "based_out_of": "Cape Town, South Africa",
@@ -6267,6 +6363,25 @@
     "sf_brands_carried": "Loacker, Weider, Bonne Maman, Takis, Arizona, Koh Coconut; no sugar-free confectionery brand identified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "mapowertrade.com": {
+    "name": "MA Powertrade Cash & Carry",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Kiosk and convenience wholesalers",
+    "channels": [
+      "kiosk and convenience wholesalers"
+    ],
+    "fit_rationale": "An owner-run cash and carry in Athlone that supplies corner cafes, tuck shops and spaza shops with sweets, chocolates and biscuits. Its membership of the UMS Powertrade group links it to other independent wholesalers. Storage: sells from its own cash and carry store in Rylands, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Trading for 35 years from Athlone, Cape Town, serving tuck shops, cafes and spaza shops."
+    ],
+    "distributes": "Confectionery, sweets, chocolates, biscuits, chips and drinks, alongside groceries and household goods",
+    "channels_supplied": "Small supermarkets, corner cafes, tuck shops and spaza shops in the Cape Flats, plus walk-in shoppers; member of the UMS Powertrade symbol group",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "maresi.at": {
     "name": "Maresi Austria GmbH",
@@ -8668,6 +8783,25 @@
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "sasol.com": {
+    "name": "Sasol Delight",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A national petrol station convenience chain that sells branded packaged snacks from other companies to shoppers on the go, shown by its Lay's, Simba and Doritos promotion. Store count is not stated on its website, which refers to Delight stores across the nation. It has a franchise programme and a supplier management office.",
+    "what_they_do_well": [
+      "Runs in-store promotions with major snack brands such as Simba and Doritos across its national Delight stores.",
+      "Adding partner brands such as Seattle Coffee Company and Krispy Kreme to its convenience centres since 2023."
+    ],
+    "distributes": "Forecourt convenience stores selling packaged snacks (Lay's, Simba, Doritos, peanuts and raisins), drinks, bakery items and daily essentials",
+    "channels_supplied": "Sasol Delight convenience stores on Sasol forecourts across South Africa, with partner outlets such as Seattle Coffee Company and Krispy Kreme",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json"
+  },
   "savageandwhitten.com": {
     "name": "S&W Wholesale (Savage & Whitten)",
     "based_out_of": "Newry, United Kingdom",
@@ -8682,6 +8816,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "savemoregroup.com": {
+    "name": "Savemore Group",
+    "based_out_of": "Pretoria, South Africa",
+    "market": "South Africa",
+    "category": "Kiosk and convenience wholesalers",
+    "channels": [
+      "kiosk and convenience wholesalers"
+    ],
+    "fit_rationale": "A multi-branch cash and carry wholesaler that resells branded biscuits, sweets and snacks to the trade in Gauteng and the Eastern Cape. Its warehouse service covering Gauteng, Mpumalanga and Free State gives Diablo reach into independent stores in several provinces. Storage: cash and carry branches and a warehouse service named on its website.",
+    "what_they_do_well": [
+      "Serving the wholesale and retail trade since 2001, with branches in Pretoria and the Eastern Cape."
+    ],
+    "distributes": "Biscuits, sweets and snacks from brands such as Chappies, Maynards, Lay's and Doritos, alongside groceries, beverages and household goods",
+    "channels_supplied": "Wholesale and retail trade through cash and carry branches in Pretoria, Gqeberha, Qonce (King William's Town) and Kariega (Uitenhage), plus online ordering",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "saveuraldente.fr": {
     "name": "Al Dente",
@@ -8908,6 +9061,25 @@
     "sf_brands_carried": "Sante healthier options and Go On protein bars, Hamlet and Belfine chocolate, plus a 'Free From' store section. No dedicated sugar-free chocolate brand seen.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "shop.thedeli.co.za": {
+    "name": "The Deli Online",
+    "based_out_of": "Durbanville, South Africa",
+    "market": "South Africa",
+    "category": "Health food and organic retailers",
+    "channels": [
+      "health food and organic retailers"
+    ],
+    "fit_rationale": "An online pantry shop with Snacks and Sweets, Sugar Free and Keto and Banting sections that sell other brands such as Carb Smart chocolate and Crunch 'n Munch biscuits. Tier 3 because nuts and dried fruit make up much of the range and it has no walk-in store.",
+    "what_they_do_well": [
+      "Runs dedicated keto and banting, gluten-free, vegan and sugar-free sections with nationwide delivery."
+    ],
+    "distributes": "Snacks and sweets (lunchbox, sweet, sugar-free and gluten-free snacks), sugar-free chocolate, biscuits, jams, plus nuts, dried fruit and pantry staples",
+    "channels_supplied": "Its own online pantry shop with nationwide delivery and collection from its Durbanville depot",
+    "sf_brands_carried": "Carb Smart sugar-free chocolate; keto, banting, vegan and sugar-free sections",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "shs-sales.ie": {
     "name": "SHS Sales & Marketing",
@@ -9156,6 +9328,25 @@
     "sf_brands_carried": "Barebells; syrups and sauces section",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
+  "sportsmanswarehouse.co.za": {
+    "name": "Sportsmans Warehouse",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers",
+      "health food and organic retailers"
+    ],
+    "fit_rationale": "A national sports retailer with a supplements and snacks section that sells protein bars from other brands such as USN to health-conscious shoppers. Diablo's muesli and cereal bars and cookies suit its endurance and fitness shoppers. Store count is not stated on the pages seen.",
+    "what_they_do_well": [
+      "Sells leading sports brands such as ASICS, Nike and Garmin alongside USN nutrition in stores and online."
+    ],
+    "distributes": "Sports equipment, clothing and footwear plus a supplements section with protein bars (USN Protein Bar, USN Pro Protein Bar) and a snacks category",
+    "channels_supplied": "Its own sports stores across South Africa (store locator on its website) and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json"
   },
   "springvalefoods.co.uk": {
     "name": "Springvale Foods",
@@ -9842,6 +10033,25 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
   },
+  "thedeli.co.za": {
+    "name": "The Deli",
+    "based_out_of": "Durbanville, Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Online sellers",
+    "channels": [
+      "online sellers"
+    ],
+    "fit_rationale": "An online pantry store that sells branded biscuits, sweets and chocolate from other companies to shoppers across South Africa. It already runs Sugar Free and Keto/Banting collections, which is exactly where Diablo's chocolate, biscuits and sweets would sit. Storage: sells from its own stock from a depot in Rosenpark, Durbanville.",
+    "what_they_do_well": [
+      "Runs dedicated Sugar Free, Keto/Banting, Vegan and Gluten Free collections with nationwide delivery."
+    ],
+    "distributes": "Sweets, chocolate coated snacks, biscuits and stroopwafels (Lotus Biscoff, Crunch 'n Munch, Casteleijn, Holland Bakery), nougat (Forest Fairies), snack bars (Karoo), sugar free chocolate (Carb Smart) and gift boxes",
+    "channels_supplied": "Own online shop and apps, nationwide courier delivery and collection from its Durbanville depot; corporate gifting",
+    "sf_brands_carried": "Carb Smart sugar free chocolate; dedicated Sugar Free, Keto/Banting and Vegan collections",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "thehealthstore.ie": {
     "name": "The Health Store",
     "based_out_of": "Dublin, Ireland",
@@ -10108,6 +10318,23 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
   },
+  "trigdistributors.co.za": {
+    "name": "Trig Distributors",
+    "based_out_of": "Kempton Park, South Africa",
+    "market": "South Africa",
+    "category": "Kiosk and convenience wholesalers",
+    "channels": [
+      "kiosk and convenience wholesalers"
+    ],
+    "fit_rationale": "A wholesale sweets, snacks and biscuits store in Kempton Park that sells bulk packs, including cereals and cold drinks from other suppliers. It is tier 3 because its website names no brands and does not say how many shops it supplies. Storage: sells from its own stock at its Chloorkop store, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Sweets, biscuits, chips and snacks, cereals, cold drinks and party supplies sold in bulk",
+    "channels_supplied": "Bulk buyers from its Chloorkop store and online orders; customer types beyond home, school and office buyers not stated on its website",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "turkishmarket.ch": {
     "name": "TurkishMarket.ch",
     "based_out_of": "Bern, Switzerland",
@@ -10288,6 +10515,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "vanheerden.co.za": {
+    "name": "Van Heerden Pharmacy",
+    "based_out_of": "Bela Bela, South Africa",
+    "market": "South Africa",
+    "category": "Pharmacy and drugstore chains",
+    "channels": [
+      "pharmacy and drugstore chains"
+    ],
+    "fit_rationale": "Its online store has a Confections and Refreshments section of 61 products, mostly branded Beacon sweets, toffees and energy bars, so packaged confectionery from other brands is already on its shelf. With 27 pharmacies across three provinces it gives Diablo a regional pharmacy route; no sugar-free confectionery is shown, so there is no direct competitor.",
+    "what_they_do_well": [
+      "Family pharmacy group founded in Bela Bela in 1985, now 27 pharmacies in three provinces."
+    ],
+    "distributes": "Sweets and gummies (Beacon Jelly Tots, Maynards wine gums, Wilson toffees), bars (Beacon Jungle Energy Bars) and chocolate snacks (Beacon Nosh)",
+    "channels_supplied": "27 pharmacies in Limpopo, Gauteng and Mpumalanga and its own online store shipping from Bela Bela",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "vega.pe": {
     "name": "Grupo Vega",
