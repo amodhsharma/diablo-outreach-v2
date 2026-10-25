@@ -337,6 +337,23 @@
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "alphapharmnutrition.co.za": {
+    "name": "AlphaPharm Nutrition",
+    "based_out_of": "Randburg, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A multi-brand sports nutrition shop with its own snacks and bars section for gym shoppers. Diablo's sugar-free bars, cookies and spreads fit there. Small, one store; bar brands not named on its home page.",
+    "what_they_do_well": [],
+    "distributes": "Protein bars in a Snacks, Bars & Drinks section, cream of rice and sports supplements from Applied Nutrition, NPL, TNT Mercury and others",
+    "channels_supplied": "One store in Randburg and its own online shop with nationwide delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "alur.ch": {
     "name": "Alur Running Trail",
     "based_out_of": "Carouge, Switzerland",
@@ -859,6 +876,24 @@
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "balans.co.za": {
+    "name": "Balans Health",
+    "based_out_of": "Bloemfontein, South Africa",
+    "market": "South Africa",
+    "category": "Gluten free and free from shops",
+    "channels": [
+      "gluten free and free from shops"
+    ],
+    "fit_rationale": "A dietitian-approved health shop with its own Sweets and Chocolates, Protein and Snack Bars and Spreads categories from many other brands, including the sugar free Caring Candies range. Diablo's sugar free chocolate, sweets and bars fit its shelf directly. Store count beyond its Bloemfontein shop is not stated on its website.",
+    "what_they_do_well": [
+      "Stocks around 100 health brands, all described as approved by dietitians and nutritional specialists, with free nationwide delivery over R400."
+    ],
+    "distributes": "Sweets and chocolates, protein and snack bars, spreads and snacks, plus health foods, cereals and sweeteners",
+    "channels_supplied": "Own shop in Brandwag, Bloemfontein and its online shop with nationwide delivery",
+    "sf_brands_carried": "Caring Candies (sugar free sweets and chocolate), Wedgewood Nougat",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
+  },
   "balkania.ie": {
     "name": "Balkania",
     "based_out_of": "Dublin, Ireland",
@@ -926,6 +961,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "bash.com": {
+    "name": "Bash (TFG)",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "TFG's online store sells sports goods for Totalsports and Sportscene and already lists Racefood bars and 32Gi nutrition. Diablo's bars and sugar-free snacks would sit alongside them for sport shoppers. Head office city taken from TFG's public profile; food range is small.",
+    "what_they_do_well": [
+      "Sells for 19 TFG store brands, including Totalsports and Sportscene, from one online shop."
+    ],
+    "distributes": "Energy bars from Racefood (Fastbar and Farbar) and sports nutrition from 32Gi and Gloot in its sports and wellness departments",
+    "channels_supplied": "Online shop of TFG, selling for chains including Totalsports and Sportscene",
+    "sf_brands_carried": "No sugar-free confectionery seen",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
   },
   "bcyclet.com": {
     "name": "Bcyclet",
@@ -1092,6 +1145,23 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json"
   },
+  "bicycleline.co.za": {
+    "name": "Bicycle Line",
+    "based_out_of": "Boksburg, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A cycling shop that sells Cadence energy bars in its nutrition section. Diablo's bars suit its riders. Small, one bar brand; location from the Cadence Nutrition retailer list.",
+    "what_they_do_well": [],
+    "distributes": "Cadence Carbofuel energy bars and gels",
+    "channels_supplied": "Cycling shop and coffee bar, and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "bidfood.co.uk": {
     "name": "Bidfood UK",
     "based_out_of": "Slough, United Kingdom",
@@ -1128,6 +1198,41 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
+  "bigfivedutyfree.co.za": {
+    "name": "Big Five Duty Free",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Travel retail",
+    "channels": [
+      "travel retail"
+    ],
+    "fit_rationale": "The leading duty free operator in South Africa, with stores at the four main international airports and confectionery named as one of its core categories on its own About page. Gebr. Heinemann is a co-shareholder, bringing global confectionery buying, and the OR Tambo revamp is premiumising the confectionery offer, which suits Diablo's gift boxes, chocolate and seasonal packs. No sugar-free range is shown on its website.",
+    "what_they_do_well": [
+      "Described by the Moodie Davitt Report in October 2025 as Sub-Saharan Africa's leading travel retail operator.",
+      "Launched Distell's Amarula chocolate in its airport stores (2023)."
+    ],
+    "distributes": "Duty free retail of liquor, fragrance, cosmetics, tobacco, accessories and confectionery, including chocolate (for example Amarula chocolate and milk chocolate lines)",
+    "channels_supplied": "Its own duty free stores in international departures and arrivals at OR Tambo, Cape Town, King Shaka and Lanseria airports, plus online pre-order with in-store collection",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
+  },
+  "biket.co.za": {
+    "name": "Biket",
+    "based_out_of": "Hillcrest, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Trek approved cycling shop with a cycling nutrition section that sells bars from other brands. Diablo's muesli and cereal bars suit its riders. Small, one store.",
+    "what_they_do_well": [],
+    "distributes": "Energy bars from Cadence and PowerBar, plus gels and drink mixes",
+    "channels_supplied": "One cycling store in Hillcrest, KwaZulu-Natal, and its own online shop with nationwide delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
   },
   "bio-royal.com": {
     "name": "Bio Royal Sàrl",
@@ -1529,6 +1634,25 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "brittans.co.za": {
+    "name": "Brittans Sweets",
+    "based_out_of": "Rosebank, South Africa",
+    "market": "South Africa",
+    "category": "Travel retail",
+    "channels": [
+      "travel retail"
+    ],
+    "fit_rationale": "An airport sweet shop operator that sells other companies' branded chocolate and sweets to travellers, with stores in both departure halls at Cape Town International Airport. It also sells sweets wholesale online and offers franchises, so a new sugar-free line can reach shoppers beyond the airport. Store count and the full range are not stated on its website.",
+    "what_they_do_well": [
+      "Holds sweet shop space in both international and domestic departures at Cape Town International Airport."
+    ],
+    "distributes": "Branded chocolate and sweets from other brands such as Cadbury, Hershey, Reese's, Toblerone, Mentos and Hubba Bubba, sold in its airport sweet shops and through online wholesale",
+    "channels_supplied": "Its own sweet shops in international and domestic departures at Cape Town International Airport, online wholesale orders and franchising",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "brmarketing.ie": {
     "name": "BR Marketing",
     "based_out_of": "Clonee, Ireland",
@@ -1686,6 +1810,24 @@
     "added": "2026-10-23",
     "research_file": "research/2026-10-23/J0045_2026-10-23_st-gallen-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "capeunionmart.co.za": {
+    "name": "Cape Union Mart",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A national outdoor and travel chain with its own Snacks & Nutrition category, and Racefood names it as a stockist of its bars. Diablo's muesli bars, cookies and sugar-free sweets suit hikers and travellers. Products in the category did not load in this run, so brands beyond Racefood are not listed here.",
+    "what_they_do_well": [
+      "Racefood lists Cape Union Mart among its national retailers for energy bars."
+    ],
+    "distributes": "Snacks and energy bars in its Snacks & Nutrition section, including Racefood bars",
+    "channels_supplied": "Own outdoor and adventure stores in malls across South Africa (Canal Walk, Cavendish, Fourways Mall, Woodlands) and its own online shop",
+    "sf_brands_carried": "No sugar-free confectionery seen",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
   },
   "caporaso.ch": {
     "name": "Caporaso AG",
@@ -2497,6 +2639,25 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "cwcycles.co.za": {
+    "name": "CWC (Chris Willemse Cycles)",
+    "based_out_of": "South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A cycling retailer with a nutrition and confectionery section that sells bars from several brands to endurance shoppers. Diablo's bars and sugar-free snacks fit that section. Store count and head office are not stated on its website.",
+    "what_they_do_well": [
+      "Carries a broad catalogue of about 500 brands, with bars from PowerBar, 32Gi and Racefood."
+    ],
+    "distributes": "Energy and protein bars from PowerBar, 32Gi and Racefood (Fastbar, Farbar), plus Nakd bars in its brand list and sports supplements",
+    "channels_supplied": "Own cycling stores (store locator on its website) and its own online shop",
+    "sf_brands_carried": "No sugar-free confectionery seen",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "cyclelab.com": {
     "name": "Cycle Lab",
     "based_out_of": "Johannesburg, South Africa",
@@ -2534,6 +2695,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0039_2026-10-23_zurich-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "cycleway.co.za": {
+    "name": "Cycleway",
+    "based_out_of": "Polokwane, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A cycling shop with its own Bars & Gels nutrition section that sells other brands. Diablo's bars and sugar-free gummies suit its riders. Small, one store.",
+    "what_they_do_well": [],
+    "distributes": "Energy bars, gels and chews from 32Gi, Cadence and PowerBar in a Bars & Gels section",
+    "channels_supplied": "One cycling store in Polokwane and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "cycling-parts.ch": {
@@ -3426,6 +3604,23 @@
     "sf_brands_carried": "Sugar-free products listed as a core category; specific brands not verified.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "epicsportsonline.co.za": {
+    "name": "Epic Sports",
+    "based_out_of": "Centurion, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A sports and cycling retailer whose online shop sells PowerBar energy bars and other endurance nutrition. Diablo's muesli bars suit its customers. Store count not stated; location from the Cadence Nutrition retailer list.",
+    "what_they_do_well": [],
+    "distributes": "PowerBar Energize energy bars, gels and HIGH5 and Maurten sports nutrition",
+    "channels_supplied": "Own sports store and online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "epicurium.co.uk": {
@@ -4877,6 +5072,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "healthisland.co.za": {
+    "name": "Health Island",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Diabetic, low sugar and keto shops",
+    "channels": [
+      "diabetic, low sugar and keto shops"
+    ],
+    "fit_rationale": "A healthy snack business that sources products from suppliers across the country and sells them as snack boxes, hampers and through healthy vending, with options for diabetic, sugar free and low carb customers. Diablo's bars, cookies and wafers suit its boxes and vending machines. Tier 3 because its website does not name the bar and biscuit brands it carries and gives no store or machine count.",
+    "what_they_do_well": [
+      "Runs healthy vending machines through a franchise model as well as nationwide snack box and hamper delivery."
+    ],
+    "distributes": "Healthy snacks for diabetic, sugar free and low carb customers: snack bars, baked biscuits and rusks, nut and fruit mixes, savoury snacks and nougat in snack boxes and hampers, plus healthy vending",
+    "channels_supplied": "Its own online shop, corporate snack boxes and hampers delivered across South Africa, and healthy vending machines run through franchisees",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
+  },
   "healthmatters.ie": {
     "name": "Health Matters",
     "based_out_of": "Dublin, Ireland",
@@ -4891,6 +5104,23 @@
     "sf_brands_carried": "Monty Bojangles truffles seen; no sugar-free brand identified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "healthtwin.co.za": {
+    "name": "HealthTwin Supplements & Vitamins",
+    "based_out_of": "Centurion, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An independent sports nutrition retailer that sells Barebells protein bars and other brands to health-conscious shoppers. Diablo's sugar-free bars and cookies fit its shelf. Small, one store.",
+    "what_they_do_well": [],
+    "distributes": "Barebells protein bars, Creme Supreme and Gloot products, sports nutrition and vitamins",
+    "channels_supplied": "One store at Mall @ Reds, Centurion, and its own online shop with delivery across South Africa",
+    "sf_brands_carried": "Barebells protein bars (no added sugar)",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "Nobody in Apollo at healthtwin.co.za, but 16 with an email at domains.co.za, the company's other website (its contact address uses it); button 3 searches there"
   },
   "healthwellbrands.com": {
     "name": "HealthWell Brands",
@@ -5524,6 +5754,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "joccycles.co.za": {
+    "name": "JOC Cycles",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A premium cycling store with an energy bars section from several brands. Diablo's bars fit next to them. Small, one store.",
+    "what_they_do_well": [],
+    "distributes": "Energy bars from Amacx, PowerBar and Racefood, with Neversecond and Maurten bar sections",
+    "channels_supplied": "One cycling store in Mouille Point, Cape Town, and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "johnsonbrothers.ie": {
     "name": "Johnson Brothers",
@@ -6312,6 +6559,25 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "macgrif.com": {
+    "name": "Macgrif (Endurofix)",
+    "based_out_of": "Pietermaritzburg, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An online endurance nutrition shop with separate bars, waffles and chews and gummies sections from many brands, sold nationwide. Diablo's muesli bars, wafers and sugar-free gummies fit its range for runners and cyclists.",
+    "what_they_do_well": [
+      "Stocks nine endurance brands including GU, HIGH5, Naak, Never Second, Racefood and 32Gi with 1 to 3 day delivery."
+    ],
+    "distributes": "Energy bars (USN, Vooma, Racefood, Naak), energy waffles, chews and gummies (GU), gels and drink mixes",
+    "channels_supplied": "Its own online shop with delivery across South Africa",
+    "sf_brands_carried": "USN Zero Sugar hydrator and HIGH5 Zero tabs (drinks only); no sugar-free confectionery competitor seen",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "maho-gmbh.com": {
     "name": "Maho GmbH",
     "based_out_of": "Cologne, Germany",
@@ -6679,6 +6945,23 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "mellowvelo.co.za": {
+    "name": "Mellow Velo",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A cycling shop with Energy Bars and Chews sections in its hydration and nutrition range. Diablo's bars and sugar-free gummies fit. Small, one store.",
+    "what_they_do_well": [],
+    "distributes": "Cadence energy bars in an Energy Bars section, plus gels, chews and recovery drinks",
+    "channels_supplied": "One cycling store at Broadacres Shopping Centre, Johannesburg, and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "metro.at": {
     "name": "METRO Cash und Carry Oesterreich GmbH",
     "based_out_of": "Voesendorf, Austria",
@@ -6976,6 +7259,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-21/J0007_2026-10-21_lausanne-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "musclemeccasa.co.za": {
+    "name": "Muscle Mecca",
+    "based_out_of": "South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A ten-store sports nutrition chain that already sells branded protein bars and calls Barebells and Creme Supreme its lifestyle and functional food brands. Diablo's sugar-free chocolate, Dubai style chocolate and bars fit its health-conscious gym shoppers. It also offers franchises, so new stores may follow.",
+    "what_they_do_well": [
+      "Runs ten sports nutrition stores across South Africa with in-store pickup for online orders."
+    ],
+    "distributes": "Protein bars from Barebells and Nutri-Go, a Dubai style chocolate bar, protein drinks and sports supplements",
+    "channels_supplied": "Ten supplement stores (Cape Town, Centurion, Ermelo, Port Elizabeth, Roodepoort, Greenstone, Nelspruit, Pretoria, Randburg, Secunda) and its own online shop",
+    "sf_brands_carried": "Barebells protein bars (no added sugar); no direct sugar-free confectionery competitor seen",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "musgravegroup.com": {
@@ -7548,6 +7850,24 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "olympiccycles.co.za": {
+    "name": "Olympic Cycles",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Cape Town cycling retailer with a dedicated bars collection of eleven brands sold online nationwide. Diablo's muesli and cereal bars would fit this shelf. Only two stores are shown.",
+    "what_they_do_well": [
+      "Runs one of the widest bar ranges seen in South African cycling retail, with eleven bar brands."
+    ],
+    "distributes": "Energy bars from Amacx, Cadence, Enduren, GU, HIGH5, Isostar, Maurten, Nutritech, PowerBar, Racefood and Voom, plus gels",
+    "channels_supplied": "Two cycling stores (Claremont and Kenilworth) and its own online shop",
+    "sf_brands_carried": "No sugar-free bars seen",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
   },
   "onegcandy.co.za": {
     "name": "ONEG Candy",
@@ -8426,6 +8746,23 @@
     "sf_brands_carried": "Fulfil protein bars (low sugar), Tony's Chocolonely, Ritter Sport, VIT-HIT; no sugar-free chocolate brand.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "ridgewaycycles.co.za": {
+    "name": "Ridgeway Cycles",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A cycling retailer that sells energy bars from other brands to riders. Diablo's bars fit this shelf. Small range.",
+    "what_they_do_well": [],
+    "distributes": "NamedSport energy bars and Cadence nutrition in its supplements section",
+    "channels_supplied": "Cycling stores in Greenstone and Edenvale, Johannesburg, and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "rila.de": {
     "name": "Rila Feinkost-Importe GmbH & Co. KG",
@@ -10052,6 +10389,23 @@
     "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "thehangerbikeco.co.za": {
+    "name": "The Hanger Bike Co",
+    "based_out_of": "Somerset West, South Africa",
+    "market": "South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A cycling shop that sells Cadence energy bars and other brands' nutrition. Diablo's bars suit its riders. Small, one store.",
+    "what_they_do_well": [],
+    "distributes": "Cadence Carbo Fuel energy bars, gels and Torq nutrition",
+    "channels_supplied": "One cycling store in Somerset West and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "thehealthstore.ie": {
     "name": "The Health Store",
     "based_out_of": "Dublin, Ireland",
@@ -10121,6 +10475,25 @@
     "added": "2026-10-21",
     "research_file": "research/2026-10-21/J0008_2026-10-21_lugano-switzerland_distributors.json"
   },
+  "tlcpantry.co.za": {
+    "name": "TLC Pantry (The Low Carb Pantry)",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Diabetic, low sugar and keto shops",
+    "channels": [
+      "diabetic, low sugar and keto shops"
+    ],
+    "fit_rationale": "A four-store Cape Town specialist for low carb, keto, banting and sugar free shoppers that already sells other brands' sugar free sweets, chocolate, biscuits and jams. Diablo's sugar free chocolate, biscuits, spreads and syrups match the shelves it already has. Caring Candies competes directly in sugar free sweets and chocolate.",
+    "what_they_do_well": [
+      "Runs four low carb shops across Cape Town (Bloubergstrand, Tyger Valley, Somerset West, Tokai) as well as an online shop."
+    ],
+    "distributes": "Low carb, keto, banting and sugar free foods: sugar free sweets and chocolate (Caring Candies), biscuits and biscotti (Gracious Bakers, Skinny Biscotti), jams (Leo's Little Jars), cakes, cookies, syrups, keto chips and breakfast bars",
+    "channels_supplied": "Its own shops in Bloubergstrand, Tyger Valley, Somerset West and Tokai, plus its own online shop",
+    "sf_brands_carried": "Caring Candies, Gracious Bakers, Skinny Biscotti, Leo's Little Jars, We Love Low Carb, Ketos",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "todays.co.uk": {
     "name": "Today's Group",
     "based_out_of": "United Kingdom",
@@ -10175,6 +10548,24 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "totalenergies.co.za": {
+    "name": "TotalEnergies Marketing South Africa (Cafe Bonjour shops)",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Petrol station and convenience chains",
+    "channels": [
+      "petrol station and convenience chains"
+    ],
+    "fit_rationale": "Its own website says its station stores sell snacks, drinks and groceries alongside the Cafe Bonjour counter, across a network of over 547 service stations. The shop brand is run under one national banner, so it offers a central route into forecourt shops; the number of stations with a Bonjour shop and the buying model are not stated on its website.",
+    "what_they_do_well": [
+      "Runs one of South Africa's larger forecourt networks, with over 547 service stations as of 2025."
+    ],
+    "distributes": "Snacks, drinks, groceries and hygiene products in its station shops, plus pastries, sandwiches and pies in Cafe Bonjour",
+    "channels_supplied": "Cafe Bonjour shops at TotalEnergies service stations nationwide; some sites host OK Express stores",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
   },
   "totalhealth.ie": {
     "name": "totalhealth Pharmacy",
