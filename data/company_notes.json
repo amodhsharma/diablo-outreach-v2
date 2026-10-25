@@ -3392,6 +3392,23 @@
     "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "durbanflorist.co.za": {
+    "name": "Durban Florist",
+    "based_out_of": "Durban, South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Durban gift and hamper shop with a chocolate hamper category built on Lindt, Ferrero Rocher, Nestle and Cadbury. It is tier 3 because it serves mainly Durban and its website does not describe its corporate offer or company size.",
+    "what_they_do_well": [],
+    "distributes": "Chocolate hampers and gift boxes with Lindt, Ferrero Rocher, Nestle and Cadbury chocolate, plus snack boxes",
+    "channels_supplied": "Direct to shoppers in Durban with next-day delivery and a corporate section",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "easytradedistribution.ch": {
     "name": "easytrade distribution AG",
     "based_out_of": "Lucerne, Switzerland",
@@ -3796,6 +3813,24 @@
     "sf_brands_carried": "Runs a dedicated Sugar Free Chocolate category; brands seen include Vivani, Booja Booja, Ombar and Chocolate and Love.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "fabulousflowers.co.za": {
+    "name": "Fabulous Flowers and Gifts",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Cape Town gifting business with its own shops, a Johannesburg branch and corporate accounts for banks, law firms and agencies, whose chocolate and sweets boxes are built on Lindt and Ferrero Rocher. Shelf-stable boxes ship nationwide, which suits Diablo's ambient gift boxes. Its sister brand Flower Guy sells the same kind of hampers with Lindt, Ferrero Rocher, Cadbury and Darling Sweet.",
+    "what_they_do_well": [
+      "Hand-packing chocolate and sweets boxes in its Claremont studio since 1999, with over 5,000 customer reviews."
+    ],
+    "distributes": "Chocolate and sweets gift boxes (Lindt, Lindt Lindor, Ferrero Rocher), luxury biscuits, nougat, jams and snack hampers",
+    "channels_supplied": "Own shops in Claremont, Cavendish Square and Sea Point, a Johannesburg branch, nationwide online delivery and corporate accounts",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "falabella.com.pe": {
     "name": "Saga Falabella",
@@ -4585,6 +4620,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
+  "giftlady.co.za": {
+    "name": "Gift Lady",
+    "based_out_of": "Gqeberha, South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "An established online gift and hamper shop that already sells a diabetic-friendly hamper filled with other brands' sugar-free chocolate and sweets, so it knows the buyer Diablo serves. Its chocolate, cookie and corporate year-end hampers give Diablo several places to sit. It already carries Chocwell, a direct sugar-free chocolate competitor.",
+    "what_they_do_well": [
+      "Already sells a diabetic-friendly hamper built on branded sugar-free chocolate and sweets."
+    ],
+    "distributes": "Chocolate hampers, coffee, tea and cookies hampers, gourmet snack hampers and a diabetic-friendly hamper with sugar-free chocolate and sweets",
+    "channels_supplied": "Direct to shoppers nationwide and corporate gift hampers for businesses",
+    "sf_brands_carried": "Chocwell sugar-free chocolate and Little Lovies sugar-free candies in its diabetic-friendly hamper",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "gingi.ch": {
     "name": "Gingi (Handelssociete Aksu & Winkler)",
     "based_out_of": "Allschwil, Switzerland",
@@ -4963,6 +5017,40 @@
     "sf_brands_carried": "",
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
+  },
+  "hamperlicious.co.za": {
+    "name": "Hamperlicious",
+    "based_out_of": "South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A national online hamper shop with more than 6,600 gifts, whose chocolate range is built on other companies' brands such as Lindt, Ferrero Rocher and Cadbury. It runs dedicated corporate and bulk staff hamper pages, so Diablo gift boxes and variety packs fit both its consumer and corporate lines. Head office city and warehouse are not stated on its website; it sells and delivers from its own online stock with same-day delivery on selected gifts.",
+    "what_they_do_well": [
+      "Trading since 2012 and offers more than 6,600 curated gifts with nationwide delivery."
+    ],
+    "distributes": "Chocolate hampers, hat boxes, crates and truffles (Lindt, Ferrero Rocher, Cadbury), nougat gifts, candy jars, cookies and snack hampers",
+    "channels_supplied": "Direct to shoppers nationwide and corporate buyers through staff hampers and year-end corporate gifts",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
+  "hamperworld.co.za": {
+    "name": "Hamper World",
+    "based_out_of": "Gauteng, South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "An online hamper shop with dedicated sweets and chocolate hamper categories filled with other brands such as Zanoni, Chocoloza and Darling Sweet. It says it prefers brands with natural ingredients, which suits Diablo's stevia and no-added-sugar positioning. Head office address is not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Sweets and chocolate hampers with Zanoni Chocolate, Chocoloza, Darling Sweet, fudge and gourmet popcorn",
+    "channels_supplied": "Direct to shoppers with same-day delivery in Gauteng and nationwide delivery; gifts for colleagues and thank-you hampers",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "hancocks.co.uk": {
     "name": "R E & B Hancock Ltd (Hancocks)",
@@ -5661,6 +5749,25 @@
     "sf_brands_carried": "Not verified in this run.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "inmotionflowers.co.za": {
+    "name": "inMotion Flowers (formerly Flowers for Africa)",
+    "based_out_of": "South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A national gift delivery business whose hampers combine other brands' chocolates, nougat, biscuits and sweets, with hubs in seven South African cities. Diablo's biscuits, chocolate and seasonal gift boxes match the mix in its Christmas and snack hampers. Head office address is not stated on its website.",
+    "what_they_do_well": [
+      "Trading since 2009, with delivery hubs in seven South African cities."
+    ],
+    "distributes": "Christmas, chocolate and snack hampers with Ferrero Rocher chocolates, Sally Williams nougat, biscuits, Christmas cake, candy canes and humbugs, plus Cadbury chocolate gift boxes",
+    "channels_supplied": "Direct to shoppers and corporate gift buyers through hubs in Durban, Johannesburg, Cape Town, Pretoria, Bloemfontein, Gqeberha and East London",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "isbilir-food.ch": {
@@ -6526,6 +6633,24 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "lululocal.co.za": {
+    "name": "LuluLocal",
+    "based_out_of": "South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "An online gift shop and corporate gifting service that sells other South African brands' sweets, chocolates and biscuits and builds bespoke corporate boxes. It holds its own stock for daily turnaround and handles nationwide delivery, so it can take a branded imported range. Head office address and warehouse are not named on its website; it states that it holds stock.",
+    "what_they_do_well": [
+      "Holds its own stock for fast daily turnaround and scales to conference and year-end gifting projects."
+    ],
+    "distributes": "Curated gifts with sweets and chocolates, biscuits and rusks, and dried fruit and savoury snacks from local brands",
+    "channels_supplied": "Direct to shoppers online and corporate gifting for year-end, conferences and activations nationwide",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "lynasfoodservice.com": {
     "name": "Lynas Foodservice",
@@ -7437,6 +7562,24 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "netflorist.co.za": {
+    "name": "NetFlorist",
+    "based_out_of": "Midrand, South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "South Africa's largest online gifting business, with chocolate and snack hampers built from other companies' brands such as Lindt, Ferrero Rocher and Cadbury. A branded sugar-free chocolate box or variety pack would sit naturally in its chocolate gift categories. Storage: own warehouses in Johannesburg and Cape Town, with in-house logistics hubs in Cape Town, Durban, Pretoria and Johannesburg.",
+    "what_they_do_well": [
+      "Trading since 1999 and runs its own warehouses and in-house delivery hubs in four South African cities."
+    ],
+    "distributes": "Chocolate gift boxes, hat boxes, crates, towers and truffles (Lindt, Nestle, Ferrero Rocher, Cadbury), nougat (Sally Williams), candy jars, cookies and snack hampers",
+    "channels_supplied": "Direct to shoppers and corporate buyers nationwide through its own online shop and delivery network",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "neuenschwanderag.com": {
     "name": "Neuenschwander R. & H. AG",
@@ -10042,6 +10185,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "sweetoafrica.com": {
+    "name": "Sweeto Africa",
+    "based_out_of": "Durban, South Africa",
+    "market": "South Africa",
+    "category": "Halal food distributors",
+    "channels": [
+      "halal food distributors"
+    ],
+    "fit_rationale": "A Durban wholesaler and distributor of 100% halal Turkish sweets and gummies that opens trading accounts with shops, which matches the channel model of a halal importer supplying the trade with branded confectionery. Diablo's halal certified gummies and jelly sweets sit next to its range. Storage: sells from its own stock to trade accounts, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Distributes the Sweeto halal confectionery range across South Africa and surrounding countries through local distribution partners."
+    ],
+    "distributes": "Halal certified Turkish confectionery: marshmallows, jelly gummies and liquorice from the Sweeto brand",
+    "channels_supplied": "Wholesale and trade customers in South Africa and neighbouring countries through trading accounts and local distribution partners",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "sweetsbrands.co.za": {
     "name": "Sweets Brands",
     "based_out_of": "Johannesburg, South Africa",
@@ -10421,6 +10583,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "theorganicvegan.co.za": {
+    "name": "The Organic Vegan",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Vegan and vegetarian shops",
+    "channels": [
+      "vegan and vegetarian shops"
+    ],
+    "fit_rationale": "A 100% vegan supermarket, founded in 2018 in Table View, that runs a dedicated chocolates, sweets and biscuits category stocked with other brands such as Cheaky Co. and POWA. Diablo's vegan muesli bars, wafer, cookie, peanut butters and jams match its shoppers directly. Store count beyond the Cape Town shop and online store is not stated on its website.",
+    "what_they_do_well": [
+      "Running a 100% vegan supermarket since 2018, with an online supermarket delivering across Cape Town."
+    ],
+    "distributes": "Chocolates, sweets and biscuits, vegan biscuits and cookies and snacks such as Cheaky Co. roasted chickpea chyps, alongside vegan pantry, dairy-free and meat-free groceries",
+    "channels_supplied": "Its own 100% vegan supermarket in Cape Town and its online shop delivering across the Cape Town region",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "the website address no longer exists"
+  },
   "therange.co.uk": {
     "name": "The Range (CDS Superstores, including Wilko)",
     "based_out_of": "Plymouth, United Kingdom",
@@ -10726,6 +10907,25 @@
     "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "turkishgrandbazaar.co.za": {
+    "name": "Turkish Grand Bazaar",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Halal food distributors",
+    "channels": [
+      "halal food distributors"
+    ],
+    "fit_rationale": "A Cape Town online shop importing branded Turkish sweets, Dubai chocolate and dragees, products bought by the Muslim and Turkish shoppers this channel targets. Diablo's Dubai style chocolate, chocolate dragees and gift boxes match its best selling lines. Tier 3 because it is one online shop and its website does not state halal certification or how many trade buyers it supplies.",
+    "what_they_do_well": [
+      "Imports baklava and Turkish delight straight from Turkey and sells them nationally online, with a separate wholesale offer."
+    ],
+    "distributes": "Imported Turkish sweets and chocolate: Turkish delight gift boxes, Dubai chocolate, chocolate coated dragees, baklava and dried fruit, from Turkish brands such as Cerez Pazari, Musko and Bolci",
+    "channels_supplied": "Its own online shop with courier delivery, plus a wholesale page for trade buyers",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "turkishmarket.ch": {
     "name": "TurkishMarket.ch",
     "based_out_of": "Bern, Switzerland",
@@ -10960,6 +11160,25 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "veganthings.co.za": {
+    "name": "Vegan Things",
+    "based_out_of": "Gauteng, South Africa",
+    "market": "South Africa",
+    "category": "Vegan and vegetarian shops",
+    "channels": [
+      "vegan and vegetarian shops"
+    ],
+    "fit_rationale": "An owner-run online vegan retailer whose own shop has a spreads and nut butters collection, chocolate lines and brand collections from other vegan makers. Diablo's vegan peanut butters, jams and muesli bars suit this range. Tier 3 because it is a small online shop and its delivery area beyond Gauteng is not stated on its website.",
+    "what_they_do_well": [
+      "Built a Gauteng online vegan store featured by Daily Maverick in 2021 as part of South Africa's growing vegan market."
+    ],
+    "distributes": "Spreads and nut butters, chocolate (chocolate pebbles, Goodness Me choc chips) and snacks from other vegan brands such as Cheaky Co., Earthshine Foods and Vegelicious, plus vegan pantry and cheese",
+    "channels_supplied": "Its own online shop, focused on Gauteng",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "the website address no longer exists"
   },
   "velomania.ch": {
     "name": "VELOMANIA (Bikes Center SA)",
@@ -11577,6 +11796,24 @@
     "research_file": "research/2026-10-26/J0047_2026-10-26_south-africa_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "yabulela.co.za": {
+    "name": "Yabulela Gift Hampers",
+    "based_out_of": "Somerset West, South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A corporate and consumer hamper company that packs biscuits, nougat, fudge and sweets bought from local suppliers into kosher, halal and corporate hampers. It already makes diabetic hampers on request, a natural home for Diablo's no-added-sugar range. Diablo's halal certificate and kosher products also suit its kosher and halal lines.",
+    "what_they_do_well": [
+      "Offers kosher, halal and diabetic hampers and has packed corporate hampers since about 2010."
+    ],
+    "distributes": "Gift hampers with biscuits, nougat bars, fudge, chocolate-coated treats, sugar sweets and chocolate, including kosher and halal hampers",
+    "channels_supplied": "Direct to shoppers and corporate clients nationwide by courier, plus custom-packed event hampers",
+    "sf_brands_carried": "Offers diabetic and banting hampers on request",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
   "yaguar.com.ar": {
     "name": "Supermercados Mayoristas Yaguar S.A.",
     "based_out_of": "Buenos Aires, Argentina",
@@ -11649,6 +11886,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "your-gifts.co.za": {
+    "name": "Your Gifts",
+    "based_out_of": "Pretoria, South Africa",
+    "market": "South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A small Pretoria online hamper shop whose snack and chocolate hampers are made up entirely of other companies' chocolate and biscuit brands. It is tier 3 because it is small and its website does not mention corporate orders.",
+    "what_they_do_well": [],
+    "distributes": "Snack and chocolate hampers with Cadbury, Nestle, Kit Kat, Aero, Lindt, Whispers, Bar One and Milkybar, plus Mini Marie and Tennis biscuits and nougat",
+    "channels_supplied": "Direct to shoppers online from Pretoria North",
+    "sf_brands_carried": "",
+    "added": "2026-10-25",
+    "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "ypf.com": {
     "name": "YPF (YPF Full convenience stores)",
