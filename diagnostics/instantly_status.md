@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-25T01:37:34+00:00 (UTC).
+Checked 2026-10-25T04:37:28+00:00 (UTC).
 
 ## Mailboxes
 
@@ -23,8 +23,8 @@ Checked 2026-10-25T01:37:34+00:00 (UTC).
 
 | Mailbox | Verdict | Sending | Warm-up | Warm-up score | Warm-up emails landing in inbox | Sender name | Daily limit | Campaigns using it |
 |---|---|---|---|---|---|---|---|---|
-| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Aryeh | 30 | none |
-| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Diablo Admin | 30 | none |
+| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
+| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
 | dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (51 of 51) | Dana from Diablo | 30 | none |
 | elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (50 of 50) | Elize from Diablo | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
