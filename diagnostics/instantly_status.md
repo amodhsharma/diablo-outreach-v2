@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-24T22:37:25+00:00 (UTC).
+Checked 2026-10-25T01:37:34+00:00 (UTC).
 
 ## Mailboxes
 
@@ -23,16 +23,16 @@ Checked 2026-10-24T22:37:25+00:00 (UTC).
 
 | Mailbox | Verdict | Sending | Warm-up | Warm-up score | Warm-up emails landing in inbox | Sender name | Daily limit | Campaigns using it |
 |---|---|---|---|---|---|---|---|---|
-| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
-| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
-| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (54 of 54) | Dana from Diablo | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (53 of 53) | Elize from Diablo | 30 | none |
+| admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Aryeh | 30 | none |
+| admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Diablo Admin | 30 | none |
+| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (51 of 51) | Dana from Diablo | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (50 of 50) | Elize from Diablo | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (60 of 60) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
-| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (41 of 41) | Joshua from Diablo | 30 | none |
-| offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (27 of 27) | Offers - | 30 | none |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (50 of 50) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
+| joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (38 of 38) | Joshua from Diablo | 30 | none |
+| offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (33 of 33) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (31 of 31) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (21 of 21) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
 
@@ -50,21 +50,20 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## Campaign: Diablo | OCT2026 | Company inboxes
 
-- Campaign status: Active
-- Instantly says: **daily_limit_met**. Campaign has reached its daily sending limit
-- Instantly's explanation: The campaign has paused because it has reached its daily sending limit of 10 emails for today. It is also unable to send because there are currently no email accounts connected to the campaign. To resume sending, you will need to wait for the daily limit to reset tomorrow and connect at least one email account.
+- Campaign status: Completed
+- Instantly says: **campaign_completed**. Campaign has completed
+- Last healthy send: 2026-10-24T23:11:52.908Z
 - schedule_status: `{"in_schedule": true}`
-- campaign_daily_limit: `{"limit": 10, "sent": 10, "limit_hit": true}`
-- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 0, "limit_hit": false}`
-- accounts_summary: `{"total_connected": 0, "available": 0, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 0}}`
-- leads_status: `{"no_leads_ready": false, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
+- campaign_daily_limit: `{"limit": 10, "sent": 3, "limit_hit": false}`
+- new_lead_limit: `{"enabled": false, "limit": null, "contacted": 3, "limit_hit": false}`
+- accounts_summary: `{"total_connected": 2, "available": 1, "unavailable": {"daily_limit_hit": 0, "slow_ramp_limit_hit": 0, "disconnected": 0, "global_gap_not_met": 1}}`
+- leads_status: `{"no_leads_ready": true, "account_unavailable_skips": 0, "delay_not_met_skips": 0}`
 - follow_ups_waiting: `{"count": 0, "earliest_wait_time_seconds": null}`
-- issue_tracking: `{"current_status_code": "daily_limit_met", "issue_first_seen_at": "2026-10-24T22:31:52.482Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": null}`
+- issue_tracking: `{"current_status_code": "waiting_for_leads", "issue_first_seen_at": "2026-10-24T23:11:54.296Z", "consecutive_loops_with_issue": 1, "last_healthy_send_at": "2026-10-24T23:11:52.908Z"}`
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
 - Leads: 33
-  - 28 Completed, emailed
-  - 3 Active, not yet emailed
+  - 31 Completed, emailed
   - 2 Bounced, emailed
 - Emails in the sequence: 1 (characters in each body: [2315])
 
@@ -179,7 +178,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - **Biofair-Naturapart GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:27 IST; blocklist: clear
 - **Bizzyvends B2B**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:22 IST; blocklist: clear
 - **Naturalex Sarl**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:23 IST; blocklist: clear
-- **Iberpasion GmbH**: next is the next email, 3 days after the last one; blocklist: clear
+- **Iberpasion GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 1 Nov 04:41 IST; blocklist: clear
 - **AM Food GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:22 IST; blocklist: clear
 - **honeydew GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:23 IST; blocklist: clear
 - **Swiss Deli Distribution SA (Authentic Food Solutions)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:32 IST; blocklist: clear
@@ -212,8 +211,8 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - **Sparposten.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:13 IST; blocklist: clear
 - **SamaraNatura (BioSamara GmbH)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:26 IST; blocklist: clear
 - **Planet Endurance**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:16 IST; blocklist: clear
-- **drogi.ch GmbH**: next is the next email, 3 days after the last one; blocklist: clear
-- **NOWFIT Sports Nutrition Sagl**: next is the next email, 3 days after the last one; blocklist: clear
+- **drogi.ch GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 1 Nov 04:32 IST; blocklist: clear
+- **NOWFIT Sports Nutrition Sagl**: next is a reply to person 1's introduction (no follow-ups are sent), due 1 Nov 04:32 IST; blocklist: clear
 - **Vitaminplus (Welldro AG)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:32 IST; blocklist: clear
 
 | Company | Order | Person (job title) | Lead Status | Emailed |
@@ -278,7 +277,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 | Naturalex Sarl | 2 | General Manager | GATE2: Approved to send | not yet |
 | Naturalex Sarl | 3 | Manager | GATE2: Approved to send | not yet |
 | Naturalex Sarl | 4 | Dietitian-nutritionist | GATE2: Approved to send | not yet |
-| Iberpasion GmbH | 1 | Company inbox (from website) | Attempted to Contact | not yet |
+| Iberpasion GmbH | 1 | Company inbox (from website) | Attempted to Contact | 25 Oct 04:41 IST |
 | AM Food GmbH | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:22 IST |
 | honeydew GmbH | 1 | Chief Kindness Catalyst | Head Bulls*** Detector | Attempted to Contact | 23 Oct 12:23 IST |
 | Swiss Deli Distribution SA (Authentic Food Solutions) | 1 | Directeur et Fondateur de Authentic Food Solutions (Swiss Deli Distribution SA) | Attempted to Contact | 23 Oct 12:32 IST |
@@ -346,6 +345,6 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 | Sparposten.ch | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:13 IST |
 | SamaraNatura (BioSamara GmbH) | 1 | Managing Director | Attempted to Contact | 23 Oct 14:26 IST |
 | Planet Endurance | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:16 IST |
-| drogi.ch GmbH | 1 | Company inbox (from website) | Attempted to Contact | not yet |
-| NOWFIT Sports Nutrition Sagl | 1 | Company inbox (from website) | Attempted to Contact | not yet |
+| drogi.ch GmbH | 1 | Company inbox (from website) | Attempted to Contact | 25 Oct 04:32 IST |
+| NOWFIT Sports Nutrition Sagl | 1 | Company inbox (from website) | Attempted to Contact | 25 Oct 04:32 IST |
 | Vitaminplus (Welldro AG) | 1 | Geschäftsführer | Mitinhaber | Attempted to Contact | 23 Oct 14:32 IST |
