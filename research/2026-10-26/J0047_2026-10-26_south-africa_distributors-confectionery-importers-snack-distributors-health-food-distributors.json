@@ -1,0 +1,377 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0047",
+  "location": "South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 6,
+      "searches_used": 31
+    },
+    {
+      "channel": "confectionery importers",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 6,
+      "searches_used": 47
+    },
+    {
+      "channel": "snack distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 8,
+      "searches_used": 40
+    },
+    {
+      "channel": "health food distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 35
+    },
+    {
+      "channel": "British food importers",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 49
+    }
+  ],
+  "companies": [
+    {
+      "name": "ONEG Candy",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "onegcandy.co.za",
+      "channel_category": [
+        "distributors",
+        "confectionery importers",
+        "snack distributors",
+        "British food importers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Imported branded chocolate, sweets, gummies, snacks and drinks from the US and UK, such as Hershey's, Reese's, Jelly Belly and Sour Patch Kids",
+      "channels_supplied": "Retailers and confectionery stores; names Checkers, Pick n Pay, SPAR and Engen as clients",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An importer and distributor of premium foreign confectionery and snacks since 2015 that already places imported brands in Checkers, Pick n Pay, SPAR and Engen forecourts. A UK sugar-free chocolate and sweets range fits its imported premium positioning. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Names Checkers, Pick n Pay, SPAR and Engen as clients for its imported US and UK confectionery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.onegcandy.co.za/",
+        "https://revenuebase.ai/companies/candy-importers/south-africa"
+      ]
+    },
+    {
+      "name": "Lick Your Lips Importers",
+      "based_out_of": "Boksburg, South Africa",
+      "domain": "lickyourlipsimporters.co.za",
+      "channel_category": [
+        "distributors",
+        "snack distributors",
+        "British food importers",
+        "confectionery importers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Imported sweets, chewing gum, mints, liquorice, novelty sweets, bulk sweets and Christmas lines, including British Swizzels Love Hearts and Beechies gum",
+      "channels_supplied": "Mainly retail stores, through dealer accounts, sales reps and online ordering with free delivery from R1,400",
+      "sf_brands_carried": "Beechies sugar-free chewing gum",
+      "competing_brand_flag": false,
+      "fit_rationale": "A sweets importer that says it distributes mostly to retail stores and already imports British brands such as Swizzels Love Hearts, so a UK exporter is familiar ground. It runs dealer accounts and reps for retailers, giving Diablo's sweets and gummies a ready route. Storage: sells from its own stock with delivery to dealers, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Imports and represents Beechies chewing gum in South Africa.",
+        "Says it has supplied sweets into the retail market for more than sixteen years."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "http://www.lickyourlipsimporters.co.za",
+        "https://www.lickyourlipsimporters.co.za/bulk-sweets",
+        "https://bestfoodimporters.com/company/lick-your-lips-importers/",
+        "https://www.lickyourlipsimporters.co.za/about-us",
+        "https://www.lickyourlipsimporters.co.za/",
+        "https://buysweets.co.za/"
+      ]
+    },
+    {
+      "name": "SnacKing",
+      "based_out_of": "Durban, South Africa",
+      "domain": "snacking.co.za",
+      "channel_category": [
+        "distributors",
+        "confectionery importers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Imported sweet and savoury snacks, biscuits and drinks, gift boxes and seasonal ranges, with brands such as Vicenzi, Hello Panda, Yan Yan, Meiji and Munchy's",
+      "channels_supplied": "Retail chains including Clicks, SPAR, Engen and JET, plus its own online shop with nationwide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Calls itself an importer and distributor of unique snacks and drinks and already places imported biscuits and snacks in Clicks, SPAR, Engen and JET. Diablo's biscuits, wafers and gift boxes match the imported treats it sells. Storage: sells from its own stock with click and collect in Durban, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Its imported snacks are stocked in Clicks, SPAR, Engen and JET."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://snacking.co.za/"
+      ]
+    },
+    {
+      "name": "Market Anatolia",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "marketanatolia.co.za",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Confectionery section with chocolate, biscuits, wafers and sweets from Ulker, Eti, Solen, Haribo, Galaxy and Nutella spreads, plus jam and Turkish grocery",
+      "channels_supplied": "Trade only: retailers, cash and carries, wholesalers and foodservice across Southern Africa, with nationwide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A trade-only importer and wholesaler since 2017 whose own catalogue has a confectionery section of branded biscuits, wafers, chocolate and sweets sold by the case to retailers and cash and carries. Diablo's halal certificate and biscuits sit well beside Ulker and Eti. Storage: warehouse in Montague Gardens, Cape Town.",
+      "what_they_do_well": [
+        "Supplies branded Ulker and Eti biscuits and confectionery by the case to retailers and cash and carries nationwide."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://marketanatolia.co.za/"
+      ]
+    },
+    {
+      "name": "IBA Coastal",
+      "based_out_of": "Durban North, South Africa",
+      "domain": "ibacoastal.co.za",
+      "channel_category": [
+        "confectionery importers",
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Imported American chocolates and candy, snacks and popcorn, biscuits, confectionery and beverages (Reese's, Hershey's, Sour Patch Kids, Mike and Ike, Cheetos)",
+      "channels_supplied": "Supermarkets, cash and carry stores, forecourts, tuck shops, canteens and independent retailers, naming SuperSPAR, SPAR Express, Focus, Looters and Bargain Basket",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run B2B distributor that imports over 200 American products and supplies them at wholesale prices to supermarkets, forecourts and tuck shops across KwaZulu-Natal, with courier delivery nationally. Chocolate, sweets and biscuits are core categories. Storage: sells from its own stock with its own deliveries, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Supplies SuperSPAR, SPAR Express, Looters and Bargain Basket stores.",
+        "Imports over 200 American products through an import partner of more than 30 years."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ibacoastal.co.za/"
+      ]
+    },
+    {
+      "name": "KR Sweets",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "krsweets.co.za",
+      "channel_category": [
+        "confectionery importers",
+        "snack distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Imported sweets and chocolates from manufacturers in Brazil, Tunisia, Pakistan and China (Jelly Fun, Gomets, Dori, JOJO)",
+      "channels_supplied": "Retailers through a wholesale line, plus direct sales to shoppers; shop types not named on its website",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Cape Town import and distribution company that sources branded sweets and chocolates abroad and sells them wholesale to retailers. It is small and its website does not name the shops it supplies. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.krsweets.co.za/"
+      ]
+    },
+    {
+      "name": "HealthWell Brands",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "healthwellbrands.com",
+      "channel_category": [
+        "snack distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Imported better-for-you brands: protein bars (Better Bar), plastic-free chewing gum, peanut butter and spreads (Whole Earth), superfoods, honey and organic drinks",
+      "channels_supplied": "Pick n Pay, Dis-Chem, Clicks, SPAR, Food Lover's Market, Wellness Warehouse, Faithful to Nature, Jackson's and over 245 independent health shops and pharmacies",
+      "sf_brands_carried": "Better Bar, Whole Earth",
+      "competing_brand_flag": false,
+      "fit_rationale": "Builds foreign natural and wellness brands in South Africa, offering market entry, regulatory support, national distribution and marketing to its principals. Its bars, gum and peanut butter reach the pharmacy and health chains that suit Diablo's health-conscious shoppers. Storage: primary warehouse and distribution centre in Cape Town, with further warehouses in Johannesburg.",
+      "what_they_do_well": [
+        "Places brands in Clicks, Dis-Chem, SPAR and Pick n Pay with its own sales reps in the main centres.",
+        "Founded as Harrewyn Organics in 2004, rebranded HealthWell Brands in 2020."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://healthwellbrands.com/",
+        "https://healthwellbrands.com/distribution/",
+        "https://healthwellbrands.com/warehousing/"
+      ]
+    },
+    {
+      "name": "Corporate Vending",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "corporatevending.co.za",
+      "channel_category": [
+        "snack distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Snack vending stocked with branded snacks, chocolates and drinks",
+      "channels_supplied": "Office and hotel vending for clients such as Woolworths, Old Mutual, Nedbank, Standard Bank, Discovery Health and Marriott Protea",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Full-service vending operator that stocks its machines with A-grade branded snacks and drinks across the Western Cape. Diablo's bars and chocolate suit workplace snack vending. Its website does not name the snack brands it stocks. Storage: buys and holds the stock it fills machines with, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Running fully outsourced vending since 1994.",
+        "Client logos include Woolworths, Old Mutual, Nedbank, Standard Bank and Discovery Health."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://corporatevending.co.za/"
+      ]
+    },
+    {
+      "name": "The Vending Company",
+      "based_out_of": "South Africa",
+      "domain": "vendco.co.za",
+      "channel_category": [
+        "snack distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Snack vending with confectionery and beverages",
+      "channels_supplied": "Offices, call centres and companies, plus independent vending operators across Africa",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-owned vending operator that runs a fully managed service with its own merchandisers stocking confectionery in workplace machines, and supports independent operators. Its website does not name the brands it stocks or its head office city. Storage: buys and holds the stock its merchandisers load, warehouse not named on its website.",
+      "what_they_do_well": [
+        "More than 18 years in vending, with in-house merchandisers stocking machines."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://vendco.co.za/"
+      ]
+    },
+    {
+      "name": "Atlantic Vending",
+      "based_out_of": "Western Cape, South Africa",
+      "domain": "atlanticvending.co.za",
+      "channel_category": [
+        "snack distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Snack, combination and cooldrink vending with snacks and treats",
+      "channels_supplied": "Workplace and public vending sites in the Western Cape",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Vending operator that provides snack and combination machines filled with snacks and treats and services them with its own technicians. It reaches fewer sites than a distributor and its website does not name the snack brands or clients. Storage: holds the stock it fills machines with, warehouse not named on its website.",
+      "what_they_do_well": [
+        "More than 25 years running vending in the Western Cape."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.atlanticvending.co.za/"
+      ]
+    },
+    {
+      "name": "DS International Nutrition",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "dsinternational.co.za",
+      "channel_category": [
+        "health food distributors",
+        "distributors",
+        "confectionery importers",
+        "British food importers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Protein bars (Barebells) and a health food and snacks category, alongside sports nutrition and vitamins from imported brands such as NOW Foods, MuscleTech and Cellucor",
+      "channels_supplied": "Dis-Chem, Wellness Warehouse, Takealot, Xtreme Nutrition, Faithful to Nature and SPAR, over 800 stores",
+      "sf_brands_carried": "Barebells no added sugar protein bars, TRU Hydration zero sugar; no direct competitor in sugar-free confectionery seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A distributor of international health and sports nutrition brands that launches foreign brands in South Africa and sells bars and snacks into the pharmacy and health chains Diablo wants. It offers customs clearance, sales coverage in all nine provinces and its own truck fleet. Storage: own on-site warehouse certified for food handling.",
+      "what_they_do_well": [
+        "Brought Barebells protein bars into South African retail, now on Dis-Chem shelves.",
+        "Covers all nine provinces with its own trucks between Durban, Cape Town and Johannesburg."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://dsinternational.co.za/pages/wholesale",
+        "https://dsinternational.co.za/",
+        "https://bestfoodimporters.com/company/ds-international-nutrition-pty-ltd/",
+        "https://dischemlivingfit.co.za/news/barebells-protein-bars-now-in-sa-at-dis-chem",
+        "https://dsinternational.co.za/collections/health-food-snacks"
+      ]
+    },
+    {
+      "name": "Xtreme Nutrition",
+      "based_out_of": "Durban, South Africa",
+      "domain": "xtremenutrition.co.za",
+      "channel_category": [
+        "health food distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein bars, flapjacks, high protein cookies, protein wafers and powdered peanut butter from Barebells, Applied Nutrition, Grenade and PB2, plus sports nutrition",
+      "channels_supplied": "Its own chain of over 25 stores and online shop, plus wholesale accounts for other businesses",
+      "sf_brands_carried": "Barebells and Grenade Carb Killa protein bars; no direct competitor in sugar-free confectionery seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A sports nutrition chain that sells bars, cookies, wafers and spreads from UK and European brands to health-conscious shoppers and wholesales its exclusive brands to other businesses. Get Raw Nutrition names it as its South African distributor. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs more than 25 sports nutrition stores across South Africa plus an online shop."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://xtremenutrition.co.za/product-category/other/snacks-drinks/",
+        "https://xtremenutrition.co.za/wholesale-applications/",
+        "https://getrawnutrition.com/pages/international-distributors",
+        "https://bestfoodimporters.com/company/xtreme-nutrition-sa/"
+      ]
+    },
+    {
+      "name": "B&S Agencies (Pty) Ltd",
+      "based_out_of": "Midrand, Johannesburg, South Africa",
+      "domain": "bsagencies.com",
+      "channel_category": [
+        "British food importers",
+        "snack distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Imported branded food including sweets and toffees (Walker's Nonsuch, British), salted snacks (Croco), rice and corn cakes, syrups (Vermont Syrup), biscuits, cheese, condiments and pantry lines",
+      "channels_supplied": "National chains and independents: Pick n Pay, Shoprite Checkers, Spar, Woolworths, Food Lover's Market, Dis-Chem and Wellness Warehouse, plus food wholesalers and foodservice",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "One of Southern Africa's largest importers of foreign branded food, with a sweets, snacks and syrups section that already includes the British toffee brand Walker's Nonsuch. It lists every major South African chain and Dis-Chem as customers, giving Diablo national retail reach through one importer. Storage: branches in Kyalami Business Park, Midrand and Montague Gardens, Cape Town, delivering from stock with its own refrigerated fleet.",
+      "what_they_do_well": [
+        "Trading since 1973 and describes itself as one of the largest fine food importers in Southern Africa.",
+        "Supplies Pick n Pay, Shoprite Checkers, Spar, Woolworths and Dis-Chem."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.bsagencies.com/",
+        "https://www.bsagencies.com/category/sweets-snacks-syrups",
+        "https://bestfoodimporters.com/company/b-s-agencies-pty-ltd/"
+      ]
+    }
+  ]
+}
