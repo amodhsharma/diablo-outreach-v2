@@ -1,0 +1,121 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0064",
+  "location": "Bloemfontein, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 34
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 46
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 26
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 24
+    }
+  ],
+  "companies": [
+    {
+      "name": "The Last Outpost",
+      "based_out_of": "South Africa",
+      "domain": "lastoutpost.co.za",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Low carb and sugar-free sweets and chewing gum (Spry), biscuits (Gracious Bakers, Dagbreek) and white chocolate balls",
+      "channels_supplied": "Its own online shop for banting and low carb shoppers",
+      "sf_brands_carried": "Spry sugar-free mints and gum, Gracious Bakers banting biscuits",
+      "competing_brand_flag": false,
+      "fit_rationale": "Online banting and low carb shop whose product pages list sugar-free sweets, gum and biscuits from other brands, exactly the health-conscious shopper Diablo targets. Tier 3 because its base, size and delivery area are not stated on the pages seen.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://lastoutpost.co.za/",
+        "https://lastoutpost.co.za/products/gems-peppermint-mints-25g-sugar-free-spry",
+        "https://lastoutpost.co.za/products/vanilla-biscuits-gluten-free-banting-180g-gracious-bakers",
+        "https://lastoutpost.co.za/products/dagbreek-peanut-brittle-biscuit-500g"
+      ]
+    },
+    {
+      "name": "Enduroplanet",
+      "based_out_of": "Bloemfontein, South Africa",
+      "domain": "enduroplanet.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Bicycles, parts and training gear, with a training and nutrition section selling energy bars and protein bars (High5, Enduren, Cadence), gels, drink and race mixes",
+      "channels_supplied": "Its own shop at Pretty Gardens, Langenhovenpark, Bloemfontein and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An established Bloemfontein bicycle shop and Trek retailer whose own online shop has a bars section with other brands' energy and protein bars from High5, Enduren and Cadence. It sells to health-conscious cyclists and athletes, a natural shelf for Diablo's muesli and cereal bars. Tier 3 because it is a single store; store count beyond the one shop is not stated on its website.",
+      "what_they_do_well": [
+        "The only Trek retailer listed in Bloemfontein on Trek's South African store finder."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://enduroplanet.co.za/about/",
+        "https://enduroplanet.co.za/product-category/training-and-nutrition/supplements/bars/",
+        "https://enduroplanet.co.za/shop/supplements/bars/cadence-bar-energy-berry/",
+        "https://enduroplanet.co.za/shop/accesories/enduren-protein-bars-peanut-butter/",
+        "https://www.trekbikes.com/store-finder/retailer/ZA/"
+      ]
+    },
+    {
+      "name": "Huize Bloemfontein",
+      "based_out_of": "Bloemfontein, South Africa",
+      "domain": "huize.co.za",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Snack hampers and snack hamper boxes (15 lines), biltong and snack hampers, celebration, seasonal and deluxe hampers, coffee and tea hampers, alongside a florist, deli, coffee shop and bridal boutique.",
+      "channels_supplied": "Sells direct to shoppers and businesses from its Bloemfontein shop and online shop, with same-day delivery across Bloemfontein for orders before 12:00 and custom hampers on request for a quote.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Bloemfontein gift shop with a dedicated snack hamper range of 15 lines and custom curated hampers, which buys in packaged treats and sells them as gifts in the city. Diablo's chocolate, sweets and biscuit gift packs suit its snack, celebration and seasonal hampers for health-conscious and diabetic recipients. Tier 3 because it is a single shop and its website does not name the brands inside its hampers. Storage: sells from its own shop stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs florist, gift shop, deli, coffee shop and bridal boutique under one roof in Bloemfontein, with same-day delivery across the city."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://huize.co.za/product-category/gift-shop/",
+        "https://huize.co.za/product-category/gift-shop/snack-hampers/",
+        "https://huize.co.za/product-category/gift-shop/gentlemans-hamper/"
+      ]
+    }
+  ]
+}
