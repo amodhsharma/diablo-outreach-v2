@@ -18,7 +18,7 @@ import datetime as dt
 import re
 
 from .import_checks import apollo_people
-from .schema import STOP_REASON
+from .schema import LEAD_STATUS, STOP_REASON
 
 APOLLO_NOBODY = "Apollo holds nobody with an email and the website shows no usable address"
 NOWHERE = "No contact found anywhere"
@@ -139,3 +139,71 @@ def recheck(hs, apollo, statuses, log=print, day=None, days=RECHECK_DAYS, limit=
     if asked:
         log(f'Missing info on Apollo: {asked} companies asked about again in Apollo, {len(back)} back to "New"')
     return {"asked": asked, "back_to_new": len(back)}
+
+
+# ---- "Contact exists, not AUTO-OUTREACH" (agreed 26 Oct 2026, Ariel) --------------------------------
+EXISTS = "Contact already in HubSpot"
+
+
+def existing_contacts(hs, company_id, emails=()):
+    """The contacts already in HubSpot for a company button 3 could add nobody to: everyone linked to
+    the company, plus any address it found (in Apollo or on the website) that HubSpot already holds.
+    Read only; none of them is ever changed. [contact records with hubspot_owner_id]."""
+    linked = (hs.associated_ids("companies", "contacts", [str(company_id)]) or {}).get(str(company_id)) or []
+    found = hs.batch_read("contacts", linked, ["email", "hubspot_owner_id"]) if linked else []
+    known = {str(r["id"]) for r in found}
+    extra = [e for e in dict.fromkeys(emails) if e]
+    for r in hs.batch_read("contacts", extra, ["email", "hubspot_owner_id"], id_property="email") if extra else []:
+        if str(r["id"]) not in known:
+            found.append(r)
+            known.add(str(r["id"]))
+    return found
+
+
+def exists_reason(contacts, names=None, day=None):
+    """e.g. "Contact already in HubSpot (26 Oct 2026): 3 contacts, 2 owned by Aastha, 1 by Junaid Khan;
+    tag one AUTO-OUTREACH and button 3 sets the company back to GATE1"."""
+    from collections import Counter
+    names = names or {}
+    owners = Counter(names.get(str((c.get("properties") or {}).get("hubspot_owner_id") or ""), "") or "nobody"
+                     for c in contacts)
+    parts = [f"{n} owned by {o}" if i == 0 else f"{n} by {o}" for i, (o, n) in enumerate(owners.most_common())]
+    n = len(contacts)
+    return (f"{EXISTS} ({(day or _today()).strftime('%d %b %Y').lstrip('0')}): {n} contact{'s' if n != 1 else ''}"
+            + (f", {', '.join(parts)}" if parts else "") + "; tag one AUTO-OUTREACH and button 3 sets the company "
+            "back to GATE1")
+
+
+def exists_props(hs, statuses, contacts, names=None, day=None):
+    """The props for a company whose only contacts are already in HubSpot: the new choice once button 1
+    has added it (otherwise "Missing Info"), and the note saying who holds them."""
+    stage = "contact_exists" if statuses.has("companies", "contact_exists") else "missing_info"
+    props = dict(statuses.props("companies", stage))
+    if has_reason_field(hs):
+        props[STOP_REASON] = exists_reason(contacts, names, day)[:250]
+    return props
+
+
+BACK_TO_GATE1 = ("missing_info", "missing_apollo", "contact_exists")
+
+
+def back_to_gate1(hs, statuses, company_ids, log=print):
+    """Companies where a person has just tagged a contact AUTO-OUTREACH by hand go back to GATE1 (from
+    Missing Info, Missing info on Apollo or Contact exists, not AUTO-OUTREACH), and their note is
+    cleared. Returns how many changed."""
+    ids = sorted({str(c) for c in company_ids})
+    if not ids:
+        return 0
+    rows = hs.tagged_read("companies", ids, ["name", STOP_REASON, LEAD_STATUS])
+    updates = []
+    for r in rows:
+        if statuses.of("companies", r) in BACK_TO_GATE1:
+            props = dict(statuses.props("companies", "approved"))
+            if has_reason_field(hs):
+                props[STOP_REASON] = ""
+            updates.append((r["id"], props))
+            log(f'{(r.get("properties") or {}).get("name") or "A company"}: a contact was tagged AUTO-OUTREACH by '
+                "hand, so the company is back on GATE1: Approved for outreach")
+    if updates:
+        hs.update_tagged("companies", updates)
+    return len(updates)

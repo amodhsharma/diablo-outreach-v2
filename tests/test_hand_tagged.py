@@ -34,15 +34,45 @@ def test_hand_tagged_contacts_get_an_order_and_the_inbox_title():
         ids[key] = hs.add("contacts", **props)
         hs.links[ids[key]] = [orakei]
     done = hand_tagged.prepare(hs, load_settings(), quiet)
-    assert done == {"contacts": 3, "company_inboxes": 1}
+    assert done == {"contacts": 3, "company_inboxes": 1, "companies_back_to_gate1": 0}
     c = hs.records["contacts"]
     assert (c[ids["ceo"]]["diablo_outreach_order"], c[ids["buyer"]]["diablo_outreach_order"],
             c[ids["welcome"]]["diablo_outreach_order"]) == ("1", "2", "3")
     assert c[ids["welcome"]]["jobtitle"] == INBOX_TITLE and c[ids["ceo"]]["jobtitle"] == "CEO"
     assert c[ids["welcome"]]["lastname"] == "Orakei Ltd."  # nothing else changed
-    assert hand_tagged.prepare(hs, load_settings(), quiet) == {"contacts": 0, "company_inboxes": 0}  # once only
+    assert hand_tagged.prepare(hs, load_settings(), quiet)["contacts"] == 0  # once only
     # A later one at the same company comes after the ones already ordered.
     late = hs.add("contacts", email="therese@orakei.ch", firstname="Therese")
     hs.links[late] = [orakei]
     hand_tagged.prepare(hs, load_settings(), quiet)
     assert c[late]["diablo_outreach_order"] == "4"
+
+
+def test_a_company_with_only_hubspot_contacts_says_so_and_comes_back_when_one_is_tagged(monkeypatch, tmp_path):
+    """Ariel, 26 Oct 2026: "Contact exists, not AUTO-OUTREACH", with who holds them; tagging one by hand
+    puts the company back on GATE1 by itself."""
+    import datetime as dt
+    from outreach import apollo_status, common, company_inbox, find_contacts
+    from .fakes import FakeApollo
+    monkeypatch.setattr(common, "RUNS_DIR", tmp_path)
+    hs = FakeCRM()
+    cid = hs.add("companies", name="Sport Benzin", domain="sportbenzin.ch", country="Switzerland",
+                 hs_lead_status="GATE1: Approved for outreach")
+    team = hs.add("contacts", tagged=False, email="info@sportbenzin.ch", hubspot_owner_id="7")
+    hs.links[team] = [cid]
+    hs.owner_names = lambda: {"7": "Aastha"}
+    monkeypatch.setattr(company_inbox, "find_inbox", lambda domain, **k: "info@sportbenzin.ch")
+    find_contacts.run("test", load_settings(), hs, FakeApollo({}, {}), log=quiet)
+    company = hs.records["companies"][cid]
+    assert company["hs_lead_status"] == "Contact exists, not AUTO-OUTREACH"
+    assert company["diablo_stop_reason"].startswith("Contact already in HubSpot")
+    assert "1 contact, 1 owned by Aastha" in company["diablo_stop_reason"]
+    assert hs.records["contacts"][team] == {"email": "info@sportbenzin.ch", "hubspot_owner_id": "7"}  # untouched
+    # Ariel tags it AUTO-OUTREACH by hand: the next run gets it ready and the company is back on GATE1.
+    from outreach.schema import TAG, TAG_PROPERTY
+    hs.records["contacts"][team][TAG_PROPERTY] = TAG
+    done = hand_tagged.prepare(hs, load_settings(), quiet)
+    assert done["companies_back_to_gate1"] == 1
+    assert company["hs_lead_status"] == "GATE1: Approved for outreach" and company["diablo_stop_reason"] == ""
+    assert hs.records["contacts"][team]["jobtitle"] == INBOX_TITLE
+    assert "Contact already in HubSpot (" in apollo_status.exists_reason([{}], {}, dt.date(2026, 10, 26))

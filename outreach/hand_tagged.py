@@ -65,7 +65,7 @@ def _order(value):
 def prepare(hs, settings, log=print, limit=2000):
     """Make hand-tagged AUTO-OUTREACH contacts ready for outreach (see the top). Returns
     {"contacts": n, "company_inboxes": n}."""
-    done = {"contacts": 0, "company_inboxes": 0}
+    done = {"contacts": 0, "company_inboxes": 0, "companies_back_to_gate1": 0}
     rows = hs.tagged_search("contacts", [{"propertyName": ORDER, "operator": "NOT_HAS_PROPERTY"}],
                             ["email", "firstname", "lastname", "jobtitle", ORDER, LEAD_STATUS], max_results=limit)
     rows = [r for r in rows if not (r.get("properties") or {}).get(ORDER)]
@@ -103,4 +103,8 @@ def prepare(hs, settings, log=print, limit=2000):
             f"{sum(1 for _, g in people if g)} company inbox)")
     hs.update_tagged("contacts", updates)
     done["contacts"] = len(updates)
+    # 26 Oct 2026 (Ariel): their companies go back to GATE1 by themselves.
+    from .apollo_status import back_to_gate1
+    from .stages import LeadStatus
+    done["companies_back_to_gate1"] = back_to_gate1(hs, LeadStatus(hs), list(by_company), log)
     return done

@@ -186,6 +186,19 @@ class HubSpot(TagGuard):
         rows = data.get("results", [])
         return str(rows[0]["id"]) if rows else None
 
+    def owner_names(self):
+        """{owner ID: "First Last"} for every HubSpot user (read only)."""
+        out, after = {}, None
+        while True:
+            params = {"limit": 100, **({"after": after} if after else {})}
+            data = self.request("GET", "/crm/v3/owners", params=params)
+            for o in data.get("results", []):
+                name = " ".join(x for x in (o.get("firstName"), o.get("lastName")) if x) or o.get("email") or ""
+                out[str(o["id"])] = name
+            after = ((data.get("paging") or {}).get("next") or {}).get("after")
+            if not after:
+                return out
+
     def batch_read(self, object_type, ids, properties, id_property=None):
         """Read records by id (or by a unique property such as email). Missing ones are skipped."""
         out = []

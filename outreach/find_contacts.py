@@ -148,7 +148,7 @@ def run(target, settings, hs, apollo, log=print):
         fill_owners(hs, job_owner(settings), log)
     except Exception as err:
         log(f"Could not give the job owner to records with no owner: {str(err)[:200]}")
-    cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes())
+    cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes(), _owner_names=_owner_names(hs))
     approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")],
                                 COMPANY_PROPS + [apollo_status.STOP_REASON],
                                 max_results=cfg["companies_per_run"] * 3)
@@ -193,6 +193,14 @@ def run(target, settings, hs, apollo, log=print):
         log(f"{len(new_ids)} new contacts handed to step 3, so they get their lines in this run")
     log(f"Apollo credits used (approx.): {credits}")
     return summary
+
+
+def _owner_names(hs):
+    """{owner ID: name} for the notes, or {} when it cannot be read."""
+    try:
+        return hs.owner_names() if hasattr(hs, "owner_names") else {}
+    except Exception:
+        return {}
 
 
 def _has_field(hs, name):
@@ -247,13 +255,16 @@ def fill_contact_places(hs, log=print, limit=2000):
     return len(updates)
 
 
-def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=NOT_LOOKED, place=None):
-    """The company's website contact address as its one contact, or [] (agreed 19 Oct 2026)."""
+def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=NOT_LOOKED, place=None, seen=None):
+    """The company's website contact address as its one contact, or [] (agreed 19 Oct 2026). seen: a list
+    the address is added to when HubSpot already holds it (26 Oct 2026)."""
     if email is NOT_LOOKED:
         email = company_inbox.find_inbox(domain, name=name)
     if not email:
         return []
     if hs.batch_read("contacts", [email], ["email"], id_property="email"):
+        if seen is not None:
+            seen.append(email)
         log(f"{name}: the website's contact address ({_mask(email)}) is already in HubSpot; not added again")
         return []
     record = {
@@ -387,11 +398,17 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
         if created:
             hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
         inbox = False
+        in_hubspot = [m["email"].lower() for m in keep if m["email"].lower() in existing]
         if not created and cfg.get("company_inbox_fallback"):
             created = add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=inbox_email,
-                                        place=place_of(p))
+                                        place=place_of(p), seen=in_hubspot)
             inbox = bool(created)
-        if not created:  # 23 Oct 2026: nobody in Apollo and no usable address anywhere
+        there = apollo_status.existing_contacts(hs, cid, in_hubspot) if not created else []
+        if not created and there:  # 26 Oct 2026: only contacts already in HubSpot, not tagged AUTO-OUTREACH
+            hs.update_tagged("companies", [(cid, apollo_status.exists_props(hs, statuses, there, cfg.get("_owner_names")))])
+            log(f"{name}: {len(there)} contact(s) already in HubSpot, not AUTO-OUTREACH; the company is now "
+                '"Contact exists, not AUTO-OUTREACH"')
+        elif not created:  # 23 Oct 2026: nobody in Apollo and no usable address anywhere
             hs.update_tagged("companies", [(cid, apollo_status.nowhere_props(hs, statuses))])
         elif str(p.get(apollo_status.STOP_REASON) or "").startswith(apollo_status.APOLLO_NOBODY) \
                 and apollo_status.has_reason_field(hs):
