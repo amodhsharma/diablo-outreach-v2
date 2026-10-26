@@ -1,0 +1,114 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0061",
+  "location": "Pretoria, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 43
+    }
+  ],
+  "companies": [
+    {
+      "name": "Candyman",
+      "based_out_of": "South Africa (city not stated on its website)",
+      "domain": "candy-man.store",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Jelly sweets, retro sweets, chocolate, international sweets, pick and mix and sweet gift boxes",
+      "channels_supplied": "Its own online shop with nationwide delivery to shoppers, plus wholesale packs for retailers, events and businesses",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online sweet shop with a gift boxes and international treats range, sourced from other suppliers and delivered anywhere in South Africa, including Pretoria. It sells both to shoppers and in wholesale quantities to retailers and events, so Diablo's gift boxes and sweets could reach gift buyers and small shops through one partner. Brands carried are not named on its website.",
+      "what_they_do_well": [
+        "Selling sweets to shoppers across South Africa since 2007, according to its About page."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://candy-man.store/",
+        "https://candy-man.store/about",
+        "https://pretoria.infoisinfo.co.za/search/sweets"
+      ]
+    },
+    {
+      "name": "Eros Florist Pretoria",
+      "based_out_of": "Pretoria, South Africa",
+      "domain": "floristonline.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift hampers and trays with branded chocolate (Lindt Lindor), biscuits (Leo Foods, Wedgewood nougat biscuits), chocolate fingers and snacks (Pringles)",
+      "channels_supplied": "Its own shop in Hatfield, Pretoria and its online shop with same-day delivery across Pretoria and Centurion",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Pretoria florist and gift shop whose hamper and gift range of three pages builds gifts from other companies' branded chocolate, biscuits and snacks. Diablo's chocolate boxes, biscuits and gift packs suit its gift trays and its same-day delivery across Pretoria and Centurion.",
+      "what_they_do_well": [
+        "Family florist trading in Hatfield, Pretoria since 1974, with same-day delivery across Pretoria and Centurion."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://floristonline.co.za/",
+        "https://floristonline.co.za/product/snackers-treat-snack-gift-tray/",
+        "https://floristonline.co.za/product-category/hamper-and-gift-range/"
+      ]
+    },
+    {
+      "name": "Sweetoria",
+      "based_out_of": "Pretoria, South Africa",
+      "domain": "sweetoria.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sweets, gummies, jelly beans, chocolate, cookies, chips and party packs",
+      "channels_supplied": "Two sweet shops in Pretoria, at Gezina Galleries and Doringkloof Mall",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A small Pretoria sweet shop group with two outlets selling sweets, chocolate, cookies and snacks, including Damla sweets, and party packs for celebrations. It sits at tier 3 because it has only two shops, no online shop and names few brands on its website.",
+      "what_they_do_well": [
+        "Runs two Pretoria sweet shops, in Gezina and Doringkloof Mall, with party packs in Gezina."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sweetoria.co.za/"
+      ]
+    },
+    {
+      "name": "Makoye Gifts",
+      "based_out_of": "Pretoria, South Africa",
+      "domain": "makoye.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gift hampers including sweets treat boxes, snack hampers and savoury treats hampers",
+      "channels_supplied": "Its own gift shop on Pretorius Street, Pretoria and its online shop with courier delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Pretoria gift shop with 61 hampers online, among them sweets treat boxes and snack hampers for birthdays, graduations and corporate gifting. It sits at tier 3 because it is a single shop and its website does not name the brands inside its hampers.",
+      "what_they_do_well": [
+        "Runs a walk-in gift shop in central Pretoria alongside an online range of 61 hampers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.makoye.co.za/",
+        "https://www.makoye.co.za/categories/gift-hampers"
+      ]
+    }
+  ]
+}
