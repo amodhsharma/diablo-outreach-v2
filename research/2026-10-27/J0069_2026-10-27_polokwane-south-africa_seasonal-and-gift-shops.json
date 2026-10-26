@@ -1,0 +1,44 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0069",
+  "location": "Polokwane, South Africa",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 29
+    }
+  ],
+  "companies": [
+    {
+      "name": "Rosella Flowers",
+      "based_out_of": "Polokwane, South Africa",
+      "domain": "rosellaflowers.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Flowers with chocolate gift boxes, chocolate bouquets and chocolate and sweets gift boxes from Ferrero Rocher, Raffaello and Lindt Lindor, plus gift bundles and cakes.",
+      "channels_supplied": "Direct to shoppers through its own web shop, app and WhatsApp, with delivery in Polokwane, Gauteng and Cape Town; corporate gifts.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Polokwane florist and gift shop whose own shop sells several chocolate and sweets gift boxes built on other brands such as Ferrero and Lindt. Diablo's chocolate boxes, pralines and gift boxes suit its gift bundles and corporate gifts for health-conscious recipients. Store count and walk-in shop are not stated on its website.",
+      "what_they_do_well": [
+        "Runs its own Polokwane delivery alongside Gauteng and Cape Town, ordered through its website, app or WhatsApp."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://rosellaflowers.co.za/",
+        "https://rosellaflowers.co.za/flower-delivery/polokwane"
+      ]
+    }
+  ]
+}
