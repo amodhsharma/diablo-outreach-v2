@@ -22,6 +22,7 @@ def test_general_addresses_are_recognised():
     assert not g(email="ashish.kapoor@dalchini.ch", firstname="Ashish Kapoor")
     assert not g(email="klemens@umamisnack.ch", firstname="Klemens Foster")
     assert not g(email="remo.thoeny@sportbenzin.ch", firstname="Remo", lastname="Thöny")
+    assert not g(email="remo.thoeny@sportbenzin.ch")  # no name typed, but the address is a person's
 
 
 def test_hand_tagged_contacts_get_an_order_and_the_inbox_title():

@@ -45,7 +45,8 @@ def is_general(contact, company_name=""):
         return True
     name = " ".join(x for x in (p.get("firstname"), p.get("lastname")) if x and str(x).strip())
     if not name.strip() or name.strip().lower() == email:
-        return True  # no name at all: nobody to greet by name
+        # No name at all: a company address, unless the address itself is a person's (first.last@).
+        return not re.fullmatch(r"[a-zäöüéèàç]{2,}[._-][a-zäöüéèàç]{2,}", local)
     company = _words(company_name)
     return bool(company) and _words(name) == company  # the company's name typed into the name fields
 
