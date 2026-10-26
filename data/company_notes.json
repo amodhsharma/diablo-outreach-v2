@@ -985,6 +985,26 @@
     "research_file": "research/2026-10-23/J0046_2026-10-23_lugano-switzerland_sports-shops-and-sports-nutrition-shops-seasonal-and-gift-shops.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "bareessentials.co.za": {
+    "name": "Bare Essentials",
+    "based_out_of": "Durban, South Africa",
+    "market": "South Africa",
+    "category": "Hotel minibar suppliers",
+    "channels": [
+      "hotel minibar suppliers"
+    ],
+    "fit_rationale": "A hospitality supplier whose food and beverages page lists branded biscuits, rusks, mini chocolates and sweets for in-room use, sourced from other manufacturers. It reaches accommodation across KwaZulu-Natal, a large lodge and coastal hotel market. Storage: sells from its own stock with orders ready for collection within 24 hours, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Says it has supplied B&Bs, hotels, game lodges and guest houses for 24 years.",
+      "Runs scheduled delivery days throughout KwaZulu-Natal."
+    ],
+    "distributes": "Biscuits (Angel nougat biscuits, Mini Eet-Sum-More, Mini Tennis), Ouma rusks, individually wrapped mini chocolate slabs, sweets (Enjoyment peppermints, Wedgewood nougat bon bons) and jams for guest rooms",
+    "channels_supplied": "Hotels, game lodges, guest houses and B&Bs across KwaZulu-Natal, by scheduled delivery or collection",
+    "sf_brands_carried": "Canderel and Equisweet sweeteners; no sugar-free confectionery seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0053_2026-10-26_south-africa_hotel-minibar-suppliers-snack-subscription-boxes-promotional-merchandise-compani.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "barlu.de": {
     "name": "BARLU Lebensmittel-Service GmbH",
     "based_out_of": "Velten, Germany",
@@ -5866,6 +5886,23 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
+  "innsupply.co.za": {
+    "name": "Inn Supply",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Hotel minibar suppliers",
+    "channels": [
+      "hotel minibar suppliers"
+    ],
+    "fit_rationale": "Its online shop has a pantry section with biscuits and rusks and courtesy chocolates from other brands, sold to accommodation hosts as in-room treats. It is tier 3 because its food range is a handful of lines and its reach is limited to Cape Town. Storage: sells from its own stock through its online shop, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Biscuits and rusks (Angels honey nougat biscuits, individually wrapped cookies and rusks) and turndown and courtesy chocolates (Toblerone minis)",
+    "channels_supplied": "Guest houses, B&Bs and Airbnb hosts in Cape Town through its online shop with local delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0053_2026-10-26_south-africa_hotel-minibar-suppliers-snack-subscription-boxes-promotional-merchandise-compani.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "isbilir-food.ch": {
     "name": "Isbilir Lebensmittel",
     "based_out_of": "Basel, Switzerland",
@@ -7032,6 +7069,25 @@
     "sf_brands_carried": "Not verified in this run.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "marulaberryec.co.za": {
+    "name": "Marula Berry Trading",
+    "based_out_of": "Port Elizabeth, South Africa",
+    "market": "South Africa",
+    "category": "Hotel minibar suppliers",
+    "channels": [
+      "hotel minibar suppliers"
+    ],
+    "fit_rationale": "A guest amenity supplier whose online shop has dedicated biscuits and rusks and turndown chocolate categories, all from other brands, sold to accommodation across South Africa. Individually wrapped Diablo biscuits, wafers and chocolates would sit directly in these in-room categories. Storage: sells from its own stock with stock levels shown, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Ships its online hospitality range across South Africa in three to five days."
+    ],
+    "distributes": "Biscuits and rusks (Mantelli shortbread and Funky Cookies, Wedgewood nougat biscuits, Ouma rusks), turndown chocolates (Tomes mini slabs) and preserves for guest rooms",
+    "channels_supplied": "Hotels, lodges, game reserves, guest houses and B&Bs through its online shop, shipping across South Africa",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0053_2026-10-26_south-africa_hotel-minibar-suppliers-snack-subscription-boxes-promotional-merchandise-compani.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "mashall-sweets.de": {
     "name": "Mashall Trade GmbH (Mashall Sweets)",
@@ -8587,6 +8643,25 @@
     "sf_brands_carried": "Not verified in this run.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "pfdpe.co.za": {
+    "name": "Professional FoodService Distributors PE",
+    "based_out_of": "Port Elizabeth, South Africa",
+    "market": "South Africa",
+    "category": "Hotel minibar suppliers",
+    "channels": [
+      "hotel minibar suppliers"
+    ],
+    "fit_rationale": "Its own catalogue has a full snacks and confectionery section with branded chocolates, sweets, bars and biscuits, sold to hotels and to forecourt shops and supermarkets that resell them as packs. Its hotel accounts give Diablo a route into in-room and minibar supply in the Eastern Cape. Storage: says it provides warehousing and that stock is readily available, warehouse address not named on its website.",
+    "what_they_do_well": [
+      "Delivers five days a week across Port Elizabeth, surrounding areas and the Garden Route."
+    ],
+    "distributes": "Snacks and confectionery: chocolates, sweets, jellies and soft gums, lollies, energy bars, sweet biscuits and rusks, plus jams and spreads, from brands such as Cadbury, Beacon, Bakers, Bokomo and Broadway Sweets",
+    "channels_supplied": "Hotels, garage forecourts, supermarkets, corporates and venues in Port Elizabeth and the Garden Route",
+    "sf_brands_carried": "Canderel sweeteners; no sugar-free confectionery seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0053_2026-10-26_south-africa_hotel-minibar-suppliers-snack-subscription-boxes-promotional-merchandise-compani.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "ph.ge": {
     "name": "Pharmhouse",
