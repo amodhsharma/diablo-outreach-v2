@@ -1,0 +1,122 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0055",
+  "location": "Johannesburg, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 97
+    }
+  ],
+  "companies": [
+    {
+      "name": "The Little Box Company",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "thelittlebox.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift boxes and hampers filled with branded chocolate (Ferrero Rocher, Raffaello, Toblerone), sweets and nougat (1701 Nougat, Darling Sweet caramels, Wedgewood, Sweet Melody fudge), biscuits (biscotti) and snacks",
+      "channels_supplied": "Its own online gift shop, with delivery across South Africa to individual and corporate buyers; seasonal boxes for Valentine's Day and Father's Day",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Johannesburg online gift shop whose seasonal and occasion boxes are built from other companies' branded chocolate, sweets and biscuits, bought in and resold to shoppers. Diablo's gift boxes, chocolate and sweets would give it a sugar-free box for diabetic and health-conscious recipients, which its range does not show today. Single online shop, so its reach is limited to its own customers.",
+      "what_they_do_well": [
+        "Has run its gift box business from Johannesburg since 2003, delivering nationwide."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.thelittlebox.co.za/",
+        "https://www.thelittlebox.co.za/product-page/sweet-indulgence-box",
+        "https://www.thelittlebox.co.za/product-page/mega-munchies-box",
+        "https://www.yellosa.co.za/category/gift-baskets"
+      ]
+    },
+    {
+      "name": "West Pack Lifestyle",
+      "based_out_of": null,
+      "domain": "westpacklifestyle.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Party, gifting and occasion goods with a sweets and chocolates section (Mister Sweet sweets, mixed sweet bags, party packs) and a savoury snacks section",
+      "channels_supplied": "Its own West Pack Lifestyle and Express stores, including Fourways and Randpark Ridge in Johannesburg, and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A party, gifting and lifestyle chain with stores in Johannesburg whose own website has 'Sweets And Chocolates', 'Sweets' and 'Snack, Sip & Treat' categories stocking other brands such as Mister Sweet. Diablo's gummies, sweets and gift boxes suit its party and seasonal shelf. Store count was about 31 across four provinces in 2017; the current count and head office are not stated on its website.",
+      "what_they_do_well": [
+        "Grew to about 31 stores across four South African provinces by 2017, opening Lifestyle stores such as Fourways View."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.westpacklifestyle.co.za/p/party-occasions--0003/c/sweets-and-chocolates--7D",
+        "https://www.westpacklifestyle.co.za/collections/sweets",
+        "https://www.westpacklifestyle.co.za/brands/mister-sweet--145",
+        "https://www.citizen.co.za/fourways-review/?p=269616",
+        "https://www.citizen.co.za/randburg-sun/news-headlines/2019/09/07/west-pack-gets-a-re-opening/"
+      ]
+    },
+    {
+      "name": "Toys R Us South Africa",
+      "based_out_of": null,
+      "domain": "toysrus.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Toys and gifts with a party and gifting 'Sweets & Snacks' section: novelty candy (Kidsmania, Candy Toys, Paw Patrol candy) and Sweets from Heaven gummies",
+      "channels_supplied": "19 Toys R Us and Babies R Us stores (formerly ToyZone), including Fourways Mall and Mall of Africa in Johannesburg, plus its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national toy and gift chain whose own online shop runs a 'Sweets & Snacks' section under party and gifting, stocking other companies' candy brands. Diablo's gummies, advent calendars and gift boxes fit its seasonal and party gifting shelf. Tier 3 because the sweets range is small (15 lines) and the operating company and head office are not named on its website.",
+      "what_they_do_well": [
+        "Runs 19 stores nationally after the ToyZone chain became Toys R Us and Babies R Us South Africa."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.toysrus.co.za/shop-by-department/party-gifting/sweets-snacks",
+        "https://www.toysrus.co.za/find-a-store",
+        "https://www.toysrus.co.za/welcome-to-toysrus",
+        "https://www.toysrus.co.za/mall-of-africa"
+      ]
+    },
+    {
+      "name": "Mambo's Storage & Home",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "mambos.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Home, storage and party goods with a confectionery section: gummies and jelly sweets (King Jelly, King Candy) and Fruitella chewy sweets",
+      "channels_supplied": "22 Mambos stores, four of them in Gauteng, and its online shop with delivery to Johannesburg",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A homeware and party chain whose own online shop has a confectionery category of other brands' gummies and jelly sweets for party and seasonal buyers. Diablo's gummies and gift boxes would fit that shelf. Tier 3 because the sweets range is small and only four of its 22 stores are in Gauteng.",
+      "what_they_do_well": [
+        "Grew to 22 stores and is building a R90 million distribution centre in Blackheath, Cape Town."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://mambos.co.za/product-category/confectionery/",
+        "https://mambos.co.za/product-category/party/",
+        "https://mambos.co.za/product/fruitella-duo-grape-lemon-new/",
+        "https://dailyinvestor.com/retail/147833/the-retailer-taking-over-south-africa-with-22-stores-and-a-huge-new-r90-million-warehouse/"
+      ]
+    }
+  ]
+}
