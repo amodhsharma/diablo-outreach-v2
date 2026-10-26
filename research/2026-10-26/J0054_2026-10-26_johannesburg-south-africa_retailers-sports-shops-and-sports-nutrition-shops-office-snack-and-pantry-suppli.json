@@ -1,0 +1,246 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0054",
+  "location": "Johannesburg, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 21
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 19
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 20
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 23
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 16
+    }
+  ],
+  "companies": [
+    {
+      "name": "The Athlete's Foot South Africa",
+      "based_out_of": "South Africa",
+      "domain": "theathletesfoot.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sports footwear and apparel with a running and training nutrition shelf: energy bars, recovery bars and vegan gummy bars from other brands.",
+      "channels_supplied": "Its own sports stores and its online shop with nationwide delivery.",
+      "sf_brands_carried": "226ers, Amacx, Maurten",
+      "competing_brand_flag": false,
+      "fit_rationale": "A national running and sports shoe retailer whose online shop has its own nutrition section selling 226ers endurance and gummy bars and Amacx recovery bars to health-conscious shoppers. Nationwide delivery reaches Johannesburg; the store count and Johannesburg store addresses are not stated on the pages reviewed.",
+      "what_they_do_well": [
+        "Runs a dedicated nutrition for running and training section online, with bars from 226ers, Amacx and Maurten."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://theathletesfoot.co.za/collections/nutrition-for-running-and-training",
+        "https://theathletesfoot.co.za/"
+      ]
+    },
+    {
+      "name": "Fuel Lab",
+      "based_out_of": "South Africa",
+      "domain": "fuellab.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Sports nutrition shop with energy bars, protein bars and carb and protein snacks from about 30 other brands.",
+      "channels_supplied": "Its own online shop with nationwide delivery.",
+      "sf_brands_carried": "Racefood, Enduren, PVM, Powerbar, Science in Sport",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online sports nutrition shop with its own energy bar, protein bar and snacks categories, stocking about 30 brands including Powerbar, PVM, Racefood and Science in Sport. It states nationwide delivery, so it serves Johannesburg shoppers; its physical address is not stated on its website.",
+      "what_they_do_well": [
+        "Curates about 30 sports nutrition brands, including Powerbar, PVM, Racefood and Science in Sport, with nationwide delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.fuellab.co.za/"
+      ]
+    },
+    {
+      "name": "REBEL Elite Fitness (REBEL Store)",
+      "based_out_of": "Germiston, South Africa",
+      "domain": "rebelstore.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gym and fitness equipment, apparel and footwear with a supplements shelf that includes a whey protein bars category from brands such as Nutritech, Go Primal, AMP Human and 32Gi.",
+      "channels_supplied": "Its own showrooms in Germiston (Johannesburg) and Milnerton (Cape Town), its online shop and wholesale accounts for gyms and resellers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Johannesburg-based fitness equipment retailer with a showroom in Germiston and a supplements section that lists protein bars from other brands for gym-goers. Tier 3 because the food shelf is small; the number of bar lines in stock is not shown on its website.",
+      "what_they_do_well": [
+        "Calls itself South Africa's leading provider of gym and fitness equipment, with showrooms in Johannesburg and Cape Town.",
+        "Rated 4.7 stars from 208 Google reviews for its Johannesburg showroom, as shown on its website."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://rebelstore.co.za/",
+        "https://rebelstore.co.za/product-category/supplements/"
+      ]
+    },
+    {
+      "name": "Fuel First",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "fuel-first.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Endurance nutrition shop selling energy bars, protein bars and energy chews from 13 other brands.",
+      "channels_supplied": "Its own online shop.",
+      "sf_brands_carried": "Racefood, Enduren, 32Gi",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online endurance nutrition retailer selling bars and chews from brands such as Racefood, 32Gi, GU and Enduren to runners and cyclists. Tier 3 because it is small and ships from Cape Town; its delivery area is not stated on the pages reviewed.",
+      "what_they_do_well": [
+        "Offers a free race kit builder that plans carbs per hour and adds products to the cart."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.fuel-first.co.za/",
+        "https://www.fuel-first.co.za/collections/all"
+      ]
+    },
+    {
+      "name": "Vending Solutions",
+      "based_out_of": "Sandton, Johannesburg, South Africa",
+      "domain": "vendingsolutions.co.za",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Snack and combo machines stocked with leading brands such as Cadbury and Nestle chocolate, plus snacks, cold drinks, coffee and fresh food",
+      "channels_supplied": "Fully managed workplace vending in industrial, medical, corporate, education, student accommodation and transport sites, plus a vending business opportunity for entrepreneurs",
+      "sf_brands_carried": "Healthy options offered through its Healthy Vending programme; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Johannesburg operator trading for about 30 years that stocks and services its own snack machines with branded chocolate from Cadbury and Nestle, refilling sites at least twice a month. Its Healthy Vending programme and network of independent operators give Diablo a route into many Gauteng workplaces. Its brochure mentions house brands alongside international consumable brands for its machines. Storage: sells from its own stock and delivers consumables across Gauteng, Secunda and Sasolburg, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Has run vending in South Africa since 1996, installing, stocking and servicing machines nationwide.",
+        "Names PepsiCo South Africa as a partner in its brochure."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://vendingsolutions.co.za/",
+        "https://vendingsolutions.co.za/placements/",
+        "https://vendingsolutions.co.za/wp-content/uploads/2022/06/vending-solutions-brochure.pdf",
+        "https://vendingsolutions.co.za/full-service-vending/",
+        "https://idsstudio.co.za/wp-content/uploads/2022/11/vending-solutions-brochure.pdf"
+      ]
+    },
+    {
+      "name": "PR Vending",
+      "based_out_of": "Kempton Park, South Africa",
+      "domain": "prvending.com",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Snack and drink machines stocked with Cadbury and Nestle chocolate, Simba and Willards snacks, biltong and Coca-Cola drinks",
+      "channels_supplied": "Its own snack and drink machines at workplaces and retail sites, historically including Massmart stores",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A privately owned operator in Kempton Park, on Johannesburg's East Rand, that buys branded chocolate and snacks and sells them through its own machines, restocking them regularly. As a Nestle and Coca-Cola appointed operator it already handles major branded packs, so Diablo chocolate and bars sit naturally in its machines. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Trading since 1994 and says it is one of the largest privately owned vending companies in South Africa.",
+        "Appointed vending operator for Nestle and Coca-Cola."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://prvending.com/about.html"
+      ]
+    },
+    {
+      "name": "Rand Vending",
+      "based_out_of": "Benoni, South Africa",
+      "domain": "randvending.co.za",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Snack only and combination machines filled with chocolates, sweets, crisps, health-conscious snacks and beverages",
+      "channels_supplied": "Machine installations, merchandising and rentals for sites in Benoni, greater Johannesburg and the Western Cape",
+      "sf_brands_carried": "Health-conscious options listed; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "An Ekurhuleni operator that installs and merchandises snack machines across greater Johannesburg, filling them with chocolates and sweets. It already offers health-conscious options, which suits Diablo's sugar-free chocolate and bars. The snack brands it stocks are not named on its website. Storage: sells from its own stock through machine merchandising, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Has grown from Benoni and greater Johannesburg into the Western Cape, including Cape Town."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://randvending.co.za/"
+      ]
+    },
+    {
+      "name": "Swiss Lady Chocolates & Hampers",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "chocolategifts.co.za",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift hampers and gift boxes with branded chocolates (Lindt, Ferrero Rocher, Raffaello), biscuits, snack boxes, nuts, biltong, wine and gin",
+      "channels_supplied": "Direct to corporate and personal buyers through its online shop, phone and email orders; delivery across Gauteng and to major South African cities",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Johannesburg hamper house that buys branded chocolates such as Lindt and Ferrero Rocher and packs them as they are into made-to-order corporate and personal gift boxes. Diablo's chocolate boxes, biscuits and gift packs would give its corporate buyers a sugar-free option. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Trading since 1987, founded in Johannesburg's central business district and now serving all of Gauteng.",
+        "Corporate clients such as Investec feature in its customer testimonials."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.chocolategifts.co.za/products-swiss-lady-chocolates",
+        "https://www.chocolategifts.co.za/about-swiss-lady-chocolates"
+      ]
+    }
+  ]
+}
