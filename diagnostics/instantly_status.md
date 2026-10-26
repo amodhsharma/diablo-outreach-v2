@@ -1,6 +1,6 @@
 # Instantly health check
 
-Checked 2026-10-26T07:37:42+00:00 (UTC).
+Checked 2026-10-26T10:06:46+00:00 (UTC).
 
 ## Mailboxes
 
@@ -25,37 +25,57 @@ Checked 2026-10-26T07:37:42+00:00 (UTC).
 |---|---|---|---|---|---|---|---|---|
 | admin@diablosfreesugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Aryeh | 30 | none |
 | admin@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (70 of 70) | Diablo Admin | 30 | none |
-| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (61 of 61) | Dana from Diablo | 30 | none |
-| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (56 of 56) | Elize from Diablo | 30 | none |
+| dana@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (66 of 66) | Dana from Diablo | 30 | none |
+| elize@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (65 of 65) | Elize from Diablo | 30 | none |
 | info@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Info | 30 | none |
-| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (50 of 50) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
+| info@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (55 of 55) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes | Other channels, Diablo | OCT2026 | Other channels, Diablo | OCT2026 | Company inboxes |
 | joshua@diabloexport.com | **Ready** | On | On | 100 | 100% inbox (44 of 44) | Joshua from Diablo | 30 | none |
 | offers@diablosugarfree.com | **Problem** | On | On | 100 | 100% inbox (33 of 33) | Offers - | 30 | none |
 | sales@diablosfreesugar.com | **Ready** | On | Off | 100 | no numbers yet | Sales | 30 | none |
-| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (20 of 20) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes |
+| sales@diablosnosugar.com | **Ready** | On | On | 100 | 100% inbox (20 of 20) | Joshua from Diablo | 30 | Diablo | OCT2026, Diablo | OCT2026 | Company inboxes | Other channels, Diablo | OCT2026 | Other channels, Diablo | OCT2026 | Company inboxes |
 
 Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health mark out of 100). The inbox numbers come from Instantly's warm-up emails between mailboxes, not from real prospects, so they are an early warning rather than a promise.
 
 
 ## Campaign: Diablo | OCT2026
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Active
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
-- Leads: 44
+- Leads: 70
   - 40 Completed, emailed
+  - 26 Active, not yet emailed
   - 4 Completed, emailed, replied
 - Emails in the sequence: 1 (characters in each body: [2209])
 
-## Campaign: Diablo | OCT2026 | Company inboxes
+## Campaign: Diablo | OCT2026 | Company inboxes | Other channels
 
-- Campaign status: Completed
-- Instantly says: **campaign_completed**. Campaign has completed
+- Campaign status: Draft
+- Instantly says: **campaign_draft**. Campaign is in draft mode and has not been launched
 - Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
 - Open tracking: off
-- Leads: 33
+- Leads: 22
+  - 22 Active, not yet emailed
+- Emails in the sequence: 1 (characters in each body: [2410])
+
+## Campaign: Diablo | OCT2026 | Other channels
+
+- Campaign status: Draft
+- Instantly says: **campaign_draft**. Campaign is in draft mode and has not been launched
+- Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
+- Open tracking: off
+- Leads: 24
+  - 24 Active, not yet emailed
+- Emails in the sequence: 1 (characters in each body: [2304])
+
+## Campaign: Diablo | OCT2026 | Company inboxes
+
+- Campaign status: Active
+- Mailboxes it sends from: sales@diablosnosugar.com, info@diablosnosugar.com
+- Open tracking: off
+- Leads: 46
   - 31 Completed, emailed
+  - 13 Active, not yet emailed
   - 2 Bounced, emailed
 - Emails in the sequence: 1 (characters in each body: [2315])
 
@@ -70,7 +90,7 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 
 ## GATE2: Approved to send in HubSpot (what button 4 would do now)
 
-- 72 contacts approved to send
+- 111 contacts approved to send
 - Waiting: contact 896460639466 (j***@uhlmann.ch) at F. Uhlmann-Eyraud SA: person 1 was emailed and the company is waiting for their reply (no follow-ups)
 - Waiting: contact 896460639468 (p***@uhlmann.ch) at F. Uhlmann-Eyraud SA: person 1 was emailed and the company is waiting for their reply (no follow-ups)
 - Waiting: contact 896460639469 (l***@uhlmann.ch) at F. Uhlmann-Eyraud SA: person 1 was emailed and the company is waiting for their reply (no follow-ups)
@@ -143,200 +163,47 @@ Ready means: sending on, no errors, warm-up score 95 or more (Instantly's health
 - Waiting: contact 899934273759 (p***@transa.ch) at Transa Backpacking AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
 - Waiting: contact 899934273760 (d***@transa.ch) at Transa Backpacking AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
 - Waiting: contact 899934273762 (p***@transa.ch) at Transa Backpacking AG: person 1 was emailed and the company is waiting for their reply (no follow-ups)
-- 72 approved contacts wait their turn (one person per company at a time)
+- Waiting: contact 900103853299 (l***@bielersport.ch) at Bieler Sport: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900182561003 (v***@adsa.ch) at AVIA Distribution SA: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900345517297 (c***@update-fitness.ch) at update Fitness: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900345761015 (a***@schaetzle.ch) at Schaetzle AG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900174857462 (r***@jungfrau.ch) at Jungfraubahnen (Top of Europe Shops): the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900347488444 (s***@bergfreunde.de) at Bergfreunde (berg-freunde.ch): the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900327058658 (c***@hardloop.fr) at Hardloop: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900345443548 (j***@vitafybrands.de) at Vitafy GmbH (vitafy.ch): the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900313309428 (j***@baehlerdropa.ch) at direkt-apotheke.ch: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900347039932 (m***@zurrose-shop.ch) at ZRMB Marketplace AG (Zur Rose Shop): the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900108558560 (m***@snack-that.ch) at Snack That GmbH: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900433498331 (m***@roseverpflegt.ch) at Rose Betriebsverpflegung AG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900433498332 (m***@roseverpflegt.ch) at Rose Betriebsverpflegung AG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900508494021 (m***@vending.ch) at Vending Service AG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900520105172 (k***@heimatwerk.ch) at Schweizer Heimatwerk: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900508405969 (s***@felfel.ch) at FELFEL: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900519893194 (l***@noury.ch) at noury AG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900594775226 (b***@bcyclet.com) at Bcyclet: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900594775227 (t***@bcyclet.com) at Bcyclet: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900616125649 (s***@rosebikes.com) at ROSE Bikes Switzerland: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900591838418 (m***@bergzeit.de) at Bergzeit: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900598009073 (w***@winterfreude.ch) at Winterfreude: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900596032714 (e***@changemaker.ch) at Changemaker: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900587589830 (m***@casagrande.ch) at Casagrande AG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 900749199568 (r***@fleurop.ch) at Fleurop-Interflora (Schweiz) AG: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902010391769 (t***@gladiatorfit.ch) at Gladiator Fit: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902039759043 (a***@digitecgalaxus.ch) at Galaxus: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 901888970986 (n***@cvdp.ch) at Commerces valaisans de proximitÃ©: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902008556749 (s***@victoria-apotheke.ch) at Victoria Apotheke: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 901997112538 (m***@brack.ch) at Brack: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902008278204 (a***@deindeal.ch) at DeinDeal: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902008679626 (j***@aldi-suisse.ch) at Aldi Switzerland: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902008872130 (m***@ottos.ch) at ottos: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902008586443 (a***@aligro.ch) at Aligro: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902008586444 (k***@aligro.ch) at Aligro: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902008074441 (r***@valora.com) at Valora Holding: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902012144883 (o***@menuandmore.ch) at Menu and More: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902039630032 (s***@globus.org) at Globus Supermarkets: the company's last email was under 3 days ago (one email every 3 days per company)
+- Waiting: contact 902041558249 (f***@choco.ch) at Choco Diffusion SA: the company's last email was under 3 days ago (one email every 3 days per company)
+- 111 approved contacts wait their turn (one person per company at a time)
 
 ## Where every company is in its loop
 
-- **Toga Food**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:50 IST; blocklist: clear
-- **Prima**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:56 IST; blocklist: clear
-- **Coop Pronto**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:59 IST; blocklist: clear
-- **Unihockey Center**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:41 IST; blocklist: clear
-- **snacks4you**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:40 IST; blocklist: clear
-- **Lidl (Switzerland)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:05 IST; blocklist: clear
-- **Mago**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:49 IST; blocklist: clear
-- **MES Group SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:10 IST; blocklist: clear
-- **apo24.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:14 IST; blocklist: clear
-- **landi**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:19 IST; blocklist: clear
-- **shop-apotheke.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:23 IST; blocklist: clear
-- **ROLF HUGLI SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:28 IST; blocklist: clear
-- **F. Uhlmann-Eyraud SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 15:52 IST; blocklist: clear
-- **E. Weber & Cie AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:01 IST; blocklist: clear
-- **Neuenschwander R. & H. AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:10 IST; blocklist: clear
-- **Bio Partner Schweiz AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:11 IST; blocklist: clear
-- **Conaxess Trade Switzerland AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:28 IST; blocklist: clear
-- **R.C. Andreae AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:30 IST; blocklist: clear
-- **Rufenberg Trading GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:37 IST; blocklist: clear
-- **Fortura AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:49 IST; blocklist: clear
-- **Biofair-Naturapart GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 27 Oct 16:27 IST; blocklist: clear
-- **Bizzyvends B2B**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:22 IST; blocklist: clear
-- **Naturalex Sarl**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:23 IST; blocklist: clear
-- **Iberpasion GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 1 Nov 04:41 IST; blocklist: clear
-- **AM Food GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:22 IST; blocklist: clear
-- **honeydew GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:23 IST; blocklist: clear
-- **Swiss Deli Distribution SA (Authentic Food Solutions)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:32 IST; blocklist: clear
-- **easytrade distribution AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:31 IST; blocklist: clear
-- **Provianda GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:31 IST; blocklist: clear
-- **Ch. Margot & Cie SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:32 IST; blocklist: clear
-- **Cadar SA**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:41 IST; blocklist: clear
-- **1001 Distributions (Mangenot O.S. Déstockage)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:40 IST; blocklist: clear
-- **Coop Vitality**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:32 IST; blocklist: clear
-- **Amavita Apotheken (Galenicare)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:37 IST; blocklist: clear
-- **Müller Schweiz (Drogerie Müller)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:41 IST; blocklist: clear
-- **Green-Shop (Impexbo Sarl)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:46 IST; blocklist: clear
-- **Bio für alle GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 12:58 IST; blocklist: clear
-- **LOLA (Stiftung Contact)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:03 IST; blocklist: clear
-- **ROSSMANN Schweiz AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:50 IST; blocklist: clear
-- **Ochsner Sport**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:55 IST; blocklist: clear
-- **LowPrice Sagl**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:37 IST; blocklist: clear
-- **Running Planet Geneve**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 13:59 IST; blocklist: clear
-- **Bachli Bergsport**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:04 IST; blocklist: clear
-- **SansGluGlu (Le P'tit Mag)**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:37 IST; blocklist: clear
-- **Veganer-Shop.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:46 IST; blocklist: clear
-- **Veloplus**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:08 IST; blocklist: clear
-- **Alna Dietetique & Bio**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:55 IST; blocklist: clear
-- **Pharmacies BENU**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:13 IST; blocklist: clear
-- **Running Concept (Michel Renck Sports)**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 04:55 IST; blocklist: clear
-- **KDC Nutrition**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:04 IST; blocklist: clear
-- **VELOMANIA (Bikes Center SA)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:17 IST; blocklist: clear
-- **Transa Backpacking AG**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:23 IST; blocklist: clear
-- **La Bonbonnerie**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:04 IST; blocklist: clear
-- **Sparposten.ch**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:13 IST; blocklist: clear
-- **SamaraNatura (BioSamara GmbH)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:26 IST; blocklist: clear
-- **Planet Endurance**: next is a reply to person 1's introduction (no follow-ups are sent), due 31 Oct 05:16 IST; blocklist: clear
-- **drogi.ch GmbH**: next is a reply to person 1's introduction (no follow-ups are sent), due 1 Nov 04:32 IST; blocklist: clear
-- **NOWFIT Sports Nutrition Sagl**: next is a reply to person 1's introduction (no follow-ups are sent), due 1 Nov 04:32 IST; blocklist: clear
-- **Vitaminplus (Welldro AG)**: next is a reply to person 1's introduction (no follow-ups are sent), due 30 Oct 14:32 IST; blocklist: clear
-
-| Company | Order | Person (job title) | Lead Status | Emailed |
-|---|---|---|---|---|
-| Toga Food | 1 | CEO | Attempted to Contact | 23 Oct 12:50 IST |
-| Toga Food | 2 | Head of Brand Management | Member of the Management Team | GATE2: Approved to send | not yet |
-| Toga Food | 3 | Head of Sales - Mitglied des Managementteams | GATE2: Approved to send | not yet |
-| Toga Food | 4 | Key Account Manager | GATE2: Approved to send | not yet |
-| Prima | 1 | Sales Director Franchising/Partner Concepts Total Western Switzerland/French-speaking Switzerland | Attempted to Contact | 23 Oct 12:56 IST |
-| Prima | 2 | Head of Logistics and Services | GATE2: Approved to send | not yet |
-| Prima | 3 | Deputy Head | GATE2: Approved to send | not yet |
-| Coop Pronto | 1 | Deputy Managing Director | Attempted to Contact | 23 Oct 12:59 IST |
-| Coop Pronto | 2 | Managing Director | GATE2: Approved to send | not yet |
-| Coop Pronto | 3 | CEO | GATE2: Approved to send | not yet |
-| Unihockey Center | 1 | Deputy Managing Director | Attempted to Contact | 23 Oct 12:41 IST |
-| snacks4you | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:40 IST |
-| Lidl (Switzerland) | 1 | Chief Operating Officer | Attempted to Contact | 23 Oct 13:05 IST |
-| Lidl (Switzerland) | 2 | Chief Human Resources Officer | GATE2: Approved to send | not yet |
-| Lidl (Switzerland) | 3 | Executive Director Controlling, Data&AI | GATE2: Approved to send | not yet |
-| Lidl (Switzerland) | 4 | Purchaising Director | GATE2: Approved to send | not yet |
-| Mago | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:49 IST |
-| MES Group SA | 1 | Senior Sales Manager | Attempted to Contact | 23 Oct 13:10 IST |
-| MES Group SA | 2 | Sales Agent | GATE2: Approved to send | not yet |
-| apo24.ch | 1 | Responsable Centre D’exploitation | Attempted to Contact | 23 Oct 13:14 IST |
-| landi | 1 | Managing Director | Attempted to Contact | 23 Oct 13:19 IST |
-| shop-apotheke.ch | 1 | Workday Product Owner | Attempted to Contact | 23 Oct 13:23 IST |
-| shop-apotheke.ch | 2 | Product Owner | GATE2: Approved to send | not yet |
-| shop-apotheke.ch | 3 | Principal Product Owner | GATE2: Approved to send | not yet |
-| shop-apotheke.ch | 4 | Senior Product Owner CRM | GATE2: Approved to send | not yet |
-| ROLF HUGLI SA | 1 | Product Manager | Attempted to Contact | 23 Oct 13:28 IST |
-| F. Uhlmann-Eyraud SA | 1 | CEO | Attempted to Contact | 20 Oct 15:52 IST |
-| F. Uhlmann-Eyraud SA | 2 | FvP/QP, Head of Quality | GATE2: Approved to send | not yet |
-| F. Uhlmann-Eyraud SA | 3 | Senior Product & Business Development Manager | GATE2: Approved to send | not yet |
-| F. Uhlmann-Eyraud SA | 4 | Mitglied des Stiftungsrates | GATE2: Approved to send | not yet |
-| E. Weber & Cie AG | 1 | CEO | Attempted to Contact | 20 Oct 16:01 IST |
-| E. Weber & Cie AG | 2 | CEO E. Weber & Cie AG (Grosshandel Convenience) | GATE2: Approved to send | not yet |
-| E. Weber & Cie AG | 3 | Group CFO | GATE2: Approved to send | not yet |
-| E. Weber & Cie AG | 4 | HR Business Partner | GATE2: Approved to send | not yet |
-| Neuenschwander R. & H. AG | 1 | CFO | Attempted to Contact | 20 Oct 16:10 IST |
-| Neuenschwander R. & H. AG | 2 | CSO / Key Account Manager | GATE2: Approved to send | not yet |
-| Neuenschwander R. & H. AG | 3 | Mitglied der Geschäftsleitung / Leiter Einkauf, Produktmanagement, QS | GATE2: Approved to send | not yet |
-| Neuenschwander R. & H. AG | 4 | Fachspezialistin Social Media Marketing | GATE2: Approved to send | not yet |
-| Bio Partner Schweiz AG | 1 | Managing Director | Attempted to Contact | 20 Oct 16:11 IST |
-| Bio Partner Schweiz AG | 2 | Leiterin Kaufmännischer Bereich / CFO | GATE2: Approved to send | not yet |
-| Bio Partner Schweiz AG | 3 | Category Manager | GATE2: Approved to send | not yet |
-| Bio Partner Schweiz AG | 4 | Category Manager Naturkosmetik | GATE2: Approved to send | not yet |
-| Conaxess Trade Switzerland AG | 1 | Commercial Director | Attempted to Contact | 20 Oct 16:28 IST |
-| Conaxess Trade Switzerland AG | 2 | Commercial Director | GATE2: Approved to send | not yet |
-| Conaxess Trade Switzerland AG | 3 | Commercial Director | GATE2: Approved to send | not yet |
-| Conaxess Trade Switzerland AG | 4 | Head of Sales | GATE2: Approved to send | not yet |
-| R.C. Andreae AG | 1 | Sales Front Office / Accounting / Administration | Attempted to Contact | 20 Oct 16:30 IST |
-| R.C. Andreae AG | 2 | Teamleitung Administration, Personal, Marketing, Verantwortliche als Administrator IT-Systems | GATE2: Approved to send | not yet |
-| R.C. Andreae AG | 3 | Einkauf, Verkaufinnendienst | GATE2: Approved to send | not yet |
-| Rufenberg Trading GmbH | 1 | Founder Rufenberg Trading GmbH | Attempted to Contact | 20 Oct 16:37 IST |
-| Fortura AG | 1 | Managing Director | Attempted to Contact | 20 Oct 16:49 IST |
-| Fortura AG | 2 | Head of Logistics | GATE2: Approved to send | not yet |
-| Fortura AG | 3 | Key-Account-Manager & Product Manager Food / NearFood | GATE2: Approved to send | not yet |
-| Fortura AG | 4 | Shop Manager/Filialleiter | GATE2: Approved to send | not yet |
-| Biofair-Naturapart GmbH | 1 | Company inbox (from website) | Attempted to Contact | 20 Oct 16:27 IST |
-| Bizzyvends B2B | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:22 IST |
-| Naturalex Sarl | 1 | Owner | Attempted to Contact | 23 Oct 12:23 IST |
-| Naturalex Sarl | 2 | General Manager | GATE2: Approved to send | not yet |
-| Naturalex Sarl | 3 | Manager | GATE2: Approved to send | not yet |
-| Naturalex Sarl | 4 | Dietitian-nutritionist | GATE2: Approved to send | not yet |
-| Iberpasion GmbH | 1 | Company inbox (from website) | Attempted to Contact | 25 Oct 04:41 IST |
-| AM Food GmbH | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:22 IST |
-| honeydew GmbH | 1 | Chief Kindness Catalyst | Head Bulls*** Detector | Attempted to Contact | 23 Oct 12:23 IST |
-| Swiss Deli Distribution SA (Authentic Food Solutions) | 1 | Directeur et Fondateur de Authentic Food Solutions (Swiss Deli Distribution SA) | Attempted to Contact | 23 Oct 12:32 IST |
-| easytrade distribution AG | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:31 IST |
-| Provianda GmbH | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:31 IST |
-| Ch. Margot & Cie SA | 1 | CEO | Attempted to Contact | 23 Oct 12:32 IST |
-| Ch. Margot & Cie SA | 2 | Responsable Logistique/administratif | GATE2: Approved to send | not yet |
-| Ch. Margot & Cie SA | 3 | Responsable des Finances | GATE2: Approved to send | not yet |
-| Cadar SA | 1 | Logistics Manager | Attempted to Contact | 23 Oct 12:41 IST |
-| Cadar SA | 2 | Buyer | GATE2: Approved to send | not yet |
-| Cadar SA | 3 | Collaboratrice Marketing & Communication | GATE2: Approved to send | not yet |
-| Cadar SA | 4 | Assistante de Direction & Responsable Marketing | GATE2: Approved to send | not yet |
-| 1001 Distributions (Mangenot O.S. Déstockage) | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:40 IST |
-| Coop Vitality | 1 | Managing Director | Attempted to Contact | 23 Oct 13:32 IST |
-| Coop Vitality | 2 | Managing Director | GATE2: Approved to send | not yet |
-| Coop Vitality | 3 | Managing Director | GATE2: Approved to send | not yet |
-| Coop Vitality | 4 | Managing Director | GATE2: Approved to send | not yet |
-| Amavita Apotheken (Galenicare) | 1 | Managing Director | Attempted to Contact | 23 Oct 13:37 IST |
-| Amavita Apotheken (Galenicare) | 2 | Managing Director | GATE2: Approved to send | not yet |
-| Amavita Apotheken (Galenicare) | 3 | Managing Director | GATE2: Approved to send | not yet |
-| Amavita Apotheken (Galenicare) | 4 | Managing Director | GATE2: Approved to send | not yet |
-| Müller Schweiz (Drogerie Müller) | 1 | Leiterin Personal Schweiz | Attempted to Contact | 23 Oct 13:41 IST |
-| Müller Schweiz (Drogerie Müller) | 2 | Sachbearbeiterin Personalwesen | GATE2: Approved to send | not yet |
-| Green-Shop (Impexbo Sarl) | 1 | CEO | Attempted to Contact | 23 Oct 13:46 IST |
-| Green-Shop (Impexbo Sarl) | 2 | Ceo | GATE2: Approved to send | not yet |
-| Bio für alle GmbH | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 12:58 IST |
-| LOLA (Stiftung Contact) | 1 | Company inbox (from website) | Attempted to Contact | 23 Oct 13:03 IST |
-| ROSSMANN Schweiz AG | 1 | Managing Director Switzerland | Geschäftsführer Schweiz | Attempted to Contact | 23 Oct 13:50 IST |
-| ROSSMANN Schweiz AG | 2 | HR Business Partner | GATE2: Approved to send | not yet |
-| ROSSMANN Schweiz AG | 3 | Bereichsleitung Human Resources Rossmann Schweiz AG | GATE2: Approved to send | not yet |
-| ROSSMANN Schweiz AG | 4 | HR Assistant | GATE2: Approved to send | not yet |
-| Ochsner Sport | 1 | CEO | Attempted to Contact | 23 Oct 13:55 IST |
-| Ochsner Sport | 2 | Head of Marketing | GATE2: Approved to send | not yet |
-| Ochsner Sport | 3 | Head of Service Ochsner Sport | GATE2: Approved to send | not yet |
-| Ochsner Sport | 4 | Head of Category Bike, Schnee- und Wassersport | GATE2: Approved to send | not yet |
-| LowPrice Sagl | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:37 IST |
-| Running Planet Geneve | 1 | Retail Buyer | Attempted to Contact | 23 Oct 13:59 IST |
-| Running Planet Geneve | 2 | Expert en Mécanique de Course à Pied | GATE2: Approved to send | not yet |
-| Bachli Bergsport | 1 | CEO | Attempted to Contact | 23 Oct 14:04 IST |
-| Bachli Bergsport | 2 | Agency Director | GATE2: Approved to send | not yet |
-| Bachli Bergsport | 3 | Einkaufsleiter / Head of Purchasing | GATE2: Approved to send | not yet |
-| Bachli Bergsport | 4 | Department Head | GATE2: Approved to send | not yet |
-| SansGluGlu (Le P'tit Mag) | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:37 IST |
-| Veganer-Shop.ch | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:46 IST |
-| Veloplus | 1 | CEO | Attempted to Contact | 23 Oct 14:08 IST |
-| Veloplus | 2 | Head of Logistics | GATE2: Approved to send | not yet |
-| Veloplus | 3 | Head of Marketing | GATE2: Approved to send | not yet |
-| Veloplus | 4 | Purchasing Manager | GATE2: Approved to send | not yet |
-| Alna Dietetique & Bio | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:55 IST |
-| Pharmacies BENU | 1 | Pharmacienne Responsable | Attempted to Contact | 23 Oct 14:13 IST |
-| Pharmacies BENU | 2 | Gestionnaire Informatique | GATE2: Approved to send | not yet |
-| Pharmacies BENU | 3 | Resp. Dpt IT | GATE2: Approved to send | not yet |
-| Pharmacies BENU | 4 | Management | GATE2: Approved to send | not yet |
-| Running Concept (Michel Renck Sports) | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 04:55 IST |
-| KDC Nutrition | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:04 IST |
-| VELOMANIA (Bikes Center SA) | 1 | Co-CEO | Attempted to Contact | 23 Oct 14:17 IST |
-| VELOMANIA (Bikes Center SA) | 2 | Accounting Manager | GATE2: Approved to send | not yet |
-| VELOMANIA (Bikes Center SA) | 3 | Store Leader | GATE2: Approved to send | not yet |
-| VELOMANIA (Bikes Center SA) | 4 | Web Sales Technician | GATE2: Approved to send | not yet |
-| Transa Backpacking AG | 1 | Product Owner E-Commerce / Leiter E-Commerce | Attempted to Contact | 23 Oct 14:23 IST |
-| Transa Backpacking AG | 2 | CEO | GATE2: Approved to send | not yet |
-| Transa Backpacking AG | 3 | Finance Business Partner | GATE2: Approved to send | not yet |
-| Transa Backpacking AG | 4 | Chief Financial Officer | GATE2: Approved to send | not yet |
-| La Bonbonnerie | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:04 IST |
-| Sparposten.ch | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:13 IST |
-| SamaraNatura (BioSamara GmbH) | 1 | Managing Director | Attempted to Contact | 23 Oct 14:26 IST |
-| Planet Endurance | 1 | Company inbox (from website) | Attempted to Contact | 24 Oct 05:16 IST |
-| drogi.ch GmbH | 1 | Company inbox (from website) | Attempted to Contact | 25 Oct 04:32 IST |
-| NOWFIT Sports Nutrition Sagl | 1 | Company inbox (from website) | Attempted to Contact | 25 Oct 04:32 IST |
-| Vitaminplus (Welldro AG) | 1 | Geschäftsführer | Mitinhaber | Attempted to Contact | 23 Oct 14:32 IST |
+- Could not be read: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
