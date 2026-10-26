@@ -1,0 +1,45 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0063",
+  "location": "Gqeberha, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 82
+    }
+  ],
+  "companies": [
+    {
+      "name": "Flowers PE",
+      "based_out_of": "Gqeberha, South Africa",
+      "domain": "flowerspe.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Branded chocolates and gift boxes (Lindt, Ferrero Rocher, Sally Williams nougat), snack boxes, tuck boxes and seasonal Valentine's and Mother's Day hampers, alongside flowers",
+      "channels_supplied": "Its own shop at 43C 4th Avenue, Newton Park, and its online shop, with same-day delivery in Gqeberha, Despatch and Uitenhage",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Gqeberha florist and gift shop with its own chocolates category of nine branded products and hampers made up daily, so a Diablo gift box or chocolate box fits its seasonal Valentine's, Mother's Day and Christmas gifting. It is small and reaches only shoppers in Nelson Mandela Bay, and it carries no sugar-free range today. Number of shops is one.",
+      "what_they_do_well": [
+        "Makes up hampers daily for same-day collection or delivery across Gqeberha, Despatch and Uitenhage."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.flowerspe.co.za/product-category/chocolates/",
+        "https://www.flowerspe.co.za/product-category/hampers/",
+        "https://port-elizabeth.infoisinfo.co.za/search/florist"
+      ]
+    }
+  ]
+}
