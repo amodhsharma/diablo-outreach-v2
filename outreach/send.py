@@ -19,7 +19,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import bond
+from . import bond, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -499,6 +499,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         log(f"Instantly: {uploaded} leads added, {skipped_n} skipped (already in your Instantly "
             f"workspace), {invalid} invalid")
         created = created_emails(results, leads)
+        try:  # 26 Oct 2026 (Ariel): the introduction is in Instantly, written on the contact's timeline
+            timeline.queued(hs, [c["id"] for c, _, _, _ in members
+                                 if c["properties"]["email"].lower() in created], name, log)
+        except Exception as err:
+            log(f"Could not write the timeline notes: {str(err)[:200]}")
         for c, company_id, _, company_stage in members:
             if c["properties"]["email"].lower() not in created:
                 log(f"Not added (already in Instantly): {mask(c['properties']['email'])}. "

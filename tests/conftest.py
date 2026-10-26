@@ -2,6 +2,13 @@ import pytest
 
 
 @pytest.fixture(autouse=True)
+def no_real_timeline_notes(tmp_path, monkeypatch):
+    """No test reads or writes the real list of timeline notes already written."""
+    from outreach import timeline
+    monkeypatch.setattr(timeline, "NOTES_FILE", tmp_path / "timeline_notes.json")
+
+
+@pytest.fixture(autouse=True)
 def no_real_run_summary(monkeypatch):
     """Tests never write to the GitHub run's summary page (23 Oct 2026, Ariel: the made-up companies of the
     tests, such as Beta Foods and Noble Foods, showed up on every button's summary). A test that checks

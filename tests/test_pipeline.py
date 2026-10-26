@@ -515,3 +515,28 @@ def test_sync_repairs_emailed_contacts_set_back_to_gate_2(settings):
     # The send step then emails nobody twice: person 1 is already emailed.
     result = send.run("test", settings, hs, instantly, log=quiet)
     assert result["queued"] == 0
+
+
+def test_emails_are_written_on_the_contacts_timeline(settings):
+    """Ariel, 26 Oct 2026: HubSpot does not see Instantly's emails, so button 4 writes a note on the
+    contact's timeline when the introduction is queued, sent, bounces or gets a reply, once each."""
+    hs = FakeCRM()
+    co = approved_company(hs)
+    cid = hs.add("contacts", email="a@noblefoods.in", firstname="A", jobtitle="CEO", diablo_outreach_order="1",
+                 diablo_personal_line="Line.", diablo_company_note="imports sweets", **{CO: "APPROVED_TO_SEND"})
+    hs.links[cid] = [co]
+    instantly = FakeInstantly()
+    settings["send"]["sending_accounts"] = ["one@getdiablo-test.com"]
+    settings["send"]["booking_link"] = "https://book.example/diablo"
+    send.run("test", settings, hs, instantly, log=quiet)
+    notes = lambda: [t for _, rid, t in getattr(hs, "notes", []) if rid == str(cid)]
+    assert len(notes()) == 1 and "introduction added to the Instantly campaign" in notes()[0]
+    camp = next(iter(instantly.leads))
+    instantly.leads[camp][0].update(timestamp_last_contact="2026-10-26T05:00:00Z", last_step_from="one@getdiablo-test.com")
+    sync.run("test", settings, hs, instantly, log=quiet)
+    assert any("introduction email sent 26 Oct 10:30 IST from one@getdiablo-test.com" in t for t in notes())
+    sync.run("test", settings, hs, instantly, log=quiet)
+    assert len(notes()) == 2  # nothing twice
+    instantly.leads[camp][0].update(email_reply_count=1, lt_interest_status=1)
+    sync.run("test", settings, hs, instantly, log=quiet)
+    assert notes()[-1] == "Diablo outreach: they replied, marked interested in Instantly"

@@ -47,6 +47,7 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
+from . import timeline
 from .stages import COLLEAGUE_STAGES, EMAILED, TEAM, LeadStatus, forward
 
 
@@ -432,7 +433,7 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
     # Only AUTO-OUTREACH contacts come back from tagged_read; any other email is ignored.
     rows = hs.tagged_read("contacts", list(leads), ["email", LEAD_STATUS, "jobtitle"], id_property="email")
     blocked = read_blocklist(instantly, emails_api, log=log)
-    contact_updates, changed = [], []
+    contact_updates, changed, seen = [], [], []
     for r in rows:
         p = r.get("properties", {})
         lead = leads.get((p.get("email") or "").lower())
@@ -459,6 +460,7 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         if is_blocked(p.get("email"), blocked) and new not in ("closed", "replied"):
             # Blocklisted in Instantly counts as an opt-out (19 Oct 2026): the company stops.
             new, company_stage, event = "closed", "closed", "blocklisted"
+        seen.append((r, lead, event))  # 26 Oct 2026: for the notes on the contact's timeline
         old = statuses.of("contacts", r)
         if not forward(old, new):
             continue
@@ -469,6 +471,12 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         changed.append({"contact_id": r["id"], "from": old, "to": new, "event": event,
                         "company_to": company_stage, "jobtitle": p.get("jobtitle") or "contact"})
     hs.update_tagged("contacts", contact_updates)
+    try:  # 26 Oct 2026 (Ariel): sent, bounced and replied, written on each contact's HubSpot timeline
+        noted = timeline.from_instantly(hs, seen, log)
+        if noted:
+            log(f"Wrote {noted} notes on contacts' timelines (email sent, bounced or replied)")
+    except Exception as err:  # never stops the run
+        log(f"Could not write the timeline notes: {str(err)[:200]}")
     opt_out_rows = []
     opted = [c for c in changed if c["event"] in OPT_OUT_EVENTS]
     stop_reasons(hs, "contacts", [(c["contact_id"], f"{STOP_TEXT.get(c['event'], 'Opted out')} ({today()})")
