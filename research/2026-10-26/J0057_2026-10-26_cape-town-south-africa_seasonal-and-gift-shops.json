@@ -1,0 +1,208 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0057",
+  "location": "Cape Town, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 8,
+      "searches_used": 105
+    }
+  ],
+  "companies": [
+    {
+      "name": "Jihaan's Flower Emporium",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "jihaansfloweremporium.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate gift boxes and snack boxes with branded chocolate (Cadbury Dairy Milk, Cadbury Astros, Nestle KitKat, Tex), sweets and gummies (Maynards Jelly Babies, Beacon Liquorice Allsorts, Skittles) and crisps; Easter and Eid gifts",
+      "channels_supplied": "Direct to shoppers through its own online shop with same-day delivery across Cape Town; also listed on Mr D",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Milnerton gift and flower shop whose Edible Gifts collection resells other companies' branded chocolate and sweets in snack boxes, including a Cadbury Gold Collection. Seasonal ranges for Christmas, Easter, Eid and Valentine's Day suit Diablo's gift boxes and chocolate. Small, founded in 2024.",
+      "what_they_do_well": [
+        "Same-day delivery across Cape Town for orders placed before 2pm, with 155 customer reviews on its site."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.jihaansfloweremporium.co.za/products/deluxe-snack-box",
+        "https://www.jihaansfloweremporium.co.za/collections/edible-gifting",
+        "https://www.jihaansfloweremporium.co.za/pages/about-us"
+      ]
+    },
+    {
+      "name": "Gifts by Fusspot",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "giftbaskets.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift hampers and boxes with branded chocolate (Lindt Lindor, Winston & Julia slabs), toffees and fudge (Maris Caramel Fudge), biscuits (Kerrys shortbread) and snacks",
+      "channels_supplied": "Direct to shoppers through its online gift shop, plus corporate and event gifting",
+      "sf_brands_carried": "Sugar-free chai almonds (brand not stated)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Online gift studio in Noordhoek whose hampers are filled with other companies' packaged chocolate, fudge and biscuits, hand selected from suppliers. Its seasonal, occasion and corporate hampers are a direct home for Diablo's chocolate, biscuits and gift boxes for health-conscious recipients.",
+      "what_they_do_well": [
+        "Cape Town online gift studio offering corporate and event gifting alongside occasion hampers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.giftbaskets.co.za/shop/for-him/hot-chocolate-snacks-gift-hamper/",
+        "https://www.giftbaskets.co.za/shop/for-her/pretty-sweet-gift-box-for-her-2026/",
+        "https://www.giftbaskets.co.za/about/",
+        "https://www.trustedgiftreviews.com/best-shops-for-gift-delivery-cape-town/"
+      ]
+    },
+    {
+      "name": "Planned Gifts",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "planned.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift boxes with chocolate and nougat categories and pantry items, sourced from other small local businesses",
+      "channels_supplied": "Direct to shoppers through its online store and Maitland gift shop, with same-day delivery across Cape Town",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Maitland luxury gift store with its own Chocolates and Nougat categories, filled with items bought from other local small businesses. Small shop; the chocolate brands it stocks are not named on its website.",
+      "what_they_do_well": [
+        "Founded in May 2020; same-day delivery across Cape Town and gift boxes built from women and youth founded local businesses."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://planned.co.za/",
+        "https://planned.co.za/about-us/",
+        "https://whatsonincapetown.com/local-gift-shop-guide/"
+      ]
+    },
+    {
+      "name": "Gift-ology",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "gift-ology.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Chocolate hampers and a Chocolate and Nuts collection; halaal-friendly gift boxes",
+      "channels_supplied": "Direct to shoppers through its online shop, plus corporate gifting in Cape Town",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Cape Town gift box business selling chocolate hampers and a Chocolate and Nuts collection, hand packed for shoppers and companies. Its halaal-friendly, alcohol-free positioning matches Diablo's halal certificate. Small, and the chocolate brands it uses are not named on its website.",
+      "what_they_do_well": [
+        "Halaal-friendly, alcohol-free hampers with same-day delivery in Cape Town for orders before noon."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.gift-ology.co.za/",
+        "https://gift-ology.co.za/corporate"
+      ]
+    },
+    {
+      "name": "It's a Wrap",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "itisawrap.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Custom and pre-made gift hampers with chocolate hampers, snacks and sweet treats from other producers",
+      "channels_supplied": "Direct to shoppers through its website",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Tokai hamper service that fills vintage tins and baskets with snacks and sweet treats bought from other producers, and sells chocolate hampers. Small owner-run business; brand names are not shown on its website.",
+      "what_they_do_well": [
+        "Founded in 2021 in Tokai, offering custom hampers made to each customer's request."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://itisawrap.co.za/",
+        "https://www.trustedgiftreviews.com/best-shops-for-gift-delivery-cape-town/"
+      ]
+    },
+    {
+      "name": "Aspen&Co",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "aspenandco.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Gift hampers with hamper treat categories for sweets (fruit bonbons, birds eggs, watermelon slices), biscuits and rusks, salty snacks and nuts",
+      "channels_supplied": "Direct to shoppers from its Woodstock shop and online, with Cape Town delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Woodstock florist and gift shop whose Order Hamper Treats menu sells packaged sweets, biscuits and rusks and snacks for its gift hampers. Small shop; the brands behind its treats are not named on its website.",
+      "what_they_do_well": [
+        "Boutique Cape Town florist and gift shop trading since 1987."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://aspenandco.co.za/",
+        "https://www.capetownetc.com/things-to-do-cape-town/coming-up-roses-10-local-florists-to-support-this-mothers-day/"
+      ]
+    },
+    {
+      "name": "Send a Surprise",
+      "based_out_of": "South Africa",
+      "domain": "sendasurprise.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Snack hampers and chocolate gift boxes with branded chocolate truffles (Tomes), jelly beans and biscuits",
+      "channels_supplied": "Direct to shoppers through its online shop, with same-day delivery in Cape Town and shipping within South Africa",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Online gift shop listed among Cape Town gift delivery shops, selling snack hampers and chocolate gift boxes that include other brands such as Tomes truffles. Its head office city is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sendasurprise.co.za/product/sweet-salty-treat-hamper/",
+        "https://www.trustedgiftreviews.com/best-shops-for-gift-delivery-cape-town/"
+      ]
+    },
+    {
+      "name": "Luxebox",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "luxebox.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Curated gift boxes with branded chocolate (Wedgewood chocolate enrobed macadamias), biscuits (The Treat Co tea biscuits) and coffee",
+      "channels_supplied": "Corporate clients and shoppers through its online shop, with a dedicated Cape Town corporate gifting service",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Corporate gift box company that buys other brands' chocolate and biscuits for its boxes and actively sells corporate gifting in Cape Town. Smaller reach in Cape Town than in Johannesburg, and its delivery area is not stated on its website.",
+      "what_they_do_well": [
+        "Has made custom branded gift boxes for BMW, Volkswagen and Mini."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.luxebox.co.za/product/the-cafe/",
+        "https://www.luxebox.co.za/corporate-gifting-cape-town/",
+        "https://www.luxebox.co.za/corporate-gifting/"
+      ]
+    }
+  ]
+}
