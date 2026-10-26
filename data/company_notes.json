@@ -144,6 +144,26 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
+  "actioncycles.co.za": {
+    "name": "Action Cycles",
+    "based_out_of": "Gqeberha, South Africa",
+    "market": "Gqeberha, South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers",
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Gqeberha sports shop whose own online store has a nutrition category selling energy bars and gels to health-conscious cyclists, which passes rule 5 for sports shops. It buys and sells stock from its own shop and online store. It is a single store and the nutrition brands are not named on its home page, so it sits in tier 3.",
+    "what_they_do_well": [
+      "Runs a live online store from Walmer, Gqeberha, offering free shipping on orders over R1800."
+    ],
+    "distributes": "Bicycles and cycling gear, with a cycling nutrition section of energy bars and energy gels",
+    "channels_supplied": "Its own shop at 97 Heugh Road, Walmer, Gqeberha, and its own online shop with delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0062_2026-10-26_gqeberha-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "activend.com.au": {
     "name": "Activend",
     "based_out_of": "Sydney, Australia",
@@ -5343,6 +5363,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0003_2026-10-20_bern-switzerland_distributors.json"
+  },
+  "finishlinecycles.co.za": {
+    "name": "Finish Line Cycles",
+    "based_out_of": "South Africa",
+    "market": "Gqeberha, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A South African bike shop whose online store has its own Nutrition section with energy bars from Maurten, 226ers and Enduren, so it already buys and sells branded bars to active shoppers. Tier 3 because its city and delivery area are not stated on its website; shipping is calculated at checkout.",
+    "what_they_do_well": [
+      "Stocks European endurance brands such as Maurten and 226ers alongside South African ones."
+    ],
+    "distributes": "Cycling nutrition: energy bars, gels, electrolytes and recovery drinks from Maurten, 226ers, Enduren and others",
+    "channels_supplied": "Its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0062_2026-10-26_gqeberha-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "fitmarketperu.pe": {
     "name": "FitMarket SAC",
@@ -12088,6 +12127,25 @@
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "primegrowth.co.za": {
+    "name": "Prime Growth",
+    "based_out_of": "South Africa",
+    "market": "Gqeberha, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An online sports supplement shop with its own Protein Snacks category stocking bars from several brands, including the European brand Grenade. It sells to gym-goers, a natural audience for Diablo's bars and spreads. Tier 3 because its city and delivery area are not stated on its website; it advertises delivery in 1 to 3 business days.",
+    "what_they_do_well": [
+      "Stocks a wide spread of local and international sports brands, including USN, Evolve Nutrition, NPL, 32Gi and Grenade."
+    ],
+    "distributes": "Sports nutrition with a protein snacks section: protein bars and snacks from Grenade, USN, TNT, Nutritech, SSA Supplements and Youthful Living",
+    "channels_supplied": "Its own online shop",
+    "sf_brands_carried": "Youthful Living (low sugar and keto bars)",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0062_2026-10-26_gqeberha-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "primeline.ie": {
     "name": "Primeline Group",
     "based_out_of": "Ashbourne, Ireland",
@@ -15854,6 +15912,25 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "valmac.co.za": {
+    "name": "Valmac Office National",
+    "based_out_of": "Gqeberha, South Africa",
+    "market": "Gqeberha, South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "Valmac Office National is a Gqeberha office supplier in the Office National network whose shop has its own Biscuits and Sweets categories for workplace canteens. It is tier 3 because its website names no individual sweets or biscuit brands and its customer numbers are not stated. Storage: sells from its North End store at Paterson Road Industrial Park, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Serves Eastern Cape businesses from North End with stationery, printing and canteen supplies under one roof."
+    ],
+    "distributes": "Biscuits and sweets in a Canteen and Janitorial section, plus coffee, tea, hot chocolate, cold drinks and office supplies.",
+    "channels_supplied": "Offices and businesses in Gqeberha from its North End store and the Office National online shop.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0062_2026-10-26_gqeberha-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "vanheerden.co.za": {
     "name": "Van Heerden Pharmacy",
     "based_out_of": "Bela Bela, South Africa",
@@ -16495,6 +16572,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "waltons.co.za": {
+    "name": "Waltons",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "Gqeberha, South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "Waltons is a national office supplier of the Bidvest Group that sells other companies' branded sweets and biscuits to workplaces from its own online shop and stores, including one in Gqeberha. A sugar-free sweets, biscuit and bar range suits its Refreshments and Catering shelf for health-conscious offices. Storage: sells from its own stock through its stores and online shop, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Runs over 60 stores nationwide with click and collect in Gqeberha.",
+      "Sells branded office snacks such as Endearmints sweets and Pyotts biscuits online."
+    ],
+    "distributes": "Sweets, biscuits and snacks in a Refreshments and Catering section (Snacks, Sweet Treats), for example Endearmints wrapped sweets, Sweets from Heaven gummies, Bakers Choice assorted biscuits and Pyotts Snacktime biscuits, alongside coffee, tea and office supplies.",
+    "channels_supplied": "Offices and businesses through over 60 stores nationwide, including a Gqeberha store with click and collect, and its online shop.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0062_2026-10-26_gqeberha-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
   },
   "webstar.ch": {
     "name": "E. Weber & Cie AG",
