@@ -1,0 +1,572 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0076",
+  "location": "Australia",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "hotel minibar suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 51
+    },
+    {
+      "channel": "snack subscription boxes",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 80
+    },
+    {
+      "channel": "promotional merchandise companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 17,
+      "searches_used": 27
+    }
+  ],
+  "companies": [
+    {
+      "name": "Just In Case Direct",
+      "based_out_of": "Elsternwick, Australia",
+      "domain": "justincasedirect.com.au",
+      "channel_category": [
+        "hotel minibar suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Hotel minibar and conference products: chocolate, confectionery (Jelly Belly, Skittles, Kelly's Candy, Funday Sweets, Jila Mints), biscuits (Kez's Cookies, Future Bake), salty snacks (Pringles, Smith's, Red Rock Deli, Cobs) and healthy snacks",
+      "channels_supplied": "Hotels, accommodation providers, conferences and conventions, events and welcome packs, Australia wide and abroad",
+      "sf_brands_carried": "Healthy Products section with better-for-you snacks such as Cobs popcorn, Grainwaves and Harvest Box; no sugar-free confectionery seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A specialist hotel minibar wholesaler offering over 250 minibar lines, most of them other companies' branded chocolate, confectionery, biscuits and snacks. Its Healthy Products section shows hotels already ask it for better-for-you lines, which suits Diablo's no-added-sugar chocolate, gummies and cookies. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers over 250 minibar lines across biscuits, chocolate, confectionery, salty snacks and healthy products for hotels."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://justincasedirect.com.au/",
+        "https://justincasedirect.com.au/blog/why-consider-healthy-snacks-for-your-hotel-minibar-replenishment/"
+      ]
+    },
+    {
+      "name": "LePack Accommodation Supplies",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "lepack.com.au",
+      "channel_category": [
+        "hotel minibar suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Guest room and minibar food: biscuits (Arnott's, Lotus Biscoff, Aussie Biscuit), snack slices and bars (Springhill Farm), nut and dark chocolate snack mixes (Brookfarm), jams and spreads (Beerenberg), breakfast and snack packs",
+      "channels_supplied": "Hotels, motels, resorts, serviced apartments, Airbnb hosts, clubs, conference venues and tour groups, Australia wide",
+      "sf_brands_carried": "Better-for-you snacks from Brookfarm and Springhill Farm; no sugar-free brand seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "An accommodation supply wholesaler with its own Snacks, Jams and Spreads and Minibar sections selling other companies' biscuits, bars and snacks to hotels and short stay hosts. Diablo's wafers, cookies, bars and portion jams fit straight into its guest room and snack pack ranges. Storage: assembles and ships snack and breakfast packs from its own premises on the Gold Coast.",
+      "what_they_do_well": [
+        "Has supplied hotels, motels and resorts since 2006, with breakfast and snack packs assembled at its own premises."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.lepack.com.au/food-and-beverage/snacks/",
+        "https://www.lepack.com.au/food-and-beverage/",
+        "https://www.lepack.com.au/hotel-supplies/"
+      ]
+    },
+    {
+      "name": "Hotel Products Direct",
+      "based_out_of": "Fairfield, Australia",
+      "domain": "hotelproductsdirect.com.au",
+      "channel_category": [
+        "hotel minibar suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Guest room food and drink: biscuits (Cookie Chef Co shortbread), chocolates and mints (Terry's Twilight Mints, foil chocolate hearts), jams and spreads (Bonne Maman, Beerenberg), muesli, tea and coffee",
+      "channels_supplied": "Hotels, motels, guesthouses, inns, serviced apartments, B&Bs and youth hostels, Australia wide through its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online accommodation supplier with biscuits, chocolates and mints and jams sections stocked with other companies' brands for guest rooms. Diablo's individually wrapped chocolates, biscuits and portion jams match what it already sells to hotels. Storage: sells from its own stock through its online shop, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Over 20 years supplying commercial accommodation products to hotels, motels and serviced apartments across Australia."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://hotelproductsdirect.com.au/collections/food-beverage",
+        "https://hotelproductsdirect.com.au/blogs/blog/chocolates-and-biscuits-hotel-confectionery-are-perfect-giveaways-for-guests"
+      ]
+    },
+    {
+      "name": "National Hotel Supplies",
+      "based_out_of": "Australia",
+      "domain": "nationalhotelsupplies.com.au",
+      "channel_category": [
+        "hotel minibar suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Guest room biscuits and sweets: Arnott's (Tim Tam, Scotch Finger, Butternut Snap), Lotus Biscoff, Little Bakes, Gumnut and Aussie Biscuits, Mentos mints, plus jams and condiments",
+      "channels_supplied": "Accommodation industry Australia wide through its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family run accommodation supplier with a Biscuits and Sweets section of other companies' branded biscuits and mints for hotel rooms. Diablo's biscuits, wafers and sweets fit this range directly. Tier 3 because its website names neither its head office city nor its warehouse. Storage: sells from its own stock through its online shop, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.nationalhotelsupplies.com.au/collections/hotel-biscuits-and-sweets",
+        "https://www.nationalhotelsupplies.com.au/"
+      ]
+    },
+    {
+      "name": "Honesty Snacks",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "honestysnacks.com.au",
+      "channel_category": [
+        "snack subscription boxes"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Monthly snack subscription boxes of 40 to 80 branded snacks, including chocolate (Cadbury, Mars), sweets and mints (Mentos, Jila Mints), muesli and snack bars (Carman's, Bounce, Emma & Tom's) and chips, with Sweets and Treats, Healthy and mixed boxes.",
+      "channels_supplied": "Workplaces and homes, by subscription from its own online shop, with its own drivers in Melbourne and Adelaide and courier delivery Australia-wide.",
+      "sf_brands_carried": "Slim Secrets (low sugar), Carman's, Bounce, Blue Dinosaur, So Vegan and other better-for-you brands in its Healthy and Better For You boxes.",
+      "competing_brand_flag": true,
+      "fit_rationale": "A subscription business built on well-known third-party snack brands, with dedicated Healthy Snack and Better For You boxes where Diablo's sugar-free chocolate, bars and cookies fit. It delivers recurring boxes to offices and homes, which gives steady repeat volume. It carries Slim Secrets, a low sugar brand that competes with Diablo. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs its own delivery drivers in Melbourne and Adelaide and ships subscription boxes Australia-wide.",
+        "Says it has supplied quality snacks for over 40 years, with a brand line-up including Cadbury, Mars, Carman's and Slim Secrets."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.honestysnacks.com.au/",
+        "https://www.honestysnacks.com.au/subscription-boxes"
+      ]
+    },
+    {
+      "name": "Treat Crate",
+      "based_out_of": "Australia (head office city not stated on its website)",
+      "domain": "treatcrate.com.au",
+      "channel_category": [
+        "snack subscription boxes"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Monthly international snack subscription boxes of chips, chocolates, candy, biscuits, cakes and drinks from a different country each month, including the UK, Germany, Hungary, Sweden and France.",
+      "channels_supplied": "Direct to shoppers by subscription and one-off Instant Crates from its own online shop, delivered Australia-wide (prices also shown in NZD).",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Australia's self-described number one international snack subscription, buying branded packaged snacks from many countries and reselling them as they are in themed monthly crates. Its boxes already cover chocolate, candy, biscuits and cakes, and it features UK and European countries, which suits a UK exporter such as Diablo. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Has run a monthly international snack subscription since October 2018, shipping Australia-wide."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://treatcrate.com.au/",
+        "https://treatcrate.com.au/collections/snack-subscription-box",
+        "https://treatcrate.com.au/pages/about-us",
+        "https://www.hunterandbligh.com.au/food/10-best-snack-subscription-boxes-in-australia/"
+      ]
+    },
+    {
+      "name": "Ollie's Lollies",
+      "based_out_of": "Byron Bay, Australia",
+      "domain": "ollieslollies.co",
+      "channel_category": [
+        "snack subscription boxes"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Candy, chocolate and popcorn, including imported sweets from the USA, UK and Japan, sold in its shop, online and through a Candy Club monthly subscription box.",
+      "channels_supplied": "Direct to shoppers from its Byron Bay shop and online shop, with a monthly subscription box and corporate gift boxes.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A lolly shop that runs a monthly Candy Club subscription box and stocks imported UK and US sweets and chocolate, so Diablo's gummies and chocolate fit its range. It is tier 3 because it is a single shop and its website names no brands. Storage: sells from its own stock in its shop and online.",
+      "what_they_do_well": [
+        "Runs a Candy Club monthly subscription box alongside its Byron Bay shop and corporate gift boxes."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ollieslollies.co/"
+      ]
+    },
+    {
+      "name": "Sense2",
+      "based_out_of": "Sydney, Australia",
+      "domain": "sense2.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate (Lindt, Toblerone, Cadbury, Ferrero Rocher, Kinder, Ritter Sport), chocolate bars (Mars, Snickers, KitKat), sweets and jelly beans (Jelly Belly, Skittles, M&M's, Allen's, Chupa Chups), biscuits and cookies, energy bars and corporate snack boxes",
+      "channels_supplied": "Corporate clients Australia-wide for giveaways, events and staff and client gifting; also runs US, New Zealand, German and Japanese sites",
+      "sf_brands_carried": "One energy bar line; no sugar-free confectionery brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Australia's broadest promotional confectionery range, built on other companies' branded chocolate, sweets, biscuits and bars, with dedicated biscuits and cookies and energy bar categories that match Diablo's catalogue. Diablo's gift boxes, advent calendars and no-added-sugar chocolate suit its corporate gifting customers. Storage: dispatches nationwide from its Sydney warehouse.",
+      "what_they_do_well": [
+        "Describes itself as Australia's promotional products partner for 30 years, with sister sites in the US, New Zealand, Germany and Japan."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://sense2.com.au/featured/lollies",
+        "https://sense2.com.au/collections/branded-lollies",
+        "https://sense2.com/category/128/promotional-lollies?page=11"
+      ]
+    },
+    {
+      "name": "Chocablock Chocolates",
+      "based_out_of": "Moorabbin, Australia",
+      "domain": "personalisedchocolates.net.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Branded chocolate (Lindt, Cadbury, Toblerone, Ferrero Rocher, Maltesers), sweets (Pascall, Skittles, Trolli, Chupa Chups, Mentos), biscuits (Arnott's, Tim Tam, Biscoff) and snacks (Pringles) in personalised packs",
+      "channels_supplied": "Corporate and private customers Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Sells a wide spread of other companies' branded chocolate, sweets, biscuits and snacks, personalised for corporate gifting, so Diablo's chocolate, biscuits and gift boxes sit in its existing range. A better-for-you option is a natural addition to the brands it already shows. Storage: Moorabbin premises listed; warehouse not named on its website.",
+      "what_they_do_well": [
+        "Australian owned and operated for over ten years, claiming more than 130,000 customers served Australia-wide."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.personalisedchocolates.net.au/branded-display-box-with-lindt-lindor-balls/"
+      ]
+    },
+    {
+      "name": "Good Things Australia",
+      "based_out_of": "Australia",
+      "domain": "goodthings.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Branded confectionery: chocolate (Lindt Lindor, chocolate bars), sweets (Allen's, Skittles, Jelly Belly, M&M's, Mentos), lollipops, mints and snack packs",
+      "channels_supplied": "Corporate clients Australia-wide, including Netflix, Samsung, Afterpay and Petbarn",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Runs a dedicated branded confectionery category built on Allen's, Lindt, M&M's, Mentos and Jelly Belly packs, sold to large corporate brands. Diablo's chocolate, sweets and gift boxes fit its range. Storage: offers in-house warehousing and pick-and-pack; warehouse location not named on its website.",
+      "what_they_do_well": [
+        "Reports 99.4% of jobs delivered on time across more than 21,000 products.",
+        "Lists Netflix, Samsung, Afterpay and L'Oreal Paris among clients."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://goodthings.com.au/product-category/confectionery/",
+        "https://goodthings.com.au/products/confectionery/mixed-lollies/allens-wrapped-lollies-100g/",
+        "https://goodthings.com.au/?p=30436"
+      ]
+    },
+    {
+      "name": "Promo Punks",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "promopunks.com",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded sweets and chocolate (M&M's, Allen's, Cadbury, Jelly Belly, Skittles), jelly beans, lollipops and mints",
+      "channels_supplied": "Corporate and event clients Australia-wide",
+      "sf_brands_carried": "Sugar-free mints (unbranded)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Its giveaways confectionery range is built on other companies' branded sweets and chocolate packs. Diablo's sweets and chocolate fit alongside its sugar-free mints. Storage: warehouse not named on its website; it lists a 3PL warehousing service.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://promopunks.com/collections/giveaways-confectionery"
+      ]
+    },
+    {
+      "name": "Merchandise Up",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "merchandiseup.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Branded chocolate (Lindt, Cadbury, Tony's Chocolonely, M&M's) and sweets (Allen's, Jelly Belly, Skittles)",
+      "channels_supplied": "Corporate clients and events Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Has separate brand confectionery and premium confectionery ranges built on Lindt, Cadbury, Allen's and other branded packs. Diablo's chocolate and gift boxes match that premium gifting range. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.merchandiseup.com.au/premium-promotional-confectionery",
+        "https://www.merchandiseup.com.au/promotional-brand-confectionery"
+      ]
+    },
+    {
+      "name": "Coastal Direct Promotional Products",
+      "based_out_of": "Queensland, Australia",
+      "domain": "coastaldirectpromoproducts.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Branded chocolate (Lindt Lindor, M&M's) and sweets (Allen's, Skittles, Jelly Belly)",
+      "channels_supplied": "Businesses in Brisbane, Gold Coast, Sunshine Coast and Toowoomba",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Its promotional and branded chocolates categories carry Lindt, M&M's, Allen's and Jelly Belly packs for business clients. Diablo's chocolate and sweets fit the same gifting use. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://coastaldirectpromoproducts.com.au/product-category/promotional-confectionery/",
+        "https://coastaldirectpromoproducts.com.au/product-category/branded-confectionery/branded-chocolates/"
+      ]
+    },
+    {
+      "name": "Confectionery Corner",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "confectionerycorner.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Retail brand confectionery (Allen's, Lindt chocolate, M&M's, Smarties, Skittles, Jelly Belly), bulk sweets and customised chocolates",
+      "channels_supplied": "Corporate promotions, weddings and events; customer trade accounts",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A confectionery-only promotional supplier with a Retail Brands range of Allen's, Lindt, M&M's and Jelly Belly, plus bulk confectionery. Diablo's chocolate and sweets fit that range. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.confectionerycorner.com.au/index.php/2021-05-18-04-44-58/bulk-confectionery",
+        "https://www.confectionerycorner.com.au/index.php/m-m"
+      ]
+    },
+    {
+      "name": "Confectionery Only",
+      "based_out_of": "Australia",
+      "domain": "confectioneryonly.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Branded chocolate and sweets (Lindt, M&M's, Skittles, Jelly Belly, Mentos), lollies and personalised candy",
+      "channels_supplied": "Businesses for trade shows, conventions and corporate functions; also resellers through a reseller programme",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The confectionery arm of PromotionsOnly, selling Lindt, M&M's, Skittles and Jelly Belly to corporate buyers and resellers. Diablo's chocolate and sweets fit its range. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [
+        "PromotionsOnly, its parent, has traded since 2003."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.confectioneryonly.com.au/",
+        "https://www.promotionsonly.com.au/chocolates/m-ms.htm"
+      ]
+    },
+    {
+      "name": "Promotional Lollies",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "promotionallollies.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Branded chocolate and sweets (M&M's, Jelly Belly, Lindt chocolate bars), mints and jelly beans",
+      "channels_supplied": "Corporate clients, motor service businesses and trade show exhibitors Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A confectionery-focused promotional supplier that packs M&M's, Jelly Belly and Lindt bars for business clients. Diablo's chocolate bars and sweets fit its range. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [
+        "Over 29 years of experience, with branches in South Brisbane, Erskineville and Mitcham."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.promotionallollies.com.au/"
+      ]
+    },
+    {
+      "name": "Brandconnect",
+      "based_out_of": "Perth, Australia",
+      "domain": "brandconnect.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Branded chocolate (Lindt, Cadbury Dairy Milk, KitKat, Mars) and muesli bars (Carman's)",
+      "channels_supplied": "Corporate clients Australia-wide",
+      "sf_brands_carried": "Carman's muesli bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Its confectionery range carries Lindt, Cadbury, KitKat, Mars and Carman's bars with branded sleeves and labels. Diablo's chocolate and muesli bars match both sides of that range. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://brandconnect.com.au/shop-merch/confectionery/chocolates/",
+        "https://brandconnect.com.au/shop-merch/confectionery/"
+      ]
+    },
+    {
+      "name": "Cubic Promote",
+      "based_out_of": "Sydney, Australia",
+      "domain": "cubicpromote.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 8,
+      "distributes": "Branded sweets (Allen's lollies range) and chocolates and lollies for trade shows",
+      "channels_supplied": "Corporate and trade show clients Australia-wide; New Zealand sister site",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Has a dedicated Allen's promotional candy range within its chocolates and lollies category. Diablo's sweets and chocolate fit the same tradeshow use. Storage: offers 3PL warehousing and kitting; warehouse location not named on its website.",
+      "what_they_do_well": [
+        "ISO 9001:2015 certified and a member of APPA and Sedex."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cubicpromote.com.au/product-category/tradeshow/chocolates-lollies/allens-promotional-candy"
+      ]
+    },
+    {
+      "name": "PromoShop",
+      "based_out_of": "Port Melbourne, Australia",
+      "domain": "promoshop.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 9,
+      "distributes": "Chocolate (Lindt), sweets (Allen's, M&M's, Mentos), biscuits, mixed bars, jelly beans and lollipops",
+      "channels_supplied": "Corporate clients Australia-wide; offices in Port Melbourne and Banksmeadow",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Its confectionery range has biscuits and mixed bars categories alongside Lindt, Allen's, M&M's and Mentos packs. Diablo's chocolate, biscuits and bars fit those categories. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.promoshop.com.au/confectionery/"
+      ]
+    },
+    {
+      "name": "Chilli Promotions",
+      "based_out_of": "Port Melbourne, Australia",
+      "domain": "chillipromotions.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 2,
+      "tier_rank": 10,
+      "distributes": "Sweets (Mentos), chocolates, biscuits, mixed bars, jelly beans and lollipops",
+      "channels_supplied": "Leading Australian organisations; city pages across every state and territory",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Runs a 26-category promotional confectionery range including Mentos, chocolates, biscuits and mixed bars. Diablo's chocolate, biscuits and bars fit those categories. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [
+        "Celebrated 25 years of supplying Australia's leading organisations in 2026."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.chillipromotions.com.au/promotional-products/confectionery",
+        "https://investor.wedbush.com/wedbush/article/marketersmedia-2026-5-29-chilli-promotions-celebrates-25-years-of-delivering-sustainable-brand-experiences-for-australias-leading-organisations"
+      ]
+    },
+    {
+      "name": "Promotional Products",
+      "based_out_of": "Australia",
+      "domain": "promotionalproducts.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Branded chocolate (Lindt Lindor, M&M's) and printed chocolate sleeves",
+      "channels_supplied": "Corporate clients Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Carries Lindt and M&M's chocolate categories for corporate gifting. It ranks in tier 3 because its range covers fewer of Diablo's categories and its head office is not stated on its website. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [
+        "Trading since 1998, per its website."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.promotionalproducts.com.au/chocolates/lindt-chocolates.htm",
+        "https://www.promotionalproducts.com.au/chocolates/m-ms.htm"
+      ]
+    },
+    {
+      "name": "New Age Promotions",
+      "based_out_of": "Australia",
+      "domain": "newage.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Branded chocolate (M&M's, Lindt, Toblerone, Jaffas), sweets, mini muffins and cupcakes",
+      "channels_supplied": "Corporate clients in Australia",
+      "sf_brands_carried": "Sugar-free breath mints (unbranded)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Its promotional confectionery collection includes M&M's, Lindt and Toblerone and sugar-free mints. It ranks in tier 3 because it is small and its head office is not stated on its website. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://newage.com.au/collections/confectionery"
+      ]
+    },
+    {
+      "name": "APD Promotions",
+      "based_out_of": "Sydney, Australia",
+      "domain": "apdpromotions.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Chocolate (Lindt Lindor balls, chocolate baubles), advent calendars, sweets, jubes and mints",
+      "channels_supplied": "Corporate clients; offices in Sydney, Melbourne, Brisbane and overseas",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Sells Lindor ball gift boxes, advent calendars and chocolate for corporate Christmas gifting, which matches Diablo's seasonal gift boxes and advent calendars. It ranks in tier 3 because most of its sweets are unbranded. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [
+        "Operates offices in Sydney, Melbourne and Brisbane plus the USA, New Zealand, Singapore and the UK."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://apdpromotions.com.au/confectionery"
+      ]
+    },
+    {
+      "name": "Mercha",
+      "based_out_of": "Australia",
+      "domain": "mercha.com.au",
+      "channel_category": [
+        "promotional merchandise companies"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Branded sweets (M&M's packs, Mentos) and custom branded confectionery",
+      "channels_supplied": "Businesses through its web shop and B2B portal",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Sells branded M&M's packs and Mentos within a custom branded confectionery collection to businesses. It ranks in tier 3 because its confectionery range is small and its head office is not stated on its website. Storage: warehouse not named on its website; it supplies the branded packs decorated to order.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.mercha.com.au/blogs/articles/best-merch-ideas-for-the-sweet-tooths-on-your-corporate-gifting-list",
+        "https://www.mercha.com.au/products/heidi-mentos"
+      ]
+    }
+  ]
+}
