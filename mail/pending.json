@@ -1,5 +1,388 @@
 {
-  "generated_at": "2026-10-26T06:30:48+00:00",
+  "generated_at": "2026-10-26T06:42:51+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "902008679625",
+      "job_title": "Managing Director Buying & Customer Interaction",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Aldi Switzerland",
+        "domain": "aldi-suisse.ch",
+        "location": "Switzerland",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008586443",
+      "job_title": "HR Business Partner & Recruiting Specialist",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Aligro",
+        "domain": "aligro.ch",
+        "location": "Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Chavannes-près-Renens, Switzerland",
+        "distributes": "Cash and carry food and non-food wholesale for professional customers.",
+        "channels_supplied": "Restaurants, retailers and trade customers through Aligro and CCA cash and carry markets.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Bought all nine CCA cash and carry markets from Migros in 2017, keeping the CCA brand."
+        ],
+        "fit_rationale": "Owns the CCA cash and carry chain in German speaking Switzerland, giving access to independent shops and gastro buyers. Zurich area store coverage was not verified. Better approached once a Swiss importer holds stock."
+      }
+    },
+    {
+      "contact_id": "901997112539",
+      "job_title": "Key Account Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Brack",
+        "domain": "brack.ch",
+        "location": "Switzerland",
+        "channel": "Online Retailer",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "901888970985",
+      "job_title": "Regional Sales Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Commerces valaisans de proximitÃ©",
+        "domain": "cvdp.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008278205",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "DeinDeal",
+        "domain": "deindeal.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902039759044",
+      "job_title": "CEO & Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Galaxus",
+        "domain": "galaxus.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902010391770",
+      "job_title": "Logistics Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Gladiator Fit",
+        "domain": "gladiatorfit.ch",
+        "location": "Switzerland",
+        "channel": "Other",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "901997233396",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Migros Ticino",
+        "domain": "migrosticino.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008872131",
+      "job_title": "Chief Sales Officer",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "ottos",
+        "domain": "ottos.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008074442",
+      "job_title": "Managing Director Food Service Schweiz",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Valora Holding",
+        "domain": "valora.com",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008556750",
+      "job_title": "HR-Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Victoria Apotheke",
+        "domain": "victoria-apotheke.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008679626",
+      "job_title": "Country Managing Director",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Aldi Switzerland",
+        "domain": "aldi-suisse.ch",
+        "location": "Switzerland",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008586444",
+      "job_title": "HR Business Partner",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Aligro",
+        "domain": "aligro.ch",
+        "location": "Switzerland",
+        "channel": "Distributors",
+        "based_out_of": "Chavannes-près-Renens, Switzerland",
+        "distributes": "Cash and carry food and non-food wholesale for professional customers.",
+        "channels_supplied": "Restaurants, retailers and trade customers through Aligro and CCA cash and carry markets.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Bought all nine CCA cash and carry markets from Migros in 2017, keeping the CCA brand."
+        ],
+        "fit_rationale": "Owns the CCA cash and carry chain in German speaking Switzerland, giving access to independent shops and gastro buyers. Zurich area store coverage was not verified. Better approached once a Swiss importer holds stock."
+      }
+    },
+    {
+      "contact_id": "901997112538",
+      "job_title": "Key Account Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Brack",
+        "domain": "brack.ch",
+        "location": "Switzerland",
+        "channel": "Online Retailer",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "901888970986",
+      "job_title": "Collaborateur Marketing",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Commerces valaisans de proximitÃ©",
+        "domain": "cvdp.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008278204",
+      "job_title": "Chief Technology Officer (CTO)",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "DeinDeal",
+        "domain": "deindeal.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902039759043",
+      "job_title": "Senior Product Owner",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Galaxus",
+        "domain": "galaxus.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902010391769",
+      "job_title": "Responsable Commercial Romandie",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Gladiator Fit",
+        "domain": "gladiatorfit.ch",
+        "location": "Switzerland",
+        "channel": "Other",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008872130",
+      "job_title": "Head of Finance and Controlling",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "ottos",
+        "domain": "ottos.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008074441",
+      "job_title": "CEO Retail und Mitglied der Konzernleitung",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Valora Holding",
+        "domain": "valora.com",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902008556749",
+      "job_title": "Pharmacist",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Victoria Apotheke",
+        "domain": "victoria-apotheke.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    }
+  ]
 }
