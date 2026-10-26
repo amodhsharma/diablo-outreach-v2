@@ -1,0 +1,56 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0060",
+  "location": "Pretoria, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 0
+    }
+  ],
+  "companies": []
+}
