@@ -1,0 +1,679 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0077",
+  "location": "Sydney, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 8,
+      "searches_used": 46
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 7,
+      "searches_used": 34
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 6,
+      "searches_used": 23
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 10,
+      "searches_used": 36
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 25
+    }
+  ],
+  "companies": [
+    {
+      "name": "Umall",
+      "based_out_of": "Sydney, Australia",
+      "domain": "umall.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Snacks and confectionery from other brands, including chocolate (KitKat), chips (Calbee, Lay's) and Asian sweets and biscuits, within an online supermarket of over 20,000 items",
+      "channels_supplied": "Online direct to shoppers with same day and next day delivery across Sydney Metro, Wollongong and Canberra",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Sydney's largest online Asian supermarket, founded in 2021, with its own snacks and confectionery collection of branded products sold to households across Sydney. Its broad branded range and Sydney wide delivery make it a channel for packaged sweets and snacks. Storage: own warehouse in Chullora, NSW, with automated storage and robotic picking.",
+      "what_they_do_well": [
+        "Built a 20,000 plus item online Asian supermarket in Sydney since 2021, serving tens of thousands of households by 2025."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://en.umall.com.au/pages/about-us",
+        "https://www.asiangroceronline.com.au/collections/new-arrivals/snacks-confectionery"
+      ]
+    },
+    {
+      "name": "Lolly Kingdom",
+      "based_out_of": "Ulladulla, Australia",
+      "domain": "lolly-kingdom.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Lollies and gummies (Trolli), chocolate, chocolate coated sweets, licorice, sugar free licorice, vegan chocolate buttons and gift boxes",
+      "channels_supplied": "Its own pick and mix shop in Ulladulla, NSW, and an online shop delivering Australia wide, including Sydney",
+      "sf_brands_carried": "Sugar free salted licorice hearts",
+      "competing_brand_flag": false,
+      "fit_rationale": "A large pick and mix lolly shop on the NSW South Coast with an online store that sells branded sweets such as Trolli and already has sugar free and vegan lines. It reaches Sydney shoppers through its online shop; tier 3 because it is a single shop and its website blocks automated reading.",
+      "what_they_do_well": [
+        "Opened what was reported as Australia's largest pick and mix lolly store in Ulladulla."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://lolly-kingdom.com.au/product-category/lollies/chocolate/",
+        "https://lolly-kingdom.com.au/product/sugar-free-salted-licorice-hearts/",
+        "https://lolly-kingdom.com.au/product/squiggle-twists-trolli/",
+        "https://www.illawarramercury.com.au/story/7389272/australias-largest-pick-and-mix-lolly-store-is-open/"
+      ]
+    },
+    {
+      "name": "Homie Mart",
+      "based_out_of": "Sydney, Australia",
+      "domain": "homiemart.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Snacks and desserts from other brands, including chocolate biscuit sticks (Glico Pocky, Lotte Pepero), cookies (Bourbon), sandwich biscuits (Julie's), candy and wafers",
+      "channels_supplied": "Online Asian grocery shop delivering across Sydney, Newcastle and Wollongong and Australia wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney online Asian grocer whose own Snacks and Desserts section sells branded biscuits, chocolate snacks and sweets to shoppers. It is small, with about 32 items in that section, and online only.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://homiemart.com.au/",
+        "https://homiemart.com.au/collections/snacks-and-deserts"
+      ]
+    },
+    {
+      "name": "Bikebug",
+      "based_out_of": "Sydney, Australia",
+      "domain": "bikebug.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Energy bars, protein bars and energy chews (gummies) plus gels and drink mixes from Clif, GU, SIS, Maurten and Styrkr",
+      "channels_supplied": "Own bike stores in North Sydney and Rosebery and its own online shop with express shipping across Australia",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney bike retailer whose own site has separate Energy Bars, Protein Bars and Energy Chews categories from other brands, sold to health-conscious riders in store and online. Store count beyond the two Sydney stores named by Hammer Nutrition is not stated on its website.",
+      "what_they_do_well": [
+        "Runs a full sports nutrition department online, from energy bars and chews to gels and protein, alongside bikes and parts."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://bikebug.com/nutrition-bodycare",
+        "https://www.bikebug.com/gu-watermelon-energy-chews-12-pack.html",
+        "https://www.hammernutrition.com.au/store-locator/"
+      ]
+    },
+    {
+      "name": "Wild Earth",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "wildearth.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops",
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Bars and snacks (Clif energy bars, Koda energy bars, Blue Dinosaur snack bars), energy chews, gels and hiking meals",
+      "channels_supplied": "Own online shop shipping Australia wide, including Sydney, and its own stores including Brisbane Airport",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An outdoor and adventure sports retailer with its own Bars and Snacks category stocking several other brands, aimed at hikers, runners and campers. It serves Sydney through its national online shop; a Sydney store is not shown on its website.",
+      "what_they_do_well": [
+        "B Corp certified outdoor retailer with a dedicated Food and Nutrition department covering bars, snacks, chews and gels.",
+        "Opened a new adventure gear store at Brisbane Airport's Skygate precinct."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.wildearth.com.au/shop/food-and-nutrition/bars-snacks",
+        "https://www.wildearth.com.au/buy/koda-energy-bars-salted-caramel/BAR-SALTCARAMEL",
+        "https://www.wildearth.com.au/view/about-us",
+        "https://moodiedavittreport.com/?p=392402",
+        "https://www.wildearth.com.au/brand/Clif",
+        "https://www.wildearth.com.au/brand/Blue-Dinosaur"
+      ]
+    },
+    {
+      "name": "Supplement Mania",
+      "based_out_of": "Sydney, Australia",
+      "domain": "supplementmania.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops",
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars and protein cookies (Maxine's Burn Bars, Max's Super Shred Cookie, Fibre Boost bars) plus sports supplements",
+      "channels_supplied": "Its shop at 238 Sydenham Road, Marrickville, click and collect and its own online shop shipping Australia wide",
+      "sf_brands_carried": "Max's and Maxine's low carb protein snacks, Fibre Boost",
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent Marrickville sports nutrition shop that sells bars and cookies from other brands to gym goers in store and online. It is a single shop, so its reach is small.",
+      "what_they_do_well": [
+        "Named among Sydney's best supplement stores by Man of Many."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://supplementmania.com.au/products/super-shred-cookie-75g-by-maxs-box-of-12",
+        "https://supplementmania.com.au/products/burn-bars-40g-by-maxines-box-of-12",
+        "https://manofmany.com/lifestyle/fitness/best-supplement-stores-sydney",
+        "https://supplementmania.com.au/collections/maxines"
+      ]
+    },
+    {
+      "name": "Super Nutrition",
+      "based_out_of": "Sydney, Australia",
+      "domain": "supernutrition.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops",
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Protein bars (Fibre Boost Cold Pressed Protein Bar, Optimum Nutrition Protein Bar) plus protein powders and sports supplements",
+      "channels_supplied": "Its shop at 185-211 Broadway, Ultimo, with in store pickup, and its own online shop",
+      "sf_brands_carried": "Fibre Boost",
+      "competing_brand_flag": false,
+      "fit_rationale": "An Ultimo sports nutrition shop beside the city universities that sells bars from other brands alongside big name supplements. It is a single shop with a small bars shelf.",
+      "what_they_do_well": [
+        "Named among Sydney's best supplement stores by Man of Many."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://supernutrition.com.au/products/fibre-boost-cold-pressed-protein-bar",
+        "https://supernutrition.com.au/collections/protein",
+        "https://manofmany.com/lifestyle/fitness/best-supplement-stores-sydney",
+        "https://www.yellowpages.com.au/greater-sydney-nsw-1044/health-food-stores"
+      ]
+    },
+    {
+      "name": "Cranks Bikes",
+      "based_out_of": "Sydney, Australia",
+      "domain": "cranks.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Pro Bar meal bars, GU and Skratch Labs energy chews (gummies), plus gels and electrolytes from Koda and SIS",
+      "channels_supplied": "Its bike shop in Chatswood and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Chatswood bike shop with its own Nutrition category of 14 products from other brands, including bars and chews for riders. It is a single shop.",
+      "what_they_do_well": [],
+      "confidence": "high",
+      "source_urls": [
+        "https://cranks.com.au/shop/accessories/nutrition/",
+        "https://www.hammernutrition.com.au/store-locator/"
+      ]
+    },
+    {
+      "name": "The Running Company",
+      "based_out_of": "Sydney, Australia",
+      "domain": "therunningcompany.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops",
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Energy chews (gummies) from Enervit and Precision Fuel, plus energy gels and drink mixes from Koda, SIS, Maurten and Pure",
+      "channels_supplied": "14 specialist running stores, including The Shire store in Kirrawee, Sydney, and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A running shoe chain founded in Bondi Beach with a Nutrition and Hydration collection from other brands sold to runners in store and online. Its food shelf is chews and gels only, and its head office is not stated on its website.",
+      "what_they_do_well": [
+        "Founded by Chris Chapman in Bondi Beach in October 2009 and grown to 14 stores."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://shop.therunningcompany.com.au/collections/nutrition",
+        "https://www.therunningcompany.com.au/history/",
+        "https://www.therunningcompany.com.au/the-shire/",
+        "https://shop.therunningcompany.com.au/products/maurten-solid-160",
+        "https://therunningcompany.com.au/store-locations/"
+      ]
+    },
+    {
+      "name": "Protein King",
+      "based_out_of": "Sydney, Australia",
+      "domain": "proteinking.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops",
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "High protein low carb bars and snacks (Body Science collagen and plant protein bars, Musashi P8 bars) plus protein powders",
+      "channels_supplied": "Its own online shop and its premises at Tepko Road, Terrey Hills",
+      "sf_brands_carried": "Body Science low carb protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Terrey Hills sports nutrition retailer with its own Bars and Snacks collection of other brands' protein bars. Its pages block automated reading, so the range was confirmed from its own product page listings in search results.",
+      "what_they_do_well": [
+        "Publishes its own product reviews of the brands it stocks, such as Musashi and Hammer Nutrition."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://proteinking.com.au/collections/bars-snacks",
+        "https://proteinking.com.au/body-science-collagen-low-carb-protein-bars",
+        "https://manofmany.com/lifestyle/fitness/best-supplement-stores-sydney",
+        "https://proteinking.com.au/products/body-science-high-protein-low-carb-plant-bars"
+      ]
+    },
+    {
+      "name": "VendoSnacks",
+      "based_out_of": "Smeaton Grange, Australia",
+      "domain": "vendosnacks.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Popular snacks, beverages and everyday essentials through vending machines",
+      "channels_supplied": "Offices, warehouses and public sites Sydney wide, with clients including Sydney Airport and Officeworks",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney vending operator that installs machines in workplaces for free and restocks them with snacks based on usage. It sits in tier 3 because its website names no snack brands. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Names Sydney Airport and Officeworks among its clients on its website."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://vendosnacks.com.au/"
+      ]
+    },
+    {
+      "name": "JC Vending Systems",
+      "based_out_of": "Blacktown, Australia",
+      "domain": "jcvendingsystems.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Branded chocolate (Cadbury, Nestle Kit Kat, Twix, Aero, Snickers, M&Ms), lollies (Allens, Skittles), biscuits (Arnott's Tim Tams, Shapes), muesli bars (Go Natural, Uncle Tobys), chips and drinks through its own snack, drink and coffee vending machines",
+      "channels_supplied": "Workplaces across Sydney and the Central Coast, with NSW Health, NSW Police, Transport NSW, Kmart, Australia Post and Toyota logos shown on its website",
+      "sf_brands_carried": "Healthy options including Go Natural bars, Harvest Box nut mixes, vege chips and sugar free kombucha; no sugar-free confectionery brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Western Sydney operator that buys and refills its own machines with branded chocolate, lollies, biscuits and bars, covering five of Diablo's categories. Its healthy options range and large public sector sites suit sugar-free chocolate, biscuits and bars. Storage: headquarters at Forge Street, Blacktown, with satellite operations across Sydney.",
+      "what_they_do_well": [
+        "Serves workplaces with 60 to 6,000 staff, with same-day service across Sydney.",
+        "Runs separate snack, healthy and drink vending sites, showing a broad branded range including vegan and gluten free options."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://jcvendingsystems.com.au/",
+        "https://www.snackvendingsydney.com/",
+        "https://www.healthysnackanddrinkvending.com.au/",
+        "https://www.jcvendingsystems.com/",
+        "https://www.healthyvendingsydney.au/"
+      ]
+    },
+    {
+      "name": "Top Vending Services",
+      "based_out_of": "Marsden Park, Australia",
+      "domain": "topvending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Branded chocolate and sweets (Cadbury, Nestle, Snickers, Mars, Maltesers, Allen's, Skittles, Toblerone, Dove), biscuits (Tim Tam, Arnotts), bars (Go Natural, Musashi) and chips in its own vending machines",
+      "channels_supplied": "Workplaces in Sydney and across Australia through free machine placement",
+      "sf_brands_carried": "Says healthy and specialty snacks can include gluten-free, organic and sugar-free options; no sugar-free brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Western Sydney operator that places, refills and services its own machines and lists a wide range of branded chocolate, lollies, biscuits and bars. It already offers sugar-free snacks on request, a direct opening for Diablo's chocolate and biscuits. Storage: sells from its own stock, warehouse not named on its website (business at Backman Street, Marsden Park).",
+      "what_they_do_well": [
+        "Lists over 25 named snack and confectionery brands for its machines, from Cadbury and Toblerone to Go Natural."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://topvending.com.au/snack-products.html"
+      ]
+    },
+    {
+      "name": "Vending Systems",
+      "based_out_of": "Fairfield East, Australia",
+      "domain": "vending-systems.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Branded chocolate and lollies (Cadbury, Nestle KitKat, M&M's, Starburst, Well Naturally), health and snack bars (Quest, Clif, Emma & Tom's, Carman's), crackers and chips in its own snack, combo and healthy vending machines",
+      "channels_supplied": "Offices, gyms, schools and other workplaces in Sydney",
+      "sf_brands_carried": "Well Naturally (no added sugar chocolate), Quest bars; FoodChecker GREEN rated healthy range",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Sydney operator that refills and services its own machines free of charge, with chocolate, lollies and bars from many brands. It already sells Well Naturally no added sugar chocolate and rates products for healthy vending, so Diablo fits its range directly. Storage: sells from its own stock, warehouse not named on its website (business at Fairfield Street, Fairfield East).",
+      "what_they_do_well": [
+        "Runs a healthy vending range rated GREEN, AMBER or RED through FoodChecker against government health standards."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://vending-systems.com.au/products/",
+        "https://vending-systems.com.au/healthy-vending-machine/"
+      ]
+    },
+    {
+      "name": "Cool Vending",
+      "based_out_of": "Wetherill Park, Australia",
+      "domain": "coolvending.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Branded chocolate and confectionery (Cadbury, Mars, Nestle, Allen's, Mentos), protein bars, chips and drinks in its own vending machines",
+      "channels_supplied": "Offices and workplaces across metropolitan Sydney",
+      "sf_brands_carried": "Healthy options list (protein bars, pretzels, Grain Waves) and sugar free drinks such as Coke No Sugar and Pepsi Max",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney operator that stocks every machine with chips and chocolates from the main brands and offers free stocking. Its healthy options and sugar free drinks lists show demand that Diablo's chocolate, sweets and bars can serve. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Lists Cadbury, Mars, Nestle and Allen's confectionery alongside a separate healthy options list for workplaces."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.coolvending.com.au/vending-machines-for-your-workplace.html",
+        "https://www.yellowpages.com.au/nsw/vending-machines"
+      ]
+    },
+    {
+      "name": "FreeVendingMachines.au",
+      "based_out_of": null,
+      "domain": "freevendingmachines.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Branded chocolate (Cadbury, Mars, Snickers, Twix, Bounty, Kit Kat, Cherry Ripe), muesli and protein bars (Carman's, Roll'd, Sanitarium, Be Natural), biscuits, chips and popcorn in its own vending machines",
+      "channels_supplied": "Workplaces, gyms and schools across Sydney and all Australian states and territories, with over 500 live sites",
+      "sf_brands_carried": "Healthy-only snack lines for schools and gyms (Carman's, Roll'd, Sanitarium bars) and sugar-free drinks",
+      "competing_brand_flag": false,
+      "fit_rationale": "A national free vending programme that installs across Sydney and stocks its machines with branded chocolate, bars and biscuits through its own route drivers. It switches sites to healthy or sugar-free ranges at no cost, a natural slot for Diablo. Head office is not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Reports over 500 live sites, restocked by route drivers using live telemetry."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://freevendingmachines.au/"
+      ]
+    },
+    {
+      "name": "C&C Vending Services",
+      "based_out_of": "Rouse Hill, Australia",
+      "domain": "ccvendingservices.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate bars, lollies, protein bars, chips, popcorn and nuts in its own snack, combo and healthy vending machines",
+      "channels_supplied": "Workplaces, warehouses, schools and gyms across Greater Sydney, the Central Coast and the Blue Mountains",
+      "sf_brands_carried": "Healthy vending machines and school ranges set to school health and food policy; no brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney operator that refills its own fully managed machines with chocolate bars, lollies and protein bars, three of Diablo's categories. Its healthy machines and school ranges suit sugar-free chocolate and bars. Brands stocked are not named on its website. Storage: own warehouse in Rouse Hill.",
+      "what_they_do_well": [
+        "Over 10 years supplying snacks and drinks to Sydney workplaces, with machines alerting it in real time when stock runs low."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://ccvendingservices.com.au/",
+        "https://ccvendingservices.com.au/vending-machine-types/snack-vending-machines/",
+        "https://cbchamber.org.au/member/infoccvendingservices-com-au/",
+        "https://ccvendingservices.com.au/areas-we-service/"
+      ]
+    },
+    {
+      "name": "Vending Is Us",
+      "based_out_of": "Sydney, Australia",
+      "domain": "vendingisus.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Confectionery, chips and nuts, café-style snacks, healthy snacks, fresh meals and drinks in its own vending machines and unattended retail outlets",
+      "channels_supplied": "Sydney workplaces through free vending service and unattended retail outlets",
+      "sf_brands_carried": "Healthy snacks, drinks and meals; no sugar-free brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "An Australian-owned Sydney operator that stocks its own machines with confectionery and snacks, planning restocking with telemetry. Its healthy snacks line suits Diablo's sugar-free sweets and chocolate. Brands stocked are not fully named on its website. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "States more than 25 years as a Sydney vending machine service provider."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://vendingisus.com.au/"
+      ]
+    },
+    {
+      "name": "i Select Vending",
+      "based_out_of": "Mortlake, Australia",
+      "domain": "iselectvending.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Snacks and chocolate in its own snack and combo vending machines, with a super healthy package option",
+      "channels_supplied": "Sydney businesses, with sales and service offices Sydney-wide",
+      "sf_brands_carried": "A super healthy product package; no sugar-free brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A long-standing Sydney operator that replenishes its own machines with snacks and chocolate weekly at no charge to the client. Its healthy package gives Diablo's chocolate and bars a place. Brands stocked are not named on its website. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Over 30 years serving Sydney businesses with vending machines and weekly free replenishment."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://iselectvending.com.au/",
+        "https://www.yellowpages.com.au/nsw/vending-machines"
+      ]
+    },
+    {
+      "name": "Service With A Smile",
+      "based_out_of": "Chipping Norton, Australia",
+      "domain": "servicewithasmile.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Brand name snacks, chips, chocolate and drinks in its own snack, combo and drink vending machines",
+      "channels_supplied": "Businesses across Sydney, with route fillers covering west and south west Sydney",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney operator that replenishes its machines with brand name snacks and chocolate every week and employs its own route fillers. Tier 3 because its website does not name the snack brands it stocks. Storage: sells from its own stock, warehouse not named on its website (business at Childs Road, Chipping Norton).",
+      "what_they_do_well": [
+        "Established around 1991, with over 35 years in the vending industry."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://servicewithasmile.com.au/",
+        "https://servicewithasmile.com.au/vending-machines/",
+        "https://www.studentjobboard.com.au/job/131847/vending-machine-filler-support-maintenance-at-service-with-a-smile-pty-ltd/"
+      ]
+    },
+    {
+      "name": "Royal Vending",
+      "based_out_of": "Sydney, Australia",
+      "domain": "royalvending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Chips, chocolates and confectionery, muesli bars, protein bars, popcorn and baked snacks in its own snack and combo vending machines",
+      "channels_supplied": "Workplaces in Sydney, including Liverpool and the Central Coast, and nationally through its own network",
+      "sf_brands_carried": "Healthy vending range with muesli and protein bars; no sugar-free brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A vending operator serving Sydney that stocks and restocks its free hire machines with chocolates, confectionery and bars through its national network. Tier 3 because its website names neither its head office nor the brands it stocks. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.royalvending.com.au/snack-vending-machines/",
+        "https://www.royalvending.com.au/healthy-vending-machines/",
+        "https://ensun.io/search/vending-machine/australia",
+        "https://www.royalvending.com.au/",
+        "https://www.royalvending.com.au/locations/"
+      ]
+    },
+    {
+      "name": "Bockers & Pony",
+      "based_out_of": "Arndell Park, Sydney, Australia",
+      "domain": "bockersandpony.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate and chocolate gift hampers with other brands (Aury Chocolates, Nina's Belgian chocolates), plus nougat and biscuits (Rinaldi, Baylies, Butterflies) in hampers",
+      "channels_supplied": "Direct to shoppers and corporate buyers through its own online shop, with delivery across Sydney, Melbourne and Australia; previously sold through the Dan Murphy's marketplace",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney gift hamper company with a dedicated corporate gifts service whose chocolate hampers are built from other companies' branded chocolates and biscuits. Diablo's gift boxes, chocolate and biscuits suit its chocolate and corporate hampers. Storage: sells hampers from its own stock, warehouse not named on its website; footer address Arndell Park NSW.",
+      "what_they_do_well": [
+        "Has handcrafted gift hampers since 2004, citing over 20 years' experience."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.bockersandpony.com.au/corporate-gifts",
+        "https://www.bockersandpony.com.au/products/all-hampers",
+        "https://www.danmurphys.com.au/product/DM_ER_1000004270_01-BAP-HAM-GEN-OLOT/bockers-pony-choc-o-lot-hamper"
+      ]
+    },
+    {
+      "name": "Country Culture",
+      "based_out_of": "Alexandria, Sydney, Australia",
+      "domain": "countryculture.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift hampers and single products including chocolates and sweet treats, crackers and nuts from Australian small producers",
+      "channels_supplied": "Corporate gifting for staff and clients (logos include Microsoft, Westpac, Qantas, Lendlease and Atlassian) and direct to shoppers through its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney corporate gift hamper company with a Chocolates and Sweet Treats section and a Sweet Treats hamper range sourced from other businesses. Its large corporate client base gives Diablo's chocolate, biscuits and gift boxes access to staff and client gifting. Storage: dispatches from its Sydney fulfilment centre.",
+      "what_they_do_well": [
+        "Corporate client logos on its website include Microsoft, Westpac, Qantas, Lendlease and Atlassian."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.countryculture.com.au/corporate-gift-hampers",
+        "https://www.countryculture.com.au/"
+      ]
+    },
+    {
+      "name": "Gift Republiq",
+      "based_out_of": "Sydney, Australia",
+      "domain": "giftrepubliq.com",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Gift hampers and gift boxes with branded chocolate (Koko Black), chocolate blocks and caramelised nuts",
+      "channels_supplied": "Corporate gifting with bulk ordering and branding, and direct to shoppers online with delivery to Sydney, Melbourne, Brisbane and Perth",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney founded gift box company that fills its hampers with other companies' branded chocolate such as Koko Black and offers corporate bulk orders. Diablo's chocolate and gift boxes match its chocolate led hampers. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://giftrepubliq.com/"
+      ]
+    },
+    {
+      "name": "Healthy Hampers",
+      "based_out_of": "Australia (head office not stated on its website)",
+      "domain": "healthyhampers.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Healthy gift hampers with branded chocolate (Alter Eco) and biscuits (Gingerbread Folk), plus keto, vegan and gluten free snack hampers",
+      "channels_supplied": "Corporate hampers with corporate discounts and direct to shoppers online, with delivery to Sydney and Australia wide",
+      "sf_brands_carried": "Keto and vegan snack hampers; Alter Eco chocolate",
+      "competing_brand_flag": false,
+      "fit_rationale": "A health focused hamper company with keto, vegan and dietary hampers for corporate and private buyers, which matches Diablo's no added sugar and vegan lines. Tier 3 because its head office and warehouse are not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://healthyhampers.com.au/",
+        "https://healthyhampers.com.au/collections/healthy-gourmet-hampers",
+        "https://healthyhampers.com.au/collections/healthy-hampers-sydney"
+      ]
+    },
+    {
+      "name": "The Fruit Box Group",
+      "based_out_of": "Australia (head office not stated; Sydney distribution centre in Enfield NSW)",
+      "domain": "thefruitboxgroup.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Office snack boxes with bars, popcorn and crisps (Snackwize), plus sweet biscuits and confectionery for office pantries",
+      "channels_supplied": "Workplaces across Sydney, Melbourne, Brisbane, Adelaide and Perth through office snack box, pantry delivery and gifting services",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national workplace food supplier that buys and packs snacks, biscuits and confectionery locally in each state and offers a gifting service. Tier 3 because its website names no snack brands and does not describe its gift range. Storage: five distribution centres, including Enfield in Sydney.",
+      "what_they_do_well": [
+        "Over 20 years in business, with five distribution centres including Enfield in Sydney."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://thefruitboxgroup.com.au/snackwize/",
+        "https://thefruitboxgroup.com.au/pantry-delivery/"
+      ]
+    }
+  ]
+}
