@@ -88,7 +88,7 @@ jobs:
         if: always()
         run: |
           bash .github/scripts/save_changes.sh "Find contacts ($MODE)" mail/pending.json mail/imported.txt \
-            data/apollo_skipped.json data/apollo_kept.json diagnostics/instantly_status.md
+            data/apollo_skipped.json data/apollo_kept.json data/topped_up.json diagnostics/instantly_status.md
 
       - uses: actions/upload-artifact@v6
         if: always()

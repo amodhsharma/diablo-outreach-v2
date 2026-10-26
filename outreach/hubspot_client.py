@@ -31,6 +31,8 @@ def tagged(props):
 
 
 TAG_FILTER = {"propertyName": TAG_PROPERTY, "operator": "EQ", "value": TAG}
+# HubSpot's contact-to-company link types: 1 is the Primary company, 279 the usual unlabelled link.
+PRIMARY_COMPANY, UNLABELLED_COMPANY = 1, 279
 
 
 class TagGuard:
@@ -106,6 +108,16 @@ class TagGuard:
         self._check_tags(from_type, [a for a, _ in pairs], "link")
         self._check_tags(to_type, [b for _, b in pairs], "link")
         self._associate_default(from_type, to_type, pairs)
+
+    def associate_primary_tagged(self, pairs):
+        """Link contacts to a company as their Primary company: [(contact id, company id)]. Both sides
+        must carry the tag (26 Oct 2026)."""
+        pairs = [(str(a), str(b)) for a, b in pairs]
+        if not pairs:
+            return
+        self._check_tags("contacts", [a for a, _ in pairs], "link")
+        self._check_tags("companies", [b for _, b in pairs], "link")
+        self._associate_primary(pairs)
 
 
 class HubSpot(TagGuard):
@@ -275,6 +287,32 @@ class HubSpot(TagGuard):
                 f"/crm/v4/associations/{from_type}/{to_type}/batch/associate/default",
                 json=body,
             )
+
+    def _associate_primary(self, pairs):
+        """pairs: (contact id, company id). Links each contact to its company as its Primary company
+        (HubSpot's "Primary" label, type 1, which fills the contact's Primary company and Company
+        name search), plus the usual unlabelled link (26 Oct 2026)."""
+        for chunk in _chunks(pairs, 100):
+            body = {"inputs": [{"from": {"id": str(a)}, "to": {"id": str(b)}, "types": [
+                {"associationCategory": "HUBSPOT_DEFINED", "associationTypeId": PRIMARY_COMPANY},
+                {"associationCategory": "HUBSPOT_DEFINED", "associationTypeId": UNLABELLED_COMPANY}]}
+                for a, b in chunk]}
+            self.request("POST", "/crm/v4/associations/contacts/companies/batch/create", ok=(200, 201, 207),
+                         json=body)
+
+    def associated_types(self, from_type, to_type, ids):
+        """{from_id: {to_id: {association type IDs}}}, e.g. a contact's companies and which is Primary."""
+        out = {}
+        for chunk in _chunks(list(ids), 100):
+            body = {"inputs": [{"id": str(i)} for i in chunk]}
+            data = self.request("POST", f"/crm/v4/associations/{from_type}/{to_type}/batch/read", ok=(200, 207),
+                                json=body)
+            for row in data.get("results", []):
+                out[str(row["from"]["id"])] = {
+                    str(t["toObjectId"]): {int(x.get("typeId")) for x in t.get("associationTypes") or []
+                                           if x.get("typeId") is not None}
+                    for t in row.get("to", [])}
+        return out
 
     def associated_ids(self, from_type, to_type, ids):
         """Return {from_id: [to_id, ...]}."""

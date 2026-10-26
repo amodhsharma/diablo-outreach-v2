@@ -40,6 +40,7 @@ def no_real_apollo_lists(tmp_path, monkeypatch):
     from outreach import find_contacts
     monkeypatch.setattr(find_contacts, "SKIPPED_FILE", tmp_path / "apollo_skipped.json")
     monkeypatch.setattr(find_contacts, "KEPT_FILE", tmp_path / "apollo_kept.json")
+    monkeypatch.setattr(find_contacts, "TOPPED_FILE", tmp_path / "topped_up.json")
 
 
 @pytest.fixture(autouse=True)

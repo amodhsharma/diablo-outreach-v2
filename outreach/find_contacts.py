@@ -1,7 +1,12 @@
 """Job 3: find contacts at approved companies with Apollo and add them to HubSpot.
 
-Only AUTO-OUTREACH companies whose Lead Status is "GATE1: Approved for outreach" are processed (gate 1),
-and only those with no contacts yet. For each company it looks at everyone Apollo holds there,
+Only AUTO-OUTREACH companies whose Lead Status is "GATE1: Approved for outreach" are processed (gate 1):
+first those with no contacts yet, then (26 Oct 2026, Ariel) those with fewer people than
+contacts.per_company, which get the rest searched for once a month (a company inbox does not count as a
+person; the new people come before it in the Outreach order). Every contact added is linked to its
+company as its Primary company, and every run first fills in any missing Primary company and Company
+name (linking.py). The run's summary page starts with "Out of x companies on GATE 1: ...". For each
+company it looks at everyone Apollo holds there,
 ranks them by seniority (settings: contacts.hierarchy) and keeps up to contacts.per_company
 verified emails, most senior first. Each contact is created with Lead Source AUTO-OUTREACH,
 Lead Status "New" and an Outreach order (1 = most senior). A company where nobody usable is
@@ -26,7 +31,7 @@ import os
 import re
 import sys
 
-from . import apollo_status, company_inbox, hand_tagged
+from . import apollo_status, company_inbox, hand_tagged, linking
 from .job_owner import fill_owners, is_job_company, job_notes, job_owner
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
@@ -34,8 +39,9 @@ import json
 
 from .common import (
     ROOT, PipelineError, channel_of, check_target, clean_domain, load_company_notes, load_settings, market_of,
-    run_dir, write_json,
+    run_dir, step_summary, write_json,
 )
+from .next_in_line import is_company_inbox
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import CONTACT_SOURCE, INBOX_TITLE, LEAD_STATUS, ORDER, SOURCE_APOLLO, SOURCE_WEBSITE
 from .stages import LeadStatus
@@ -108,6 +114,126 @@ def find_people(apollo, domain, seniorities=None, per_page=100):
 SKIPPED_FILE = ROOT / "data" / "apollo_skipped.json"
 # People whose email was revealed and kept as a HubSpot contact: never revealed again either.
 KEPT_FILE = ROOT / "data" / "apollo_kept.json"
+# 26 Oct 2026 (Ariel): companies topped up with more people, by HubSpot company ID, with the month of the
+# last try (e.g. "OCT2026"). A company Apollo had nobody more for is tried again the next month, when the
+# new campaign is made.
+TOPPED_FILE = ROOT / "data" / "topped_up.json"
+GATE1_LIMIT = 2000  # most GATE1 companies read in one run
+
+
+def load_topped(path=None):
+    try:
+        data = json.loads((path or TOPPED_FILE).read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def save_topped(topped, path=None):
+    path = path or TOPPED_FILE
+    if not topped and not path.exists():
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(dict(sorted(topped.items())), indent=1) + "\n", encoding="utf-8")
+
+
+def _month():
+    from .send import month_label
+    return month_label()
+
+
+def _order(contact):
+    try:
+        return int(float(str((contact.get("properties") or {}).get(ORDER))))
+    except (TypeError, ValueError):
+        return 0
+
+
+def _topped_up(hs, cid, name, created, people_have, inboxes_have, first, need, row, cfg, log):
+    """After a top-up: the company inboxes move after the people (by Outreach order), the month is
+    remembered and nothing else about the company changes."""
+    cfg["_topped"][str(cid)] = cfg["_month"]
+    row["contact_ids"] = [str(c["id"]) for c in created]
+    row.update(contacts=len(created), result="topped up" if created else "no more found",
+               had=len(people_have))
+    if created and inboxes_have:
+        after = first + len(created)
+        moves = []
+        for i, inbox in enumerate(sorted(inboxes_have, key=_order), start=after + 1):
+            if _order(inbox) != i:
+                moves.append((inbox["id"], {ORDER: str(i)}))
+        hs.update_tagged("contacts", moves)
+    if created:
+        log(f"{name}: had {len(people_have)} people, {len(created)} more added (wanted {need} more)"
+            + (f"; its company inbox now comes after them" if inboxes_have else ""))
+    else:
+        log(f"{name}: had {len(people_have)} people; Apollo holds nobody more with a verified email, tried again "
+            "next month")
+
+
+def _n(count):
+    return f"{count} compan{'ies' if count != 1 else 'y'}"
+
+
+def _has(count):
+    return "have" if count != 1 else "has"
+
+
+def _names(rows):
+    return ", ".join(r.get("company") or "a company" for r in rows)
+
+
+def gate1_summary(total, rows, full, tried, left, cfg):
+    """The line on button 3's summary page (Ariel, 26 Oct 2026): "Out of x companies on GATE 1, found
+    ..."; every company on GATE1 counted once."""
+    found = [r for r in rows if r.get("contacts")]
+    by_count = {}
+    for r in found:
+        by_count.setdefault(r["contacts"], []).append(r)
+    parts = [f"{n} contact{'s each' if n != 1 else ''} for {len(rs)} compan{'ies' if len(rs) != 1 else 'y'}"
+             for n, rs in sorted(by_count.items(), reverse=True)]
+    topped = sum(1 for r in found if r.get("kind") == "topup")
+    inbox = sum(1 for r in found if r.get("result") == "company inbox added")
+    extra = [x for x in (f"{topped} topped up" if topped else "", f"{inbox} a company inbox" if inbox else "") if x]
+    text = f"Out of {total} companies on GATE 1: "
+    text += ("found " + " and ".join(parts) + (f" ({', '.join(extra)})" if extra else "") + ".") if parts         else "no new contacts found in this run."
+    exists = [r for r in rows if r.get("exists")]
+    nowhere = [r for r in rows if r.get("nowhere")]
+    if exists:
+        text += f" {_n(len(exists))} already {_has(len(exists))} contacts in the CRM: {_names(exists)}."
+    if nowhere:
+        text += (f" {_n(len(nowhere))} had no contacts at any source, might need "
+                 f"manual intervention: {_names(nowhere)}.")
+    lines = [text]
+    no_more = [r for r in rows if r.get("result") == "no more found"]
+    no_site = [r for r in rows if r.get("result") == "no domain"]
+    if full:
+        lines.append(f"- {_n(len(full))} already {_has(len(full))} {cfg['per_company']} people and "
+                     f"{'wait' if len(full) != 1 else 'waits'} for gate 2.")
+    if no_more:
+        lines.append(f"- {_n(len(no_more))} had fewer than {cfg['per_company']} people; Apollo holds nobody more, tried "
+                     f"again next month: {_names(no_more)}.")
+    if tried:
+        lines.append(f"- {_n(len(tried))} {'were' if len(tried) != 1 else 'was'} already topped up this month "
+                     "(tried again next month).")
+    if no_site:
+        lines.append(f"- {_n(len(no_site))} {_has(len(no_site))} no website in HubSpot: {_names(no_site)}.")
+    if left:
+        lines.append(f"- {_n(len(left))} left for the next run ({cfg['companies_per_run']} companies per run).")
+    return "\n".join(lines)
+
+
+def unlinked_summary(hs, contact_ids):
+    """The contacts linked to no company, as links to open in HubSpot (no names or addresses)."""
+    try:
+        portal = hs.portal_id()
+    except Exception:
+        portal = None
+    shown = [f"https://app.hubspot.com/contacts/{portal}/record/0-1/{i}" if portal else f"contact {i}"
+             for i in contact_ids[:30]]
+    more = f" (and {len(contact_ids) - 30} more)" if len(contact_ids) > 30 else ""
+    return (f"{len(contact_ids)} AUTO-OUTREACH contacts are linked to no company and no single AUTO-OUTREACH "
+            f"company has their website, so link them by hand{more}:\n" + "\n".join(f"- {x}" for x in shown))
 
 
 def load_skipped(path=None):
@@ -148,17 +274,37 @@ def run(target, settings, hs, apollo, log=print):
         fill_owners(hs, job_owner(settings), log)
     except Exception as err:
         log(f"Could not give the job owner to records with no owner: {str(err)[:200]}")
+    try:  # 26 Oct 2026 (Ariel): every AUTO-OUTREACH contact has its Primary company and Company name
+        linked_summary = linking.fill_primary(hs, log)
+    except Exception as err:
+        linked_summary = {}
+        log(f"Could not link the contacts to their companies: {str(err)[:200]}")
     cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes(), _owner_names=_owner_names(hs))
     approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")],
-                                COMPANY_PROPS + [apollo_status.STOP_REASON],
-                                max_results=cfg["companies_per_run"] * 3)
-    # Companies that already have their contacts wait for gate 2 and their emails, not for Apollo.
-    # Only AUTO-OUTREACH contacts count (HubSpot may link a team contact by itself).
+                                COMPANY_PROPS + [apollo_status.STOP_REASON], max_results=GATE1_LIMIT)
+    # Only AUTO-OUTREACH contacts count (HubSpot may link a team contact by itself). 26 Oct 2026 (Ariel):
+    # a company with fewer people than contacts.per_company gets the rest searched for (a company inbox
+    # does not count as a person), once a month; new companies go first.
     links = hs.associated_ids("companies", "contacts", [c["id"] for c in approved]) if approved else {}
     linked = sorted({x for xs in links.values() for x in xs})
-    ours = {str(r["id"]) for r in hs.tagged_read("contacts", linked, ["email"])} if linked else set()
-    companies = [c for c in approved if not ours & set(links.get(str(c["id"])) or [])][:cfg["companies_per_run"]]
-    log(f"{len(companies)} approved companies to process")
+    ours = {str(r["id"]): r for r in hs.tagged_read("contacts", linked, ["email", "jobtitle", ORDER])} if linked else {}
+    topped, month = load_topped(), _month()
+    fresh, topup, full, tried = [], [], [], []
+    for c in approved:
+        mine = [ours[x] for x in links.get(str(c["id"])) or [] if x in ours]
+        people = [m for m in mine if not is_company_inbox(m)]
+        if not mine:
+            fresh.append((c, None))
+        elif len(people) >= cfg["per_company"]:
+            full.append(c)
+        elif topped.get(str(c["id"])) == month:
+            tried.append(c)
+        else:
+            topup.append((c, mine))
+    queue = fresh + topup
+    companies, left = queue[:cfg["companies_per_run"]], queue[cfg["companies_per_run"]:]
+    log(f"{len(approved)} companies on GATE1: {len(fresh)} new, {len(topup)} to top up, {len(full)} with their "
+        f"contacts, {len(tried)} already topped up this month; {len(companies)} processed in this run")
     notes = load_company_notes()
     skipped = load_skipped()
     kept = load_skipped(KEPT_FILE)
@@ -168,6 +314,7 @@ def run(target, settings, hs, apollo, log=print):
     # "Outreach contact source" exists only once button 1 has run after 19 Oct 2026; until then the
     # contacts are created without it (company inboxes are still recognised by their job title).
     cfg = dict(cfg, _source_field=bool(companies) and _has_field(hs, CONTACT_SOURCE))
+    cfg = dict(cfg, _topped=topped, _month=month)
     try:
         credits = _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kept, log_rows, log)
     finally:  # whatever happens, never lose the record of who was already paid for
@@ -175,6 +322,14 @@ def run(target, settings, hs, apollo, log=print):
             save_skipped(skipped)
         if len(kept) != before[1]:
             save_skipped(kept, KEPT_FILE)
+        save_topped(topped)
+    done_ids = {r.get("company_id") for r in log_rows}
+    left = [c for c, _ in companies if str(c["id"]) not in done_ids] + [c for c, _ in left]
+    gate1 = gate1_summary(len(approved), log_rows, full, tried, left, cfg)
+    if linked_summary.get("unlinked"):
+        gate1 += "\n\n" + unlinked_summary(hs, linked_summary["unlinked"])
+    step_summary("## Button 3: companies on GATE 1\n\n" + gate1)
+    log(gate1)
     try:  # 23 Oct 2026: "Missing info on Apollo" companies; never stops the run
         apollo_status.tidy(hs, statuses, log)
         summary_apollo = apollo_status.recheck(hs, apollo, statuses, log)
@@ -182,7 +337,8 @@ def run(target, settings, hs, apollo, log=print):
         summary_apollo = {}
         log(f'Could not check the "Missing info on Apollo" companies again: {str(err)[:200]}')
     summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows,
-               "missing_info_on_apollo": summary_apollo}
+               "missing_info_on_apollo": summary_apollo, "gate1": gate1, "linking": {
+                   k: (len(v) if isinstance(v, list) else v) for k, v in linked_summary.items()}}
     write_json(out_dir / "summary.json", summary)
     # The contacts just added, for step 3 of button 3 (agreed 15 Oct 2026): HubSpot's search can
     # take a minute to show new records, so the list of who needs lines adds these by their ID.
@@ -281,7 +437,7 @@ def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=NO
     }
     created = [c for c in _create_contacts(hs, [record], log) if c]
     if created:
-        hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
+        hs.associate_primary_tagged([(c["id"], cid) for c in created])
         log(f"{name}: nobody usable in Apollo; added the website's contact address ({_mask(email)}) instead")
     return created
 
@@ -305,14 +461,21 @@ def _create_contacts(hs, records, log):
 
 
 def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kept, log_rows, log):
+    """companies: [(company, its AUTO-OUTREACH contacts, or None for a company with none yet)]."""
     credits = 0
-    for company in companies:
+    for company, existing in companies:
         cid, p = company["id"], company.get("properties", {})
         name, domain = p.get("name"), clean_domain(p.get("domain"))
-        row = {"company": name, "domain": domain, "contacts": 0}
+        topping = existing is not None  # 26 Oct 2026: the rest of the people at a company with some already
+        people_have = [m for m in existing or [] if not is_company_inbox(m)]
+        inboxes_have = [m for m in existing or [] if is_company_inbox(m)]
+        need = cfg["per_company"] - len(people_have)
+        row = {"company": name, "company_id": str(cid), "domain": domain, "contacts": 0,
+               "kind": "topup" if topping else "new"}
 
         if not domain:
-            hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
+            if not topping:
+                hs.update_tagged("companies", [(cid, statuses.props("companies", "missing_info"))])
             row["result"] = "no domain"
             log_rows.append(row)
             continue
@@ -337,7 +500,7 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
         # Nobody in Apollo at this website: its contact address may use the company's other domain
         # (19 Oct 2026, e.g. comptoir-produits-italiens.fr shows info@cofi.fr). Search Apollo there too.
         inbox_email = NOT_LOOKED
-        if cfg.get("company_inbox_fallback") and not any(x.get("has_email", True) for x in people):
+        if not topping and cfg.get("company_inbox_fallback") and not any(x.get("has_email", True) for x in people):
             inbox_email = company_inbox.find_inbox(domain, name=name)
             other = company_inbox.other_domain(inbox_email, domain)
             if other:
@@ -350,8 +513,8 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
         candidates = [x for x in people if x.get("has_email", True)
                       and x["id"] not in kept and x["id"] not in skipped]
         keep, revealed, batches = [], 0, 0
-        while candidates and len(keep) < cfg["per_company"] and credits < cfg["max_credits_per_run"]:
-            size = min(10, cfg["per_company"] - len(keep),
+        while candidates and len(keep) < need and credits < cfg["max_credits_per_run"]:
+            size = min(10, need - len(keep),
                        cfg.get("max_reveals_per_company", cfg["per_company"]) - revealed,
                        cfg["max_credits_per_run"] - credits)
             if size <= 0:
@@ -362,25 +525,34 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
             revealed += len(batch)
             credits += sum(1 for m in matches if m.get("email"))
             by_id = {m.get("id"): m for m in matches}
+            good = []
             for x in batch:  # keep the seniority order
                 m = by_id.get(x["id"])
                 if m and m.get("email") and (m.get("email_status") or "") in cfg["keep_email_statuses"]:
-                    keep.append(m)
+                    good.append(m)
                 elif m and m.get("email"):
                     skipped[x["id"]] = m.get("email_status") or "unknown"
+            if topping and good:  # 26 Oct 2026: someone already in HubSpot does not count; keep looking
+                there_now = {(r.get("properties", {}).get("email") or "").lower() for r in
+                             hs.batch_read("contacts", [m["email"] for m in good], ["email"], id_property="email")}
+                for m in [m for m in good if m["email"].lower() in there_now]:
+                    skipped[m["id"]] = "already in HubSpot"
+                good = [m for m in good if m["email"].lower() not in there_now]
+            keep.extend(good)
         # Any email already in HubSpot (the team's own contacts included) is never added or changed.
-        existing = {(r.get("properties", {}).get("email") or "").lower()
-                    for r in hs.batch_read("contacts", [m["email"] for m in keep], ["email"], id_property="email")
-                    } if keep else set()
+        existing_emails = {(r.get("properties", {}).get("email") or "").lower()
+                           for r in hs.batch_read("contacts", [m["email"] for m in keep], ["email"], id_property="email")
+                           } if keep else set()
+        first = max([_order(m) for m in people_have] + [len(people_have)])  # new people come after these
         new_contacts, new_ids = [], []
         for m in keep:
             email = m["email"].lower()
-            if email in existing:
+            if email in existing_emails:
                 skipped[m["id"]] = "already in HubSpot"
                 continue
             new_ids.append(m["id"])
             new_contacts.append({
-                ORDER: str(len(new_contacts) + 1),
+                ORDER: str(first + len(new_contacts) + 1),
                 "email": email,
                 "firstname": m.get("first_name") or "",
                 "lastname": m.get("last_name") or "",
@@ -395,20 +567,26 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
         for apollo_id, c in zip(new_ids, made):
             kept[apollo_id] = str(c["id"]) if c else "not added"
         created = [c for c in made if c]
-        if created:
-            hs.associate_tagged("contacts", "companies", [(c["id"], cid) for c in created])
+        if created:  # 26 Oct 2026: as the contacts' Primary company, so a search by company name finds them
+            hs.associate_primary_tagged([(c["id"], cid) for c in created])
+        if topping:
+            _topped_up(hs, cid, name, created, people_have, inboxes_have, first, need, row, cfg, log)
+            log_rows.append(row)
+            continue
         inbox = False
-        in_hubspot = [m["email"].lower() for m in keep if m["email"].lower() in existing]
+        in_hubspot = [m["email"].lower() for m in keep if m["email"].lower() in existing_emails]
         if not created and cfg.get("company_inbox_fallback"):
             created = add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=inbox_email,
                                         place=place_of(p), seen=in_hubspot)
             inbox = bool(created)
         there = apollo_status.existing_contacts(hs, cid, in_hubspot) if not created else []
         if not created and there:  # 26 Oct 2026: only contacts already in HubSpot, not tagged AUTO-OUTREACH
+            row["exists"] = True
             hs.update_tagged("companies", [(cid, apollo_status.exists_props(hs, statuses, there, cfg.get("_owner_names")))])
             log(f"{name}: {len(there)} contact(s) already in HubSpot, not AUTO-OUTREACH; the company is now "
                 '"Contact exists, not AUTO-OUTREACH"')
         elif not created:  # 23 Oct 2026: nobody in Apollo and no usable address anywhere
+            row["nowhere"] = True
             hs.update_tagged("companies", [(cid, apollo_status.nowhere_props(hs, statuses))])
         elif str(p.get(apollo_status.STOP_REASON) or "").startswith(apollo_status.APOLLO_NOBODY) \
                 and apollo_status.has_reason_field(hs):

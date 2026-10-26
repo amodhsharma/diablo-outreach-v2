@@ -122,6 +122,20 @@ class FakeCRM(TagGuard):
         self.notes.append((object_type, str(record_id), text))
         return {"id": f"note{len(self.notes)}"}
 
+    def _associate_primary(self, pairs):
+        self.writes.append(("primary", "contacts", [str(a) for a, _ in pairs]))
+        self.primary = getattr(self, "primary", {})
+        for a, b in pairs:
+            if str(b) not in self.links.setdefault(str(a), []):
+                self.links[str(a)].append(str(b))
+            self.primary[str(a)] = str(b)
+
+    def associated_types(self, from_type, to_type, ids):
+        assert (from_type, to_type) == ("contacts", "companies")
+        primary = getattr(self, "primary", {})
+        return {str(i): {c: ({279, 1} if primary.get(str(i)) == c else {279}) for c in self.links.get(str(i), [])}
+                for i in ids if self.links.get(str(i))}
+
     def associated_ids(self, from_type, to_type, ids):
         if from_type == "companies":  # links are stored contact -> companies
             return {str(i): [c for c, cos in self.links.items() if str(i) in cos] for i in ids}
