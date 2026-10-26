@@ -1,0 +1,239 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-26T06:50:41+00:00",
+  "lines": [
+    {
+      "contact_id": "902008679625",
+      "company_name": "Aldi Switzerland",
+      "personal_line": "Your range, from everyday staples to the weekly shop, reflects a careful choice of products for grocery shoppers in Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "902008586443",
+      "company_name": "Aligro",
+      "personal_line": "We have great respect for the way your team supplies retailers and independent shops in Switzerland. With such established reach across the Aligro and CCA markets, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "902041753845",
+      "company_name": "Anna Wine",
+      "personal_line": "Your team's work in building Anna Wine as a specialist business in Switzerland speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "901927972036",
+      "company_name": "ARB Nutrition",
+      "personal_line": "We hold your team in high regard for the position ARB Nutrition has built in nutrition retail in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "901997112539",
+      "company_name": "Brack",
+      "personal_line": "We have great respect for the way your team serves online shoppers across Switzerland. With such established reach through your online shop, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "902041558248",
+      "company_name": "Choco Diffusion SA",
+      "personal_line": "Your range, from one product family to the next, reflects a careful choice of chocolate products for the Swiss market. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "901888970985",
+      "company_name": "Commerces valaisans de proximitÃ©",
+      "personal_line": "Your team's work in supporting local shops across Valais speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "902008278205",
+      "company_name": "DeinDeal",
+      "personal_line": "We hold your team in high regard for the online shopping business DeinDeal has built in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "902039759044",
+      "company_name": "Galaxus",
+      "personal_line": "We have great respect for the way your team serves online shoppers across Switzerland. With such established reach through Galaxus, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "902010391770",
+      "company_name": "Gladiator Fit",
+      "personal_line": "We hold your team in high regard for the position Gladiator Fit has built among fitness customers in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "902039630033",
+      "company_name": "Globus Supermarkets",
+      "personal_line": "Your range, from everyday favourites to speciality foods, reflects a careful choice of products for Globus shoppers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "901884519660",
+      "company_name": "itema shop",
+      "personal_line": "Your team's work in building itema shop for customers in Switzerland speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "902007995598",
+      "company_name": "Jakob-Markt",
+      "personal_line": "We have great respect for the way your team serves shoppers at Jakob-Markt. With such established reach across your stores, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "902012144882",
+      "company_name": "Menu and More",
+      "personal_line": "We hold your team in high regard for the business Menu and More has built in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "901997233396",
+      "company_name": "Migros Ticino",
+      "personal_line": "Your team's work in serving shoppers across Ticino speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "902008872131",
+      "company_name": "ottos",
+      "personal_line": "Your range, from one department to the next, reflects a careful choice of products for shoppers across Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "902008347845",
+      "company_name": "Puravita",
+      "personal_line": "Your range, from one aisle to the next, reflects a careful choice of products for grocery shoppers in Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "902008074442",
+      "company_name": "Valora Holding",
+      "personal_line": "Your team's work in building the Valora business in Switzerland speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "902008556750",
+      "company_name": "Victoria Apotheke",
+      "personal_line": "We hold your team in high regard for the care Victoria Apotheke offers its pharmacy customers. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "902004922563",
+      "company_name": "Vita Drogerie",
+      "personal_line": "We have great respect for the way your team serves the customers of Vita Drogerie. With such established reach among your regular customers, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "902008679626",
+      "company_name": "Aldi Switzerland",
+      "personal_line": "We have great respect for the way your team serves grocery shoppers across Switzerland. With such established reach across your stores, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "902008586444",
+      "company_name": "Aligro",
+      "personal_line": "Your range, from the Aligro markets to the CCA chain, reflects a careful choice of products for retailers and independent shops. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "901997112538",
+      "company_name": "Brack",
+      "personal_line": "We hold your team in high regard for the position Brack has built in online retail in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "902041558249",
+      "company_name": "Choco Diffusion SA",
+      "personal_line": "Your team's work in building Choco Diffusion in the Swiss chocolate trade speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "901888970986",
+      "company_name": "Commerces valaisans de proximitÃ©",
+      "personal_line": "We hold your team in high regard for the support your team gives local shops across Valais. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "902008278204",
+      "company_name": "DeinDeal",
+      "personal_line": "We have great respect for the way your team serves online shoppers across Switzerland. With such established reach through DeinDeal, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "902039759043",
+      "company_name": "Galaxus",
+      "personal_line": "Your range, from one category to the next, reflects a careful choice of products for online shoppers in Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "902010391769",
+      "company_name": "Gladiator Fit",
+      "personal_line": "Your team's work in serving fitness customers across Switzerland speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "902039630032",
+      "company_name": "Globus Supermarkets",
+      "personal_line": "Your team's work in building Globus as a destination for food shoppers speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "902012144883",
+      "company_name": "Menu and More",
+      "personal_line": "Your range, from one menu to the next, reflects a careful choice of products for your customers in Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "902008872130",
+      "company_name": "ottos",
+      "personal_line": "We hold your team in high regard for the retail business ottos has built across Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "902008074441",
+      "company_name": "Valora Holding",
+      "personal_line": "We have great respect for the way your team serves retail customers across Switzerland. With such established reach across the Valora network, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "902008556749",
+      "company_name": "Victoria Apotheke",
+      "personal_line": "Your range, from everyday care to wellbeing, reflects a careful choice of products for pharmacy customers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    }
+  ]
+}
