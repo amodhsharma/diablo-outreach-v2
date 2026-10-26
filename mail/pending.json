@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T06:42:51+00:00",
+  "generated_at": "2026-10-26T06:50:41+00:00",
   "target": "live",
   "contacts": [
     {
@@ -41,6 +41,42 @@
       }
     },
     {
+      "contact_id": "902041753845",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Anna Wine",
+        "domain": "www.annawine.com",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "901927972036",
+      "job_title": "Marketing",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "ARB Nutrition",
+        "domain": "arbfitness.ch",
+        "location": "Switzerland",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "901997112539",
       "job_title": "Key Account Manager",
       "seniority": "Managers",
@@ -50,6 +86,24 @@
         "domain": "brack.ch",
         "location": "Switzerland",
         "channel": "Online Retailer",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902041558248",
+      "job_title": "Global Marketing Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Choco Diffusion SA",
+        "domain": "choco.ch",
+        "location": "Switzerland",
+        "channel": "",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
@@ -131,6 +185,78 @@
       }
     },
     {
+      "contact_id": "902039630033",
+      "job_title": "Managing Director | Magazine zum Globus AG",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Globus Supermarkets",
+        "domain": "globus.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "901884519660",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "itema shop",
+        "domain": "itemashop.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902007995598",
+      "job_title": "Member of the Executive Board",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Jakob-Markt",
+        "domain": "jakob-markt.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902012144882",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Menu and More",
+        "domain": "menuandmore.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "901997233396",
       "job_title": "CEO",
       "seniority": "Top leadership",
@@ -167,6 +293,24 @@
       }
     },
     {
+      "contact_id": "902008347845",
+      "job_title": "HR-Generalist",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Puravita",
+        "domain": "puravita.ch",
+        "location": "Switzerland",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "902008074442",
       "job_title": "Managing Director Food Service Schweiz",
       "seniority": "Top leadership",
@@ -192,6 +336,24 @@
       "company": {
         "name": "Victoria Apotheke",
         "domain": "victoria-apotheke.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902004922563",
+      "job_title": "Geschäftsführerin, Dipl. Drogistin HF",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vita Drogerie",
+        "domain": "vitadrogerie.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -250,6 +412,24 @@
         "domain": "brack.ch",
         "location": "Switzerland",
         "channel": "Online Retailer",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902041558249",
+      "job_title": "Key Account Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Choco Diffusion SA",
+        "domain": "choco.ch",
+        "location": "Switzerland",
+        "channel": "",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
@@ -322,6 +502,42 @@
         "domain": "gladiatorfit.ch",
         "location": "Switzerland",
         "channel": "Other",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902039630032",
+      "job_title": "Chief Executive Officer",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Globus Supermarkets",
+        "domain": "globus.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902012144883",
+      "job_title": "Head of Operational Processes and Projects / Member of the Executive Board",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "Menu and More",
+        "domain": "menuandmore.ch",
+        "location": "Switzerland",
+        "channel": "",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
