@@ -5507,6 +5507,25 @@
     "research_file": "research/2026-10-26/J0061_2026-10-26_pretoria-south-africa_seasonal-and-gift-shops.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "flowerspe.co.za": {
+    "name": "Flowers PE",
+    "based_out_of": "Gqeberha, South Africa",
+    "market": "Gqeberha, South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Gqeberha florist and gift shop with its own chocolates category of nine branded products and hampers made up daily, so a Diablo gift box or chocolate box fits its seasonal Valentine's, Mother's Day and Christmas gifting. It is small and reaches only shoppers in Nelson Mandela Bay, and it carries no sugar-free range today. Number of shops is one.",
+    "what_they_do_well": [
+      "Makes up hampers daily for same-day collection or delivery across Gqeberha, Despatch and Uitenhage."
+    ],
+    "distributes": "Branded chocolates and gift boxes (Lindt, Ferrero Rocher, Sally Williams nougat), snack boxes, tuck boxes and seasonal Valentine's and Mother's Day hampers, alongside flowers",
+    "channels_supplied": "Its own shop at 43C 4th Avenue, Newton Park, and its online shop, with same-day delivery in Gqeberha, Despatch and Uitenhage",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0063_2026-10-26_gqeberha-south-africa_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "fnqvending.com": {
     "name": "FNQ Vending",
     "based_out_of": "Cairns, Australia",
