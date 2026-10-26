@@ -1,0 +1,1335 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0073",
+  "location": "Australia",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "petrol station and convenience chains",
+      "template": "petrol_convenience",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 8,
+      "searches_used": 39
+    },
+    {
+      "channel": "travel retail",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 31
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 35,
+      "searches_used": 46
+    },
+    {
+      "channel": "diabetic, low sugar and keto shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 42
+    },
+    {
+      "channel": "gluten free and free from shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 9,
+      "searches_used": 38
+    }
+  ],
+  "companies": [
+    {
+      "name": "Ampol (Ampol Foodary)",
+      "based_out_of": "Sydney, Australia",
+      "domain": "ampol.com.au",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate (Cadbury, Kit Kat, Kinder Bueno, Maltesers, Snickers), sweets (The Natural Confectionery Company), bars and cookies alongside chips and snacks in its Foodary convenience shops",
+      "channels_supplied": "Ampol Foodary and U-GO fuel and convenience sites nationally, with Woolworths Everyday Rewards",
+      "sf_brands_carried": "Bounce protein balls (better-for-you); no direct sugar-free competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "Australia's largest fuel and convenience operator with about 1,100 company owned and operated sites after buying EG Australia, so buying is central. Its Foodary snacks page lists chocolate and sweets from many brands and a better-for-you protein ball, which gives Diablo's sugar-free chocolate and sweets a clear shelf.",
+      "what_they_do_well": [
+        "Completed the EG Australia acquisition, giving about 1,100 company owned and operated sites nationally.",
+        "Expanding the Foodary convenience network and rolling U-GO from 46 to 170 sites."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.ampol.com.au/convenience/foodary/snacks",
+        "https://www.ampol.com.au/convenience/foodary",
+        "https://www.ampol.com.au/about-ampol/news-and-media/eg-acquisition-complete"
+      ]
+    },
+    {
+      "name": "Reddy Express (Viva Energy)",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "reddyexpress.com.au",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Chocolate (bars and large blocks), sweets (lollies), salty snacks, bakery treats and groceries in its convenience shops",
+      "channels_supplied": "About 650 Reddy Express fuel and convenience sites nationwide, run by Viva Energy alongside its Shell fuel",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Viva Energy's convenience arm runs about 650 sites nationwide after taking over Coles Express, with central buying. Its in-store range lists chocolate bars, blocks and lollies, so Diablo's chocolate and sweets fit its confectionery shelf directly.",
+      "what_they_do_well": [
+        "Took over and rebranded the former Coles Express network, about 650 sites nationwide."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.reddyexpress.com.au/store",
+        "https://www.reddyexpress.com.au/about",
+        "https://en.wikipedia.org/wiki/Reddy_Express"
+      ]
+    },
+    {
+      "name": "United Petroleum",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "unitedpetroleum.com.au",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Snacks, drinks and everyday groceries in its Quickstop convenience shops, with chocolate and sweets sold as in any convenience store",
+      "channels_supplied": "National network of United service stations and Quickstop convenience shops, with in-store promotions run centrally",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national, 100% Australian owned fuel and convenience network of over 400 sites, still opening new stores in Victoria and Western Australia. Its Quickstop shops sell snacks and groceries and run national promotion cycles, a route for Diablo's chocolate, sweets and bars.",
+      "what_they_do_well": [
+        "Trading since 1993 and 100% Australian owned, with Pie Face in over 250 United stores."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.unitedpetroleum.com.au/whats-in-store/",
+        "https://www.unitedpetroleum.com.au/about-us/",
+        "https://www.c-store.com.au/?p=49559"
+      ]
+    },
+    {
+      "name": "Metro Petroleum (Metro Zone)",
+      "based_out_of": "Auburn, Australia",
+      "domain": "metropetroleum.com.au",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Confectionery, snacks, groceries and drinks in its Metro Zone convenience shops",
+      "channels_supplied": "Over 300 franchised Metro Petroleum fuel and convenience outlets in NSW, Victoria, Queensland and WA, with a supplier trade day",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A franchise network of over 300 outlets run under the Metro Zone convenience format, which lists confections and snacks as core shop categories. Its head office sets the range and holds a supplier trade day for its franchisees, so one listing can reach the whole network.",
+      "what_they_do_well": [
+        "Over 300 Metro Petroleum outlets across NSW, Victoria, Queensland and WA.",
+        "Its Metro Zone convenience format marked ten years in 2025."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://metropetroleum.com.au/metro-zone/",
+        "https://metropetroleum.com.au/about-metro-petroleum/",
+        "https://metropetroleum.com.au/celebrating-10-years-of-metro-zone-convenience/",
+        "https://c-store.com.au/?p=60416"
+      ]
+    },
+    {
+      "name": "Speedway",
+      "based_out_of": "New South Wales, Australia",
+      "domain": "speedway.com.au",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate (choccies), chips, drinks and everyday essentials in its Food Stop convenience shops",
+      "channels_supplied": "50 Speedway service stations in NSW and Victoria, plus Snacks by Speedway delivery on Uber Eats",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent network of 50 service stations in NSW and Victoria, each with a Food Stop convenience shop. It sells chocolate and chips in store and is adding Uber Eats delivery of its snacks range. Head office city not stated on its website.",
+      "what_they_do_well": [
+        "Grown to 50 stations across NSW and Victoria, each with Food Stop convenience and barista coffee."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://speedway.com.au/the-speedway-story/",
+        "https://speedway.com.au/snacks-by-speedway-coming-soon-to-ubereats/"
+      ]
+    },
+    {
+      "name": "APCO",
+      "based_out_of": "Geelong, Australia",
+      "domain": "apco.com.au",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Groceries, snacks and household items in its cafe24-7 convenience shops and IGA X-press grocery stores",
+      "channels_supplied": "27 APCO fuel and convenience stores in Victoria and NSW, eight of them IGA X-press stores",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family owned fuel and convenience retailer with 27 stores in Victoria and NSW and more being built, buying from its Geelong support office. Its IGA X-press sites carry a wider grocery and snack range of other brands. Tier 3 for its small store count.",
+      "what_they_do_well": [
+        "Family owned since 1968, with eight IGA X-press grocery stores on its forecourts."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://apco.com.au/why-apco/our-story",
+        "https://www.c-store.com.au/?p=45490"
+      ]
+    },
+    {
+      "name": "Freedom Fuels",
+      "based_out_of": "Queensland, Australia",
+      "domain": "freedomfuels.com.au",
+      "channel_category": [
+        "petrol station and convenience chains"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Snacks, drinks, food and coffee in its convenience stores, with sweets and chocolate sold as in any convenience store",
+      "channels_supplied": "Freedom service stations and truck stops in Queensland and NSW, with the Friends of Freedom loyalty club",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent fuel retailer whose service stations and truck stops in Queensland and NSW run their own convenience stores, with a loyalty discount on convenience store items. Tier 3 because its website does not show the store count or name its snack brands.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://freedomfuels.com.au/friends-of-freedom/",
+        "https://merchants.letsweel.com/merchants/freedom-fuels"
+      ]
+    },
+    {
+      "name": "Lagardere AWPL",
+      "based_out_of": "Australia",
+      "domain": "lagardereawpl.com",
+      "channel_category": [
+        "travel retail"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate, confectionery and snacks in its Relay travel essentials stores, plus food and beverages, souvenirs and duty free; Whittaker's chocolate concept",
+      "channels_supplied": "Relay, NewsLink, Hub Convenience and Aelia Duty Free stores at Sydney, Brisbane, Perth, Adelaide, Cairns, Canberra, Townsville, Hobart, Launceston and Sunshine Coast airports",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Australia's largest travel retailer, a 50:50 joint venture of Lagardere Travel Retail Pacific and the Australian AWPL, running more than 150 stores across 27 airports in Australia and New Zealand. Its Relay convenience stores sell chocolate, snacks and food from other brands to travellers, a natural home for Diablo's bars, chocolate and gift packs. Note that the wider Lagardere group is already on Diablo's list in other markets.",
+      "what_they_do_well": [
+        "Won the duty free and travel essentials concessions for the new Western Sydney International Airport.",
+        "Partnered with Whittaker's to bring the chocolate brand into its travel essentials stores."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.lagardereawpl.com/en/activities/travel-essentials-0/",
+        "https://www.lagardereawpl.com/en/lagardere-travel-retail-partners-with-iconic-new-zealand-brand-whittaker-s/",
+        "https://moodiedavittreport.com/lagardereawpl-snaps-up-travel-essentials-specialty-business-at-perth-airport/",
+        "https://moodiedavittreport.com/lagardere-travel-retail-pacific-and-awpl-join-forces-in-australasian-joint-venture/",
+        "https://www.futuretravelexperience.com/2026/04/western-sydney-airport-appoints-lagardere-awpl-as-retail-partner-for-duty-free-and-travel-essentials/",
+        "https://www.awpl.com.au/news-travels/"
+      ]
+    },
+    {
+      "name": "WHSmith Australia",
+      "based_out_of": "Australia",
+      "domain": "whsmith.com.au",
+      "channel_category": [
+        "travel retail",
+        "petrol station and convenience chains"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Confectionery, chocolates, chewing gum, lollipops and grab and go snacks, plus food, drink, books and travel accessories",
+      "channels_supplied": "66 stores at Sydney, Melbourne, Perth, Gold Coast and Adelaide airports, Brisbane Central Station and hospitals, under WHSmith, WHSmith FOOD, InMotion and other banners",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "WHSmith runs 66 travel and hospital convenience stores in Australia that sell food, drink and confectionery, including chocolates from Australia and overseas. Its airport and hospital shoppers buy single bars and snack packs, which suits Diablo's chocolate, bars and biscuits, and its website has a supplier enquiries route. The UK parent is already on Diablo's list; this is the Australian business.",
+      "what_they_do_well": [
+        "Runs 66 stores in Australia across major airports, Brisbane Central Station and hospitals."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://whsmith.com.au/",
+        "https://whsmith.com.au/brands/whsmith/",
+        "https://www.goldcoastairport.com.au/shops/whsmith-international",
+        "https://whsmith.com.au/whsmith-australia/",
+        "https://moodiedavittreport.com/?p=385683"
+      ]
+    },
+    {
+      "name": "Heinemann Australia",
+      "based_out_of": "Sydney, Australia",
+      "domain": "heinemann.com.au",
+      "channel_category": [
+        "travel retail"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate and sweets in a Food > Sweets category (Kinder, M&M's, Maltesers, Anthon Berg), alongside spirits, beauty and toys",
+      "channels_supplied": "Five duty free stores at Sydney International, Sydney Domestic T2 and T3, and Gold Coast International and Domestic airports, plus online shop and collect",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Heinemann runs the duty free stores at Sydney and Gold Coast airports and its own Australian web shop has a Food > Sweets category with European chocolate brands such as Kinder and Anthon Berg. Diablo's gift boxes, chocolate and Dubai style chocolate fit its travel gifting shelf. The German parent is already on Diablo's list; this is the Australian shop.",
+      "what_they_do_well": [
+        "Runs duty free at Sydney Airport, including Australia's first department store style duty free at the domestic terminals."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.heinemann.com.au/en/global/services",
+        "https://www.heinemann.com.au/en/global/kinder/kinder-mini-chocolate-460g/p/000000000001313604/",
+        "https://syd.com.au/corporate/planning-and-projects/australias-first-department-store-duty-free-at-t2-t3-domestic"
+      ]
+    },
+    {
+      "name": "Lotte Duty Free Australia",
+      "based_out_of": "Australia",
+      "domain": "lottedutyfree.com.au",
+      "channel_category": [
+        "travel retail"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Chocolate and confectionery (Toblerone, Ferrero Rocher, Milka, chocolate covered macadamias) in a Food section, alongside liquor and beauty",
+      "channels_supplied": "Duty free stores at Brisbane, Melbourne and Darwin international airports and a Sydney CBD store, plus online pre-order",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Lotte Duty Free took over JR/Duty Free's Australian stores and now runs duty free at Brisbane, Melbourne and Darwin airports plus a Sydney city store. Its own web shop has Food, Chocolate and Confectionery collections with European brands such as Milka and Toblerone, where Diablo's chocolate and gift boxes fit.",
+      "what_they_do_well": [
+        "Acquired JR/Duty Free to enter Australia and runs duty free at Melbourne, Brisbane and Darwin airports."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.lottedutyfree.com.au/collections/confectionary/food",
+        "https://www.lottedutyfree.com.au/pages/locations",
+        "https://moodiedavittreport.com/lotte-duty-free-celebrates-australasian-launch-in-brisbane-following-jr-duty-free-acquisition-aims-for-regional-leadership/"
+      ]
+    },
+    {
+      "name": "Elite Supplements",
+      "based_out_of": "Hume, Australia",
+      "domain": "elitesupps.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Protein bars, protein cookies, protein snacks and mug cakes from brands such as EHP Labs, Maxine's, Switch Nutrition, Body Science, Optimum Nutrition and Fibre Boost",
+      "channels_supplied": "Over 160 stores nationwide plus its own online shop",
+      "sf_brands_carried": "Sugar free protein bars category; low carb bars from Switch Nutrition",
+      "competing_brand_flag": false,
+      "fit_rationale": "National sports nutrition chain with more than 160 stores and dedicated protein bar, cookie and snack collections from many other brands. Its sugar free and gluten free bar collections show it already merchandises better-for-you snacks for health-conscious shoppers.",
+      "what_they_do_well": [
+        "Runs more than 160 stores nationwide from its Hume, ACT base, per its own site."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.elitesupps.com.au/collections/protein-bars",
+        "https://www.elitesupps.com.au/collections/protein-cookies",
+        "https://www.elitesupps.com.au/collections/protein-snacks",
+        "https://www.productreview.com.au/c/protein-supplement-retailers"
+      ]
+    },
+    {
+      "name": "Australian Sports Nutrition",
+      "based_out_of": "Australia",
+      "domain": "australiansportsnutrition.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Protein bars, protein cookies, muffins, oat slices and healthy snacks from ATP Science, BSN, Fibre Boost, Lenny and Larry's, Macro Mike, Maxine's, Max's, My Muscle Chef, Quest and Switch Nutrition",
+      "channels_supplied": "34 Australian stores (franchise network) plus its own online shop",
+      "sf_brands_carried": "Low calorie and low carb snack ranges; Maxine's Burn bars and cookies",
+      "competing_brand_flag": false,
+      "fit_rationale": "Franchised sports nutrition chain with 34 stores and a dedicated healthy snacks, bars and drinks category carrying cookies, muffins and bars from many brands. Diablo's cookies, bars and muffins sit naturally beside this range. Head office city not stated on its website.",
+      "what_they_do_well": [
+        "Operates a franchised network of over 30 sports nutrition stores, including Darwin, Cairns and Robina."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.australiansportsnutrition.com.au/shop-by-category/bars-drinks-snacks.html",
+        "https://www.australiansportsnutrition.com.au/pages/store-locator",
+        "https://www.australiansportsnutrition.com.au/collections/protein-cookie"
+      ]
+    },
+    {
+      "name": "Supplement Mart",
+      "based_out_of": "Western Australia, Australia",
+      "domain": "supplementmart.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Protein bars, protein snacks, cookies and spreads from brands including Quest, Body Science, Muscle Nation, Lenny and Larry's, Macro Mike, Maxine's, PB Co., Chief and Musashi",
+      "channels_supplied": "55 stores across WA, VIC, NSW, SA and QLD plus its own online shop",
+      "sf_brands_carried": "Low Carb Emporium keto snacks; Fibre Boost and Maxine's low sugar bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Sports nutrition chain with 55 stores, most in Western Australia, and over 25 bar and snack brands in its protein snacks range. It already stocks keto and better-for-you snack brands. Head office city not stated on its website.",
+      "what_they_do_well": [
+        "Grew to 55 stores across five states, 38 of them in Western Australia."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.supplementmart.com.au/collections/protein-bars",
+        "https://www.supplementmart.com.au/collections/protein-snacks"
+      ]
+    },
+    {
+      "name": "Rebel Sport",
+      "based_out_of": "Rhodes, Australia",
+      "domain": "rebelsport.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Protein bars, energy bars and protein balls from brands such as Body Science, Clif Bar and Quest, in its nutrition and supplements department",
+      "channels_supplied": "159 sporting goods stores across Australia plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Australia's largest sporting goods chain, owned by Super Retail Group, with a Bars and Bites shelf of branded bars from other companies. Its 159 stores give national reach to health-conscious sports shoppers.",
+      "what_they_do_well": [
+        "Absorbed the Amart Sports stores in 2017 to form one national sporting goods brand.",
+        "Operated 159 stores across Australia in 2024."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.rebelsport.com.au/fitness/nutrition-and-supplements/bars-and-bites",
+        "https://en.wikipedia.org/wiki/Rebel_(company)"
+      ]
+    },
+    {
+      "name": "Mr Supplement",
+      "based_out_of": "Australia",
+      "domain": "mrsupplement.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Protein bars, cookies, snacks and a Dubai chocolate bar from ATP Science, Body Science, BSN, International Protein, Lenny and Larry's, Macro Mike, Maxine's, Max's, Musashi and Quest",
+      "channels_supplied": "Brick and mortar stores across Australia plus its own online shop",
+      "sf_brands_carried": "Low carb bars from Body Science; Fibre Boost bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Sports nutrition retailer trading since 2004 with physical stores across Australia and a top 10 protein bars range including cookies and a Dubai style chocolate bar. That Dubai bar shows it already sells a category Diablo makes.",
+      "what_they_do_well": [
+        "Selling supplements since 2004, per its own site."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.mrsupplement.com.au/protein-bars",
+        "https://www.productreview.com.au/c/protein-supplement-retailers"
+      ]
+    },
+    {
+      "name": "Power Supps",
+      "based_out_of": "Cleveland, Australia",
+      "domain": "powersupps.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein bars and protein cookies, including Optimum Nutrition Protein Crunch bars and EQ Food protein cookies, in a snacks category",
+      "channels_supplied": "12 stores in Queensland and northern NSW plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Queensland sports nutrition chain with 12 stores and a snacks category carrying bars and cookies from other brands. A good regional route for Diablo's cookies and bars.",
+      "what_they_do_well": [
+        "Runs 12 stores from Toowoomba to Townsville and Tweed Heads."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://powersupps.com.au/product-category/snacks/protein-bars/",
+        "https://powersupps.com.au/product/eq-food-growth-protein-cookie-box/",
+        "https://powersupps.com.au/product/optimum-nutrition-protein-crunch-bars-box/"
+      ]
+    },
+    {
+      "name": "Elite Health Supplements",
+      "based_out_of": "Newcastle, Australia",
+      "domain": "elitehealthsupplements.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Protein bars, energy bars, protein snacks, keto snacks and a chocolate category with brands such as Tony's Chocolonely, Little Zebra and Vego",
+      "channels_supplied": "Its own online shop, shipping from Newcastle, Maitland, Greenhills and Erina",
+      "sf_brands_carried": "Keto snack and keto cereal categories",
+      "competing_brand_flag": false,
+      "fit_rationale": "Online sports nutrition retailer with its own chocolate category and keto snack range from other brands. Diablo's sugar free chocolate fits its keto and better-for-you shoppers directly.",
+      "what_they_do_well": [
+        "Ships Australia-wide from four NSW locations: Newcastle, Maitland, Greenhills and Erina."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://elitehealthsupplements.com.au/supplements-wollongong/"
+      ]
+    },
+    {
+      "name": "99 Bikes",
+      "based_out_of": "Australia",
+      "domain": "99bikes.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Energy bars, nut butter bars, oat bars and energy chews from Clif Bar, SIS and Maurten",
+      "channels_supplied": "Bike stores in 12 regions across Australia plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "National bike retail chain, part of Pedal Group, with an energy and recovery food shelf of branded bars. Diablo's muesli and cereal bars suit cyclists on its nutrition shelf.",
+      "what_they_do_well": [
+        "Has stores across 12 regions from Perth to Tasmania."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.99bikes.com.au/accessories/nutrition/energy-recovery-food",
+        "https://www.99bikes.com.au/accessories/nutrition"
+      ]
+    },
+    {
+      "name": "Running Warehouse Australia",
+      "based_out_of": "Australia",
+      "domain": "runningwarehouse.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Energy bars category, maple waffles from UnTapped, Clif energy chews and SaltStick energy gummies",
+      "channels_supplied": "Eight running stores in VIC, WA, NSW, QLD and SA plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Running specialist with eight stores in five states and a nutrition department with bars, waffles and gummies from other brands. Head office city not stated on its website.",
+      "what_they_do_well": [
+        "Runs eight stores in Victoria, Western Australia, NSW, Queensland and South Australia."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.runningwarehouse.com.au/Energy_Gels_Chews_Bars__Drinks/catpage-RWNUTRITION.html",
+        "https://www.runningwarehouse.com.au/custservice/"
+      ]
+    },
+    {
+      "name": "Sporty's Warehouse",
+      "based_out_of": "Australia",
+      "domain": "sportyswarehouse.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Protein bars and protein snacks and foods, with brands such as Clif Bar, Power Crunch and Quest Nutrition",
+      "channels_supplied": "Its own sports store and online shop",
+      "sf_brands_carried": "Quest Nutrition low sugar protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Australian owned sports equipment retailer trading for over 40 years with its own protein bars and protein snacks categories. A sports shop with a food shelf, which Diablo has approved as a fit. Store count not stated on its website.",
+      "what_they_do_well": [
+        "Australian owned and trading for over 40 years, per its own site."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.sportyswarehouse.com.au/protein-bars/"
+      ]
+    },
+    {
+      "name": "Paddy Pallin",
+      "based_out_of": "Australia",
+      "domain": "paddypallin.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Energy bars and protein bars from Clif Bar, plus camp food and trail running nutrition",
+      "channels_supplied": "Outdoor stores and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Long-established outdoor and hiking retailer with a camp food and trail nutrition shelf carrying Clif bars. Diablo's muesli bars and chocolate suit hiking snack ranges. Store count not stated on the pages read.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.paddypallin.com.au/clif_bar",
+        "https://www.paddypallin.com.au/equipment/camping/food.html"
+      ]
+    },
+    {
+      "name": "Supplement Dr",
+      "based_out_of": "Augustine Heights, Australia",
+      "domain": "supplementdr.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Protein bars, protein cookies, protein pretzels and jerky from ATP Science, Rule 1, Blessed, Lenny and Larry's, EQ and Redcon1",
+      "channels_supplied": "Its stores (it offers franchises) and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Queensland sports nutrition retailer with a franchise model and a bars and snacks range including cookies from several brands. Store count not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplementdr.com.au/protein-bars-snacks-australia/"
+      ]
+    },
+    {
+      "name": "Supps R Us",
+      "based_out_of": "Australia",
+      "domain": "suppsrus.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 8,
+      "distributes": "Protein bars, protein cookies, healthy snacks, mug cake and powdered peanut butter from Quest, Smart Diet Solutions, Muscle Nation, Switch Nutrition, Optimum Nutrition, My Muscle Chef, EQ Food and Macro Mike",
+      "channels_supplied": "Its own online shop, Australia-wide",
+      "sf_brands_carried": "Low carb sauces from Callowfit and Emporium",
+      "competing_brand_flag": false,
+      "fit_rationale": "Online sports nutrition shop with a large bars, healthy snacks and condiments section covering cookies, peanut butter and sauces from other brands. Diablo's spreads, toppings and cookies all have a natural home here. City of base not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://suppsrus.com.au/collections/protein-bars-healthy-snacks-rtds-condiments",
+        "https://suppsrus.com.au/"
+      ]
+    },
+    {
+      "name": "Bicycle Superstore",
+      "based_out_of": "Victoria, Australia",
+      "domain": "bicyclesuperstore.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 9,
+      "distributes": "Energy bars, nut butter bars, oat bars and energy chews from Clif, SIS, GU and Koda",
+      "channels_supplied": "Five Victorian stores (Carnegie, Mentone, Mornington, Geelong, Nunawading) plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Victorian bike chain with five stores and a cycling nutrition department of branded bars. Diablo's cereal and muesli bars fit its ride food shelf.",
+      "what_they_do_well": [
+        "Runs five stores across Melbourne, Mornington and Geelong."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bicyclesuperstore.com.au/collections/nutrition",
+        "https://www.bicyclesuperstore.com.au/collections/clif"
+      ]
+    },
+    {
+      "name": "Pushys",
+      "based_out_of": "Australia",
+      "domain": "pushys.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 10,
+      "distributes": "Energy bars, protein bites and endurance bars from Maurten, Clif Bar, SIS, GU, Styrkr, Em's Power Bites and High5",
+      "channels_supplied": "Its own online shop plus stores with click and collect",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Online bike retailer with physical stores and a dedicated bars section from seven nutrition brands. Store count and head office city not stated on the page read.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.pushys.com.au/nutrition-and-bodycare/nutrition/bars.html"
+      ]
+    },
+    {
+      "name": "Wicked NRG",
+      "based_out_of": "Yarrawonga, Australia",
+      "domain": "wickednrg.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 11,
+      "distributes": "Healthy snacks and bars from Macro Mike, Fibre Boost, Clif, Chief, YumEarth Organics and Schar, plus health foods",
+      "channels_supplied": "One store in the Darwin area plus its own online shop, Australia-wide",
+      "sf_brands_carried": "YumEarth Organics; Schar gluten free; Fibre Boost bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Darwin's supplement and natural health store with a healthy snacks section of other brands, including organic sweets from YumEarth. It serves both sports and health food shoppers, a good match for Diablo's vegan and sugar free lines.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.wickednrg.com.au/collections/healthy-snacks"
+      ]
+    },
+    {
+      "name": "Mega Vitamins",
+      "based_out_of": "Sydney, Australia",
+      "domain": "megavitamins.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 12,
+      "distributes": "Protein and snack bars, protein chips and faba bean snacks from Kuranda, Quest Nutrition, Go Natural, Bundy's and Human Bean Co, plus a groceries section",
+      "channels_supplied": "Its own online shop, Australia-wide",
+      "sf_brands_carried": "Quest Nutrition; Go Natural snack bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Online health and sports nutrition shop trading for over 10 years with a protein and snack bars collection and a groceries section from other brands. Base inferred from its Sydney business hours; no physical stores stated.",
+      "what_they_do_well": [
+        "Has served Australian shoppers online for over 10 years, per its own site."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.megavitamins.com.au/collections/protein-snack-bars"
+      ]
+    },
+    {
+      "name": "Supplement Wholesalers",
+      "based_out_of": "Guildford, Australia",
+      "domain": "supplementwholesalers.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars, protein cookies, protein wafer bars, lentil chips and Snickers Hi Protein bars from EHP Labs, Body Science, Gams, EQ, Max's, Lenny and Larry's, Maxine's, Macro Mike and Trek",
+      "channels_supplied": "Two Sydney stores (Guildford and Blacktown) plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Small Sydney retailer selling direct to the public with a large snacks, bars and cookies section from many brands, including a mainstream confectionery brand. Tier 3 for its two stores.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.supplementwholesalers.com.au/collections/snack-bar-cookies-1"
+      ]
+    },
+    {
+      "name": "M&M Fitness",
+      "based_out_of": "Australia",
+      "domain": "mmfitness.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Protein bars, protein cookies, pancakes and chips from Fibre Boost, Muscle Nation, ATP Science, Optimum Nutrition, Power Crunch, Max's, EHP Labs, EQ Food and Quest",
+      "channels_supplied": "Its own online shop with in-store pickup",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Online sports nutrition retailer with a protein bars and healthy snacks category of many brands. Tier 3 because its store count and city are not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.mmfitness.com.au/collections/protein-protein-bars-cookies-pancakes-spreads"
+      ]
+    },
+    {
+      "name": "Australian Muscle",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "australianmuscle.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Protein bars and protein cookies from Max's, Maxine's, Macro Mike and Gen-Tec Nutrition",
+      "channels_supplied": "Its Adelaide store and its own online shop, Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Adelaide sports supplement store trading since 1995 with bars and cookies from several brands. Tier 3 for its single-city reach.",
+      "what_they_do_well": [
+        "Adelaide's sports supplement store since 1995, with over 200 products."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.australianmuscle.com.au/"
+      ]
+    },
+    {
+      "name": "Supplements Central",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "supplementscentral.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Protein bars, protein bites, protein snacks and sweets, and food and snacks, with Fibre Boost bars and brands such as Macro Mike, Maxine's and Max's",
+      "channels_supplied": "Its Brisbane outlet and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Brisbane sports supplement outlet of over 15 years with its own protein snacks and sweets category. Tier 3 for its single-city base; store address not stated on its home page.",
+      "what_they_do_well": [
+        "Has served Brisbane as a sports supplement outlet for over 15 years."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplementscentral.com.au/"
+      ]
+    },
+    {
+      "name": "The Supplement Shop",
+      "based_out_of": "Australia",
+      "domain": "thesupplementshop.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Protein bars, protein cookies, protein wafer crisps and protein chips from Quest Nutrition, BNRG Power Crunch and Atkins",
+      "channels_supplied": "Its own online shop, Australia-wide",
+      "sf_brands_carried": "Atkins low carb snacks; Quest Nutrition",
+      "competing_brand_flag": false,
+      "fit_rationale": "Online vitamin and sports nutrition shop with sports bars and protein snacks sections from other brands, including Atkins. Tier 3 because its city and size are not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://thesupplementshop.com.au/collections/sports-bars"
+      ]
+    },
+    {
+      "name": "Supplement City",
+      "based_out_of": "Coorparoo, Australia",
+      "domain": "supplementcity.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Protein bars, protein cookies and protein donuts from ATP Science, EHP Labs, Fibre Boost, Legendary Foods and Lenny and Larry's",
+      "channels_supplied": "One store in Coorparoo, Brisbane, plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Owner-run Brisbane supplement store of about 10 years with a bars and cookies category from several brands. Tier 3 for its single store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.supplementcity.com.au/product-category/protein/protein-bars-cookies/"
+      ]
+    },
+    {
+      "name": "Supp Station",
+      "based_out_of": "Blacktown, Australia",
+      "domain": "suppstation.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Protein bars and snacks category alongside supplements from brands such as Cyborg Sport, JNX Sports and Rapid Supplements",
+      "channels_supplied": "Two Western Sydney stores (Blacktown and Riverstone) plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Western Sydney supplement retailer with a protein bars and snacks category. Tier 3 for its two stores; the bar brands are not named on the page read.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://suppstation.com.au/pages/store-locator"
+      ]
+    },
+    {
+      "name": "Supplement Shack",
+      "based_out_of": "Sandgate, Australia",
+      "domain": "supplementshack.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 8,
+      "distributes": "Snacks, bars and cookies category and protein baking and dessert products, alongside brands such as Macro Mike, Fibre Boost and Happy Way",
+      "channels_supplied": "One store in Sandgate, Brisbane, plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Locally owned Brisbane supplement store with its own snacks, bars and cookies category. Tier 3 for its single store; snack brands are not itemised on its home page.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplementshack.com.au/"
+      ]
+    },
+    {
+      "name": "House of Supplements",
+      "based_out_of": "Morningside, Australia",
+      "domain": "houseofsupplements.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 9,
+      "distributes": "Protein bars and cookies, protein cereal, protein pancakes, protein desserts and peanut butter powder",
+      "channels_supplied": "Its Morningside, Brisbane store and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Brisbane supplement retailer with a protein bars, snacks, foods and drinks department including cookies and desserts. Tier 3 for its single store; brands are not named on the page read.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://houseofsupplements.com.au/location/"
+      ]
+    },
+    {
+      "name": "CBF Supplements",
+      "based_out_of": "Hobart, Australia",
+      "domain": "cbfsupps.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 10,
+      "distributes": "Protein bars and healthy snacks category, alongside supplements from many brands",
+      "channels_supplied": "Its own online shop, Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Tasmanian owned sports nutrition retailer established in 2019 with a snacks and bars category and a wide range of other brands. Tier 3 for its size; bar brands are not named on its home page.",
+      "what_they_do_well": [
+        "Tasmanian owned and operated since 2019."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://cbfsupps.com/"
+      ]
+    },
+    {
+      "name": "Snowys Outdoors",
+      "based_out_of": "Keswick, Australia",
+      "domain": "snowys.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 11,
+      "distributes": "Hiking food and snacks including Offgrid Drifter bars, Clif energy bars and beef jerky",
+      "channels_supplied": "Stores in Keswick (SA) and Brendale (QLD) plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Outdoor and camping retailer with a hiking food and snacks shelf of branded bars. Tier 3 for its two stores and small snack range.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.snowys.com.au/hiking-food"
+      ]
+    },
+    {
+      "name": "Fastgear",
+      "based_out_of": "Sydney, Australia",
+      "domain": "fastgear.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 12,
+      "distributes": "Energy bars, protein bars, vegan gummy energy bars, waffles and energy chews from 226ERS, Clif and SaltStick",
+      "channels_supplied": "Its Sydney store and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Sydney triathlon gear specialist with bars, gummies and waffles categories in its sports nutrition range. Tier 3 for its single store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://fastgear.com.au/shop/"
+      ]
+    },
+    {
+      "name": "The Bike Place",
+      "based_out_of": "Port Kennedy, Australia",
+      "domain": "bikeplace.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 13,
+      "distributes": "Energy bars and food from Blue Dinosaur, Clif, Em's Power Station, High5, PhD, SIS and Hammer",
+      "channels_supplied": "One store in Port Kennedy, WA, plus its own online shop, Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Independent Western Australian bike shop with a broad energy bars and food range from seven brands. Tier 3 for its single store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bikeplace.com.au/nutrition/energy-bars-and-food/"
+      ]
+    },
+    {
+      "name": "Bike Society",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "bikesociety.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 14,
+      "distributes": "Energy bars from SiS and Clif Bar",
+      "channels_supplied": "Two Adelaide stores plus its own online shop for Australia and New Zealand",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Adelaide cycling retailer with a bars section of branded energy bars. Tier 3 for its two stores and small bar range.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bikesociety.com.au/collections/nutrition-care/bars-nutrition"
+      ]
+    },
+    {
+      "name": "The Odd Spoke",
+      "based_out_of": "Dural, Australia",
+      "domain": "theoddspoke.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 15,
+      "distributes": "Energy bars from Clif, Em's, Maurten and Science In Sport",
+      "channels_supplied": "One store in Dural, NSW, plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Independent Sydney bike store with an energy bars range from four brands. Tier 3 for its single store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.theoddspoke.com.au/nutrition/energy-bars/"
+      ]
+    },
+    {
+      "name": "Runners Shop",
+      "based_out_of": "Randwick, Australia",
+      "domain": "runnersshop.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 16,
+      "distributes": "Energy bars from Koda and energy chews from Clif and GU, in an energy snacks and bars category",
+      "channels_supplied": "Stores in Randwick and Killarney Vale, NSW, plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Running specialist with over 46 years of experience and an energy snacks and bars category. Tier 3 for its two stores and small food range.",
+      "what_they_do_well": [
+        "Brings over 46 years of running retail experience, per its own site."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://runnersshop.com.au/collections/energy-gels-powders-bars-etc"
+      ]
+    },
+    {
+      "name": "The Triathlon Store",
+      "based_out_of": "Australia",
+      "domain": "thetriathlonstore.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 17,
+      "distributes": "Energy bars from Maurten and energy chews from GU and Precision Fuel",
+      "channels_supplied": "Its own online shop, Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Online triathlon retailer with a nutrition range including bars. Tier 3 for its small food range; its city is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.thetriathlonstore.com.au/collections/nutrition"
+      ]
+    },
+    {
+      "name": "The Running Shop Australia",
+      "based_out_of": "Burleigh Heads, Australia",
+      "domain": "therunningshop.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 18,
+      "distributes": "Chew bars from Precision Fuel and energy chews from Clif",
+      "channels_supplied": "One store in Burleigh Heads, Gold Coast, plus its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Gold Coast running shop with a small nutrition shelf of branded bars and chews. Tier 3 for its single store and small food range.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.therunningshop.com.au/collections/nutrition"
+      ]
+    },
+    {
+      "name": "Healthy Essentials Australia",
+      "based_out_of": null,
+      "domain": "healthyessentialsaustralia.com.au",
+      "channel_category": [
+        "diabetic, low sugar and keto shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Keto and health snacks from other brands: keto chocolate, keto and protein bars, keto cookies, cake mixes, crackers, drinking chocolate and gift hampers",
+      "channels_supplied": "Own online shop delivering Australia wide",
+      "sf_brands_carried": "Halo Sugar, Little Zebra, Vitawerx, Yours Truly, Locako, Get Ya Yum On, Smart Diet Solutions, Well Naturally, The Monday Food Co",
+      "competing_brand_flag": true,
+      "fit_rationale": "An Australian online health shop with a dedicated keto section that already sells sugar free chocolate, keto bars and keto cookies from many other brands. Diablo's chocolate, biscuits and bars would sit beside Halo Sugar and Vitawerx in that section. Head office city is not stated on its website.",
+      "what_they_do_well": [
+        "Runs a keto collection of over 15 brands, including Halo Sugar, Little Zebra and Yours Truly."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://healthyessentialsaustralia.com.au/collections/keto",
+        "https://healthyessentialsaustralia.com.au/products/halo-sugar-keto-chocolate-85g",
+        "https://getyayumon.com.au/pages/store-locator"
+      ]
+    },
+    {
+      "name": "Prahran Health Foods",
+      "based_out_of": "South Yarra, Australia",
+      "domain": "prahranhealthfoods.com.au",
+      "channel_category": [
+        "diabetic, low sugar and keto shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Health food store with over 7,000 products, including no added sugar chocolate (Well Naturally, Noosa Natural Chocolate Co), snack bars (Smart-Bars) and sugar free foods",
+      "channels_supplied": "One store at 201 Commercial Road, South Yarra, plus phone shopping",
+      "sf_brands_carried": "Well Naturally, Sweet Life, Naturally Sweet",
+      "competing_brand_flag": true,
+      "fit_rationale": "A family run independent health food store that stocks products for sugar free shoppers, with Well Naturally no added sugar chocolate on its brand list. It buys from many brands for its 7,000 product range. Tier 3 because it is a single store.",
+      "what_they_do_well": [
+        "Family run health food store trading for over 25 years in South Yarra.",
+        "Carries over 7,000 products in store."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.prahranhealthfoods.com.au/brands-k-to-z",
+        "https://www.prahranhealthfoods.com.au/contact-us",
+        "https://www.timeout.com/melbourne/shopping/the-best-health-food-stores-in-melbourne"
+      ]
+    },
+    {
+      "name": "The Diabetes Kitchen",
+      "based_out_of": null,
+      "domain": "thediabeteskitchen.com.au",
+      "channel_category": [
+        "diabetic, low sugar and keto shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Diabetic snacks and desserts: low sugar biscuits (SkinnyBiks), chocolate bars and peanut butter cups, protein bars (Atkins)",
+      "channels_supplied": "Own online shop for people living with diabetes",
+      "sf_brands_carried": "SkinnyBiks, Atkins",
+      "competing_brand_flag": true,
+      "fit_rationale": "An Australian online shop built for people with diabetes, with a diabetic snacks and desserts section of biscuits, chocolate and bars from other brands. Diablo's sugar free chocolate and biscuits match this shopper exactly. Tier 3 because its size and head office are not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://thediabeteskitchen.com.au/collections/diabetic-snacks-and-desserts"
+      ]
+    },
+    {
+      "name": "Flannerys Organic & Wholefoods Market",
+      "based_out_of": "Queensland, Australia",
+      "domain": "flannerys.com.au",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Gluten free snacks, chocolate and biscuits from other brands within an organic and wholefood grocery range",
+      "channels_supplied": "12 own stores in Queensland and New South Wales",
+      "sf_brands_carried": "BSKT chocolate, Friends of Frank cookies",
+      "competing_brand_flag": false,
+      "fit_rationale": "A 12 store organic and wholefood chain that promotes its gluten free snack range, naming branded chocolate (BSKT), cookies (Friends of Frank) and snacks from other companies. Its health-conscious, free from shoppers suit Diablo's stevia sweetened chocolate, biscuits and bars.",
+      "what_they_do_well": [
+        "Runs 12 organic and wholefood stores across Queensland and New South Wales, from Maroochydore to Neutral Bay."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://flannerys.com.au/2024/03/our-top-5-gluten-free-snack-picks/"
+      ]
+    },
+    {
+      "name": "Wholefood Merchants",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "wholefoodmerchants.com",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate, sweets, biscuits, cakes and cookies, snack bars and nut butters and fruit spreads, with gluten free and allergy friendly ranges",
+      "channels_supplied": "Large store in Ferntree Gully and its own online shop with Australia-wide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A large health food store with dedicated gluten free and allergy friendly ranges and categories for chocolate, sweets, biscuits and cookies, snack bars and spreads from health brands. Diablo's stevia sweetened ranges suit its free from shoppers in store and online.",
+      "what_they_do_well": [
+        "Over 35,000 products in store and more than 6,000 online, with over 20 years in the health food trade."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://wholefoodmerchants.com/"
+      ]
+    },
+    {
+      "name": "Wholefoods Australia",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "wholefoods.com.au",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Chocolate, biscuits, confectionery and snack bars and spreads, alongside gluten free, dairy free and vegan ranges",
+      "channels_supplied": "Three stores in Brunswick East, Fitzroy and Flemington and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Melbourne organic and health food retailer with three stores and categories for chocolate, biscuits, confectionery, snack bars and spreads, serving gluten free, dairy free and vegan shoppers. Diablo's biscuits, bars and spreads fit these categories.",
+      "what_they_do_well": [
+        "Proudly Melbourne owned organic and health food retailer trading since 1989."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.wholefoods.com.au/"
+      ]
+    },
+    {
+      "name": "Gr8 Health",
+      "based_out_of": "Australia",
+      "domain": "gr8health.com.au",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Gluten free chocolate, vegan confectionery (nougat pralines, marshmallows) and snack bars from other brands",
+      "channels_supplied": "Own online shop with Australia-wide shipping and click and collect",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online health shop whose gluten free food and pantry section lists 335 products, including Vego and Loving Earth chocolate, Dandies marshmallows and Kuranda and Botanika bars. Diablo's chocolate, sweets and bars fit this free from section. Its head office city is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://gr8health.com.au/c/grocery/gluten-free-food-pantry"
+      ]
+    },
+    {
+      "name": "Vive Health",
+      "based_out_of": "Queensland, Australia",
+      "domain": "vivehealth.com.au",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Gluten free crackers and biscuits, chocolates and sweets, snacks, cakes and sweet spreads from other brands",
+      "channels_supplied": "Own online organic supermarket and health food shop serving Australia",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online organic supermarket with a major Gluten Free Foods category covering biscuits, cakes and snacks, plus chocolates and sweets and spreads sections stocking brands such as Loco Love and Thanks Darl. Diablo's biscuits, chocolate and spreads match these sections.",
+      "what_they_do_well": [
+        "Owned and run by qualified naturopaths and nutritionists, with more than 30 years of experience."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vivehealth.com.au/"
+      ]
+    },
+    {
+      "name": "Charlie's Safe Treat Box",
+      "based_out_of": "Australia",
+      "domain": "charliessafetreatbox.com.au",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Allergy friendly lollies and gummies, chocolate and snacks from other brands, plus snack and gift boxes",
+      "channels_supplied": "Own online shop with Australia-wide shipping",
+      "sf_brands_carried": "Koochikoo, YumEarth",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online allergy friendly store selling top 10 allergen free snacks from brands such as YumEarth, Koochikoo and Gummy Rush, packed into snack and gift boxes. Diablo's products would need to meet its allergen free standard, and it is small. Its head office city is not stated on its website.",
+      "what_they_do_well": [
+        "Founded by a parent of a child with multiple life threatening food allergies; every product is free from the top 10 allergens."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.charliessafetreatbox.com.au/"
+      ]
+    },
+    {
+      "name": "The Gluten Free Hub",
+      "based_out_of": "Australia",
+      "domain": "glutenfreehub.com.au",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gluten free biscuits and cookies and protein bars from other brands",
+      "channels_supplied": "Own online shop with Australia-wide shipping",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online gluten free, vegan and organic grocery with a biscuits category and protein bars from brands such as Serious Food Co, Orgran and Morlife. Diablo's biscuits and bars fit its range; it is small and its head office city is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.glutenfreehub.com.au/"
+      ]
+    },
+    {
+      "name": "La Vida Vegan",
+      "based_out_of": "Perth, Australia",
+      "domain": "lavidavegan.com.au",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Vegan chocolate and pralines (95 chocolate products) and groceries from other brands",
+      "channels_supplied": "One store in Subiaco and its own online shop shipping Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A dairy free, 100% vegan grocery with 95 chocolate products from brands such as Vego and Vegolino. Diablo's vegan wafer, cookie, bars and spreads fit its free from shoppers; it is a single store with an online shop.",
+      "what_they_do_well": [
+        "Describes itself as Perth's only 100% vegan grocery store, in Subiaco with Australia-wide online delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.lavidavegan.com.au/"
+      ]
+    },
+    {
+      "name": "Five Vegans",
+      "based_out_of": "Perth, Australia",
+      "domain": "fivevegans.com.au",
+      "channel_category": [
+        "gluten free and free from shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Vegan chocolate bars, chocolate spread, pralines, shortbread biscuits, caramels and marshmallows from other brands",
+      "channels_supplied": "Own online shop shipping across Australia",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online vegan shop where food is the main seller, stocking Vego chocolate and spread, Loco Love shortbread and caramels and Dandies marshmallows. Diablo's vegan cookie, wafer, peanut butters and jams fit; it is small and online only.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.fivevegans.com.au/"
+      ]
+    }
+  ]
+}
