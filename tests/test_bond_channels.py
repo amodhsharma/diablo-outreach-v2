@@ -131,29 +131,32 @@ def test_both_go_to_the_month_campaign_and_only_the_other_channel_gets_the_parag
     assert "<div><b>Why we think our bond would be strong</b><br/>" + UNIHOCKEY_LINE + "</div><div><br></div><div>By way" in filled
 
 
-def test_the_waiting_other_channels_leads_move_into_the_two_campaigns():
+def test_the_other_channels_campaigns_are_deleted_and_their_contacts_go_back_to_gate_2(tmp_path):
+    """Ariel, 26 Oct 2026: delete the new campaigns and put their contacts back on gate 2."""
     hs, instantly, s = _two_companies()
     main = send.campaign_name("Diablo |")
     main_id = instantly.create_campaign({"name": main})["id"]
     other_id = instantly.create_campaign({"name": main + " | Other channels"})["id"]
     inbox_other_id = instantly.create_campaign({"name": main + " | Company inboxes | Other channels"})["id"]
-    instantly.create_campaign({"name": send.inbox_campaign_name("Diablo |", s["send"])})
-    instantly.create_campaign({"name": "TEST | Bond paragraph preview (delete me)"})
-    instantly.leads[other_id] = [{"id": "L1", "email": "buyer@unihockey.example", "custom_variables": {}}]
+    preview_id = instantly.create_campaign({"name": "TEST | Bond paragraph preview (delete me)"})["id"]
+    instantly.leads[other_id] = [{"id": "L1", "email": "buyer@unihockey.example"}]
     instantly.leads[inbox_other_id] = [{"id": "L2", "email": "x@somewhere.example", "timestamp_last_contact": "2026-10-24"}]
-    for cid in list(hs.records["contacts"]):
-        if hs.records["contacts"][cid]["email"] == "buyer@unihockey.example":
-            hs.records["contacts"][cid]["hs_lead_status"] = "ATTEMPTED_TO_CONTACT"
+    uni = next(cid for cid, r in hs.records["contacts"].items() if r["email"] == "buyer@unihockey.example")
+    hs.records["contacts"][uni]["hs_lead_status"] = "ATTEMPTED_TO_CONTACT"
+    notes = tmp_path / "timeline_notes.json"
+    notes.write_text(json.dumps({"queued": [uni, "other"]}))
     from outreach import other_channels
-    assert other_channels.merge(hs, instantly, s, quiet) == {"moved": 0, "kept": 0, "deleted": []}  # no room yet
-    done = other_channels.merge(hs, instantly, _with_paragraph(s), quiet)
-    assert done["moved"] == 1 and done["kept"] == 1
-    assert set(done["deleted"]) == {main + " | Other channels", "TEST | Bond paragraph preview (delete me)"}
-    moved = instantly.leads[main_id][0]
-    assert moved["id"] == "L1"
-    assert moved["custom_variables"]["bond_paragraph"].startswith("<b>Why we think our bond would be strong</b><br/>")
-    assert moved["custom_variables"]["personal_line"] == UNIHOCKEY_LINE  # the full set, not just the paragraph
-    assert instantly.leads[inbox_other_id][0]["id"] == "L2"  # already emailed: never moved
+    done = other_channels.retire(hs, instantly, s, quiet, notes_path=notes)
+    assert done == {"back_to_gate2": 1, "kept": 1, "deleted": [main + " | Other channels"]}
+    assert hs.records["contacts"][uni]["hs_lead_status"] == "APPROVED_TO_SEND"
+    assert other_id not in instantly.campaigns and main_id in instantly.campaigns
+    assert instantly.leads[inbox_other_id][0]["id"] == "L2"  # already emailed: never touched
+    assert preview_id in instantly.campaigns  # kept until the two campaigns have room for the paragraph
+    assert json.loads(notes.read_text())["queued"] == ["other"]  # its "added" note is written again later
+    # Back on GATE2, it waits for the paragraph, then goes to the month's campaign with it.
+    send.run("test", _with_paragraph(s), hs, instantly, log=quiet)
+    assert [l["email"] for l in instantly.leads[main_id]] == ["buyer@unihockey.example", "buyer@beta.example"]
+    assert preview_id not in instantly.campaigns
 
 
 def test_leads_already_waiting_get_an_empty_paragraph_before_the_email_changes():

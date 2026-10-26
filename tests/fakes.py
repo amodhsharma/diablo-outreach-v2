@@ -201,11 +201,10 @@ class FakeInstantly:
                     lead.update(body)
         return {"id": lead_id}
 
-    def move_leads(self, from_campaign_id, to_campaign_id, lead_ids, wait_seconds=600):
-        moving = [l for l in self.leads[from_campaign_id] if l.get("id") in set(lead_ids)]
-        self.leads[from_campaign_id] = [l for l in self.leads[from_campaign_id] if l not in moving]
-        self.leads[to_campaign_id].extend(moving)
-        return {"status": "success"}
+    def delete_lead(self, lead_id):
+        for cid in self.leads:
+            self.leads[cid] = [l for l in self.leads[cid] if l.get("id") != lead_id]
+        return {}
 
     def delete_campaign(self, campaign_id):
         self.campaigns.pop(campaign_id)

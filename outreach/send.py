@@ -53,8 +53,8 @@ def campaign_name(prefix, month=None):
 PERSON, INBOX = "person", "company_inbox"
 # Channels outside our usual ones (23 Oct 2026, config/bond_channels.json) had their own campaigns in
 # October 2026 ("... | Other channels"). Since 26 Oct 2026 (Ariel) there are only two campaigns a month:
-# people, and everything else. Those October campaigns are still recognised so their leads can be
-# moved into the two (other_channels.merge); nothing new is ever added to them.
+# people, and everything else. Those October campaigns are still recognised so they can be retired
+# (other_channels.retire: contacts back on GATE2, campaigns deleted); nothing new is ever added to them.
 PERSON_OTHER, INBOX_OTHER = "person_other", "company_inbox_other"
 KINDS = (PERSON, INBOX, PERSON_OTHER, INBOX_OTHER)
 
@@ -453,9 +453,14 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     if missing_link:
         log(f"WARNING: {missing_link}")
     elif not dry_run:
-        # 26 Oct 2026 (Ariel): two campaigns a month. In this order: the leads waiting in them get their
-        # bond paragraph, then the emails are brought up to date, then the "Other channels" leads move in.
-        from .other_channels import fill_waiting, merge
+        # 26 Oct 2026 (Ariel): two campaigns a month. In this order: the "Other channels" contacts go back
+        # on GATE2 and those campaigns are deleted, the leads waiting in the two get their bond paragraph,
+        # then the emails are brought up to date.
+        from .other_channels import fill_waiting, retire
+        try:
+            retire(hs, instantly, settings, log)
+        except Exception as err:
+            log(f'Could not retire the "Other channels" campaigns: {str(err)[:300]}')
         try:
             fill_waiting(hs, instantly, settings, log)
         except Exception as err:
@@ -463,10 +468,6 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             raise PipelineError("The waiting leads could not be given their bond paragraph, so the campaigns' "
                                 "emails were not changed and nothing was sent. It is tried again at the next run.")
         refresh_campaign_content(instantly, settings, log=log)
-        try:
-            merge(hs, instantly, settings, log)
-        except Exception as err:
-            log(f'Could not move the leads of the "Other channels" campaigns: {str(err)[:300]}')
     contacts = hs.tagged_search("contacts", [statuses.filter("contacts", "approved")], CONTACT_PROPS,
                                 max_results=settings["send"]["contacts_per_run"])
     log(f"{len(contacts)} contacts approved to send")

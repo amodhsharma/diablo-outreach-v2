@@ -1,19 +1,20 @@
 """Two campaigns a month (agreed 26 Oct 2026, Ariel).
 
 From 23 to 26 Oct 2026 channels outside our usual ones were sent from their own campaigns ("Diablo |
-OCT2026 | Other channels" and "Diablo | OCT2026 | Company inboxes | Other channels"). Since 26 Oct
-2026 there are only two campaigns a month: one for people and one for everything else (company
-inboxes), whatever the channel. The bold heading "Why we think our bond would be strong" with the
-personal line travels with each contact as its own bond paragraph instead.
+OCT2026 | Other channels" and "Diablo | OCT2026 | Company inboxes | Other channels"), which were
+never launched. Since 26 Oct 2026 there are only two campaigns a month: one for people and one for
+everything else (company inboxes), whatever the channel. The bold heading "Why we think our bond
+would be strong" with the personal line travels with each contact as its own bond paragraph instead.
 
-Button 4 moves the leads still waiting in an "Other channels" campaign into the matching campaign of
-the two, once that campaign's email has room for the bond paragraph:
-  1. each lead first gets its full set of details again from HubSpot, now with the bond paragraph,
-     while it is still in the campaign that does not send (so nobody gets the email without it);
-  2. then it is moved; a lead Instantly has already emailed is never moved (a moved lead counts as
-     not yet emailed, so it would be emailed twice);
-  3. an "Other channels" campaign left with no leads is deleted, as is the preview campaign.
-Each moved contact gets a note on its HubSpot timeline. Nothing is ever deleted in HubSpot.
+Button 4 retires the "Other channels" campaigns (Ariel, 26 Oct 2026: delete them and put the
+contacts back on gate 2):
+  1. each contact Instantly never emailed goes back to "GATE2: Approved to send" in HubSpot first,
+     so it is never lost; then its lead is deleted from that campaign, so button 4 adds it again to
+     the month's campaign (with its bond paragraph, once that email has room for it);
+  2. a lead Instantly has already emailed is never touched;
+  3. an "Other channels" campaign left with no leads is deleted, and so is the preview campaign
+     once the two campaigns have room for the bond paragraph.
+Each contact gets a note on its HubSpot timeline. Nothing is ever deleted in HubSpot.
 """
 
 import datetime as dt
@@ -21,61 +22,65 @@ import datetime as dt
 from . import bond, timeline
 from .common import load_company_notes
 from .next_in_line import CONTACT_PROPS, COMPANY_PROPS, lead_for, tagged_company_of
+from .stages import LeadStatus
 
 PREVIEW_NAME = "TEST | Bond paragraph preview (delete me)"
 
 
-def merge(hs, instantly, settings, log=print):
-    """Returns {"moved": n, "kept": n, "deleted": [campaign names]}."""
-    from .send import INBOX, PERSON, bond_ready, is_other_campaign, other_suffix, with_bond
-    done = {"moved": 0, "kept": 0, "deleted": []}
-    if not (bond_ready(settings, PERSON) and bond_ready(settings, INBOX)):
-        return done
+def retire(hs, instantly, settings, log=print, notes_path=None):
+    """Returns {"back_to_gate2": n, "kept": n, "deleted": [campaign names]}."""
+    from .send import INBOX, PERSON, bond_ready, is_other_campaign
+    done = {"back_to_gate2": 0, "kept": 0, "deleted": []}
     prefix = settings["sync"]["campaign_prefix"]
-    campaigns = instantly.list_campaigns()
-    ids = {c.get("name"): c["id"] for c in campaigns}
-    notes = load_company_notes()
-    config = bond.load()
-    for camp in campaigns:
+    statuses = LeadStatus(hs)
+    ready = bond_ready(settings, PERSON) and bond_ready(settings, INBOX)
+    for camp in instantly.list_campaigns():
         name = str(camp.get("name") or "")
         if name == PREVIEW_NAME:
-            instantly.delete_campaign(camp["id"])
-            done["deleted"].append(name)
-            log(f"Deleted the preview campaign: {name}")
+            if ready:
+                instantly.delete_campaign(camp["id"])
+                done["deleted"].append(name)
+                log(f"Deleted the preview campaign: {name}")
             continue
         if not (name.startswith(prefix) and is_other_campaign(name)):
             continue
-        target = name[: -len(other_suffix())]
-        target_id = ids.get(target)
-        if not target_id:
-            log(f'{name}: its leads stay for now, as the campaign "{target}" does not exist')
-            continue
         leads = instantly.list_leads(camp["id"])
-        emailed = [l for l in leads if l.get("timestamp_last_contact")]
-        waiting = [l for l in leads if not l.get("timestamp_last_contact") and l.get("email")]
-        ready = _with_details(hs, waiting, notes, config, with_bond, log)
-        for lead_id, variables in ready.values():
-            instantly.update_lead(lead_id, {"custom_variables": variables})
-        if ready:
-            instantly.move_leads(camp["id"], target_id, [lead_id for lead_id, _ in ready.values()])
-            done["moved"] += len(ready)
-            log(f'{name}: {len(ready)} leads not yet emailed moved to "{target}", each with its bond paragraph')
-            try:
-                day = dt.date.today().strftime("%d %b %Y").lstrip("0")
-                timeline.write(hs, [(cid, f'introduction moved to the Instantly campaign "{target}" ({day}); the '
-                                          '"Other channels" campaign it was in had not been launched')
-                                    for cid in ready], log)
-            except Exception as err:
-                log(f"Could not write the timeline notes: {str(err)[:200]}")
-        kept = len(leads) - len(ready)
+        waiting = {l["email"].lower(): l for l in leads if l.get("email") and not l.get("timestamp_last_contact")}
+        contacts = hs.tagged_read("contacts", list(waiting), ["email", "hs_lead_status"], id_property="email") \
+            if waiting else []
+        back = [(c, waiting[(c["properties"].get("email") or "").lower()]) for c in contacts
+                if (c["properties"].get("email") or "").lower() in waiting]
+        if back:
+            hs.update_tagged("contacts", [(c["id"], statuses.props("contacts", "approved")) for c, _ in back])
+            for _, lead in back:
+                instantly.delete_lead(lead["id"])
+            done["back_to_gate2"] += len(back)
+            log(f'{name}: {len(back)} contacts never emailed are back on "GATE2: Approved to send"; button 4 adds '
+                "them to the month's campaign")
+            _note(hs, [c["id"] for c, _ in back], name, log, notes_path)
+        kept = len(leads) - len(back)
         done["kept"] += kept
         if kept:
-            log(f"{name}: {kept} leads stay ({len(emailed)} already emailed, so they are never moved)")
+            log(f"{name}: {kept} leads stay (already emailed, or not found in HubSpot), so the campaign stays")
         else:
             instantly.delete_campaign(camp["id"])
             done["deleted"].append(name)
-            log(f"Deleted the empty campaign: {name}")
+            log(f"Deleted the campaign: {name}")
     return done
+
+
+def _note(hs, contact_ids, name, log, notes_path=None):
+    """A timeline note, and the "added to the campaign" note is written again when it is added anew."""
+    try:
+        day = dt.date.today().strftime("%d %b %Y").lstrip("0")
+        timeline.write(hs, [(cid, f'the "{name}" campaign was never launched, so this introduction was never sent; '
+                                  f'back on GATE2: Approved to send ({day}) for the month\'s campaign') for cid in contact_ids], log)
+        seen = timeline.load(notes_path)
+        if seen.get("queued"):
+            seen["queued"] -= {str(c) for c in contact_ids}
+            timeline.save(seen, notes_path)
+    except Exception as err:
+        log(f"Could not write the timeline notes: {str(err)[:200]}")
 
 
 def fill_waiting(hs, instantly, settings, log=print):
@@ -124,5 +129,5 @@ def _with_details(hs, leads, notes, config, with_bond, log):
         out[str(c["id"])] = (lead["id"], fresh["custom_variables"])
     missing = len(by_email) - len(out)
     if missing:
-        log(f"{missing} leads not moved: their contact or company could not be read in HubSpot")
+        log(f"{missing} leads not given their bond paragraph: their contact or company could not be read in HubSpot")
     return out
