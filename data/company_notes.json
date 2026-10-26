@@ -396,6 +396,26 @@
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
   },
+  "allaboutvending.com.au": {
+    "name": "All About Vending (VIC)",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "An independent Melbourne unattended retail operator trading since 2008 that runs a healthy vending programme with traffic light labels, better for you stickers and sugar-free options across bars, chocolate and biscuits. Diablo sugar-free chocolate and biscuits match that programme directly. Storage: sells from its own stock in its machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Delivering convenience in Melbourne since 2008.",
+      "Runs a healthy vending programme with traffic light labelling and better for you stickers."
+    ],
+    "distributes": "Snack vending with healthy bars, chocolate, snacks, biscuits and sugar-free options, plus Asian snacks and fresh food vending",
+    "channels_supplied": "Independent unattended retail operator placing and restocking machines at Melbourne sites",
+    "sf_brands_carried": "Sugar-free options and Better for you stickers in its healthy range; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "allegro.ie": {
     "name": "Allegro",
     "based_out_of": "Dublin, Ireland",
@@ -2126,6 +2146,23 @@
     "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "bogong.com.au": {
+    "name": "Bogong Equipment",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Melbourne CBD outdoor shop with its own energy bars category of 14 products from other brands. It is a single store, hence tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Outdoor and hiking equipment with a camping food section: energy bars from Clif, Skratch Labs and Em's Power Bars",
+    "channels_supplied": "Its store at 374 Little Bourke Street, Melbourne, and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "bolay.swiss": {
     "name": "Bolay SA",
     "based_out_of": "Gland, Switzerland",
@@ -2987,6 +3024,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "ceresfairfood.org.au": {
+    "name": "CERES Fair Food",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Melbourne not-for-profit online grocer whose own shop has chocolate, snacks and treats, and biscuits and cakes categories filled with other companies' brands. Its health-minded organic shoppers suit Diablo's vegan muesli bars, peanut butters and jams and its no-added-sugar chocolate. It runs its own Fair Food warehouse and next-day delivery.",
+    "what_they_do_well": [
+      "Sources from nearly 200 organic growers and makers for its Melbourne home deliveries.",
+      "All profits go to CERES, a registered charity growing organic food."
+    ],
+    "distributes": "Organic groceries including chocolate (Atypic, Cocoa Rhapsody, Daintree Estates, Koko Black, Monsieur Truffe), biscuits, cakes and muffins (Dench), granola bars (Adelia), marshmallows and savoury snacks",
+    "channels_supplied": "Online grocery with home delivery to Melbourne households",
+    "sf_brands_carried": "The Carob Kitchen carob bars with no added sugar; no direct sugar-free confectionery competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
   },
   "changemaker.ch": {
     "name": "Changemaker",
@@ -4144,6 +4200,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "decathlon.com.au": {
+    "name": "Decathlon Australia",
+    "based_out_of": "Australia",
+    "market": "Melbourne, Australia",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops",
+      "retailers"
+    ],
+    "fit_rationale": "A big box sports chain with Melbourne stores and its own protein bars and snacks category stocked with other brands. Diablo's muesli and cereal bars suit the health-conscious shoppers it already serves.",
+    "what_they_do_well": [
+      "Opened two Melbourne stores, in Box Hill South and Knoxfield, in east Melbourne."
+    ],
+    "distributes": "Sports equipment with a protein bars and snacks section: protein bars and low carb bars from Body Science, Carman's and Optimum Nutrition",
+    "channels_supplied": "Own stores in Melbourne (Box Hill South and Knoxfield among them) and its own online shop",
+    "sf_brands_carried": "Low carb, high protein bars (Body Science High Protein Low Carb Bar)",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
   },
   "deliciousbuds.com.au": {
     "name": "Delicious Buds",
@@ -5497,6 +5572,25 @@
     "research_file": "research/2026-10-26/J0073_2026-10-26_australia_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "feelbetterbox.com.au": {
+    "name": "Feel Better Box",
+    "based_out_of": "Mentone East, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Melbourne care package and gift box company that fills its boxes with other brands' bars, slices, chocolate and sweets, including better-for-you bars, which suits Diablo's bars, cookies and vegan lines. Storage: ships its own stock from Melbourne; warehouse not named on its website.",
+    "what_they_do_well": [
+      "Builds themed care packages, including vegan and children's well-being boxes, from Australian snack brands."
+    ],
+    "distributes": "Care packages and gift boxes with snacks, bars and sweets: Springhill Farm slices, Koja peanut protein bars, Grounded Pleasures drinking chocolate and marshmallows, hot chocolate and cookies boxes",
+    "channels_supplied": "Direct to shoppers online, shipped from Melbourne Australia wide, with a corporate section",
+    "sf_brands_carried": "Koja natural peanut protein bars; vegan care packages",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "felfel.ch": {
     "name": "FELFEL",
     "based_out_of": "Zurich, Switzerland",
@@ -6568,6 +6662,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "gifthampersmelbourne.com.au": {
+    "name": "Gift Hampers Melbourne",
+    "based_out_of": "Dandenong South, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Melbourne hamper company whose own shop sells many branded chocolates, lollies, biscuits and wafers from other brands, both in hampers and as add-ons, and already runs keto and vegan hampers where Diablo's no added sugar lines fit. Its corporate bulk service with in-house branding reaches many businesses. Storage: sells from its own stock, listed at 20 Volt Circuit, Dandenong South; warehouse not named on its website.",
+    "what_they_do_well": [
+      "Offers bulk corporate orders with a dedicated account manager and in-house designers for branded hampers.",
+      "Same day delivery across metro Melbourne."
+    ],
+    "distributes": "Gift hampers and a 134 item sweet extras range: chocolate (Ferrero Rocher, Toblerone, Lindt, Darrell Lea, Chocolatier), lollies and fudge, nougat, biscuits and cookies (Byron Bay Cookies, Charlie's Cookies, shortbread) and wafers (Ceres Organics)",
+    "channels_supplied": "Direct to shoppers through its online shop and to businesses through bulk corporate orders with an account manager; same day Melbourne metro delivery and next day delivery Australia wide",
+    "sf_brands_carried": "Vegan, gluten free and keto gift hampers; Ceres Organics. No direct sugar free competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "gifthampersonline.co.za": {
@@ -12231,6 +12345,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0076_2026-10-26_australia_hotel-minibar-suppliers-snack-subscription-boxes-promotional-merchandise-compani.json"
   },
+  "personallypicked.com.au": {
+    "name": "PersonallyPicked",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Melbourne gift box company whose product pages list branded chocolate, sweets and snacks from other brands that customers pick into personalised boxes. It is in tier 3 because its website blocks automated reading, so the range was confirmed from its indexed product pages and press, and corporate gifting is not stated on what could be read.",
+    "what_they_do_well": [
+      "Prints the recipient's name on its packaging and lets buyers build their own box from its range."
+    ],
+    "distributes": "Build your own gift boxes, including chocolate (Lindt Lindor, Koko Black blocks), sweets (SugarStack) and snacks (popcorn, honeycomb, nuts)",
+    "channels_supplied": "Direct to shoppers online with same day delivery in metro Melbourne and shipping Australia wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "the website address no longer exists"
+  },
   "perthhealth.com.au": {
     "name": "Perth Health",
     "based_out_of": "Balcatta, Australia",
@@ -12958,6 +13091,26 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "purelygourmet.com.au": {
+    "name": "Purely Gourmet",
+    "based_out_of": "Keysborough, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A family run Melbourne hamper company with a dedicated chocolate and sweet hamper range built from other brands' chocolate and biscuits, sold to corporate teams and shoppers. Sales offices in Sydney, Brisbane and Adelaide widen its reach beyond Melbourne. Storage: purpose-built fulfilment warehouse at Naxos Way, Keysborough.",
+    "what_they_do_well": [
+      "Runs a purpose-built fulfilment warehouse in Keysborough with sales offices in four capital cities.",
+      "Same day hamper delivery in Melbourne."
+    ],
+    "distributes": "Gift hampers including chocolate and sweet hampers, Easter chocolate hampers and biscuits from brands such as Byron Bay Cookie Company and Charlie's Fine Food Co., with Mischief chocolates",
+    "channels_supplied": "Direct to shoppers online with same day Melbourne delivery, and corporate and custom branded hampers for HR teams, real estate, law and financial firms",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "pushys.com.au": {
     "name": "Pushys",
@@ -14254,6 +14407,26 @@
     "research_file": "research/2026-10-20/J0003_2026-10-20_bern-switzerland_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "signedsealeddelivered.com.au": {
+    "name": "Signed Sealed Delivered",
+    "based_out_of": "Chelsea Heights, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Melbourne hamper company trading since 2008 that builds hampers from other brands and sells branded chocolate boxes, with a corporate gifting service. It already runs dietary ranges (gluten free), so a no added sugar hamper fits its offer. Storage: its own premises and warehouse, address not given on its website.",
+    "what_they_do_well": [
+      "Crafting gift hampers since 2008, grown from a home business into its own warehouse.",
+      "Handles large staff gifting orders of 200 or more."
+    ],
+    "distributes": "Gift hampers with chocolate and snacks, including chocolate hampers and branded chocolate boxes (Charlotte Piper, Chocolatier), gluten free snack hampers and Christmas gifts",
+    "channels_supplied": "Direct to shoppers online and corporate gifting for businesses, including staff gifting for groups of 200 or more",
+    "sf_brands_carried": "Gluten free hampers; no sugar free range seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "simonesansgluten.ch": {
     "name": "Simone Sans Gluten",
     "based_out_of": "Sierre, Switzerland",
@@ -14543,6 +14716,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0060_2026-10-26_pretoria-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli-2.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "somvending.com.au": {
+    "name": "SOM Vending",
+    "based_out_of": "Epping, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "SOM Vending supplies machines free, then services and restocks them itself with branded chocolates, protein bars and cookies across metro Melbourne and regional Victoria. Diablo bars and cookies add a sugar-free choice to an existing confectionery slot. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Covers all of metro and regional Victoria plus Western Australia with free delivery, servicing and restocking."
+    ],
+    "distributes": "Confectionery including chocolates, protein bars and sweet treats, cookies, chips, instant noodles, soft drinks and energy drinks",
+    "channels_supplied": "Free vending machines delivered, serviced and restocked for businesses in metro and regional Victoria and Western Australia",
+    "sf_brands_carried": "Diet cola; no sugar-free confectionery brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "spargeorgia.com": {
     "name": "SPAR Georgia (JSC Foodmart)",
@@ -16408,6 +16600,25 @@
     "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "tukr.com.au": {
+    "name": "Tukr Snacks",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A dietitian-owned office snack box business that curates more than 100 brands of bars, chocolate and cookies for workplaces, a natural home for Diablo's sugar-free bars and biscuits. It is small and its head office address is not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Listed as a snack supplier on both the eCater and EatFirst workplace catering platforms."
+    ],
+    "distributes": "Office and team snack boxes of other brands: bars (Clif Bar, Bounce), chocolate (Loving Earth), cookies (Byron Bay Cookie Company), chips, popcorn, nuts and jerky",
+    "channels_supplied": "Offices and teams across Australian metro areas with free delivery, bulk orders, and through the eCater and EatFirst catering platforms",
+    "sf_brands_carried": "Better-for-you brands such as Loving Earth, Ceres Organics, Health Lab and Blue Dinosaur; no direct Diablo competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "turkishgrandbazaar.co.za": {
     "name": "Turkish Grand Bazaar",
     "based_out_of": "Cape Town, South Africa",
@@ -16841,6 +17052,45 @@
     "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "venda.au": {
+    "name": "Venda Group",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Venda owns, installs, stocks and services its machines from Keilor East and earns its margin from product sales, so it buys the snacks it sells. It reports more than 1,000 clients and runs a healthy snack machine line where Diablo bars and chocolate suit hospital and workplace healthy eating rules. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Reports more than 1,000 clients and stocks machines using real time sales telemetry.",
+      "Launched a free vending machine service for Victorian workplaces."
+    ],
+    "distributes": "Confectionery, protein bars, healthy snacks (protein and nuts), drinks, coffee, ice cream and fresh meals sold through its own vending machines",
+    "channels_supplied": "Free vending at workplaces, industrial sites, hospitals, schools, universities, sports complexes, airports, train stations and convention centres in Melbourne",
+    "sf_brands_carried": "Healthy vending range with protein bars; no sugar-free brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "vendable.com.au": {
+    "name": "Vendable Vending Co",
+    "based_out_of": "South Morang, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "An independent Melbourne operator that supplies, installs, stocks and maintains its machines, rotating over 200 products including Cadbury, Nestle and Arnott's chocolate, lollies and biscuits. Its healthy, vegan and gluten-free rotation is a natural slot for Diablo bars and vegan wafers. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Rotates over 200 products, including healthy, vegan and gluten-free lines, with remote monitoring and 24/7 technical support."
+    ],
+    "distributes": "Chocolate and lollies (Cadbury, Nestle, Starburst), biscuits (Arnott's), chips, nuts and healthy snacks (Musashi), soft drinks and coffee in its own vending machines",
+    "channels_supplied": "Free vending machines supplied, stocked and maintained at client premises across Melbourne",
+    "sf_brands_carried": "Healthy, vegan and gluten-free options among 200+ products; Musashi protein; no sugar-free confectionery brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "vendco.co.za": {
     "name": "The Vending Company",
     "based_out_of": "South Africa",
@@ -17083,6 +17333,26 @@
     "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "vendlink.com.au": {
+    "name": "Vendlink",
+    "based_out_of": "Craigieburn, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Vendlink installs vending machines free and handles restocking and maintenance, and its product list carries a wide branded range of chocolate, lollies, biscuits and Loacker wafers, including European brands. Diablo chocolate bars, wafers and cookies fit straight into this mix as a lower sugar choice. Storage: sells from its own stock, warehouse not named on its website; reach in machines is not stated on its website.",
+    "what_they_do_well": [
+      "Publishes a broad branded range including Loacker wafers, Kinder Bueno and Future Bake cookies.",
+      "Offers free installation, maintenance and restocking for Melbourne offices."
+    ],
+    "distributes": "Chocolate and chocolate bars (Cadbury, Kinder Bueno, Mars, Snickers, Kit Kat), lollies (Allen's, The Natural Confectionery Co.), biscuits and cookies (Arnott's Tim Tams, Wagon Wheels, Future Bake, Loacker wafers), chips and drinks",
+    "channels_supplied": "Vending machines at offices, schools, hospitals, motels and community centres in Melbourne",
+    "sf_brands_carried": "No sugar-free confectionery named; diet and no sugar soft drinks",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "vendordistribuciones.com.ar": {
     "name": "Vendor Distribuciones",
     "based_out_of": "Córdoba, Argentina",
@@ -17142,6 +17412,26 @@
     "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "vendrhq.com.au": {
+    "name": "VendrHQ",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Melbourne based, family-owned operator that supplies, installs and restocks its own machines on a seven day cycle, filled with branded chocolate, cookies and protein snacks. With 300+ units across Melbourne sites it can put Diablo bars and cookies in front of health-conscious workers. Storage: buys and holds its own stock to restock its fleet, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Runs over 300 machines across Melbourne with a seven day restock cycle.",
+      "Serves named clients including Australia Post, DHL, Tesla, Yarra Trams and the Victorian Government."
+    ],
+    "distributes": "Chocolate and confectionery (Cadbury, Mars, Nestle), cookies (Future Bake), protein snacks and bars (Muscle Nation), chips and snacks, drinks and ready meals in its own vending machines",
+    "channels_supplied": "Free placement vending at workplaces, schools, hospitals, airports and industrial sites across Melbourne; named clients include Australia Post, DHL, Yarra Trams and the Victorian Government",
+    "sf_brands_carried": "Protein and better-for-you lines such as Muscle Nation, My Muscle Chef and Sanitarium; no sugar-free confectionery brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "vendteccapetown.co.za": {
     "name": "Vendtec Cape Town",
     "based_out_of": "Cape Town, South Africa",
@@ -17162,6 +17452,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "vendworks.com.au": {
+    "name": "VendWorks",
+    "based_out_of": "Seaford, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Melbourne smart vending operator whose fully managed machines carry chocolate, lollies and protein snacks, with low-sugar and plant-based options for healthy eating sites. A client credits it with meeting Victorian Government Healthy Eating Guidelines, where Diablo sugar-free sweets and bars help. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Helped a client implement Victorian Government Healthy Eating Guidelines in its vending."
+    ],
+    "distributes": "Chocolate, lollies, chips and snack packs, protein snacks, drinks and fresh food in fully managed vending machines",
+    "channels_supplied": "Warehouses, manufacturing sites, gyms, offices, hotels, hospitals, education, government, retail centres and apartment complexes in Melbourne",
+    "sf_brands_carried": "Low-sugar, high-protein and plant-based options; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0079_2026-10-27_melbourne-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "verbund.edeka": {
     "name": "EDEKA Nordbayern-Sachsen-Thueringen",
