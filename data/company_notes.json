@@ -10574,6 +10574,26 @@
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "mycandies.co.za": {
+    "name": "MyCandies",
+    "based_out_of": "South Africa (city not stated on its website)",
+    "market": "East London, South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A family-run online candy gifting shop selling other brands' gummies and jelly sweets in seasonal gift boxes, which matches Diablo's gummies and gifting lines. It is small and its range is narrow, and it does not state its home city, hence tier 3.",
+    "what_they_do_well": [
+      "Runs seasonal gifting ranges for Festive, Valentine's, Easter and year end.",
+      "Offers personalised candy gift boxes and tubs for companies and events."
+    ],
+    "distributes": "Gummies and jelly sweets, jelly beans, lollipops and personalised candy gift boxes and tubs, with Festive, Valentine's, Easter and year end gifting ranges; brands include Kings Gummies and Yummy Gummy",
+    "channels_supplied": "Own online shop delivering throughout South Africa, including the Eastern Cape, to shoppers and companies ordering gifts",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0067_2026-10-27_east-london-south-africa_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "myfoodbox.ch": {
     "name": "myfoodbox",
     "based_out_of": "Huenenberg, Switzerland",
