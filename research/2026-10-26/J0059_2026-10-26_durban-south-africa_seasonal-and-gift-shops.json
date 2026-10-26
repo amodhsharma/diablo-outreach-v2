@@ -1,0 +1,68 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0059",
+  "location": "Durban, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 44
+    }
+  ],
+  "companies": [
+    {
+      "name": "Burgess Florist",
+      "based_out_of": "Westville, Durban, South Africa",
+      "domain": "burgessflorist.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift hampers and seasonal Easter and Christmas hampers with branded chocolate (Lindt, Lindor, Ferrero Rocher boxes), plus chocolate gift extras and snack baskets",
+      "channels_supplied": "Its Westville shop and own online shop, delivering across Durban including Umlazi and Isipingo",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Durban gift shop with a hamper department of 43 hampers and seasonal Easter and Christmas ranges, selling Lindt and Ferrero Rocher boxes as gift extras. It buys branded chocolate to resell in seasonal gifts, which fits Diablo's gift boxes and chocolate boxes. Tier 3 because it is a single Westville shop.",
+      "what_they_do_well": [
+        "Runs seasonal ranges for Easter, Christmas, Valentine's, Mother's Day and Father's Day with branded Lindt and Ferrero hampers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.burgessflorist.co.za/product-category/easter/",
+        "https://www.burgessflorist.co.za/",
+        "https://westville.infoisinfo.co.za/card/burgess-florist-in-westville/428257"
+      ]
+    },
+    {
+      "name": "Gift Hampers Online",
+      "based_out_of": "Pietermaritzburg, South Africa",
+      "domain": "gifthampersonline.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gift and corporate hampers with branded biscuits (Angel biscuits), sweets (Almond Roca), shortbread, nougat, fudge and chocolate",
+      "channels_supplied": "Its own online shop with free delivery in Pietermaritzburg and courier delivery anywhere in South Africa",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "KwaZulu-Natal hamper business that buys products from other companies and sells them in occasion and corporate hampers, including branded biscuits and sweets. It couriers across South Africa, including Durban. Tier 3 because it is small and owner-run.",
+      "what_they_do_well": [
+        "Trading since May 2017, with the owner personally sourcing hamper products from local businesses."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.gifthampersonline.co.za/",
+        "https://www.connectingkzn.co.za/businesses/gift-hampers-online/"
+      ]
+    }
+  ]
+}
