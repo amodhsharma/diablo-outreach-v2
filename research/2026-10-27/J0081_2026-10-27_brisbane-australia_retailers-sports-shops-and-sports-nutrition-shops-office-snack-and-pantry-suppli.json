@@ -1,0 +1,798 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0081",
+  "location": "Brisbane, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 20
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 27
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 12,
+      "searches_used": 28
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 11,
+      "searches_used": 31
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 8,
+      "searches_used": 23
+    }
+  ],
+  "companies": [
+    {
+      "name": "Healthshop",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "health-shop.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Health food and snacks, cacao and chocolate, butters and spreads, protein and sports nutrition, from other brands",
+      "channels_supplied": "Five Queensland stores including Brisbane, plus its own online shop",
+      "sf_brands_carried": "Better for you brands such as Nutra Organics, Melrose, Prana On, Switch Nutrition and True Protein; no direct sugar free confectionery competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane health food retailer with five Queensland stores and an online shop that already sells snacks, chocolate and spreads from other brands to health-conscious shoppers. Diablo's no-added-sugar chocolate, spreads and bars suit its shelf and its online range.",
+      "what_they_do_well": [
+        "Runs five Queensland locations alongside an online shop with snacks, chocolate and spreads sections."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.health-shop.com.au/"
+      ]
+    },
+    {
+      "name": "Ripe n Raw Organics",
+      "based_out_of": "Rocklea, Australia",
+      "domain": "ripenraworganics.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Organic groceries with chocolate and confectionery, cookies and biscuits, spreads and jams, chips and crackers, alongside fresh produce",
+      "channels_supplied": "Its own online shop with home delivery across wider Brisbane, Gold Coast, Sunshine Coast, Toowoomba and Northern NSW, plus a stall at the Davies Park Market in West End",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane organic home delivery grocer whose pantry has its own chocolate and confectionery, cookies and biscuits and spreads and jams sections, selling brands such as Green Grove Organics. It reaches health-conscious households across South East Queensland, a good fit for Diablo's vegan spreads, jams and biscuits.",
+      "what_they_do_well": [
+        "Trading since 2003, growing from a West End market stall into home delivery from a large Rocklea warehouse."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ripenraworganics.com.au/",
+        "https://ripenraworganics.com.au/our-story/",
+        "https://ripenraworganics.com.au/shop/dark-chocolate-almonds-180gm-cd88565"
+      ]
+    },
+    {
+      "name": "Farm Fresh Organics",
+      "based_out_of": "Rocklea, Australia",
+      "domain": "freshorganics.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Organic groceries including chocolate (Loving Earth, Pana Organic, Vego pralines, Green Grove), snacks and crackers, alongside fresh produce",
+      "channels_supplied": "Its own online shop with home delivery across Brisbane, Gold Coast, Ipswich, Sunshine Coast and Toowoomba, and to QLD, NSW, VIC and ACT",
+      "sf_brands_carried": "Has a sugar free filter in its shop; no direct sugar free confectionery competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane online organic grocer that sells branded chocolate and snacks from Loving Earth, Pana Organic, Vego and Ceres to households across South East Queensland. Tier 3 because biscuits, bars and spreads were not seen in the pages opened and it is a single online shop.",
+      "what_they_do_well": [
+        "Trading since 2003 from its Rocklea warehouse, delivering organic groceries across South East Queensland and beyond."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freshorganics.com.au/",
+        "https://www.freshorganics.com.au/shop-now/?cat_id=4104",
+        "https://www.freshorganics.com.au/shop/organic-dark-chocolate-caramel-eggs-95g-loving-earth/"
+      ]
+    },
+    {
+      "name": "The Trail Co.",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "thetrail.co",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Energy bars and chews (Clif Bar, Clif Shot Bloks), cookies (Em's Power Cookies) and nut butter spreads (Squirrel's Nut Butter), alongside gels, electrolytes and trail running gear.",
+      "channels_supplied": "Its own trail running stores in Bardon (Brisbane north side) and Graceville (Brisbane south side) and its online shop shipping to Australia and New Zealand.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane trail running specialist with two stores whose nutrition menu has its own energy bars collection and stocks other brands' bars, cookies and nut butters. Diablo's vegan muesli bars, cookies and peanut butters suit its health-conscious runners. Store count: two, both in Brisbane.",
+      "what_they_do_well": [
+        "Runs two Brisbane trail running stores, Bardon and Graceville, plus The Trailiens Run Club."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://thetrail.co/collections/bundles",
+        "https://thetrail.co/collections/tailwind-nutrition"
+      ]
+    },
+    {
+      "name": "Wildfire Sports",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "wildfiresports.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Energy bars and chews (Clif Energy Bar, Clif Shot Bloks) in a Bars and Snacks category under Sports Nutrition and another under Camp Food, plus gels and freeze dried meals.",
+      "channels_supplied": "Its own store at Milton, Brisbane, with click and collect, and its online shop.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane running, hiking and outdoor shop with two separate bars and snacks categories selling other brands such as Clif. Diablo's bars and snack packs fit both its sports nutrition and camp food shelves. Store count: one, in Milton.",
+      "what_they_do_well": [
+        "Covers running, trail, hiking, climbing, swimming and orienteering from its Milton, Brisbane store with click and collect."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.wildfiresports.com.au/clif-shot-gel",
+        "https://wildfiresports.com.au/fixx-gel-x-pro-40g-box-of-8"
+      ]
+    },
+    {
+      "name": "SuppKings Nutrition",
+      "based_out_of": "Maroochydore, Australia",
+      "domain": "suppkings.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars, cookies and snacks in a dedicated category, alongside protein powders and pre-workouts from brands such as Optimum Nutrition and BSN.",
+      "channels_supplied": "Its online shop serving Australia, with a store at Maroochydore on the Sunshine Coast.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A south east Queensland sports nutrition shop whose own website has a Protein Bars, Cookies and Snacks category within its protein range. Diablo's bars and cookies fit that shelf for gym-going shoppers in Brisbane. Tier 3 because its pages blocked automated reading during this check, store count is not stated and Brisbane reach is online only.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.suppkings.com.au/product-category/protein/protein-bars-cookies-snacks/",
+        "https://bestfoodimporters.com/company/suppkings-nutrition/"
+      ]
+    },
+    {
+      "name": "BikesOnline",
+      "based_out_of": "Frenchs Forest, Australia",
+      "domain": "bikesonline.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Protein bars, energy chews and gels in a cycling nutrition section, alongside bikes and accessories.",
+      "channels_supplied": "Its online shop with Australia-wide delivery, including Brisbane.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national online bike retailer whose accessories range includes a nutrition section with protein bars and energy chews for cyclists. Diablo's bars suit its riders across Brisbane. Tier 3 because it sells only online and its website does not name the nutrition brands it stocks.",
+      "what_they_do_well": [
+        "Delivers bikes and accessories Australia-wide from its Frenchs Forest, NSW head office."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bikesonline.com.au/accessories/nutrition",
+        "https://support.bikesonline.com.au/support/solutions/articles/48001196969-transporting-your-bike"
+      ]
+    },
+    {
+      "name": "The Fruit Box Group",
+      "based_out_of": "Australia",
+      "domain": "thefruitboxgroup.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Office pantry snacks: sweet biscuits, confectionery, bars, crackers, chips and nuts, plus Snackwize office snack boxes",
+      "channels_supplied": "Direct to workplaces in Brisbane, Sydney, Melbourne, Perth, Adelaide, Canberra and the Gold Coast; clients include Toyota, Lendlease, SAP and AECOM",
+      "sf_brands_carried": "Healthy, allergen-free and vegan snacks in Snackwize boxes; brands not named on its website",
+      "competing_brand_flag": false,
+      "fit_rationale": "National office fruit, milk and pantry supplier that delivers other companies' branded snacks, sweet biscuits and confectionery to more than 8,000 workplace customers, including Brisbane. It took over the Brisbane-founded healthy snack box business Snackwize, so better-for-you snacks are already part of its offer. Storage: national distribution centre in Crestmead, Brisbane, plus Adelaide, Melbourne, Perth and Sydney.",
+      "what_they_do_well": [
+        "Trusted by more than 8,000 customers across Australia, with five national distribution centres including Crestmead in Brisbane."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://thefruitboxgroup.com.au/pantry-delivery/",
+        "https://thefruitboxgroup.com.au/snackwize/",
+        "https://thefruitboxgroup.com.au/",
+        "https://www.businessnewsaustralia.com/articles/snackwize-secures-investment-from-technologyone-founder.html"
+      ]
+    },
+    {
+      "name": "Officeworks",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "officeworks.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Workplace food and snacks: biscuits, confectionery, muesli bars, crackers, chips and nuts from brands such as Arnott's and Lotus Biscoff",
+      "channels_supplied": "Own stores across Brisbane and Australia, online shop and business accounts for workplaces",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Australia's main office supplies retailer runs a Food and Snacks category for workplace kitchens with biscuits, confectionery and muesli bars from other brands, sold in portion packs and bulk. It reaches Brisbane offices through its stores and business accounts. Storage: sells from its own stores and online stock.",
+      "what_they_do_well": [
+        "Runs a dedicated workplace Food and Snacks range with biscuit, confectionery and muesli bar categories, including Arnott's portion packs."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.officeworks.com.au/shop/officeworks/c/workplace-supplies/food-snacks",
+        "https://www.officeworks.com.au/shop/officeworks/c/workplace-supplies/food-snacks/biscuits",
+        "https://www.officeworks.com.au/shop/officeworks/p/lotus-biscoff-biscuits-300-pieces-sa86112"
+      ]
+    },
+    {
+      "name": "COS (Complete Office Supplies)",
+      "based_out_of": "Sydney, Australia",
+      "domain": "cos.net.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Kitchen and catering range with biscuits and crackers, snack bars and healthy snacks for workplaces",
+      "channels_supplied": "Next-day delivery to more than 250,000 business, government and education customers across Australia",
+      "sf_brands_carried": "Low carb snack bars (MyMC salted caramel bar listed)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Large family-owned office supplier whose web shop sells biscuits, crackers and snack bars from other brands into office kitchens, with a healthy snacks offer. Storage: Brisbane branch and warehouse at Acacia Ridge, with next-day delivery.",
+      "what_they_do_well": [
+        "Trading for over 45 years with next-day delivery to over 250,000 customers across Australia."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cos.net.au/Kitchen-and-Catering/Biscuits",
+        "https://www.cos.net.au/c/cospedia/providing-healthy-snacks-why-your-business-will-benefit",
+        "https://www.cos.net.au/c/contact-us",
+        "https://www.cos.net.au/c/why-cos"
+      ]
+    },
+    {
+      "name": "Pencraft Office National",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "pencraftgroup.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Canteen and kitchen range with biscuits and snacks plus confectionery and chocolate: Mentos, Allens Minties and Snakes Alive, Lotus Biscoff, Arnott's",
+      "channels_supplied": "Brisbane offices and businesses through its own web shop and delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Australian-owned Brisbane office supplier in the Office National group with its own Biscuits and Snacks and Confectionery and Chocolate categories, selling branded sweets and biscuits to local offices. Storage: B2B web shop with stock and prices, run from Fortitude Valley; warehouse not named on its website.",
+      "what_they_do_well": [
+        "Lists more than 1,200 canteen and kitchen lines, including Allens, Mentos, Lotus Biscoff and Arnott's portion packs."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://pencraftgroup.com.au/products/facilities-supplies/canteen-n-kitchen-supplies"
+      ]
+    },
+    {
+      "name": "Office National",
+      "based_out_of": "Sydney, Australia",
+      "domain": "officenational.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Canteen and kitchen supplies with biscuits and snacks: Arnott's and Lotus biscuits in bulk, standard and portion packs",
+      "channels_supplied": "Network of about 180 locally owned office supply stores, including Brisbane area members, with online ordering",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "National office supplies network owned by Office Brands whose online shop carries branded biscuits and snacks for workplace kitchens, reaching Brisbane through local member stores. Storage: B2B web shop with stock and prices; warehouse not named on its website.",
+      "what_they_do_well": [
+        "Network of about 180 Office National locations across Australia since 1999."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.officenational.com.au/shop/en/obb2cstore/search/biscuits-and-snacks",
+        "https://en.wikipedia.org/wiki/Office_National"
+      ]
+    },
+    {
+      "name": "Office National Capalaba",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "oncap.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Canteen and kitchen confectionery: Mentos pillow packs, Skittles candy chews, jubes and lollipops, plus biscuits",
+      "channels_supplied": "Offices and businesses in Brisbane's bayside through its web shop and store",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Brisbane bayside Office National member with its own confectionery and chocolate category of branded sweets for office kitchens. Tier 3 because it serves a local area. Storage: store and web shop with stock and prices at Steel Street, Capalaba.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.oncap.com.au/products/facilities-supplies/canteen-and-kitchen-supplies/confectionery-and-chocolate"
+      ]
+    },
+    {
+      "name": "Mega Office Supplies",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "megaofficesupplies.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Breakroom confectionery and biscuits: Allens, Mentos, Werthers, Chupa Chups, Arnott's and Lotus Biscoff",
+      "channels_supplied": "Online shop for businesses with national delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Australian family business with a breakroom confectionery range of branded sweets and biscuits sold to offices with national reach, which includes Brisbane. Tier 3 because its head office address is not stated on the page seen. Storage: sells from its own stock through its web shop, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://megaofficesupplies.com.au/facilities-breakroom/canteen/confectionery/"
+      ]
+    },
+    {
+      "name": "Vending Machines Brisbane",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "vendingmachinesbrisbane.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Branded chocolate (Cadbury, Nestle) and snacks (Smiths, Samboy, Kettle, Red Rock) plus cold drinks, wraps and sandwiches in snack and drink machines",
+      "channels_supplied": "Free-sited snack and cold drink machines at companies and industrial sites across Brisbane",
+      "sf_brands_carried": "Healthy snacks and drinks offered; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-run independent operator that buys branded chocolate and snacks and sells them to staff through its own machines across Brisbane. Diablo chocolate bars and biscuits would sit next to the Cadbury and Nestle lines it already vends. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "More than 30 years operating snack and cold drink vending in Brisbane, visiting sites seven days a week."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vendingmachinesbrisbane.com.au/"
+      ]
+    },
+    {
+      "name": "Gecko Vending",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "geckovending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Snacks, chocolate bars, gluten free cookies, chips, crackers and popcorn plus drinks and fresh and frozen meals in snack, drink and combo machines",
+      "channels_supplied": "Schools, offices, worksites, gyms and public spaces across South East Queensland; client logos include the University of Queensland, Queensland Health and Australia Post",
+      "sf_brands_carried": "Dedicated healthy range: gluten free, vegan, high protein and dairy free snacks",
+      "competing_brand_flag": false,
+      "fit_rationale": "Long-running Brisbane operator that supplies, fills and services its own machines and runs a separate healthy snack range for schools and health sites. Diablo's no added sugar chocolate, cookies and bars suit both its treat and healthy lines. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Operating for over 15 years with machines at large sites such as the University of Queensland and Queensland Health."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://geckovending.com.au/",
+        "https://geckovending.com.au/healthy/"
+      ]
+    },
+    {
+      "name": "Vendy",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "vendy.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Healthy vending range of over 300 products including protein bars (Chief Collagen Protein Bars), snacks and better-for-you drinks (Freed Tea Soda)",
+      "channels_supplied": "Healthy vending machines at hospitals, universities and large organisations in Melbourne, Sydney, Brisbane and Perth",
+      "sf_brands_carried": "Chief Collagen Protein Bars (no added sugar) and Freed Tea Soda",
+      "competing_brand_flag": false,
+      "fit_rationale": "National healthy vending operator that buys other companies' better-for-you snacks and bars and restocks them locally, with its own Brisbane site at Gaythorne. Diablo's no added sugar bars, cookies and chocolate match its healthy choices brief for hospitals and campuses. Storage: offices and warehouses in each city, Brisbane at Unit 12, 51 Prospect Road, Gaythorne.",
+      "what_they_do_well": [
+        "Healthy vending at Monash Health and Monash University, the first Victorian university to bring in healthy vending machines."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://vendy.com.au/",
+        "https://vendy.com.au/locations/"
+      ]
+    },
+    {
+      "name": "DensVend Vending Service",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "densvend.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate bars, cookies, lollies, chewing gum, mints, nut bars, chips, noodles and snacks plus drinks from leading brands",
+      "channels_supplied": "Corporate and large-site vending across the Brisbane CBD and surrounding areas",
+      "sf_brands_carried": "Gluten free and low calorie snacks and sugar-free drinks; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Independently owned Brisbane operator that installs, fills and services its own machines and already lists chocolate bars, cookies, lollies and nut bars. Its low calorie and sugar-free lines make Diablo's chocolate and cookies a natural addition to the same slots. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.densvend.com.au/corporatevending",
+        "https://www.densvend.com.au/"
+      ]
+    },
+    {
+      "name": "Brisbane Smart Vending",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "brisbanesmartvending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Chocolate, lollies, biscuits, chips, nuts and protein bars plus soft drinks, energy drinks and canned coffee",
+      "channels_supplied": "Free-placement machines at offices, gyms, workshops, warehouses and after-hours sites in over 50 suburbs from the CBD to Ipswich and Logan",
+      "sf_brands_carried": "Healthy options such as nuts, protein bars and water; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Owner-operated Brisbane business that supplies, stocks and runs its own machines and already sells chocolate, lollies and biscuits. Its gym sites and healthy machine option suit Diablo's bars and no added sugar chocolate. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Covers over 50 Greater Brisbane suburbs, from the CBD out to Ipswich and Logan."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.brisbanesmartvending.com.au/"
+      ]
+    },
+    {
+      "name": "Vending Xpress",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "vendingxpress.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Snacks and drinks, up to 50 options per machine, with a healthy snack range",
+      "channels_supplied": "Offices, schools and universities, warehouses, gyms, hospitals and aged care, apartments, hotels and sport venues in Brisbane and Ipswich",
+      "sf_brands_carried": "Healthy snack and meal options; brands shown only as logos",
+      "competing_brand_flag": false,
+      "fit_rationale": "Locally owned operator that installs, restocks and cleans its own snack machines across a wide mix of Brisbane and Ipswich sites. Its schools, hospitals and gyms are the health-conscious buyers Diablo targets. Storage: sells from its own stock, warehouse not named on its website; brand names are shown only as logos on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vendingxpress.com.au/"
+      ]
+    },
+    {
+      "name": "Local Vending",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "localvending.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Snacks, drinks and fresh meals in workplace vending machines, including healthy snacks",
+      "channels_supplied": "Workplaces throughout Brisbane and surrounding areas",
+      "sf_brands_carried": "Healthy options offered; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Local Brisbane business that supplies, fills and maintains its own snack machines and tailors the range to each workplace. Tier 3 because its website names no brands, suburbs or clients. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://localvending.com.au/"
+      ]
+    },
+    {
+      "name": "Tasti Vending",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "tastivending.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Healthy snacks, treats and classic favourite snacks plus meals in workplace machines",
+      "channels_supplied": "Workplaces in Brisbane and the Sunshine Coast",
+      "sf_brands_carried": "Healthy snacks offered; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Brisbane and Sunshine Coast operator that provides free machines, keeps them stocked and runs promotions such as buy one get one free. Tier 3 because its website names no brands and no head office address. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://tastivending.au/"
+      ]
+    },
+    {
+      "name": "Sunshine Coast Vending",
+      "based_out_of": "Sunshine Coast, Australia",
+      "domain": "sunshinecoastvending.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Healthy vending range: protein bars, crackers and light snacks, nut mixes, low sugar drinks and ready meals, alongside treats",
+      "channels_supplied": "Offices, gyms, schools and industrial sites on the Sunshine Coast, North Brisbane and greater Brisbane",
+      "sf_brands_carried": "Low sugar drinks, kombucha and protein bars; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-owned Queensland operator with a healthy vending offer and a fully managed service for Brisbane sites. Its low sugar positioning suits Diablo's bars and cookies; tier 3 because its website gives no address and names no brands. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sunshinecoastvending.com.au/",
+        "https://sunshinecoastvending.com.au/healthy-vending-options-for-workplaces/"
+      ]
+    },
+    {
+      "name": "Vendit Australia",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "vendit.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Snacks, cold drinks, frozen meals and ice creams, about 30 percent healthy products",
+      "channels_supplied": "Businesses throughout Queensland, from single machines to multi-machine workforce sites",
+      "sf_brands_carried": "Low fat, low calorie, low sugar and gluten free options; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Brand agnostic Queensland operator that installs free machines, fills them and adjusts the range from sales data, with low sugar lines already in the mix. Tier 3 because its website news dates from 2016 to 2018 and names no brands. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://vendit.com.au/"
+      ]
+    },
+    {
+      "name": "Vending First",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "vendingfirst.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Chips, chocolate and other snacks in snack and combination machines, plus drinks and fresh food machines with healthy snacks",
+      "channels_supplied": "Corporate and business sites across Brisbane through vending services, machine hire and smart fridges",
+      "sf_brands_carried": "Healthy snacks in its fresh food machines; no brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Eagle Farm vending company that monitors its machines remotely for restocking and fills its fresh food machines daily, alongside snack and chocolate machines. Tier 3 because it also sells and hires machines and its website names no brands. Storage: sells from its own stock from its Eagle Farm premises, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vendingfirst.com.au/"
+      ]
+    },
+    {
+      "name": "Brizzie Baskets and Blooms",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "brizziebaskets.com",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Gift hampers with branded chocolate (Whittaker's slabs, wrapped chocolates), biscuits and cookies (Charlie's Melting Moments, Bisko shortbread, Luv a Cookie), caramels and confectionery, plus wine, tea and flowers",
+      "channels_supplied": "Direct to shoppers through its online shop and corporate clients (settlement gifts, end of financial year gifts), Brisbane and Australia-wide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Stafford, Brisbane hamper company whose product pages list named chocolate, biscuit and cookie brands, the exact categories Diablo sells. It runs a corporate hamper section and gluten free and organic hamper lines, so a no-added-sugar hamper would sit naturally beside them. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Serves corporate clients with settlement and end of financial year gift hampers delivered across Brisbane and Australia."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.brizziebaskets.com/",
+        "https://www.brizziebaskets.com/p/bikkies-and-chocolate-gift/SE0095",
+        "https://brisbanekids.com.au/christmas-hampers-brisbane/"
+      ]
+    },
+    {
+      "name": "Gift Delivery Brisbane",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "giftdeliverybrisbane.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Gift packs and hampers built on branded chocolate (Cadbury Favourites bouquets, Cadbury Easter packs, Lindt gift packs), cookies, rocky road and savoury snacks, plus wine and spirits",
+      "channels_supplied": "Direct to shoppers and corporate buyers through its online shop, with a corporate gifts service",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane City gift company that builds its packs around well-known chocolate brands such as Cadbury and Lindt and sells them as corporate and seasonal gifts. Diablo's chocolate boxes, Easter and seasonal lines suit its range directly. Delivery area is not fully clear on its website: one product page says Gold Coast delivery only. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs a dedicated corporate gifts service from Brisbane City alongside seasonal Easter and Christmas chocolate packs."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://giftdeliverybrisbane.com.au/corporate-gifts-brisbane/",
+        "https://giftdeliverybrisbane.com.au/product/chocolate-favourites-bouquet-brisbane/",
+        "https://giftdeliverybrisbane.com.au/product/cadbury-family-easter-pack-brisbane/"
+      ]
+    },
+    {
+      "name": "LVLY",
+      "based_out_of": "Sydney, Australia",
+      "domain": "lvly.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift boxes and hampers with lollies (1kg lolly boxes), chocolate, Wagon Wheel biscuits, cookie combos and other sweet treats, plus flowers, drinks and pamper items",
+      "channels_supplied": "Online shop with same-day delivery in Brisbane, Gold Coast and other capital cities and next-day national delivery; corporate gifting of 50 to 500 gifts with custom branding",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national gifting company that offers same-day delivery in Brisbane and sells lolly, chocolate and biscuit gift boxes to shoppers and corporate buyers. Its sweets-led boxes and branded add-ons such as Wagon Wheel suit Diablo's gummies, chocolate and biscuits. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers corporate orders from 50 to 500 gifts with custom branding and one invoice for many deliveries.",
+        "Same-day delivery across Brisbane, Gold Coast and other major cities."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.lvly.com.au/collections/corporate-gift-hampers",
+        "https://www.lvly.com.au/products/crowd-favourites-gift-box",
+        "https://www.lvly.com.au/products/lolly-fix-gift-box"
+      ]
+    },
+    {
+      "name": "D'licious Gourmet Hampers",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "dliciousgourmethampers.com",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Corporate and gift hampers with chocolates (including Buderim ginger chocolate), chocolate macadamias, fudge, rock candy, lollies and crispbread, plus wine, champagne and pantry items",
+      "channels_supplied": "Corporate clients (Queensland Premier's Office, MasterChef, property developers for settlement gifts) and shoppers through its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Pinjarra Hills, Brisbane corporate hamper specialist that curates products from Australian and international brands, with chocolates, fudge and lollies in most hampers. It already offers vegan and gluten free hampers, so Diablo's sugar-free chocolate and sweets suit a dietary hamper line. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Supplies hampers to the Queensland Premier's Office for Queensland Awards and royal visits, and to MasterChef."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.dliciousgourmethampers.com/corporate-gifts",
+        "https://www.dliciousgourmethampers.com/shop-hampers",
+        "https://www.flowerdelivery-reviews.com/best-hampers-brisbane/"
+      ]
+    },
+    {
+      "name": "Gift Linx",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "giftlinx.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Corporate gift boxes with branded chocolate (Cuvee), nougat bars (Noogaa), rocky road (Charlotte Piper), fudge (House of Fudge) and popcorn, plus wine, drinkware and branded merchandise",
+      "channels_supplied": "Corporate clients in Brisbane and Queensland, with delivery Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane-focused corporate gifting company whose Sweet Temptation box is built entirely from other companies' branded chocolate and confectionery. It sources from Australian small businesses, so Diablo would be one of few imported lines; the brand list shows it buys finished, branded packs. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers curation, design and branded merchandise for corporate gift boxes delivered Australia-wide."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://giftlinx.com.au/pages/corporate-gifts-brisbane",
+        "https://giftlinx.com.au/products/sweet-temptation-gift-box-corporate-gift"
+      ]
+    },
+    {
+      "name": "Hampers and Blooms",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "hampersblooms.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift hampers with chocolate cake (Dello Mano), chocolates and chocolate boxes, treats and tea, plus flowers and wine",
+      "channels_supplied": "Shoppers and corporate clients in Brisbane, Gold Coast and surrounding suburbs through its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A locally owned Brisbane hamper and flower business with a corporate hampers section, whose hampers carry branded cakes and chocolates. It is small and names few brands on its website, hence tier 3. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://hampersblooms.com.au/",
+        "https://www.hampersblooms.com.au/cake-and-tea-hamper/"
+      ]
+    },
+    {
+      "name": "Red Rhubarb Gifts",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "redrhubarb.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Customised corporate gift boxes with branded chocolate (Koko Black wafer chocolate), champagne, cheese boards and candles",
+      "channels_supplied": "Corporate clients Australia-wide, with logo and message branding",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane boutique corporate gifting service whose boxes pair branded chocolate with drinks and homewares. It names few food brands on its website and its boxes are drinks-led, hence tier 3. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Customises gifts with client logos and messages, packed by its own team in Brisbane."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.redrhubarb.com.au/",
+        "https://www.redrhubarb.com.au/products/veuve-box"
+      ]
+    },
+    {
+      "name": "Gifts To A Door",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "giftstoadoor.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Chocolate and lolly gift hampers (gourmet chocolates, candies and treats), plus balloons and gifts",
+      "channels_supplied": "Shoppers and corporate buyers in Brisbane, with same-day delivery, corporate branding and bulk orders",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane gift delivery business with its own chocolate and lolly hamper section and a corporate branding and bulk order service. Its website does not name the chocolate or lolly brands it uses or a street address, hence tier 3. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://giftstoadoor.com.au/collections/chocolate-lolly-gift-hampers",
+        "https://brisbanekids.com.au/christmas-hampers-brisbane/"
+      ]
+    }
+  ]
+}
