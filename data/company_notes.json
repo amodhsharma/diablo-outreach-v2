@@ -1827,6 +1827,25 @@
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
   },
+  "biltongboytjies.co.za": {
+    "name": "Biltong Boytjies",
+    "based_out_of": "",
+    "market": "East London, South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Online snack and gift shop that sells corporate and occasion gift baskets and a sweets and chocolates section built on imported European brands, so Diablo's chocolate and sweets would sit naturally beside them. It buys from suppliers and importers and delivers nationwide, which covers East London; head office city not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Stocks a wide imported European chocolate range including Milka, Cote D'Or, Lindt and Toblerone."
+    ],
+    "distributes": "Gift baskets and corporate gift baskets with branded chocolate (Milka, Cote D'Or, Lindt, Toblerone, Cadbury, Ferrero Rocher), sweets and gummies (Nerds, Runts, Mister Sweet Gums), nougat and snacks, alongside biltong and nuts.",
+    "channels_supplied": "Its own online shop with nationwide courier delivery to shoppers and businesses, plus a wholesale page.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0066_2026-10-27_east-london-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "bindle.com.au": {
     "name": "Bindle",
     "based_out_of": "Melbourne, Australia",
@@ -11279,6 +11298,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0047_2026-10-26_south-africa_distributors-confectionery-importers-snack-distributors-health-food-distributors.json"
+  },
+  "onela.co.za": {
+    "name": "Onela Vending",
+    "based_out_of": "Eastern Cape, South Africa",
+    "market": "East London, South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "An Eastern Cape snack vending operator that places snack and drink machines with corporate clients, sources the vending products and restocks the machines itself within 24 hours, so Diablo's bars, chocolate and biscuits could go straight into workplace machines. It is small and founded in 2021, and its website names no snack brands or exact town. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Offers a 24-hour response time for restocking and issues, with free delivery, installation and servicing of machines."
+    ],
+    "distributes": "Packaged snacks and cold drinks through its own snack vending machines, plus hot drinks machines",
+    "channels_supplied": "Corporate clients in the Eastern Cape, through vending machines placed in offices and workplaces",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0066_2026-10-27_east-london-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "onestop.co.uk": {
     "name": "One Stop",
