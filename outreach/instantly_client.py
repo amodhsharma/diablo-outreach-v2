@@ -25,6 +25,10 @@ class Instantly:
     def request(self, method, path, **kwargs):
         # 19 Oct 2026: Instantly limits how often its email list can be read; a busy run was refused
         # ("GET /emails kept failing"). Waits longer now, and as long as Instantly asks (Retry-After).
+        if "json" not in kwargs and "data" not in kwargs:
+            # 26 Oct 2026: Instantly refuses a request marked as JSON that carries no body (e.g. a
+            # DELETE), so a request without one is sent without that mark.
+            kwargs["headers"] = dict(kwargs.get("headers") or {}, **{"Content-Type": None})
         for attempt in range(8):
             resp = self.session.request(method, API + path, timeout=60, **kwargs)
             if resp.status_code in (200, 201):
