@@ -1,0 +1,226 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0058",
+  "location": "Durban, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 36
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 39
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 43
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 45
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 48
+    }
+  ],
+  "companies": [
+    {
+      "name": "easyBike",
+      "based_out_of": "Durban, South Africa",
+      "domain": "easybike.co.za",
+      "channel_category": [
+        "retailers",
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Energy and nutrition bars, gels, chews and electrolytes in its Nutrition section, alongside bike parts, tech and apparel",
+      "channels_supplied": "Its own shop in Durban North and its online shop",
+      "sf_brands_carried": "REVIVE electrolytes and 32Gi sports nutrition",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Durban North cycling and running shop whose own online shop has a Nutrition section with Nutrition Bars and Gels and Chews filters, selling other brands such as 32Gi and REVIVE. Its health-conscious riders and runners suit Diablo's bars and snacks. Tier 3 because it is a single shop with a small nutrition shelf.",
+      "what_they_do_well": [
+        "Carries leading sports brands such as Garmin, Oakley, Shimano, Wahoo and Salomon from its Durban North shop and online store."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://easybike.co.za/",
+        "https://easybike.co.za/collections/products-on-sale",
+        "https://easybike.co.za/products/daily-electrolytes-sample-pack-box-8s"
+      ]
+    },
+    {
+      "name": "Leigh's Cycle Centre",
+      "based_out_of": "Umhlanga, South Africa",
+      "domain": "cyclecentre.co.za",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Sports nutrition from Hammer Nutrition and Cadence Nutrition energy bars and gels, alongside bikes, parts and apparel",
+      "channels_supplied": "Its own Specialized concept store in Umhlanga, behind Gateway Theatre of Shopping",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long-standing Durban cycling shop whose own website lists a Hammer Nutrition supplements shelf, and Cadence Nutrition names it as a KwaZulu-Natal retailer of its energy bars and gels. It sells to health-conscious riders next to one of Durban's largest malls. Tier 3 because it is a single store and its website does not list individual bar products.",
+      "what_they_do_well": [
+        "Trading since October 1989, growing from Pinetown to a flagship Specialized concept store in Umhlanga."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://cyclecentre.co.za/company/",
+        "https://cyclecentre.co.za/shop/",
+        "https://www.cadencenutrition.com/pages/kwazulu-natal"
+      ]
+    },
+    {
+      "name": "Doorman Nutrition",
+      "based_out_of": "Durban, South Africa",
+      "domain": "doormannutrition.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sports nutrition shop selling protein bars (Grenade Carb Killa bars, including cookie and peanut butter flavours) alongside whey, creatine and supplements from brands such as Optimum Nutrition, BSN, Muscletech, Mutant and Cellucor",
+      "channels_supplied": "Seven KwaZulu-Natal stores (Bluff, Ballito, Umhlanga, Hillcrest, Overport, Kloof and Westville) and an online shop with nationwide delivery",
+      "sf_brands_carried": "Grenade Carb Killa low sugar protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Durban's own sports nutrition chain, with seven stores across the city and its suburbs and over 350 products from local and international brands, including branded protein bars. Its health-conscious, training shoppers are Diablo's audience for sugar-free bars, cookies and spreads. It also has a house whey brand, but most of its range is other companies' brands.",
+      "what_they_do_well": [
+        "Grown since 2014 to seven stores across KwaZulu-Natal, from Bluff to Ballito.",
+        "Stocks over 350 products from local and international brands, with nationwide online delivery."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://doormannutrition.co.za/",
+        "https://doormannutrition.co.za/about.html",
+        "https://doormannutrition.co.za/product/grenade-protein-bars"
+      ]
+    },
+    {
+      "name": "Lifestyle Health Store",
+      "based_out_of": "Ballito, South Africa",
+      "domain": "lifestylehealth.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Health and sports nutrition shop selling protein bars and snacks from other brands (Phyto Pro vegan protein bars, Youthful Living layered protein bars and protein peanut butter cups, Nougat protein snack bars) plus sports products, protein powders and vitamins",
+      "channels_supplied": "Stores in Ballito, Cotswold Square, Durban North and Westown Square, and an online shop with nationwide delivery",
+      "sf_brands_carried": "Youthful Living and Phyto Pro protein bars, Nougat protein snack bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-owned health and sports nutrition chain on Durban's north coast whose Protein Power section already sells several brands of protein bars and peanut butter cups. It serves health-conscious and active shoppers in Ballito and Durban North, a natural shelf for Diablo's sugar-free bars, cookies and spreads.",
+      "what_they_do_well": [
+        "Family owned and trading since 2006, with stores in Ballito, Durban North and Cotswold Square.",
+        "Its Protein Power section lists 28 products across 11 brands."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://lifestylehealth.co.za/",
+        "https://lifestylehealth.co.za/collections/protein-power",
+        "https://harvesttable.co.za/stockists/"
+      ]
+    },
+    {
+      "name": "Durban Runner",
+      "based_out_of": "Durban, South Africa",
+      "domain": "durbanrunner.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Running shop with a nutrition section selling energy and protein bars (32Gi Race Pro Bar and 32Gi Protein Bars) and sports chews, gels and drinks from brands such as 32Gi, GU, Hammer, Maurten, Named and Fixx",
+      "channels_supplied": "Its Durban Mega Store and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Durban running specialist with its own nutrition menu covering seven sports nutrition brands, including bars and chews, sold to runners and endurance athletes. Tier 3 because it is one store and its food shelf is focused on race fuel; its street address is not stated on its website.",
+      "what_they_do_well": [
+        "Stocks seven sports nutrition brands, including 32Gi, GU, Maurten and Hammer, alongside major running shoe brands."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://durbanrunner.co.za/collections/32gi",
+        "https://durbanrunner.co.za/products/32gi-protein-bars"
+      ]
+    },
+    {
+      "name": "Hattons Umhlanga",
+      "based_out_of": "Umhlanga, South Africa",
+      "domain": "hattonsumhlanga.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Bicycle shop with a nutrition section selling Nutritech energy bars (Raw Energy Bar), energy gels, protein powders and recovery drinks",
+      "channels_supplied": "Its Umhlanga bicycle shop and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Umhlanga bicycle shop that is an official Nutritech retailer and sells branded energy bars to cyclists. Tier 3 because it is a single shop with a small food shelf; its full street address is not stated on its website.",
+      "what_they_do_well": [
+        "Official Nutritech retailer, carrying bikes from Merida, Bianchi and Titan Racing."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.hattonsumhlanga.co.za/nutritech-supplements-local-retailer/",
+        "https://www.hattonsumhlanga.co.za/"
+      ]
+    },
+    {
+      "name": "Burgess Florist",
+      "based_out_of": "Westville, Durban, South Africa",
+      "domain": "burgessflorist.co.za",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift hampers with branded chocolate and confections (Lindt chocolate hamper), snack baskets, plus flowers",
+      "channels_supplied": "Its Westville shop and online shop, with business clients ordering hampers and snack baskets",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Durban florist with its own hampers category that buys branded chocolate such as Lindt and resells it as gift hampers to shoppers and business clients. Sugar free chocolate and gift boxes would suit its corporate and occasion hampers. It is a single-site business and its website does not state hamper volumes, so it sits in tier 3.",
+      "what_they_do_well": [
+        "Business clients such as Plastop, SBV Services and Stefanutti Stocks praise its hampers and snack baskets in reviews shown on its website."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.burgessflorist.co.za/product/lindt-chocolate-hamper/",
+        "https://www.burgessflorist.co.za/product-category/hampers/",
+        "https://kwazulu-natal-region.infoisinfo.co.za/search/gift-shops-children-and-flowers/3"
+      ]
+    }
+  ]
+}
