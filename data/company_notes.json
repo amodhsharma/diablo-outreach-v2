@@ -6194,6 +6194,25 @@
     "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "gifthampersonline.co.za": {
+    "name": "Gift Hampers Online",
+    "based_out_of": "Pietermaritzburg, South Africa",
+    "market": "Durban, South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "KwaZulu-Natal hamper business that buys products from other companies and sells them in occasion and corporate hampers, including branded biscuits and sweets. It couriers across South Africa, including Durban. Tier 3 because it is small and owner-run.",
+    "what_they_do_well": [
+      "Trading since May 2017, with the owner personally sourcing hamper products from local businesses."
+    ],
+    "distributes": "Gift and corporate hampers with branded biscuits (Angel biscuits), sweets (Almond Roca), shortbread, nougat, fudge and chocolate",
+    "channels_supplied": "Its own online shop with free delivery in Pietermaritzburg and courier delivery anywhere in South Africa",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0059_2026-10-26_durban-south-africa_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "giftlady.co.za": {
     "name": "Gift Lady",
     "based_out_of": "Gqeberha, South Africa",
