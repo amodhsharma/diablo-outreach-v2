@@ -373,6 +373,25 @@
     "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "alwaysopentrading.co.za": {
+    "name": "Always Open Trading",
+    "based_out_of": "South Africa",
+    "market": "South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A VASA accredited operator whose fully serviced rentals include restocking its cashless snack machines in student residences and properties. It is tier 3 because its website names no snack brands and its head office address is not stated. Storage: sells from its own stock on serviced machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Places machines in buildings of property partners Growthpoint Properties, AFHCO, Urban Circle and South Point."
+    ],
+    "distributes": "Snacks and cold drinks in cashless snack and combination machines on fully serviced rentals",
+    "channels_supplied": "Vending in student accommodation, property portfolios, offices, gyms and hospitals, with property partners Growthpoint Properties, AFHCO, Urban Circle and South Point",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "amavita.ch": {
     "name": "Amavita Apotheken (Galenicare)",
     "based_out_of": "Bern, Switzerland",
@@ -749,6 +768,25 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0003_2026-10-20_bern-switzerland_distributors.json"
   },
+  "avantedge.co.za": {
+    "name": "Express Corporate Foods (Avantedge Group)",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers",
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "The wholesale distribution division of Avantedge Group describes Express Corporate Foods as the country's largest supplier to corporate businesses, supplying chocolates, sweets and snacks across Gauteng. Diablo's chocolate, sweets and bars match what it already delivers to corporate clients. Storage: sells from its own stock, warehouse not named on its website; brands carried are not named on the group page.",
+    "what_they_do_well": [
+      "Trading since 1977, growing from a popcorn supplier into what it calls the country's largest supplier to corporate businesses."
+    ],
+    "distributes": "Chips, chocolates, sweets, snacks, juices, soft drinks, foodstuffs and pies supplied to corporate businesses.",
+    "channels_supplied": "Corporate businesses across the extended Gauteng area.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "aversi.ge": {
     "name": "Aversi-Pharma",
     "based_out_of": "Tbilisi, Georgia",
@@ -855,6 +893,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0004_2026-10-20_lucerne-switzerland_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "bagagift.co.za": {
+    "name": "Bag a Gift",
+    "based_out_of": "Durban, South Africa",
+    "market": "South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Durban online gift shop whose chocolate bouquets, snack baskets and party favours are built from branded chocolate and snacks from other companies. Diablo's chocolate bars, gift boxes and gummies would fit its bouquets and snack baskets as a sugar free option. Its reach is Durban delivery from its Chatsworth hub.",
+    "what_they_do_well": [
+      "Sells chocolate bouquets built from six major brands including Lindor, Ferrero Rocher, Toblerone and KitKat."
+    ],
+    "distributes": "Chocolate gifts and bouquets (Twix, Lindor, Cadbury, Ferrero Rocher, KitKat, Toblerone), snack baskets, personalised chocolate and candy, party favours",
+    "channels_supplied": "Direct to shoppers through its online shop, doorstep delivery in Durban and collection from Chatsworth",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "bairogrosshandel.ch": {
@@ -2361,6 +2418,26 @@
     "added": "2026-10-23",
     "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "coolsnax.co.za": {
+    "name": "Cool Snax",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers",
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "A Cape Town snack and drinks supplier delivering chocolates, sweets and chips daily to canteens, tuck shops and small businesses. Tier 3 because it covers greater Cape Town only and its website does not name the brands it carries. Storage: delivers from its own premises in Airport Industria, warehouse size not stated on its website.",
+    "what_they_do_well": [
+      "Delivers daily, six days a week, across greater Cape Town."
+    ],
+    "distributes": "Chips, chocolates, sweets and snacks, plus cool drinks, water and hot beverage supplies.",
+    "channels_supplied": "Daily delivery six days a week to schools, tuck shops, canteens, coffee shops, small businesses and events around greater Cape Town.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "coop.co.uk": {
     "name": "Co-op (Co-operative Group)",
@@ -5770,6 +5847,25 @@
     "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "innovativevendingsolutions.co.za": {
+    "name": "Innovative Vending Solutions",
+    "based_out_of": "Stellenbosch, South Africa",
+    "market": "South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "On full-service rental it buys, owns and restocks the stock, and its machines carry Maynards sweets and chocolate bars. A dedicated healthy vending offer with low-sugar lines and gym placements suits Diablo's sugar-free chocolate and gummies. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Runs a dedicated healthy vending offer with low-sugar and high-protein lines for gyms and workplaces."
+    ],
+    "distributes": "Sweets (Maynards), chocolate bars, chips, mini rice cakes, peanuts and drinks in snack and combination machines, plus a healthy vending range with high-protein and low-carb snacks",
+    "channels_supplied": "Full-service vending in hotels, workplaces, gyms, hospitals, schools, residences and factories in Cape Town, Stellenbosch and the Winelands, with machine exports to Namibia",
+    "sf_brands_carried": "Low-sugar and sugar-free drinks and high-protein, low-carb snacks; no snack brands named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "isbilir-food.ch": {
     "name": "Isbilir Lebensmittel",
     "based_out_of": "Basel, Switzerland",
@@ -6243,6 +6339,26 @@
     "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "kznvending.com": {
+    "name": "KZN Vending",
+    "based_out_of": "Durban, South Africa",
+    "market": "South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "Specialises in the placement of snack machines and runs its own vending routes throughout KwaZulu-Natal, affiliated with Simba, Nestle, Cadbury and Beacon. It is tier 3 because its website does not show how many machines it runs or name its clients. Storage: sells from its own stock on its routes, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Has established vending routes throughout KwaZulu-Natal and is Merseta accredited for its repair work."
+    ],
+    "distributes": "Snacks and chocolate from brands such as Simba, Nestle, Cadbury and Beacon in snack, combination and cold drink machines on its own vending routes",
+    "channels_supplied": "Placed snack machines on vending routes throughout KwaZulu-Natal",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "laanonima.com.ar": {
     "name": "La Anónima",
     "based_out_of": "Buenos Aires, Argentina",
@@ -6391,6 +6507,25 @@
     "research_file": "research/2026-10-21/J0008_2026-10-21_lugano-switzerland_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "lamourgifts.co.za": {
+    "name": "Lamour Gifts",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Johannesburg gift box and hamper business that buys in well-known chocolate, sweets and snack brands and packs them into gift boxes for birthdays, weddings and corporate gifting. Diablo's gift boxes, chocolate and biscuits would fit its boxes, and a sugar free option would suit diabetic and health-conscious recipients. Store count not applicable: one studio in Norwood with nationwide delivery.",
+    "what_they_do_well": [
+      "Assembles and hand-wraps gift boxes in its Norwood, Johannesburg studio and delivers them nationwide."
+    ],
+    "distributes": "Gift boxes and hampers with branded chocolate (Lindt, Ferrero Rocher), sweets (Skittles), biscuits and cookies, and snacks (Simba, Lay's, Doritos, Nik Naks, Pringles)",
+    "channels_supplied": "Direct to shoppers and corporate clients through its online shop, nationwide delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "lapa.ch": {
     "name": "LAPA - finest italian food GmbH",
     "based_out_of": "Embrach, Switzerland",
@@ -6516,6 +6651,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "lidvending.co.za": {
+    "name": "LID Vending",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Delivers, sets up and stocks its machines and restocks them weekly or fortnightly from sales, earning from what it sells on free placements. It is tier 3 because it covers Gauteng only and names no brands on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chocolate, chips and snacks in chocolate, chip, snack and combination machines, plus cold drinks",
+    "channels_supplied": "Free and full rental vending machines at businesses with staff or visitors across Gauteng",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "lifebrands.ch": {
     "name": "Life Brands GmbH",
@@ -7975,6 +8127,25 @@
     "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "officebox.co.za": {
+    "name": "OfficeBox",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "An online office supplier with a 55-item biscuits and snacks collection of other companies' brands, sold to offices and multi-branch businesses nationally. Diablo's biscuits, chocolate, bars and spreads sit in the exact shelf it already runs for office kitchens. Storage: sells from its own stock of 6,500+ products with next-day delivery, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Supplies multi-branch clients nationally; testimonials cite Virgin Active (155 branches) and Burger King (95 stores).",
+      "Next-day delivery in Johannesburg and Cape Town for orders placed by 9:30am."
+    ],
+    "distributes": "Office supplies with a kitchen and breakroom range: biscuits (Bakers, Mantellis, Eet-Sum-Mor), chocolate and sweets (Nestle Bar One, Endearmints, Beacon), cereal and energy bars (Jungle), peanut butter (Black Cat) and savoury snacks (Simba, Lay's).",
+    "channels_supplied": "Businesses and offices through its online shop and B2B procurement accounts, with next-day delivery in Johannesburg and Cape Town and national delivery to multi-branch clients such as Virgin Active and Burger King.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "ohmybox.ch": {
     "name": "OH MY BOX KLG",
     "based_out_of": "Rudolfstetten, Switzerland",
@@ -8364,6 +8535,43 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
+  "petalandpost.co.za": {
+    "name": "Petal and Post",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A flower and gift delivery company whose gift sets carry chocolate, sweets and biscuit brands from other makers, including better-for-you chocolate brands. Diablo's chocolate, cookies and gift boxes fit its gift sets, and its three-city in-house delivery gives more reach than a single florist. Head office city not stated on its website.",
+    "what_they_do_well": [
+      "Runs its own same-day hand delivery in Cape Town, Johannesburg and Durban."
+    ],
+    "distributes": "Gift sets with branded chocolate (Honest Chocolate, The Chocolate Yogi), sweets and nougat (Ma Mere's, 1701), biscuits and cookies (Mamamacs, Valenti, Holland Bakery stroopwafels) and snacks",
+    "channels_supplied": "Direct to shoppers with in-house delivery in Cape Town, Johannesburg and Durban, Pretoria also served",
+    "sf_brands_carried": "The Chocolate Yogi, Honest Chocolate (better-for-you chocolate brands)",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
+  "petalsflorist.co.za": {
+    "name": "Petals Florist and Gift Shop",
+    "based_out_of": "Gqeberha, South Africa",
+    "market": "South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Gqeberha florist and gift shop established in 2005 that sells hampers and branded chocolate gift boxes from other companies. Diablo's chocolate boxes and pralines fit its chocolate gifts. Tier 3 as a single-city shop.",
+    "what_they_do_well": [
+      "Trading since 2005 and delivers across Port Elizabeth with its own delivery vehicles."
+    ],
+    "distributes": "Chocolate gifts and hampers including Ferrero Rocher gift boxes and Tomes chocolate",
+    "channels_supplied": "Direct to shoppers in Gqeberha with its own delivery vehicles, also orders from South Africans abroad",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "petroperu.com.pe": {
     "name": "VAO (Petroperu)",
     "based_out_of": "Lima, Peru",
@@ -8732,6 +8940,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "randvending.co.za": {
+    "name": "Rand Vending",
+    "based_out_of": "Benoni, South Africa",
+    "market": "South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A full-service operator that delivers, installs and restocks its own machines with chocolates, sweets and crisps, restocking on real-time usage. Its offer of healthier snacks on request gives Diablo's sugar-free chocolate and sweets a natural slot. Storage: sells from its own stock through its merchandisers, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Grew from a 2008 refreshment service for the mining industry into a corporate, medical and industrial vending provider."
+    ],
+    "distributes": "Chocolates, sweets, crisps, biscuits and beverages in vending machines, with healthier snacks on request",
+    "channels_supplied": "Vending machines in corporate offices, hospitals, schools, mining, industrial and manufacturing sites in Gauteng and the Western Cape",
+    "sf_brands_carried": "Healthier snack options on request; no brands named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "rappi.com.pe": {
     "name": "Rappi Turbo",
@@ -9390,6 +9618,23 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
+  "secretflowers.co.za": {
+    "name": "Secret Flowers",
+    "based_out_of": "Bryanston, South Africa",
+    "market": "South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Sandton florist and gift delivery shop whose hampers include branded Lindt or Ferrero Rocher chocolates. Diablo's chocolate boxes and pralines would fit its hampers as a sugar free choice. Tier 3 as a small single-area shop with few chocolate lines named.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with chocolate (Lindt or Ferrero Rocher, Belgian chocolate hearts) alongside wine and biltong",
+    "channels_supplied": "Direct to shoppers in Bryanston and Sandton, with delivery across South Africa",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "seinet.ch": {
     "name": "Seinet AG",
     "based_out_of": "Luzern, Switzerland",
@@ -9629,6 +9874,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "sjflorist.co.za": {
+    "name": "SJ Florist (Begifted)",
+    "based_out_of": "Gqeberha, South Africa",
+    "market": "South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Gqeberha florist and gift shop whose hampers and gifts section sells branded chocolate from Lindt and Cadbury. Diablo's chocolate bars and gift boxes would fit its chocolate hampers for Valentine's, Mother's Day and Father's Day. Tier 3 as a single-city shop.",
+    "what_they_do_well": [],
+    "distributes": "Chocolate hampers with branded chocolate bars and slabs (Lindt Excellence, Cadbury) and gifts",
+    "channels_supplied": "Direct to shoppers through its online shop and florist in Gqeberha",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "smyrliadis.com": {
     "name": "Smyrliadis SA",
@@ -10551,6 +10813,23 @@
     "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "theflowerscene.co.za": {
+    "name": "The Flower Scene",
+    "based_out_of": "Hermanus, South Africa",
+    "market": "South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Hermanus flower, gift and chocolate delivery shop with a dedicated chocolate section built on Cadbury, Kinder and Nutella. Diablo's chocolate bars and chocolate hazelnut spread fit its chocolate bouquets and gift sets. Tier 3 as a single-town shop.",
+    "what_they_do_well": [],
+    "distributes": "Chocolate bouquets and chocolate gifts with branded chocolate and spreads (Cadbury, Kinder Surprise, Nutella)",
+    "channels_supplied": "Direct to shoppers through its online shop, flower and gift delivery in Hermanus",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "thehangerbikeco.co.za": {
     "name": "The Hanger Bike Co",
     "based_out_of": "Somerset West, South Africa",
@@ -10582,6 +10861,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "theholidayshop.co.za": {
+    "name": "The Holiday Shop",
+    "based_out_of": "Hillcrest, South Africa",
+    "market": "South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An online seasonal shop for Christmas, Easter, Halloween and Valentine's Day that sells chocolate eggs, treat packs and a Christmas festive food collection alongside its decor. Diablo's advent calendars, chocolate and gift boxes match its seasonal calendar exactly. Tier 3 because only one chocolate brand (Cadbury) is named on its pages and it is a single online shop.",
+    "what_they_do_well": [
+      "Runs dedicated seasonal collections for Christmas, Easter, Halloween and Valentine's Day with nationwide shipping."
+    ],
+    "distributes": "Seasonal chocolate gifts and treats: Cadbury chocolate marshmallow eggs, chocolate Easter eggs, chocolate gift jars, treat bars, candy cane treat packs and festive food",
+    "channels_supplied": "Direct to shoppers through its online shop, nationwide shipping",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
   "theorganicvegan.co.za": {
     "name": "The Organic Vegan",
@@ -10620,6 +10917,26 @@
     "sf_brands_carried": "Not verified.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "thevendingguys.co.za": {
+    "name": "The Vending Guys",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "An owner-run Cape Town operator that rents, stocks, packs and maintains its machines and names branded chocolate, snacks and cakes as best-sellers. It tailors the mix to each site, so Diablo's chocolate, cakes and bars can be trialled machine by machine. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Names Coca-Cola, Doritos and Aero as best-sellers and offers stock checks, cleaning and refunds as part of its service."
+    ],
+    "distributes": "Chocolate (Aero), snacks (Doritos), cakes (Tinkies), breakfast bars and drinks in rented vending machines",
+    "channels_supplied": "Vending machines in offices, call centres, schools, gyms, hospitals, malls, hotels, hostels, airports, factories and transport hubs across Cape Town",
+    "sf_brands_carried": "Futurelife; no direct competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "thraki.ch": {
     "name": "Thraki GmbH",
@@ -11250,6 +11567,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
+  },
+  "vendingsolutions.co.za": {
+    "name": "Vending Solutions",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A national full-service operator since 1996 that installs, stocks and services snack machines with its own merchandisers and also supplies snack stock to the operators it sets up. It serves workplaces nationwide and runs a dedicated healthy vending line, so sugar-free chocolate, bars and biscuits suit both routes. Storage: sells from its own stock through its consumables shop and merchandiser routes, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Trading since 1996 with ISO 9001 and ISO 45001 certification and B-BBEE Level 1.",
+      "Client logos include MTN, Vodacom, PwC, KPMG, Anglo American and the University of Johannesburg."
+    ],
+    "distributes": "Snacks, chocolate and drinks in snack and combination machines, smart fridges and automated canteens; also sells snacks and drinks to other operators through its consumables shop",
+    "channels_supplied": "Workplace vending in corporate offices, hospitals and clinics, student accommodation, industrial sites, transport hubs, hospitality and education, nationwide; independent vending operators through its business opportunity and consumables shop",
+    "sf_brands_carried": "Its Healthy Vending site lists third-party better-for-you brands for operators, such as RUSH bars, Earthshine and The Chocolate Tree; no direct competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
   "vendordistribuciones.com.ar": {
     "name": "Vendor Distribuciones",
