@@ -2372,6 +2372,25 @@
     "research_file": "research/2026-10-26/J0072_2026-10-26_australia_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "burgessflorist.co.za": {
+    "name": "Burgess Florist",
+    "based_out_of": "Westville, Durban, South Africa",
+    "market": "Durban, South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Durban florist with its own hampers category that buys branded chocolate such as Lindt and resells it as gift hampers to shoppers and business clients. Sugar free chocolate and gift boxes would suit its corporate and occasion hampers. It is a single-site business and its website does not state hamper volumes, so it sits in tier 3.",
+    "what_they_do_well": [
+      "Business clients such as Plastop, SBV Services and Stefanutti Stocks praise its hampers and snack baskets in reviews shown on its website."
+    ],
+    "distributes": "Gift hampers with branded chocolate and confections (Lindt chocolate hamper), snack baskets, plus flowers",
+    "channels_supplied": "Its Westville shop and online shop, with business clients ordering hampers and snack baskets",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0058_2026-10-26_durban-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "bwg.ie": {
     "name": "BWG Foods (Value Centre and LSN)",
     "based_out_of": "Dublin, Ireland",
@@ -3683,6 +3702,25 @@
     "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "cyclecentre.co.za": {
+    "name": "Leigh's Cycle Centre",
+    "based_out_of": "Umhlanga, South Africa",
+    "market": "Durban, South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A long-standing Durban cycling shop whose own website lists a Hammer Nutrition supplements shelf, and Cadence Nutrition names it as a KwaZulu-Natal retailer of its energy bars and gels. It sells to health-conscious riders next to one of Durban's largest malls. Tier 3 because it is a single store and its website does not list individual bar products.",
+    "what_they_do_well": [
+      "Trading since October 1989, growing from Pinetown to a flagship Specialized concept store in Umhlanga."
+    ],
+    "distributes": "Sports nutrition from Hammer Nutrition and Cadence Nutrition energy bars and gels, alongside bikes, parts and apparel",
+    "channels_supplied": "Its own Specialized concept store in Umhlanga, behind Gateway Theatre of Shopping",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0058_2026-10-26_durban-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "cyclelab.com": {
     "name": "Cycle Lab",
     "based_out_of": "Johannesburg, South Africa",
@@ -4262,6 +4300,26 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "doormannutrition.co.za": {
+    "name": "Doorman Nutrition",
+    "based_out_of": "Durban, South Africa",
+    "market": "Durban, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "Durban's own sports nutrition chain, with seven stores across the city and its suburbs and over 350 products from local and international brands, including branded protein bars. Its health-conscious, training shoppers are Diablo's audience for sugar-free bars, cookies and spreads. It also has a house whey brand, but most of its range is other companies' brands.",
+    "what_they_do_well": [
+      "Grown since 2014 to seven stores across KwaZulu-Natal, from Bluff to Ballito.",
+      "Stocks over 350 products from local and international brands, with nationwide online delivery."
+    ],
+    "distributes": "Sports nutrition shop selling protein bars (Grenade Carb Killa bars, including cookie and peanut butter flavours) alongside whey, creatine and supplements from brands such as Optimum Nutrition, BSN, Muscletech, Mutant and Cellucor",
+    "channels_supplied": "Seven KwaZulu-Natal stores (Bluff, Ballito, Umhlanga, Hillcrest, Overport, Kloof and Westville) and an online shop with nationwide delivery",
+    "sf_brands_carried": "Grenade Carb Killa low sugar protein bars",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0058_2026-10-26_durban-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "dovgan.de": {
     "name": "Dovgan GmbH",
     "based_out_of": "Hamburg, Germany",
@@ -4469,6 +4527,25 @@
     "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "durbanrunner.co.za": {
+    "name": "Durban Runner",
+    "based_out_of": "Durban, South Africa",
+    "market": "Durban, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "Durban running specialist with its own nutrition menu covering seven sports nutrition brands, including bars and chews, sold to runners and endurance athletes. Tier 3 because it is one store and its food shelf is focused on race fuel; its street address is not stated on its website.",
+    "what_they_do_well": [
+      "Stocks seven sports nutrition brands, including 32Gi, GU, Maurten and Hammer, alongside major running shoe brands."
+    ],
+    "distributes": "Running shop with a nutrition section selling energy and protein bars (32Gi Race Pro Bar and 32Gi Protein Bars) and sports chews, gels and drinks from brands such as 32Gi, GU, Hammer, Maurten, Named and Fixx",
+    "channels_supplied": "Its Durban Mega Store and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0058_2026-10-26_durban-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "dvillecyclery.co.za": {
     "name": "D'Ville Cyclery",
     "based_out_of": "Durbanville, Cape Town, South Africa",
@@ -4486,6 +4563,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
+  },
+  "easybike.co.za": {
+    "name": "easyBike",
+    "based_out_of": "Durban, South Africa",
+    "market": "Durban, South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers",
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Durban North cycling and running shop whose own online shop has a Nutrition section with Nutrition Bars and Gels and Chews filters, selling other brands such as 32Gi and REVIVE. Its health-conscious riders and runners suit Diablo's bars and snacks. Tier 3 because it is a single shop with a small nutrition shelf.",
+    "what_they_do_well": [
+      "Carries leading sports brands such as Garmin, Oakley, Shimano, Wahoo and Salomon from its Durban North shop and online store."
+    ],
+    "distributes": "Energy and nutrition bars, gels, chews and electrolytes in its Nutrition section, alongside bike parts, tech and apparel",
+    "channels_supplied": "Its own shop in Durban North and its online shop",
+    "sf_brands_carried": "REVIVE electrolytes and 32Gi sports nutrition",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0058_2026-10-26_durban-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
   },
   "easytradedistribution.ch": {
     "name": "easytrade distribution AG",
@@ -6887,6 +6983,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "hattonsumhlanga.co.za": {
+    "name": "Hattons Umhlanga",
+    "based_out_of": "Umhlanga, South Africa",
+    "market": "Durban, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "Umhlanga bicycle shop that is an official Nutritech retailer and sells branded energy bars to cyclists. Tier 3 because it is a single shop with a small food shelf; its full street address is not stated on its website.",
+    "what_they_do_well": [
+      "Official Nutritech retailer, carrying bikes from Merida, Bianchi and Titan Racing."
+    ],
+    "distributes": "Bicycle shop with a nutrition section selling Nutritech energy bars (Raw Energy Bar), energy gels, protein powders and recovery drinks",
+    "channels_supplied": "Its Umhlanga bicycle shop and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0058_2026-10-26_durban-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "havenpharmacy.ie": {
     "name": "Haven Pharmacy",
