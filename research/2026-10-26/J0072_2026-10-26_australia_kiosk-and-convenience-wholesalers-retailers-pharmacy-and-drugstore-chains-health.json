@@ -1,0 +1,1194 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0072",
+  "location": "Australia",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "kiosk and convenience wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 32
+    },
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 18,
+      "searches_used": 41
+    },
+    {
+      "channel": "pharmacy and drugstore chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 47
+    },
+    {
+      "channel": "health food and organic retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 13,
+      "searches_used": 57
+    },
+    {
+      "channel": "online sellers",
+      "template": "marketplace_seller",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 14,
+      "searches_used": 39
+    }
+  ],
+  "companies": [
+    {
+      "name": "American Confectionery Wholesale",
+      "based_out_of": "Werribee, Australia",
+      "domain": "american-confectionery-wholesale.myshopify.com",
+      "channel_category": [
+        "kiosk and convenience wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Imported American and international confectionery: candies and jellies, chocolates, gums and mints, chips, snacks and cereals, spreads, freeze dried sweets and drinks",
+      "channels_supplied": "Trade buyers who apply for wholesale access online and can view the range at its Werribee warehouse; customer names not stated on its website",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Melbourne wholesaler that grew out of the Aussie Convenience store chain and sells branded American and international sweets, chocolate and snacks to trade buyers, the impulse range convenience stores and kiosks stock. Its catalogue is food led, with candies, chocolates and spreads sections, so imported European no added sugar lines sit naturally beside its range. Tier 3 because its website does not say how many stores it supplies. Storage: warehouse at Gerves Drive, Werribee, named on its website.",
+      "what_they_do_well": [
+        "Began as the Aussie Convenience store chain and launched its wholesale business in Melbourne in 2021, so it knows what convenience shoppers buy."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://american-confectionery-wholesale.myshopify.com/pages/about-us"
+      ]
+    },
+    {
+      "name": "Ampol (Ampol Foodary)",
+      "based_out_of": "Sydney, Australia",
+      "domain": "ampol.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate bars, confectionery, protein balls and savoury snacks from other brands (Cadbury, Mars, Kit Kat, Kinder Bueno, Maltesers, M&M's, The Natural Confectionery Co, Feastables)",
+      "channels_supplied": "National network of Ampol Foodary petrol station convenience stores",
+      "sf_brands_carried": "Funday Natural Sweets (low sugar sweets) stocked since May 2022",
+      "competing_brand_flag": true,
+      "fit_rationale": "National petrol station convenience chain whose Foodary snacks shelf already carries branded chocolate, sweets and bars from other companies. It has a record of taking new confectionery brands such as Feastables and better-for-you sweets such as Funday, which suits Diablo's sugar-free chocolate and gummies.",
+      "what_they_do_well": [
+        "Selected as one of Australia's select retailers for MrBeast's Feastables chocolate in October 2023."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.ampol.com.au/convenience/foodary/snacks",
+        "https://www.ampol.com.au/about-ampol/news-and-media/mr-beast-feastables",
+        "https://www.smartcompany.com.au/retail/funday-sweets-stockists/"
+      ]
+    },
+    {
+      "name": "Elite Supps",
+      "based_out_of": "Hume, Australia",
+      "domain": "elitesupps.com.au",
+      "channel_category": [
+        "retailers",
+        "online sellers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Protein bars, protein cookies, protein chips and keto snacks from other brands (Quest, My Muscle Chef, Fibre Boost, Max's, Optimum Nutrition)",
+      "channels_supplied": "160+ sports nutrition stores nationwide plus its online shop",
+      "sf_brands_carried": "Keto snacks and low sugar protein bars and cookies (Quest, Fibre Boost)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-owned sports nutrition chain with more than 160 stores that sells bars, cookies and snacks from other brands to health-conscious shoppers. Diablo's muesli bars, cookies and no-added-sugar chocolate fit its protein snacks and keto snacks shelves.",
+      "what_they_do_well": [
+        "Runs more than 160 stores nationwide, with certified nutritionists serving customers online and in store."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.elitesupps.com.au/collections/protein-snacks",
+        "https://www.elitesupps.com.au/collections/quest",
+        "https://manofmany.com/lifestyle/fitness/best-supplement-stores-sydney"
+      ]
+    },
+    {
+      "name": "Supplement Mart",
+      "based_out_of": null,
+      "domain": "supplementmart.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Protein bars, protein cookies, chocolate bars and protein snacks from other brands (Quest, Body Science, Lenny and Larry's, Macro Mike, Maxine's, Musashi, Low Carb Emporium)",
+      "channels_supplied": "54 stores across WA, SA, VIC, NSW and QLD plus its online shop",
+      "sf_brands_carried": "Low carb and low sugar bars and snacks (Low Carb Emporium, Quest, Legendary Foods)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Sports nutrition chain with 54 stores, mostly in Western Australia, whose protein snacks section lists about 20 bar, cookie and snack brands from other companies. Diablo's cookies, bars and sugar-free chocolate suit its health-conscious shoppers. Head office city is not stated on its website.",
+      "what_they_do_well": [
+        "Operates 54 stores across five states plus a click and collect warehouse."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.supplementmart.com.au/collections/protein-snacks",
+        "https://www.supplementmart.com.au/collections/protein-bars/chocolate"
+      ]
+    },
+    {
+      "name": "Australian Sports Nutrition",
+      "based_out_of": null,
+      "domain": "australiansportsnutrition.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 4,
+      "distributes": "Bars, cookies, healthy snacks and drinks from other brands (Lenny and Larry's, Quest, Fibre Boost, Macro Mike, Maxine's, My Muscle Chef, Cheeki Snacking)",
+      "channels_supplied": "34 Australian stores in shopping centres plus its online shop",
+      "sf_brands_carried": "Low carb protein bars and cookies (Quest, Fibre Boost, Maxine's)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Sports nutrition chain with 34 stores, trading since 2002, whose snacks section carries about 35 brands of bars, cookies and snacks. Diablo's muesli bars, cookies and chocolate suit its health-conscious shoppers.",
+      "what_they_do_well": [
+        "Trading since 2002 and now runs 34 stores, adding Fit Nutrition to the ASN family."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.australiansportsnutrition.com.au/collections/bar-drink-snack",
+        "https://www.australiansportsnutrition.com.au/collections/protein-cookie",
+        "https://stockland.com.au/shopping-centres/centres/stockland-green-hills/stores/australian-sports-nutrition"
+      ]
+    },
+    {
+      "name": "WHSmith Australia",
+      "based_out_of": null,
+      "domain": "whsmith.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 5,
+      "distributes": "Food, drink and confectionery alongside books and travel accessories",
+      "channels_supplied": "Over 50 stores at airports, hospitals and railway stations (Melbourne, Sydney, Brisbane, Adelaide, Perth, Gold Coast)",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Travel and hospital convenience retailer with over 50 Australian stores that sells confectionery and snacks to travellers and hospital visitors. Diablo's sugar-free chocolate and sweets suit hospital shoppers who need lower sugar choices.",
+      "what_they_do_well": [
+        "Grew from its first Melbourne Airport store in 2010 to over 50 Australian stores."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://whsmith.com.au/whsmith-australia/",
+        "https://moodiedavittreport.com/wh-smith-reveals-new-concept-stores-at-sydney-airport-terminal-1/"
+      ]
+    },
+    {
+      "name": "Rebel Sport",
+      "based_out_of": null,
+      "domain": "rebelsport.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein bars from other brands (Muscle Nation) alongside sports equipment and clothing",
+      "channels_supplied": "National sports store chain and its online shop",
+      "sf_brands_carried": "Muscle Nation protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "National sports shop chain that sells protein bars from other brands online and in store, a food shelf for health-conscious shoppers. Diablo's muesli bars and sugar-free chocolate bars fit next to them. Store count is not stated on the page checked.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.rebelsport.com.au/p/muscle-nation-protein-bars---cookies-and-cream-680671.html"
+      ]
+    },
+    {
+      "name": "Mr Supplement",
+      "based_out_of": null,
+      "domain": "mrsupplement.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Protein bars, cookies and chocolate bars from other brands (ATP Science, BSc Body Science incl. Dubai chocolate bar, Lenny and Larry's, Macro Mike, Maxine's, Musashi, Quest)",
+      "channels_supplied": "Online shop with physical stores (store locator)",
+      "sf_brands_carried": "Low carb protein bars and cookies (Quest, Fibre Boost)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Sports nutrition retailer trading since 2004 that sells bars, cookies and chocolate bars from about a dozen brands online and in its stores. Diablo's Dubai style chocolate, cookies and bars match what it already sells. Store count is not stated on its website.",
+      "what_they_do_well": [
+        "Selling supplements online since 2004 with a rewards programme and free shipping over 150 dollars."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.mrsupplement.com.au/protein-bars"
+      ]
+    },
+    {
+      "name": "Heinemann Tax and Duty Free",
+      "based_out_of": null,
+      "domain": "heinemann.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Chocolate, sweets and confectionery from other brands (Lindt, M&M's, Ritter Sport, Toblerone, Milka, Anthon Berg, Haribo)",
+      "channels_supplied": "Duty free stores at Sydney Airport (T1, T2, T3) and Gold Coast Airport, with click and collect",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Airport duty free retailer with a fine foods and sweets section of European chocolate and sweets brands at Sydney and Gold Coast airports. Diablo's chocolate gift boxes, pralines and variety packs fit its gifting shelf for travellers.",
+      "what_they_do_well": [
+        "Runs duty free stores across Sydney Airport's international and domestic terminals and Gold Coast Airport."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.heinemann.com.au/en/global/fine-foods-sweets/sweets/c/auscat_6030/",
+        "https://www.heinemann.com.au/en/global/fine-foods-sweets/c/auscat_6000/",
+        "https://www.sydneyairport.com.au/sydhub/heinemann-christmas"
+      ]
+    },
+    {
+      "name": "Aelia Duty Free",
+      "based_out_of": null,
+      "domain": "aeliadutyfree.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Chocolates, lollies and mints from other brands (Toblerone, Lindt, Cadbury, Haribo, Milka, Ferrero, Kinder, Chupa Chups, The Jelly Bean Factory)",
+      "channels_supplied": "Duty free stores at Adelaide, Cairns and Avalon airports, plus New Zealand airports",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Airport duty free retailer whose confectionery section lists over 100 products from more than 20 brands, many European. Diablo's chocolate gift boxes, gummies and variety packs suit its travel confectionery shelf.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.aeliadutyfree.com.au/adelaide/confectionery.html?___store=aelia_adelaide_en",
+        "https://www.aeliadutyfree.com.au/cairns/confectionery/lollies.html"
+      ]
+    },
+    {
+      "name": "Lotte Duty Free Australia",
+      "based_out_of": null,
+      "domain": "lottedutyfree.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Chocolate and confectionery from other brands (Toblerone, Ferrero Rocher, Milka, Lindt, Kinder, Cadbury, Nutella spread, Patons)",
+      "channels_supplied": "Duty free stores at Brisbane and Melbourne international airports and a Sydney CBD store",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Duty free retailer with a chocolate section of European and Australian brands at two airports and a Sydney city store. Diablo's chocolate bars, pralines and spreads fit its chocolate range for travellers.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.lottedutyfree.com.au/collections/chocolate"
+      ]
+    },
+    {
+      "name": "Metro Petroleum",
+      "based_out_of": null,
+      "domain": "metropetroleum.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Confectionery, snacks, groceries and beverages in its Metro Zone convenience stores",
+      "channels_supplied": "Metro Petroleum service stations with Metro Zone convenience stores",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Independent fuel and convenience network whose Metro Zone stores sell confectionery and snacks to drivers. Diablo's chocolate, sweets and bars suit its counter and snack shelves. Site count is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://metropetroleum.com.au/metro-zone/"
+      ]
+    },
+    {
+      "name": "United Petroleum (Quickstop)",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "unitedpetroleum.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Snacks, food, drinks and groceries, including muffins and cookies from other brands (Pie Face)",
+      "channels_supplied": "United Petroleum service stations with Quickstop convenience stores, expanding in Victoria",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Fuel and convenience network whose Quickstop stores sell snacks, cookies, muffins and groceries from other brands. Diablo's cookies, cakes and chocolate fit its snack range. Site count is not stated on its website.",
+      "what_they_do_well": [
+        "Opened two new sites in Melbourne's west, Truganina and Yarraville, in September 2024."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.unitedpetroleum.com.au/whats-in-store/",
+        "https://www.unitedpetroleum.com.au/double-boost-for-melbourne-united-petroleum-opens-two-new-sites-in-melbournes-west/"
+      ]
+    },
+    {
+      "name": "Supps R Us",
+      "based_out_of": null,
+      "domain": "suppsrus.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars, cookies and healthy snacks from other brands (Quest incl. Bake Shop brownies, Fibre Boost, Muscle Nation, Maxine's, Legendary Foods, BSc)",
+      "channels_supplied": "Online sports nutrition shop",
+      "sf_brands_carried": "Low carb bars and cookies (Quest, Fibre Boost, Smart Diet Solutions)",
+      "competing_brand_flag": false,
+      "fit_rationale": "Online sports nutrition shop with a bars, cookies and healthy snacks category from about ten brands. Diablo's cookies, bars and cakes suit its range. Tier 3 because store count and head office are not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.suppsrus.com.au/categories/protein-bars-healthy-snacks-rtds-condiments/protein-bars-and-cookies"
+      ]
+    },
+    {
+      "name": "Supplement Empire",
+      "based_out_of": "Summer Hill, Australia",
+      "domain": "supplementempire.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Protein bars and healthy food and snacks from other brands (BSc Body Science, ATP Science)",
+      "channels_supplied": "Store in Summer Hill, Sydney and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Australian-owned sports nutrition shop with a healthy food and snacks category selling branded bars in store and online. Tier 3 because it is a single store with an online shop.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplementempire.com.au/products/bsc-violet-crumble-protein-bar"
+      ]
+    },
+    {
+      "name": "Passion Foods",
+      "based_out_of": "South Melbourne, Australia",
+      "domain": "passionfoods.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Chocolate bars and blocks, biscuits, snacks and confectionery from other brands (Alter Eco, Loco Love, Monsieur Truffle, The Carob Kitchen, Lotus)",
+      "channels_supplied": "Health food store in South Melbourne and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Health food shop that sells chocolate, biscuits, snacks and confectionery from other brands in store and online. Tier 3 because it is a single store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://shop.passionfoods.com.au/category/chocolate-bars-blocks",
+        "https://www.timeout.com/melbourne/shopping/the-best-health-food-stores-in-melbourne"
+      ]
+    },
+    {
+      "name": "Sprint Fit",
+      "based_out_of": null,
+      "domain": "sprintfit.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Protein bars and protein snacks from other brands (Musashi, Muscle Nation, Macro Mike, Grenade, Switch Nutrition)",
+      "channels_supplied": "Online sports nutrition shop with warehouse dispatch",
+      "sf_brands_carried": "Low carb protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "Online sports nutrition shop with bar categories including low carb and plant protein bars from many brands. Tier 3 because its head office is not stated and its site also shows New Zealand contact details.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.sprintfit.com.au/product/4383/musashi-protein-crisp-bars"
+      ]
+    },
+    {
+      "name": "Mighty Ape Australia",
+      "based_out_of": null,
+      "domain": "mightyape.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Lollies and chocolate from other brands (Cadbury, Nestle, Pascall, Allen's, Delfi, Hubba Bubba)",
+      "channels_supplied": "Online retailer shipping Australia-wide, with items sold by Mighty Ape and by marketplace sellers",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Online general retailer with a lollies and chocolate section that it sells from its own stock as well as through marketplace sellers. Tier 3 because its head office and Australian warehouse are not stated on the page checked.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.mightyape.com.au/ma/shop/category/food-drink/lollies-chocolate/"
+      ]
+    },
+    {
+      "name": "Chemist Discount Centre",
+      "based_out_of": "Australia",
+      "domain": "chemistdiscountcentre.com.au",
+      "channel_category": [
+        "pharmacy and drugstore chains"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Sugar free sweets and jellies, jelly beans, chocolate protein bars and healthy snack bars from other brands, alongside pharmacy, vitamins and weight management",
+      "channels_supplied": "Its own discount pharmacy stores in WA, Queensland, Victoria and NSW and its national online shop",
+      "sf_brands_carried": "Sugarless Confectionery, Go Natural, The Man Bar, Glucojel, Jols",
+      "competing_brand_flag": true,
+      "fit_rationale": "A discount pharmacy banner group, part of the Advantage Group, whose own online shop lists branded sugar free sweets and snack bars, so Diablo's sugar free chocolate, gummies and bars sit on an existing shelf. It already stocks Sugarless Confectionery, a direct sugar free competitor. Store count today not stated on the pages read.",
+      "what_they_do_well": [
+        "Grew as a national discount pharmacy banner, adding stores across WA, Queensland, Victoria and NSW from 2018."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.chemistdiscountcentre.com.au/brand/1647/sugarless-confectionery",
+        "https://www.chemistdiscountcentre.com.au/brand/1206/go-natural",
+        "https://www.chemistdiscountcentre.com.au/prod/155830/the-man-bar-choc-hazelnut-50g",
+        "https://www.pharmacydaily.com.au/?p=78651",
+        "https://pharmacydaily.com.au/news/banner-battle-twc-dco-on-top/115834"
+      ]
+    },
+    {
+      "name": "Pharmacy 4 Less",
+      "based_out_of": "Sydney, Australia",
+      "domain": "pharmacy4less.com.au",
+      "channel_category": [
+        "pharmacy and drugstore chains"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Healthy, low calorie and low carb snacks, sugar free sweets and a health food pantry range from other brands, alongside pharmacy and vitamins",
+      "channels_supplied": "Over 50 discount pharmacy stores nationwide and its own online shop",
+      "sf_brands_carried": "Sugarless Confectionery",
+      "competing_brand_flag": true,
+      "fit_rationale": "A discount pharmacy chain of over 50 stores whose own shop has a health food section with a snacks category and a Sugarless brand page, a clear home for Diablo's no added sugar bars, sweets and chocolate. It already lists Sugarless Confectionery, a direct sugar free competitor.",
+      "what_they_do_well": [
+        "Serving customers since 2007 and grown to over 50 stores nationwide."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.pharmacy4less.com.au/about-us/",
+        "https://pharmacy4less.com.au/diet-nutrition/health-food/snacks.html",
+        "https://pharmacy4less.com.au/sugarless/",
+        "https://www.pharmacy4less.com.au/diet-nutrition/health-food/pantry.html"
+      ]
+    },
+    {
+      "name": "Chemist Direct",
+      "based_out_of": "Australia",
+      "domain": "chemistdirect.com.au",
+      "channel_category": [
+        "pharmacy and drugstore chains"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Sweets and lollies, lollipops, chips and crisps, protein bars, protein gummies and a sugar free food section from other brands",
+      "channels_supplied": "Its own national online pharmacy with click and collect",
+      "sf_brands_carried": "Simpkins sugar free sweets, Double D, Yummy Earth organic lollipops",
+      "competing_brand_flag": true,
+      "fit_rationale": "An online pharmacy with its own Food and Snacks menu, including Sweets and Lollies and a Sugar Free section, so Diablo's sugar free sweets, chocolate and bars fit straight into its range. It stocks Double D sugar free sweets, a direct competitor. Head office and store count are not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.chemistdirect.com.au/weight-loss-and-fitness/sugar-free",
+        "https://www.chemistdirect.com.au/brands/double-d",
+        "https://www.chemistdirect.com.au/simpkins-sweets-sugar-gluten-free-mixed-fruit-175g",
+        "https://www.chemistdirect.com.au/brands/yummy-earth"
+      ]
+    },
+    {
+      "name": "David Jones Pharmacy",
+      "based_out_of": "Australia",
+      "domain": "davidjonespharmacy.com.au",
+      "channel_category": [
+        "pharmacy and drugstore chains"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Healthy snacks and bars, sports bars and snacks, confectionery, gum and mints and a health foods pantry from other brands",
+      "channels_supplied": "Its own online pharmacy with Australia wide shipping",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A pharmacy, trading since 1916, whose own online shop has a Health Foods and Pantry department with Healthy Snacks and Bars, a keto, gluten free and vegan diets shelf and a Confectionery, Gum and Mints category. Diablo's bars, sweets and spreads match these shelves. Head office and store count are not stated on its website.",
+      "what_they_do_well": [
+        "Trading as a pharmacy since 1916, according to its own website."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.davidjonespharmacy.com.au/"
+      ]
+    },
+    {
+      "name": "Healthyworld Pharmacy",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "healthyworldpharmacy.com.au",
+      "channel_category": [
+        "pharmacy and drugstore chains"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Confectionery from other brands: sugar free chocolate, jellies, chews, hard boiled sweets and licorice (Sugarless), ginger sweets (Buderim) and jelly beans (Glucojel)",
+      "channels_supplied": "Five pharmacies in South East Queensland shopping centres and its own online shop",
+      "sf_brands_carried": "Sugarless Confectionery Co, Glucojel",
+      "competing_brand_flag": true,
+      "fit_rationale": "A pharmacy group with a dedicated Confectionery menu on its own shop selling 23 Sugarless Confectionery Co lines, a direct sugar free competitor, so it already sells sugar free sweets and chocolate to its shoppers. Tier 3 because it has only five stores, all in South East Queensland.",
+      "what_they_do_well": [
+        "Has run pharmacies in South East Queensland shopping centres for over 30 years."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://healthyworldpharmacy.com.au/collections/sugarless-confectionery-co",
+        "https://healthyworldpharmacy.com.au/pages/locations",
+        "https://healthyworldpharmacy.com.au/pages/home"
+      ]
+    },
+    {
+      "name": "Flannerys Organic & Wholefood Market",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "flannerys.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Organic and wholefood groceries with branded snacks, chocolate (BSKT chocolate slabs) and cookies (Friends of Frank), plus bars and bulk pantry lines",
+      "channels_supplied": "Its own 12 stores: nine in Queensland (Benowa, Chermside, Maroochydore, Miami, Paddington, Robina, Samford Village, Tewantin, Victoria Point) and three in NSW (Neutral Bay, Mona Vale, Murwillumbah)",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A 12 store organic and wholefood chain across Queensland and NSW whose own website recommends branded snacks, cookies and chocolate it stocks, such as Serious Co., Friends of Frank and BSKT. Its keto, gluten free and gut health shoppers match Diablo's no added sugar biscuits, chocolate and spreads. Owned by The Natural Grocery Company and still expanding, with Neutral Bay opened in June 2026.",
+      "what_they_do_well": [
+        "Opened a new Neutral Bay store in June 2026 and refurbished Mona Vale, growing its NSW footprint.",
+        "Gold Coast organic pioneer trading for over 31 years, now with 12 stores across Queensland and NSW."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://flannerys.com.au/store/",
+        "https://flannerys.com.au/2024/03/our-top-5-gluten-free-snack-picks/",
+        "https://insideretail.com.au/stores/openings-closings/flannerys-organic-wholefoods-market-expands-nsw-footprint-202606",
+        "https://insidefmcg.com.au/2023/12/08/gold-coast-organic-pioneer-flannerys-opens-at-new-site-after-31-years/"
+      ]
+    },
+    {
+      "name": "Market Organics",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "marketorganics.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Certified organic groceries with a Confectionary & Snacks section: chocolate (Tony's Chocolonely, Bennetto, Vego, Pico, Wallaby Bites), chocolate coated biscuit sticks (Schar) and coconut bites (Ceres Organics)",
+      "channels_supplied": "Its own stores in South East Queensland (Rocklea, Ipswich, Clayfield, Newmarket, Southport) and its online shop with delivery and pickup",
+      "sf_brands_carried": "Pico no added sugar chocolate",
+      "competing_brand_flag": true,
+      "fit_rationale": "A family run organic grocer with several Brisbane area stores and an online shop whose Confectionary & Snacks category carries many European and Australian chocolate brands. It already stocks Pico no added sugar chocolate, so the better-for-you chocolate shelf exists and Diablo would sit next to a direct competitor. Store count of five is taken from its website and press; it started online and added stores later.",
+      "what_they_do_well": [
+        "Started as an online organic retailer and grew into several Brisbane stores, each with an Evolve Organic Cafe."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://shop.marketorganics.com.au/lines/pico-nas-vegan-dark-mint-crisp-choc-80g-80g",
+        "https://shop.marketorganics.com.au/lines/schar-ciocko-stick-150g",
+        "https://theweekendedition.com.au/food-drink/market-organics-evolve-organic-cafe-newmarket/"
+      ]
+    },
+    {
+      "name": "Prahran Health Foods",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "prahranhealthfoods.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Health food store and online shop with over 7,000 products, including chocolate (Alter Eco, Noosa Natural Chocolate Co, Love Raw, Booja Booja), confectionery (Lovely Candy, Freedom Confectionery), snack bars (Carmans, Go Macro, Smart-Bars), biscuits (Orgran) and peanut butter (Darryl's, Byron Bay Peanut)",
+      "channels_supplied": "Its South Yarra store and its online health store with Australia wide delivery (also trading online as australianvitamins.com)",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long established Melbourne health food store that says it runs one of the biggest online health stores in Australia, with brand lists full of chocolate, confectionery, bar, biscuit and spread brands. Its national online reach makes it a good test listing for Diablo's chocolate, bars and peanut butter. No sugar free confectionery brand was seen in its brand lists.",
+      "what_they_do_well": [
+        "Says it stocks over 7,000 products and delivers Australia wide from one of the biggest online health stores in Australia."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.prahranhealthfoods.com.au/brands-a-to-j",
+        "https://www.prahranhealthfoods.com.au/brands-k-to-z",
+        "https://www.prahranhealthfoods.com.au/why-choose-us",
+        "https://www.australianvitamins.com/brand/loco-love"
+      ]
+    },
+    {
+      "name": "Santos Organics",
+      "based_out_of": "Byron Bay, Australia",
+      "domain": "santosorganics.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Organic groceries with Chocolates and Chips, Crackers & Snacks collections, carrying chocolate brands such as Loco Love and Chow Cacao, plus drinking chocolate",
+      "channels_supplied": "Its stores in Byron Bay and Mullumbimby, a shop and warehouse at the Byron Arts & Industrial Estate, and its online shop delivering Australia wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A not for profit organic retailer with stores in Byron Bay and Mullumbimby and a national online shop that has dedicated chocolate and snack collections from other brands. Its health-conscious Byron shoppers suit Diablo's vegan muesli bars, wafers and chocolate. It sells from its own stores and warehouse.",
+      "what_they_do_well": [
+        "Runs as a not for profit social enterprise delivering organic groceries Australia wide from its Byron Bay base."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://santosorganics.com.au/collections/all",
+        "https://santosorganics.com.au/collections/chocolates-snacks/products/loco-love-double-chocolate-truffle-twin",
+        "https://santosorganics.com.au/products/chow-cacao-chocolate-block-toffee-almond-60g"
+      ]
+    },
+    {
+      "name": "Cruelty Free Shop",
+      "based_out_of": "Sydney, Australia",
+      "domain": "crueltyfreeshop.com.au",
+      "channel_category": [
+        "health food and organic retailers",
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Vegan grocery with sweets, chocolate and snacks sections: gummies and sweets (Candy Kittens, Free From Fellows, Funday), chocolate (Loving Earth, Rawries, Noble Choice) and chewing gum (Barkleys, Epic)",
+      "channels_supplied": "Its shop at Town Hall Square in Sydney, Melbourne presence and its online shop shipping Australia wide",
+      "sf_brands_carried": "Free From Fellows sugar free sweets, Barkleys and Epic sugar free and xylitol gum",
+      "competing_brand_flag": true,
+      "fit_rationale": "A vegan grocery retailer with a Sydney shop and national online store whose sweets and chocolate sections carry many other brands, including UK sugar free gummies. Diablo's vegan wafer, cookie, muesli bars, jams and peanut butter fit its shopper. It already lists Free From Fellows sugar free sweets, a direct competitor.",
+      "what_they_do_well": [
+        "Calls itself the biggest range of vegan food in Australia, with a Sydney store and Australia wide shipping."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.crueltyfreeshop.com.au/collections/vegan-food/sweets",
+        "https://www.crueltyfreeshop.com.au/collections/vegan-food/chocolate",
+        "https://www.timeout.com/melbourne/shopping/cruelty-free-shop",
+        "https://www.timeout.com/melbourne/shopping/the-best-health-food-stores-in-melbourne"
+      ]
+    },
+    {
+      "name": "Taste Organic",
+      "based_out_of": "Sydney, Australia",
+      "domain": "tasteorganic.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Certified organic groceries with branded chocolate (Loving Earth), snacks (Kitz) and nut spreads (Food to Nourish), plus vegan and gluten free foods",
+      "channels_supplied": "Its Sydney stores (click and collect sites for Enmore and Turramurra) and its online click and collect shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney organic grocer with at least two stores whose own supplier page names the chocolate, snack and spread brands it sells. Its vegan and gluten free shelves suit Diablo's vegan spreads, jams and muesli bars. Exact store count is not stated on its website.",
+      "what_they_do_well": [
+        "Features its suppliers, such as Loving Earth and Food to Nourish, on a dedicated Our Suppliers page."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://tasteorganic.com.au/our-suppliers/",
+        "https://tasteorganic.com.au/about/",
+        "https://www.tasteorganic.com.au/Home/stores"
+      ]
+    },
+    {
+      "name": "House of Health Collective",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "houseofhealthcollective.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Certified organic wholefoods with a Healthy Snacks section: chocolate (Loco Love, Vego, Raw Treat, Loketo, Keto Treat), carob and chocolate buttons, licorice (Uncle Johns), snack bars (Clif Bar) and peanut butter",
+      "channels_supplied": "Its stores at the Adelaide Central Market and Norwood, and its online shop with click and collect and delivery",
+      "sf_brands_carried": "Loketo and Keto Treat keto chocolate, sugar free keto chocolate buttons, no added sugar carob buttons",
+      "competing_brand_flag": true,
+      "fit_rationale": "South Australia's certified organic retailer with two Adelaide stores and an online shop whose snacks section mixes many chocolate and confectionery brands. It already sells sugar free and keto chocolate, so a no added sugar shelf exists for Diablo's chocolate and sweets. Delivery area is not stated on its website.",
+      "what_they_do_well": [
+        "Grew from an Adelaide Central Market stall to a second, larger Norwood store with cafe and wellness space in December 2022."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://houseofhealthcollective.com.au/category/healthy-snacks",
+        "https://glamadelaide.com.au/first-look-sas-only-fully-organic-retailer-house-of-health-collective-opens-new-suburban-store/"
+      ]
+    },
+    {
+      "name": "Eumarrah",
+      "based_out_of": "Hobart, Australia",
+      "domain": "eumarrah.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Organic food store with Snacks and Confectionery sections: chocolate truffles (Booja Booja), fudgy bites (Ceres Organics), chocolate coated buckwheat (Mindful Foods), chocolate macadamias, dark chocolate peanuts and chocolate pretzels",
+      "channels_supplied": "Its Tasmanian organic food store and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long running Tasmanian organic food store whose online shop has Snacks and Confectionery sections with branded chocolate and snacks from other companies. It gives Diablo a route to health-conscious shoppers in Tasmania for chocolate, dragees and bars. Store count and delivery area are not stated on the pages seen.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.eumarrah.com.au/GROCERY/SNACKS/pl.php",
+        "https://www.eumarrah.com.au/BBHC23/Booja-Booja-Organic-Chocolate-Truffles-23g-(2-Pack)-_dash_-Hazelnut-Crunch/pd.php",
+        "https://www.eumarrah.com.au/COFBCR/Ceres-Organics-Organic-Fudgy-Bites-120g-(4-Pack)-_dash_-Chocolate-Raspberry/pd.php",
+        "https://tasmania.foodtourist.com/eumarrah-organic-food-store/"
+      ]
+    },
+    {
+      "name": "Dunn & Walton",
+      "based_out_of": "Perth, Australia",
+      "domain": "dunnandwalton.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Organic wholefoods with a Snacks section: chocolate (Loving Earth, Alter Eco, Bennetto, Vego), bliss bars (Food To Nourish), lollipops (Koochikoo), crackers and pea puffs",
+      "channels_supplied": "Its organic wholefoods store and cafe in Doubleview and its online shop with free Perth delivery",
+      "sf_brands_carried": "Koochikoo no added sugar organic lollipops",
+      "competing_brand_flag": true,
+      "fit_rationale": "A Perth organic wholefoods store and online shop whose Snacks collection carries about 15 chocolate, bar and snack brands from other companies. It is a single store, so it sits in tier 3, but its Perth delivery reaches beyond the shop. It already sells no added sugar lollipops.",
+      "what_they_do_well": [],
+      "confidence": "high",
+      "source_urls": [
+        "https://dunnandwalton.com.au/collections/snacks",
+        "https://dunnandwalton.com.au/products/loving-earth-chocolate-dark-85-80g",
+        "https://perthisok.com/eat-drink/perth-organic-grocers/"
+      ]
+    },
+    {
+      "name": "Perth Organics",
+      "based_out_of": "Perth, Australia",
+      "domain": "perthorganics.com",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Online organic grocery with a Chocolate & Confectionery section: chocolate (Organic Times, Alter Eco, Vego), marshmallows (Organic Times), cookies (Serious Cookies) and snack bars (Crunchbox)",
+      "channels_supplied": "Its online shop with delivery across Perth metro and regional WA and pickup in Caversham",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online organic grocer for Perth and regional WA with its own Chocolate & Confectionery category of other brands' chocolate, cookies and bars. It suits Diablo's chocolate bars and cookies for WA shoppers. Its reach is regional and the exact delivery suburbs are not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.perthorganics.com/pantry/chocolate-confectionery/",
+        "https://www.perthorganics.com/serious-cookies-choc-chip-certified-organic-170g",
+        "https://perthisok.com/eat-drink/perth-organic-grocers/"
+      ]
+    },
+    {
+      "name": "Manna Wholefoods",
+      "based_out_of": "Fremantle, Australia",
+      "domain": "mannawholefoods.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Wholefoods store with a Snacks/Confectionery section: chocolate (Tony's Chocolonely, Loving Earth, Organic Times) and carob bars (Carob Kitchen)",
+      "channels_supplied": "Its store and cafe in South Fremantle and its online shop with click and collect and delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A South Fremantle wholefoods store whose online shop has a Snacks/Confectionery category with branded chocolate from Europe and Australia. A single store, so tier 3; delivery area is not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "high",
+      "source_urls": [
+        "https://shop.mannawholefoods.com.au/category/snacks-confectionery",
+        "https://shop.mannawholefoods.com.au/lines/tony-s-dark-choc-pretz-tof-180g",
+        "https://perthisok.com/eat-drink/perth-organic-grocers/"
+      ]
+    },
+    {
+      "name": "The Organic Collective",
+      "based_out_of": "Perth, Australia",
+      "domain": "organiccollective.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Organic shop and box delivery with a Snacks > Chocolate category (Organic Times chocolate)",
+      "channels_supplied": "Its organic shop in Hamilton Hill, Perth, and its online shop and veggie box delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Perth organic shop with online ordering whose own shop has a Snacks section with a Chocolate category of other brands. It is one shop with box deliveries, so tier 3; the full snacks brand list did not show on the pages seen.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://shop.organiccollective.com.au/products.aspx?lvl1=SNACKS&catTitle=Chocolate&categoryID=327",
+        "https://shop.organiccollective.com.au/productDetail.aspx?lvl1=SNACKS&catTitle=Chocolate&categoryID=327&itemTitle=Organic-Times-White-Chocolate-Easter-Bunny-70g&productID=1054",
+        "https://www.organiccollective.com.au/map/"
+      ]
+    },
+    {
+      "name": "Wray Organic",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "wrayorganiconline.com.au",
+      "channel_category": [
+        "health food and organic retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Online organic grocery with a Biscuits & Cookies category and chocolate and chocolate coated licorice from Organic Times and other brands",
+      "channels_supplied": "Its online shop with delivery across Brisbane, Gold Coast, Sunshine Coast, Gympie and Toowoomba (wrayorganic.com.au redirects here)",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online organic grocer delivering across South East Queensland with a Biscuits & Cookies category and branded chocolate in its range. It suits Diablo's biscuits and chocolate for Queensland home delivery shoppers. Its physical stores are not listed on its website, so it ranks in tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.wrayorganiconline.com.au/",
+        "https://www.wrayorganiconline.com.au/Grocery-Biscuits-&-Cookies/",
+        "https://www.wrayorganiconline.com.au/brand/Organic-Times/"
+      ]
+    },
+    {
+      "name": "Global Sweets & Lollies",
+      "based_out_of": "Underwood, Australia",
+      "domain": "globalsweetsandlollies.com",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Sweets and candy (boiled sweets, lollipops, jelly beans, gums, chews, sours), chocolate and licorice, chips, cereals and bulk buys from UK, USA, Europe, India, South Africa and Australia, with halal, vegan and sugar free filters",
+      "channels_supplied": "Own online shop with Australia-wide delivery and click and collect, plus its megastore in Underwood between Brisbane and the Gold Coast",
+      "sf_brands_carried": "Has a sugar free collection of chocolates, lollipops and drinks from international brands; no brands named and the collection showed no products at the time of checking",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online and store retailer whose whole range is imported and local branded sweets and chocolate, organised by country, including a Europe section. Its sugar free, vegan and halal filters match Diablo's range directly.",
+      "what_they_do_well": [
+        "Ships Australia-wide from a sweets megastore in Underwood, Queensland, with free shipping over 99 dollars."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://globalsweetsandlollies.com/collections/buy-sugar-free-candy-drinks-online-australia",
+        "https://globalsweetsandlollies.com/collections/buy-europe-candy-snacks-drinks-online-australia"
+      ]
+    },
+    {
+      "name": "Bulk Eats Warehouse",
+      "based_out_of": null,
+      "domain": "bulkeatswarehouse.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Chocolates, biscuits and cookies, lollies and licorice, chips, popcorn, crackers and health snacks from brands such as Whittakers, Tony's Chocolonely, Terry's, Simply Wize, Vego and Cocoa Lane, plus pantry and drinks",
+      "channels_supplied": "Own online shop and Bulk Eats app, metro delivery and click and collect",
+      "sf_brands_carried": "Better-for-you chocolate brands such as Vego, Vegan Perfection and Simply Wize; no direct sugar free competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online grocery seller with a deep snacks department covering chocolate, biscuits and lollies from more than 25 chocolate brands alone, sold with bulk-buy pricing. Head office location is not stated on its website.",
+      "what_they_do_well": [
+        "Lists over 25 chocolate brands, from Whittakers to Tony's Chocolonely, with bulk-buy pricing."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://bulkeatswarehouse.com.au/collections/chocolates"
+      ]
+    },
+    {
+      "name": "Healthy Essentials Australia",
+      "based_out_of": null,
+      "domain": "healthyessentialsaustralia.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 1,
+      "tier_rank": 3,
+      "distributes": "Chocolate, biscuits and cookies (including Byron Bay Cookies), protein and muesli bars, jams and spreads, chips and crackers from about 100 brands such as Alter Eco, GoodnessMe and Simply Wize",
+      "channels_supplied": "Own online health food shop with Australia-wide delivery",
+      "sf_brands_carried": "Better-for-you and vegan brands such as Alter Eco, GoodnessMe and Simply Wize; no direct sugar free competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online health food seller whose vegan collection alone holds 284 products, with chocolate, biscuits, bars and jams sections from other brands. It matches Diablo's vegan bars, cookies, peanut butters and jams; head office city is not stated on its website.",
+      "what_they_do_well": [
+        "Carries about 100 brands across chocolate, biscuits, bars and spreads in a 284-product vegan range."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://healthyessentialsaustralia.com.au/collections/vegan"
+      ]
+    },
+    {
+      "name": "The Lolly Barn",
+      "based_out_of": "The Entrance, Australia",
+      "domain": "thelollybarn.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Lollies and candy, chocolate, American, Dutch, UK and New Zealand sweets, gluten free sweets and mystery boxes from brands such as Trolli, M&Ms, Cadbury, Allens, Reese's and Nestle",
+      "channels_supplied": "Own online shop and its store in The Entrance, NSW",
+      "sf_brands_carried": "Sells a zero sugar mystery hamper; no sugar free brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run online lolly shop that resells branded sweets and chocolate from several countries, including Dutch and UK ranges. Its zero sugar hamper shows demand Diablo's sugar free sweets can serve.",
+      "what_they_do_well": [
+        "Family business trading since 1990 from The Entrance, NSW, open seven days."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://thelollybarn.com.au/"
+      ]
+    },
+    {
+      "name": "Southern Sweets Australia",
+      "based_out_of": null,
+      "domain": "no domain",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Lollies, chocolate and caramel lines, gumballs, lollipops, sugar coated almonds, party, wedding and seasonal confectionery from brands such as Cadbury, Allen's, Trolli, Chupa Chups and Mates",
+      "channels_supplied": "eBay Australia storefront",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An eBay Australia confectionery seller with about 59K items sold at 99.9% positive feedback, reselling branded and bulk lollies and chocolate. Its party and wedding lines suit Diablo's gummies and chocolate buttons; head office is not stated on its storefront.",
+      "what_they_do_well": [
+        "About 59K items sold on eBay Australia with 99.9% positive feedback."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.ebay.com.au/str/southernsweetsaustralia"
+      ]
+    },
+    {
+      "name": "Just Sweets Australia",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "no domain",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Chocolate, jelly beans, confectionery, fudge, nougat, international sweets, gift hampers, lolly bags and bulk buys, with branded lines from Cadbury, Barratt and Park Lane",
+      "channels_supplied": "eBay Australia storefront, shipping Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run Melbourne confectionery seller on eBay with 21K items sold, combining branded chocolate and sweets with gift hampers. Its gifting and international ranges suit Diablo's chocolate boxes and gift packs.",
+      "what_they_do_well": [
+        "Family-run Melbourne confectionery business supplying chocolates and sweets since 2002, with 21K eBay sales."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.ebay.com.au/str/justsweetsaus"
+      ]
+    },
+    {
+      "name": "CGC Confectionery",
+      "based_out_of": null,
+      "domain": "no domain",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Dutch licorice, USA candies, UK sweets, gift box confectionery and bulk party sweets from brands such as Taverner's, Walker's, Barratt's, Maynards Bassetts, Storck, Terry's and Mentos",
+      "channels_supplied": "eBay Australia storefront (goodlollies)",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An eBay Australia seller of imported European and US confectionery with 17K items sold at 99.6% feedback. It already resells European brands such as Storck and Maynards Bassetts, which fits Diablo's hard sweets and gummies; head office is not stated.",
+      "what_they_do_well": [
+        "Resells European confectionery brands such as Storck, Barratt's and Maynards Bassetts, with 17K eBay sales."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.ebay.com.au/str/goodlollies"
+      ]
+    },
+    {
+      "name": "Snack Box Hampers",
+      "based_out_of": null,
+      "domain": "snackboxhampers.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Chocolate and snack gift hampers and gift boxes built from Cadbury, Lindt, Darrell Lea, KitKat, Maltesers, Milky Bar, Tim Tam biscuits, Allen's and Quality Street",
+      "channels_supplied": "Own online shop with Australia-wide and international delivery, corporate and seasonal hampers",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online hamper seller whose boxes are filled with packs of branded chocolate, biscuits and lollies sold as they are, including corporate and Easter ranges. Diablo's gift boxes, chocolate bars and advent calendars fit its seasonal hampers; head office is not stated.",
+      "what_they_do_well": [
+        "Builds hampers from over a dozen major chocolate and biscuit brands, with city pages for Easter delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://snackboxhampers.com.au/product-category/chocolate-gift-box-hampers/"
+      ]
+    },
+    {
+      "name": "Beyond Best Before",
+      "based_out_of": "Sydney, Australia",
+      "domain": "beyondbestbefore.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 2,
+      "tier_rank": 6,
+      "distributes": "Snacks and treats including sweets, chocolate and biscuits from brands such as Haribo, M&M's, Oreo, Hi-Chew, Sour Patch Kids, Carman's and Orion, plus pantry, drinks and household goods",
+      "channels_supplied": "Own online snacks outlet and its store in Newtown, Sydney",
+      "sf_brands_carried": "Carman's bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney discount snacks outlet that resells branded sweets, chocolate and biscuits online and in its Newtown store. It buys and holds stock of other brands, so Diablo's sweets and biscuits sit naturally in its snacks and treats range.",
+      "what_they_do_well": [
+        "Runs a Newtown store open seven days alongside its online snacks outlet."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://beyondbestbefore.com.au/"
+      ]
+    },
+    {
+      "name": "Edible Blooms Pty Ltd (Gift Basket)",
+      "based_out_of": null,
+      "domain": "giftbasket.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 2,
+      "tier_rank": 7,
+      "distributes": "Chocolate and sweet gift hampers with Byron Bay Cookies, Dancing Monkey Rocky Road, Roses chocolates and Ferrero Rocher; sister site Edible Blooms sells chocolate bouquets with Lindt and Ferrero",
+      "channels_supplied": "Gift Basket and Edible Blooms online shops, Australia-wide with same-day delivery in five capital cities, plus a New Zealand site",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national online gifting seller whose Gift Basket hampers are built from branded cookies and chocolate packed as they are. Diablo's gift boxes and chocolate boxes suit its sweet gift range; head office is not stated on the pages checked.",
+      "what_they_do_well": [
+        "Offers same-day hamper delivery in Brisbane, Sydney, Melbourne, Perth and Adelaide."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://giftbasket.com.au/chocolate-and-sweet-gifts/",
+        "https://www.edibleblooms.com.au/collections/lolly-hampers"
+      ]
+    },
+    {
+      "name": "Treat Crate",
+      "based_out_of": null,
+      "domain": "treatcrate.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "International snack subscription boxes and instant crates of snacks and sweets from a different country each month, plus individual snacks",
+      "channels_supplied": "Own online shop and monthly subscriptions, Australia-wide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An Australian-owned snack subscription seller that buys foreign snacks and sweets and ships them to shoppers each month. A European month suits Diablo's sweets and biscuits; it is tier 3 because its website names no brands or head office.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://treatcrate.com.au/"
+      ]
+    },
+    {
+      "name": "Byron Bay Gifts",
+      "based_out_of": "Byron Bay, Australia",
+      "domain": "byronbaygifts.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Chocolate gift hampers with cookies, pretzels, shortbread, chocolate macadamias, brownies, rocky road and chocolate bars from Byron Bay Cookies, Wallaby, Butterfingers, Duck Creek and Byron Bay Cacao",
+      "channels_supplied": "Own online shop with Australia-wide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A hamper seller that fills its chocolate hampers with packed cookies, bars and chocolate from other producers. It is tier 3 because it is small and focuses on Byron Bay producers; head office address is not stated.",
+      "what_they_do_well": [
+        "Builds hampers from local Byron Bay producers such as Byron Bay Cookies and Duck Creek Macadamias."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://byronbaygifts.com.au/products/chocolate-gift-hampers"
+      ]
+    },
+    {
+      "name": "The Hamper Boutique Co",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "thehamperboutique.com.au",
+      "channel_category": [
+        "online sellers"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Chocolate and biscuit gift hampers with Whittaker's, Lakker, Charlotte Piper, Charlie's biscuits, Mother Megs biscuits and Pana Organic hot chocolate",
+      "channels_supplied": "Own online shop for corporate and personal gifting, free Australia-wide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Melbourne corporate gifting seller whose hampers carry branded chocolate and biscuits from other companies. It is tier 3 because it is a small team founded in 2020 and sells mainly to corporate buyers.",
+      "what_they_do_well": [
+        "Free Australia-wide hamper delivery, with same-day Melbourne delivery by arrangement."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.thehamperboutique.com.au/blogs/post/gourmet-chocolate-hampers-australias-finest-sweet-selections"
+      ]
+    }
+  ],
+  "main_cities": [
+    {
+      "city": "Sydney",
+      "language": "English"
+    },
+    {
+      "city": "Melbourne",
+      "language": "English"
+    },
+    {
+      "city": "Brisbane",
+      "language": "English"
+    },
+    {
+      "city": "Perth",
+      "language": "English"
+    },
+    {
+      "city": "Adelaide",
+      "language": "English"
+    },
+    {
+      "city": "Gold Coast",
+      "language": "English"
+    },
+    {
+      "city": "Canberra",
+      "language": "English"
+    },
+    {
+      "city": "Newcastle",
+      "language": "English"
+    }
+  ]
+}
