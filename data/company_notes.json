@@ -71,6 +71,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "absolutevending.co.za": {
+    "name": "Absolute Vending",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers",
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Cape metro snack vending operator that places machines free of charge and keeps them stocked itself with chocolates, sweets and biscuits, and already offers sugar-free options on request, which is where Diablo fits. Storage: fills its machines from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Over 18 years in the vending industry across the Cape metro.",
+      "Free installation with no contracts, and its own team keeps every machine fully stocked."
+    ],
+    "distributes": "Chocolates, crisps, Jelly Tots sweets, biscuits, peanuts, mints and chewing gum in snack vending machines, plus cool drinks, with healthier and sugar-free options",
+    "channels_supplied": "Workplaces across the Cape metro (northern and southern suburbs, CBD, Atlantis and Somerset West), including health and education sites",
+    "sf_brands_carried": "Sugar-free and healthier options offered; brands not named on its website",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
+  },
   "adsa.ch": {
     "name": "AVIA Distribution SA",
     "based_out_of": "Le Mont-sur-Lausanne, Switzerland",
@@ -1294,6 +1314,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
+  },
+  "bike-addict.co.za": {
+    "name": "Bike Addict",
+    "based_out_of": "Malmesbury, Western Cape, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A West Coast bike shop about an hour from Cape Town whose own online shop sells energy bars from other brands within a 93 product nutrition section. Tier 3 because its one store is in Malmesbury and its delivery area is not stated on the page seen.",
+    "what_they_do_well": [
+      "Carries a 93 product cycling nutrition range across six brands, including 226ERS, 32GI and FiT."
+    ],
+    "distributes": "Cycling gear with a nutrition section of 93 products: energy bars (Endurade, 32Gi nougat bars), gels and drinks from 226ERS, 32GI, FiT, Endurade, Dripdrop and Cadence",
+    "channels_supplied": "Its own store in Malmesbury and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "biket.co.za": {
     "name": "Biket",
@@ -3526,6 +3565,24 @@
     "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "dvillecyclery.co.za": {
+    "name": "D'Ville Cyclery",
+    "based_out_of": "Durbanville, Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Durbanville bike shop whose own online shop has a dedicated bars category with PowerBar, Cadence and Enduren bars. It buys other brands' bars for the northern suburbs cycling community, a good shelf for Diablo's muesli and cereal bars.",
+    "what_they_do_well": [
+      "Runs a nutrition section with separate bars, gels, energy drinks and recovery drinks categories from several brands."
+    ],
+    "distributes": "Bicycles and cycling gear with a nutrition section: energy bars (PowerBar, Cadence, Enduren), gels, energy and recovery drinks (NamedSport and others)",
+    "channels_supplied": "Its own store in the Midville Centre, Durbanville and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
+  },
   "easytradedistribution.ch": {
     "name": "easytrade distribution AG",
     "based_out_of": "Lucerne, Switzerland",
@@ -4336,6 +4393,24 @@
     "research_file": "research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "freewheel.co.za": {
+    "name": "Freewheel Cycology",
+    "based_out_of": "Southern Suburbs, Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Southern Suburbs bike shop whose own online shop lists nine PowerBar bar listings beside gels and drinks, and other nutrition brands such as Amacx and Maurten. It already sells branded bars to health-conscious cyclists. Store street address not stated on its website.",
+    "what_they_do_well": [
+      "Specialized Concept Store since 2014 and Specialized Retailer of the Year in 2017, 2018 and 2019."
+    ],
+    "distributes": "Specialized bicycles and cycling gear with a nutrition range: PowerBar energy bars and gels, Maurten, Amacx and Drip Drop products",
+    "channels_supplied": "Its own store in Cape Town's Southern Suburbs and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
+  },
   "fresco.ge": {
     "name": "Fresco (Fresco Group)",
     "based_out_of": "Tbilisi, Georgia",
@@ -4774,6 +4849,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "gift-ology.co.za": {
+    "name": "Gift-ology",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Cape Town corporate gifting business with its own chocolate gift box category, hand packing curated, alcohol free and halal friendly boxes for companies, which suits Diablo's halal certified chocolate and gift boxes. Its website does not name the chocolate brands it packs or its order volumes, hence tier 3. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Offers alcohol free, halal friendly corporate gift boxes, hand packed in Cape Town for client appreciation and staff recognition."
+    ],
+    "distributes": "Chocolate gift boxes and hampers (a Chocolate Hampers Cape Town category and a Chocolate and Nuts collection), curated corporate gift boxes",
+    "channels_supplied": "Corporate clients for client appreciation and employee recognition; own online shop with delivery from Cape Town",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "giftlady.co.za": {
     "name": "Gift Lady",
@@ -6209,6 +6303,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0003_2026-10-19_vienna-austria_distributors.json"
+  },
+  "kaymosrange.co.za": {
+    "name": "Kaymos Range",
+    "based_out_of": "Pretoria, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A gifting business that packs other companies' branded chocolate and biscuits into hampers and runs a corporate and bulk orders section, so Diablo gift boxes and biscuits fit its baskets. It is based in Pretoria and serves Cape Town through nationwide delivery, and sells direct rather than to shops, hence tier 3. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Runs a dedicated Corporate and Bulk Orders range of hampers, goodie bags and engraved gifts for companies and schools."
+    ],
+    "distributes": "Chocolate and biscuit hampers and gift baskets (Cadbury Dairy Milk, Cadbury PS, Runga chocolate bars and biscuits), party packs with chocolates and chips, corporate hampers and goodie bags",
+    "channels_supplied": "Own online shop with nationwide delivery including Cape Town; corporate and bulk orders for companies, schools and events",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "kdcnutrition.ch": {
     "name": "KDC Nutrition",
@@ -8172,6 +8285,25 @@
     "research_file": "research/2026-10-23/J0044_2026-10-23_lucerne-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "nutritionrage.com": {
+    "name": "Nutrition Rage",
+    "based_out_of": "South Africa, with a branch in Blouberg, Cape Town (head office not named on its website)",
+    "market": "Cape Town, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A five-branch sports nutrition chain with a Blouberg branch in Cape Town that sells other brands' protein bars within its protein range. Tier 3 because only one branch serves Cape Town and the bars range seen on its website is small.",
+    "what_they_do_well": [
+      "Runs five branches across four provinces with click and collect, reserve online and nationwide delivery."
+    ],
+    "distributes": "Sports nutrition from other brands (TNT, Evolve, Nutritech, USN, MuscleTech and others), including protein and meal replacement bars such as the TNT Black Mass MRP Bar",
+    "channels_supplied": "Five own branches (Witbank, Middelburg, Boksburg, Potchefstroom and Blouberg) and its own online shop with nationwide delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "nutsinbulk.ie": {
     "name": "Nuts in Bulk (Outlet Wholefood Company)",
     "based_out_of": "Navan, Ireland",
@@ -8369,6 +8501,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0036_2026-10-23_switzerland_diabetic-low-sugar-and-keto-shops-gluten-free-and-free-from-shops-vegan-and-vege.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "online-bicycle-shop.co.za": {
+    "name": "Online Bicycle Shop (OBS)",
+    "based_out_of": "Kenilworth, Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Cape Town cycling retailer whose nutrition section lists a dozen brands including several energy bar and chew ranges from other companies. It already buys branded bars and snacks for health-conscious riders, so Diablo's bars and snacks fit its shelf.",
+    "what_they_do_well": [
+      "Stocks a broad nutrition range of about twelve brands, including HIGH5, GU, Hammer Nutrition, Power Bar and Racefood."
+    ],
+    "distributes": "Bicycles and cycling gear with a large nutrition section: energy bars (Racefood, Cadence, Enduren, Power Bar), fruit chews (Amacx), gels and drink mixes",
+    "channels_supplied": "Its own online shop with local delivery and its store on Main Road, Kenilworth",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "online-nutrition.ch": {
@@ -9539,6 +9690,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json"
+  },
+  "runstore.co.za": {
+    "name": "RUN Store",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A Cape Town specialist running chain with three stores whose own online shop has a nutrition collection of other brands' energy bars, waffles and chews. Its health-conscious runners are the shoppers Diablo's muesli bars and better-for-you snacks are aimed at.",
+    "what_they_do_well": [
+      "Runs three specialist running stores across Cape Town, including a flagship in Newlands at the foot of Table Mountain."
+    ],
+    "distributes": "Running shoes, apparel and accessories with a nutrition shelf: energy bars and waffles (Naak), energy chews (GU), gels and drink mixes",
+    "channels_supplied": "Three own stores in Newlands, Bree Street and Bellville in Cape Town, plus its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
   },
   "runstorezurich.com": {
     "name": "Run Store Zurich",
@@ -11146,6 +11315,25 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "thesweatshop.co.za": {
+    "name": "The Sweat Shop",
+    "based_out_of": "Claremont, Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A specialist running shop with a Cape Town store in Claremont whose online shop sells Racefood bars and GU chews among several nutrition brands. Its runners are health-conscious shoppers who buy bars and snacks for training.",
+    "what_they_do_well": [
+      "Named in Runner's World's guide to specialist running stores for its Claremont, Cape Town store."
+    ],
+    "distributes": "Running shoes and gear with a nutrition section: energy bars (Racefood Fastbar and Farbar), energy chews (GU), gels and endurance drinks (SIS, 32Gi, Tailwind, Fixx)",
+    "channels_supplied": "Two own stores, Claremont in Cape Town and Dunkeld West in Johannesburg, and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "thevendingguys.co.za": {
     "name": "The Vending Guys",
     "based_out_of": "Cape Town, South Africa",
@@ -11689,6 +11877,25 @@
     "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "vanwykvending.co.za": {
+    "name": "Van Wyk Vending",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Van Wyk Vending installs, stocks and manages snack machines in Cape Town, with a workplace wellness offer that suits sugar-free snacks. Tier 3 because it is young and small and its website does not name the snack brands it stocks. Storage: buys and holds the stock it loads into its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Grew from one student after-hours snack machine in 2022 into placement, restocking and workplace wellness vending services."
+    ],
+    "distributes": "Packaged snacks in its own vending machines, including a prepaid employee snack scheme",
+    "channels_supplied": "Smart placement vending at student residences, workplaces, education and industrial sites in Cape Town and surrounding areas",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "vega.pe": {
     "name": "Grupo Vega",
     "based_out_of": "Lima, Peru",
@@ -11851,6 +12058,47 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "vendoza.co.za": {
+    "name": "vendoZA",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "vendoZA runs smart vending machines curated around healthier snacks and handles stock and restocking itself, which matches Diablo's health-conscious shopper. Its gym and office sites suit sugar-free bars, chocolate and biscuits. Storage: buys and holds the stock it loads into its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Places bespoke touchscreen machines with tap-to-pay and remote stock sensors at zero upfront cost, installed within 48 hours."
+    ],
+    "distributes": "Healthier packaged snacks and bars from partner brands such as FutureLife and USN, plus local favourite snacks and drinks",
+    "channels_supplied": "Its own smart vending machines in Cape Town offices, gyms, campuses, hotels and retail spaces",
+    "sf_brands_carried": "Better-for-you brands FutureLife, USN, Komati Foods and BAKALI; none competes directly with Diablo",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "vendteccapetown.co.za": {
+    "name": "Vendtec Cape Town",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers",
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Brackenfell vending business that both places snack machines in workplaces and sells branded chocolates, sweets and bars by the case to the people who fill them, so a Diablo bar or wafer could reach many office machines at once. Storage: sells from its own stock through its online shop from its Industria Park premises, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Over 20 years in vending, with in-house servicing of every machine it sells or rents.",
+      "Sells vending stock by the case, from Nestle bars to Snickers and M+M, alongside its machines."
+    ],
+    "distributes": "Branded chocolate bars, sweets and energy bars by the box (Aero, Bar One, Kit Kat, Lunch Bar, Snickers, M+M, Liquorice All Sorts, Jungle Energy Bar) plus chips, cold and hot beverages, alongside snack vending machine sales and rentals",
+    "channels_supplied": "Vending operators and workplaces that buy or rent its snack, combo and hot beverage machines, through its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "verbund.edeka": {
@@ -12285,6 +12533,25 @@
     "sf_brands_carried": "Koochikoo sugar free candies, Amazonia erythritol and monk fruit sweeteners, Schar, Bob's Red Mill, Nature's Path; runs a dedicated sugar free category.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "wildorganics.co.za": {
+    "name": "Wild Organics",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Cape Town online organic grocer that already sells other brands' chocolate, cookies, snacks and jams to health-conscious shoppers, including a sugar-free chocolate, so Diablo's vegan cookies, jams and bars match its shelf. It is tier 3 because it is a single online shop with small ranges in each category; store count and delivery area beyond Cape Town are not stated on its website.",
+    "what_they_do_well": [
+      "Trading in Cape Town since 2006 as an online shop for certified organic, ethically farmed produce, with home delivery and collection points."
+    ],
+    "distributes": "Organic grocery online, with chocolate (Afrikoa bars), snacks (Santa Anna corn chips), cookies and rusks (Off the Gluten Path) and jams (Mysthill Farm) from other brands, alongside fresh produce, dairy and pantry goods.",
+    "channels_supplied": "Its own online shop with home delivery and collection points in Cape Town.",
+    "sf_brands_carried": "Afrikoa 80% dark sugar-free chocolate sweetened with xylitol; gluten-free cookies from Off the Gluten Path.",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "winterfreude.ch": {
     "name": "Winterfreude",
