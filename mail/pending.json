@@ -1,5 +1,186 @@
 {
-  "generated_at": "2026-10-26T07:01:18+00:00",
+  "generated_at": "2026-10-26T09:31:16+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "674307909872",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "American Food Ave",
+        "domain": "afoodave.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "674252023010",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "candy24",
+        "domain": "candy24.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "672940007631",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Go Fitness",
+        "domain": "gofitness.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "902015878357",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "itema shop",
+        "domain": "itemashop.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "672982107358",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "kanela",
+        "domain": "kanela.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673179684035",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Sport Benzin",
+        "domain": "sportbenzin.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677501781198",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Sweet Dreams Switzerland",
+        "domain": "sweetdreamsschweiz.com",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "679594635479",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "swiss-made",
+        "domain": "swiss-made.shop",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671640251636",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "The English Grocer",
+        "domain": "englishgrocer.ch",
+        "location": "Switzerland",
+        "channel": "Online Retailer",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673475951810",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Sport Benzin",
+        "domain": "sportbenzin.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    }
+  ]
 }
