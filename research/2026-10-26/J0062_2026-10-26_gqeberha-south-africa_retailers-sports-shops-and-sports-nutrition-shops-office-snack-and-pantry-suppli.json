@@ -1,0 +1,169 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0062",
+  "location": "Gqeberha, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 34
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 54
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 36
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 45
+    }
+  ],
+  "companies": [
+    {
+      "name": "Action Cycles",
+      "based_out_of": "Gqeberha, South Africa",
+      "domain": "actioncycles.co.za",
+      "channel_category": [
+        "retailers",
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Bicycles and cycling gear, with a cycling nutrition section of energy bars and energy gels",
+      "channels_supplied": "Its own shop at 97 Heugh Road, Walmer, Gqeberha, and its own online shop with delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Gqeberha sports shop whose own online store has a nutrition category selling energy bars and gels to health-conscious cyclists, which passes rule 5 for sports shops. It buys and sells stock from its own shop and online store. It is a single store and the nutrition brands are not named on its home page, so it sits in tier 3.",
+      "what_they_do_well": [
+        "Runs a live online store from Walmer, Gqeberha, offering free shipping on orders over R1800."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://actioncycles.co.za/",
+        "https://actioncycles.co.za/collections/all",
+        "https://omnico.co.za/dealers"
+      ]
+    },
+    {
+      "name": "Prime Growth",
+      "based_out_of": "South Africa",
+      "domain": "primegrowth.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sports nutrition with a protein snacks section: protein bars and snacks from Grenade, USN, TNT, Nutritech, SSA Supplements and Youthful Living",
+      "channels_supplied": "Its own online shop",
+      "sf_brands_carried": "Youthful Living (low sugar and keto bars)",
+      "competing_brand_flag": true,
+      "fit_rationale": "An online sports supplement shop with its own Protein Snacks category stocking bars from several brands, including the European brand Grenade. It sells to gym-goers, a natural audience for Diablo's bars and spreads. Tier 3 because its city and delivery area are not stated on its website; it advertises delivery in 1 to 3 business days.",
+      "what_they_do_well": [
+        "Stocks a wide spread of local and international sports brands, including USN, Evolve Nutrition, NPL, 32Gi and Grenade."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://primegrowth.co.za/",
+        "https://primegrowth.co.za/product-category/protein-snacks/"
+      ]
+    },
+    {
+      "name": "Finish Line Cycles",
+      "based_out_of": "South Africa",
+      "domain": "finishlinecycles.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Cycling nutrition: energy bars, gels, electrolytes and recovery drinks from Maurten, 226ers, Enduren and others",
+      "channels_supplied": "Its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A South African bike shop whose online store has its own Nutrition section with energy bars from Maurten, 226ers and Enduren, so it already buys and sells branded bars to active shoppers. Tier 3 because its city and delivery area are not stated on its website; shipping is calculated at checkout.",
+      "what_they_do_well": [
+        "Stocks European endurance brands such as Maurten and 226ers alongside South African ones."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://finishlinecycles.co.za/"
+      ]
+    },
+    {
+      "name": "Waltons",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "waltons.co.za",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sweets, biscuits and snacks in a Refreshments and Catering section (Snacks, Sweet Treats), for example Endearmints wrapped sweets, Sweets from Heaven gummies, Bakers Choice assorted biscuits and Pyotts Snacktime biscuits, alongside coffee, tea and office supplies.",
+      "channels_supplied": "Offices and businesses through over 60 stores nationwide, including a Gqeberha store with click and collect, and its online shop.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Waltons is a national office supplier of the Bidvest Group that sells other companies' branded sweets and biscuits to workplaces from its own online shop and stores, including one in Gqeberha. A sugar-free sweets, biscuit and bar range suits its Refreshments and Catering shelf for health-conscious offices. Storage: sells from its own stock through its stores and online shop, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs over 60 stores nationwide with click and collect in Gqeberha.",
+        "Sells branded office snacks such as Endearmints sweets and Pyotts biscuits online."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.waltons.co.za/",
+        "https://www.waltons.co.za/buy/endearmints-sweets-wrapped-1kg-sswt2930",
+        "https://www.waltons.co.za/buy/sweets-from-heaven-unicorn-125g-kn-sfh23-each",
+        "https://www.waltons.co.za/buy/pyotts-snacktime-biscuits-assorted-400gr",
+        "https://magicpin.com/south-africa/Gqeberha/Despatch/Other/Waltons-Harrower-Road/store/2411c14"
+      ]
+    },
+    {
+      "name": "Valmac Office National",
+      "based_out_of": "Gqeberha, South Africa",
+      "domain": "valmac.co.za",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Biscuits and sweets in a Canteen and Janitorial section, plus coffee, tea, hot chocolate, cold drinks and office supplies.",
+      "channels_supplied": "Offices and businesses in Gqeberha from its North End store and the Office National online shop.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Valmac Office National is a Gqeberha office supplier in the Office National network whose shop has its own Biscuits and Sweets categories for workplace canteens. It is tier 3 because its website names no individual sweets or biscuit brands and its customer numbers are not stated. Storage: sells from its North End store at Paterson Road Industrial Park, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Serves Eastern Cape businesses from North End with stationery, printing and canteen supplies under one roof."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.officenational.co.za/valmac-office-national-page",
+        "https://www.officenational.co.za/office-supplies/canteen-janitorial",
+        "https://port-elizabeth.infoisinfo.co.za/card/valmac-office-national-pty-ltd/343632"
+      ]
+    }
+  ]
+}
