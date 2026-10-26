@@ -1,0 +1,78 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-26",
+  "run_type": "manual",
+  "generated_from": "2026-10-26T09:31:16+00:00",
+  "lines": [
+    {
+      "contact_id": "674307909872",
+      "company_name": "American Food Ave",
+      "personal_line": "Your team's work in serving customers across Switzerland speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "674252023010",
+      "company_name": "candy24",
+      "personal_line": "We have great respect for the way your team serves its customers across Switzerland. With such established reach across its shop, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "672940007631",
+      "company_name": "Go Fitness",
+      "personal_line": "We hold your team in high regard for the way it serves active customers in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the sports retail space for health-conscious customers",
+      "style": "D"
+    },
+    {
+      "contact_id": "902015878357",
+      "company_name": "itema shop",
+      "personal_line": "We have great respect for the way your team serves its customers across Switzerland. With such established reach across its shop, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "672982107358",
+      "company_name": "kanela",
+      "personal_line": "Your range, from your established lines to your latest additions, reflects a careful choice of products for your customers in Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "C"
+    },
+    {
+      "contact_id": "673179684035",
+      "company_name": "Sport Benzin",
+      "personal_line": "Your team's work in serving active customers across Switzerland speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the sports retail space for health-conscious customers",
+      "style": "B"
+    },
+    {
+      "contact_id": "677501781198",
+      "company_name": "Sweet Dreams Switzerland",
+      "personal_line": "We hold your team in high regard for the way it serves its customers in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "679594635479",
+      "company_name": "swiss-made",
+      "personal_line": "We hold your team in high regard for the way it serves its customers in Switzerland. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "D"
+    },
+    {
+      "contact_id": "671640251636",
+      "company_name": "The English Grocer",
+      "personal_line": "Your team's work in serving customers online across Switzerland speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "is in the retail space for confectionery products",
+      "style": "B"
+    },
+    {
+      "contact_id": "673475951810",
+      "company_name": "Sport Benzin",
+      "personal_line": "Your range, from your established lines to your latest additions, reflects a careful choice of products for active customers in Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "is in the sports retail space for health-conscious customers",
+      "style": "C"
+    }
+  ]
+}
