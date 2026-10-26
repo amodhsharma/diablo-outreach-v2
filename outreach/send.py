@@ -51,8 +51,10 @@ def campaign_name(prefix, month=None):
 
 
 PERSON, INBOX = "person", "company_inbox"
-# Channels outside our usual ones (23 Oct 2026, config/bond_channels.json): their own campaigns, whose
-# first email adds the bold heading "Why we think our bond would be strong" and the personal line.
+# Channels outside our usual ones (23 Oct 2026, config/bond_channels.json) had their own campaigns in
+# October 2026 ("... | Other channels"). Since 26 Oct 2026 (Ariel) there are only two campaigns a month:
+# people, and everything else. Those October campaigns are still recognised so their leads can be
+# moved into the two (other_channels.merge); nothing new is ever added to them.
 PERSON_OTHER, INBOX_OTHER = "person_other", "company_inbox_other"
 KINDS = (PERSON, INBOX, PERSON_OTHER, INBOX_OTHER)
 
@@ -61,11 +63,44 @@ def other_suffix(config=None):
     return " | " + ((config if config is not None else bond.load()).get("campaign_suffix") or "Other channels")
 
 
-def kind_for(inbox, other):
-    """The campaign kind for a company inbox or a person, at a usual or another channel."""
+def kind_for(inbox, other=False):
+    """The campaign kind for a contact: people go to the month's campaign, everything else (company
+    inboxes) to the month's company inbox campaign, whatever the channel (26 Oct 2026, Ariel). `other`
+    is kept for the October 2026 "Other channels" campaigns only."""
     if other:
         return INBOX_OTHER if inbox else PERSON_OTHER
     return INBOX if inbox else PERSON
+
+
+def with_bond(lead, company, notes=None, config=None):
+    """The lead with its bond paragraph: the heading and the personal line for a channel outside our
+    usual ones, empty for every other channel (26 Oct 2026)."""
+    channel = channel_of(company or {}, notes)
+    line = lead.get("custom_variables", {}).get("personal_line") if bond.bond_channel(channel, config) else ""
+    lead.setdefault("custom_variables", {})[bond.VARIABLE] = bond.paragraph(line, config) if line else ""
+    return lead
+
+
+def is_other_campaign(name):
+    """True for an October 2026 "Other channels" campaign (no longer used for new leads)."""
+    return str(name or "").endswith(other_suffix())
+
+
+def bond_ready(settings, kind):
+    """True when the first email of this kind of campaign has room for the bond paragraph. Until then
+    a contact at a channel outside our usual ones waits, so nobody gets the email without it."""
+    paths = settings["send"].get("templates") or {}
+    which = "first_email_company_inbox" if kind == INBOX else "first_email"
+    path = Path(paths.get(which) or "")
+    if not path.name:
+        return False
+    if not path.is_absolute():
+        path = ROOT / path if path.parent != Path(".") else ROOT / "templates" / path
+    try:
+        template = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    return "{{" + bond.VARIABLE + "}}" in template.get("body", "")
 
 
 def name_for_kind(kind, prefix, s, month=None):
@@ -418,7 +453,20 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     if missing_link:
         log(f"WARNING: {missing_link}")
     elif not dry_run:
+        # 26 Oct 2026 (Ariel): two campaigns a month. In this order: the leads waiting in them get their
+        # bond paragraph, then the emails are brought up to date, then the "Other channels" leads move in.
+        from .other_channels import fill_waiting, merge
+        try:
+            fill_waiting(hs, instantly, settings, log)
+        except Exception as err:
+            log(f"Could not give the waiting leads their bond paragraph: {str(err)[:300]}")
+            raise PipelineError("The waiting leads could not be given their bond paragraph, so the campaigns' "
+                                "emails were not changed and nothing was sent. It is tried again at the next run.")
         refresh_campaign_content(instantly, settings, log=log)
+        try:
+            merge(hs, instantly, settings, log)
+        except Exception as err:
+            log(f'Could not move the leads of the "Other channels" campaigns: {str(err)[:300]}')
     contacts = hs.tagged_search("contacts", [statuses.filter("contacts", "approved")], CONTACT_PROPS,
                                 max_results=settings["send"]["contacts_per_run"])
     log(f"{len(contacts)} contacts approved to send")
@@ -438,6 +486,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     groups, skipped, waiting = defaultdict(list), [], 0
     needs_note = first_email_uses(settings, "company_note")
     bond_config = bond.load()
+    campaign_ids = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
     for c in contacts:
         company_id = owner_of.get(str(c["id"]))
         company = companies.get(company_id)
@@ -466,14 +515,23 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         earlier = last_campaign(company_contacts)
         # A company stays in the campaign of its first email, so a reply there stops the others.
         # A company inbox (no people in Apollo, 19 Oct 2026) goes to the month's company inbox campaign.
-        # Channels outside our usual ones (23 Oct 2026) go to their own campaign with the bond heading.
-        kind = kind_for(is_company_inbox(c), bool(bond.bond_channel(channel_of(comp, notes), bond_config)))
+        # 26 Oct 2026 (Ariel): only those two campaigns a month, whatever the channel. A channel outside
+        # our usual ones gets the bond paragraph in the same email, and waits until the email has room for it.
+        kind = kind_for(is_company_inbox(c))
+        other = bool(bond.bond_channel(channel_of(comp, notes), bond_config))
+        if other and not bond_ready(settings, kind):
+            waiting += 1
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: a channel outside our "
+                "usual ones, whose email needs the bond paragraph; the campaign's email does not have room for it yet")
+            continue
+        if earlier and is_other_campaign(next((n for n, i in campaign_ids.items() if i == earlier), "")):
+            earlier = None  # never added to an October "Other channels" campaign again
         key = ("campaign", earlier, kind) if earlier else ("month", kind)
         groups[key].append((c, company_id, comp, company_stage))
     if waiting:
         log(f"{waiting} approved contacts wait their turn (one person per company at a time)")
 
-    existing = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
+    existing = campaign_ids
     plan, contact_updates, company_updates, previews, intros = [], [], {}, [], []
     for key, members in groups.items():
         kind = key[-1]
@@ -483,7 +541,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         else:
             name = name_for_kind(kind, prefix, settings["send"])
             campaign_id = existing.get(name)
-        leads = [lead_for(c, comp, notes) for c, _, comp, _ in members]
+        leads = [with_bond(lead_for(c, comp, notes), comp, notes, bond_config) for c, _, comp, _ in members]
         plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})
         previews.append(preview(name, leads, settings, kind))
         body = campaign_body(name, "", settings, kind) if not campaign_id else None  # a dry run checks it too

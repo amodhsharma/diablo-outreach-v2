@@ -54,7 +54,7 @@ def test_which_channels_get_the_heading():
         "Why we think our bond would be strong"
 
 
-def test_the_new_templates_add_the_heading_and_the_line():
+def test_the_october_templates_add_the_heading_and_the_line():
     for new, old in (("template_5", "template_4"), ("template_no_info_apollo_4", "template_no_info_apollo_3")):
         body = json.loads((ROOT / "templates" / f"{new}.json").read_text())["body"]
         before = json.loads((ROOT / "templates" / f"{old}.json").read_text())["body"]
@@ -73,32 +73,102 @@ def _company(hs, name, domain, channel):
     return cid, pid
 
 
-def test_other_channels_go_to_their_own_campaign_with_the_heading():
+def _two_companies():
     hs, instantly = FakeCRM(), FakeInstantly()
     _company(hs, "Unihockey Center", "unihockey.example", "Sports shops and sports nutrition shops")
     _company(hs, "Beta Foods", "beta.example", "Distributors")
     s = load_settings()
     s["send"]["sending_accounts"] = ["one@getdiablo-test.com", "two@getdiablo-test.com"]
+    return hs, instantly, s
+
+
+def _with_paragraph(s):
+    s["send"]["templates"] = dict(s["send"]["templates"], first_email="templates/template_6.json",
+                                  first_email_company_inbox="templates/template_no_info_apollo_5.json")
+    return s
+
+
+def test_the_paragraph_templates_are_the_usual_ones_with_room_for_it():
+    for new, old in (("template_6", "template_4"), ("template_no_info_apollo_5", "template_no_info_apollo_3")):
+        body = json.loads((ROOT / "templates" / f"{new}.json").read_text())["body"]
+        before = json.loads((ROOT / "templates" / f"{old}.json").read_text())["body"]
+        assert body.replace("{{bond_paragraph}}", "") == before
+        assert "<br/><br/>{{bond_paragraph}}By way of introduction" in body
+
+
+def test_only_two_campaigns_and_other_channels_wait_until_the_email_has_room():
+    """Ariel, 26 Oct 2026: two campaigns a month. Until the email has room for the bond paragraph, a
+    channel outside our usual ones waits rather than going out without it."""
+    hs, instantly, s = _two_companies()
     send.run("test", s, hs, instantly, log=quiet)
-    camps = {b["name"]: dict(b, id=cid) for cid, b in instantly.campaigns.items()}
+    camps = {b["name"]: cid for cid, b in instantly.campaigns.items()}
     main = send.campaign_name("Diablo |")
-    other = main + " | Other channels"
-    assert set(camps) == {main, other}
-    assert [l["email"] for l in instantly.leads[camps[other]["id"]]] == ["buyer@unihockey.example"]
-    assert [l["email"] for l in instantly.leads[camps[main]["id"]]] == ["buyer@beta.example"]
-    assert camps[other]["daily_limit"] == 15
-    other_body = camps[other]["sequences"][0]["steps"][0]["variants"][0]["body"]
-    main_body = camps[main]["sequences"][0]["steps"][0]["variants"][0]["body"]
-    assert "Why we think our bond would be strong" in other_body and "Why we think" not in main_body
-    text = send.render(other_body, instantly.leads[camps[other]["id"]][0])
+    assert set(camps) == {main}
+    assert [l["email"] for l in instantly.leads[camps[main]]] == ["buyer@beta.example"]
+
+
+def test_both_go_to_the_month_campaign_and_only_the_other_channel_gets_the_paragraph():
+    hs, instantly, s = _two_companies()
+    _with_paragraph(s)
+    send.run("test", s, hs, instantly, log=quiet)
+    camps = {b["name"]: cid for cid, b in instantly.campaigns.items()}
+    main = send.campaign_name("Diablo |")
+    assert set(camps) == {main}
+    leads = {l["email"]: l for l in instantly.leads[camps[main]]}
+    assert set(leads) == {"buyer@unihockey.example", "buyer@beta.example"}
+    body = instantly.campaigns[camps[main]]["sequences"][0]["steps"][0]["variants"][0]["body"]
+    text = send.render(body, leads["buyer@unihockey.example"])
     assert ("we noticed Unihockey Center equips floorball players and clubs, a community that takes its fitness "
             "seriously. We are a UK brand") in text
-    assert "Why we think our bond would be strong\n" + UNIHOCKEY_LINE + "\n\nBy way of introduction" in text
-    assert send.refresh_campaign_content(instantly, s, log=quiet) == 0  # each campaign keeps its own email
-    for kind in send.KINDS:
-        name = send.name_for_kind(kind, "Diablo |", s["send"])
-        assert send.kind_of_campaign(name, s["send"]) == kind, name
-    assert send.name_for_kind(send.INBOX_OTHER, "Diablo |", s["send"]) == main + " | Company inboxes | Other channels"
+    assert "together.\n\nWhy we think our bond would be strong\n" + UNIHOCKEY_LINE + "\n\nBy way of introduction" in text
+    # The usual channel gets exactly the usual email: no heading and no empty gap.
+    usual = send.render(body, leads["buyer@beta.example"])
+    assert "Why we think" not in usual and "together.\n\nBy way of introduction" in usual
+    old_body = send.sequence_steps(load_settings()["send"])[0]["variants"][0]["body"]
+    assert usual == send.render(old_body, leads["buyer@beta.example"])
+    # The HTML is the same as the October "Other channels" email had.
+    filled = body.replace("{{bond_paragraph}}", leads["buyer@unihockey.example"]["custom_variables"]["bond_paragraph"])
+    assert "<div><b>Why we think our bond would be strong</b><br/>" + UNIHOCKEY_LINE + "</div><div><br></div><div>By way" in filled
+
+
+def test_the_waiting_other_channels_leads_move_into_the_two_campaigns():
+    hs, instantly, s = _two_companies()
+    main = send.campaign_name("Diablo |")
+    main_id = instantly.create_campaign({"name": main})["id"]
+    other_id = instantly.create_campaign({"name": main + " | Other channels"})["id"]
+    inbox_other_id = instantly.create_campaign({"name": main + " | Company inboxes | Other channels"})["id"]
+    instantly.create_campaign({"name": send.inbox_campaign_name("Diablo |", s["send"])})
+    instantly.create_campaign({"name": "TEST | Bond paragraph preview (delete me)"})
+    instantly.leads[other_id] = [{"id": "L1", "email": "buyer@unihockey.example", "custom_variables": {}}]
+    instantly.leads[inbox_other_id] = [{"id": "L2", "email": "x@somewhere.example", "timestamp_last_contact": "2026-10-24"}]
+    for cid in list(hs.records["contacts"]):
+        if hs.records["contacts"][cid]["email"] == "buyer@unihockey.example":
+            hs.records["contacts"][cid]["hs_lead_status"] = "ATTEMPTED_TO_CONTACT"
+    from outreach import other_channels
+    assert other_channels.merge(hs, instantly, s, quiet) == {"moved": 0, "kept": 0, "deleted": []}  # no room yet
+    done = other_channels.merge(hs, instantly, _with_paragraph(s), quiet)
+    assert done["moved"] == 1 and done["kept"] == 1
+    assert set(done["deleted"]) == {main + " | Other channels", "TEST | Bond paragraph preview (delete me)"}
+    moved = instantly.leads[main_id][0]
+    assert moved["id"] == "L1"
+    assert moved["custom_variables"]["bond_paragraph"].startswith("<b>Why we think our bond would be strong</b><br/>")
+    assert moved["custom_variables"]["personal_line"] == UNIHOCKEY_LINE  # the full set, not just the paragraph
+    assert instantly.leads[inbox_other_id][0]["id"] == "L2"  # already emailed: never moved
+
+
+def test_leads_already_waiting_get_an_empty_paragraph_before_the_email_changes():
+    hs, instantly, s = _two_companies()
+    main = send.campaign_name("Diablo |")
+    main_id = instantly.create_campaign({"name": main})["id"]
+    instantly.leads[main_id] = [{"id": "B1", "email": "buyer@beta.example", "payload": {"personal_line": "x"}},
+                                {"id": "B2", "email": "sent@beta.example", "timestamp_last_contact": "2026-10-25"}]
+    from outreach import other_channels
+    assert other_channels.fill_waiting(hs, instantly, s, quiet) == 0  # the email has no room yet: nothing changes
+    assert other_channels.fill_waiting(hs, instantly, _with_paragraph(s), quiet) == 1
+    first = instantly.leads[main_id][0]
+    assert first["custom_variables"]["bond_paragraph"] == "" and first["custom_variables"]["company_note"]
+    assert "custom_variables" not in instantly.leads[main_id][1]  # already emailed: left alone
+    assert other_channels.fill_waiting(hs, instantly, _with_paragraph(s), quiet) == 0  # once only
 
 
 def _line(**change):
@@ -170,3 +240,23 @@ def test_prepare_gives_other_channels_style_e_and_the_buyers_reason(tmp_path):
     assert "Why we think our bond would be strong" in prompt and "**E. Why we think our bond" in prompt
     assert check_lines.HALAL_TAIL.strip(", ") in prompt and check_lines.KOSHER_TAIL.strip(", ") in prompt
     assert "bond" not in (SKILL / "prompts" / "lines_prompt_9.md").read_text()  # kept as it was
+
+
+def test_the_preview_campaign_shows_the_three_cases():
+    from outreach import bond_preview, other_channels
+    instantly = FakeInstantly()
+    s = load_settings()
+    s["send"]["sending_accounts"] = ["one@getdiablo-test.com"]
+    cid = bond_preview.run(instantly, s, log=quiet)
+    camp = instantly.campaigns[cid]
+    assert camp["name"] == other_channels.PREVIEW_NAME and not camp["name"].startswith("Diablo |")
+    body = camp["sequences"][0]["steps"][0]["variants"][0]["body"]
+    assert "{{bond_paragraph}}By way of introduction" in body
+    sports, usual, older = instantly.leads[cid]
+    assert all(l["email"].endswith("@example.com") for l in (sports, usual, older))
+    assert "Why we think our bond would be strong\n" + bond_preview.SPORTS_LINE in send.render(body, sports)
+    assert usual["custom_variables"]["bond_paragraph"] == "" and "bond_paragraph" not in older["custom_variables"]
+    bond_preview.run(instantly, s, log=quiet)
+    assert len(instantly.campaigns) == 1  # replaced, not added
+    bond_preview.run(instantly, s, action="delete", log=quiet)
+    assert instantly.campaigns == {}

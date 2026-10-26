@@ -186,6 +186,11 @@ send:
     # From 19 Oct 2026 (strain test fixes): the *_3, _4 and apollo_2 files greet with the full name, put
     # "Book a quick meeting" above the signature, give the signature its grey line on the left, and the
     # first emails add a hidden inbox preview line. The earlier files are kept unchanged.
+    # 26 Oct 2026 (Ariel): two campaigns a month. template_6 and template_no_info_apollo_5 are
+    # template_4 and template_no_info_apollo_3 with room for each contact's bond paragraph (the bold
+    # "Why we think our bond would be strong" with the personal line, empty for the usual channels).
+    # They go in the two lines here once the preview campaign has been checked in Instantly; until
+    # then a contact at a channel outside our usual ones waits on GATE2.
     first_email: templates/template_4.json
     # Persons 2 to 4: forward_2.json from 19 Oct 2026 (Ariel): a short note giving the company note as the
     # reason, then "we believe your company would be the right fit for us". forward.json is kept unchanged.
@@ -203,7 +208,8 @@ send:
     reminder_company_inbox: templates/follow_up_no_info_apollo_3.json
     # Channels outside our usual ones (23 Oct 2026, the list is in config/bond_channels.json): as
     # template_4 and template_no_info_apollo_3, plus the bold heading "Why we think our bond would be
-    # strong" with the personal line under it (the buyer's reason). The earlier files are kept unchanged.
+    # strong" with the personal line under it (the buyer's reason). Used only by the October 2026
+    # "Other channels" campaigns, whose leads move into the two campaigns (26 Oct 2026).
     first_email_other_channels: templates/template_5.json
     first_email_company_inbox_other_channels: templates/template_no_info_apollo_4.json
   company_inbox:
@@ -213,9 +219,10 @@ send:
     # At most this many company inbox first emails per sending mailbox a day (agreed 19 Oct 2026);
     # set as that campaign's daily limit (5 x the number of sending mailboxes).
     daily_cap_per_mailbox: 5
-  # Channels outside our usual ones (23 Oct 2026): their own campaigns each month, e.g.
-  # "Diablo | OCT2026 | Other channels" and "Diablo | OCT2026 | Company inboxes | Other channels",
-  # created paused by button 4 like the others (start them in Instantly). Daily limits of each:
+  # Channels outside our usual ones had their own campaigns from 23 to 26 Oct 2026 ("Diablo | OCT2026 |
+  # Other channels" and "... | Company inboxes | Other channels"). Since 26 Oct 2026 (Ariel) there are
+  # only two campaigns a month and nothing new goes to those; button 4 moves their leads into the two
+  # and deletes them once empty. These limits only apply to those October campaigns:
   other_channels:
     daily_limit: 15
     company_inbox_daily_limit: 5

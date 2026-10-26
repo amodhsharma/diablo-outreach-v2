@@ -67,3 +67,22 @@ def bond_reason(channel, config=None):
     config = load() if config is None else config
     name = bond_channel(channel, config)
     return (config.get("channels") or {}).get(name, "") if name else ""
+
+
+# 26 Oct 2026 (Ariel): only two campaigns a month, one for people and one for everything else. The
+# heading and the buyer's reason travel with each contact as its own "bond_paragraph", filled in for
+# channels outside our usual ones and empty for every other channel, so the same email suits both.
+VARIABLE = "bond_paragraph"
+
+
+def paragraph(line, config=None):
+    """The bold heading with the personal line under it, as its own paragraph of the email (it ends
+    the paragraph it sits in and starts the next one, the way the email's other paragraphs are kept).
+    Empty when there is no line."""
+    import html
+    config = load() if config is None else config
+    line = " ".join(str(line or "").split())
+    if not line:
+        return ""
+    heading = config.get("heading") or "Why we think our bond would be strong"
+    return f"<b>{html.escape(heading, quote=False)}</b><br/>{html.escape(line, quote=False)}</div><div><br></div><div>"

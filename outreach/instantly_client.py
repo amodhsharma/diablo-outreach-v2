@@ -71,6 +71,32 @@ class Instantly:
             results.append(self.request("POST", "/leads/add", json=body))
         return results
 
+    def update_lead(self, lead_id, body):
+        """Change one lead, e.g. {"custom_variables": {...}} (always the full set, 26 Oct 2026)."""
+        return self.request("PATCH", f"/leads/{lead_id}", json=body)
+
+    def move_leads(self, from_campaign_id, to_campaign_id, lead_ids, wait_seconds=600):
+        """Move these leads (by Instantly lead ID) from one campaign to another. Instantly does it in
+        the background; this waits until it is done and returns the finished job. A moved lead counts
+        as not yet emailed in its new campaign, so only leads never emailed are ever moved."""
+        if not lead_ids:
+            return {}
+        job = self.request("POST", "/leads/move", json={
+            "campaign": from_campaign_id, "ids": list(lead_ids), "to_campaign_id": to_campaign_id,
+            "reset_interest_status": False})
+        job_id = job.get("id")
+        waited = 0
+        while job_id and job.get("status") not in ("success", "failed", "cancelled") and waited < wait_seconds:
+            time.sleep(5)
+            waited += 5
+            job = self.request("GET", f"/background-jobs/{job_id}")
+        if job.get("status") != "success":
+            raise InstantlyError(f"Moving {len(lead_ids)} leads did not finish (status: {job.get('status')})")
+        return job
+
+    def delete_campaign(self, campaign_id):
+        return self.request("DELETE", f"/campaigns/{campaign_id}")
+
     def list_accounts(self):
         """Every sending mailbox connected to Instantly (read only)."""
         items, cursor = [], None
