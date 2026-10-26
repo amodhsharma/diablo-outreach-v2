@@ -1,0 +1,118 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0066",
+  "location": "East London, South Africa",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 26
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 30
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 38
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 31
+    }
+  ],
+  "companies": [
+    {
+      "name": "Enduroplanet",
+      "based_out_of": "Bloemfontein, South Africa",
+      "domain": "enduroplanet.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Bicycles, parts and cycling gear with a training and nutrition section that sells protein bars from other brands such as Enduren",
+      "channels_supplied": "Its own cycling shop in Bloemfontein and its online shop with nationwide shipping, including East London",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A cycling shop with its own nutrition shelf of other brands' bars, sold to health-conscious riders, which is the sports shop model Diablo approved. It reaches East London through nationwide delivery rather than a local store, and the full size of its bar range is not shown on the page seen, so it sits at tier 3.",
+      "what_they_do_well": [
+        "Offers free nationwide shipping on accessory orders over R2,000, so it reaches riders across South Africa."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://enduroplanet.co.za/shop/training-and-nutrition/supplements/bars/enduren-protein-bars-peanut-butter/"
+      ]
+    },
+    {
+      "name": "Onela Vending",
+      "based_out_of": "Eastern Cape, South Africa",
+      "domain": "onela.co.za",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Packaged snacks and cold drinks through its own snack vending machines, plus hot drinks machines",
+      "channels_supplied": "Corporate clients in the Eastern Cape, through vending machines placed in offices and workplaces",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An Eastern Cape snack vending operator that places snack and drink machines with corporate clients, sources the vending products and restocks the machines itself within 24 hours, so Diablo's bars, chocolate and biscuits could go straight into workplace machines. It is small and founded in 2021, and its website names no snack brands or exact town. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers a 24-hour response time for restocking and issues, with free delivery, installation and servicing of machines."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://onela.co.za/about-us/",
+        "https://onela.co.za/services-2/",
+        "https://onela.co.za/vending-machines/",
+        "https://www.vendingsa.co.za/members/categories/49-product-ingredient-suppliers"
+      ]
+    },
+    {
+      "name": "Biltong Boytjies",
+      "based_out_of": null,
+      "domain": "biltongboytjies.co.za",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift baskets and corporate gift baskets with branded chocolate (Milka, Cote D'Or, Lindt, Toblerone, Cadbury, Ferrero Rocher), sweets and gummies (Nerds, Runts, Mister Sweet Gums), nougat and snacks, alongside biltong and nuts.",
+      "channels_supplied": "Its own online shop with nationwide courier delivery to shoppers and businesses, plus a wholesale page.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Online snack and gift shop that sells corporate and occasion gift baskets and a sweets and chocolates section built on imported European brands, so Diablo's chocolate and sweets would sit naturally beside them. It buys from suppliers and importers and delivers nationwide, which covers East London; head office city not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Stocks a wide imported European chocolate range including Milka, Cote D'Or, Lindt and Toblerone."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.biltongboytjies.co.za/collections/sweets-and-chocolates",
+        "https://www.biltongboytjies.co.za/"
+      ]
+    }
+  ]
+}
