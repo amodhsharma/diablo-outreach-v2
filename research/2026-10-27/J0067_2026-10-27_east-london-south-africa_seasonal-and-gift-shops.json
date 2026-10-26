@@ -1,0 +1,45 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0067",
+  "location": "East London, South Africa",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 49
+    }
+  ],
+  "companies": [
+    {
+      "name": "MyCandies",
+      "based_out_of": "South Africa (city not stated on its website)",
+      "domain": "mycandies.co.za",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gummies and jelly sweets, jelly beans, lollipops and personalised candy gift boxes and tubs, with Festive, Valentine's, Easter and year end gifting ranges; brands include Kings Gummies and Yummy Gummy",
+      "channels_supplied": "Own online shop delivering throughout South Africa, including the Eastern Cape, to shoppers and companies ordering gifts",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run online candy gifting shop selling other brands' gummies and jelly sweets in seasonal gift boxes, which matches Diablo's gummies and gifting lines. It is small and its range is narrow, and it does not state its home city, hence tier 3.",
+      "what_they_do_well": [
+        "Runs seasonal gifting ranges for Festive, Valentine's, Easter and year end.",
+        "Offers personalised candy gift boxes and tubs for companies and events."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://mycandies.co.za/",
+        "https://mycandies.co.za/pages/our-story"
+      ]
+    }
+  ]
+}
