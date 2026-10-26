@@ -1,0 +1,295 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0078",
+  "location": "Sydney, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 12,
+      "searches_used": 69
+    }
+  ],
+  "companies": [
+    {
+      "name": "C'est La Vie Chocolate Bouquets",
+      "based_out_of": "Sydney, Australia",
+      "domain": "clvie.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate gifts and chocolate bouquets built from branded chocolates and pralines (Lindt, Lindor, Ferrero Rocher, Raffaello, Baci) for Christmas, Easter, Valentine's and corporate gifting",
+      "channels_supplied": "Own online shop with delivery to most Sydney suburbs; wholesale to pharmacies, florists, petrol stations, newsagencies and gift shops",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney seasonal gift business that buys branded European chocolates and resells them as bouquets online and through pharmacies, petrol stations, newsagencies and gift shops. Diablo's chocolate boxes, pralines and seasonal gift packs suit its Christmas, Easter and Valentine's ranges. Warehouse and store count not stated on its website.",
+      "what_they_do_well": [
+        "Calls itself Sydney's leading supplier of chocolate bouquets and has traded for over 10 years.",
+        "Supplies pharmacies, florists, petrol stations, newsagencies and gift shops wholesale as well as selling online."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.clvie.com.au/",
+        "https://www.clvie.com.au/pages/about-us"
+      ]
+    },
+    {
+      "name": "iGift Hampers",
+      "based_out_of": "Pendle Hill, Sydney, Australia",
+      "domain": "igiftfruithampers.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift hampers and Easter and Christmas gifts with branded chocolate (Lindt Lindor, Ferrero Rocher, Baci, Cocoa Emperor), chocolate thins, biscuits, sweets and candy sections",
+      "channels_supplied": "Own online shop; delivery across Greater Sydney, Central Coast, Wollongong, Blue Mountains and NSW; corporate hampers for Sydney businesses",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney hamper retailer with its own biscuits and sweets and candy categories that packs other brands' chocolates into seasonal and corporate hampers. Diablo's chocolate boxes, biscuits and advent calendars give it a no-added-sugar option for Easter, Christmas and corporate orders.",
+      "what_they_do_well": [
+        "Hand packing and delivering gift hampers across Australia since 2014.",
+        "Delivers corporate hampers for Sydney businesses, from single client gifts to hundreds of staff hampers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://igiftfruithampers.com.au/easter-gifts/",
+        "https://igiftfruithampers.com.au/blog/gift-baskets-sydney-gift-hampers-delivered/"
+      ]
+    },
+    {
+      "name": "Peter's of Kensington",
+      "based_out_of": "Sydney, Australia",
+      "domain": "petersofkensington.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Gourmet food and Christmas food department selling branded chocolates (Walkers Chocolates, M and B Chocolates, Tartufo) and Christmas hampers alongside gifts and kitchenware",
+      "channels_supplied": "Own Sydney stores (including Birkenhead Point) and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long-established Sydney gift and homewares retailer with a gourmet food and Christmas food department that stocks other brands' chocolates and hampers. Diablo's chocolate boxes and seasonal gift packs suit its Christmas and gifting shelves. Store count not stated on the pages checked.",
+      "what_they_do_well": [
+        "Sells European chocolate brands such as Walkers Chocolates and Tartufo in its own gourmet food section."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.petersofkensington.com.au/kitchenware/gourmet-food/food/walkers-choc-orange-sticks-150g/",
+        "https://www.petersofkensington.com.au/kitchenware/gourmet-food/food/tartufo-milk-chocolate-200g/",
+        "https://www.petersofkensington.com.au/christmas/christmas-food/"
+      ]
+    },
+    {
+      "name": "Country Culture",
+      "based_out_of": "Alexandria, Sydney, Australia",
+      "domain": "countryculture.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Corporate and Christmas gift hampers with other brands' chocolate (Freckleberry, Chocilo, Loco Love), fudge and biscuits (Charlie's Biscuits) plus gourmet savoury",
+      "channels_supplied": "Own online shop shipping Australia-wide from its Sydney fulfilment centre; corporate gifting clients",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney corporate gift hamper company that curates chocolates, fudge and biscuits from other producers and ships them from its Alexandria fulfilment centre. Diablo's chocolate boxes and biscuits fit its sweet treat and Christmas hampers for business buyers.",
+      "what_they_do_well": [
+        "Ships corporate gift hampers Australia-wide from its own Sydney fulfilment centre."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.countryculture.com.au/artisan-chocolate-treats",
+        "https://www.countryculture.com.au/corporate-gift-hampers"
+      ]
+    },
+    {
+      "name": "Good Day People",
+      "based_out_of": "Sydney, Australia",
+      "domain": "gooddaypeople.com",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 5,
+      "distributes": "Gift hampers with other brands' chocolate (Bahen & Co, Hey Tiger, Wondaree chocolate macadamias), chocolate hazelnut spread (Messina), rocky road, Easter chocolate and sweet hampers",
+      "channels_supplied": "Own online shop with same-day Sydney metro delivery and Australia-wide shipping; corporate gift boxes",
+      "sf_brands_carried": "Sugar-free treat options offered in its dietary hampers (brands not named)",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney-founded online gift hamper store whose sweet hampers combine chocolate, spreads and sweets from other Australian brands. It already offers dietary and sugar-free hampers, so Diablo's no-added-sugar chocolate and spreads fill a stated need.",
+      "what_they_do_well": [
+        "Founded by a Sydney couple and featured in Concrete Playground and Urban List Christmas hamper guides.",
+        "Offers dietary gift hampers including gluten-free, vegan and sugar-free options."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://gooddaypeople.com/collections/sweet",
+        "https://gooddaypeople.com/blogs/articles/good-day-people-s-dietary-gift-hampers-the-ultimate-guide",
+        "https://concreteplayground.com/sydney/travel-leisure/good-day-people/amp",
+        "https://www.theurbanlist.com/a-list/best-christmas-hampers-australia"
+      ]
+    },
+    {
+      "name": "iCandy Sydney",
+      "based_out_of": "Stanhope Gardens, Sydney, Australia",
+      "domain": "icandysydney.com",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Candy and chocolate gift boxes, Easter and Halloween hampers and pick and mix with branded chocolate (Cadbury, Kinder, Lindt, Nestle) and sweets",
+      "channels_supplied": "Own online shop; next-day local delivery in the Hills District and Australia-wide post",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A small Hills District sweets delivery shop that buys from suppliers and manufacturers and sells branded chocolate and sweets in seasonal gift boxes. Tier 3 because it is a single small online business with local delivery.",
+      "what_they_do_well": [
+        "Runs seasonal ranges for Easter, Halloween and Father's Day with Cadbury, Kinder and Lindt chocolate."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://icandysydney.com/",
+        "https://icandysydney.com/products/large-easter-gift-hamper"
+      ]
+    },
+    {
+      "name": "Delicious Buds",
+      "based_out_of": "Sydney, Australia",
+      "domain": "deliciousbuds.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Chocolate bouquets, chocolate gift boxes and hampers made with branded chocolates (Ferrero Rocher, Baci, Cadbury)",
+      "channels_supplied": "Own online shop delivering to Sydney, Blue Mountains, Central Coast and Newcastle",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney chocolate gift business that resells branded chocolates as bouquets and gift boxes for seasonal occasions. Tier 3 because it is small and its address and years of trading are not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.deliciousbuds.com.au/",
+        "https://www.deliciousbuds.com.au/chocolate-bouquets/ferrero-rocher-xl-bouquet/"
+      ]
+    },
+    {
+      "name": "Mandy's Candy Gift Boxes",
+      "based_out_of": "Sydney, Australia",
+      "domain": "mandyscandygiftboxes.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Lolly and chocolate gift boxes and hampers with branded sweets and chocolate (Darrell Lea, Haribo gummy bears) for Christmas, Easter and Valentine's Day",
+      "channels_supplied": "Own online shop; corporate events, parties and bonbonniere",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A small Sydney gift box business selling other brands' sweets and chocolate in seasonal lolly boxes and hampers. Tier 3 because it is a small owner-run online business with no address stated.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.mandyscandygiftboxes.com.au/",
+        "https://www.mandyscandygiftboxes.com.au/product-page/chocolate-wine-and-lolly-gift-box-1"
+      ]
+    },
+    {
+      "name": "LollyMail",
+      "based_out_of": "Australia",
+      "domain": "lollymail.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Lolly boxes, chocolate bar boxes and personalised pick and mix jars with branded sweets and chocolate (Allens, Cadbury, Pascall, Trolli, Nestle)",
+      "channels_supplied": "Own online shop delivering to Sydney, Melbourne, Brisbane, Perth, Hobart and Adelaide; corporate gifts",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online lolly gift shop that serves Sydney and sells over 75 branded lollies and chocolates in gift boxes and jars. Tier 3 because its head office city and size are not stated on its website.",
+      "what_they_do_well": [
+        "Offers over 75 varieties of lollies and chocolates for personalised gift jars."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.lollymail.com.au/",
+        "https://www.lollymail.com.au/pages/lolly-box-delivery",
+        "https://www.lollymail.com.au/products/chocolate-bar-lolly-box"
+      ]
+    },
+    {
+      "name": "P & E Hampers",
+      "based_out_of": "Pitt Town, Sydney, Australia",
+      "domain": "pehampers.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Gift hampers with branded chocolate (Lindt balls and blocks, Darrell Lea chocolate and rocky road) and sweets (Sunday Red Frogs)",
+      "channels_supplied": "Own online shop with Australia-wide delivery and pickup at Pitt Town",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Hawkesbury hamper business that fills its gift hampers with other brands' chocolate and sweets. Tier 3 because it is a small local business with no shop or years of trading stated.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.pehampers.com.au/product-page/Womens-Birthday-Gift-hamper"
+      ]
+    },
+    {
+      "name": "Gift Republiq",
+      "based_out_of": "Sydney, Australia",
+      "domain": "giftrepubliq.com",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Luxury gift boxes and hampers with branded chocolate (Koko Black), chocolate blocks and caramelised nuts for Christmas and corporate gifting",
+      "channels_supplied": "Own online shop with nationwide delivery; corporate gifting",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Sydney gift box company that packs other brands' chocolate into Christmas, birthday and corporate boxes. Tier 3 because it is small and names only one chocolate brand on its website.",
+      "what_they_do_well": [
+        "Donates a share of each sale to causes as a social impact gifting business."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://giftrepubliq.com/",
+        "https://giftrepubliq.com/pages/about-us"
+      ]
+    },
+    {
+      "name": "Healthy Hampers",
+      "based_out_of": "Australia",
+      "domain": "healthyhampers.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Healthy, keto, protein snack and gluten-free gift hampers with snacks and branded chocolate (Alter Eco)",
+      "channels_supplied": "Own online shop with a Sydney hamper collection and Australia-wide delivery",
+      "sf_brands_carried": "Keto and gluten-free hamper ranges (brands mostly not named)",
+      "competing_brand_flag": false,
+      "fit_rationale": "A health-focused hamper retailer serving Sydney that hand picks other brands' snacks and chocolate for keto and protein hampers. Its health-conscious buyers match Diablo's sugar-free range. Tier 3 because its head office and size are not stated on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://healthyhampers.com.au/collections/healthy-hampers-sydney",
+        "https://healthyhampers.com.au/collections/protein-snack-hampers"
+      ]
+    }
+  ]
+}
