@@ -1,0 +1,121 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0068",
+  "location": "Polokwane, South Africa",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 38
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 43
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 55
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 35
+    }
+  ],
+  "companies": [
+    {
+      "name": "Lick Your Lips",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "buysweets.co.za",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Imported sweets, jelly sweets and gummies (sour worms, jelly beans), chocolates, Beechies chewing gum and novelty sweets, in consumer and bulk packs",
+      "channels_supplied": "Its own online shop, selling to shoppers and party buyers with delivery across South Africa",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online sweets retailer that sells imported branded sweets, gummies and chocolates from other companies and states a distribution network throughout South Africa, which reaches Polokwane from its Johannesburg base. Tier 3 because it is small and its website does not name Polokwane or Limpopo as a delivery area.",
+      "what_they_do_well": [
+        "Calls itself South Africa's leading online sweets supplier store, with a distribution network throughout South Africa."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://buysweets.co.za/"
+      ]
+    },
+    {
+      "name": "Data Inn Office National",
+      "based_out_of": "Polokwane, South Africa",
+      "domain": "datainn.officenational.co.za",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Office supplies with a canteen range of biscuits (for example Bakers Choice Assorted) and sweets, plus tea, coffee, hot chocolate and cold drinks for offices",
+      "channels_supplied": "Polokwane offices and businesses through its Polokwane Central store and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "The Polokwane member of the Office National group, which stocks other companies' branded biscuits and sweets in its canteen section for local offices, the exact office pantry route Diablo's biscuits, wafers and sweets would take. It is tier 3 because it is a single store and its website does not state a delivery area. Storage: sells from its own stock at its Polokwane Central store, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Member of Office National, described as South Africa's largest independent supplier of stationery and office supplies, with a local Polokwane store and online shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://datainn.officenational.co.za/",
+        "https://datainn.officenational.co.za/office-supplies/biscuits-choice-assorted-2kg-gs3202",
+        "https://www.officenational.co.za/data-inn-office-national-page",
+        "https://www.officenational.co.za/office-supplies/canteen-janitorial"
+      ]
+    },
+    {
+      "name": "To Be Gift Boxes",
+      "based_out_of": "Pretoria, South Africa",
+      "domain": "tobegiftboxes.com",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift boxes and hampers with branded chocolate bars (Lindt slabs, Toblerone), chocolate nougat, chocolate coated nougat biscuits (Wedgewood Angels), cookies and shortbread biscuits (Mama Mac's), sold as boxes or single sweet treat add-ons",
+      "channels_supplied": "Direct to consumers and companies through its own online shop, corporate and event gift boxes, and its shop at Castle Gate Shopping Centre, Pretoria; nationwide delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A build your own gift box company that buys branded chocolate, nougat, biscuits and cookies from other brands and sells them in corporate and personal gift boxes, so Diablo's chocolate, biscuits and gift boxes fit straight into its sweet treat range. It states nationwide delivery in South Africa, which covers Polokwane; Polokwane is not named on its website. Storage: ships from its own warehouse, listed at Ryneveld Lifestyle Centre, Centurion.",
+      "what_they_do_well": [
+        "Lets clients build their own gift box within a set budget, with branded sweet treats sold as single add-ons.",
+        "Offers corporate and event gift boxes with nationwide delivery from its own warehouse."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://tobegiftboxes.com/",
+        "https://tobegiftboxes.com/product/toblerone/",
+        "https://tobegiftboxes.com/product/sweet-treat-lindt-slab-caramel-dark-chocolate/",
+        "https://tobegiftboxes.com/product/sweet-treats-mama-macs-chocolate-chip-biscuit-pink/"
+      ]
+    }
+  ]
+}
