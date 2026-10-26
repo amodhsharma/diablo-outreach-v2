@@ -4111,6 +4111,22 @@
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "dailyblooms.com.au": {
+    "name": "Daily Blooms",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Flower delivery business that started in Melbourne and has a Fitzroy studio, and its gift hamper range resells other brands' chocolate, cookies and sweets. Flowers lead the range and its sweets shelf is small, so it is tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with chocolate (Loco Love, Bahen and Co), cookies (Sweet Splits), cake (Sweet Bakes) and sweets (Sweeta rock candy and chocolate freckles), sold with flowers.",
+    "channels_supplied": "Its own online flower and gift shop with delivery in Melbourne, Sydney, Brisbane and Perth and nationally.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
+  },
   "dapna.ge": {
     "name": "Dapna",
     "based_out_of": "Tbilisi, Georgia",
@@ -5682,6 +5698,24 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0003_2026-10-20_bern-switzerland_distributors.json"
   },
+  "figandbloom.com": {
+    "name": "Fig & Bloom",
+    "based_out_of": "Kew, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Florist and gift company founded in 2015 with a Victorian contact address and a Fairfield studio, whose chocolate category resells Koko Black and Pebbly Path. Flowers lead its range, so it is tier 3, but chocolate gift boxes are a standing category on its shop.",
+    "what_they_do_well": [
+      "Launched in 2015 and now delivers to 14 cities from studios in Melbourne, Sydney and Brisbane."
+    ],
+    "distributes": "Chocolate gifts from other brands (Koko Black pralines and chocolate, Pebbly Path rocky road, chocolate raspberries), sold with flowers and plants.",
+    "channels_supplied": "Its own studios in Melbourne (Fairfield), Sydney and Brisbane and its online shop delivering to 14 cities.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
+  },
   "finishlinecycles.co.za": {
     "name": "Finish Line Cycles",
     "based_out_of": "South Africa",
@@ -6739,6 +6773,22 @@
     "research_file": "research/2026-10-27/J0077_2026-10-27_sydney-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "giftroo.com.au": {
+    "name": "Giftroo",
+    "based_out_of": "",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Australian-owned online hamper retailer that delivers to Melbourne and names Koko Black in its chocolate hampers. Its head office location is not stated on its website and most item brands are not named, so it is tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with gourmet chocolates, biscuits and sweets, including Koko Black chocolate hampers, plus wine and tea.",
+    "channels_supplied": "Its own online hamper shop delivering across Melbourne, Sydney, Brisbane, Perth, Adelaide and regional areas, with a Melbourne corporate gifts page.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
+  },
   "gingi.ch": {
     "name": "Gingi (Handelssociete Aksu & Winkler)",
     "based_out_of": "Allschwil, Switzerland",
@@ -6974,6 +7024,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0076_2026-10-26_australia_hotel-minibar-suppliers-snack-subscription-boxes-promotional-merchandise-compani.json"
+  },
+  "gottis.com.au": {
+    "name": "Gottis",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Hawthorn sweet shop and online store that imports Swedish branded sweets such as BUBS and Ahlgrens and sells them to shoppers, and it also supplies pick and mix stands to other shops through its wholesale offer. It already brings a European confectionery brand into Melbourne, which suits Diablo's gummies and jelly sweets.",
+    "what_they_do_well": [
+      "Imports Swedish sweets directly and supplies full pick and mix stands to other resellers."
+    ],
+    "distributes": "Imported Swedish sweets and gummies (pick and mix, jelly sweets, foam sweets, liquorice) from brands such as BUBS and Ahlgrens, plus pre-mixed sweets bags and tubs.",
+    "channels_supplied": "Its own sweet shop in Hawthorn, its online shop shipping Australia-wide and pick and mix supply to other resellers.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "gourmandisesboutique.com": {
     "name": "GourmandisesBoutique",
@@ -7366,6 +7435,23 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
+  "hampermystyle.com.au": {
+    "name": "Hamper My Style",
+    "based_out_of": "Windsor, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Small New South Wales hamper business that sells sweet treat hampers built from other brands' chocolate and sweets and ships them nationally, Melbourne included. It is small and based outside Melbourne, so it is tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Sweet treat hampers with other brands' chocolate and sweets: Cocoa Emporium chocolate almonds, Cocoa Lane chocolate-coated raspberry lollies, Grounded Pleasures marshmallows and Chow Cacao chocolate.",
+    "channels_supplied": "Its own online hamper shop delivering Australia-wide, including Melbourne.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "hampersbydesign.com.au": {
     "name": "Hampers by Design",
     "based_out_of": "Perth, Australia",
@@ -7723,6 +7809,23 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0072_2026-10-26_australia_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json"
   },
+  "hellobotanical.com.au": {
+    "name": "Hello Botanical",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Melbourne plant and gift delivery business whose eat and drink range sells other brands' chocolate, sweets and chocolate spreads in care packages. It is small, and plants lead the range, so it sits at tier 3. Chocolate and spreads in gift packages match Diablo's chocolate and spreads.",
+    "what_they_do_well": [],
+    "distributes": "Gift packages with chocolate, sweets and spreads from other brands: Chocilo chocolates, Bahen and Co chocolate, Hunted and Gathered chocolate bars and chocolate spreads, and Freckleberry lolly pizzas, alongside plants and gifts.",
+    "channels_supplied": "Its own online gift shop with same-day delivery in Melbourne and Geelong and shipping Australia-wide.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "heronfoods.com": {
     "name": "Heron Foods",
     "based_out_of": "Hull, United Kingdom",
@@ -7917,6 +8020,23 @@
     "sf_brands_carried": "Better-for-you vegan snack brands such as Superbon and Treets; no direct sugar free confectionery competitor seen.",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json"
+  },
+  "hopperscrossinglollywarehouse.com.au": {
+    "name": "Hoppers Crossing Lolly Warehouse",
+    "based_out_of": "Hoppers Crossing, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Australian-owned lolly shop in Melbourne's western suburbs that sells bulk confectionery retail and wholesale. The brands it stocks are not named on its website, and it is a single shop, so it is tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Sweets: boiled sweets, halal jelly and gummy sweets, bulk confectionery, party bags and custom sweet orders.",
+    "channels_supplied": "Its own retail shop in Hoppers Crossing, Melbourne's west, and wholesale sales.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "hopsack.ie": {
     "name": "The Hopsack",
@@ -8254,6 +8374,25 @@
     "sf_brands_carried": "Chocolate and Love no-added-sugar 100% cocoa bar; Clearspring and other free-from brands. Not a direct Diablo competitor.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "ilovethisshop.com.au": {
+    "name": "I Love This Shop",
+    "based_out_of": "Moorabbin, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Victorian chain of party and lolly shops whose online shop lists over 900 branded sweets and chocolates, the largest branded confectionery shelf found in this channel. It buys from many confectionery brands and sells to shoppers buying for parties, birthdays and seasonal events in Melbourne and regional Victoria. It also runs a small house range, Sugar Rush, alongside the other brands.",
+    "what_they_do_well": [
+      "Runs 10 shops across Victoria plus an online shop based in Moorabbin.",
+      "Stocks over 900 lollies, sweets and chocolates from brands such as Allens, Trolli and Chupa Chups."
+    ],
+    "distributes": "Sweets, gummies, jelly sweets, hard sweets and chocolate (over 900 lollies, sweets and chocolates from brands such as Allens, Trolli, Chupa Chups, Mentos, Nerds, Reese's, PEZ, Swizzels and Fyna Foods), plus party supplies and cake decorating.",
+    "channels_supplied": "Its own chain of 10 party and confectionery shops across Victoria (Braybrook, Craigieburn, Dandenong South, Corio and others) and its online shop shipping Australia-wide.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
   },
   "imex.ch": {
     "name": "Imex Delikatessen AG",
@@ -9776,6 +9915,23 @@
     "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "lollylion.com.au": {
+    "name": "Lolly Lion",
+    "based_out_of": "",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Online lolly gift box shop offering same-day delivery in Melbourne, with a gift box built on Trolli gummies. Its website blocks automated reading, so only its product pages were seen and its size is not stated, which puts it at tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Lolly and sweets gift boxes, including a Trolli gummies gift box.",
+    "channels_supplied": "Its own online gift box shop with same-day delivery in Melbourne.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json",
+    "import_check": "the website address no longer exists"
+  },
   "lollymail.com.au": {
     "name": "LollyMail",
     "based_out_of": "Australia",
@@ -9864,6 +10020,24 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0057_2026-10-26_cape-town-south-africa_seasonal-and-gift-shops.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "lvly.com.au": {
+    "name": "LVLY",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Melbourne-headquartered gifting company whose sweet gift boxes resell other brands' sweets, biscuits and chocolate, such as Wagon Wheel, Party Time and Sweet Mickie. Its same-day delivery network puts packaged treats in front of gift buyers in Melbourne every day, and gift boxes and variety packs match Diablo's gifting range.",
+    "what_they_do_well": [
+      "Grew revenue from about 3.8 million to 13.9 million dollars in a year, per SmartCompany Smart50 2021."
+    ],
+    "distributes": "Gift boxes with sweets and chocolate: assorted lolly boxes, chocolate bars (Party Time), Gourmet Wagon Wheel biscuits, Sweet Mickie cookies and chocolate almonds, sold with flowers and gifts.",
+    "channels_supplied": "Its own online gift shop with same-day delivery in Melbourne, Sydney, Brisbane and Perth and next-day delivery elsewhere in Australia.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
   },
   "lynasfoodservice.com": {
     "name": "Lynas Foodservice",
@@ -13660,6 +13834,24 @@
     "research_file": "research/2026-10-27/J0069_2026-10-27_polokwane-south-africa_seasonal-and-gift-shops.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "rosesonly.com.au": {
+    "name": "Roses Only",
+    "based_out_of": "Sydney, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "National flower and gift retailer, founded in 1995 by a Sydney florist, that sells other brands' chocolate and sweets as gifts and add-ons, delivered same day in Melbourne. Flowers lead the range and its chocolate list is short, so it is tier 3.",
+    "what_they_do_well": [
+      "Established in 1995 and now also serves Singapore, New York and London."
+    ],
+    "distributes": "Chocolate and sweets add-ons and gift boxes from other brands: Chocolatier chocolates, Bennetto chocolate, Random Harvest fudge, Rinaldi nougat and Kokopod coconut snacks.",
+    "channels_supplied": "Its own online flower and gift shop with same-day delivery across Australia, including Melbourne.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
+  },
   "roseverpflegt.ch": {
     "name": "Rose Betriebsverpflegung AG",
     "based_out_of": "Hinwil, Switzerland",
@@ -14827,6 +15019,24 @@
     "research_file": "research/2026-10-26/J0073_2026-10-26_australia_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "spotlightstores.com": {
+    "name": "Spotlight",
+    "based_out_of": "South Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Melbourne-headquartered craft, party and seasonal retailer with a confectionery section in its party department and a Christmas lollies and confectionery category, stocked with other companies' brands. Its Christmas and party trade makes it a seasonal gift destination with national reach from its Melbourne head office. Store count from Wikipedia: 146 Spotlight stores.",
+    "what_they_do_well": [
+      "Founded in 1973 and headquartered in South Melbourne, with 146 Spotlight stores listed."
+    ],
+    "distributes": "Party and Christmas confectionery: sweets, lollies and chocolate for lolly bags and candy buffets, from brands such as Allen's, Chupa Chups, Lolliland and The Natural Confectionery Co, alongside craft, fabric, homewares and party goods.",
+    "channels_supplied": "Its own Spotlight stores (146 listed in 2026) and its online shop.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
+  },
   "springvalefoods.co.uk": {
     "name": "Springvale Foods",
     "based_out_of": "Suffolk, United Kingdom",
@@ -14969,6 +15179,22 @@
     "sf_brands_carried": "",
     "added": "2026-10-13",
     "research_file": "research/2026-10-14/J0004_2026-10-14_zurich-switzerland_distributors.json"
+  },
+  "stylebundle.com.au": {
+    "name": "Style Bundle",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Melbourne corporate gifting business that sources Koko Black chocolate among other brands for client hampers. Chocolate is one category among homewares and body care, so it is tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Luxury and corporate gift hampers with chocolate (Koko Black) and gourmet food, alongside homewares and body care.",
+    "channels_supplied": "Corporate clients in real estate, mortgage broking and property development across every Australian state, through its own online shop.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
   },
   "suessundsauer.shop": {
     "name": "Suess und Sauer",
@@ -15456,6 +15682,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0061_2026-10-26_pretoria-south-africa_seasonal-and-gift-shops.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "sweetpartysupply.com.au": {
+    "name": "Sweet Party Supplies",
+    "based_out_of": "Campbellfield, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Family-owned Melbourne party retailer, started in 2013 at Preston Market, with a candy and lollies category stocked with other brands such as Lolliland. Its sweets shelf is a small part of a large party range, so it is tier 3.",
+    "what_they_do_well": [
+      "Grew from a small Preston Market shop in 2013 to a Campbellfield super store open seven days."
+    ],
+    "distributes": "Candy and lollies for parties and candy buffets (77 items, for example Lolliland candy pops, lollipops and foil-wrapped chocolate hearts and coins), alongside party, catering and cake supplies.",
+    "channels_supplied": "Its own super store in Campbellfield, Melbourne, and its online shop.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "sweetsbrands.co.za": {
     "name": "Sweets Brands",
