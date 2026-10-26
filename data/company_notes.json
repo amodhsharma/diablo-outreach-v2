@@ -36,6 +36,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
+  "4squarevending.com.au": {
+    "name": "4 Square Vending",
+    "based_out_of": "Central Coast, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned snack and beverage operator trading since 1985 with machines in clubs, schools and gyms. Brands and restocking detail are not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Trading on the Central Coast since 1985."
+    ],
+    "distributes": "Snacks and drinks, healthier school snacks and gym snacks",
+    "channels_supplied": "Clubs, hotels, factories, schools and gyms such as Anytime Fitness sites on the Central Coast and in Newcastle",
+    "sf_brands_carried": "School Approved Food programme lines; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "99bikes.com.au": {
     "name": "99 Bikes",
     "based_out_of": "Australia",
@@ -109,6 +128,40 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
   },
+  "acevendingqld.com.au": {
+    "name": "Ace Vending Qld",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A locally owned operator that stocks and services free sited machines with chocolates, lollies and cookies, all Diablo categories. Its school and aged care sites suit sugar free lines. Storage: stocks and services its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chocolates, lollies (sweets), cookies, savoury snacks, crisps and drinks",
+    "channels_supplied": "Schools, aged care, commercial, industrial, hospitality and health sites on the Gold Coast and in Brisbane",
+    "sf_brands_carried": "Healthy snacks; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
+  "activend.com.au": {
+    "name": "Activend",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers",
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Sydney vending operator that supplies, services and restocks machines in clubs and hotels with nationally branded chocolate bars and confectionery. Its healthy selections menu suits Diablo's bars and no added sugar chocolate. Brands are not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Nationally branded chocolate bars, confectionery, muesli slices, cereals, chips and savoury snacks, dried fruit and nuts",
+    "channels_supplied": "Vending machines in clubs, hotels, businesses and community organisations across Sydney",
+    "sf_brands_carried": "A Fresh and Healthy menu with muesli slices and diet drinks; no direct competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "adsa.ch": {
     "name": "AVIA Distribution SA",
     "based_out_of": "Le Mont-sur-Lausanne, Switzerland",
@@ -126,6 +179,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
+  "advancedvending.solutions": {
+    "name": "Advanced Vending",
+    "based_out_of": "Bellambi, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Wollongong area operator that delivers, stocks and maintains snack machines at no cost to the site. Brands are not named on its website. Storage: stocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, nutritious foods and drinks",
+    "channels_supplied": "Offices, factories, shopping centres, gyms and schools in the Illawarra",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "afblakemore.com": {
     "name": "A.F. Blakemore and Son",
@@ -354,6 +424,60 @@
     "sf_brands_carried": "",
     "added": "2026-10-18",
     "research_file": "research/2026-10-19/J0011_2026-10-19_cologne-germany_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "allroundvending.com.au": {
+    "name": "All Round Vending",
+    "based_out_of": "Cranbourne West, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "A Melbourne operator that supplies, stocks and services free machines with chocolate bars, muesli bars and healthier snacks. Diablo's sugar free chocolate and muesli bars fit its low sugar offer. Storage: sells from its own stock at Cranbourne West, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chocolate bars, protein bars, muesli bars, gluten free snacks, chips, nuts and drinks",
+    "channels_supplied": "Break rooms and workplaces in Melbourne",
+    "sf_brands_carried": "Low sugar drinks, protein bars and gluten free snacks; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
+  "allsydneyvending.com.au": {
+    "name": "All Sydney Vending",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A second generation family operator, founded in 1993, that sets up and restocks free machines with chocolate bars, lollies and protein bars. Diablo's sugar free sweets and chocolate fit its healthy food line. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Founded in 1993 and now run by its second generation."
+    ],
+    "distributes": "Chocolate bars, lollies (sweets), protein bars, chips, nuts, noodles and healthy drinks",
+    "channels_supplied": "Staff lunchrooms and workplaces across metropolitan Sydney",
+    "sf_brands_carried": "Healthy food and drink options; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "allvendingco.com.au": {
+    "name": "All Vending Co",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned operator that supplies and services free machines kept stocked using telemetry. Brands are not named on its website. Storage: stocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, lunch items and drinks",
+    "channels_supplied": "Workplaces, aged care and schools in Brisbane, Ipswich and South East Queensland",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "alna-dietetique.ch": {
@@ -861,6 +985,27 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
+  "ausboxgroup.com.au": {
+    "name": "AusBox Group",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers",
+      "leisure and venue snack suppliers",
+      "snack vending operators"
+    ],
+    "fit_rationale": "A national workplace snack operator that fills office machines with a long list of branded chocolate, biscuits and sweets, which is exactly Diablo's catalogue. Its office service is free to the host and staff pay per item, so a sugar free bar slots straight into the range. Storage: sells from its own stock in machines it fills and services, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Over 10 years in vending, now servicing major cities across Australia including Hobart and Darwin."
+    ],
+    "distributes": "Branded chocolate bars, biscuits, sweets and snacks for workplace vending: Cadbury, Cherry Ripe, Mars, Snickers, KitKat, Maltesers, Tim Tams, Wagon Wheels, Arnott's Shapes, Skittles, Starburst, Mentos and M&M's, plus drinks",
+    "channels_supplied": "Offices and large buildings, gyms, schools and public spaces in Melbourne, Sydney, Brisbane, Gold Coast, Canberra, Adelaide, Perth, Hobart and Darwin",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "australianmuscle.com.au": {
     "name": "Australian Muscle",
     "based_out_of": "Adelaide, Australia",
@@ -1241,6 +1386,65 @@
     "added": "2026-10-23",
     "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
   },
+  "bdvending.com.au": {
+    "name": "BD Vending",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family run operator with over 20 years of fully managed snack machines and 12 service technicians. It already sells chocolate and cookies with a better for you range. Storage: installs, stocks and maintains its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Has supplied fully managed snack and drink machines across Greater Melbourne for over 20 years.",
+      "Lists clients such as BlueScope, AAMI and Officeworks."
+    ],
+    "distributes": "Snacks, chocolate, cookies, better for you and nut free products and cold drinks",
+    "channels_supplied": "Workplaces across Greater Melbourne and the Mornington Peninsula; clients include Holmesglen, BlueScope, AAMI, Box Hill Institute and Officeworks",
+    "sf_brands_carried": "Better for you and nut free options; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "beeskneesaustralia.com.au": {
+    "name": "Bee's Knees Australia",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A business that specialises in workplace confectionery snacks, supplying top branded confectionery and snacks to workplaces. Diablo's sweets and chocolate fit its core range. Storage: sells from its own stock and delivers to workplaces itself, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Supplying workplace confectionery since 2007 and employs people with disabilities in the community."
+    ],
+    "distributes": "Branded confectionery and snacks for workplaces",
+    "channels_supplied": "Workplaces; delivery area not stated on its website",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "benleighvending.com.au": {
+    "name": "Benleigh Vending Systems",
+    "based_out_of": "Wingfield, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "A long running national operator that places and refills snack and drink machines in every state and says its warehouse stocks well known brands. Its healthy vending category and national reach make it a strong route for Diablo's chocolate and biscuits. Storage: its own warehouse stocks the products it vends.",
+    "what_they_do_well": [
+      "Has around 20 years in vending and offers free placement across all eight states and territories.",
+      "Runs healthy, gym and PPE vending as well as snack and drink machines."
+    ],
+    "distributes": "Chocolates, snacks, chips, healthy vending items and drinks from well known brands",
+    "channels_supplied": "Free placement vending for businesses in every state, plus machine sales and wholesale vending",
+    "sf_brands_carried": "Healthy vending range (coconut water, tuna, cheese and crackers); brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "benoitpopcorn.com": {
     "name": "Benoit Ciné Distribution (Benoit Promotion)",
     "based_out_of": "Saint-Pierre-de-Chandieu (Lyon area), France",
@@ -1368,6 +1572,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "bettervend.com.au": {
+    "name": "BetterVend",
+    "based_out_of": "Canberra, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned ACT operator, formerly GameKing, that fills over 100 internet connected snack machines and is not tied to particular brands. That openness suits a new sugar free snack brand. Storage: fills its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Operates over 100 vending machines throughout the ACT."
+    ],
+    "distributes": "Packaged snacks and drinks from mixed brands in over 100 machines",
+    "channels_supplied": "Hospitals, universities, office buildings and clubs across the ACT",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "bevanar-dorga.ch": {
     "name": "Bevanar & Dorga SA",
@@ -2239,6 +2462,23 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
+  "canecoastvending.com.au": {
+    "name": "Cane Coast Vending",
+    "based_out_of": "Mackay, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Mackay operator that installs, stocks and maintains fully serviced snack and drink machines, including protein bars for gyms. Brands are not named on its website. Storage: stocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, protein bars and cold drinks",
+    "channels_supplied": "Businesses and gyms in Mackay, Sarina and surrounds",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "cantasy.ch": {
     "name": "Cantasy",
     "based_out_of": "Zurich, Switzerland",
@@ -2663,6 +2903,24 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0054_2026-10-26_johannesburg-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "chrisco.com.au": {
+    "name": "Chrisco Hampers",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A national Christmas hamper club whose hampers are built entirely from other companies' branded chocolate, sweets, biscuits and bars, bought in and delivered to households each November and December. Diablo's gift boxes, chocolate and biscuits sit naturally next to Cadbury, Arnott's and Uncle Toby's in its confectionery and snack hampers. Store count not applicable: it sells direct to tens of thousands of families.",
+    "what_they_do_well": [
+      "Creating Christmas hampers for nearly 40 years for tens of thousands of families in Australia and New Zealand."
+    ],
+    "distributes": "Chocolate bars and share packs (Cadbury, Nestle, Mars), chocolate coated sweets (M&M's, Smarties), sweets (Fry's Turkish Delight), biscuits and cookies (Arnott's, Oreo) and cereal and snack bars (Uncle Toby's, Nature Valley, Milo) in Christmas hampers",
+    "channels_supplied": "Its own 52 week layby Christmas hamper club, delivered to families across Australia and New Zealand",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
   "christian-broicher.de": {
     "name": "Christian Broicher e.K.",
@@ -3140,6 +3398,22 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json"
   },
+  "craftydelivers.com": {
+    "name": "Crafty",
+    "based_out_of": "Chicago, United States",
+    "market": "Australia",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A managed office pantry service that restocks Sydney and Melbourne offices with branded chocolate bars, protein bars and biscuits. It already stocks low sugar and better for you lines, so Diablo fits its pantry mix. Storage: sells from its own stock restocked by its Sydney and Melbourne teams, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Office pantry snacks and drinks: Kinder Bueno chocolate bars, Quest protein bars, Pocky biscuit sticks, Laid Back Snacks and other local and national brands",
+    "channels_supplied": "Offices in Sydney and Melbourne, restocked by its local teams",
+    "sf_brands_carried": "Quest protein bars and Red Bull Sugar Free; no direct competitor",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "creativehampers.com.au": {
     "name": "Creative Hampers",
     "based_out_of": "Rouse Hill, Australia",
@@ -3232,6 +3506,39 @@
     "sf_brands_carried": "Protein and better for you lines such as Grenade, Applied Nutrition, Ufit and Eat Real; no direct sugar free confectionery competitor seen.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "ctvendingservices.com.au": {
+    "name": "CT Vending Services",
+    "based_out_of": "Altona, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned operator that supplies, installs and restocks its machines with a tailored snack range. Brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks and drinks tailored to each site, with a healthier mix on request",
+    "channels_supplied": "Offices, warehouses, schools, gyms and aged care in Melbourne and Geelong",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "customvending.com.au": {
+    "name": "Custom Vending",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "An Australian owned operator with over 30 years in vending that uses its own staff and remote monitoring to keep machines full of chips and chocolates. Street address and brands are not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chips, chocolates, light meals and drinks",
+    "channels_supplied": "Workplaces in the Sydney metro area, including Toyota",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
   "cwcycles.co.za": {
     "name": "CWC (Chris Willemse Cycles)",
@@ -4867,6 +5174,23 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
+  "fnqvending.com": {
+    "name": "FNQ Vending",
+    "based_out_of": "Cairns, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Cairns operator that supplies, installs and stocks machines with snacks and healthy options, and lets sites change the contents. Brands and street address are not stated on its website. Storage: stocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, healthy options, drinks and coffee",
+    "channels_supplied": "Businesses in Cairns",
+    "sf_brands_carried": "Healthy options; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "foodagentur.ch": {
     "name": "Food Agentur GmbH",
     "based_out_of": "Switzerland (town not stated on its website)",
@@ -5094,6 +5418,24 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-21/J0007_2026-10-21_lausanne-switzerland_distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "fruit2work.com.au": {
+    "name": "Fruit2Work",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A certified social enterprise that delivers fruit, milk and pantry supplies, including muesli bars and biscuits, to offices in Victoria and Queensland. Its pantry range names no brands on its website. Storage: delivers from its own premises in Laverton North and Archerfield.",
+    "what_they_do_well": [
+      "A certified social enterprise employing people affected by the justice system."
+    ],
+    "distributes": "Office pantry and tearoom supplies including muesli bars, biscuits and popcorn, with fruit, milk, coffee and tea",
+    "channels_supplied": "Offices in Melbourne, Geelong, Ballarat, Mornington Peninsula, Brisbane, Sunshine Coast and Gold Coast",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
   "fuel-first.co.za": {
     "name": "Fuel First",
@@ -5451,6 +5793,45 @@
     "research_file": "research/2026-10-23/J0042_2026-10-23_bern-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "getvending.com.au": {
+    "name": "Get Vending",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Sydney operator that owns and refills its machines weekly using telemetry, with a Treats range of other companies' chocolate bars. Its gym and hospital sites suit Diablo's sugar free chocolate and biscuits. Storage: owns and restocks its machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Products page names Cadbury, Mars, Kinder Bueno and Kit Kat in its Treats range."
+    ],
+    "distributes": "Branded chocolate bars (Cadbury, Mars, Kit Kat, Kinder Bueno, Milkybar, Twix, Snickers), biscuits (Arnott's), chips, meals and drinks",
+    "channels_supplied": "Offices, schools, universities, hospitals, gyms and factories in Sydney",
+    "sf_brands_carried": "Muscle Chef, Core Powerfoods, Sunbites",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "gflamvending.com.au": {
+    "name": "Gflam Vending",
+    "based_out_of": "South East Queensland, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A fully managed operator whose machines carry branded chocolate and protein bars. Diablo's sugar free chocolate fits beside its Cadbury and Mars lines. Base suburb not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Names Cadbury, Mars and Snickers among the chocolate in its managed machines."
+    ],
+    "distributes": "Chocolate (Cadbury, Mars, Snickers), snacks, protein bars, nuts, soft drinks and convenience items",
+    "channels_supplied": "Workplaces and venues in South East Queensland, with machines installed nationally",
+    "sf_brands_carried": "Protein bars and nuts; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "ghioldisa.ch": {
     "name": "Ghioldi SA",
     "based_out_of": "Stabio, Switzerland",
@@ -5575,6 +5956,23 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "gifthampersforyou.com": {
+    "name": "Gift Hampers For You",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An Australian owned online hamper retailer that sources other brands' chocolate, biscuits and sweets and ships them from its Sydney warehouse. Its range already mixes imported European brands (Lindt, Ferrero, Walkers) with local ones, the shelf Diablo's gift boxes and biscuits belong on.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with chocolate (Ferrero Rocher, Lindt, Darrell Lea), biscuits and cookies (Walkers shortbread, Byron Bay Cookies), sweets (Rinaldi nougat, gummies) and Maggie Beer products",
+    "channels_supplied": "Its own online shop, Australia-wide delivery and click and collect from its Sydney warehouse",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "giftlady.co.za": {
     "name": "Gift Lady",
@@ -5757,6 +6155,42 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "goodiebox.com.au": {
+    "name": "The Goodie Box",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Perth gift box retailer that already sells imported European chocolate and sweets brands such as Tony's Chocolonely and Candy Kittens. Tier 3 because its main reach is Perth.",
+    "what_they_do_well": [],
+    "distributes": "Gift boxes with chocolate (Tony's Chocolonely, Lindt Lindor, M&M's) and sweets (Candy Kittens, Nerds), build your own boxes",
+    "channels_supplied": "Its own online shop, same day delivery across Perth and shipping Australia-wide; corporate gift boxes",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "goodnuts.com.au": {
+    "name": "Good Nuts",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "A family run bar snack and treats distributor that sells other companies' branded sweets, chocolate and biscuits into more than 1,500 pubs, clubs and hotels, the core of this venue channel. Its individually wrapped and portion packs suit Diablo's single serve chocolate, sweets and biscuits. Storage: products packed and stored under HACCP guidelines with national distribution operations; warehouse not named on its website.",
+    "what_they_do_well": [
+      "Trading since 1993 and now services more than 1,500 venues across Sydney, Melbourne, Adelaide and Brisbane.",
+      "Supplies venue groups such as Star Casino, Merivale, ALH Group and Accor hotels."
+    ],
+    "distributes": "Sweets and gummies (Allen's Freckles, Red Frogs, Minties), chocolate (Lindt, Lindor), biscuits and cookies (Charlie's), bar snacks, nuts and branded snacks (Springhill Farm, Piranha, Brookfarm, Snack Proud), plus seasonal and gift lines",
+    "channels_supplied": "Pubs, clubs, hotels and corporates; named clients include Star Casino, Merivale, ALH Group, Accor and Ibis hotels, Australian Venue Co. and QANTAS",
+    "sf_brands_carried": "Healthy snack brands such as Brookfarm; no sugar free confectionery seen; no direct competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "gourmandisesboutique.com": {
     "name": "GourmandisesBoutique",
     "based_out_of": "Geneva, Switzerland",
@@ -5845,6 +6279,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "grazie.com.au": {
+    "name": "Grazie Gift Baskets & Hampers",
+    "based_out_of": "Bibra Lake, Australia",
+    "market": "Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Perth gift basket retailer whose snack and chocolate hampers combine Lindt and other branded chocolate with branded biscuits. Tier 3 because it serves mainly Western Australia.",
+    "what_they_do_well": [
+      "Trading since 2006, when it started as Cyn Creations."
+    ],
+    "distributes": "Gift hampers with chocolate (Lindt Lindor, Fremantle Chocolate Co), biscuits and shortbread (Bisko, Luken and May jam filled biscuits) and snacks",
+    "channels_supplied": "Its own online shop, Perth and Western Australia delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
   "greekgourmet.ch": {
     "name": "Greek Gourmet AG",
@@ -6111,6 +6563,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
+  "hamperme.com.au": {
+    "name": "Hamper Me",
+    "based_out_of": "Kenmore, Australia",
+    "market": "Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Brisbane hamper business that hand-picks branded chocolate, biscuits and sweets from other suppliers for Christmas, Easter and corporate hampers. Its Christmas hampers carry up to 24 branded items, so a Diablo chocolate or biscuit line fits its mixed sweet hampers.",
+    "what_they_do_well": [
+      "Trading since 2003, with repeat corporate clients such as Bridgestone Australia."
+    ],
+    "distributes": "Gift hampers with chocolate (Lindt, Ferrero Rocher, Darrell Lea), cookies and biscuits (Byron Bay Cookie Co, Butterfingers shortbread, Charlie's Cookie Co), sweets (Ogilvies rock candy, Natural Confectionery Co, Bertoldis nougat)",
+    "channels_supplied": "Its own online shop, Australia-wide delivery to private and corporate clients",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
   "hampersbydesign.com.au": {
     "name": "Hampers by Design",
@@ -6575,6 +7045,26 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "honestysnacks.com.au": {
+    "name": "Honesty Snacks",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A family owned office snack supplier that buys well known branded chocolate, confectionery and cookies and sells them on as they are to thousands of workplaces. Its healthy and sugar free box lines give Diablo a natural place in treat and better for you mixes. Storage: sells from its own stock with its own delivery drivers, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Has supplied high quality snacks to businesses for over 30 years as a family owned company.",
+      "Supplies Honesty Snack Boxes to thousands of businesses in Melbourne and Adelaide."
+    ],
+    "distributes": "Confectionery, chocolate, cookies, chips and healthy snacks in office snack boxes, honesty boxes and subscription boxes; brands include Cadbury, Nestle, Mars, Mentos, Carman's and Harvest Box",
+    "channels_supplied": "Workplaces in Melbourne and Adelaide through its own drivers, with Australia wide delivery by courier; also gift hampers and home snack boxes",
+    "sf_brands_carried": "Healthy and Better For You boxes with sugar free, gluten free and vegan options; no direct competitor named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "honeydew.ch": {
     "name": "honeydew GmbH",
     "based_out_of": "Switzerland (city not confirmed)",
@@ -6747,6 +7237,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0047_2026-10-26_south-africa_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "ibadistributors.com.au": {
+    "name": "IBA Distributors",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "An owner run wholesaler of Australian, American and New Zealand branded sweets, chocolate and snacks to pubs, clubs and motels. It already carries Dubai style chocolate, one of Diablo's lines. It is a one person business, which limits its reach. Storage: sells from its own stock through a trade web shop and its own delivery; warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Sweets and gummies (Trolli, Nerds, Skittles, Warheads, Mike & Ike, Hubba Bubba), chocolate (M&M's, Dubai style chocolate bars), chips and snacks, protein bars and drinks",
+    "channels_supplied": "Pubs, clubs, motels, hotels and service stations across Brisbane, the Gold Coast, the Sunshine Coast and Ipswich",
+    "sf_brands_carried": "Protein bars; no sugar free confectionery seen; no direct competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "iberpasion.ch": {
@@ -7138,6 +7645,23 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "jandkvending.com.au": {
+    "name": "J&K Vending",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned operator that supplies machines and refills them with healthy and treat snacks. Brands are not named on its website. Storage: refills its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Healthy and treat snacks, novelty goods and drinks",
+    "channels_supplied": "Businesses in south east Brisbane",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "jihaansfloweremporium.co.za": {
     "name": "Jihaan's Flower Emporium",
     "based_out_of": "Cape Town, South Africa",
@@ -7259,6 +7783,25 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
+  "justincasedirect.com.au": {
+    "name": "Just In Case Direct",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "A wholesale supplier of branded minibar snacks and treats to hotels and accommodation, a clear venue channel where packs are sold to guests as they are. It already lists biscuits, chocolate and confectionery from other brands, so Diablo's single serve chocolate and cookies fit its range. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Offers more than 250 minibar lines to hotels, from chocolate and biscuits to travel essentials."
+    ],
+    "distributes": "Chocolate (Whittaker's), sweets and jelly beans (Jelly Belly, Skittles), biscuits and cookies (Kez's Cookies), salty snacks (Smiths, Red Rock Deli, Pringles) and healthy snacks for minibars",
+    "channels_supplied": "Hotel minibars, accommodation providers, minibar operators, conferences, conventions and events in Australia and abroad",
+    "sf_brands_carried": "A healthy products section; no direct competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "justintimegourmet.com.au": {
     "name": "Just In Time Gourmet",
     "based_out_of": "Perth, Australia",
@@ -7276,6 +7819,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
+  "justvend.com.au": {
+    "name": "Just Vending",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "An independent, Australian owned Sydney operator since 1983 that supplies snack machines with chips and chocolate from all suppliers. Restocking detail is not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Australian owned and trading in Sydney vending since 1983."
+    ],
+    "distributes": "Chips, chocolate and snack foods in snack machines, plus cold drinks",
+    "channels_supplied": "Workplaces across Greater Sydney",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "k-muscle-nutrition.ch": {
     "name": "K-Muscle Nutrition",
@@ -7385,6 +7947,23 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0033_2026-10-22_lausanne-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "kdvending.com.au": {
+    "name": "KD Vending",
+    "based_out_of": "Arundel, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Gold Coast operator that refills its own vending machines and micro markets and earns from product sales. Snack brands are shown only as logos on its website. Storage: restocks its own machines and markets, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, healthy products, drinks and meals in vending machines and micro markets",
+    "channels_supplied": "Workplaces, gyms and sites such as Twin Towns on the Gold Coast, Brisbane and Northern NSW",
+    "sf_brands_carried": "Healthy options; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "ketoshop.ch": {
     "name": "Ketoshop",
@@ -8084,6 +8663,22 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "littleshopofhappiness.com.au": {
+    "name": "Little Shop of Happiness",
+    "based_out_of": "Balcatta, Australia",
+    "market": "Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Perth gift hamper shop with dedicated lolly and dessert hampers that already carries Sweet Switch, a better-for-you lolly brand. Tier 3 because it is a single store with online sales; Sweet Switch competes with Diablo's gummies.",
+    "what_they_do_well": [],
+    "distributes": "Lolly, dessert and Christmas hampers with sweets and gummies (Sweet Switch sour worms, lolly mixes), chocolate bars (Chocolate Grove) and brownie mixes",
+    "channels_supplied": "Its own online shop and Balcatta store, delivery to Perth, Brisbane, Adelaide and Melbourne",
+    "sf_brands_carried": "Sweet Switch (reduced sugar lollies)",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "lituanica.ie": {
     "name": "Lituanica",
     "based_out_of": "Dublin, Ireland",
@@ -8312,6 +8907,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
+  "maguirevending.com.au": {
+    "name": "Maguire Vending Solutions",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "An independent vending provider that installs, maintains and restocks its machines in gyms and hotels. Its gym range of protein bars and low sugar snacks fits Diablo's bars. It is local and brands are not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Protein bars, low sugar snacks and popular snacks for vending",
+    "channels_supplied": "Vending machines in gyms and fitness centres, hotels, schools, shopping centres and offices in Melbourne's south east and the Mornington Peninsula",
+    "sf_brands_carried": "Low sugar snacks; no brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "maho-gmbh.com": {
     "name": "Maho GmbH",
@@ -8790,6 +9402,27 @@
     "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "melbournevendingco.com.au": {
+    "name": "Melbourne Vending Co",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "An independent operator that stocks 50 branded lines per machine, led by Cadbury, Nestle and Mars chocolate, plus protein bars and better for you snacks. Its gluten free and dairy free focus gives Diablo's sugar free chocolate and bars a clear slot. Storage: stocks and restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Says it is trusted by over 1,000 organisations across greater Melbourne.",
+      "Restocks machines up to daily and adds newer brands such as Nutty Squirrel and Cobs Popcorn."
+    ],
+    "distributes": "Branded chocolate (Cadbury, Nestle, Mars), snacks, protein bars, popcorn, nuts and drinks in vending machines and micro markets",
+    "channels_supplied": "Over 1,000 organisations in Melbourne, Geelong and Bendigo through vending machines and micro markets",
+    "sf_brands_carried": "Nutty Squirrel, Cobs Popcorn, protein bars, gluten free and dairy free lines",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "mellowvelo.co.za": {
     "name": "Mellow Velo",
     "based_out_of": "Johannesburg, South Africa",
@@ -8931,6 +9564,42 @@
     "research_file": "research/2026-10-20/J0006_2026-10-20_geneva-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "midcoastvending.com": {
+    "name": "Mid Coast Vending",
+    "based_out_of": "Toormina, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Coffs Harbour operator trading since 2005 that installs, services and restocks snack and drink machines carrying Cadbury chocolate. It gives Diablo reach into the NSW Mid North Coast. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Has traded on the Mid North Coast since 2005."
+    ],
+    "distributes": "Chocolate (Cadbury Dairy Milk), snacks (Smiths) and drinks",
+    "channels_supplied": "Sites from Coffs Harbour to Port Macquarie, Grafton, Yamba and Kempsey",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "midovending.com": {
+    "name": "MiDo Vending",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned operator that installs, stocks and restocks snack machines across NSW and the ACT. Its base suburb and brands are not stated on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks and drinks tailored to each venue",
+    "channels_supplied": "Venues in Sydney, Wollongong, Canberra, the Central Coast and Newcastle",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "mifarma.com.pe": {
     "name": "Mifarma",
     "based_out_of": "Lima, Peru",
@@ -8964,6 +9633,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0072_2026-10-26_australia_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json"
+  },
+  "minimartvending.com.au": {
+    "name": "Mini Mart Vending",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Perth operator that custom stocks and restocks machines with chocolates and healthy snacks. Brands other than Mi Goreng are not named on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chocolates, chips, healthy snacks, noodles and drinks",
+    "channels_supplied": "Workplaces in Perth and surrounding areas",
+    "sf_brands_carried": "Healthy snacks; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "mistrosanti.com": {
     "name": "Mistrosanti SAC",
@@ -9052,6 +9738,23 @@
     "added": "2026-10-23",
     "research_file": "research/2026-10-23/J0045_2026-10-23_st-gallen-switzerland_sports-shops-and-sports-nutrition-shops-corporate-gifting-and-hamper-companies-s.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "mooreselitevending.com.au": {
+    "name": "Moores Elite Vending",
+    "based_out_of": "East Victoria Park, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Perth family business that stocks and restocks machines with protein bars and sugar free snacks, which fits Diablo's positioning. Brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Protein bars, sugar free and lighter snacks, nut mixes and drinks",
+    "channels_supplied": "Workplaces and gyms across Perth",
+    "sf_brands_carried": "Sugar free and low sugar snacks; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "morrisons.com": {
     "name": "Morrisons",
@@ -9568,6 +10271,44 @@
     "sf_brands_carried": "Keto wafer cookies and high protein bars from Pro Nutrition and Ethic Sport",
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0034_2026-10-22_lugano-switzerland_retailers.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "ntsnackbevvending.com.au": {
+    "name": "NT Snack & Beverage Vending",
+    "based_out_of": "Winnellie, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Darwin operator that keeps its machines full of branded confectionery from Cadbury, Nestle and Mars. It gives Diablo reach into the Northern Territory, a market few operators serve. Storage: restocks from its Winnellie premises, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Products page names Cadbury, Nestle and Mars confectionery plus major snack brands."
+    ],
+    "distributes": "Confectionery and chocolate (Cadbury, Nestle, Mars), snacks (Smiths, Red Rock, Nobby's, Samboy), fresh food and drinks",
+    "channels_supplied": "Businesses and sites around Darwin",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "ntvending.com.au": {
+    "name": "NT Vending",
+    "based_out_of": "Darwin, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Darwin operator with over 10 years of trading that provides snack machines with chips and candy bars. Restocking detail and brands are not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Over 10 years serving businesses across the Northern Territory."
+    ],
+    "distributes": "Snacks, chips, candy bars and cold drinks",
+    "channels_supplied": "Businesses, offices, schools and government departments in Darwin and the Northern Territory",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "nurissa.ch": {
@@ -10381,6 +11122,24 @@
     "research_file": "research/2026-10-26/J0072_2026-10-26_australia_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "perthvending.com.au": {
+    "name": "Perth Vending",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A WA owned operator with 15 years of trading that owns, stocks and services its machines. Snack brands are not named on its website. Storage: owns and restocks its machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "WA owned and operated for over 15 years."
+    ],
+    "distributes": "Snacks, healthier picks and chilled drinks in combination machines",
+    "channels_supplied": "Perth metro sites with 30 or more people",
+    "sf_brands_carried": "Healthier picks; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "perufarma.com.pe": {
     "name": "Perufarma S.A.",
     "based_out_of": "Lima, Peru",
@@ -10850,6 +11609,26 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0001_2026-10-19_lyon-france_distributors.json"
   },
+  "provender.au": {
+    "name": "Provender",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A national vending and micro market operator whose local teams stock and restock snacks and lollies in fully managed machines across 14 locations. Its healthy and special dietary categories suit Diablo's no added sugar sweets, biscuits and bars. Storage: sells from its own stock through local teams, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Runs fully managed vending in 14 locations from Cairns to Tasmania through its local franchise network.",
+      "Member of the Australian Vending Association and recognised as a Top Franchise Australia 2025 for innovation and support."
+    ],
+    "distributes": "Packaged snacks and lollies (sweets), healthy and special dietary snacks, drinks and fresh food through vending machines, smart fridges and micro markets",
+    "channels_supplied": "Workplaces, retail sites and micro markets through local franchise teams in 14 Australian locations",
+    "sf_brands_carried": "Healthy Options and Special Dietary Requirements ranges; brands not named on its website",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "provianda.ch": {
     "name": "Provianda GmbH",
     "based_out_of": "Zofingen, Switzerland",
@@ -10940,6 +11719,60 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "qldvending.com": {
+    "name": "North Brisbane Vending Machines",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "A family owned vending business that delivers, installs, stocks and services its machines in gyms and community centres. It already offers protein bars and healthier options, a slot for Diablo's bars. It is local and brands are not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, protein bars and healthier options for vending",
+    "channels_supplied": "Vending machines in gyms, community centres, schools, retail and industrial sites in North Brisbane and the Moreton Bay region",
+    "sf_brands_carried": "Healthier options and sugar free drinks; no brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "qsvending.com.au": {
+    "name": "QS Vending",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "A Brisbane vending operator that restocks and services its own machines, including gyms and events, with protein bars and energy snacks. That gym and event mix suits Diablo's bars. Brands are not named on its website.",
+    "what_they_do_well": [
+      "More than 150 installations across Queensland."
+    ],
+    "distributes": "Protein bars, energy snacks and healthy snacks for vending",
+    "channels_supplied": "Vending machines in gyms, events, offices, schools and warehouses across Queensland",
+    "sf_brands_carried": "QLD canteen compliant healthy options; no brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "qualityvend.com.au": {
+    "name": "Quality Vend",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A managed micro market operator for Sydney and Melbourne offices that buys national and international branded snacks and sells them to staff as they are. Its office focus and healthy vending line suit Diablo's better for you snacks. Storage: Melbourne site in Craigieburn listed with a warehouse facility.",
+    "what_they_do_well": [
+      "Founded in November 2012 and serving over 70,000 customers each week."
+    ],
+    "distributes": "Snacks, drinks, healthy food and meals for office micro markets and autonomous convenience stores, stocked with national and international brands",
+    "channels_supplied": "Offices and workplaces in Sydney and Melbourne",
+    "sf_brands_carried": "Healthy vending line; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "quimicasuiza.com": {
     "name": "Química Suiza S.A.C.",
     "based_out_of": "Lima, Peru",
@@ -10955,6 +11788,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
+  },
+  "ramvending.com.au": {
+    "name": "RAM Vending",
+    "based_out_of": "South East Queensland, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A locally owned operator that places and restocks AI enabled machines with chocolate bars and healthy items. Its allergen aware and healthy lines suit Diablo's range. Base suburb not stated on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chocolate bars, protein snacks, chips, healthy and allergen aware items and drinks",
+    "channels_supplied": "Businesses in Brisbane, Gold Coast, Logan, Ipswich, Redland Bay and the Sunshine Coast",
+    "sf_brands_carried": "Healthy and allergen aware items; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "randvending.co.za": {
     "name": "Rand Vending",
@@ -11278,6 +12128,25 @@
     "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "robinsonsvending.com.au": {
+    "name": "Robinsons Vending",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned operator that restocks fully serviced machines and lists branded bars and chocolate with a strong healthy focus. Diablo's sugar free bars and chocolate match its healthy vending page. Storage: restocks its own machines using remote monitoring, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Has provided vending machines in Brisbane for over five years with a dedicated healthy vending range."
+    ],
+    "distributes": "Bars (Blue Dinosaur, Clif), chocolate (Snickers), chips, popcorn, nut mixes, noodles and ready meals",
+    "channels_supplied": "Workplaces in Brisbane and South East Queensland, including the Gold Coast and Sunshine Coast",
+    "sf_brands_carried": "Blue Dinosaur, Clif, JC's, vegetable chips and gluten free options",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "rochat-cycles.ch": {
     "name": "Rochat Cycles",
     "based_out_of": "Aubonne, Switzerland",
@@ -11512,6 +12381,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
+  },
+  "rvend.com.au": {
+    "name": "Rvend",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Its snack page lists a broad range of other companies' chocolate, sweets, gummies and cookies, which matches Diablo's catalogue closely. It also stocks international lines, so a UK brand fits its range. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Snack range spans Mars, Cadbury, Nestle, Allens and imported Reese's and Hershey's lines."
+    ],
+    "distributes": "Branded chocolate bars (Mars, Cadbury, Nestle, Reese's, Hershey's), sweets (Allens, Starburst, Natural Confectionery Co, Wrigleys), cookies (Future Bake), chips and drinks",
+    "channels_supplied": "Workplaces in Perth suburbs such as Malaga, Osborne Park and Welshpool, with operators in Adelaide, Melbourne, Sydney and Brisbane",
+    "sf_brands_carried": "Healthy Choices category; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "sabex.at": {
     "name": "Sabex Handelsgesellschaft m.b.H.",
@@ -12040,6 +12928,25 @@
     "research_file": "research/2026-10-23/J0036_2026-10-23_switzerland_diabetic-low-sugar-and-keto-shops-gluten-free-and-free-from-shops-vegan-and-vege.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "simplevendingsolution.com.au": {
+    "name": "Simple Vending Solution",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers"
+    ],
+    "fit_rationale": "A Sydney vending operator whose named sites are exactly this channel: leisure and aquatic centres, sports clubs, RSLs and hotels. It supplies, restocks and services its machines, selling protein bars and snacks to the active, health conscious visitors Diablo targets. Brands stocked are not named on its website.",
+    "what_they_do_well": [
+      "Places machines at sports grounds, RSLs, bowling clubs and aquatic centres across Sydney's metro and western suburbs."
+    ],
+    "distributes": "Snacks and protein bars, healthy snacks and cold drinks for vending machines",
+    "channels_supplied": "Vending machines in gyms, community and leisure centres, aquatic centres, sports clubs, RSLs, bowling clubs, hotels and motels across greater Sydney",
+    "sf_brands_carried": "Healthy options for gyms; no brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "sjbfoods.com": {
     "name": "SJB Foods",
     "based_out_of": "Sidmouth, United Kingdom",
@@ -12360,6 +13267,25 @@
     "sf_brands_carried": "Gluten free specialist; sugar free brands not verified.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "stacksofsnacks.com.au": {
+    "name": "Stacks of Snacks",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A workplace snack box supplier that buys chocolate, biscuits and bars from Mars, Cadbury, Nestle and Arnott's and manages the box, contents and cash for each client. Diablo's chocolate and biscuits fit its treat range and its Go Natural and Carman's lines show room for better for you products. Storage: sells from its own stock with its own delivery fleet, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Gives part of each sale to Lifeline, the mental health and suicide prevention service."
+    ],
+    "distributes": "Branded chocolate, biscuits and snacks for workplace snack boxes and vending: Mars, Cadbury, Nestle, Arnott's, JC's, Go Natural, Carman's and Majans",
+    "channels_supplied": "Workplaces through snack boxes and vending machines; delivery area not stated on its website",
+    "sf_brands_carried": "Go Natural and Carman's better for you bars and snacks; no direct competitor",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "stadtlandkorb.ch": {
     "name": "Stadt Land Korb (J&H Boutique GmbH)",
@@ -12784,6 +13710,26 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
+  "svavending.com.au": {
+    "name": "SVA Vending",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers",
+      "office snack and pantry suppliers",
+      "snack vending operators"
+    ],
+    "fit_rationale": "A vending operator that delivers, installs and restocks its machines with branded chocolate, lollies, biscuits and bars, with a dedicated gym vending range. Its low sugar options give Diablo's bars and chocolate a natural slot. It buys and restocks the products itself.",
+    "what_they_do_well": [
+      "More than 15 years in Australian vending."
+    ],
+    "distributes": "Chocolate (Cadbury, Mars, Snickers, KitKat, Dove), sweets and lollies, biscuits (Tim Tam), protein and muesli bars, chips and nuts, including low sugar, vegan and gluten free options",
+    "channels_supplied": "Snack vending machines in gyms, schools, offices and hospitals in Victoria",
+    "sf_brands_carried": "Low sugar, vegan and gluten free snack options; no brand named; no direct competitor seen",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "svfarma.com.ar": {
     "name": "SVfarma",
     "based_out_of": "Córdoba, Argentina",
@@ -12982,6 +13928,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "sydvend.com.au": {
+    "name": "Sydney Vending",
+    "based_out_of": "Smithfield, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned operator since 1999 that restocks machines from sales data and has a dedicated healthy options page. Snack brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Providing vending services in Sydney since 1999."
+    ],
+    "distributes": "Snacks, drinks and meals with a healthy options range",
+    "channels_supplied": "Workplaces in Sydney",
+    "sf_brands_carried": "Healthy options range; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "sysco.fr": {
     "name": "Sysco France",
@@ -14137,6 +15102,23 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json"
   },
+  "ursnacksvending.au": {
+    "name": "UR Snacks Vending",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned Brisbane operator that monitors machines remotely and restocks them with snacks. Brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, drinks and coffee",
+    "channels_supplied": "Workplaces in Brisbane, Sydney, Melbourne, Adelaide and Perth",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "usaimports.co.za": {
     "name": "USA Imports Gauteng",
     "based_out_of": "Midrand, South Africa",
@@ -14302,6 +15284,23 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0032_2026-10-22_geneva-switzerland_retailers.json"
   },
+  "vend2go.com.au": {
+    "name": "Vend2go",
+    "based_out_of": "Gold Coast, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A South East Queensland operator that keeps its machines fully stocked with chocolate and protein bars. Brands are not named on its website. Storage: stocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chocolate, protein bars, chips and drinks",
+    "channels_supplied": "Businesses in Brisbane, Gold Coast, Logan, Ipswich and Toowoomba",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "vendco.co.za": {
     "name": "The Vending Company",
     "based_out_of": "South Africa",
@@ -14319,6 +15318,44 @@
     "sf_brands_carried": "",
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0047_2026-10-26_south-africa_distributors-confectionery-importers-snack-distributors-health-food-distributors.json"
+  },
+  "vendezysolutions.com.au": {
+    "name": "VendEzy Solutions",
+    "based_out_of": "Kurri Kurri, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Hunter based operator that provides, stocks and monitors its own machines and lists many branded chocolate, sweets and cookie lines. Its industrial and hospital sites are a good fit for Diablo's chocolate and biscuits. Storage: stocks its own machines from its Kurri Kurri base, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Range names Cadbury, Mars, Skittles and Byron Bay Cookies across its machines."
+    ],
+    "distributes": "Branded chocolate (Cadbury, Kit Kat, Mars, Maltesers, M&M's, Chokito), sweets (Skittles), cookies (Byron Bay Cookies), chips and drinks",
+    "channels_supplied": "Workshops, mines, warehouses, hospitals, offices, pubs, clubs and TAFEs in Newcastle, the Hunter Valley and the Central Coast, also trading as 24-7 Vending Services",
+    "sf_brands_carried": "Coca-Cola No Sugar, Carman's, health snacks",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "vending-machine.com.au": {
+    "name": "Vending Machines Australia",
+    "based_out_of": "Seven Hills, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "Its own site says it supplies, installs, restocks and services machines and lists chocolate bars, biscuits, lollies and low sugar bars. Its healthier options section is a clear opening for Diablo's sugar free sweets and biscuits. Storage: stocks and restocks its machines on telemetry schedules, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Claims over 20 years of experience and restocks busy sites weekly using telemetry."
+    ],
+    "distributes": "Chocolate bars, muesli and protein bars, biscuits, lollies (sweets), chips and nuts, plus low sugar bars and drinks",
+    "channels_supplied": "Free placement and sales across Sydney, Melbourne, Brisbane, Perth, Adelaide, Gold Coast, Canberra, Newcastle and regional Australia",
+    "sf_brands_carried": "Low sugar bars and no sugar soft drinks; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "vending.ch": {
     "name": "Vending Service AG",
@@ -14339,6 +15376,44 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
   },
+  "vendinghq.com.au": {
+    "name": "Vending HQ",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family business with over two decades in vending that supplies and services its own snack machines. Brands are not named on its website. Storage: services its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Over two decades in the vending industry."
+    ],
+    "distributes": "Snacks, bakery products, ready meals and drinks",
+    "channels_supplied": "Call centres, logistics, manufacturing, pubs and resorts from Brisbane's North Coast to Northern NSW",
+    "sf_brands_carried": "Healthy choices; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "vendingsimplicity.com.au": {
+    "name": "Vending Simplicity",
+    "based_out_of": "Wakerley, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "A Brisbane operator since 2009 that installs, stocks and services machines with its own technicians and no subcontractors. Its snack machines carry chocolates and healthy options, which suits Diablo's chocolate and bars. Storage: restocks from its Wakerley unit, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Has serviced Brisbane since 2009 using its own technicians, with no subcontractors."
+    ],
+    "distributes": "Chocolates, chips, healthy snacks, fresh food and drinks",
+    "channels_supplied": "Workplaces and schools in Brisbane, the Gold Coast, Sunshine Coast, Toowoomba and Northern NSW",
+    "sf_brands_carried": "Healthy options; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
   "vendingsolutions.co.za": {
     "name": "Vending Solutions",
     "based_out_of": "Johannesburg, South Africa",
@@ -14357,6 +15432,78 @@
     "sf_brands_carried": "Its Healthy Vending site lists third-party better-for-you brands for operators, such as RUSH bars, Earthshine and The Chocolate Tree; no direct competitor seen",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
+  "vendingsolutionsaustralia.com.au": {
+    "name": "Vending Solutions Australia",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A family owned operator since 2018 that delivers, installs and restocks cashless snack machines. Brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, healthy snacks and drinks in cashless machines",
+    "channels_supplied": "Workplaces in Greater Melbourne",
+    "sf_brands_carried": "Healthy options page; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "vendingtasmania.com": {
+    "name": "Vending Tasmania",
+    "based_out_of": "Tasmania, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Tasmanian operator, started in 2012 with 11 machines, that keeps snack machines fully stocked. Its town and brands are not stated on its website. Storage: stocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Started in 2012 with 11 machines and now serves sites across Tasmania."
+    ],
+    "distributes": "Snacks, healthy vending options and drinks",
+    "channels_supplied": "Businesses across Tasmania",
+    "sf_brands_carried": "Healthy vending options; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "vendingtownsville.com": {
+    "name": "Vending Services Townsville",
+    "based_out_of": "Townsville, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "An independent Townsville operator, established in 2000, with free installation and free product restocking of snack machines. Snack brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Independent local operator in Townsville since 2000."
+    ],
+    "distributes": "Popular snack and drink brands, healthy products",
+    "channels_supplied": "Businesses in Townsville",
+    "sf_brands_carried": "Healthy alternatives; brands not named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "vendingwa.com.au": {
+    "name": "Vending WA",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Perth based operator that monitors stock remotely and refills its free machines with snacks. Brands are not named on its website. Storage: refills its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks and drinks stocked to client request",
+    "channels_supplied": "Offices, warehouses, government departments, aged care and hotels in Perth and Western Australia",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "vendordistribuciones.com.ar": {
     "name": "Vendor Distribuciones",
@@ -14452,6 +15599,23 @@
     "sf_brands_carried": "Sugar free panettones, Zero Carbo, Sanissimo no added sugar snacks; no sugar free chocolate brand seen.",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "verityvending.com.au": {
+    "name": "Verity Vending",
+    "based_out_of": "Newcastle, Australia",
+    "market": "Australia",
+    "category": "Snack vending operators",
+    "channels": [
+      "snack vending operators"
+    ],
+    "fit_rationale": "A Hunter region operator that stocks, services and maintains machines with chocolate bars and chips. Its street address is not stated on its website. Storage: stocks its own machines, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chips, chocolate bars and drinks",
+    "channels_supplied": "Sites in Newcastle, Lake Macquarie, the Hunter Valley and Maitland",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "vermo.ch": {
@@ -14781,6 +15945,23 @@
     "research_file": "research/2026-10-19/J0003_2026-10-19_vienna-austria_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "whatsinthatbox.com.au": {
+    "name": "What's In That Box",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A small Victorian gift hamper retailer whose chocolate and Christmas hampers use other brands' chocolate. Tier 3 because it is small and its head office address is not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with chocolate (Koko Black, Organic Times chocolate almonds, Freckleberry) and Christmas and morning tea hampers",
+    "channels_supplied": "Its own online shop, Australia-wide shipping",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "wholefoodmerchants.com": {
     "name": "Wholefood Merchants",
     "based_out_of": "Melbourne, Australia",
@@ -15089,6 +16270,26 @@
     "research_file": "research/2026-10-26/J0047_2026-10-26_south-africa_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "xvend.com.au": {
+    "name": "Xvend",
+    "based_out_of": "Gold Coast, Australia",
+    "market": "Australia",
+    "category": "Leisure and venue snack suppliers",
+    "channels": [
+      "leisure and venue snack suppliers",
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "Xvend owns and manages its vending machines and stocks them with branded snacks and chocolate, including at gyms and hotels. A healthy options category gives Diablo's bars and chocolate a place. Its full product list is a separate PDF that was not checked.",
+    "what_they_do_well": [
+      "Trading since 2012 across South East Queensland and Northern NSW."
+    ],
+    "distributes": "Chocolate (Mars), snacks (Kettle, Doritos), healthy options and drinks for vending",
+    "channels_supplied": "Managed vending machines in gyms, hotels, holiday letting, offices, warehouses and factories across Brisbane, the Gold Coast, Ipswich and Northern NSW",
+    "sf_brands_carried": "A Healthy Options category; no brand named in it",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "yabulela.co.za": {
     "name": "Yabulela Gift Hampers",
     "based_out_of": "Somerset West, South Africa",
@@ -15248,6 +16449,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "zouki.com.au": {
+    "name": "Zouki",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Hospital and care home shops",
+    "channels": [
+      "hospital and care home shops"
+    ],
+    "fit_rationale": "Zouki holds head leases on whole hospital retail precincts and runs its own branded convenience stores, buying centrally for many hospital sites. Its convenience stores sell snacks and gifts to patients, visitors and staff, a natural shelf for sugar free sweets and chocolate. Sugar free brands carried are not named on its website.",
+    "what_they_do_well": [
+      "Won the 10-year contract to run all retail outlets in the new Bendigo Health building, its 15th Victorian hospital contract.",
+      "Takes head leases for hospital retail precincts in Victoria, NSW and the ACT and runs them under its own store brands."
+    ],
+    "distributes": "Packaged snacks, drinks, gifts, flowers, magazines and everyday convenience items in its hospital convenience stores (Zouki Convenience and Convenience Plus)",
+    "channels_supplied": "Patients, visitors and staff through convenience stores and retail precincts in hospitals such as the Royal Melbourne, Royal Women's and St George hospitals, across 34 sites in Victoria, NSW, Queensland and the ACT",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
   "zurrose-shop.ch": {
     "name": "ZRMB Marketplace AG (Zur Rose Shop)",
