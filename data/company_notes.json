@@ -2446,6 +2446,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0060_2026-10-26_pretoria-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli-2.json"
   },
+  "buysweets.co.za": {
+    "name": "Lick Your Lips",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "Polokwane, South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "An online sweets retailer that sells imported branded sweets, gummies and chocolates from other companies and states a distribution network throughout South Africa, which reaches Polokwane from its Johannesburg base. Tier 3 because it is small and its website does not name Polokwane or Limpopo as a delivery area.",
+    "what_they_do_well": [
+      "Calls itself South Africa's leading online sweets supplier store, with a distribution network throughout South Africa."
+    ],
+    "distributes": "Imported sweets, jelly sweets and gummies (sour worms, jelly beans), chocolates, Beechies chewing gum and novelty sweets, in consumer and bulk packs",
+    "channels_supplied": "Its own online shop, selling to shoppers and party buyers with delivery across South Africa",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0068_2026-10-27_polokwane-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "bwg.ie": {
     "name": "BWG Foods (Value Centre and LSN)",
     "based_out_of": "Dublin, Ireland",
@@ -3924,6 +3943,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "datainn.officenational.co.za": {
+    "name": "Data Inn Office National",
+    "based_out_of": "Polokwane, South Africa",
+    "market": "Polokwane, South Africa",
+    "category": "Office snack and pantry suppliers",
+    "channels": [
+      "office snack and pantry suppliers"
+    ],
+    "fit_rationale": "The Polokwane member of the Office National group, which stocks other companies' branded biscuits and sweets in its canteen section for local offices, the exact office pantry route Diablo's biscuits, wafers and sweets would take. It is tier 3 because it is a single store and its website does not state a delivery area. Storage: sells from its own stock at its Polokwane Central store, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Member of Office National, described as South Africa's largest independent supplier of stationery and office supplies, with a local Polokwane store and online shop."
+    ],
+    "distributes": "Office supplies with a canteen range of biscuits (for example Bakers Choice Assorted) and sweets, plus tea, coffee, hot chocolate and cold drinks for offices",
+    "channels_supplied": "Polokwane offices and businesses through its Polokwane Central store and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0068_2026-10-27_polokwane-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "davidjonespharmacy.com.au": {
@@ -15541,6 +15579,25 @@
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "tobegiftboxes.com": {
+    "name": "To Be Gift Boxes",
+    "based_out_of": "Pretoria, South Africa",
+    "market": "Polokwane, South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A build your own gift box company that buys branded chocolate, nougat, biscuits and cookies from other brands and sells them in corporate and personal gift boxes, so Diablo's chocolate, biscuits and gift boxes fit straight into its sweet treat range. It states nationwide delivery in South Africa, which covers Polokwane; Polokwane is not named on its website. Storage: ships from its own warehouse, listed at Ryneveld Lifestyle Centre, Centurion.",
+    "what_they_do_well": [
+      "Lets clients build their own gift box within a set budget, with branded sweet treats sold as single add-ons.",
+      "Offers corporate and event gift boxes with nationwide delivery from its own warehouse."
+    ],
+    "distributes": "Gift boxes and hampers with branded chocolate bars (Lindt slabs, Toblerone), chocolate nougat, chocolate coated nougat biscuits (Wedgewood Angels), cookies and shortbread biscuits (Mama Mac's), sold as boxes or single sweet treat add-ons",
+    "channels_supplied": "Direct to consumers and companies through its own online shop, corporate and event gift boxes, and its shop at Castle Gate Shopping Centre, Pretoria; nationwide delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-27/J0068_2026-10-27_polokwane-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
   },
   "todays.co.uk": {
     "name": "Today's Group",
