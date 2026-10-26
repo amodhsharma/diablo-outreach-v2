@@ -751,6 +751,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "asianpantry.com.au": {
+    "name": "Asian Pantry",
+    "based_out_of": "Carrum Downs, Australia",
+    "market": "Australia",
+    "category": "Halal food distributors",
+    "channels": [
+      "halal food distributors"
+    ],
+    "fit_rationale": "An online grocer with a dedicated halal collection and its own chocolate, candy and biscuit sections from other brands, serving Malaysian, Indonesian and other Muslim shoppers across Australia. It sells only to shoppers, so it is tier 3. Storage: ships from its own Melbourne warehouse.",
+    "what_they_do_well": [
+      "Rated 4.8 out of 5 from 798 Google reviews and delivers Australia-wide from Melbourne."
+    ],
+    "distributes": "Online Asian grocery of over 3,000 products with snacks sections for chocolates, candy and gummies, biscuits and crackers, and a halal collection of about 350 products",
+    "channels_supplied": "Direct to shoppers through its own online shop, Australia-wide delivery from a Melbourne warehouse",
+    "sf_brands_carried": "Has a Sugar Free collection; brands not named on the pages checked",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
   "aspenandco.co.za": {
     "name": "Aspen&Co",
     "based_out_of": "Cape Town, South Africa",
@@ -916,6 +934,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
+  "avenuehampers.com.au": {
+    "name": "Avenue Hampers",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Perth hamper company that sources hamper contents from over 100 Australian businesses and sells corporate branded hampers from 15 units upwards. Its add-on range alone lists dozens of branded chocolate, sweets, nougat, fudge and biscuit lines, so Diablo's chocolate, sweets and biscuits would sit in an existing shelf. Storage: click and collect warehouse at Unit 1, 51 Lancaster Road, Wangara WA.",
+    "what_they_do_well": [
+      "Sources hamper contents from over 100 Australian businesses and offers branded corporate hampers with logo, ribbon and card."
+    ],
+    "distributes": "Gift hampers with branded chocolate (Bahen & Co, Whistlers, Charlotte Piper), sweets and lollies (Sweet-Switch), nougat (Rinaldi, Bramble & Hedge), fudge, toffee, biscuits (Ambrosiana) and cookies (Loaded Cookie)",
+    "channels_supplied": "Corporate client and staff gifting with branded hampers and bulk multi-address orders, plus online sales to shoppers Australia-wide",
+    "sf_brands_carried": "Sweet-Switch (reduced sugar sweets)",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "aversi.ge": {
     "name": "Aversi-Pharma",
@@ -1530,6 +1566,24 @@
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json"
   },
+  "bindle.com.au": {
+    "name": "Bindle",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Melbourne corporate gifting company trading since 2012 that sources boutique food from other Australian makers for its hampers. Its chocolate hampers and named corporate accounts make Diablo's chocolate and gift boxes a fit for its client gifting. Storage: ships Australia-wide from its Cheltenham VIC headquarters.",
+    "what_they_do_well": [
+      "Delivering Australian corporate gifts since 2012, with clients including Xero, Cbus and Australian Unity."
+    ],
+    "distributes": "Boutique gift hampers with chocolate (Chocamama, Bahen & Co), crackers (Valley Produce Co) and snacks",
+    "channels_supplied": "Corporate gifting for clients such as Xero, Cbus, Australian Unity and Fulton Hogan, plus online sales to shoppers Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
   "bio-royal.com": {
     "name": "Bio Royal Sàrl",
     "based_out_of": "Onnens, Switzerland",
@@ -1622,6 +1676,24 @@
     "sf_brands_carried": "Organic and health food ranges; individual sugar free brands not confirmed",
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0003_2026-10-19_vienna-austria_distributors.json"
+  },
+  "biomestores.com": {
+    "name": "Biome",
+    "based_out_of": "Brisbane, Australia",
+    "market": "Australia",
+    "category": "Vegan and vegetarian shops",
+    "channels": [
+      "vegan and vegetarian shops"
+    ],
+    "fit_rationale": "An eco and vegan store chain with a Chocolate and Snacks section of other brands' vegan chocolate, lollies and healthy snacks, plus jams and spreads. Its own Biome brand covers cleaning and cosmetics, not food, so Diablo's vegan bars, cookie and peanut butters would sit beside third-party brands. Store count: six stores according to Eco Hub Map; Biome's own page names Brisbane and Melbourne stores.",
+    "what_they_do_well": [
+      "Has screened the products it sells for their environmental and ethical standards since 2003."
+    ],
+    "distributes": "Vegan chocolate (Loco Love, Bennetto, Pana, Booja-Booja, Alter Eco, Vego), vegan lollies, healthy snacks, jams and spreads",
+    "channels_supplied": "Its own eco stores in Brisbane and Melbourne and its online shop, which also ships to the US and Canada",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "biopartner.ch": {
     "name": "Bio Partner Schweiz AG",
@@ -3067,6 +3139,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json"
+  },
+  "creativehampers.com.au": {
+    "name": "Creative Hampers",
+    "based_out_of": "Rouse Hill, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "High-volume hamper company with over 65,000 hampers delivered and a corporate client base shown on its home page. Its sweet hampers combine chocolate, chocolate-coated jellies and biscuits from other brands, matching Diablo's chocolate, sweets and biscuits. Storage: Rouse Hill warehouse in NSW, open for free collection.",
+    "what_they_do_well": [
+      "Over 65,000 hampers delivered, with logos of corporate clients including Suncorp, Oracle and Dyson on its home page."
+    ],
+    "distributes": "Christmas, gift and corporate hampers with branded chocolate (Chocolatier, Geelong Confectionery, Cocoa Lane), shortbread biscuits (Bisko), nougat (Walters) and gingerbread",
+    "channels_supplied": "Corporate gifting for teams such as Suncorp, Oracle, Dyson, PEXA and Macquarie University, plus online sales to shoppers Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "creveleurope.com": {
     "name": "Crevel Europe GmbH",
@@ -5133,6 +5223,25 @@
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "gatheringgifts.com.au": {
+    "name": "Gathering Gifts",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Melbourne corporate gifting company, formerly Go Above & Beyond, that picks every item from premium brands and specialist suppliers. Its chocolate hampers already feature several chocolate and nougat brands, matching Diablo's chocolate and sweets. Storage: warehouse at 13/210 Boundary Road, Braeside VIC.",
+    "what_they_do_well": [
+      "Says it is trusted by more than 100 businesses across Australia for customised corporate hampers."
+    ],
+    "distributes": "Curated corporate hampers with chocolate (Ministry of Chocolate, Thessaly, Cuvee, Kozoko), nougat (Bramble & Hedge) and gingerbread biscuits",
+    "channels_supplied": "Corporate gifting for over 100 businesses, bespoke and build-your-own hampers and branded gift-of-choice portals",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "gborder.de": {
     "name": "G-Border Trade GmbH",
     "based_out_of": "Frankfurt am Main, Germany",
@@ -5432,6 +5541,40 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0057_2026-10-26_cape-town-south-africa_seasonal-and-gift-shops.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "gifthampercollective.com.au": {
+    "name": "Gift Hamper Collective",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Australian-owned hamper company whose sweet hampers are made up entirely of other brands' biscuits, cookies and chocolate. Tier 3 because its head office address is not stated on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with biscuits and cookies (Luken & May, Byron Bay Cookies, Butterfingers), chocolate (Duck Creek) and snacks (Wallaby Bites)",
+    "channels_supplied": "Corporate, client and real estate settlement hampers in bulk, plus online sales to shoppers Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "gifthampersaustralia.com.au": {
+    "name": "Gift It Hampers Australia",
+    "based_out_of": "Gold Coast, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Gold Coast hamper retailer whose hampers and chocolate add-ons are built on mainstream branded sweets, chocolate and cookies. It runs bulk corporate and staff gifting, giving Diablo's sweets, chocolate and cookies a ready place in its sweet hampers. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with branded sweets and chocolate (Darrell Lea liquorice and Bullets, Lindt Lindor, Ferrero Rocher, Cadbury) and cookies (Byron Bay Cookies, Charlie's Melting Moments)",
+    "channels_supplied": "Bulk corporate gifts, staff appreciation and client Christmas hampers, plus online sales to shoppers Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "giftlady.co.za": {
     "name": "Gift Lady",
@@ -5757,6 +5900,25 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "greinwholesale.com.au": {
+    "name": "Grein Wholesale Australia",
+    "based_out_of": "Blacktown, Australia",
+    "market": "Australia",
+    "category": "Halal food distributors",
+    "channels": [
+      "halal food distributors"
+    ],
+    "fit_rationale": "A Sydney importer and wholesaler of halal certified Indonesian brands that already sells branded biscuits, wafers and candies to Muslim-serving grocers and supermarkets, which is the TATKO model. It also has a small Grein-branded line, but its range is mainly other companies' brands. Storage: own warehouse at Carnegie Place, Blacktown, with a B2B web shop.",
+    "what_they_do_well": [
+      "Runs weekly delivery routes across Sydney from its Blacktown warehouse and lists stockists in Sydney, Brisbane and the Gold Coast."
+    ],
+    "distributes": "Imported Indonesian and Asian groceries with a confectionery and snacks category: biscuits and wafers (Khong Guan, Oreo, Roma, Tango), candies (Kopiko) and savoury snacks; halal certified imports",
+    "channels_supplied": "Independent grocers, supermarkets and food retailers in Sydney, Brisbane and the Gold Coast, plus restaurants; B2B online ordering",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "groupe-pomona.fr": {
     "name": "EpiSaveurs (Groupe Pomona)",
     "based_out_of": "Rungis, France",
@@ -5915,6 +6077,23 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json"
   },
+  "hampercompany.com.au": {
+    "name": "Hamper Co",
+    "based_out_of": "Kogarah, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Social enterprise hamper business linked to the Intellectual Disability Foundation of St George, selling hampers with branded chocolate and lollies from other makers. Tier 3 because it is small and its reach outside Sydney is not stated on its website. Storage: sells from its Kogarah premises, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with chocolate bars (Knight and Georgie), rock candy (Aunty Polly's Perfect Lollies), fudge, popcorn and chocolate biscuits",
+    "channels_supplied": "Corporate gifting and onboarding hampers for clients such as UTS, plus online sales to shoppers",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "hamperlicious.co.za": {
     "name": "Hamperlicious",
     "based_out_of": "South Africa",
@@ -5932,6 +6111,60 @@
     "sf_brands_carried": "",
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
+  "hampersbydesign.com.au": {
+    "name": "Hampers by Design",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Perth hamper company that fills its hampers with products from Australian producers and named chocolate and biscuit brands. It offers corporate branded hampers and its own Perth delivery team, so Diablo's chocolate, cookies and jams fit its sweet and savoury hampers. Storage: Wangara WA premises shown on its website, delivery by its in-house van team.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with branded chocolate (Lindt, Chocolatier, Walker), shortbread cookies (Ogilvie), sweet sauces and jams",
+    "channels_supplied": "Corporate gift hampers for clients and employees with corporate branding, plus online sales to shoppers; also trades as Christmas Hampers Perth",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "hampersgalore.com.au": {
+    "name": "Hampers Galore",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Family-owned hamper retailer whose hampers and add-on shelf are built on well-known chocolate and biscuit brands from other companies. It sells corporate hampers in bulk, so Diablo's chocolate, biscuits and gift boxes fit its existing chocolate and snacks range. Storage: orders ship from its own warehouse, address not named on its website.",
+    "what_they_do_well": [
+      "Offers bulk corporate hamper pricing with no minimum order and ships Australia-wide via StarTrack."
+    ],
+    "distributes": "Gift hampers and add-ons with branded chocolate (Ferrero Rocher, Whittaker's, Toblerone, Lindt, Chocolatier), cookies (Byron Bay Cookies, Charlie's Cookies) and nougat biscuits (Walters)",
+    "channels_supplied": "Corporate and bulk hamper orders with no minimum, plus online sales to shoppers Australia-wide with same-day delivery in parts of Melbourne",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
+  "hampersonly.com.au": {
+    "name": "Hampers Only",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "National hamper retailer within the Roses Only Group whose chocolate hampers combine several third-party chocolate and cookie brands. It delivers to every capital city and sells corporate hampers, so Diablo's chocolate and cookies fit its chocolate range. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Delivers same business day in Sydney, Melbourne, Brisbane and Perth as part of the Roses Only Group."
+    ],
+    "distributes": "Gift hampers with branded chocolate (Chocolatier, Bennetto, Fardoulis) and cookies (Snowy Mountain)",
+    "channels_supplied": "Corporate hampers for clients and staff and online sales to shoppers, with same business day delivery in major cities; part of the Roses Only Group",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "hamperworld.co.za": {
     "name": "Hamper World",
@@ -7026,6 +7259,24 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0035_2026-10-23_switzerland_distributors-wholesalers-petrol-station-and-convenience-chains-travel-retail-spo.json"
   },
+  "justintimegourmet.com.au": {
+    "name": "Just In Time Gourmet",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Perth hamper retailer with a confectionery and chocolate section listing many other brands, plus biscuit tins built from third-party biscuits, chocolate and jam. Its create-your-own range means Diablo's chocolate, sweets, biscuits and jams could be sold individually and in hampers. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Offers a create-your-own hamper range of more than 2,000 products."
+    ],
+    "distributes": "Hampers and a create-your-own range of over 2,000 products, with confectionery and chocolate (Whistlers, Charlotte Piper, Davies Chocolates, Chocolate Grove, Australian Sweet Co), biscuits (Ogilvie & Co, Molly Woppy) and jams",
+    "channels_supplied": "Corporate Christmas hampers and online sales to shoppers, with free Perth metro delivery and interstate shipping",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
   "k-muscle-nutrition.ch": {
     "name": "K-Muscle Nutrition",
     "based_out_of": "Ostermundigen, Switzerland",
@@ -7173,6 +7424,23 @@
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0003_2026-10-19_vienna-austria_distributors.json"
   },
+  "kindtoearth.net.au": {
+    "name": "Kind To Earth",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Vegan and vegetarian shops",
+    "channels": [
+      "vegan and vegetarian shops"
+    ],
+    "fit_rationale": "A 100% vegan online grocery whose snacks section sells chocolate, lollies, biscuits, wafer bars and chocolate spread from other brands, matching most of Diablo's vegan lines. It carries a few items under its own KTE name, but most of the range is third-party brands. It is a small shop; store count and turnover are not stated on its website.",
+    "what_they_do_well": [],
+    "distributes": "Vegan chocolate bars and chocolate spread (Vego, Buttermilk), lollies and marshmallows (Dandies), biscuits and cookies (Leda, House of Biskota), wafer bars and snacks",
+    "channels_supplied": "Its own online shop, shipping Australia wide, with chilled items delivered in metro Melbourne",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "kingdoms-wholesale.co.za": {
     "name": "Kingdoms Wholesale",
     "based_out_of": "Cape Town, South Africa",
@@ -7287,6 +7555,27 @@
     "research_file": "research/2026-10-23/J0036_2026-10-23_switzerland_diabetic-low-sugar-and-keto-shops-gluten-free-and-free-from-shops-vegan-and-vege.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "kosherkingdom.com.au": {
+    "name": "Kosher Kingdom Food Market",
+    "based_out_of": "Elsternwick, Melbourne, Australia",
+    "market": "Australia",
+    "category": "Kosher shops",
+    "channels": [
+      "kosher shops",
+      "kosher food distributors"
+    ],
+    "fit_rationale": "A licensed kosher supermarket whose own online shop has separate chocolates, wafers and lollies sections with many imported and local brands, the model Diablo is looking for. It already stocks sugar free chocolate and sweets (Sweet William, Elite, Corniche), so Diablo's kosher certified no added sugar range fits its shelf; Sweet William competes directly in chocolate.",
+    "what_they_do_well": [
+      "Owner-run family business since about 2012 that claims the greatest kosher range in Australia.",
+      "Named by the Sydney Morning Herald in 2014 as a reason to visit Elsternwick."
+    ],
+    "distributes": "Kosher supermarket selling chocolate bars, wafers, sweets and gummies (lollies), cereals and muesli and other packaged groceries from brands such as Alpha, Klik, Carmit, Baci, Camille Bloch, Elite, Chupa Chups and Mentos",
+    "channels_supplied": "Its own supermarket at 482B Glen Huntly Road, Elsternwick, plus an online shop with click and collect and home delivery",
+    "sf_brands_carried": "Sweet William no added sugar dark and vegan chocolate; Elite sugar free sweets; Corniche sugar free candies",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "kosherworld.co.za": {
     "name": "KosherWorld",
     "based_out_of": "Johannesburg, South Africa",
@@ -7304,6 +7593,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json"
+  },
+  "krausfoods.com.au": {
+    "name": "Kraus Foods",
+    "based_out_of": "Ripponlea, Melbourne, Australia",
+    "market": "Australia",
+    "category": "Kosher shops",
+    "channels": [
+      "kosher shops"
+    ],
+    "fit_rationale": "A kosher grocery whose own online shop lists 125 confectionery and snacks lines plus chocolates, biscuits and spreads sections, all from other brands. It already sells sugar free kosher chocolate (Schmerling's Rosemarie competes directly), so Diablo's range is a natural addition to an existing better-for-you shelf.",
+    "what_they_do_well": [
+      "Listed by Caulfield Shule and Kosher Australia as one of Melbourne's kosher groceries and a stockist of kosher products."
+    ],
+    "distributes": "Kosher grocer selling chocolate bars, sweets and gummies, biscuits (Lotus Biscoff), spreads, snacks and chips from brands such as Haribo, Strauss, Paskesz, Alprose, Klik, Whittaker's, Mentos and Werther's",
+    "channels_supplied": "Its own shop at 62 Glen Eira Road, Ripponlea, plus an online shop with click and collect and delivery",
+    "sf_brands_carried": "Schmerling's Rosemarie sugar free milk and parve chocolate; Werther's sugar free chocolate candies; GoodnessMe",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "krsweets.co.za": {
     "name": "KR Sweets",
@@ -7727,6 +8035,23 @@
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "lifesahamper.au": {
+    "name": "Lifes A Hamper",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Australian-owned hamper company with a chocolate collection and lolly and chocolate gift boxes built from other brands. It runs corporate and staff appreciation ranges, so Diablo's chocolate and gummies fit its existing chocolate boxes. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Artisan food and chocolate hampers with chocolate (Chocamama, Koko Black, Whisk & Pin, Chocilo), gummies and lollies",
+    "channels_supplied": "Corporate gifts and staff appreciation hampers, plus online sales to shoppers in Sydney, Melbourne and Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "limaorganica.pe": {
     "name": "Lima Organica",
     "based_out_of": "Lima, Peru",
@@ -7932,6 +8257,25 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "macarthurbaskets.com.au": {
+    "name": "Macarthur Baskets",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Hamper business trading since 1999 that assembles hampers from premium brands and says it supplies Christmas hampers to some of Australia's largest companies. Its range already covers chocolate, biscuits, cakes and lollies from other companies, so Diablo's chocolate boxes, biscuits and cakes fit directly. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Trading since 1999 and states its Christmas hampers have been supplied to some of Australia's largest companies."
+    ],
+    "distributes": "Gift hampers and baskets with branded chocolate (Lindt, Ferrero Rocher, Cadbury, Chocolatier, Paton's, Chocolate Grove), biscuits, shortbread, cakes and lollies",
+    "channels_supplied": "Business and corporate Christmas hampers, bulk and customised orders, plus online sales to shoppers Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "macgrif.com": {
     "name": "Macgrif (Endurofix)",
     "based_out_of": "Pietermaritzburg, South Africa",
@@ -7950,6 +8294,24 @@
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0050_2026-10-26_south-africa_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "madebox.co": {
+    "name": "Madebox",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Corporate gifting company that sources and packs products from over 400 independent Australian makers, including fudge, honeycomb and chocolate. Tier 3 because the brands in its treat boxes and its head office are not named on its website. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Curates and packs products from over 400 independent makers, handling sourcing, branding, logistics and delivery for corporate clients."
+    ],
+    "distributes": "Gift boxes and hampers from over 400 independent makers, with fudge, honeycomb, chocolate and sweet and salty snacks",
+    "channels_supplied": "Corporate gifting programmes for staff, clients, settlements and conferences across Australia and New Zealand",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "maho-gmbh.com": {
     "name": "Maho GmbH",
@@ -9838,6 +10200,43 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-21/J0007_2026-10-21_lausanne-switzerland_distributors.json"
+  },
+  "pamperhampergifts.com.au": {
+    "name": "Pamper Hamper Gifts",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Sydney corporate gifting specialist trading since 2004 whose chocolate and sweet tooth hampers are built from other companies' chocolate, fudge, cookies and sweets. Diablo's chocolate boxes, cookies and sweets fit its existing chocolate hamper collection. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Australian owned and operated since 2004 and describes itself as corporate gifting specialists."
+    ],
+    "distributes": "Gift hampers with branded chocolate (Chocolatier Pure Indulgence), fudge, cookies, rock candy and fruit jellies from Random Harvest",
+    "channels_supplied": "Corporate hampers for staff and clients and online sales to shoppers, with free Sydney delivery on corporate hampers",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "parcelle.com.au": {
+    "name": "Parcelle",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Sydney luxury hamper company that curates its hampers in-house from third-party gourmet brands. Its Christmas gift boxes carry branded chocolate and biscuits and it handles large corporate orders, so Diablo's chocolate and biscuits fit. Storage: sells from its own stock with a production floor team in Sydney, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Handles large corporate orders, including one client order of 500 gift boxes cited on its home page."
+    ],
+    "distributes": "Luxury gift hampers with chocolate-coated jellies, coconut rough, shortbread and panettone from Coco Maison",
+    "channels_supplied": "Corporate gifting for clients such as McGrath, MPC and Rakuten Advertising, with orders of up to 500 gift boxes, plus online sales to shoppers",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
   "parfetts.co.uk": {
     "name": "Parfetts",
@@ -11767,6 +12166,25 @@
     "research_file": "research/2026-10-26/J0048_2026-10-26_south-africa_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "snowgoose.com.au": {
+    "name": "Snowgoose",
+    "based_out_of": "Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Hamper company filling hampers for more than 30 years from partner growers and artisan providores, with sweet hampers built on branded chocolate. Its corporate team handles custom branded hampers, so Diablo's chocolate and gift boxes fit its sweet range. Storage: orders ship from its warehouse closest to the delivery area.",
+    "what_they_do_well": [
+      "Has filled hampers for more than 30 years and ships from the warehouse closest to each delivery."
+    ],
+    "distributes": "Fruit baskets and gift hampers with branded chocolate (Ferrero), fine and Belgian chocolates and sweet hampers",
+    "channels_supplied": "Corporate hampers with custom branding through a corporate team, plus online sales to shoppers Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "snowys.com.au": {
     "name": "Snowys Outdoors",
     "based_out_of": "Keswick, Australia",
@@ -12548,6 +12966,23 @@
     "research_file": "research/2026-10-23/J0038_2026-10-23_switzerland_seasonal-and-gift-shops-leisure-and-venue-snack-suppliers-hotel-minibar-supplier.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "sydneygifthampers.com": {
+    "name": "Sydney Gift Hampers",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Small Sydney hamper business that focuses on products from other local Australian suppliers, including branded chocolate and biscuits. Tier 3 because it is a small business with limited reach. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Gift hampers with chocolate (Sapphy, Chocolatier), chocolate-coated jellies, honeycomb and melting moments biscuits",
+    "channels_supplied": "Corporate gift hampers with a corporate login and bulk orders, plus online sales to shoppers",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "sysco.fr": {
     "name": "Sysco France",
     "based_out_of": "Rungis, France",
@@ -12806,6 +13241,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "thanxhampers.com.au": {
+    "name": "Thanx Hampers",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Australian-owned hamper company established in 2001 with a named corporate client list. Its chocolate and treat hampers use third-party chocolate and cookie brands, a direct fit for Diablo's chocolate and cookies. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Established in 2001, with corporate clients including Westpac, Danfoss and Monash named on its site."
+    ],
+    "distributes": "Gift hampers with branded chocolate (Chocolatier), cookies (Charlie's Cookies) and snacks",
+    "channels_supplied": "Corporate hampers for clients such as Westpac, Danfoss and Monash, plus online sales to shoppers with a Melbourne and Sydney focus",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "theasiacompany.ch": {
     "name": "The Asia Company S.A.",
     "based_out_of": "Muenchenstein, Switzerland",
@@ -12915,6 +13369,24 @@
     "research_file": "research/2026-10-26/J0072_2026-10-26_australia_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "thehamperemporium.com.au": {
+    "name": "The Hamper Emporium",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Sydney hamper company that assembles hampers onsite and says it has worked with thousands of Australian organisations. Its sweet and chocolate hampers carry branded chocolate and sweets, so Diablo's chocolate, sweets and biscuits fit its corporate sweet range. Storage: hampers assembled onsite in Sydney, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Runs a dedicated corporate ordering platform and says it has worked with thousands of Australian organisations."
+    ],
+    "distributes": "Corporate and gift hampers with chocolate (Maggie Beer), sweets, peanut brittle, caramel and biscuits",
+    "channels_supplied": "Corporate hampers with branding and a corporate ordering platform, plus online sales to shoppers Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
+  },
   "thehangerbikeco.co.za": {
     "name": "The Hanger Bike Co",
     "based_out_of": "Somerset West, South Africa",
@@ -12964,6 +13436,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
+  },
+  "thekosherprovidore.com.au": {
+    "name": "The Kosher Providore",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Kosher food distributors",
+    "channels": [
+      "kosher food distributors",
+      "kosher shops"
+    ],
+    "fit_rationale": "Perth's kosher grocery, bakery and butchery, whose own web shop lists branded imported confectionery such as Elite chocolate next to packaged kosher groceries from other brands. Tier 3 because it is a single shop and its website blocks automated reading, so the full size of its sweets range is not shown. Storage: sells from its own stock in its Mt Lawley shop, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Serves Perth's Jewish community from beside the Perth Hebrew Congregation as a combined kosher bakery, butchery and grocery."
+    ],
+    "distributes": "Branded kosher chocolate such as Elite Kit Kat, packaged groceries (Eskal, Schneiders) and kosher dairy, alongside its bakery and butchery counters",
+    "channels_supplied": "Its own kosher grocery in Mt Lawley, Perth, with an online product shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "thelittlebox.co.za": {
     "name": "The Little Box Company",
@@ -13485,6 +13977,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0036_2026-10-23_switzerland_diabetic-low-sugar-and-keto-shops-gluten-free-and-free-from-shops-vegan-and-vege.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "turkishstore.com.au": {
+    "name": "Turkish Store",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Halal food distributors",
+    "channels": [
+      "halal food distributors"
+    ],
+    "fit_rationale": "An online Turkish grocer serving Turkish and Muslim shoppers that already sells branded sweets, spreads and gift boxes from Turkish brands. It reaches shoppers only and its website does not state halal certification, so it is tier 3. Storage: ships from its Melbourne warehouse.",
+    "what_they_do_well": [],
+    "distributes": "Turkish groceries with a snacks and dessert section: Turkish delight, soft candy and gums, hazelnut cocoa spread (Sarelle), halva and gift boxes",
+    "channels_supplied": "Direct to shoppers through its own online shop, delivery to every Australian state, pick-up in Roxburgh Park",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "tynesidefoodservice.com": {
@@ -14703,6 +15212,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
+  },
+  "yummybox.com.au": {
+    "name": "Yummy Box",
+    "based_out_of": "Perth, Australia",
+    "market": "Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "Perth gift box company that assembles boxes of mainstream branded chocolate, confectionery and snacks. Its corporate gift boxes and chocolate dessert boxes give Diablo's chocolate bars, sweets and snacks a direct fit. Storage: boxes made in Perth from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snack, chocolate and dessert gift boxes with branded chocolate bars (KitKat, Crunchie, M&M's), snacks (Smith's, Cobs popcorn) and confectionery",
+    "channels_supplied": "Corporate gift boxes and events, plus online sales to shoppers with same-day WA metro delivery and Australia-wide shipping",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "zgapari.ge": {
     "name": "Zgapari",
