@@ -4889,6 +4889,25 @@
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "enduroplanet.co.za": {
+    "name": "Enduroplanet",
+    "based_out_of": "Bloemfontein, South Africa",
+    "market": "Bloemfontein, South Africa",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An established Bloemfontein bicycle shop and Trek retailer whose own online shop has a bars section with other brands' energy and protein bars from High5, Enduren and Cadence. It sells to health-conscious cyclists and athletes, a natural shelf for Diablo's muesli and cereal bars. Tier 3 because it is a single store; store count beyond the one shop is not stated on its website.",
+    "what_they_do_well": [
+      "The only Trek retailer listed in Bloemfontein on Trek's South African store finder."
+    ],
+    "distributes": "Bicycles, parts and training gear, with a training and nutrition section selling energy bars and protein bars (High5, Enduren, Cadence), gels, drink and race mixes",
+    "channels_supplied": "Its own shop at Pretty Gardens, Langenhovenpark, Bloemfontein and its own online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0064_2026-10-26_bloemfontein-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "entresano.com": {
     "name": "EntreSano",
     "based_out_of": "Córdoba, Argentina",
@@ -7626,6 +7645,25 @@
     "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "huize.co.za": {
+    "name": "Huize Bloemfontein",
+    "based_out_of": "Bloemfontein, South Africa",
+    "market": "Bloemfontein, South Africa",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Bloemfontein gift shop with a dedicated snack hamper range of 15 lines and custom curated hampers, which buys in packaged treats and sells them as gifts in the city. Diablo's chocolate, sweets and biscuit gift packs suit its snack, celebration and seasonal hampers for health-conscious and diabetic recipients. Tier 3 because it is a single shop and its website does not name the brands inside its hampers. Storage: sells from its own shop stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Runs florist, gift shop, deli, coffee shop and bridal boutique under one roof in Bloemfontein, with same-day delivery across the city."
+    ],
+    "distributes": "Snack hampers and snack hamper boxes (15 lines), biltong and snack hampers, celebration, seasonal and deluxe hampers, coffee and tea hampers, alongside a florist, deli, coffee shop and bridal boutique.",
+    "channels_supplied": "Sells direct to shoppers and businesses from its Bloemfontein shop and online shop, with same-day delivery across Bloemfontein for orders before 12:00 and custom hampers on request for a quote.",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0064_2026-10-26_bloemfontein-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "huntsfoodgroup.co.uk": {
     "name": "Hunt's Food Group",
     "based_out_of": "Sherborne, United Kingdom",
@@ -8899,6 +8937,23 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "lastoutpost.co.za": {
+    "name": "The Last Outpost",
+    "based_out_of": "South Africa",
+    "market": "Bloemfontein, South Africa",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "Online banting and low carb shop whose product pages list sugar-free sweets, gum and biscuits from other brands, exactly the health-conscious shopper Diablo targets. Tier 3 because its base, size and delivery area are not stated on the pages seen.",
+    "what_they_do_well": [],
+    "distributes": "Low carb and sugar-free sweets and chewing gum (Spry), biscuits (Gracious Bakers, Dagbreek) and white chocolate balls",
+    "channels_supplied": "Its own online shop for banting and low carb shoppers",
+    "sf_brands_carried": "Spry sugar-free mints and gum, Gracious Bakers banting biscuits",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0064_2026-10-26_bloemfontein-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "the website address no longer exists"
   },
   "lavanda.ch": {
     "name": "Lavanda Feinkost Blaser & Dugumovic",
