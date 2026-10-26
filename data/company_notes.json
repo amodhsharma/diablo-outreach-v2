@@ -6987,6 +6987,24 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0005_2026-10-14_cordoba-argentina_distributors-wholesalers-retailers.json"
   },
+  "mambos.co.za": {
+    "name": "Mambo's Storage & Home",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Johannesburg, South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A homeware and party chain whose own online shop has a confectionery category of other brands' gummies and jelly sweets for party and seasonal buyers. Diablo's gummies and gift boxes would fit that shelf. Tier 3 because the sweets range is small and only four of its 22 stores are in Gauteng.",
+    "what_they_do_well": [
+      "Grew to 22 stores and is building a R90 million distribution centre in Blackheath, Cape Town."
+    ],
+    "distributes": "Home, storage and party goods with a confectionery section: gummies and jelly sweets (King Jelly, King Candy) and Fruitella chewy sweets",
+    "channels_supplied": "22 Mambos stores, four of them in Gauteng, and its online shop with delivery to Johannesburg",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0055_2026-10-26_johannesburg-south-africa_seasonal-and-gift-shops.json"
+  },
   "mandd.ie": {
     "name": "M&D Marketing & Distribution",
     "based_out_of": "Dublin, Ireland",
@@ -11071,6 +11089,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json"
   },
+  "thelittlebox.co.za": {
+    "name": "The Little Box Company",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "Johannesburg, South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Johannesburg online gift shop whose seasonal and occasion boxes are built from other companies' branded chocolate, sweets and biscuits, bought in and resold to shoppers. Diablo's gift boxes, chocolate and sweets would give it a sugar-free box for diabetic and health-conscious recipients, which its range does not show today. Single online shop, so its reach is limited to its own customers.",
+    "what_they_do_well": [
+      "Has run its gift box business from Johannesburg since 2003, delivering nationwide."
+    ],
+    "distributes": "Gift boxes and hampers filled with branded chocolate (Ferrero Rocher, Raffaello, Toblerone), sweets and nougat (1701 Nougat, Darling Sweet caramels, Wedgewood, Sweet Melody fudge), biscuits (biscotti) and snacks",
+    "channels_supplied": "Its own online gift shop, with delivery across South Africa to individual and corporate buyers; seasonal boxes for Valentine's Day and Father's Day",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0055_2026-10-26_johannesburg-south-africa_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "theorganicvegan.co.za": {
     "name": "The Organic Vegan",
     "based_out_of": "Cape Town, South Africa",
@@ -11307,6 +11344,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json"
+  },
+  "toysrus.co.za": {
+    "name": "Toys R Us South Africa",
+    "based_out_of": "",
+    "market": "Johannesburg, South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A national toy and gift chain whose own online shop runs a 'Sweets & Snacks' section under party and gifting, stocking other companies' candy brands. Diablo's gummies, advent calendars and gift boxes fit its seasonal and party gifting shelf. Tier 3 because the sweets range is small (15 lines) and the operating company and head office are not named on its website.",
+    "what_they_do_well": [
+      "Runs 19 stores nationally after the ToyZone chain became Toys R Us and Babies R Us South Africa."
+    ],
+    "distributes": "Toys and gifts with a party and gifting 'Sweets & Snacks' section: novelty candy (Kidsmania, Candy Toys, Paw Patrol candy) and Sweets from Heaven gummies",
+    "channels_supplied": "19 Toys R Us and Babies R Us stores (formerly ToyZone), including Fourways Mall and Mall of Africa in Johannesburg, plus its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0055_2026-10-26_johannesburg-south-africa_seasonal-and-gift-shops.json"
   },
   "trago.co.uk": {
     "name": "Trago Mills",
@@ -12103,6 +12158,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "westpacklifestyle.co.za": {
+    "name": "West Pack Lifestyle",
+    "based_out_of": "",
+    "market": "Johannesburg, South Africa",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A party, gifting and lifestyle chain with stores in Johannesburg whose own website has 'Sweets And Chocolates', 'Sweets' and 'Snack, Sip & Treat' categories stocking other brands such as Mister Sweet. Diablo's gummies, sweets and gift boxes suit its party and seasonal shelf. Store count was about 31 across four provinces in 2017; the current count and head office are not stated on its website.",
+    "what_they_do_well": [
+      "Grew to about 31 stores across four South African provinces by 2017, opening Lifestyle stores such as Fourways View."
+    ],
+    "distributes": "Party, gifting and occasion goods with a sweets and chocolates section (Mister Sweet sweets, mixed sweet bags, party packs) and a savoury snacks section",
+    "channels_supplied": "Its own West Pack Lifestyle and Express stores, including Fourways and Randpark Ridge in Johannesburg, and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0055_2026-10-26_johannesburg-south-africa_seasonal-and-gift-shops.json"
   },
   "wf-interfoods.com": {
     "name": "WF Interfoods Handelsges.m.b.H.",
