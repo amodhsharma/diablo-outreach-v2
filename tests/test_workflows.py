@@ -44,7 +44,19 @@ def test_the_timer_inputs_exist():
     assert outreach[True]["workflow_dispatch"]["inputs"]["check_only"]["type"] == "boolean"  # button 3's timer body
     send_loop = yaml.safe_load((ROOT / ".github/workflows/send-loop.yml").read_text())
     inputs = send_loop[True]["workflow_dispatch"]["inputs"]
-    assert inputs["check_only"]["type"] == "boolean" and "CONFIRM" in inputs["test_gaps"]["description"]
+    # 26 Oct 2026 (Ariel): a dropdown instead of "Check only"; the timer sends no inputs, so its runs
+    # get the first choice: steps 1 and 2 only.
+    assert "check_only" not in inputs and "CONFIRM" in inputs["test_gaps"]["description"]
+    assert inputs["run"]["options"] == ["Usual run (results and send)", "Run only Health Check",
+                                        "Run health check in addition to usual flow"]
+    assert inputs["run"]["default"] == "Usual run (results and send)"
+    steps = {st.get("id"): st.get("if") for st in send_loop["jobs"]["send"]["steps"] if st.get("id")}
+    assert steps["sync"] == steps["send"] == "env.MODE == 'full' || env.MODE == 'full_check'"
+    assert steps["health"] == "env.MODE == 'check' || env.MODE == 'full_check'"
+    mode = send_loop["jobs"]["send"]["env"]["MODE"]
+    assert "'Run only Health Check' && 'check'" in mode and mode.endswith("|| 'full' }}")
+    timer = (ROOT / "docs" / "outside_timer.md").read_text()
+    assert '| Diablo NEW 4 Send | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send-loop.yml/dispatches` | `0 1,4,7,10,13,16,19,22 * * *` | `{"ref":"main"}` |' in timer
     # Buttons 3 and 4 never run at the same time.
     assert outreach["concurrency"]["group"] == send_loop["concurrency"]["group"]
     # Button 3 never emails anyone; button 4 does all the sending.

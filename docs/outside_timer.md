@@ -54,8 +54,11 @@ In **Settings**, the time zone is **Asia/Kolkata**. For each job: **Create cronj
 | Job title | URL | Crontab | Request body |
 |---|---|---|---|
 | Diablo NEW 3 Outreach | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/outreach.yml/dispatches` | `0 0,3,6,9,12,15,18,21 * * *` | `{"ref":"main","inputs":{"check_only":"false"}}` |
-| Diablo NEW 4 Send | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send-loop.yml/dispatches` | `0 1,4,7,10,13,16,19,22 * * *` | `{"ref":"main","inputs":{"check_only":"false"}}` |
+| Diablo NEW 4 Send | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send-loop.yml/dispatches` | `0 1,4,7,10,13,16,19,22 * * *` | `{"ref":"main"}` |
 | Diablo NEW 2 Research | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/research.yml/dispatches` | `0 2,5,8,11,14,17,20,23 * * *` | `{"ref":"main","inputs":{"action":"Automatic run"}}` |
+
+Button 4's body has no inputs since 26 Oct 2026: its "Check only" box became a dropdown, and a run
+started without one does the usual run (results and send), with no health check.
 
 Use **Test run** on each job. A good answer is **204 No Content**, and a new run appears in the
 repository's **Actions** tab within a minute. A 401 or 403 means the key was copied wrongly or

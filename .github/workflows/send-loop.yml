@@ -2,8 +2,11 @@ name: '4 - Send and follow up'
 
 # Button 4: everything that emails people or reacts to their emails (split from button 3 on
 # 14 Oct 2026). Nothing to press: cron-job.org starts it every 3 hours (1, 4, 7 and 10, AM and PM
-# IST). Press it yourself to run now, or tick "Check only" for the health report without changing
-# or sending anything.
+# IST). Press it yourself to run now. The dropdown (26 Oct 2026, Ariel):
+#   - "Usual run (results and send)": steps 1 and 2 only (about 13 minutes). Picked to start
+#     with, and the timer's runs always do this;
+#   - "Run only Health Check": step 3 only, nothing sent or changed (about 13 minutes);
+#   - "Run health check in addition to usual flow": steps 1, 2 and 3 (about 26 minutes).
 #
 # In this order, each step on its own (one failing never stops the others):
 #   1. Instantly results to HubSpot: replies, interest, bounces and opt-outs (a reply stops a
@@ -21,10 +24,14 @@ name: '4 - Send and follow up'
 on:
   workflow_dispatch:
     inputs:
-      check_only:
-        description: "Check only: the health report, nothing sent or changed"
-        type: boolean
-        default: false
+      run:
+        description: "What to run"
+        type: choice
+        options:
+          - "Usual run (results and send)"
+          - "Run only Health Check"
+          - "Run health check in addition to usual flow"
+        default: "Usual run (results and send)"
       test_gaps:
         description: "TEST ONLY: type CONFIRM for 15-minute gaps instead of 3 and 7 days, this run only (refused on live). Leave empty normally"
         default: ""
@@ -41,7 +48,9 @@ jobs:
       contents: write
     env:
       TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
-      MODE: ${{ (inputs.check_only == true || inputs.check_only == 'true') && 'check' || 'full' }}
+      # full = steps 1 and 2 (also when nothing is chosen, as in the timer's runs); check = step 3 only;
+      # full_check = steps 1, 2 and 3.
+      MODE: ${{ inputs.run == 'Run only Health Check' && 'check' || inputs.run == 'Run health check in addition to usual flow' && 'full_check' || 'full' }}
       TEST_GAPS: ${{ inputs.test_gaps }}
       HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
       INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
@@ -67,7 +76,7 @@ jobs:
 
       - name: "1. Instantly results to HubSpot, then each company's loop: forward, reminder, Unqualified"
         id: sync
-        if: env.MODE == 'full'
+        if: env.MODE == 'full' || env.MODE == 'full_check'
         continue-on-error: true
         env:
           INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
@@ -76,13 +85,13 @@ jobs:
 
       - name: "2. Send person 1's introduction (GATE2 people at new companies)"
         id: send
-        if: env.MODE == 'full'
+        if: env.MODE == 'full' || env.MODE == 'full_check'
         continue-on-error: true
         run: python -m outreach.send --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
 
       - name: "3. Health check: mailboxes, campaigns, who is waiting and why"
         id: health
-        if: env.MODE == 'full' || env.MODE == 'check'
+        if: env.MODE == 'check' || env.MODE == 'full_check'
         continue-on-error: true
         env:
           INSTANTLY_ACCOUNTS_KEY: ${{ secrets.INSTANTLY_ACCOUNTS_KEY }}

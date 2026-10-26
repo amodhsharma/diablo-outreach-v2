@@ -1,4 +1,5 @@
-"""The health check of Instantly, in plain words (button 4, last step, or its "Check only" box).
+"""The health check of Instantly, in plain words (button 4, when chosen in its dropdown: "Run only
+Health Check" or "Run health check in addition to usual flow").
 
 1. Mailboxes: every sending mailbox connected to Instantly, whether it can send, how its
    warm-up is going, its sender name and daily limit, which campaigns use it, and a short list
