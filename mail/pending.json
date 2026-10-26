@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-26T09:31:16+00:00",
+  "generated_at": "2026-10-26T09:49:05+00:00",
   "target": "live",
   "contacts": [
     {
-      "contact_id": "674307909872",
-      "job_title": "Company inbox (from website)",
+      "contact_id": "674285086929",
+      "job_title": "",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "American Food Ave",
-        "domain": "afoodave.ch",
+        "name": "7 DAY-SHOP",
+        "domain": "7dayshop.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -21,13 +21,13 @@
       }
     },
     {
-      "contact_id": "674252023010",
-      "job_title": "Company inbox (from website)",
+      "contact_id": "677705058527",
+      "job_title": "",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "candy24",
-        "domain": "candy24.ch",
+        "name": "Aggarwal",
+        "domain": "aggarwal.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -39,13 +39,31 @@
       }
     },
     {
-      "contact_id": "672940007631",
+      "contact_id": "677749262540",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "Go Fitness",
-        "domain": "gofitness.ch",
+        "name": "Al Jazeera Groceries",
+        "domain": "aljazeera-lebensmittel.ch",
+        "location": "Switzerland",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677627546839",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Breisacher shop",
+        "domain": "breisacher-shop.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -57,13 +75,13 @@
       }
     },
     {
-      "contact_id": "902015878357",
+      "contact_id": "678609737968",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "itema shop",
-        "domain": "itemashop.ch",
+        "name": "British & American market",
+        "domain": "americanmarket.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -75,13 +93,13 @@
       }
     },
     {
-      "contact_id": "672982107358",
+      "contact_id": "673904284919",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "kanela",
-        "domain": "kanela.ch",
+        "name": "Britshop GmbH",
+        "domain": "britshop.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -93,13 +111,13 @@
       }
     },
     {
-      "contact_id": "673179684035",
-      "job_title": "Company inbox (from website)",
+      "contact_id": "678600353996",
+      "job_title": "",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "Sport Benzin",
-        "domain": "sportbenzin.ch",
+        "name": "Dalchini World food Market",
+        "domain": "dalchini.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -111,13 +129,13 @@
       }
     },
     {
-      "contact_id": "677501781198",
+      "contact_id": "672965689560",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "Sweet Dreams Switzerland",
-        "domain": "sweetdreamsschweiz.com",
+        "name": "Kirchenfeld Apotheke",
+        "domain": "kirchenfeldapotheke.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -129,13 +147,13 @@
       }
     },
     {
-      "contact_id": "679594635479",
+      "contact_id": "678683026681",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "swiss-made",
-        "domain": "swiss-made.shop",
+        "name": "Kreis Suisse S.A.",
+        "domain": "kreis-suisse.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
@@ -147,15 +165,15 @@
       }
     },
     {
-      "contact_id": "671640251636",
+      "contact_id": "673778033890",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "The English Grocer",
-        "domain": "englishgrocer.ch",
+        "name": "LÃ¤delishop",
+        "domain": "laedelishop.ch",
         "location": "Switzerland",
-        "channel": "Online Retailer",
+        "channel": "",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
@@ -165,13 +183,265 @@
       }
     },
     {
-      "contact_id": "673475951810",
+      "contact_id": "674324835563",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Orakei Ltd.",
+        "domain": "orakei.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673980482803",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "swissecoshop",
+        "domain": "swissecoshop.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680019451081",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "umamisnack",
+        "domain": "umamisnack.ch",
+        "location": "Switzerland",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "674296175837",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "7 DAY-SHOP",
+        "domain": "7dayshop.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680463135977",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 2,
       "company": {
-        "name": "Sport Benzin",
-        "domain": "sportbenzin.ch",
+        "name": "Aggarwal",
+        "domain": "aggarwal.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678827821305",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "British & American market",
+        "domain": "americanmarket.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680334203099",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Dalchini World food Market",
+        "domain": "dalchini.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680463562970",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Kirchenfeld Apotheke",
+        "domain": "kirchenfeldapotheke.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "675035792620",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Orakei Ltd.",
+        "domain": "orakei.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680525567166",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "umamisnack",
+        "domain": "umamisnack.ch",
+        "location": "Switzerland",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "674261094608",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "7 DAY-SHOP",
+        "domain": "7dayshop.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "675051443387",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Orakei Ltd.",
+        "domain": "orakei.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677406980319",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "7 DAY-SHOP",
+        "domain": "7dayshop.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "674916595927",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Orakei Ltd.",
+        "domain": "orakei.ch",
+        "location": "Switzerland",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678369718479",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "7 DAY-SHOP",
+        "domain": "7dayshop.ch",
         "location": "Switzerland",
         "channel": "",
         "based_out_of": "",
