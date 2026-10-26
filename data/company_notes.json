@@ -1500,6 +1500,25 @@
     "research_file": "research/2026-10-20/J0002_2026-10-20_basel-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "bjpinternational.com.au": {
+    "name": "BJP International",
+    "based_out_of": "Cheltenham, Australia",
+    "market": "Australia",
+    "category": "Confectionery importers",
+    "channels": [
+      "confectionery importers"
+    ],
+    "fit_rationale": "A family owned importer and wholesaler since 1989 with its own chocolate, biscuits, wafers and sweets sections, selling only to retail and wholesale businesses, so it passes the cuisine specialist exception. Diablo's chocolate, wafers and biscuits match its strongest categories for European grocers. Storage: sells from its own stock through a B2B ordering portal, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Family business importing Polish confectionery, fine foods and beverages into Australia since 1989."
+    ],
+    "distributes": "Imported Polish chocolate blocks, bars and boxes, biscuits, wafers, candy, fudge jelly, jams and syrups",
+    "channels_supplied": "Wholesale and retail businesses across Australia through its B2B online store",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "bmstores.co.uk": {
     "name": "B&M",
     "based_out_of": "Liverpool, United Kingdom",
@@ -1750,6 +1769,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "brackenburynutrition.com.au": {
+    "name": "Brackenbury Nutrition Group",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Melbourne distributor of health food and sports nutrition brands with a nationwide sales force reaching grocery, convenience, pharmacy and gym channels. It already sells no added sugar bars to health-conscious shoppers, so Diablo's muesli bars, cookies and spreads extend a range it knows how to sell, and its Fitness Vending arm adds a vending route. Storage: over 2,000 m2 of distribution facilities in Melbourne.",
+    "what_they_do_well": [
+      "Nationwide sales force supported by a Melbourne customer service team.",
+      "Runs its own Fitness Vending division alongside wholesale distribution."
+    ],
+    "distributes": "Health food and sports nutrition bars and snacks from other brands (Blue Dinosaur paleo bars, Green Back plant protein bars), sports drinks and accessories",
+    "channels_supplied": "Specialty sports nutrition stores, gyms, health and wellbeing businesses, grocery, convenience, pharmacy and online retailers, plus its own Fitness Vending division",
+    "sf_brands_carried": "Blue Dinosaur (no added sugar paleo bars), Green Back plant protein bars",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "brake.co.uk": {
     "name": "Brakes",
@@ -4448,6 +4487,26 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json"
   },
+  "freshfood.net.au": {
+    "name": "Fresh Food Enterprises",
+    "based_out_of": "Laverton North, Australia",
+    "market": "Australia",
+    "category": "Health food distributors",
+    "channels": [
+      "health food distributors"
+    ],
+    "fit_rationale": "A specialist wholesaler of other companies' better-for-you brands with dedicated Chocolate and Confectionery, Biscuits and Healthy Snacks categories, so Diablo's no added sugar chocolate, biscuits and bars sit naturally beside its low carb and keto lines. Corniche Sugar Free is a direct competitor in sugar-free sweets. Storage: HACCP-certified warehousing facilities in Melbourne and Sydney.",
+    "what_they_do_well": [
+      "Has supplied the Australian independent grocery and health food sector for more than 20 years.",
+      "Runs HACCP-certified warehouses in Melbourne and Sydney serving four states and territories."
+    ],
+    "distributes": "Chocolate and confectionery (Vivani, Corniche Sugar Free), biscuits, healthy snack and protein bars (Atkins, Smart Protein Bars, Food for Health), loaf cakes and muffin mixes, spreads (Nuttelex) and other natural, gluten free and low carb grocery from 64 brands",
+    "channels_supplied": "Independent grocers and health food stores across Victoria, New South Wales, Tasmania and the ACT",
+    "sf_brands_carried": "Corniche Sugar Free, Atkins, Low Carb Life, Maxine's Low Carb, Low Carb Emporium, Slendier",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "freshthegoodfoodmarket.ie": {
     "name": "Fresh The Good Food Market",
     "based_out_of": "Dublin, Ireland",
@@ -7053,6 +7112,26 @@
     "research_file": "research/2026-10-22/J0028_2026-10-22_bern-switzerland_retailers.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "lollydirect.com.au": {
+    "name": "Lolly Direct",
+    "based_out_of": "Landsdale, Australia",
+    "market": "Australia",
+    "category": "British food importers",
+    "channels": [
+      "British food importers"
+    ],
+    "fit_rationale": "A family-owned wholesaler built entirely on bringing UK branded chocolate, sweets, biscuits and snacks into Australian shops, selling to trade customers only. Its customers are exactly the independent supermarkets, sweet shops and convenience stores Diablo wants, and no sugar-free British line is shown, so Diablo would fill a gap. Storage: all stock is held in its own warehouse in Landsdale, WA and shipped nationwide.",
+    "what_they_do_well": [
+      "Carries a broad UK portfolio from Cadbury UK and Galaxy to Swizzels, Barratt and Walkers, sold to trade customers only.",
+      "Holds all stock in its own Landsdale warehouse and ships to businesses nationwide."
+    ],
+    "distributes": "UK chocolate (Cadbury UK, Galaxy, Nestle UK Aero and Milkybar, Terry's, After Eight), sweets and bulk pick and mix (Swizzels, Barratt, Maynards Bassetts, Kingsway, Walker's Nonsuch toffee, Haribo UK), biscuits (McVitie's, Jammie Dodgers), Lyle's syrup, crisps and snacks (Walkers, KP, McCoy's), UK drinks and groceries",
+    "channels_supplied": "Wholesale only: independent supermarkets, sweet shops and gift stores, online lolly retailers, subscription box businesses, convenience stores and imported food outlets, shipped nationwide",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "lowprice.ch": {
     "name": "LowPrice Sagl",
     "based_out_of": "Lugano, Switzerland",
@@ -8399,6 +8478,26 @@
     "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "nutritionsystems.com.au": {
+    "name": "Nutrition Systems",
+    "based_out_of": "Arndell Park, Australia",
+    "market": "Australia",
+    "category": "Health food distributors",
+    "channels": [
+      "health food distributors",
+      "distributors"
+    ],
+    "fit_rationale": "Founded in 1990, it distributes other companies' sports nutrition and functional food brands and builds imported US brands such as Legendary Foods and Swoleys in Australia as exclusive distributor. Its bars, cookies and snack lines reach the health-conscious shoppers Diablo targets through supplement, pharmacy and convenience retailers. Storage: office and warehouse facilities in Sydney, Perth and New Zealand.",
+    "what_they_do_well": [
+      "Sole Australian and New Zealand distributor for Swoleys and launched Legendary Foods protein snacks in Australia.",
+      "Distributing sports nutrition brands since 1990 from warehouses in Sydney, Perth and New Zealand."
+    ],
+    "distributes": "Protein bars (Smart Bar, Tonik, Quest), protein cookies (Lenny & Larry's), protein snacks and pastries (Legendary Foods), energy sour strips and gummies, alongside sports supplements from 30+ partner brands",
+    "channels_supplied": "Specialty sports nutrition stores, grocery, pharmacy, convenience and online retailers in Australia and New Zealand",
+    "sf_brands_carried": "Quest, Smart Bar, Legendary Foods (low carb protein snacks)",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json"
+  },
   "nutsinbulk.ie": {
     "name": "Nuts in Bulk (Outlet Wholefood Company)",
     "based_out_of": "Navan, Ireland",
@@ -8707,6 +8806,22 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "organictrader.com.au": {
+    "name": "Organic Trader",
+    "based_out_of": "Rosebery, Australia",
+    "market": "Australia",
+    "category": "Health food distributors",
+    "channels": [
+      "health food distributors"
+    ],
+    "fit_rationale": "A Sydney wholesaler of natural foods and eco products whose brand list is other companies' brands, with a Snacking section that already holds organic candy and sugar-free mints. Diablo's vegan and no added sugar sweets and bars match its organic and plant based buyers, with a smaller range than the tier 1 houses. Storage: sells from its own stock with trading accounts, freight rates and dispatch, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Organic candy (JOM Organic Candy), gum and mints (PUR), snacks (Happy Snacks, Boulder Canyon), cacao and superfood snacks (Power Super Foods) and other organic, fair trade and plant based grocery",
+    "channels_supplied": "Trade accounts in natural and organic retail; named customers not stated on its website",
+    "sf_brands_carried": "PUR Gum and Mints (aspartame free, sugar free)",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json"
+  },
   "organika.ge": {
     "name": "Organika Bio Shop",
     "based_out_of": "Tbilisi, Georgia",
@@ -8892,6 +9007,41 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "pemco.com.au": {
+    "name": "Pemco Agencies",
+    "based_out_of": "Wangara, Australia",
+    "market": "Australia",
+    "category": "Health food distributors",
+    "channels": [
+      "health food distributors"
+    ],
+    "fit_rationale": "A WA wholesaler of organic, vegan and natural products whose own web shop has a Chocolate, Carob and Confectionery category and a protein snacking category of other brands, sold to health food shops, pharmacies and independent grocers. It gives Diablo a second route into Western Australia beside Perth Health. Storage: B2B web shop with stock and 24 to 48 hour turnaround on large orders, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Chocolate, carob and confectionery (Tony's Chocolonely, Ella's Treat Me Nutty, The Belgian chocolate seashells), protein snacking and organic, vegan and natural grocery",
+    "channels_supplied": "Independent grocers, organic and fresh food stores, health food shops and pharmacies across Western Australia",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json"
+  },
+  "perthhealth.com.au": {
+    "name": "Perth Health",
+    "based_out_of": "Balcatta, Australia",
+    "market": "Australia",
+    "category": "Health food distributors",
+    "channels": [
+      "health food distributors"
+    ],
+    "fit_rationale": "Family-owned wholesale distributor that sells over 3,000 products from 200+ other brands to about 1,200 WA retailers, with its own Chocolate, Snack Bars and Bites, Protein Bars and Spreads categories on its B2B shop. Well Naturally no added sugar chocolate is a direct competitor, but the range is wide enough to take Diablo's biscuits, sweets and spreads. Storage: B2B web shop with stock and next-day turnaround from its Balcatta premises; warehouse size not stated on its website.",
+    "what_they_do_well": [
+      "Family owned and operated since 1984, the leading independent natural health wholesaler in Western Australia.",
+      "Covers metro, country and regional WA with next-day order turnaround for about 1,200 active customers."
+    ],
+    "distributes": "Chocolate (Loving Earth, Well Naturally), protein and snack bars (Quest, Blue Dinosaur), cookies (Lenny & Larry's), peanut butter and spreads (Byron Bay Peanut Butter), chewing gum and mints and other natural health and organic grocery from 200+ brands",
+    "channels_supplied": "About 1,200 health food stores, pharmacies, organic and fresh provision outlets and independent grocers across metro, country and regional Western Australia",
+    "sf_brands_carried": "Well Naturally (no added sugar chocolate), Quest, Slendier",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json"
   },
   "perufarma.com.pe": {
     "name": "Perufarma S.A.",
@@ -9643,6 +9793,27 @@
     "sf_brands_carried": "Not verified.",
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "robinfoods.com.au": {
+    "name": "Robin Foods",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "snack distributors"
+    ],
+    "fit_rationale": "A specialist importer and national distributor of foreign branded sweets and snacks, founded in 2002, whose own web shop has sweets and confectionery and grocery snacks categories. It already sells imported treats into convenience and discount chains, a ready route for Diablo's chocolate, gummies and biscuits. Storage: ambient and refrigerated warehousing, as stated in its Food Export buyer profile.",
+    "what_they_do_well": [
+      "Importing and distributing foreign sweets and snacks nationally since 2002.",
+      "Supplies convenience, discount, supermarket and specialty retail across Australia."
+    ],
+    "distributes": "Imported sweets and confectionery (chocolate, gummies and jellies, hard sweets, toffees, kids candy), biscuits, energy and nutrition bars, chips and snacks, spreads, nut butters and jams",
+    "channels_supplied": "Convenience stores, discount stores, specialty retailers, supermarkets and grocery and non-food retail nationwide; listed as a supplier on the MyBrandz convenience ordering platform",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "rochat-cycles.ch": {
     "name": "Rochat Cycles",
@@ -11100,6 +11271,28 @@
     "sf_brands_carried": "",
     "added": "2026-10-19",
     "research_file": "research/2026-10-19/J0002_2026-10-19_jena-germany_distributors.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "tahnortherntrading.com.au": {
+    "name": "TAH Northern Trading",
+    "based_out_of": "Darwin, Australia",
+    "market": "Australia",
+    "category": "Snack distributors",
+    "channels": [
+      "snack distributors",
+      "distributors",
+      "confectionery importers"
+    ],
+    "fit_rationale": "Indigenous-owned grocery wholesaler whose product list has its own chocolate and lollies, muesli bars and biscuits sections, supplying remote community stores that have few other suppliers. It reaches one region only, which keeps it at tier 2. Storage: dry stores and chiller stores at its Winnellie premises in Darwin.",
+    "what_they_do_well": [
+      "Describes itself as the Territory's first Indigenous-owned grocery wholesaler, supplying remote communities from the coast to the desert.",
+      "Has traded for over 21 years, starting as TH Northern Trading before becoming TAH Northern Trading in 2019."
+    ],
+    "distributes": "Grocery wholesale with chocolate and lollies, muesli bars, biscuits and snack foods from other brands, alongside dry, chilled and frozen groceries",
+    "channels_supplied": "Retail stores in remote communities and townships across the Top End of the Northern Territory, plus some food service customers; member of the NAFDA buying group",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0070_2026-10-26_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "tambo.pe": {
