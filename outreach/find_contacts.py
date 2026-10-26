@@ -26,7 +26,7 @@ import os
 import re
 import sys
 
-from . import apollo_status, company_inbox
+from . import apollo_status, company_inbox, hand_tagged
 from .job_owner import fill_owners, is_job_company, job_notes, job_owner
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
@@ -140,6 +140,10 @@ def run(target, settings, hs, apollo, log=print):
         fill_contact_places(hs, log)
     except Exception as err:
         log(f"Could not fill in the contacts' Country: {str(err)[:200]}")
+    try:  # 26 Oct 2026: contacts tagged AUTO-OUTREACH by hand get an order and, if general, the inbox title
+        hand_tagged.prepare(hs, settings, log)
+    except Exception as err:
+        log(f"Could not prepare the contacts tagged by hand: {str(err)[:200]}")
     try:  # 23 Oct 2026: AUTO-OUTREACH companies and contacts with no owner get the job owner
         fill_owners(hs, job_owner(settings), log)
     except Exception as err:
