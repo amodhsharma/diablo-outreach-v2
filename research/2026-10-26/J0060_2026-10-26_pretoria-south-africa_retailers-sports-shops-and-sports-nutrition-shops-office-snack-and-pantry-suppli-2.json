@@ -1,0 +1,212 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0060",
+  "location": "Pretoria, South Africa",
+  "run_date": "2026-10-26",
+  "run_type": "scheduled",
+  "replaces": [
+    "research/2026-10-26/J0060_2026-10-26_pretoria-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
+  ],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 43
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 64
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 37
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 40
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 39
+    }
+  ],
+  "companies": [
+    {
+      "name": "Solomon's Cycles",
+      "based_out_of": "Centurion, South Africa",
+      "domain": "solomonscycles.co.za",
+      "channel_category": [
+        "retailers",
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Energy bars and fruit bars, energy gels and sports drinks (Named Sport range) alongside bicycles and cycling gear.",
+      "channels_supplied": "Own bicycle shops in Lynnwood (Pretoria), Hennopspark (Centurion), Woodmead and Durban, plus its own online shop run from the Centurion branch.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A cycling retailer with two Pretoria area branches and a national online shop that already sells Named Sport energy and fruit bars to health-conscious riders. Diablo's muesli and cereal bars suit the same shelf and online category. Store count in Pretoria: two branches (Lynnwood and Hennopspark).",
+      "what_they_do_well": [
+        "Runs four branches, including Lynnwood and Centurion, plus a dedicated online and adventure sports branch."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://solomonscycles.co.za/product-category/brands/named-sport/",
+        "https://solomonscycles.co.za/contact/",
+        "https://bicyclepower.co.za/dealer-profiles/solomon-cycles-pretoria/",
+        "https://solomonscycles.co.za/race-day-nutrients/",
+        "https://solomonscycles.co.za/product-category/brands/high-5/",
+        "https://bicyclecouriers.co.za/top-20-online-bike-shops-in-south-africa/"
+      ]
+    },
+    {
+      "name": "Lynnwood Cyclery",
+      "based_out_of": "Pretoria, South Africa",
+      "domain": "lynnwoodcyclery.co.za",
+      "channel_category": [
+        "retailers",
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Energy bars (PowerBar, PVM) and energy gels (High5, Maurten, Enduren, PowerBar) alongside bicycles and cycling gear.",
+      "channels_supplied": "Its own shop at Willow Way Shopping Centre, The Willows, Pretoria, and its own online shop.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Pretoria cycling shop with an online store that sells branded energy bars from PowerBar and PVM to riders. Diablo's muesli and cereal bars fit next to them. It is a single shop, so it sits in tier 3.",
+      "what_they_do_well": [
+        "Specialized dealer with a fully operational workshop at Willow Way Shopping Centre in Pretoria."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.lynnwoodcyclery.co.za/products/pvm-energy-bar",
+        "https://www.lynnwoodcyclery.co.za/products/powerbar-energize-berry-blast-55g-each",
+        "https://bicyclepower.co.za/dealer-profiles/lynnwood-cyclery/",
+        "https://www.lynnwoodcyclery.co.za/"
+      ]
+    },
+    {
+      "name": "Buycycle",
+      "based_out_of": "Pretoria, South Africa",
+      "domain": "buycycle.co.za",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Energy bars, energy gummies and energy gels (High 5) alongside cycling parts and accessories",
+      "channels_supplied": "Its own online cycling shop, shipping from Pretoria",
+      "sf_brands_carried": "High 5 ZERO hydration tablets (sugar free drink tablets, not confectionery)",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online cycling shop trading as Ikhambi Distribution that sells High 5 energy bars and gummies to riders. Its website gives no street address; a cycling trade article says it ships from Pretoria, so it is tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.buycycle.co.za/product/energy-bar/",
+        "https://www.buycycle.co.za/product/high-5-energy-gel/",
+        "https://bicyclecouriers.co.za/top-20-online-bike-shops-in-south-africa/"
+      ]
+    },
+    {
+      "name": "Cater Warehouse",
+      "based_out_of": "Pretoria, South Africa",
+      "domain": "caterwarehouse.co.za",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolates, sweets and chips (Cadbury Lunch Bar, Crunchie and PS bars, Beacon Jelly Tots and Fizzers, Cartoon jellies), biscuits and rusks, spreads and syrups, plus pantry groceries, cleaning and packaging.",
+      "channels_supplied": "Government departments, corporate companies, schools, canteens and coffee shops in Pretoria and across Gauteng, through its web shop, showroom and delivery.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Pretoria pantry supplier to government offices, corporates and schools whose web shop lists 51 chocolates, sweets and chips lines from other brands in resale packs, alongside biscuits, spreads and syrups. Diablo bars, biscuits and spreads fit straight into those categories for office and canteen buyers. Storage: B2B web shop with prices and stock status (items marked out of stock), plus a showroom and store collection in Pretoria; warehouse size not stated on its website.",
+      "what_they_do_well": [
+        "Trading in Pretoria since 2000, growing from 3 to 32 staff.",
+        "Supplies government departments, corporate companies and schools across Gauteng."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://caterwarehouse.co.za/about-us/",
+        "https://caterwarehouse.co.za/product-category/groceries/",
+        "https://caterwarehouse.co.za/product-category/groceries/chocolate/"
+      ]
+    },
+    {
+      "name": "Kings Tea & Coffee",
+      "based_out_of": "Roodepoort, South Africa",
+      "domain": "kingsteacoffee.co.za",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Biscuits, sweets and snacks from other brands, alongside tea, coffee, cold drinks, sugar and milk for office pantries, plus cleaning and paper products.",
+      "channels_supplied": "Offices, canteens, manufacturing firms and schools across Gauteng, delivered by its own fleet of thirteen vehicles.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Gauteng office refreshment wholesaler whose web shop has its own biscuits, sweets and snacks categories next to third party brands such as Five Roses, Nescafe and Ricoffy, so Diablo biscuits, sweets and bars would sit in an existing pantry range. It delivers free across Gauteng, Pretoria included, on orders above R500; the snack brands it stocks are not named on its website, which is why it sits in tier 3. Storage: keeps stock on site in Roodepoort for prompt delivery, per its About page.",
+      "what_they_do_well": [
+        "Supplying offices, canteens and factories with refreshments since 1991.",
+        "Runs thirteen delivery vehicles with 24 hour turnaround in central Johannesburg."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://kingsteacoffee.co.za/",
+        "https://kingsteacoffee.co.za/about.php",
+        "https://kingsteacoffee.co.za/promo.php"
+      ]
+    },
+    {
+      "name": "Snippets Hampers",
+      "based_out_of": "Benoni, South Africa",
+      "domain": "snippetshampers.co.za",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Grocery, bucket and executive gift hampers that include branded chocolates (Ferrero Rocher, Raffaello), nougat and jelly sweets (Sally Williams, Jelly Trotters), biscuits (Bakers, Henro, Miniz) and nut and seed bars, alongside groceries, nuts, biltong and drinks",
+      "channels_supplied": "Corporate clients buying staff and client hampers in bulk, plus online orders; delivers within South Africa, including Gauteng",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Gauteng hamper packer that buys other companies' branded chocolates, sweets and biscuits and resells them as they are inside corporate and staff hampers, so Diablo's chocolate boxes, biscuits and bars could go straight into its executive range. It sells nationally and the website says it delivers within South Africa; a Pretoria-specific delivery area is not stated on its website. Storage: packs and distributes all hampers from its own warehouse near O.R. Tambo International Airport.",
+      "what_they_do_well": [
+        "Says it is South Africa's largest specialty hamper distributor, trading since the 1980s with millions of hampers packed.",
+        "Bought competitor Ginsberg Hampers and runs its own warehouse near O.R. Tambo International Airport."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://snippetshampers.co.za/",
+        "https://snippetshampers.co.za/about/",
+        "https://snippetshampers.co.za/product/goodies-for-2025/",
+        "https://snippetshampers.co.za/product/hamper-6/",
+        "https://snippetshampers.co.za/delivery-and-returns-policy"
+      ]
+    }
+  ]
+}
