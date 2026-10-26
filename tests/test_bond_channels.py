@@ -82,6 +82,18 @@ def _two_companies():
     return hs, instantly, s
 
 
+def _without_paragraph(s):
+    """The settings as they were before the preview was checked (26 Oct 2026)."""
+    s["send"]["templates"] = dict(s["send"]["templates"], first_email="templates/template_4.json",
+                                  first_email_company_inbox="templates/template_no_info_apollo_3.json")
+    return s
+
+
+def test_the_two_campaigns_have_room_for_the_paragraph():
+    s = load_settings()
+    assert send.bond_ready(s, send.PERSON) and send.bond_ready(s, send.INBOX)
+
+
 def _with_paragraph(s):
     s["send"]["templates"] = dict(s["send"]["templates"], first_email="templates/template_6.json",
                                   first_email_company_inbox="templates/template_no_info_apollo_5.json")
@@ -100,7 +112,7 @@ def test_only_two_campaigns_and_other_channels_wait_until_the_email_has_room():
     """Ariel, 26 Oct 2026: two campaigns a month. Until the email has room for the bond paragraph, a
     channel outside our usual ones waits rather than going out without it."""
     hs, instantly, s = _two_companies()
-    send.run("test", s, hs, instantly, log=quiet)
+    send.run("test", _without_paragraph(s), hs, instantly, log=quiet)
     camps = {b["name"]: cid for cid, b in instantly.campaigns.items()}
     main = send.campaign_name("Diablo |")
     assert set(camps) == {main}
@@ -146,7 +158,7 @@ def test_the_other_channels_campaigns_are_deleted_and_their_contacts_go_back_to_
     notes = tmp_path / "timeline_notes.json"
     notes.write_text(json.dumps({"queued": [uni, "other"]}))
     from outreach import other_channels
-    done = other_channels.retire(hs, instantly, s, quiet, notes_path=notes)
+    done = other_channels.retire(hs, instantly, _without_paragraph(s), quiet, notes_path=notes)
     assert done == {"back_to_gate2": 1, "kept": 1, "deleted": [main + " | Other channels"]}
     assert hs.records["contacts"][uni]["hs_lead_status"] == "APPROVED_TO_SEND"
     assert other_id not in instantly.campaigns and main_id in instantly.campaigns
@@ -166,7 +178,7 @@ def test_leads_already_waiting_get_an_empty_paragraph_before_the_email_changes()
     instantly.leads[main_id] = [{"id": "B1", "email": "buyer@beta.example", "payload": {"personal_line": "x"}},
                                 {"id": "B2", "email": "sent@beta.example", "timestamp_last_contact": "2026-10-25"}]
     from outreach import other_channels
-    assert other_channels.fill_waiting(hs, instantly, s, quiet) == 0  # the email has no room yet: nothing changes
+    assert other_channels.fill_waiting(hs, instantly, _without_paragraph(s), quiet) == 0  # no room yet: nothing changes
     assert other_channels.fill_waiting(hs, instantly, _with_paragraph(s), quiet) == 1
     first = instantly.leads[main_id][0]
     assert first["custom_variables"]["bond_paragraph"] == "" and first["custom_variables"]["company_note"]

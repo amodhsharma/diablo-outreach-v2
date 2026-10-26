@@ -189,9 +189,9 @@ send:
     # 26 Oct 2026 (Ariel): two campaigns a month. template_6 and template_no_info_apollo_5 are
     # template_4 and template_no_info_apollo_3 with room for each contact's bond paragraph (the bold
     # "Why we think our bond would be strong" with the personal line, empty for the usual channels).
-    # They go in the two lines here once the preview campaign has been checked in Instantly; until
-    # then a contact at a channel outside our usual ones waits on GATE2.
-    first_email: templates/template_4.json
+    # Switched on 26 Oct 2026 after Ariel checked the preview campaign in Instantly (to go back, put
+    # templates/template_4.json and templates/template_no_info_apollo_3.json here again).
+    first_email: templates/template_6.json
     # Persons 2 to 4: forward_2.json from 19 Oct 2026 (Ariel): a short note giving the company note as the
     # reason, then "we believe your company would be the right fit for us". forward.json is kept unchanged.
     forward: templates/forward_3.json
@@ -204,7 +204,7 @@ send:
     # Its own first email (own campaign each month, see company_inbox below) and its own reminder.
     # The _3 files (20 Oct 2026, Ariel) greet "Hello to the team at <company>," instead of
     # "Hello <company> team,"; the _2 files are kept unchanged.
-    first_email_company_inbox: templates/template_no_info_apollo_3.json
+    first_email_company_inbox: templates/template_no_info_apollo_5.json
     reminder_company_inbox: templates/follow_up_no_info_apollo_3.json
     # Channels outside our usual ones (23 Oct 2026, the list is in config/bond_channels.json): as
     # template_4 and template_no_info_apollo_3, plus the bold heading "Why we think our bond would be
