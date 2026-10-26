@@ -5036,6 +5036,22 @@
     "research_file": "research/2026-10-23/J0036_2026-10-23_switzerland_diabetic-low-sugar-and-keto-shops-gluten-free-and-free-from-shops-vegan-and-vege.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "gnibl.com.au": {
+    "name": "Gnibl",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Cash and carry wholesalers",
+    "channels": [
+      "cash and carry wholesalers"
+    ],
+    "fit_rationale": "A Sydney healthy snack wholesaler and vending operator whose dietitian-curated range targets health-conscious buyers, a close match for Diablo's sugar-free bars and biscuits. Tier 3 because it serves canteens, workplaces and vending sites and its website names no brands. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Healthy snacks, protein bars, chips and protein shakes for wholesale delivery and vending",
+    "channels_supplied": "School canteens, workplaces and vending machine sites such as gyms, universities, hospitals and warehouses",
+    "sf_brands_carried": "Dietitian-curated healthy snack range; brands not named on its website",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json"
+  },
   "godis.swiss": {
     "name": "GODIS (Bonbons Suédois)",
     "based_out_of": "Lausanne, Switzerland",
@@ -5113,6 +5129,22 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0025_2026-10-22_switzerland_retailers-pharmacy-and-drugstore-chains-health-food-and-organic-retailers-kiosk.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "gqf.com.au": {
+    "name": "Global Quality Foods (GQF)",
+    "based_out_of": "Riverwood, Australia",
+    "market": "Australia",
+    "category": "Cash and carry wholesalers",
+    "channels": [
+      "cash and carry wholesalers"
+    ],
+    "fit_rationale": "A family-run Sydney wholesaler whose canteen and club customers resell packaged snacks and confectionery as they are, like the Swiss snack counter model. Tier 3 because it reaches canteens and clubs rather than many shops. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [],
+    "distributes": "Snacks, chips, confectionery and candy, drinks, grocery, ice cream and frozen lines, packaging and cleaning products",
+    "channels_supplied": "School canteens, sporting clubs, cafes, wholesalers and food service businesses across Sydney",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json"
   },
   "grabandgo.ch": {
     "name": "Grab&Go Luzern",
@@ -5815,6 +5847,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0003_2026-10-20_bern-switzerland_distributors.json"
+  },
+  "htlollies.com.au": {
+    "name": "Horse Torque & Lollies",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "An importer and wholesaler of sweets and chocolate that welcomes bulk and business orders from retailers and already runs a dedicated British chocolate and sweets range, so a UK-made sugar-free line fits its offer. It ships Australia-wide, which gives Diablo's sweets and chocolate a route into independent shops. Storage: ships from its Melbourne warehouse, as stated on its website.",
+    "what_they_do_well": [
+      "Runs a dedicated British chocolate and sweets range alongside American imports for Melbourne retailers."
+    ],
+    "distributes": "Bulk and packaged sweets, gummies and jelly sweets, British and American chocolate and sweets, and soft drinks",
+    "channels_supplied": "Retailers, events and workplaces Australia-wide, plus its own store in Noble Park",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "huntsfoodgroup.co.uk": {
     "name": "Hunt's Food Group",
@@ -7641,6 +7692,25 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "melbournefreevendingmachines.com.au": {
+    "name": "BL Vending (Melbourne Free Vending Machines)",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Cash and carry wholesalers",
+    "channels": [
+      "cash and carry wholesalers"
+    ],
+    "fit_rationale": "A snack vending operator with more than 16 years in vending that also sells chocolates, chips and drinks wholesale. Diablo's bars and chocolate fit a workplace machine as a sugar-free option. Tier 3 because it reaches workplaces rather than shops. Storage: moved to a much larger warehouse, location not named on its website.",
+    "what_they_do_well": [
+      "More than 16 years of experience running workplace vending in Melbourne."
+    ],
+    "distributes": "Branded chips, chocolates, drinks and protein products for vending, sold wholesale and stocked in its own machines",
+    "channels_supplied": "Workplace vending machines it operates and wholesale vending supplies for other buyers",
+    "sf_brands_carried": "Healthy options and protein products; brands not named on its website",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "mellowvelo.co.za": {
     "name": "Mellow Velo",
     "based_out_of": "Johannesburg, South Africa",
@@ -7726,6 +7796,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "metropolitansnackfoods.com.au": {
+    "name": "Metropolitan Snack Foods",
+    "based_out_of": "Cromer, Australia",
+    "market": "Australia",
+    "category": "Cash and carry wholesalers",
+    "channels": [
+      "cash and carry wholesalers"
+    ],
+    "fit_rationale": "A Sydney canteen wholesaler delivering snack foods and confectionery to schools and clubs that sell them on as packs, seven days a week. Tier 3 because its customers are canteens and clubs and its website names no brands. Storage: sells from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Delivers to school and club canteens across metro and regional NSW seven days a week."
+    ],
+    "distributes": "Snack foods, confectionery, beverages, iced confectionery, frozen foods, groceries and packaging",
+    "channels_supplied": "School canteens and clubs in metro and regional NSW",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "mexiland.ch": {
     "name": "Mexiland Import Export Sàrl",
@@ -9494,6 +9583,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0054_2026-10-26_johannesburg-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "punjabimports.com.au": {
+    "name": "Punjab Imports",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Australia",
+    "category": "Cash and carry wholesalers",
+    "channels": [
+      "cash and carry wholesalers"
+    ],
+    "fit_rationale": "A Melbourne trade wholesaler of Indian packaged food whose website has its own biscuits, confectionery, sweets and snacks sections and supplies supermarkets, grocers and convenience stores. Diablo's halal-certified biscuits and sweets suit the shops it serves. Storage: Melbourne warehouse for bulk pallet supply, scheduled deliveries and stock replenishment.",
+    "what_they_do_well": [
+      "Runs a Melbourne warehouse with scheduled deliveries across Victoria and stores in Hoppers Crossing, Craigieburn, Clyde, Melton, Shepparton and Wollert."
+    ],
+    "distributes": "Indian packaged foods with its own sections for biscuits and bakery, confectionery, sweets, snacks, chips and rusks",
+    "channels_supplied": "Supermarkets, independent grocers, convenience stores and food resellers across Victoria through trade accounts, plus its own Indian grocery stores",
+    "sf_brands_carried": "",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "pwfinefoods.co.uk": {
     "name": "PW Fine Foods (Samways)",
@@ -11600,6 +11708,24 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0055_2026-10-26_johannesburg-south-africa_seasonal-and-gift-shops.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "themarketgrocer.com": {
+    "name": "The Market Grocer",
+    "based_out_of": "Homebush, Australia",
+    "market": "Australia",
+    "category": "Cash and carry wholesalers",
+    "channels": [
+      "cash and carry wholesalers"
+    ],
+    "fit_rationale": "A national grocery wholesaler that already lists a deep range of branded confectionery, chocolate, biscuits and snacks from other companies for independent grocers and supermarkets. Diablo's chocolate, sweets and biscuits would sit beside its health and protein section as a sugar-free option. Storage: own warehouse at Homebush, Sydney, with warehousing and distribution to retailers.",
+    "what_they_do_well": [
+      "Supplies independent specialty grocers and major supermarkets across Australia from its own Homebush warehouse."
+    ],
+    "distributes": "Confectionery and chocolate (Fyna, Hugos, Mars, Maltesers, Twix, Hi Chew, Nerds, Swizzels, Big Lolly), kids confectionery, biscuits and cookies (Sunday Cookies), snacks, health and protein lines, nuts and pantry goods",
+    "channels_supplied": "Independent specialty grocers and major supermarkets across Australia",
+    "sf_brands_carried": "Health and protein section; Orgran gluten-free snacks. No sugar-free confectionery brand named",
+    "added": "2026-10-26",
+    "research_file": "research/2026-10-26/J0071_2026-10-26_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-kiosk-wholesale.json"
   },
   "theorganicvegan.co.za": {
     "name": "The Organic Vegan",
