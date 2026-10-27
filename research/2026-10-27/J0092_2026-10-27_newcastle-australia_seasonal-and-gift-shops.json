@@ -1,0 +1,46 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0092",
+  "location": "Newcastle, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 56
+    }
+  ],
+  "companies": [
+    {
+      "name": "GIFTxo",
+      "based_out_of": "Newcastle, Australia",
+      "domain": "giftxo.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift hampers with branded chocolate (Sweet Addiction) and packaged snacks such as popcorn, crackers, jerky and pork crackle, plus craft beer and grazing items",
+      "channels_supplied": "Its own online shop, with free local delivery across Newcastle and Lake Macquarie and custom hampers for gift buyers",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Owner-run Newcastle gift hamper retailer that buys branded chocolate and packaged snacks from other producers and resells them in hampers through its own online shop. Its Beers and Snacks and Gourmet Graze hampers show chocolate and snacks as a regular part of the range. Small, with reach limited to Newcastle and Lake Macquarie and no store count, hence tier 3.",
+      "what_they_do_well": [
+        "Delivers free across the Newcastle and Lake Macquarie council areas on orders over $100."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.giftxo.com.au/",
+        "https://www.giftxo.com.au/product/hamper-04-mens-beer-snacks/",
+        "https://www.giftxo.com.au/product/premium-gourmet-graze/",
+        "https://www.giftxo.com.au/about/"
+      ]
+    }
+  ]
+}
