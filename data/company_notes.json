@@ -3555,6 +3555,26 @@
     "research_file": "research/2026-10-26/J0076_2026-10-26_australia_hotel-minibar-suppliers-snack-subscription-boxes-promotional-merchandise-compani.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "coastandbanks.com.au": {
+    "name": "Coast and Banks",
+    "based_out_of": "Gold Coast, Australia",
+    "market": "Gold Coast, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Gold Coast gift box retailer that buys from other brands and has its own chocolate gift box collection. It is small and leans on local makers, so only chocolate from our catalogue is confirmed; tier 3. Diablo's chocolate gift boxes could give its corporate range a sugar-free choice.",
+    "what_they_do_well": [
+      "Gives one dollar from every gift box to Muscular Dystrophy Queensland.",
+      "Publishes a yearly corporate Christmas gifting catalogue for Gold Coast businesses."
+    ],
+    "distributes": "Curated gift boxes with a chocolate lovers collection featuring chocolate pralines and bars from Gold Coast brand Little Cocoa, plus nut mixes, jerky, condiments, wine and gin",
+    "channels_supplied": "Its own online shop; corporate gifting, real estate settlement and personal gift buyers, shipping Australia-wide",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0088_2026-10-27_gold-coast-australia_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "cobefar.com.pe": {
     "name": "Cobefar",
     "based_out_of": "Lima, Peru",
@@ -7621,6 +7641,23 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-23/J0037_2026-10-23_switzerland_kosher-shops-corporate-gifting-and-hamper-companies-office-snack-and-pantry-supp.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "grandmaslolliesandgifts.com.au": {
+    "name": "Grandma's Lollies and Gifts",
+    "based_out_of": "Mermaid Waters, Australia",
+    "market": "Gold Coast, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A lolly and gift shop selling other brands' imported sweets, chocolates and gift boxes to Gold Coast shoppers, a direct fit for Diablo's gummies, chocolate and gift boxes. Website did not open; trading confirmed on localsearch.com.au, so it is tier 3 and its brand list could not be read.",
+    "what_they_do_well": [],
+    "distributes": "Local and imported sweets and candy from New Zealand, the UK and the USA, chocolates, liquorice, sour lollies, bulk lollies and gift boxes, plus balloons and party supplies",
+    "channels_supplied": "Its shop at the Gold Coast Super Centre, Mermaid Waters, and an online shop",
+    "sf_brands_carried": "Lists dairy-free, gluten-free and plant-based options; no sugar-free brand named",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0088_2026-10-27_gold-coast-australia_seasonal-and-gift-shops.json",
+    "import_check": "the website address no longer exists"
   },
   "grapetree.co.uk": {
     "name": "Grape Tree",
