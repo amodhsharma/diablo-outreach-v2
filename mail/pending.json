@@ -1,582 +1,127 @@
 {
-  "generated_at": "2026-10-27T10:57:53+00:00",
+  "generated_at": "2026-10-27T11:14:51+00:00",
   "target": "live",
   "contacts": [
     {
-      "contact_id": "903692023005",
+      "contact_id": "903698887892",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "AusBox Group",
-        "domain": "ausboxgroup.com.au",
-        "location": "Australia",
-        "channel": "Office snack and pantry suppliers",
-        "based_out_of": "Australia",
-        "distributes": "Branded chocolate bars, biscuits, sweets and snacks for workplace vending: Cadbury, Cherry Ripe, Mars, Snickers, KitKat, Maltesers, Tim Tams, Wagon Wheels, Arnott's Shapes, Skittles, Starburst, Mentos and M&M's, plus drinks",
-        "channels_supplied": "Offices and large buildings, gyms, schools and public spaces in Melbourne, Sydney, Brisbane, Gold Coast, Canberra, Adelaide, Perth, Hobart and Darwin",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Over 10 years in vending, now servicing major cities across Australia including Hobart and Darwin."
-        ],
-        "fit_rationale": "A national workplace snack operator that fills office machines with a long list of branded chocolate, biscuits and sweets, which is exactly Diablo's catalogue. Its office service is free to the host and staff pay per item, so a sugar free bar slots straight into the range. Storage: sells from its own stock in machines it fills and services, warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903692097770",
-      "job_title": "Director",
-      "seniority": "Directors",
-      "rank": 1,
-      "company": {
-        "name": "Benleigh Vending Systems",
-        "domain": "benleighvending.com.au",
-        "location": "Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Wingfield, Australia",
-        "distributes": "Chocolates, snacks, chips, healthy vending items and drinks from well known brands",
-        "channels_supplied": "Free placement vending for businesses in every state, plus machine sales and wholesale vending",
-        "sf_brands_carried": "Healthy vending range (coconut water, tuna, cheese and crackers); brands not named",
-        "what_they_do_well": [
-          "Has around 20 years in vending and offers free placement across all eight states and territories.",
-          "Runs healthy, gym and PPE vending as well as snack and drink machines."
-        ],
-        "fit_rationale": "A long running national operator that places and refills snack and drink machines in every state and says its warehouse stocks well known brands. Its healthy vending category and national reach make it a strong route for Diablo's chocolate and biscuits. Storage: its own warehouse stocks the products it vends."
-      }
-    },
-    {
-      "contact_id": "903438862526",
-      "job_title": "Director",
-      "seniority": "Directors",
-      "rank": 1,
-      "company": {
-        "name": "Chocablock Chocolates",
-        "domain": "personalisedchocolates.net.au",
-        "location": "Australia",
-        "channel": "Promotional merchandise companies",
-        "based_out_of": "Moorabbin, Australia",
-        "distributes": "Branded chocolate (Lindt, Cadbury, Toblerone, Ferrero Rocher, Maltesers), sweets (Pascall, Skittles, Trolli, Chupa Chups, Mentos), biscuits (Arnott's, Tim Tam, Biscoff) and snacks (Pringles) in personalised packs",
-        "channels_supplied": "Corporate and private customers Australia-wide",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Australian owned and operated for over ten years, claiming more than 130,000 customers served Australia-wide."
-        ],
-        "fit_rationale": "Sells a wide spread of other companies' branded chocolate, sweets, biscuits and snacks, personalised for corporate gifting, so Diablo's chocolate, biscuits and gift boxes sit in its existing range. A better-for-you option is a natural addition to the brands it already shows. Storage: Moorabbin premises listed; warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903698289856",
-      "job_title": "Procurement Manager",
-      "seniority": "Managers",
-      "rank": 1,
-      "company": {
-        "name": "Chrisco Hampers",
-        "domain": "chrisco.com.au",
-        "location": "Australia",
-        "channel": "Seasonal and gift shops",
-        "based_out_of": "Australia",
-        "distributes": "Chocolate bars and share packs (Cadbury, Nestle, Mars), chocolate coated sweets (M&M's, Smarties), sweets (Fry's Turkish Delight), biscuits and cookies (Arnott's, Oreo) and cereal and snack bars (Uncle Toby's, Nature Valley, Milo) in Christmas hampers",
-        "channels_supplied": "Its own 52 week layby Christmas hamper club, delivered to families across Australia and New Zealand",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Creating Christmas hampers for nearly 40 years for tens of thousands of families in Australia and New Zealand."
-        ],
-        "fit_rationale": "A national Christmas hamper club whose hampers are built entirely from other companies' branded chocolate, sweets, biscuits and bars, bought in and delivered to households each November and December. Diablo's gift boxes, chocolate and biscuits sit naturally next to Cadbury, Arnott's and Uncle Toby's in its confectionery and snack hampers. Store count not applicable: it sells direct to tens of thousands of families."
-      }
-    },
-    {
-      "contact_id": "903464507598",
-      "job_title": "Admin/Warehouse Manager",
-      "seniority": "Managers",
-      "rank": 1,
-      "company": {
-        "name": "Cool Vending",
-        "domain": "coolvending.com.au",
-        "location": "Sydney, Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Wetherill Park, Australia",
-        "distributes": "Branded chocolate and confectionery (Cadbury, Mars, Nestle, Allen's, Mentos), protein bars, chips and drinks in its own vending machines",
-        "channels_supplied": "Offices and workplaces across metropolitan Sydney",
-        "sf_brands_carried": "Healthy options list (protein bars, pretzels, Grain Waves) and sugar free drinks such as Coke No Sugar and Pepsi Max",
-        "what_they_do_well": [
-          "Lists Cadbury, Mars, Nestle and Allen's confectionery alongside a separate healthy options list for workplaces."
-        ],
-        "fit_rationale": "A Sydney operator that stocks every machine with chips and chocolates from the main brands and offers free stocking. Its healthy options and sugar free drinks lists show demand that Diablo's chocolate, sweets and bars can serve. Storage: sells from its own stock, warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903695566019",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Gift Hampers Melbourne",
-        "domain": "gifthampersmelbourne.com.au",
-        "location": "Melbourne, Australia",
+        "name": "BoxSAlicious Gift Hampers",
+        "domain": "giftbasketsadelaide.com.au",
+        "location": "Adelaide, Australia",
         "channel": "Corporate gifting and hamper companies",
-        "based_out_of": "Dandenong South, Australia",
-        "distributes": "Gift hampers and a 134 item sweet extras range: chocolate (Ferrero Rocher, Toblerone, Lindt, Darrell Lea, Chocolatier), lollies and fudge, nougat, biscuits and cookies (Byron Bay Cookies, Charlie's Cookies, shortbread) and wafers (Ceres Organics)",
-        "channels_supplied": "Direct to shoppers through its online shop and to businesses through bulk corporate orders with an account manager; same day Melbourne metro delivery and next day delivery Australia wide",
-        "sf_brands_carried": "Vegan, gluten free and keto gift hampers; Ceres Organics. No direct sugar free competitor seen",
+        "based_out_of": "Adelaide, Australia",
+        "distributes": "Gift hampers with branded chocolate (Haigh's, Red Cacao), biscuits (Lady Alice, Kytons cookies, Perryman's gingerbread), sweets and jellies (Quinzi's), nuts, crackers, wine and beer",
+        "channels_supplied": "Its own online shop, corporate client and staff gifting programmes, same-day delivery in Adelaide metro and shipping Australia-wide",
+        "sf_brands_carried": "Diabetic, gluten-free and vegan hamper options mentioned in a Sitchu Adelaide listing; no brand named",
         "what_they_do_well": [
-          "Offers bulk corporate orders with a dedicated account manager and in-house designers for branded hampers.",
-          "Same day delivery across metro Melbourne."
+          "Family-owned since 2005, specialising in South Australian gift hampers with free same-day delivery in Adelaide metro.",
+          "Offers custom branded corporate hampers, logo packaging and bulk order fulfilment for client and staff programmes."
         ],
-        "fit_rationale": "A Melbourne hamper company whose own shop sells many branded chocolates, lollies, biscuits and wafers from other brands, both in hampers and as add-ons, and already runs keto and vegan hampers where Diablo's no added sugar lines fit. Its corporate bulk service with in-house branding reaches many businesses. Storage: sells from its own stock, listed at 20 Volt Circuit, Dandenong South; warehouse not named on its website."
+        "fit_rationale": "Family-owned Adelaide hamper house that buys branded South Australian chocolates, biscuits and sweets and packs them into corporate and gift hampers sold from its own online shop. It already runs custom branded corporate gifting and bulk orders, so Diablo's chocolates, biscuits and gift boxes would fit its sweet and diabetic options. Storage: sells from its own stock, warehouse not named on its website."
       }
     },
     {
-      "contact_id": "903665900759",
-      "job_title": "Managing Director Good Nuts",
-      "seniority": "Top leadership",
-      "rank": 1,
-      "company": {
-        "name": "Good Nuts",
-        "domain": "goodnuts.com.au",
-        "location": "Australia",
-        "channel": "Leisure and venue snack suppliers",
-        "based_out_of": "Sydney, Australia",
-        "distributes": "Sweets and gummies (Allen's Freckles, Red Frogs, Minties), chocolate (Lindt, Lindor), biscuits and cookies (Charlie's), bar snacks, nuts and branded snacks (Springhill Farm, Piranha, Brookfarm, Snack Proud), plus seasonal and gift lines",
-        "channels_supplied": "Pubs, clubs, hotels and corporates; named clients include Star Casino, Merivale, ALH Group, Accor and Ibis hotels, Australian Venue Co. and QANTAS",
-        "sf_brands_carried": "Healthy snack brands such as Brookfarm; no sugar free confectionery seen; no direct competitor seen",
-        "what_they_do_well": [
-          "Trading since 1993 and now services more than 1,500 venues across Sydney, Melbourne, Adelaide and Brisbane.",
-          "Supplies venue groups such as Star Casino, Merivale, ALH Group and Accor hotels."
-        ],
-        "fit_rationale": "A family run bar snack and treats distributor that sells other companies' branded sweets, chocolate and biscuits into more than 1,500 pubs, clubs and hotels, the core of this venue channel. Its individually wrapped and portion packs suit Diablo's single serve chocolate, sweets and biscuits. Storage: products packed and stored under HACCP guidelines with national distribution operations; warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903422617802",
-      "job_title": "Director & Co-Founder",
-      "seniority": "Top leadership",
-      "rank": 1,
-      "company": {
-        "name": "Good Things Australia",
-        "domain": "goodthings.com.au",
-        "location": "Australia",
-        "channel": "Promotional merchandise companies",
-        "based_out_of": "Australia",
-        "distributes": "Branded confectionery: chocolate (Lindt Lindor, chocolate bars), sweets (Allen's, Skittles, Jelly Belly, M&M's, Mentos), lollipops, mints and snack packs",
-        "channels_supplied": "Corporate clients Australia-wide, including Netflix, Samsung, Afterpay and Petbarn",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Reports 99.4% of jobs delivered on time across more than 21,000 products.",
-          "Lists Netflix, Samsung, Afterpay and L'Oreal Paris among clients."
-        ],
-        "fit_rationale": "Runs a dedicated branded confectionery category built on Allen's, Lindt, M&M's, Mentos and Jelly Belly packs, sold to large corporate brands. Diablo's chocolate, sweets and gift boxes fit its range. Storage: offers in-house warehousing and pick-and-pack; warehouse location not named on its website."
-      }
-    },
-    {
-      "contact_id": "903685173491",
+      "contact_id": "903609850057",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
       "rank": 1,
       "company": {
-        "name": "Honesty Snacks",
-        "domain": "honestysnacks.com.au",
-        "location": "Australia",
-        "channel": "Office snack and pantry suppliers",
-        "based_out_of": "Melbourne, Australia",
-        "distributes": "Confectionery, chocolate, cookies, chips and healthy snacks in office snack boxes, honesty boxes and subscription boxes; brands include Cadbury, Nestle, Mars, Mentos, Carman's and Harvest Box",
-        "channels_supplied": "Workplaces in Melbourne and Adelaide through its own drivers, with Australia wide delivery by courier; also gift hampers and home snack boxes",
-        "sf_brands_carried": "Healthy and Better For You boxes with sugar free, gluten free and vegan options; no direct competitor named",
-        "what_they_do_well": [
-          "Has supplied high quality snacks to businesses for over 30 years as a family owned company.",
-          "Supplies Honesty Snack Boxes to thousands of businesses in Melbourne and Adelaide."
-        ],
-        "fit_rationale": "A family owned office snack supplier that buys well known branded chocolate, confectionery and cookies and sells them on as they are to thousands of workplaces. Its healthy and sugar free box lines give Diablo a natural place in treat and better for you mixes. Storage: sells from its own stock with its own delivery drivers, warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903695656152",
-      "job_title": "Managing Director",
-      "seniority": "Top leadership",
-      "rank": 1,
-      "company": {
-        "name": "I Love This Shop",
-        "domain": "ilovethisshop.com.au",
-        "location": "Melbourne, Australia",
-        "channel": "Seasonal and gift shops",
-        "based_out_of": "Moorabbin, Australia",
-        "distributes": "Sweets, gummies, jelly sweets, hard sweets and chocolate (over 900 lollies, sweets and chocolates from brands such as Allens, Trolli, Chupa Chups, Mentos, Nerds, Reese's, PEZ, Swizzels and Fyna Foods), plus party supplies and cake decorating.",
-        "channels_supplied": "Its own chain of 10 party and confectionery shops across Victoria (Braybrook, Craigieburn, Dandenong South, Corio and others) and its online shop shipping Australia-wide.",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Runs 10 shops across Victoria plus an online shop based in Moorabbin.",
-          "Stocks over 900 lollies, sweets and chocolates from brands such as Allens, Trolli and Chupa Chups."
-        ],
-        "fit_rationale": "A Victorian chain of party and lolly shops whose online shop lists over 900 branded sweets and chocolates, the largest branded confectionery shelf found in this channel. It buys from many confectionery brands and sells to shoppers buying for parties, birthdays and seasonal events in Melbourne and regional Victoria. It also runs a small house range, Sugar Rush, alongside the other brands."
-      }
-    },
-    {
-      "contact_id": "903682805980",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "JC Vending Systems",
-        "domain": "jcvendingsystems.com.au",
-        "location": "Sydney, Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Blacktown, Australia",
-        "distributes": "Branded chocolate (Cadbury, Nestle Kit Kat, Twix, Aero, Snickers, M&Ms), lollies (Allens, Skittles), biscuits (Arnott's Tim Tams, Shapes), muesli bars (Go Natural, Uncle Tobys), chips and drinks through its own snack, drink and coffee vending machines",
-        "channels_supplied": "Workplaces across Sydney and the Central Coast, with NSW Health, NSW Police, Transport NSW, Kmart, Australia Post and Toyota logos shown on its website",
-        "sf_brands_carried": "Healthy options including Go Natural bars, Harvest Box nut mixes, vege chips and sugar free kombucha; no sugar-free confectionery brand named",
-        "what_they_do_well": [
-          "Serves workplaces with 60 to 6,000 staff, with same-day service across Sydney.",
-          "Runs separate snack, healthy and drink vending sites, showing a broad branded range including vegan and gluten free options."
-        ],
-        "fit_rationale": "A Western Sydney operator that buys and refills its own machines with branded chocolate, lollies, biscuits and bars, covering five of Diablo's categories. Its healthy options range and large public sector sites suit sugar-free chocolate, biscuits and bars. Storage: headquarters at Forge Street, Blacktown, with satellite operations across Sydney."
-      }
-    },
-    {
-      "contact_id": "903678221558",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Kosher Kingdom Food Market",
-        "domain": "kosherkingdom.com.au",
-        "location": "Australia",
-        "channel": "Kosher shops",
-        "based_out_of": "Elsternwick, Melbourne, Australia",
-        "distributes": "Kosher supermarket selling chocolate bars, wafers, sweets and gummies (lollies), cereals and muesli and other packaged groceries from brands such as Alpha, Klik, Carmit, Baci, Camille Bloch, Elite, Chupa Chups and Mentos",
-        "channels_supplied": "Its own supermarket at 482B Glen Huntly Road, Elsternwick, plus an online shop with click and collect and home delivery",
-        "sf_brands_carried": "Sweet William no added sugar dark and vegan chocolate; Elite sugar free sweets; Corniche sugar free candies",
-        "what_they_do_well": [
-          "Owner-run family business since about 2012 that claims the greatest kosher range in Australia.",
-          "Named by the Sydney Morning Herald in 2014 as a reason to visit Elsternwick."
-        ],
-        "fit_rationale": "A licensed kosher supermarket whose own online shop has separate chocolates, wafers and lollies sections with many imported and local brands, the model Diablo is looking for. It already stocks sugar free chocolate and sweets (Sweet William, Elite, Corniche), so Diablo's kosher certified no added sugar range fits its shelf; Sweet William competes directly in chocolate."
-      }
-    },
-    {
-      "contact_id": "903681817821",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Melbourne Vending Co",
-        "domain": "melbournevendingco.com.au",
-        "location": "Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Melbourne, Australia",
-        "distributes": "Branded chocolate (Cadbury, Nestle, Mars), snacks, protein bars, popcorn, nuts and drinks in vending machines and micro markets",
-        "channels_supplied": "Over 1,000 organisations in Melbourne, Geelong and Bendigo through vending machines and micro markets",
-        "sf_brands_carried": "Nutty Squirrel, Cobs Popcorn, protein bars, gluten free and dairy free lines",
-        "what_they_do_well": [
-          "Says it is trusted by over 1,000 organisations across greater Melbourne.",
-          "Restocks machines up to daily and adds newer brands such as Nutty Squirrel and Cobs Popcorn."
-        ],
-        "fit_rationale": "An independent operator that stocks 50 branded lines per machine, led by Cadbury, Nestle and Mars chocolate, plus protein bars and better for you snacks. Its gluten free and dairy free focus gives Diablo's sugar free chocolate and bars a clear slot. Storage: stocks and restocks its own machines, warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903698205888",
-      "job_title": "Chief Executive Officer",
-      "seniority": "Top leadership",
-      "rank": 1,
-      "company": {
-        "name": "Officeworks",
-        "domain": "officeworks.com.au",
+        "name": "Brizzie Baskets and Blooms",
+        "domain": "brizziebaskets.com",
         "location": "Brisbane, Australia",
-        "channel": "Office snack and pantry suppliers",
-        "based_out_of": "Melbourne, Australia",
-        "distributes": "Workplace food and snacks: biscuits, confectionery, muesli bars, crackers, chips and nuts from brands such as Arnott's and Lotus Biscoff",
-        "channels_supplied": "Own stores across Brisbane and Australia, online shop and business accounts for workplaces",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Gift hampers with branded chocolate (Whittaker's slabs, wrapped chocolates), biscuits and cookies (Charlie's Melting Moments, Bisko shortbread, Luv a Cookie), caramels and confectionery, plus wine, tea and flowers",
+        "channels_supplied": "Direct to shoppers through its online shop and corporate clients (settlement gifts, end of financial year gifts), Brisbane and Australia-wide delivery",
         "sf_brands_carried": "",
         "what_they_do_well": [
-          "Runs a dedicated workplace Food and Snacks range with biscuit, confectionery and muesli bar categories, including Arnott's portion packs."
+          "Serves corporate clients with settlement and end of financial year gift hampers delivered across Brisbane and Australia."
         ],
-        "fit_rationale": "Australia's main office supplies retailer runs a Food and Snacks category for workplace kitchens with biscuits, confectionery and muesli bars from other brands, sold in portion packs and bulk. It reaches Brisbane offices through its stores and business accounts. Storage: sells from its own stores and online stock."
+        "fit_rationale": "A Stafford, Brisbane hamper company whose product pages list named chocolate, biscuit and cookie brands, the exact categories Diablo sells. It runs a corporate hamper section and gluten free and organic hamper lines, so a no-added-sugar hamper would sit naturally beside them. Storage: sells from its own stock, warehouse not named on its website."
       }
     },
     {
-      "contact_id": "903678226651",
-      "job_title": "Chief Executive Officer",
+      "contact_id": "903698883812",
+      "job_title": "Owner",
       "seniority": "Top leadership",
       "rank": 1,
       "company": {
-        "name": "Provender",
-        "domain": "provender.au",
-        "location": "Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Sydney, Australia",
-        "distributes": "Packaged snacks and lollies (sweets), healthy and special dietary snacks, drinks and fresh food through vending machines, smart fridges and micro markets",
-        "channels_supplied": "Workplaces, retail sites and micro markets through local franchise teams in 14 Australian locations",
-        "sf_brands_carried": "Healthy Options and Special Dietary Requirements ranges; brands not named on its website",
-        "what_they_do_well": [
-          "Runs fully managed vending in 14 locations from Cairns to Tasmania through its local franchise network.",
-          "Member of the Australian Vending Association and recognised as a Top Franchise Australia 2025 for innovation and support."
-        ],
-        "fit_rationale": "A national vending and micro market operator whose local teams stock and restock snacks and lollies in fully managed machines across 14 locations. Its healthy and special dietary categories suit Diablo's no added sugar sweets, biscuits and bars. Storage: sells from its own stock through local teams, warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903690295523",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Rvend",
-        "domain": "rvend.com.au",
-        "location": "Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Perth, Australia",
-        "distributes": "Branded chocolate bars (Mars, Cadbury, Nestle, Reese's, Hershey's), sweets (Allens, Starburst, Natural Confectionery Co, Wrigleys), cookies (Future Bake), chips and drinks",
-        "channels_supplied": "Workplaces in Perth suburbs such as Malaga, Osborne Park and Welshpool, with operators in Adelaide, Melbourne, Sydney and Brisbane",
-        "sf_brands_carried": "Healthy Choices category; brands not named",
-        "what_they_do_well": [
-          "Snack range spans Mars, Cadbury, Nestle, Allens and imported Reese's and Hershey's lines."
-        ],
-        "fit_rationale": "Its snack page lists a broad range of other companies' chocolate, sweets, gummies and cookies, which matches Diablo's catalogue closely. It also stocks international lines, so a UK brand fits its range. Storage: sells from its own stock, warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903549927613",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Sense2",
-        "domain": "sense2.com.au",
-        "location": "Australia",
-        "channel": "Promotional merchandise companies",
-        "based_out_of": "Sydney, Australia",
-        "distributes": "Chocolate (Lindt, Toblerone, Cadbury, Ferrero Rocher, Kinder, Ritter Sport), chocolate bars (Mars, Snickers, KitKat), sweets and jelly beans (Jelly Belly, Skittles, M&M's, Allen's, Chupa Chups), biscuits and cookies, energy bars and corporate snack boxes",
-        "channels_supplied": "Corporate clients Australia-wide for giveaways, events and staff and client gifting; also runs US, New Zealand, German and Japanese sites",
-        "sf_brands_carried": "One energy bar line; no sugar-free confectionery brand named",
-        "what_they_do_well": [
-          "Describes itself as Australia's promotional products partner for 30 years, with sister sites in the US, New Zealand, Germany and Japan."
-        ],
-        "fit_rationale": "Australia's broadest promotional confectionery range, built on other companies' branded chocolate, sweets, biscuits and bars, with dedicated biscuits and cookies and energy bar categories that match Diablo's catalogue. Diablo's gift boxes, advent calendars and no-added-sugar chocolate suit its corporate gifting customers. Storage: dispatches nationwide from its Sydney warehouse."
-      }
-    },
-    {
-      "contact_id": "903678872791",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Top Vending Services",
-        "domain": "topvending.com.au",
-        "location": "Sydney, Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Marsden Park, Australia",
-        "distributes": "Branded chocolate and sweets (Cadbury, Nestle, Snickers, Mars, Maltesers, Allen's, Skittles, Toblerone, Dove), biscuits (Tim Tam, Arnotts), bars (Go Natural, Musashi) and chips in its own vending machines",
-        "channels_supplied": "Workplaces in Sydney and across Australia through free machine placement",
-        "sf_brands_carried": "Says healthy and specialty snacks can include gluten-free, organic and sugar-free options; no sugar-free brand named",
-        "what_they_do_well": [
-          "Lists over 25 named snack and confectionery brands for its machines, from Cadbury and Toblerone to Go Natural."
-        ],
-        "fit_rationale": "A Western Sydney operator that places, refills and services its own machines and lists a wide range of branded chocolate, lollies, biscuits and bars. It already offers sugar-free snacks on request, a direct opening for Diablo's chocolate and biscuits. Storage: sells from its own stock, warehouse not named on its website (business at Backman Street, Marsden Park)."
-      }
-    },
-    {
-      "contact_id": "903691767015",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Venda Group",
-        "domain": "venda.au",
-        "location": "Melbourne, Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Melbourne, Australia",
-        "distributes": "Confectionery, protein bars, healthy snacks (protein and nuts), drinks, coffee, ice cream and fresh meals sold through its own vending machines",
-        "channels_supplied": "Free vending at workplaces, industrial sites, hospitals, schools, universities, sports complexes, airports, train stations and convention centres in Melbourne",
-        "sf_brands_carried": "Healthy vending range with protein bars; no sugar-free brand named",
-        "what_they_do_well": [
-          "Reports more than 1,000 clients and stocks machines using real time sales telemetry.",
-          "Launched a free vending machine service for Victorian workplaces."
-        ],
-        "fit_rationale": "Venda owns, installs, stocks and services its machines from Keilor East and earns its margin from product sales, so it buys the snacks it sells. It reports more than 1,000 clients and runs a healthy snack machine line where Diablo bars and chocolate suit hospital and workplace healthy eating rules. Storage: sells from its own stock, warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903695567039",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Vendable Vending Co",
-        "domain": "vendable.com.au",
-        "location": "Melbourne, Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "South Morang, Australia",
-        "distributes": "Chocolate and lollies (Cadbury, Nestle, Starburst), biscuits (Arnott's), chips, nuts and healthy snacks (Musashi), soft drinks and coffee in its own vending machines",
-        "channels_supplied": "Free vending machines supplied, stocked and maintained at client premises across Melbourne",
-        "sf_brands_carried": "Healthy, vegan and gluten-free options among 200+ products; Musashi protein; no sugar-free confectionery brand named",
-        "what_they_do_well": [
-          "Rotates over 200 products, including healthy, vegan and gluten-free lines, with remote monitoring and 24/7 technical support."
-        ],
-        "fit_rationale": "An independent Melbourne operator that supplies, installs, stocks and maintains its machines, rotating over 200 products including Cadbury, Nestle and Arnott's chocolate, lollies and biscuits. Its healthy, vegan and gluten-free rotation is a natural slot for Diablo bars and vegan wafers. Storage: sells from its own stock, warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903438859464",
-      "job_title": "Chief Financial Officer",
-      "seniority": "C-suite",
-      "rank": 1,
-      "company": {
-        "name": "Zouki",
-        "domain": "zouki.com.au",
-        "location": "Australia",
-        "channel": "Hospital and care home shops",
-        "based_out_of": "Melbourne, Australia",
-        "distributes": "Packaged snacks, drinks, gifts, flowers, magazines and everyday convenience items in its hospital convenience stores (Zouki Convenience and Convenience Plus)",
-        "channels_supplied": "Patients, visitors and staff through convenience stores and retail precincts in hospitals such as the Royal Melbourne, Royal Women's and St George hospitals, across 34 sites in Victoria, NSW, Queensland and the ACT",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Won the 10-year contract to run all retail outlets in the new Bendigo Health building, its 15th Victorian hospital contract.",
-          "Takes head leases for hospital retail precincts in Victoria, NSW and the ACT and runs them under its own store brands."
-        ],
-        "fit_rationale": "Zouki holds head leases on whole hospital retail precincts and runs its own branded convenience stores, buying centrally for many hospital sites. Its convenience stores sell snacks and gifts to patients, visitors and staff, a natural shelf for sugar free sweets and chocolate. Sugar free brands carried are not named on its website."
-      }
-    },
-    {
-      "contact_id": "903692097771",
-      "job_title": "National Sales Manager",
-      "seniority": "Managers",
-      "rank": 2,
-      "company": {
-        "name": "Benleigh Vending Systems",
-        "domain": "benleighvending.com.au",
-        "location": "Australia",
-        "channel": "Snack vending operators",
-        "based_out_of": "Wingfield, Australia",
-        "distributes": "Chocolates, snacks, chips, healthy vending items and drinks from well known brands",
-        "channels_supplied": "Free placement vending for businesses in every state, plus machine sales and wholesale vending",
-        "sf_brands_carried": "Healthy vending range (coconut water, tuna, cheese and crackers); brands not named",
-        "what_they_do_well": [
-          "Has around 20 years in vending and offers free placement across all eight states and territories.",
-          "Runs healthy, gym and PPE vending as well as snack and drink machines."
-        ],
-        "fit_rationale": "A long running national operator that places and refills snack and drink machines in every state and says its warehouse stocks well known brands. Its healthy vending category and national reach make it a strong route for Diablo's chocolate and biscuits. Storage: its own warehouse stocks the products it vends."
-      }
-    },
-    {
-      "contact_id": "903698289857",
-      "job_title": "Warehouse Manager",
-      "seniority": "Managers",
-      "rank": 2,
-      "company": {
-        "name": "Chrisco Hampers",
-        "domain": "chrisco.com.au",
-        "location": "Australia",
-        "channel": "Seasonal and gift shops",
-        "based_out_of": "Australia",
-        "distributes": "Chocolate bars and share packs (Cadbury, Nestle, Mars), chocolate coated sweets (M&M's, Smarties), sweets (Fry's Turkish Delight), biscuits and cookies (Arnott's, Oreo) and cereal and snack bars (Uncle Toby's, Nature Valley, Milo) in Christmas hampers",
-        "channels_supplied": "Its own 52 week layby Christmas hamper club, delivered to families across Australia and New Zealand",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Creating Christmas hampers for nearly 40 years for tens of thousands of families in Australia and New Zealand."
-        ],
-        "fit_rationale": "A national Christmas hamper club whose hampers are built entirely from other companies' branded chocolate, sweets, biscuits and bars, bought in and delivered to households each November and December. Diablo's gift boxes, chocolate and biscuits sit naturally next to Cadbury, Arnott's and Uncle Toby's in its confectionery and snack hampers. Store count not applicable: it sells direct to tens of thousands of families."
-      }
-    },
-    {
-      "contact_id": "903665900758",
-      "job_title": "Business Owner",
-      "seniority": "Top leadership",
-      "rank": 2,
-      "company": {
-        "name": "Good Nuts",
-        "domain": "goodnuts.com.au",
-        "location": "Australia",
-        "channel": "Leisure and venue snack suppliers",
-        "based_out_of": "Sydney, Australia",
-        "distributes": "Sweets and gummies (Allen's Freckles, Red Frogs, Minties), chocolate (Lindt, Lindor), biscuits and cookies (Charlie's), bar snacks, nuts and branded snacks (Springhill Farm, Piranha, Brookfarm, Snack Proud), plus seasonal and gift lines",
-        "channels_supplied": "Pubs, clubs, hotels and corporates; named clients include Star Casino, Merivale, ALH Group, Accor and Ibis hotels, Australian Venue Co. and QANTAS",
-        "sf_brands_carried": "Healthy snack brands such as Brookfarm; no sugar free confectionery seen; no direct competitor seen",
-        "what_they_do_well": [
-          "Trading since 1993 and now services more than 1,500 venues across Sydney, Melbourne, Adelaide and Brisbane.",
-          "Supplies venue groups such as Star Casino, Merivale, ALH Group and Accor hotels."
-        ],
-        "fit_rationale": "A family run bar snack and treats distributor that sells other companies' branded sweets, chocolate and biscuits into more than 1,500 pubs, clubs and hotels, the core of this venue channel. Its individually wrapped and portion packs suit Diablo's single serve chocolate, sweets and biscuits. Storage: products packed and stored under HACCP guidelines with national distribution operations; warehouse not named on its website."
-      }
-    },
-    {
-      "contact_id": "903422617801",
-      "job_title": "Business Owner",
-      "seniority": "Top leadership",
-      "rank": 2,
-      "company": {
-        "name": "Good Things Australia",
-        "domain": "goodthings.com.au",
-        "location": "Australia",
-        "channel": "Promotional merchandise companies",
-        "based_out_of": "Australia",
-        "distributes": "Branded confectionery: chocolate (Lindt Lindor, chocolate bars), sweets (Allen's, Skittles, Jelly Belly, M&M's, Mentos), lollipops, mints and snack packs",
-        "channels_supplied": "Corporate clients Australia-wide, including Netflix, Samsung, Afterpay and Petbarn",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Reports 99.4% of jobs delivered on time across more than 21,000 products.",
-          "Lists Netflix, Samsung, Afterpay and L'Oreal Paris among clients."
-        ],
-        "fit_rationale": "Runs a dedicated branded confectionery category built on Allen's, Lindt, M&M's, Mentos and Jelly Belly packs, sold to large corporate brands. Diablo's chocolate, sweets and gift boxes fit its range. Storage: offers in-house warehousing and pick-and-pack; warehouse location not named on its website."
-      }
-    },
-    {
-      "contact_id": "903698205889",
-      "job_title": "Product Owner",
-      "seniority": "Top leadership",
-      "rank": 2,
-      "company": {
-        "name": "Officeworks",
-        "domain": "officeworks.com.au",
+        "name": "Gecko Vending",
+        "domain": "geckovending.com.au",
         "location": "Brisbane, Australia",
-        "channel": "Office snack and pantry suppliers",
-        "based_out_of": "Melbourne, Australia",
-        "distributes": "Workplace food and snacks: biscuits, confectionery, muesli bars, crackers, chips and nuts from brands such as Arnott's and Lotus Biscoff",
-        "channels_supplied": "Own stores across Brisbane and Australia, online shop and business accounts for workplaces",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Runs a dedicated workplace Food and Snacks range with biscuit, confectionery and muesli bar categories, including Arnott's portion packs."
-        ],
-        "fit_rationale": "Australia's main office supplies retailer runs a Food and Snacks category for workplace kitchens with biscuits, confectionery and muesli bars from other brands, sold in portion packs and bulk. It reaches Brisbane offices through its stores and business accounts. Storage: sells from its own stores and online stock."
-      }
-    },
-    {
-      "contact_id": "903678226650",
-      "job_title": "Franchise Owner",
-      "seniority": "Top leadership",
-      "rank": 2,
-      "company": {
-        "name": "Provender",
-        "domain": "provender.au",
-        "location": "Australia",
         "channel": "Snack vending operators",
-        "based_out_of": "Sydney, Australia",
-        "distributes": "Packaged snacks and lollies (sweets), healthy and special dietary snacks, drinks and fresh food through vending machines, smart fridges and micro markets",
-        "channels_supplied": "Workplaces, retail sites and micro markets through local franchise teams in 14 Australian locations",
-        "sf_brands_carried": "Healthy Options and Special Dietary Requirements ranges; brands not named on its website",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Snacks, chocolate bars, gluten free cookies, chips, crackers and popcorn plus drinks and fresh and frozen meals in snack, drink and combo machines",
+        "channels_supplied": "Schools, offices, worksites, gyms and public spaces across South East Queensland; client logos include the University of Queensland, Queensland Health and Australia Post",
+        "sf_brands_carried": "Dedicated healthy range: gluten free, vegan, high protein and dairy free snacks",
         "what_they_do_well": [
-          "Runs fully managed vending in 14 locations from Cairns to Tasmania through its local franchise network.",
-          "Member of the Australian Vending Association and recognised as a Top Franchise Australia 2025 for innovation and support."
+          "Operating for over 15 years with machines at large sites such as the University of Queensland and Queensland Health."
         ],
-        "fit_rationale": "A national vending and micro market operator whose local teams stock and restock snacks and lollies in fully managed machines across 14 locations. Its healthy and special dietary categories suit Diablo's no added sugar sweets, biscuits and bars. Storage: sells from its own stock through local teams, warehouse not named on its website."
+        "fit_rationale": "Long-running Brisbane operator that supplies, fills and services its own machines and runs a separate healthy snack range for schools and health sites. Diablo's no added sugar chocolate, cookies and bars suit both its treat and healthy lines. Storage: sells from its own stock, warehouse not named on its website."
       }
     },
     {
-      "contact_id": "903438859463",
-      "job_title": "General Manager / Business Developement Manager",
+      "contact_id": "903546402035",
+      "job_title": "General Manager Commercial",
       "seniority": "Directors",
-      "rank": 2,
+      "rank": 1,
       "company": {
-        "name": "Zouki",
-        "domain": "zouki.com.au",
-        "location": "Australia",
-        "channel": "Hospital and care home shops",
-        "based_out_of": "Melbourne, Australia",
-        "distributes": "Packaged snacks, drinks, gifts, flowers, magazines and everyday convenience items in its hospital convenience stores (Zouki Convenience and Convenience Plus)",
-        "channels_supplied": "Patients, visitors and staff through convenience stores and retail precincts in hospitals such as the Royal Melbourne, Royal Women's and St George hospitals, across 34 sites in Victoria, NSW, Queensland and the ACT",
+        "name": "Red Dot",
+        "domain": "reddot.com.au",
+        "location": "Perth, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "High Wycombe, Australia",
+        "distributes": "Confectionery: bagged lollies, chocolate, gift confectionery (Cadbury Roses and Toblerone gift pouches), novelty lollies and gum (Mentos, Warheads) and chips, alongside party and seasonal ranges",
+        "channels_supplied": "About 40 Red Dot and Red Dot Home stores across Western Australia plus its online shop",
         "sf_brands_carried": "",
         "what_they_do_well": [
-          "Won the 10-year contract to run all retail outlets in the new Bendigo Health building, its 15th Victorian hospital contract.",
-          "Takes head leases for hospital retail precincts in Victoria, NSW and the ACT and runs them under its own store brands."
+          "Proudly WA owned and operated since 1992, with 40 stores and over 700 West Australian staff."
         ],
-        "fit_rationale": "Zouki holds head leases on whole hospital retail precincts and runs its own branded convenience stores, buying centrally for many hospital sites. Its convenience stores sell snacks and gifts to patients, visitors and staff, a natural shelf for sugar free sweets and chocolate. Sugar free brands carried are not named on its website."
+        "fit_rationale": "WA-owned discount variety, party and seasonal chain with about 40 stores and a confectionery department that sells branded chocolate gift pouches and lollies from other brands. Its seasonal ranges (Halloween, Spring, party) suit Diablo's gift boxes, variety packs and advent calendars, and no sugar-free confectionery is shown, so Diablo would fill a gap."
+      }
+    },
+    {
+      "contact_id": "903681859778",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vend Halen",
+        "domain": "vendhalen.com.au",
+        "location": "Gold Coast, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Loganholme, Australia",
+        "distributes": "Chocolate (Cadbury Dairy Milk, Kit Kat, Snickers, Mars, M&Ms, Twix, Whittaker's), cookies (Cookieman), lollies (Allen's, Pascall), protein bars, chips and other packaged snacks and drinks through vending machines",
+        "channels_supplied": "Workplace vending machines in healthcare, aged care, engineering and trade firms, factories, warehouses, education and offices across the Gold Coast, Logan and Brisbane",
+        "sf_brands_carried": "Marks healthier choices: Muscle Nation protein bar, Piranha snaps, Vege Chips, Cobs popcorn and zero sugar drinks; no sugar-free confectionery",
+        "what_they_do_well": [
+          "Runs 35+ placed machines with 50+ restocks a week across three service areas.",
+          "Uses its own in-house software and sales statistics to tailor each machine's product selection."
+        ],
+        "fit_rationale": "Its own range page lists a wide branded range of chocolate, cookies, lollies and bars from other companies, with healthier choices marked for staff. It tailors each machine's selection from sales data, so a sugar-free chocolate or cookie line can be tested site by site. Storage: buys and holds stock to restock 35+ machines itself, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "903546402036",
+      "job_title": "Area Operations Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Red Dot",
+        "domain": "reddot.com.au",
+        "location": "Perth, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "High Wycombe, Australia",
+        "distributes": "Confectionery: bagged lollies, chocolate, gift confectionery (Cadbury Roses and Toblerone gift pouches), novelty lollies and gum (Mentos, Warheads) and chips, alongside party and seasonal ranges",
+        "channels_supplied": "About 40 Red Dot and Red Dot Home stores across Western Australia plus its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Proudly WA owned and operated since 1992, with 40 stores and over 700 West Australian staff."
+        ],
+        "fit_rationale": "WA-owned discount variety, party and seasonal chain with about 40 stores and a confectionery department that sells branded chocolate gift pouches and lollies from other brands. Its seasonal ranges (Halloween, Spring, party) suit Diablo's gift boxes, variety packs and advent calendars, and no sugar-free confectionery is shown, so Diablo would fill a gap."
       }
     }
   ]
