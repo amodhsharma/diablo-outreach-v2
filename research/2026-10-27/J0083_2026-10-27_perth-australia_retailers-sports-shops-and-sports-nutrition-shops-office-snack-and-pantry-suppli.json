@@ -1,0 +1,431 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0083",
+  "location": "Perth, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 19
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 29
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 23
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 26
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 6,
+      "searches_used": 20
+    }
+  ],
+  "companies": [
+    {
+      "name": "The Source Bulk Foods",
+      "based_out_of": "Sydney, Australia",
+      "domain": "thesourcebulkfoods.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Confectionery and chocolate (chocolate coated nuts and fruit, chocolate slabs and bars, jellies, gummies, liquorice, nougat), gift boxes and snacks, including branded GnG chocolate packs and Misty's salted caramel topping",
+      "channels_supplied": "Five Perth stores (Floreat, Karrinyup, Melville, Mt Hawthorn, Victoria Park) plus a national online shop",
+      "sf_brands_carried": "Sugar free gummy bears and gummy fruits and no added sugar carob buttons; no direct Diablo competitor brand seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A wholefoods chain with five Perth stores whose online confectionery section already sells other companies' brands (GnG, Misty's) next to sugar free gummies, showing demand from health-conscious shoppers. Diablo's vegan and no-added-sugar chocolate, gummies and spreads match the shelf it already runs.",
+      "what_they_do_well": [
+        "Runs five stores across Perth, from Karrinyup to Victoria Park, alongside a national online shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://shop.thesourcebulkfoods.com.au/product-category/confectionery/",
+        "https://thesourcebulkfoods.com.au/stores/"
+      ]
+    },
+    {
+      "name": "The British Lolly Shop",
+      "based_out_of": "Pokolbin, Australia",
+      "domain": "thebritishlollyshop.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Sweets (hard sweets, soft sweets, toffee, liquorice), chocolate bars, biscuits, crisps and gift boxes from UK brands such as Mars, Cadbury, McVitie's, Walkers, Maynards Bassetts and Barratts",
+      "channels_supplied": "Its own online shop shipping across Australia by Australia Post, and its store at Hunter Valley Gardens NSW",
+      "sf_brands_carried": "Has a Sugar Free category; brands in it not shown",
+      "competing_brand_flag": false,
+      "fit_rationale": "An online sweet shop built on imported European branded sweets, chocolate and biscuits, with its own sugar free category, which suits Diablo's UK-made range. It is tier 3 because it reaches Perth shoppers only through online delivery from New South Wales.",
+      "what_they_do_well": [
+        "Sells a wide range of British brands, including Maynards Bassetts, Barratts, McVitie's and Walkers, online across Australia."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.thebritishlollyshop.com.au/product-category/hard-sweets/",
+        "https://www.thebritishlollyshop.com.au/about-us/",
+        "https://www.thebritishlollyshop.com.au/contact-us/"
+      ]
+    },
+    {
+      "name": "Base Nutrition",
+      "based_out_of": "Morley, Australia",
+      "domain": "basenutrition.co",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Protein bars and snacks, cookies (Lenny & Larry's), protein baking mixes, protein banana bread, energy gels, protein powders and supplements",
+      "channels_supplied": "Its flagship store in Morley, Perth, plus its own online shop with click and collect and delivery to interstate customers",
+      "sf_brands_carried": "Low sugar protein bars from Quest Nutrition, Max's, Macro Mike, Fibre Boost, Body Science and Smart Diet Solutions; none is a direct sugar-free confectionery competitor",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Western Australian founded sports nutrition shop whose own website has protein bars and snacks categories with many other brands, including Quest, Max's, Chief, Body Science and Lenny & Larry's cookies. Its health-conscious shoppers already buy better-for-you bars and snacks, so Diablo's no-added-sugar bars, cookies and spreads fit the same shelf. The Morley store is also its warehouse and online dispatch point.",
+      "what_they_do_well": [
+        "Runs its Morley flagship as store, warehouse and online dispatch point, serving local and interstate customers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://basenutrition.co/collections/protein-bar",
+        "https://basenutrition.co/pages/locations",
+        "https://basenutrition.co/",
+        "https://www.yellowpages.com.au/perth-wa-6000/vitamin-products"
+      ]
+    },
+    {
+      "name": "Fat Burners Only",
+      "based_out_of": "Burswood, Australia",
+      "domain": "fatburnersonly.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Protein bars (Snickers, Mars, ATP Science, EHP Labs, Maxine's, PhD, BSc, Veego, Smart Diet Solutions), vegan snacks, protein custard desserts and supplements",
+      "channels_supplied": "Its own online shop with delivery across Australia and click and collect in Perth",
+      "sf_brands_carried": "Low sugar protein bars from Smart Diet Solutions, PhD Smart Bar, Maxine's and BSc; none is a direct sugar-free confectionery competitor",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Perth online sports nutrition retailer whose own website has a protein bars category with about a dozen other brands, including Mars and Snickers protein bars, plus a vegan snacks section. Its weight-conscious shoppers are a close match for Diablo's no-added-sugar bars, chocolate and cookies. Store count is not stated on its website.",
+      "what_they_do_well": [
+        "Customer reviews on its own bars page praise fast next-day delivery and handwritten notes in orders."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.fatburnersonly.com.au/protein/bars",
+        "https://www.avenueperth.com/best-protein-powder-stores-in-perth/",
+        "https://www.localbusinessguide.com.au/western-australia/perth/health-and-fitness/supplements/"
+      ]
+    },
+    {
+      "name": "Altitude Supplements",
+      "based_out_of": "Perth, Australia",
+      "domain": "altitudesupps.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Bars and snacks (Quest protein bars and frosted cookies, Max's, Muscle Nation, Muscle Chef), protein powders, supplements and frozen ready meals",
+      "channels_supplied": "A Perth store (listed at Perth Airport Terminal 2) and its own online shop shipping across Australia",
+      "sf_brands_carried": "Quest protein bars and cookies with about 1g sugar; not a direct sugar-free confectionery competitor",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Perth owned standalone sports and health supplement store whose own website has a Bars and Snacks category with other brands such as Quest cookies and Max's bars. Its shoppers include fly-in fly-out mining workers looking after their health, a good audience for Diablo's no-added-sugar snacks. Tier 3 because it is a single store.",
+      "what_they_do_well": [
+        "Founded by a former mining worker of 13 years, it targets the health needs of shift and fly-in workers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://altitudesupps.com.au/products/quest-protein-bar-copy",
+        "https://altitudesupps.com.au/pages/about-us",
+        "https://au.trustpilot.com/review/altitudesupps.com.au"
+      ]
+    },
+    {
+      "name": "The Running Centre",
+      "based_out_of": "West Perth, Australia",
+      "domain": "therunningcentre.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Sports nutrition fuel: energy bars, gels, hydration and recovery products from brands such as PURE, Pillar, BIX, Tailwind, Koda, Maurten and Hammer",
+      "channels_supplied": "Its running store on Hay Street, West Perth, and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A West Perth running shop whose own website has a fuel section with a Bars category alongside gels and hydration, all from other brands. Health-conscious runners are a good audience for Diablo's muesli and cereal bars. Tier 3 because it is a single store with a small food shelf.",
+      "what_they_do_well": [
+        "Listed by On as an authorised dealer for its running shoes and apparel in West Perth."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://therunningcentre.com.au/collections/sports-nutrition/gels",
+        "https://customer-service.on-running.com/en-au/dealers/the-runing-centre-west-perth"
+      ]
+    },
+    {
+      "name": "Scorpion Vending",
+      "based_out_of": "Perth, Australia",
+      "domain": "scorpionvending.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate bars (Cadbury, Kit Kat, Snickers, Mars, Twix, Maltesers), sweets (Allen's lollies, chewing gum), cookies (Biscoff, Future Bake), protein bars (Clif), chips and drinks in snack and combination vending machines",
+      "channels_supplied": "Workplace vending machines across Perth, snack-only, drink-only or combination",
+      "sf_brands_carried": "Clif protein bars, vege chips and soy crisps; no direct sugar-free confectionery competitor named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family-run Perth operator whose machines already carry branded chocolate, lollies, cookies and bars from other companies, which covers four of Diablo's categories. It customises selections on request, so a sugar-free chocolate bar or cookie suits its workplace sites. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Restocks high-volume workplace sites up to twice weekly, at no cost to the host business."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://scorpionvending.com.au/"
+      ]
+    },
+    {
+      "name": "Vending Trends",
+      "based_out_of": "Perth, Australia",
+      "domain": "vendingtrends.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Chocolate (Cadbury, Mars), muesli and snack bars (Carman's), savoury snacks (Sam Boy, cheese and crackers) and drinks in snack and drink vending machines",
+      "channels_supplied": "Snack and drink vending machines in businesses across the Perth metro area",
+      "sf_brands_carried": "Carman's (better-for-you bars); no direct competitor named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A local, family-owned Perth vending supplier that stocks branded chocolate and Carman's bars from other companies, so Diablo's chocolate bars and muesli bars fit its machines. It supplies the initial stock and restocks machines itself. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Family-owned Perth operator covering delivery, installation, stock, restocking and repairs at no charge to host businesses."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vendingtrends.com.au/"
+      ]
+    },
+    {
+      "name": "Smart Vending",
+      "based_out_of": "Perth, Australia",
+      "domain": "smartvending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Chocolate bars (Cadbury, Kit Kat, Snickers, Twirl, M&M's), chips and savoury snacks (Smith's, Kettle, Cheezels, Thins) and drinks in snack, drink and combo vending machines",
+      "channels_supplied": "Offices, hotels, industrial sites, government, manufacturing and engineering sites, call centres and university campuses in Perth",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Perth free-vending operator, established in 2020, that stocks well known and new-to-market snack brands from other companies, led by branded chocolate bars. Diablo's chocolate bars and wafers suit its office and campus machines. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Serves offices, hotels, government, industrial and university campus sites across Perth, with restocking and maintenance included."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://smartvending.com.au/"
+      ]
+    },
+    {
+      "name": "Automata Group",
+      "based_out_of": "Perth, Australia",
+      "domain": "automatagroup.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Packaged snacks, protein snacks and cold drinks in snack machines, combo machines, smart coolers and micro markets",
+      "channels_supplied": "Gyms, workshops, offices, warehouses, medical, retail and industrial sites in Perth's northern corridor (Joondalup, Wanneroo, Wangara, Balcatta)",
+      "sf_brands_carried": "Lower-sugar drinks, protein snacks and healthier options; brands not named on its website",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Perth operator that installs, stocks and restocks snack machines and micro markets and offers mainstream and healthier options, which suits Diablo's sugar-free bars and snacks for gyms and medical sites. Tier 3 because it serves only the northern corridor and its website names no snack brands. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Remotely monitored cashless machines serviced on usage, with the product mix revised at underperforming sites."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.automatagroup.com.au/",
+        "https://www.automatagroup.com.au/vending-machines-perth-north"
+      ]
+    },
+    {
+      "name": "Nosh Gourmet Food & Gifts",
+      "based_out_of": "East Victoria Park, Perth, Australia",
+      "domain": "noshgourmet.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift hampers with chocolate (Nakamura Chocolates, Gabriel Chocolate), biscuits (Simply Beautiful Biscuits, The Tea Cookie Co.), fudge, nougat and toffees (Chaos Fudge, The Toffee Factory, Mondo Nougat) and savoury snacks",
+      "channels_supplied": "Corporate gifting clients, its East Victoria Park store and online shop, delivery across Perth and Australia",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth hamper house specialising in personalised corporate gifting, built on chocolate, biscuits and sweets from more than 40 named WA suppliers. A sister business, Small Batch Workshop Co, supplies part of its chocolate, but most lines are other companies' brands. Storage: sells from its own stock and store, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Creating luxury gift hampers in Perth since 2011, with personalised corporate gifting and Australia-wide delivery.",
+        "Publishes a supplier list of over 40 Western Australian producers it stocks."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://noshgourmet.com.au/",
+        "https://noshgourmet.com.au/pages/our-suppliers",
+        "https://noshgourmet.com.au/products/chocolate-connoisseur",
+        "https://www.yellowpages.com.au/victoria-park-wa-6979/gift-baskets-hampers"
+      ]
+    },
+    {
+      "name": "Luxxe Hampers",
+      "based_out_of": "Perth, Australia",
+      "domain": "luxxehampers.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Corporate gift hampers with chocolate (Chocamama, Whistlers), fudge (Golden Whisk), biscuits (Charlie's Cookies, Knutsford Gourmet gingerbread), crackers and nut snacks",
+      "channels_supplied": "Corporate clients, staff and events, custom-branded hampers, Perth metro delivery from its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth corporate hamper specialist whose product pages list branded chocolate, fudge, biscuits and snacks from other Australian makers. Its office share hampers suit Diablo's chocolate, biscuits and gift boxes. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers custom-branded and bespoke corporate hampers for clients, staff and events in Perth."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://luxxehampers.com.au/",
+        "https://luxxehampers.com.au/product/christmas-office-share-gift-hamper-no-alcohol/",
+        "https://luxxehampers.com.au/product-category/under-200/"
+      ]
+    },
+    {
+      "name": "Lollypotz",
+      "based_out_of": "Perth, Australia",
+      "domain": "lollypotz.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Chocolate and lolly bouquets, corporate chocolate hampers and custom gifts using Ferrero Rocher and Cadbury chocolates",
+      "channels_supplied": "Corporate clients (logo ribbons and company colours) and consumers through its online shop and Perth franchise",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Chocolate gift company whose corporate page says it fills its hampers with branded Ferrero Rocher and Cadbury chocolates and wraps them in clients' colours. Branded wrapped chocolate is exactly where Diablo's chocolate and sweets fit. Head office location not stated on the page read; a Perth outlet is listed in the yellow pages. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Customises corporate chocolate gifts in company colours with logo ribbons."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.lollypotz.com.au/shop/category/corporate",
+        "https://www.yellowpages.com.au/morley-wa-6943/gift-baskets-hampers"
+      ]
+    },
+    {
+      "name": "Little Gift Box",
+      "based_out_of": "Perth, Australia",
+      "domain": "littlegiftbox.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Gift hampers with biscuits, chocolate (Whistler's, Cuvee), fudge, nougat, rock candy sweets, dessert sauces and conserves (jams)",
+      "channels_supplied": "Corporate hampers and consumers, same-day Perth delivery from its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth family-owned gifting company that curates products from WA makers into corporate and personal hampers. Its pages show biscuits, chocolate, sweets, sauces and conserves, matching several Diablo categories. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Same-day Perth delivery on orders placed by 12pm on weekdays."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.littlegiftbox.com.au/",
+        "https://www.littlegiftbox.com.au/product-page/afternoon-tea-gift-hamper",
+        "https://www.littlegiftbox.com.au/product-page/christmas-indulgence-gift-box"
+      ]
+    },
+    {
+      "name": "WA Gifts and Hampers",
+      "based_out_of": "Perth, Australia",
+      "domain": "wagiftsandhampers.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Corporate gift hampers with chocolate, nougat and sweet treats, nuts and crackers and beer snack packs from WA businesses",
+      "channels_supplied": "Corporate clients, hand delivery in Perth CBD and suburbs, Australia Post shipping elsewhere",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth corporate gifting company that curates products from local WA independent businesses, with chocolate and sweet treats as a named category. Tier 3 because its site names no brands. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers in-person or phone consultations to curate corporate gifts by product, price and presentation."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://wagiftsandhampers.com.au/pages/corporate-gifting"
+      ]
+    },
+    {
+      "name": "The Grateful Gift Co",
+      "based_out_of": "Perth, Australia",
+      "domain": "thegratefulgiftco.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Custom gift boxes and hampers with chocolates and gourmet snacks (chocolate gift towers, curated snack gift boxes)",
+      "channels_supplied": "Corporate clients (branded gift boxes, bulk orders) and consumers through its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth gift box company with a corporate service, company branding and bulk discounts, selling chocolate and snack gift boxes. Tier 3 because its site names no chocolate or snack brands. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers corporate gift boxes customised with company branding and bulk-order discounts."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.thegratefulgiftco.com.au/collections/gift-boxes"
+      ]
+    }
+  ]
+}
