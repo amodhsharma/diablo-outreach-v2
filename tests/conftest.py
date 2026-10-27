@@ -65,3 +65,6 @@ def no_real_daily_log(tmp_path, monkeypatch):
     monkeypatch.setattr(daily_log, "LOG_FILE", tmp_path / "daily_log.json")
     monkeypatch.delenv("DAILY_REPORT_TO", raising=False)
     monkeypatch.delenv("DAILY_REPORT_APP_PASSWORD", raising=False)
+    monkeypatch.delenv("REPLY_FORWARD_TO", raising=False)
+    from outreach import reply_forward
+    monkeypatch.setattr(reply_forward, "FILE", tmp_path / "forwarded_replies.json")

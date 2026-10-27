@@ -81,6 +81,9 @@ jobs:
         env:
           INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
           INSTANTLY_BLOCKLIST_KEY: ${{ secrets.INSTANTLY_BLOCKLIST_KEY }}
+          # 27 Oct 2026: real replies forwarded to this address from admin@diablosnosugar.com
+          REPLY_FORWARD_TO: ${{ secrets.REPLY_FORWARD_TO }}
+          DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
         run: python -m outreach.sync --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
 
       - name: "2. Send person 1's introduction (GATE2 people at new companies)"
@@ -103,7 +106,7 @@ jobs:
         if: always()
         run: |
           bash .github/scripts/save_changes.sh "Send and follow up ($MODE)" diagnostics/instantly_status.md \
-            diagnostics/sync_last_run.md data/timeline_notes.json data/daily_log.json
+            diagnostics/sync_last_run.md data/timeline_notes.json data/daily_log.json data/forwarded_replies.json
 
       - uses: actions/upload-artifact@v6
         if: always()
