@@ -1,0 +1,117 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0088",
+  "location": "Gold Coast, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 52
+    }
+  ],
+  "companies": [
+    {
+      "name": "Gifts on the Gold Coast",
+      "based_out_of": "Maudsland, Australia",
+      "domain": "giftsonthegoldcoast.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift hampers with branded chocolate (Lindt, Ferrero Rocher, Whittaker's, Cadbury, Toblerone), gummies and jelly sweets (Haribo, The Natural Confectionery Co, Darrell Lea), cookies (Byron Bay Cookies), fudge, popcorn and snacks, plus cheese and fruit hampers",
+      "channels_supplied": "Its own online shop with free same-day delivery across the Gold Coast and Mt Tamborine; personal and corporate gift buyers",
+      "sf_brands_carried": "Avalanche sugar-free drinking chocolate in one hamper; no sugar-free confectionery brand seen, so no direct competitor",
+      "competing_brand_flag": false,
+      "fit_rationale": "Locally owned Gold Coast hamper retailer whose chocolate hamper page lists many branded sweets, chocolates and cookies from other companies, including European brands such as Lindt, Ferrero and Haribo. It already adds a sugar-free item to hampers, so Diablo's sugar-free chocolate, gummies and gift boxes fit its range for health-conscious and diabetic gift buyers. Store count: one online shop serving the Gold Coast.",
+      "what_they_do_well": [
+        "Offers free same-day delivery across the Gold Coast for orders placed by midday on weekdays.",
+        "Holds a 4.9 star rating from 169 Google reviews, shown on its home page."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.giftsonthegoldcoast.com.au/chocolate-hampers-gold-coast",
+        "https://www.giftsonthegoldcoast.com.au/",
+        "https://www.giftsonthegoldcoast.com.au/blog/top-rated-local-hamper-company-gold-coast"
+      ]
+    },
+    {
+      "name": "Gift Box Gallery",
+      "based_out_of": "Nerang, Australia",
+      "domain": "giftboxgallery.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift boxes and Christmas hampers with branded chocolate (Chocolatier, Ferrero), cookies (Byron Bay Cookie Company), boiled sweets (Ogilvie & Co humbugs), fudge, caramel popcorn and snack mixes, plus wine",
+      "channels_supplied": "Its own online shop; corporate clients and personal gift buyers, with local Gold Coast delivery and Australia-wide shipping",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Gold Coast gift box retailer whose product pages list other companies' chocolates, cookies, sweets and snacks, and which runs a large corporate Christmas hamper range each year. Diablo's gift boxes, advent calendars and sugar-free chocolate would give it a no-added-sugar option for corporate orders. One online shop; staff numbers not stated on its website.",
+      "what_they_do_well": [
+        "Has traded as a local Gold Coast gift business for 26 years, per its own blog.",
+        "Offers over 30 Christmas hamper options with business branding for corporate orders."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.giftboxgallery.com.au/gourmet-snacker",
+        "https://www.giftboxgallery.com.au/blog/our-blog/the-perfect-corporate-christmas-hampers-gold-coast",
+        "https://www.giftboxgallery.com.au/"
+      ]
+    },
+    {
+      "name": "Coast and Banks",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "coastandbanks.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Curated gift boxes with a chocolate lovers collection featuring chocolate pralines and bars from Gold Coast brand Little Cocoa, plus nut mixes, jerky, condiments, wine and gin",
+      "channels_supplied": "Its own online shop; corporate gifting, real estate settlement and personal gift buyers, shipping Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Gold Coast gift box retailer that buys from other brands and has its own chocolate gift box collection. It is small and leans on local makers, so only chocolate from our catalogue is confirmed; tier 3. Diablo's chocolate gift boxes could give its corporate range a sugar-free choice.",
+      "what_they_do_well": [
+        "Gives one dollar from every gift box to Muscular Dystrophy Queensland.",
+        "Publishes a yearly corporate Christmas gifting catalogue for Gold Coast businesses."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://coastandbanks.com.au/collections/gift-boxes-for-the-chocolate-lovers",
+        "https://coastandbanks.com.au/pages/meet-our-makers",
+        "https://coastandbanks.com.au/"
+      ]
+    },
+    {
+      "name": "Grandma's Lollies and Gifts",
+      "based_out_of": "Mermaid Waters, Australia",
+      "domain": "grandmaslolliesandgifts.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Local and imported sweets and candy from New Zealand, the UK and the USA, chocolates, liquorice, sour lollies, bulk lollies and gift boxes, plus balloons and party supplies",
+      "channels_supplied": "Its shop at the Gold Coast Super Centre, Mermaid Waters, and an online shop",
+      "sf_brands_carried": "Lists dairy-free, gluten-free and plant-based options; no sugar-free brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A lolly and gift shop selling other brands' imported sweets, chocolates and gift boxes to Gold Coast shoppers, a direct fit for Diablo's gummies, chocolate and gift boxes. Website did not open; trading confirmed on localsearch.com.au, so it is tier 3 and its brand list could not be read.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.localsearch.com.au/profile/grandma-s-lollies-and-gifts/mermaid-waters-qld/mCYe",
+        "https://www.localsearch.com.au/find/lolly-shops/gold-coast-qld"
+      ]
+    }
+  ]
+}
