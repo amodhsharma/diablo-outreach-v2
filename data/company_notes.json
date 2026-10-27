@@ -5086,6 +5086,25 @@
     "research_file": "research/2026-10-20/J0003_2026-10-20_bern-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "eatsweetlollies.com.au": {
+    "name": "Eat Sweet Lollies",
+    "based_out_of": "North Lakes, Australia",
+    "market": "Brisbane, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A family owned online lolly shop on Brisbane's northside that sources branded sweets from around the world and sells seasonal gift boxes for Halloween, Valentine's Day and Christmas. It already has a UK range and vegan friendly and gluten free sections, so Diablo's gummies and chocolate fit. It is small.",
+    "what_they_do_well": [
+      "Runs seasonal Halloween, Valentine's Day and Christmas lolly boxes alongside its UK and Kiwi ranges."
+    ],
+    "distributes": "Lollies, gummies, chocolates, hard lollies and sours from Australia, New Zealand, the UK and elsewhere, including Nerds, plus seasonal boxes for Halloween, Valentine's Day and Christmas",
+    "channels_supplied": "Its own online shop with local delivery and pick up in Brisbane's northside",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0082_2026-10-27_brisbane-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "ebi-pharm.ch": {
     "name": "ebi-pharm AG",
     "based_out_of": "Kirchlindach, Switzerland",
@@ -14926,6 +14945,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "shindigs.com.au": {
+    "name": "Shindigs",
+    "based_out_of": "Australia, head office not stated on its website",
+    "market": "Brisbane, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A national online party and seasonal retailer with a deep lollies department of branded sweets and a dedicated Halloween confectionery range, which suits Diablo's gift boxes, gummies and chocolate for party and seasonal occasions. Its site claims more than 750,000 customers and 18,000 products. No sugar free shelf was seen, which leaves room for Diablo.",
+    "what_they_do_well": [
+      "Runs a dedicated Halloween confectionery and candy buffet range alongside its party supplies.",
+      "Claims more than 750,000 customers and 18,000 products on its online shop."
+    ],
+    "distributes": "Party and seasonal confectionery: chocolate, gummies and jelly sweets, hard candy, jelly beans, lollipops, marshmallows, American candy and savoury snacks, including Allens lollies and a Halloween confectionery range",
+    "channels_supplied": "Its own online party supplies shop, shipping to shoppers across Australia including Brisbane",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0082_2026-10-27_brisbane-australia_seasonal-and-gift-shops.json"
+  },
   "shop.thedeli.co.za": {
     "name": "The Deli Online",
     "based_out_of": "Durbanville, South Africa",
@@ -15611,6 +15649,23 @@
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0010_2026-10-15_jena-germany_distributors.json"
   },
+  "sugarrushdayboro.com.au": {
+    "name": "Sugar Rush Dayboro",
+    "based_out_of": "Dayboro, Australia",
+    "market": "Brisbane, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A boutique confectionery and gift shop in the Moreton Bay hinterland with about 172 products online, selling Allen's and other branded sweets plus packaged gift boxes for celebrations. Diablo's gummies and gift boxes suit its range. It is a single small shop with an online store.",
+    "what_they_do_well": [],
+    "distributes": "Branded and pick and mix lollies (Allen's Pineapples, Killer Pythons, Strawberries & Cream), gummies, freeze dried candy, Australian chocolate, gift boxes and lolly platters",
+    "channels_supplied": "Its own shop in Dayboro in the Moreton Bay region of greater Brisbane and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0082_2026-10-27_brisbane-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "suma.coop": {
     "name": "Suma Wholefoods",
     "based_out_of": "Elland, United Kingdom",
@@ -16114,6 +16169,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "sweetpickings.com.au": {
+    "name": "Sweet Pickings",
+    "based_out_of": "Riverview, Australia",
+    "market": "Brisbane, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An owner-run lolly retailer in the Ipswich area of greater Brisbane that already stocks European and UK branded sweets, so Diablo's UK gummies, hard sweets and chocolate fit its imported shelves. It has two shops and an online store since 2022; its reach is small.",
+    "what_they_do_well": [
+      "Grew from one Riverview shop to a second Ipswich shop and an online store opened in August 2022."
+    ],
+    "distributes": "Pick and mix and packaged sweets from New Zealand, the UK, the EU and the USA, including Kingsway UK sweets, Pez, gummies and fizzy sweets, plus mystery snack boxes and event lolly bags",
+    "channels_supplied": "Its own shops in Riverview and Ipswich, Queensland, its online shop with click and collect, and catering for events",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0082_2026-10-27_brisbane-australia_seasonal-and-gift-shops.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "sweetsbrands.co.za": {
@@ -16894,6 +16968,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0056_2026-10-26_cape-town-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "thesweetgiftorium.com.au": {
+    "name": "The Sweet Giftorium",
+    "based_out_of": "East Maitland, Australia",
+    "market": "Brisbane, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An online sweets gift store built around seasonal and occasion collections for Christmas, Easter, Valentine's Day and corporate gifting, using other brands' lollies and imported British sweets. Diablo's gift boxes, gummies and chocolate fit those boxes. It reaches Brisbane only by Australia wide shipping.",
+    "what_they_do_well": [],
+    "distributes": "Lolly gift boxes, grazing boxes and pick and mix with branded sweets (Allen's, Skittles), British and imported sweets, chocolate and seasonal Christmas and Easter gifts",
+    "channels_supplied": "Its own online gift shop shipping across Australia, including Brisbane; corporate gifts",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0082_2026-10-27_brisbane-australia_seasonal-and-gift-shops.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "thetrail.co": {
@@ -18740,6 +18831,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "whowants2party.com.au": {
+    "name": "Who Wants 2 Party",
+    "based_out_of": "Australia, head office not stated on its website",
+    "market": "Brisbane, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An online kids party and Halloween retailer with a bulk lollies, candy and chocolates section of branded and unbranded packs, which suits Diablo's gummies and variety packs for party bags. Its range names few brands and its reach into Brisbane is by post only.",
+    "what_they_do_well": [],
+    "distributes": "Bulk party lollies, chocolates and candy, including Cadbury Fresha lollies, jelly beans, chocolate buttons, gummies and marshmallows, plus Halloween supplies",
+    "channels_supplied": "Its own online party supplies shop shipping Australia wide, including Brisbane",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0082_2026-10-27_brisbane-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "whsmith.co.uk": {
     "name": "WHSmith (travel)",
