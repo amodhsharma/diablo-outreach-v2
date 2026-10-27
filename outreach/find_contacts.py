@@ -224,8 +224,7 @@ def gate1_summary(total, rows, full, tried, left, cfg, held=None):
         lines.append(f"- {_n(len(no_more))} had fewer than {per} contacts and Apollo had nobody else; "
                      f"{'they go' if len(no_more) != 1 else 'it goes'} ahead with the contacts "
                      f"{'they have' if len(no_more) != 1 else 'it has'}, and Apollo is checked again next month: "
-                     f"{_names(no_more)} (0 contacts) (their contacts are left as they are, usually New; once the "
-                     "personal line is written you can set them to GATE2: Approved to send by hand)")
+                     f"{_names(no_more)} (0 contacts)")
     if no_site:
         lines.append(f"- {_n(len(no_site))} {_has(len(no_site))} no website in HubSpot: {_names(no_site)} (0 contacts)")
     # Not run this time: only how many companies wait for the next run, with no contact count (Ariel,

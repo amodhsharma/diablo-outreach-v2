@@ -147,7 +147,7 @@ def test_the_summary_line_counts_every_company_on_gate_1():
 - Found 1 contact for 2 companies (1 of them topped up, 1 of them a company inbox) (2 contacts)
 - 1 company already has contacts in the CRM: Kanela (0 contacts)
 - 2 companies had no contacts at any source, might need manual intervention: Sport Benzin, Go Fitness (0 contacts)
-- 1 company had fewer than 2 contacts and Apollo had nobody else; it goes ahead with the contacts it has, and Apollo is checked again next month: E (0 contacts) (their contacts are left as they are, usually New; once the personal line is written you can set them to GATE2: Approved to send by hand)
+- 1 company had fewer than 2 contacts and Apollo had nobody else; it goes ahead with the contacts it has, and Apollo is checked again next month: E (0 contacts)
 
 Not run this time:
 - Waiting to run 1 company"""
