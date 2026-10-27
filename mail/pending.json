@@ -1,26 +1,5 @@
 {
-  "generated_at": "2026-10-27T06:30:55+00:00",
+  "generated_at": "2026-10-27T07:00:23+00:00",
   "target": "live",
-  "contacts": [
-    {
-      "contact_id": "902957800658",
-      "job_title": "",
-      "seniority": "Everyone else",
-      "rank": 3,
-      "company": {
-        "name": "FELFEL",
-        "domain": "felfel.ch",
-        "location": "Zurich, Switzerland",
-        "channel": "Office snack and pantry suppliers",
-        "based_out_of": "Zurich, Switzerland",
-        "distributes": "Branded packaged snacks and chocolate snacks (Kinder), crisps (Zweifel) and drinks through its USEGO office snack service, plus fresh meals, fruit boxes and coffee",
-        "channels_supplied": "Offices and workplaces across Switzerland and Liechtenstein through smart fridges and its USEGO snack and drinks service",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Swiss family-run workplace catering business founded in Zurich in 2013, serving Switzerland and Liechtenstein."
-        ],
-        "fit_rationale": "FELFEL was founded in Zurich and its USEGO service restocks offices weekly with popular snacks and drinks from top brands such as Kinder and Zweifel, sold to employees as they are. Diablo's chocolate, bars and biscuits would suit its health-led workplace offer. Storage: sells from its own stock, warehouse not named on its website."
-      }
-    }
-  ]
+  "contacts": []
 }
