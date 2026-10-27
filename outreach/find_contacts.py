@@ -183,52 +183,64 @@ def _names(rows):
     return ", ".join(r.get("company") or "a company" for r in rows)
 
 
-def gate1_summary(total, rows, full, tried, left, cfg):
+def _c(count):
+    return f"{count} contact{'s' if count != 1 else ''}"
+
+
+def gate1_summary(total, rows, full, tried, left, cfg, held=None):
     """Button 3's summary page (Ariel, 26 and 27 Oct 2026): what this run did with the companies on
-    GATE1, then the ones it did not run, each company counted once."""
-    per = cfg["per_company"]
-    lines = [f"Out of {total} companies on GATE 1: ran {len(rows)}"]
+    GATE1, then the ones it did not run, each company counted once, with the number of contacts: those
+    added by this run, and those the companies not run already have. held: {company ID: contacts}."""
+    per, held = cfg["per_company"], held or {}
+
+    def has(companies):
+        return sum(int(held.get(str(c.get("id")), 0)) for c in companies)
+
     by_count = {}
     for r in rows:
         if r.get("contacts"):
             by_count.setdefault(r["contacts"], []).append(r)
+    added = sum(r.get("contacts") or 0 for r in rows)
+    lines = [f"Out of {total} companies on GATE 1: ran {len(rows)} (Total {_c(added)})"]
     for n, rs in sorted(by_count.items(), reverse=True):
         topped = sum(1 for r in rs if r.get("kind") == "topup")
         inbox = sum(1 for r in rs if r.get("result") == "company inbox added")
         extra = [x for x in (f"{topped} of them topped up" if topped else "",
                              f"{inbox} of them a company inbox" if inbox else "") if x]
         lines.append(f"- Found {n} contact{'s each' if n != 1 else ''} for {_n(len(rs))}"
-                     + (f" ({', '.join(extra)})" if extra else ""))
+                     + (f" ({', '.join(extra)})" if extra else "") + f" ({_c(n * len(rs))})")
     if rows and not by_count:
-        lines.append("- No new contacts found in this run")
+        lines.append("- No new contacts found in this run (0 contacts)")
     exists = [r for r in rows if r.get("exists")]
     nowhere = [r for r in rows if r.get("nowhere")]
     no_more = [r for r in rows if r.get("result") == "no more found"]
     no_site = [r for r in rows if r.get("result") == "no domain"]
     if exists:
-        lines.append(f"- {_n(len(exists))} already {_has(len(exists))} contacts in the CRM: {_names(exists)}")
+        lines.append(f"- {_n(len(exists))} already {_has(len(exists))} contacts in the CRM: {_names(exists)} (0 contacts)")
     if nowhere:
         lines.append(f"- {_n(len(nowhere))} had no contacts at any source, might need manual intervention: "
-                     f"{_names(nowhere)}")
+                     f"{_names(nowhere)} (0 contacts)")
     if no_more:
         lines.append(f"- {_n(len(no_more))} had fewer than {per} contacts and Apollo had nobody else; "
                      f"{'they go' if len(no_more) != 1 else 'it goes'} ahead with the contacts "
                      f"{'they have' if len(no_more) != 1 else 'it has'}, and Apollo is checked again next month: "
-                     f"{_names(no_more)}")
+                     f"{_names(no_more)} (0 contacts)")
     if no_site:
-        lines.append(f"- {_n(len(no_site))} {_has(len(no_site))} no website in HubSpot: {_names(no_site)}")
+        lines.append(f"- {_n(len(no_site))} {_has(len(no_site))} no website in HubSpot: {_names(no_site)} (0 contacts)")
     rest = []
     if full:
         rest.append(f"- {_n(len(full))} already {_has(len(full))} {per} people and "
-                    f"{'wait' if len(full) != 1 else 'waits'} for gate 2: {_names(_props(full))}")
+                    f"{'wait' if len(full) != 1 else 'waits'} for gate 2: {_names(_props(full))} ({_c(has(full))})")
     if tried:
         rest.append(f"- {_n(len(tried))} {_has(len(tried))} fewer than {per} contacts, and Apollo had nobody else "
                     f"when checked earlier this month; {'they go' if len(tried) != 1 else 'it goes'} ahead with the "
-                    f"contacts {'they have' if len(tried) != 1 else 'it has'}, and Apollo is checked again next month")
+                    f"contacts {'they have' if len(tried) != 1 else 'it has'}, and Apollo is checked again next month "
+                    f"({_c(has(tried))})")
     if left:
-        rest.append(f"- {_n(len(left))} left for the next run ({cfg['companies_per_run']} companies per run)")
+        rest.append(f"- {_n(len(left))} left for the next run ({cfg['companies_per_run']} companies per run) "
+                    f"({_c(has(left))})")
     if rest:
-        lines += ["", "Not run this time:"] + rest
+        lines += ["", f"Not run this time: (Total {_c(has(full) + has(tried) + has(left))})"] + rest
     return "\n".join(lines)
 
 
@@ -304,8 +316,10 @@ def run(target, settings, hs, apollo, log=print):
     ours = {str(r["id"]): r for r in hs.tagged_read("contacts", linked, ["email", "jobtitle", ORDER])} if linked else {}
     topped, month = load_topped(), _month()
     fresh, topup, full, tried = [], [], [], []
+    held = {}  # company ID: the AUTO-OUTREACH contacts it already has (for the summary)
     for c in approved:
         mine = [ours[x] for x in links.get(str(c["id"])) or [] if x in ours]
+        held[str(c["id"])] = len(mine)
         people = [m for m in mine if not is_company_inbox(m)]
         if not mine:
             fresh.append((c, None))
@@ -339,7 +353,7 @@ def run(target, settings, hs, apollo, log=print):
         save_topped(topped)
     done_ids = {r.get("company_id") for r in log_rows}
     left = [c for c, _ in companies if str(c["id"]) not in done_ids] + [c for c, _ in left]
-    gate1 = gate1_summary(len(approved), log_rows, full, tried, left, cfg)
+    gate1 = gate1_summary(len(approved), log_rows, full, tried, left, cfg, held)
     if linked_summary.get("unlinked"):
         gate1 += "\n\n" + unlinked_summary(hs, linked_summary["unlinked"])
     step_summary("## Button 3: companies on GATE 1\n\n" + gate1)

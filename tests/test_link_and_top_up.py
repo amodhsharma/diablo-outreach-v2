@@ -138,16 +138,18 @@ def test_the_summary_line_counts_every_company_on_gate_1():
             {"company": "Go Fitness", "contacts": 0, "kind": "new", "nowhere": True, "result": "no contacts found"},
             {"company": "E", "contacts": 0, "kind": "topup", "result": "no more found"}]
     cfg = {"per_company": 2, "companies_per_run": 25}
-    full = [{"properties": {"name": "Full One"}}, {"properties": {"name": "Full Two"}}]
-    text = find_contacts.gate1_summary(13, rows, full=full, tried=[{}], left=[{}], cfg=cfg)
-    assert text == """Out of 13 companies on GATE 1: ran 8
-- Found 2 contacts each for 2 companies
-- Found 1 contact for 2 companies (1 of them topped up, 1 of them a company inbox)
-- 1 company already has contacts in the CRM: Kanela
-- 2 companies had no contacts at any source, might need manual intervention: Sport Benzin, Go Fitness
-- 1 company had fewer than 2 contacts and Apollo had nobody else; it goes ahead with the contacts it has, and Apollo is checked again next month: E
+    full = [{"id": "f1", "properties": {"name": "Full One"}}, {"id": "f2", "properties": {"name": "Full Two"}}]
+    held = {"f1": 4, "f2": 2, "t1": 1, "l1": 0}
+    text = find_contacts.gate1_summary(13, rows, full=full, tried=[{"id": "t1"}], left=[{"id": "l1"}], cfg=cfg,
+                                       held=held)
+    assert text == """Out of 13 companies on GATE 1: ran 8 (Total 6 contacts)
+- Found 2 contacts each for 2 companies (4 contacts)
+- Found 1 contact for 2 companies (1 of them topped up, 1 of them a company inbox) (2 contacts)
+- 1 company already has contacts in the CRM: Kanela (0 contacts)
+- 2 companies had no contacts at any source, might need manual intervention: Sport Benzin, Go Fitness (0 contacts)
+- 1 company had fewer than 2 contacts and Apollo had nobody else; it goes ahead with the contacts it has, and Apollo is checked again next month: E (0 contacts)
 
-Not run this time:
-- 2 companies already have 2 people and wait for gate 2: Full One, Full Two
-- 1 company has fewer than 2 contacts, and Apollo had nobody else when checked earlier this month; it goes ahead with the contacts it has, and Apollo is checked again next month
-- 1 company left for the next run (25 companies per run)"""
+Not run this time: (Total 7 contacts)
+- 2 companies already have 2 people and wait for gate 2: Full One, Full Two (6 contacts)
+- 1 company has fewer than 2 contacts, and Apollo had nobody else when checked earlier this month; it goes ahead with the contacts it has, and Apollo is checked again next month (1 contact)
+- 1 company left for the next run (25 companies per run) (0 contacts)"""
