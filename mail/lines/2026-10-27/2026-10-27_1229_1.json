@@ -1,0 +1,15 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-27T06:30:55+00:00",
+  "lines": [
+    {
+      "contact_id": "902957800658",
+      "company_name": "FELFEL",
+      "personal_line": "We have great respect for the way your team keeps workplaces stocked with snacks, drinks and fresh meals for the people who work in them. Your service reaches staff throughout the working day, and we believe sugar free snacks may suit those very same colleagues. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "keeps offices stocked with snacks and drinks for their staff",
+      "style": "E"
+    }
+  ]
+}
