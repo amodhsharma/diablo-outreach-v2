@@ -227,20 +227,12 @@ def gate1_summary(total, rows, full, tried, left, cfg, held=None):
                      f"{_names(no_more)} (0 contacts)")
     if no_site:
         lines.append(f"- {_n(len(no_site))} {_has(len(no_site))} no website in HubSpot: {_names(no_site)} (0 contacts)")
-    rest = []
-    if full:
-        rest.append(f"- {_n(len(full))} already {_has(len(full))} {per} people and "
-                    f"{'wait' if len(full) != 1 else 'waits'} for gate 2: {_names(_props(full))} ({_c(has(full))})")
-    if tried:
-        rest.append(f"- {_n(len(tried))} {_has(len(tried))} fewer than {per} contacts, and Apollo had nobody else "
-                    f"when checked earlier this month; {'they go' if len(tried) != 1 else 'it goes'} ahead with the "
-                    f"contacts {'they have' if len(tried) != 1 else 'it has'}, and Apollo is checked again next month "
-                    f"({_c(has(tried))})")
+    # Not run this time: only the companies left for the next run (Ariel, 27 Oct 2026). The companies
+    # an earlier run already dealt with (full, or short and already checked this month) are not listed.
     if left:
-        rest.append(f"- {_n(len(left))} left for the next run ({cfg['companies_per_run']} companies per run) "
-                    f"({_c(has(left))})")
-    if rest:
-        lines += ["", f"Not run this time: (Total {_c(has(full) + has(tried) + has(left))})"] + rest
+        lines += ["", f"Not run this time: (Total {_c(has(left))})",
+                  f"- {_n(len(left))} left for the next run ({cfg['companies_per_run']} companies per run) "
+                  f"({_c(has(left))})"]
     return "\n".join(lines)
 
 

@@ -149,7 +149,5 @@ def test_the_summary_line_counts_every_company_on_gate_1():
 - 2 companies had no contacts at any source, might need manual intervention: Sport Benzin, Go Fitness (0 contacts)
 - 1 company had fewer than 2 contacts and Apollo had nobody else; it goes ahead with the contacts it has, and Apollo is checked again next month: E (0 contacts)
 
-Not run this time: (Total 7 contacts)
-- 2 companies already have 2 people and wait for gate 2: Full One, Full Two (6 contacts)
-- 1 company has fewer than 2 contacts, and Apollo had nobody else when checked earlier this month; it goes ahead with the contacts it has, and Apollo is checked again next month (1 contact)
+Not run this time: (Total 0 contacts)
 - 1 company left for the next run (25 companies per run) (0 contacts)"""
