@@ -138,12 +138,16 @@ def test_the_summary_line_counts_every_company_on_gate_1():
             {"company": "Go Fitness", "contacts": 0, "kind": "new", "nowhere": True, "result": "no contacts found"},
             {"company": "E", "contacts": 0, "kind": "topup", "result": "no more found"}]
     cfg = {"per_company": 2, "companies_per_run": 25}
-    text = find_contacts.gate1_summary(12, rows, full=[{}, {}], tried=[{}], left=[{}], cfg=cfg)
-    first = text.splitlines()[0]
-    assert first == ("Out of 12 companies on GATE 1: found 2 contacts each for 2 companies and 1 contact for 2 "
-                     "companies (1 topped up, 1 a company inbox). 1 company already has contacts in the CRM: "
-                     "Kanela. 2 companies had no contacts at any source, might need manual intervention: Sport "
-                     "Benzin, Go Fitness.")
-    assert "- 2 companies already have 2 people and wait for gate 2." in text
-    assert "- 1 company had fewer than 2 people; Apollo holds nobody more, tried again next month: E." in text
-    assert "- 1 company was already topped up this month" in text and "- 1 company left for the next run" in text
+    full = [{"properties": {"name": "Full One"}}, {"properties": {"name": "Full Two"}}]
+    text = find_contacts.gate1_summary(13, rows, full=full, tried=[{}], left=[{}], cfg=cfg)
+    assert text == """Out of 13 companies on GATE 1: ran 8
+- Found 2 contacts each for 2 companies
+- Found 1 contact for 2 companies (1 of them topped up, 1 of them a company inbox)
+- 1 company already has contacts in the CRM: Kanela
+- 2 companies had no contacts at any source, might need manual intervention: Sport Benzin, Go Fitness
+- 1 company had fewer than 2 contacts and Apollo had nobody else; it goes ahead with the contacts it has, and Apollo is checked again next month: E
+
+Not run this time:
+- 2 companies already have 2 people and wait for gate 2: Full One, Full Two
+- 1 company has fewer than 2 contacts, and Apollo had nobody else when checked earlier this month; it goes ahead with the contacts it has, and Apollo is checked again next month
+- 1 company left for the next run (25 companies per run)"""
