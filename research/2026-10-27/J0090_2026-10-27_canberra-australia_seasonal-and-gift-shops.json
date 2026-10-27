@@ -1,0 +1,124 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0090",
+  "location": "Canberra, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 84
+    }
+  ],
+  "companies": [
+    {
+      "name": "Gourmet by Design",
+      "based_out_of": "Canberra, Australia",
+      "domain": "gourmetbydesign.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate and confectionery gift hampers, Christmas gift bags and hampers, biscuits and cookies (Charlie's, Butterfingers shortbread), licorice sweets (Junee) and chocolate coated nuts (Nutworks), plus its house chocolate bark and honeycomb",
+      "channels_supplied": "Its own online shop and Canberra store with same-day Canberra and Queanbeyan delivery and Australia-wide shipping; corporate hampers for Canberra businesses; hampers resold by the Canberra Southern Cross Club shop",
+      "sf_brands_carried": "Gluten-free and vegan hamper filters; no sugar-free range seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "Canberra's main food gifting retailer, with 131 items in its chocolate and confectionery collection and a full Christmas range built from other companies' biscuits, sweets and chocolate. Diablo's gift boxes, chocolate and biscuits would suit its corporate and seasonal hampers, which have gluten-free and vegan options but no sugar-free option.",
+      "what_they_do_well": [
+        "Canberra gifting since 2004, with same-day delivery across Canberra and Queanbeyan on orders placed by noon.",
+        "Supplies the hampers sold through the Canberra Southern Cross Club shop."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://gourmetbydesign.com.au/",
+        "https://gourmetbydesign.com.au/shop/tea-and-cookies-hamper/",
+        "https://gourmetbydesign.com.au/product/chocolate-sweets-hamper/",
+        "https://gourmetbydesign.com.au/collections/chocolate-and-confectionery",
+        "https://shop.cscc.com.au/products/chocoholics-hamper",
+        "https://www.yellowpages.com.au/find/gift-baskets-hampers/canberra-act-2601"
+      ]
+    },
+    {
+      "name": "National Museum of Australia Museum Shop",
+      "based_out_of": "Canberra, Australia",
+      "domain": "nma.gov.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Chocolate (Chocamama chocolates and lolly mixes), confectionery from Nutworks (fudge, brittle, rocky road), Candy Kittens gourmet lollies, spreads and jams in its food section",
+      "channels_supplied": "Museum Shop at the National Museum of Australia in Canberra and its online shop with pick-up in store",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Canberra gift shop with its own chocolate, sweets and spreads sections stocked with other companies' brands, including foreign gourmet sweets. It is tier 3 because food is one department of a wider museum gift range and store count is one.",
+      "what_they_do_well": [
+        "Runs a dedicated chocolate collection and a food section with sweets and spreads alongside its museum gifts."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://shop.nma.gov.au/collections/chocamama",
+        "https://shop.nma.gov.au/products/raspberry-lovers-175g",
+        "https://shop.nma.gov.au/products/macadamia-rocky-road-nutworks-100g-gourmet-brands",
+        "https://shop.nma.gov.au/collections/pantry",
+        "https://shop.nma.gov.au/products/lollies-wild-strawberry-140g-candy-kittens-gourmet-brands"
+      ]
+    },
+    {
+      "name": "GG's Flowers",
+      "based_out_of": "Canberra, Australia",
+      "domain": "ggsflowers.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gift hampers with chocolate from Mildura Chocolate Company, chocolate coated macadamias (Indigiearth), chocolate wafers, chocolate balls and cookies, plus Christmas hampers",
+      "channels_supplied": "Its own online shop with delivery around the Canberra region",
+      "sf_brands_carried": "Protein balls (GH Nutrition) in its treat hamper",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Canberra social enterprise florist with a hamper range that buys in branded chocolate, wafers and treats from other companies, including a Christmas hamper. It is tier 3 because hampers are a smaller part of a flower business and it reaches Canberra shoppers only.",
+      "what_they_do_well": [
+        "Describes itself as Canberra's most loved social enterprise florist, employing people with disabilities."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.ggsflowers.com.au/wine-and-chocolate-hamper/",
+        "https://www.ggsflowers.com.au/treat-yoself-hamper/",
+        "https://www.ggsflowers.com.au/hampers/",
+        "https://www.localsearch.com.au/profile/gg-s-flowers-hampers/canberra-act-2600/7KSc"
+      ]
+    },
+    {
+      "name": "Memorial Shop at the Australian War Memorial",
+      "based_out_of": "Canberra, Australia",
+      "domain": "awm.gov.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Biscuits and confectionery: RSL Anzac biscuits and gingernuts (Bakers' Finest), Jen's Traditional Biscuits and biscuit gift tins",
+      "channels_supplied": "Memorial Shop at the Australian War Memorial in Canberra and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Canberra gift shop with its own biscuits and confectionery collection selling other companies' packaged biscuits, with seasonal peaks around Anzac Day. It is tier 3 because food is a small part of a memorial gift range and the range shown is mainly Australian biscuits.",
+      "what_they_do_well": [
+        "Sells RSL-endorsed Anzac biscuits from Bakers' Finest, tying its food range to Anzac Day commemoration."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://shop.awm.gov.au/collections/biscuits-and-confectionary",
+        "https://shop.awm.gov.au/products/biscuits-rsl-anzac-biscuits-300g",
+        "https://shop.awm.gov.au/pages/we-commemorate-anzac-day"
+      ]
+    }
+  ]
+}
