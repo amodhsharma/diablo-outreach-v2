@@ -1,0 +1,90 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0086",
+  "location": "Adelaide, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 98
+    }
+  ],
+  "companies": [
+    {
+      "name": "The Dutch Pantry",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "thedutchpantry.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded sweets and liquorice (Haribo, Venco, Klene, Matthijs, Napoleon, Wilhelmina), chocolate including seasonal Sinterklaas chocolate letters, and biscuits such as Verweij stroopwafels, Bastogne and De Ruijter speculaas",
+      "channels_supplied": "Its own shop and cafe in Klemzig (Adelaide) and its own online shop",
+      "sf_brands_carried": "Klene sugar-free liquorice mix (suikervrij) and Wilhelmina SF peppermints; no direct Diablo competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "An Adelaide shop with over 1,000 lines and a seven-page sweets section of other companies' European brands, plus chocolate and biscuit categories and seasonal chocolate letters. It already stocks sugar-free sweets and sells online, so it buys and holds European branded confectionery for Adelaide shoppers.",
+      "what_they_do_well": [
+        "Carries over 1,000 European product lines in its Klemzig store, with an online shop alongside."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.thedutchpantry.com.au/",
+        "https://www.thedutchpantry.com.au/product-category/sweets/",
+        "https://www.doordash.com/store/the-dutch-pantry-klemzig-2100592/"
+      ]
+    },
+    {
+      "name": "Sweets and Treats Adelaide",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "sweetsandtreatsadelaide.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Lollies and gummies from other brands (Allens, Amos, Skittles, Gushers, Bubs Swedish candy), UK and USA candy, pick and mix, chocolate and mystery boxes, alongside handmade crystal and freeze-dried candy",
+      "channels_supplied": "Its own online shop, shipping Australia-wide and to New Zealand",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An Adelaide online lolly shop listing 168 lolly lines, many from other brands such as Allens, Amos, Skittles and Bubs, plus UK and USA sweets and a chocolate collection. It is small and online only, and no sugar-free range is shown, so it sits at tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sweetsandtreatsadelaide.com.au/",
+        "https://sweetsandtreatsadelaide.com.au/collections/lollies-non-freeze-dried"
+      ]
+    },
+    {
+      "name": "The Original Lolly Shop",
+      "based_out_of": "Strathalbyn, Australia",
+      "domain": "theoriginallollyshopstrathalbyn.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Australian, English, Irish, European and New Zealand sweets, Dutch liquorice, American candy (Reese's, M&M's) and chocolates",
+      "channels_supplied": "Its own shop at 22 High St, Strathalbyn, south east of Adelaide, open seven days",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A sweet shop in the Adelaide region selling imported English and European sweets and chocolates from other brands, and it orders items it does not stock for customers. Website did not open; trading confirmed on visitalexandrina.com, which lists it as trading seven days a week. Tier 3 because it is a single small shop.",
+      "what_they_do_well": [
+        "Stocks sweets from England, Ireland, Europe, New Zealand and the US, and orders unstocked items for customers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.visitalexandrina.com/retail-shopping/strathalbyn/the-original-lolly-shop",
+        "https://www.visitalexandrina.com/retail-shopping/the-original-lolly-shop",
+        "http://theoriginallollyshopstrathalbyn.com.au/"
+      ]
+    }
+  ]
+}
