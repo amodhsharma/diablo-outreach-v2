@@ -16700,6 +16700,23 @@
     "research_file": "research/2026-10-27/J0082_2026-10-27_brisbane-australia_seasonal-and-gift-shops.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "sweetsandtreatsadelaide.com.au": {
+    "name": "Sweets and Treats Adelaide",
+    "based_out_of": "Adelaide, Australia",
+    "market": "Adelaide, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An Adelaide online lolly shop listing 168 lolly lines, many from other brands such as Allens, Amos, Skittles and Bubs, plus UK and USA sweets and a chocolate collection. It is small and online only, and no sugar-free range is shown, so it sits at tier 3.",
+    "what_they_do_well": [],
+    "distributes": "Lollies and gummies from other brands (Allens, Amos, Skittles, Gushers, Bubs Swedish candy), UK and USA candy, pick and mix, chocolate and mystery boxes, alongside handmade crystal and freeze-dried candy",
+    "channels_supplied": "Its own online shop, shipping Australia-wide and to New Zealand",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0086_2026-10-27_adelaide-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "sweetsbrands.co.za": {
     "name": "Sweets Brands",
     "based_out_of": "Johannesburg, South Africa",
@@ -17211,6 +17228,25 @@
     "research_file": "research/2026-10-26/J0073_2026-10-26_australia_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "thedutchpantry.com.au": {
+    "name": "The Dutch Pantry",
+    "based_out_of": "Adelaide, Australia",
+    "market": "Adelaide, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "An Adelaide shop with over 1,000 lines and a seven-page sweets section of other companies' European brands, plus chocolate and biscuit categories and seasonal chocolate letters. It already stocks sugar-free sweets and sells online, so it buys and holds European branded confectionery for Adelaide shoppers.",
+    "what_they_do_well": [
+      "Carries over 1,000 European product lines in its Klemzig store, with an online shop alongside."
+    ],
+    "distributes": "Branded sweets and liquorice (Haribo, Venco, Klene, Matthijs, Napoleon, Wilhelmina), chocolate including seasonal Sinterklaas chocolate letters, and biscuits such as Verweij stroopwafels, Bastogne and De Ruijter speculaas",
+    "channels_supplied": "Its own shop and cafe in Klemzig (Adelaide) and its own online shop",
+    "sf_brands_carried": "Klene sugar-free liquorice mix (suikervrij) and Wilhelmina SF peppermints; no direct Diablo competitor seen",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0086_2026-10-27_adelaide-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "theflowerscene.co.za": {
     "name": "The Flower Scene",
     "based_out_of": "Hermanus, South Africa",
@@ -17425,6 +17461,25 @@
     "added": "2026-10-25",
     "research_file": "research/2026-10-26/J0051_2026-10-26_south-africa_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "the website address no longer exists"
+  },
+  "theoriginallollyshopstrathalbyn.com.au": {
+    "name": "The Original Lolly Shop",
+    "based_out_of": "Strathalbyn, Australia",
+    "market": "Adelaide, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A sweet shop in the Adelaide region selling imported English and European sweets and chocolates from other brands, and it orders items it does not stock for customers. Website did not open; trading confirmed on visitalexandrina.com, which lists it as trading seven days a week. Tier 3 because it is a single small shop.",
+    "what_they_do_well": [
+      "Stocks sweets from England, Ireland, Europe, New Zealand and the US, and orders unstocked items for customers."
+    ],
+    "distributes": "Australian, English, Irish, European and New Zealand sweets, Dutch liquorice, American candy (Reese's, M&M's) and chocolates",
+    "channels_supplied": "Its own shop at 22 High St, Strathalbyn, south east of Adelaide, open seven days",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0086_2026-10-27_adelaide-australia_seasonal-and-gift-shops.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "therange.co.uk": {
     "name": "The Range (CDS Superstores, including Wilko)",
