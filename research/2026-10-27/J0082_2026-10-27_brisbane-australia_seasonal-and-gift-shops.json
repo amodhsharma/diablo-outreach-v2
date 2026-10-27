@@ -1,0 +1,253 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0082",
+  "location": "Brisbane, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 10,
+      "searches_used": 101
+    }
+  ],
+  "companies": [
+    {
+      "name": "Shindigs",
+      "based_out_of": "Australia, head office not stated on its website",
+      "domain": "shindigs.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Party and seasonal confectionery: chocolate, gummies and jelly sweets, hard candy, jelly beans, lollipops, marshmallows, American candy and savoury snacks, including Allens lollies and a Halloween confectionery range",
+      "channels_supplied": "Its own online party supplies shop, shipping to shoppers across Australia including Brisbane",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national online party and seasonal retailer with a deep lollies department of branded sweets and a dedicated Halloween confectionery range, which suits Diablo's gift boxes, gummies and chocolate for party and seasonal occasions. Its site claims more than 750,000 customers and 18,000 products. No sugar free shelf was seen, which leaves room for Diablo.",
+      "what_they_do_well": [
+        "Runs a dedicated Halloween confectionery and candy buffet range alongside its party supplies.",
+        "Claims more than 750,000 customers and 18,000 products on its online shop."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.shindigs.com.au/allens-lollies/",
+        "https://www.shindigs.com.au/halloween-confectionery",
+        "https://shindigs.com.au/shop/party-supplies/confectionery/candy-lolly-bar-supplies/1448"
+      ]
+    },
+    {
+      "name": "Gifts to a Door",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "giftstoadoor.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift hampers with branded chocolate (Lindt Lindor assortments, Chocolatier assortments), chocolate and lolly hampers, cookie hampers and Christmas and Easter hampers",
+      "channels_supplied": "Its own online shop with same day hand delivery in Brisbane and Australia wide delivery from its Brisbane premises; corporate gifting with bulk orders",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane hamper retailer that buys other brands' chocolate and treats, sells them as add-ons and in seasonal Christmas and Easter hampers, and runs a corporate gifting service. Diablo's gift boxes, chocolate boxes and biscuits suit its sweet and Christmas hampers. It has a gluten free hamper range but no sugar free one.",
+      "what_they_do_well": [
+        "Shows corporate customers including Qantas, ANZ, Telstra and Westpac on its website.",
+        "Offers same day hand delivery across Brisbane from its own Brisbane premises."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://giftstoadoor.com.au/",
+        "https://giftstoadoor.com.au/products/lindt-lindor-milk-chocolate-assortment-125g",
+        "https://giftstoadoor.com.au/collections/chocolate-lolly-gift-hampers",
+        "https://giftstoadoor.com.au/collections/christmas-hampers"
+      ]
+    },
+    {
+      "name": "Brizzie Baskets",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "brizziebaskets.com",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Gift hampers with branded biscuits and chocolate: Ogilvie & Co and Bisko shortbread, Charlie's melting moments, Luv a Cookie cookies, Whittakers chocolate slabs and Chocolatier assorted chocolates; chocolate gift baskets and Christmas hampers",
+      "channels_supplied": "Its own online shop delivering gift hampers to Brisbane shoppers and corporate clients",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane hamper business in Stafford whose hampers are built from other companies' branded cookies, shortbread and chocolate, exactly the categories Diablo sells. Its biscuits and chocolate hampers and corporate hampers are a natural place for Diablo's cookies, chocolate bars and gift boxes. Store and order volumes are not stated on its website.",
+      "what_they_do_well": [
+        "Builds hampers around named Australian and New Zealand brands such as Whittakers, Charlie's and Luv a Cookie."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.brizziebaskets.com/p/bikkies-and-chocolate-gift/SE0095",
+        "https://www.brizziebaskets.com/c/gourmet-gift-hampers/chocolate-gifts/106002",
+        "https://www.brizziebaskets.com/corporate-gift-hampers/"
+      ]
+    },
+    {
+      "name": "The Lolly Barn",
+      "based_out_of": "The Entrance, Australia",
+      "domain": "thelollybarn.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Branded lollies, gummies, chocolate and snacks (Trolli, M&Ms, Cadbury, Allens, Jolly Rancher, Cobbers, Reese's, Nestle, Takis) plus mystery boxes and hampers for Christmas and Easter",
+      "channels_supplied": "Its own lolly shop in The Entrance NSW and its online shop posting Australia wide, including Brisbane",
+      "sf_brands_carried": "Sells a Zero Sugar Sugar Free Surprise Mystery Hamper; brands inside not named",
+      "competing_brand_flag": false,
+      "fit_rationale": "A lolly shop and online store selling many other brands' sweets and chocolate, with gift hampers for occasions and an existing sugar free hamper, which shows demand for exactly what Diablo offers. It reaches Brisbane only through Australia wide posting, so it sits in tier 3.",
+      "what_they_do_well": [
+        "Already sells a dedicated sugar free mystery hamper to its online shoppers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://thelollybarn.com.au/"
+      ]
+    },
+    {
+      "name": "Sweet Pickings",
+      "based_out_of": "Riverview, Australia",
+      "domain": "sweetpickings.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Pick and mix and packaged sweets from New Zealand, the UK, the EU and the USA, including Kingsway UK sweets, Pez, gummies and fizzy sweets, plus mystery snack boxes and event lolly bags",
+      "channels_supplied": "Its own shops in Riverview and Ipswich, Queensland, its online shop with click and collect, and catering for events",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An owner-run lolly retailer in the Ipswich area of greater Brisbane that already stocks European and UK branded sweets, so Diablo's UK gummies, hard sweets and chocolate fit its imported shelves. It has two shops and an online store since 2022; its reach is small.",
+      "what_they_do_well": [
+        "Grew from one Riverview shop to a second Ipswich shop and an online store opened in August 2022."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.sweetpickings.com.au/pages/about-us",
+        "https://www.sweetpickings.com.au/products/fizzy-peaches-uk-kingsway-the-corner-shop",
+        "https://www.sweetpickings.com.au/collections/shop-all-1"
+      ]
+    },
+    {
+      "name": "Eat Sweet Lollies",
+      "based_out_of": "North Lakes, Australia",
+      "domain": "eatsweetlollies.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Lollies, gummies, chocolates, hard lollies and sours from Australia, New Zealand, the UK and elsewhere, including Nerds, plus seasonal boxes for Halloween, Valentine's Day and Christmas",
+      "channels_supplied": "Its own online shop with local delivery and pick up in Brisbane's northside",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family owned online lolly shop on Brisbane's northside that sources branded sweets from around the world and sells seasonal gift boxes for Halloween, Valentine's Day and Christmas. It already has a UK range and vegan friendly and gluten free sections, so Diablo's gummies and chocolate fit. It is small.",
+      "what_they_do_well": [
+        "Runs seasonal Halloween, Valentine's Day and Christmas lolly boxes alongside its UK and Kiwi ranges."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.eatsweetlollies.com.au/pages/about-us",
+        "https://www.eatsweetlollies.com.au/products/a-50-halloween-box",
+        "https://www.eatsweetlollies.com.au/products/nerds-mini-packs"
+      ]
+    },
+    {
+      "name": "Sugar Rush Dayboro",
+      "based_out_of": "Dayboro, Australia",
+      "domain": "sugarrushdayboro.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Branded and pick and mix lollies (Allen's Pineapples, Killer Pythons, Strawberries & Cream), gummies, freeze dried candy, Australian chocolate, gift boxes and lolly platters",
+      "channels_supplied": "Its own shop in Dayboro in the Moreton Bay region of greater Brisbane and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A boutique confectionery and gift shop in the Moreton Bay hinterland with about 172 products online, selling Allen's and other branded sweets plus packaged gift boxes for celebrations. Diablo's gummies and gift boxes suit its range. It is a single small shop with an online store.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.sugarrushdayboro.com.au/collections/all",
+        "https://visit.brisbane.qld.au/things-to-do/moreton-bay-region/eat-and-drink/sugar-rush-dayboro-8d13"
+      ]
+    },
+    {
+      "name": "D'licious Gourmet Hampers",
+      "based_out_of": "Pinjarra Hills, Australia",
+      "domain": "dliciousgourmethampers.com",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 5,
+      "distributes": "Gift and Christmas hampers with other brands' chocolate and sweets (Buderim Ginger chocolate, Noosa Natural Chocolates, Patons, Candy Addiction fruit candy) and snacks (Happy Snack, Nutworks)",
+      "channels_supplied": "Its own online shop and corporate gifting for Brisbane clients",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Brisbane hamper business whose Christmas and corporate hampers combine several other brands' chocolates, candy and snacks in every box. Diablo's chocolate bars and gift boxes suit its sweet items. It works by appointment and its range leans to Queensland makers, so it sits in tier 3.",
+      "what_they_do_well": [
+        "Names the Queensland Premier's Office and MasterChef among its corporate gifting clients."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.dliciousgourmethampers.com/product-page/dear-santa",
+        "https://www.dliciousgourmethampers.com/corporate-gifts",
+        "https://www.dliciousgourmethampers.com/christmas-hampers"
+      ]
+    },
+    {
+      "name": "The Sweet Giftorium",
+      "based_out_of": "East Maitland, Australia",
+      "domain": "thesweetgiftorium.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 6,
+      "distributes": "Lolly gift boxes, grazing boxes and pick and mix with branded sweets (Allen's, Skittles), British and imported sweets, chocolate and seasonal Christmas and Easter gifts",
+      "channels_supplied": "Its own online gift shop shipping across Australia, including Brisbane; corporate gifts",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online sweets gift store built around seasonal and occasion collections for Christmas, Easter, Valentine's Day and corporate gifting, using other brands' lollies and imported British sweets. Diablo's gift boxes, gummies and chocolate fit those boxes. It reaches Brisbane only by Australia wide shipping.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://thesweetgiftorium.com.au/",
+        "https://thesweetgiftorium.com.au/collections/lolly-gift-box-hampers-grazing-pick-n-mix"
+      ]
+    },
+    {
+      "name": "Who Wants 2 Party",
+      "based_out_of": "Australia, head office not stated on its website",
+      "domain": "whowants2party.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 7,
+      "distributes": "Bulk party lollies, chocolates and candy, including Cadbury Fresha lollies, jelly beans, chocolate buttons, gummies and marshmallows, plus Halloween supplies",
+      "channels_supplied": "Its own online party supplies shop shipping Australia wide, including Brisbane",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An online kids party and Halloween retailer with a bulk lollies, candy and chocolates section of branded and unbranded packs, which suits Diablo's gummies and variety packs for party bags. Its range names few brands and its reach into Brisbane is by post only.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.whowants2party.com.au/250-lollies-and-candy",
+        "https://www.whowants2party.com.au/93-halloween-party-supplies"
+      ]
+    }
+  ]
+}
