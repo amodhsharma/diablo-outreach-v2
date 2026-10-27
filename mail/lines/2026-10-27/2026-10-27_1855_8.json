@@ -1,0 +1,64 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "generated_from": "2026-10-27T12:31:04+00:00",
+  "lines": [
+    {
+      "contact_id": "903698205889",
+      "company_name": "Officeworks",
+      "personal_line": "We have great respect for the way your team keeps workplaces stocked with food and snacks for the people who work in them. Many staff reach for a snack during the working day, and we believe sugar free biscuits and sweets may suit those very same staff. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "keeps workplaces stocked with biscuits and confectionery for their staff",
+      "style": "E"
+    },
+    {
+      "contact_id": "903649451228",
+      "company_name": "Perth Health",
+      "personal_line": "We have great respect for the way your team serves health food stores, pharmacies and independent grocers as a family owned natural health wholesaler. With such established reach across metro, country and regional Western Australia, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies no added sugar chocolate and snack bars to health food stores",
+      "style": "A"
+    },
+    {
+      "contact_id": "903678226650",
+      "company_name": "Provender",
+      "personal_line": "We have great respect for the way your team runs fully managed vending for workplaces and retail sites through its local franchise teams. People often pick a snack from your machines between meetings, classes or workouts, and we believe sugar free sweets and snacks may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "fills vending machines and micro markets with snacks for workplaces",
+      "style": "E"
+    },
+    {
+      "contact_id": "903546402036",
+      "company_name": "Red Dot",
+      "personal_line": "We hold your team in high regard for building a proudly West Australian owned chain of variety, party and seasonal stores. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "sells chocolate and confectionery gifts for seasonal occasions",
+      "style": "D"
+    },
+    {
+      "contact_id": "903649452226",
+      "company_name": "Supplement Mart",
+      "personal_line": "Your range, from protein bars to protein cookies, reflects a careful choice of brands for active, health-conscious shoppers. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "stocks low sugar bars and snacks for health-conscious shoppers",
+      "style": "C"
+    },
+    {
+      "contact_id": "903659187400",
+      "company_name": "The Market Grocer",
+      "personal_line": "Your team's work in supplying independent specialty grocers and major supermarkets across Australia speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies confectionery and biscuits to specialty grocers and supermarkets",
+      "style": "B"
+    },
+    {
+      "contact_id": "903670553810",
+      "company_name": "WHSmith Australia",
+      "personal_line": "Your range, from books and travel accessories to food and confectionery, reflects a careful choice of products for travellers and hospital visitors. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "sells confectionery and snacks to travellers and hospital visitors",
+      "style": "C"
+    },
+    {
+      "contact_id": "903438859463",
+      "company_name": "Zouki",
+      "personal_line": "We have great respect for the way your team runs convenience stores and retail precincts for hospital patients, visitors and staff. Many of the patients and visitors who come into your stores look for a lighter choice, and we believe sugar free sweets and chocolate may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shops.",
+      "company_note": "runs hospital convenience stores selling snacks and gifts to patients and visitors",
+      "style": "E"
+    }
+  ]
+}
