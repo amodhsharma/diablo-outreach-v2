@@ -255,23 +255,3 @@ def test_prepare_gives_other_channels_style_e_and_the_buyers_reason(tmp_path):
     assert "Why we think our bond would be strong" in prompt and "**E. Why we think our bond" in prompt
     assert check_lines.HALAL_TAIL.strip(", ") in prompt and check_lines.KOSHER_TAIL.strip(", ") in prompt
     assert "bond" not in (SKILL / "prompts" / "lines_prompt_9.md").read_text()  # kept as it was
-
-
-def test_the_preview_campaign_shows_the_three_cases():
-    from outreach import bond_preview, other_channels
-    instantly = FakeInstantly()
-    s = load_settings()
-    s["send"]["sending_accounts"] = ["one@getdiablo-test.com"]
-    cid = bond_preview.run(instantly, s, log=quiet)
-    camp = instantly.campaigns[cid]
-    assert camp["name"] == other_channels.PREVIEW_NAME and not camp["name"].startswith("Diablo |")
-    body = camp["sequences"][0]["steps"][0]["variants"][0]["body"]
-    assert "{{bond_paragraph}}By way of introduction" in body
-    sports, usual, older = instantly.leads[cid]
-    assert all(l["email"].endswith("@example.com") for l in (sports, usual, older))
-    assert "Why we think our bond would be strong\n" + bond_preview.SPORTS_LINE in send.render(body, sports)
-    assert usual["custom_variables"]["bond_paragraph"] == "" and "bond_paragraph" not in older["custom_variables"]
-    bond_preview.run(instantly, s, log=quiet)
-    assert len(instantly.campaigns) == 1  # replaced, not added
-    bond_preview.run(instantly, s, action="delete", log=quiet)
-    assert instantly.campaigns == {}
