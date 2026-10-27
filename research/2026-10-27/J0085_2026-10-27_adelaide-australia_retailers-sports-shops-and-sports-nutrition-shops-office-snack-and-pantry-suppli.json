@@ -1,0 +1,393 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0085",
+  "location": "Adelaide, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 18
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 26
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 38
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 27
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 6,
+      "searches_used": 20
+    }
+  ],
+  "companies": [
+    {
+      "name": "Saints Foodland",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "saintsfoodland.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Full-range supermarket: confectionery, chocolate bars and blocks, chocolate share packs, boxed chocolates, biscuits, snacks, peanut butter, jams and a health foods aisle, all from other brands",
+      "channels_supplied": "Its own supermarket at Salisbury Plain in northern Adelaide, trading under the Foodland banner and supplied by Metcash Food",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent, South Australian owned supermarket whose own store guide lists confectionery, chocolate, boxed chocolates, biscuits, snacks, peanut butter, jams and health foods aisles, so Diablo's chocolate, sweets, biscuits and spreads fit its shelves directly. It is a single store linked to the Chapley Group of Foodland stores, which is why it sits in tier 3; whether it lists new lines direct or only through Metcash is not stated on its website.",
+      "what_they_do_well": [
+        "Named IGA International Retailer of the Year at the IGA Awards of Excellence in Las Vegas in March 2024."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://saintsfoodland.com.au/",
+        "https://saintsfoodland.com.au/wp-content/uploads/2023/01/store-guide.pdf",
+        "https://c-store.com.au/?p=62706",
+        "https://glamadelaide.com.au/your-guide-to-sas-7-best-premium-supermarkets/"
+      ]
+    },
+    {
+      "name": "My Ride",
+      "based_out_of": "Australia",
+      "domain": "myride.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Bikes and cycling gear with a nutrition and hydration section: energy bars (SiS Go Energy Mini Bar and Energy Bake bar), energy chews (gummies) and energy gels from SiS, Pure and GU.",
+      "channels_supplied": "Over 20 independently owned specialist bike stores nationwide, including My Ride Unley in Adelaide, plus its own online shop.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national network of specialist cycling stores with an Adelaide store at Unley that already sells energy bars and chews from other brands to active, health-conscious shoppers. Diablo's no-added-sugar muesli and cereal bars and gummies suit the same counter. Head office city not stated on its website.",
+      "what_they_do_well": [
+        "Describes itself as Australia's largest network of independently owned specialist cycling stores, with over 20 stores nationwide.",
+        "My Ride Unley absorbed the Woodville store's operations and is now the only bike store left in Unley."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.myride.com.au/",
+        "https://www.myride.com.au/pages/store/unley",
+        "https://www.myride.com.au/collections/nutrition-hydration",
+        "https://thelatzreport.com.au/news/retail/three-to-one-transformation-for-unley-bike-store-scene/"
+      ]
+    },
+    {
+      "name": "The Fruit Box Group",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "thefruitboxgroup.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Office pantry supplies: biscuits, confectionery, sweet and savoury snacks, bars and nuts (Snackwize snack boxes), spreads, cereals, chips, crackers, soft drinks, tea and coffee",
+      "channels_supplied": "Offices and workplaces Australia wide, about 8,000 business customers, with weekly deliveries and tearoom top-up services in Adelaide",
+      "sf_brands_carried": "Healthy snack range through Snackwize; no sugar-free brands named",
+      "competing_brand_flag": false,
+      "fit_rationale": "The largest office pantry supplier serving Adelaide, buying biscuits, confectionery and snacks from a range of suppliers and delivering them to workplaces with fruit and milk. Its Snackwize healthy snack boxes suit Diablo's no-added-sugar biscuits, bars and chocolate. Storage: distribution centre at Pooraka, Adelaide, plus centres in Brisbane, Melbourne, Perth and Sydney.",
+      "what_they_do_well": [
+        "Over 20 years in business with more than 20,000 deliveries a week to about 8,000 customers.",
+        "Acquired the office snack box business Snackwize and runs it as part of its group."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://thefruitboxgroup.com.au/pantry-delivery/",
+        "https://thefruitboxgroup.com.au/snackwize/",
+        "https://thefruitboxgroup.com.au/fruitatwork/",
+        "https://thefruitboxgroup.com.au/australia-wide-office-delivery/",
+        "https://www.foodmag.com.au/the-fruit-box-group-to-deliver-fresh-food-to-disadvantaged/"
+      ]
+    },
+    {
+      "name": "Progressive Vending",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "provending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Branded chocolate, biscuits, chips and snacks plus drinks in snack, drink and healthy options machines, from over 200 brands including Cadbury, Nestle, Arnott's, Smiths, Villis and Balfours",
+      "channels_supplied": "Vending machines at Adelaide workplaces, universities, hospitals and construction sites; named clients include Adelaide Uni, UniSA, TAFE SA, BAE Systems and the Women's and Children's Health Network",
+      "sf_brands_carried": "Runs a healthy options machine with healthier brands; no sugar-free brand named and no direct competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "Adelaide based snack vending operator that fills its machines with branded chocolate, biscuits and snacks from over 200 brands, and already runs a healthy options machine where Diablo's sugar-free chocolate, biscuits and bars fit. Its client list of universities, hospitals and large employers gives Diablo many daily selling points across Adelaide. Storage: sells from its own stock, warehouse not named on its website (Hindmarsh address by appointment).",
+      "what_they_do_well": [
+        "Supplies vending to major Adelaide institutions including Adelaide Uni, UniSA, TAFE SA and the Women's and Children's Health Network."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.provending.com.au/",
+        "https://au.seek.com/vending-machine-jobs/in-All-Adelaide-SA"
+      ]
+    },
+    {
+      "name": "Super Adelaide Vending Machines",
+      "based_out_of": "Wingfield, Australia",
+      "domain": "superadelaidevending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Chocolates, chips, protein bars, food, milk and breakfast drinks and other drinks in snack and drink vending machines",
+      "channels_supplied": "Free-placement snack and drink vending machines at Adelaide workplaces, with no locked-in contracts",
+      "sf_brands_carried": "Protein bars, juices and other healthier lines; no sugar-free brand named and no direct competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "Adelaide operator that places, fills and maintains its own snack machines with chocolates, chips and protein bars, a direct shelf for Diablo's chocolate bars and muesli bars. It has traded since 1995 and runs its own depot and delivery trucks. Storage: newly built two-storey warehouse in Wingfield, SA, holding stock, trucks and machines.",
+      "what_they_do_well": [
+        "Has run vending in Adelaide since 1995.",
+        "Built its own two-storey warehouse in Wingfield for stock, trucks and machines."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.superadelaidevending.com.au/",
+        "https://www.adelaidefreevending.com.au/about-us/"
+      ]
+    },
+    {
+      "name": "Onsite Vending",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "onsitevending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate bars, chips, protein bars, low-calorie and high-protein snacks, noodle cups, shakes and drinks in vending machines",
+      "channels_supplied": "Vending machines on construction sites, offices, warehouses, shopfronts and gyms across Adelaide and South Australia",
+      "sf_brands_carried": "Protein bars, low-calorie and high-protein snacks; no sugar-free brand named and no direct competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "South Australian operator that stocks its machines with chocolate bars, protein bars and low-calorie snacks, so Diablo's sugar-free chocolate and bars match both its classic and healthy ranges. Its focus on construction sites and gyms gives fewer but busy selling points. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Specialises in construction site vending across South Australia, with machines remotely monitored 24/7 to keep stock full."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://onsitevending.com.au/"
+      ]
+    },
+    {
+      "name": "Crystalbin Vending",
+      "based_out_of": "Somerton Park, Australia",
+      "domain": "crystalbinvending.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Snacks, drinks and frozen food in snack and drink combo and cashless vending machines, from classic favourites to healthy choices",
+      "channels_supplied": "Vending machines at workplaces, schools and community spaces in Adelaide and surrounds",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Locally owned Adelaide operator that installs, stocks and services snack machines with products bought from suppliers and distributors and tailored to each site, including healthy choices. Tier 3 because its website names no snack brands or categories beyond snacks, drinks and frozen food. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.crystalbinvending.com.au/"
+      ]
+    },
+    {
+      "name": "I Want A Vending Machine",
+      "based_out_of": "Norwest, Australia",
+      "domain": "iwantavendingmachine.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Snacks and drinks, including healthier options, in combo and chilled snack vending machines",
+      "channels_supplied": "Fully managed vending machines in Adelaide workplaces, warehouses and factories",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Provides, stocks and maintains snack and drink machines in Adelaide workplaces at no cost to the site, with selections tailored to each workplace and healthier options available. Tier 3 because it is based in New South Wales, names no brands on its website and does not state a local depot. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://iwantavendingmachine.com.au/pages/vending-machines-adelaide"
+      ]
+    },
+    {
+      "name": "BoxSAlicious Gift Hampers",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "giftbasketsadelaide.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Gift hampers with branded chocolate (Haigh's, Red Cacao), biscuits (Lady Alice, Kytons cookies, Perryman's gingerbread), sweets and jellies (Quinzi's), nuts, crackers, wine and beer",
+      "channels_supplied": "Its own online shop, corporate client and staff gifting programmes, same-day delivery in Adelaide metro and shipping Australia-wide",
+      "sf_brands_carried": "Diabetic, gluten-free and vegan hamper options mentioned in a Sitchu Adelaide listing; no brand named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-owned Adelaide hamper house that buys branded South Australian chocolates, biscuits and sweets and packs them into corporate and gift hampers sold from its own online shop. It already runs custom branded corporate gifting and bulk orders, so Diablo's chocolates, biscuits and gift boxes would fit its sweet and diabetic options. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Family-owned since 2005, specialising in South Australian gift hampers with free same-day delivery in Adelaide metro.",
+        "Offers custom branded corporate hampers, logo packaging and bulk order fulfilment for client and staff programmes."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.giftbasketsadelaide.com.au/about-us/",
+        "https://www.giftbasketsadelaide.com.au/product/the-snacker/",
+        "https://www.giftbasketsadelaide.com.au/product/after-dinner-treats-no-23/",
+        "https://www.giftbasketsadelaide.com.au/product/exhibit-a/",
+        "https://sitchu.com.au/adelaide/shopping/same-day-gift-delivery-adelaide"
+      ]
+    },
+    {
+      "name": "Williams & Taylor Artisan Hampers",
+      "based_out_of": "Balhannah, Australia",
+      "domain": "williamsandtaylor.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Hampers with branded chocolate (Chocolate at No. 5), nougat (Noogaa), shortbread biscuits (Frantic Whisk), fruit cake (Baylies), jams (Fiaje), nuts, olives and wine",
+      "channels_supplied": "Its own online shop and corporate hampers for client and staff gifting, hand delivered in Adelaide and shipped interstate",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Adelaide Hills hamper business that buys chocolate, nougat, biscuits, cakes and jams from independent producers and resells them in corporate hampers. Corporate orders start at five hampers with custom branding, giving Diablo a route into business gifting in Adelaide. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Corporate programme from five hampers with 10% off, free branded cards and inserts, and owner hand delivery in Adelaide.",
+        "Builds hampers from small-batch Adelaide Hills and Fleurieu producers, featured by Glam Adelaide."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://williamsandtaylor.com.au/products/prestige-with-lake-breeze",
+        "https://williamsandtaylor.com.au/pages/corporate",
+        "https://glamadelaide.com.au/these-hampers-are-gorgeous-gourmet-and-filled-with-100-south-australian-produce/"
+      ]
+    },
+    {
+      "name": "Fleurieu Hampers",
+      "based_out_of": "Middleton, Australia",
+      "domain": "fleurieuhampers.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Hampers with branded chocolate and rocky road (Chocolique, Picnic Chocolate, Port Willunga Fine Foods), biscuits (Baylies Epicurean Delights), honeycomb (Middleton Chocolates), toffee almonds (Taronga), coffee and wine",
+      "channels_supplied": "Its own online shop with a corporate login, corporate branded hampers and welcome hampers for accommodation providers and holiday homes",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "South Australian hamper business whose chocolate lovers hamper is built from other producers' chocolates, biscuits and sweets, sold to corporate clients and accommodation providers. Its corporate branding options and holiday home welcome hampers give Diablo two gifting routes. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs a corporate login and corporate branding options for business hampers.",
+        "Supplies welcome hampers to accommodation providers and private holiday homes on the Fleurieu Peninsula."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://fleurieuhampers.com.au/product/ultimate-chocolate-lovers/",
+        "https://fleurieuhampers.com.au/",
+        "https://southaustralia.com/products/fleurieu-peninsula/general-services/fleurieu-hampers"
+      ]
+    },
+    {
+      "name": "Unveiling SA",
+      "based_out_of": null,
+      "domain": "unveilingsa.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift boxes with branded chocolate (Chocolique, Sweet Nola), nougat (Noogaa), honey, nuts, wine, spirits and skincare",
+      "channels_supplied": "Its own online shop, corporate gift boxes and corporate ordering, shipping Australia-wide and to overseas buyers",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-run South Australian gift box business that hand-picks other producers' chocolates and treats for its corporate and gift boxes. It is small and its head office town is not stated on its website, hence tier 3. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers a dedicated corporate gift range, including Corporate Reserve boxes, with corporate ordering."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://unveilingsa.com.au/pages/about-us",
+        "https://unveilingsa.com.au/collections/corporate-gifts"
+      ]
+    },
+    {
+      "name": "Sent With Love Gift Boxes",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "sentwithlovegiftboxes.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gift boxes with branded chocolate (Ferrero Rocher), biscuits (Oreo), cookies, cupcakes, macarons and caramel popcorn",
+      "channels_supplied": "Its own online shop and corporate gift boxes delivered across Adelaide metro",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "North-east Adelaide gift box business that assembles branded chocolates and biscuits into corporate and occasion boxes. It is small and serves Adelaide metro only, hence tier 3. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Names corporate clients including Channel 10 Adelaide, Silk Laser Clinics and Norwood Football Club."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.sentwithlovegiftboxes.com.au/corporate-gifts-adelaide/"
+      ]
+    },
+    {
+      "name": "Sleek and Unique Gifts",
+      "based_out_of": "Adelaide, Australia",
+      "domain": "sleekanduniquegifts.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Gift boxes with branded chocolate (Red Cacao), gin, body care and homewares",
+      "channels_supplied": "Its own online shop and corporate gift boxes for Adelaide businesses, with same-day delivery in Adelaide metro",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Adelaide gift box studio that puts other brands' chocolate into staff and client gift boxes for local businesses. Its own pages show chocolate as the only Diablo category so far and it delivers in Adelaide metro only, hence tier 3. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Works with local Adelaide businesses on corporate gift boxes for events, staff and clients, with same-day delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sleekanduniquegifts.com.au/",
+        "https://sleekanduniquegifts.com.au/products/thank-you-gift-box"
+      ]
+    }
+  ]
+}
