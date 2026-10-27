@@ -1,0 +1,394 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0091",
+  "location": "Newcastle, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 30
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 30
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 27
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 1,
+      "searches_used": 28
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 4,
+      "searches_used": 23
+    }
+  ],
+  "companies": [
+    {
+      "name": "Organic Feast Wholefoods Market",
+      "based_out_of": "East Maitland, Australia",
+      "domain": "organicfeast.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate (Tony's Chocolonely, Alter Eco, Loco Love, Organic Times), sweets and chewing gum (PUR Gum), sweet biscuits (Koja, Fine Fettle), bars (Blue Dinosaur, Tropeaka, The Carob Kitchen), chocolate coated snacks and spreads.",
+      "channels_supplied": "Its wholefoods market in East Maitland and its online shop with home delivery across Newcastle, Lake Macquarie, Port Stephens, Maitland, Cessnock and the Upper Hunter.",
+      "sf_brands_carried": "Naturally sweetened and better-for-you brands such as The Carob Kitchen and Loco Love; no stevia sugar-free confectionery seen.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A certified organic, family owned wholefoods market whose online shop has separate chocolates, sweets, sweet biscuits, bars and choc coated sections stocked with other companies' brands, including European chocolate such as Tony's Chocolonely. It delivers across Greater Newcastle and the Hunter, so Diablo's vegan bars, wafers and spreads would reach health-conscious shoppers there. Single store; store count beyond East Maitland not stated.",
+      "what_they_do_well": [
+        "Delivers groceries across Newcastle, Lake Macquarie, Port Stephens, Maitland and the Upper Hunter from its online shop.",
+        "Its chocolates section alone lists 92 products from brands such as Loco Love, Alter Eco and Tony's Chocolonely."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.organicfeast.com.au/",
+        "https://www.organicfeast.com.au/pantry/snacks/",
+        "https://www.organicfeast.com.au/pantry/snacks/chocolates/",
+        "https://www.visitnsw.com/destinations/hunter/hunter-valley/maitland/food-and-drink/organic-feast"
+      ]
+    },
+    {
+      "name": "City Health Australia",
+      "based_out_of": "Newcastle, Australia",
+      "domain": "cityhealth.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Protein bars and cookies (Fibre Boost, Maxine's, Max's, CMBT, Blue Dinosaur, Macro Mike), snacks and chocolate in its health food section, plus sports nutrition and vitamins.",
+      "channels_supplied": "Its health food and sports nutrition shop at 146 Hunter Street, Newcastle, and its online shop shipping Australia wide.",
+      "sf_brands_carried": "Better-for-you protein bars and cookies such as Fibre Boost and Maxine's Burn Cookie.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A family owned Newcastle health food and sports nutrition retailer whose website has a protein bars category with other brands' bars and cookies and a food section with snacks and chocolate. Its shoppers are the health-conscious buyers Diablo targets, and the online shop extends reach beyond the Hunter Street store. Store count beyond the Newcastle shop not stated on its website.",
+      "what_they_do_well": [
+        "Combines a Newcastle CBD shop on Hunter Street with an online store offering fast shipping Australia wide."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cityhealth.com.au/",
+        "https://www.cityhealth.com.au/protein-bars"
+      ]
+    },
+    {
+      "name": "Blooms The Chemist",
+      "based_out_of": "Sydney, Australia",
+      "domain": "bloomsthechemist.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Weight management and protein bars (The Man Bar and other brands), protein shakes and sports nutrition on its pharmacy shelves and online shop.",
+      "channels_supplied": "Over 100 pharmacies nationally, including Raymond Terrace and Green Hills in the Hunter, plus its online shop.",
+      "sf_brands_carried": "Weight management bars and shakes such as The Man Bar, Optifast and Musashi.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A national pharmacy chain of over 100 stores with Hunter stores at Raymond Terrace and Green Hills, whose website sells other brands' bars under weight management and sports nutrition. Diablo's no-added-sugar bars suit the health shelf of a pharmacy chain, which also brings scale beyond Newcastle. Exact Newcastle store count not shown on its store finder page.",
+      "what_they_do_well": [
+        "Operates over 100 pharmacies nationally, with Hunter stores at Raymond Terrace and Green Hills."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.bloomsthechemist.com.au/store-finder",
+        "https://www.bloomsthechemist.com.au/store-raymond-terrace",
+        "https://www.bloomsthechemist.com.au/store-green-hills",
+        "https://www.bloomsthechemist.com.au/the-man-bar-rocky-road-50g/",
+        "https://www.bloomsthechemist.com.au/bars/"
+      ]
+    },
+    {
+      "name": "My Supplement Store",
+      "based_out_of": "Charlestown, Australia",
+      "domain": "mysupplementstore.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Protein bars and cookies (Quest, Maxine's Burn Bars, Lenny & Larry's Complete Cookie) and post-workout snacks alongside sports supplements.",
+      "channels_supplied": "Its Charlestown Square store, other franchise stores through its store locator, click and collect, and an online shop shipping Australia wide.",
+      "sf_brands_carried": "Low sugar protein bars and cookies such as Quest and Maxine's.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A sports nutrition retailer that calls itself Newcastle's number one supplement store, with a Charlestown Square shop and product pages for other brands' protein bars and cookies. It sells to the fitness shoppers Diablo wants for its bars and cookies. Tier 3 because its store count is not stated on its website and several bar lines showed as out of stock.",
+      "what_they_do_well": [
+        "Runs a store in Charlestown Square with in-store body composition scanning and click and collect."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://mysupplementstore.com.au/pages/charlestown",
+        "https://mysupplementstore.com.au/products/maxines-burn-bars",
+        "https://mysupplementstore.com.au/products/questbar"
+      ]
+    },
+    {
+      "name": "Mass Nutrition Newcastle",
+      "based_out_of": "Kotara, Australia",
+      "domain": "massnutrition.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Protein bars (Maxine's Burn Bar, Macro Mike Game Changer Bar) and Oh Yeah products alongside protein powders and supplements.",
+      "channels_supplied": "Its Kotara store in Newcastle, part of the Mass Nutrition sports nutrition network, and its online shop.",
+      "sf_brands_carried": "Low sugar protein bars such as Maxine's and Macro Mike.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A sports nutrition shop at Kotara whose website lists other brands' protein bars such as Maxine's and Macro Mike, the shelf Diablo's bars would join. Website did not open; trading confirmed on yellowpages.com.au, and its product pages appeared in search results. Store count not stated.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.yellowpages.com.au/newcastle-east-nsw-2300/health-food-stores",
+        "https://massnutrition.com.au/products/maxine-s-burn-bar",
+        "https://massnutrition.com.au/products/macro-mike-the-game-changer-bar"
+      ]
+    },
+    {
+      "name": "BCF (Boating Camping Fishing)",
+      "based_out_of": "Brisbane, Australia",
+      "domain": "bcf.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Energy bars (Offgrid Drifters), breakfast bowls and freeze-dried trail meals (Back Country Cuisine, Outdoor Gourmet Company) alongside outdoor and camping equipment",
+      "channels_supplied": "Own chain of over 160 stores nationwide and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national outdoor and sports equipment chain owned by Super Retail Group whose own online shop sells other brands' energy bars and trail food, so Diablo's muesli bars and snacks fit its food shelf. A Newcastle-area store was not confirmed in this run; it sells online and in store nationwide.",
+      "what_they_do_well": [
+        "Runs over 160 stores nationwide as part of Super Retail Group."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.bcf.com.au/p/offgrid-drifters-energy-bar-berry-and-acai-50g/722252.html",
+        "https://bbrv-029.dx.commercecloud.salesforce.com/s/bcf-au/hiking/cooking-and-food",
+        "https://en.wikipedia.org/wiki/BCF_(retailer)"
+      ]
+    },
+    {
+      "name": "Macpac",
+      "based_out_of": "Christchurch, New Zealand",
+      "domain": "macpac.com.au",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Energy bars from CLIF (Berry Crisp, Crunchy Peanut Butter, White Chocolate Macadamia) alongside outdoor apparel, equipment and footwear",
+      "channels_supplied": "Own stores including Macpac Newcastle CBD (22 National Parks Street) and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An outdoor equipment chain with a store in Newcastle CBD whose own online shop sells CLIF energy bars, another company's brand, to active shoppers. Its food shelf is small, which is why it sits in tier 3.",
+      "what_they_do_well": [
+        "Runs a dedicated Newcastle CBD store carrying its full range plus other outdoor brands."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.macpac.com.au/clif-berry-crisp-bar/116371.html",
+        "https://www.macpac.com.au/clif-crunchy-peanut-butter-bar/116476.html",
+        "https://www.macpac.com.au/store?id=4802"
+      ]
+    },
+    {
+      "name": "Cycle Fitness Nutrition",
+      "based_out_of": "Adamstown, Newcastle, Australia",
+      "domain": "cyclefitnessnutrition.com",
+      "channel_category": [
+        "sports shops and sports nutrition shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Energy bars (CLIF), energy gels (GU, SiS) and electrolytes and recovery products (Hammer Nutrition) alongside bikes and accessories",
+      "channels_supplied": "Its own shop in Adamstown, Newcastle and its own online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An owner-run Newcastle bike and fitness shop with its own nutrition section selling other brands' energy bars and gels to cyclists and triathletes. It is a single shop, and the listed online products were out of stock when checked, though it says it carries bars and gels in store.",
+      "what_they_do_well": [
+        "Listed by Hammer Nutrition Australia as one of its two Newcastle stockists."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://cyclefitnessnutrition.com/collections/accessories/nutrition/",
+        "https://www.hammernutrition.com.au/store-locator/"
+      ]
+    },
+    {
+      "name": "Brand Vending",
+      "based_out_of": "Newcastle, Australia",
+      "domain": "brandvending.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Chocolates, lollies (sweets), chips, protein bars and snacks from popular brands, plus drinks and fresh food, sold through its own vending machines in workplaces",
+      "channels_supplied": "Workplace vending machines at businesses and sites across Newcastle, the Hunter Valley and Port Stephens",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family owned Newcastle vending operator that places and restocks machines in workplaces with chocolates, lollies and protein bars from popular brands, so Diablo's bars, chocolate and gummies fit its shelves for health-conscious staff. It is small and its website names no brands or client count. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers a 4 hour call-out service for restocking and maintenance of its workplace machines."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.brandvending.com.au/about",
+        "https://www.brandvending.com.au/product-options",
+        "https://www.brandvending.com.au/vending-solutions"
+      ]
+    },
+    {
+      "name": "Agora Markets",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "agoramarkets.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Workplace micro markets stocked with chocolate bars and confectionery, cookies and baked goods, protein and better-for-you bars, chips and savoury snacks, drinks and fresh food",
+      "channels_supplied": "Unstaffed self-checkout micro markets in workplaces, operated Australia-wide from sites in Tullamarine, Leichhardt (NSW), Gaythorne and Bayswater; Metcash is a named client",
+      "sf_brands_carried": "Its catalogue covers low and no sugar options and better-for-you bars; no brands named on its website",
+      "competing_brand_flag": false,
+      "fit_rationale": "A micro market operator that installs, maintains and restocks markets daily with mainstream snack brands, including chocolate, confectionery, cookies and bars, and already offers low and no sugar choices that fit Diablo's range. It is tier 3 because its website says it serves organisations country-wide from a Sydney (Leichhardt) site but does not name Newcastle. Storage: sells from its own stock and restocks its markets daily, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Handles installation, maintenance and daily restocking of self-checkout micro markets for clients such as Metcash."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://agoramarkets.com.au/",
+        "https://agoramarkets.com.au/products/",
+        "https://agoramarkets.com.au/micro-markets/"
+      ]
+    },
+    {
+      "name": "Gift Sensations",
+      "based_out_of": "West Gosford, Australia",
+      "domain": "giftsensations.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Gourmet gift baskets and hampers with chocolates, biscuits, cakes, crackers, nuts, coffee, tea and Hunter Valley wine; chocolate themed baskets such as Chocolate Indulgence.",
+      "channels_supplied": "Corporate clients across Australia through its corporate gifting programme, plus online consumer orders with courier delivery to Newcastle, Lake Macquarie, Maitland, Cessnock and Nelson Bay.",
+      "sf_brands_carried": "Gluten free baskets offered; no sugar free brands named on its website.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A long-running hamper house with premises in the Hunter Valley close to Newcastle's freight hubs, filling baskets with chocolates, biscuits and cakes sourced from Australian artisan kitchens and European suppliers. Its corporate programme gives Diablo's gift boxes and chocolate a route to over 1,000 business buyers. Storage: packs hampers to order at its Central Coast and Hunter Valley premises.",
+      "what_they_do_well": [
+        "Trading since 1999, starting in a Sydney garage and growing into one of Australia's larger corporate gift basket houses.",
+        "Says it serves over 1,000 Australian corporate clients, each with a dedicated corporate gifting specialist."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.giftsensations.com.au/product-category/australia/newcastle-hunter-gift-baskets/",
+        "https://www.giftsensations.com.au/product-category/by-contents/food-gift-baskets/",
+        "https://www.giftsensations.com.au/our-story/",
+        "https://www.giftsensations.com.au/corporate-gift-baskets/",
+        "https://www.yellowpages.com.au/newcastle-region-nsw/gift-baskets-hampers"
+      ]
+    },
+    {
+      "name": "An Apple A Day",
+      "based_out_of": "Newcastle, Australia",
+      "domain": "anappleadaynewy.com",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift boxes and hampers made in Newcastle, plus a local grocer range with a snacks and sweets category, pantry goods and fruit and vegetable boxes.",
+      "channels_supplied": "Its Tighes Hill shop, its online shop and corporate hamper orders for clients and teams in Newcastle.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Newcastle grocer and hamper maker at Tighes Hill whose online shop has its own snacks and sweets category alongside hamper boxes and a corporate section. Tier 3 because it is a single local shop and its website does not name the snack brands it stocks. Storage: sells from its own Tighes Hill shop stock.",
+      "what_they_do_well": [
+        "Grew from a 2016 bulk-buying group among friends into a full-time Newcastle grocer with its own Tighes Hill store."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://anappleadaynewy.com/",
+        "https://anappleadaynewy.com/hampers",
+        "https://anappleadaynewy.com/about"
+      ]
+    },
+    {
+      "name": "Newcastle Flowers By Design",
+      "based_out_of": "New Lambton, Australia",
+      "domain": "newcastleflowersbydesign.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gift hampers led by chocolate hampers and savoury snack hampers, with pamper, fruit and baby hampers and add-ons of wine and flowers.",
+      "channels_supplied": "Online orders with same-day delivery across Newcastle, Lake Macquarie and Maitland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Newcastle hamper seller whose hamper page leads with chocolate and savoury snack hampers, with flowers offered mainly as add-ons. Tier 3 because it serves local gift buyers, its website names no chocolate or snack brands and it does not describe a corporate service.",
+      "what_they_do_well": [
+        "Offers same-day hamper delivery across Newcastle, Lake Macquarie and Maitland."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.newcastleflowersbydesign.com.au/flower-hampers/",
+        "https://www.yellowpages.com.au/newcastle-region-nsw/gift-baskets-hampers"
+      ]
+    },
+    {
+      "name": "Curated With Conscience",
+      "based_out_of": "Castlemaine, Australia",
+      "domain": "curatedwithconscience.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Corporate gift hampers with other brands' biscuits (STREAT gingerbread star biscuits), snacks (My Dilly Bag popcorn, Mount Zero olives), vegan chocolates, tea and wine.",
+      "channels_supplied": "Corporate clients Australia-wide through multi-address delivery, bulk discounts and a branded gift portal.",
+      "sf_brands_carried": "Vegan chocolates and ethically made brands; no sugar free brands named.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A corporate gifting company that builds hampers from other makers' brands, listed on its Our Brands page, and ships to multiple addresses Australia-wide, including Newcastle businesses. Its ethical and vegan positioning suits Diablo's vegan cookie, wafer and muesli bars. Tier 3 because it is based in Victoria and its Newcastle client base is not stated on its website. Storage: delivery from its own Castlemaine base, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs a branded corporate gift portal with multi-address delivery across Australia and tiered bulk discounts."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://curatedwithconscience.com.au/pages/corporate-gifting",
+        "https://curatedwithconscience.com.au/pages/our-brands"
+      ]
+    }
+  ]
+}
