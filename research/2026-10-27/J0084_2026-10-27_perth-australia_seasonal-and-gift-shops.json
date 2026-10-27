@@ -1,0 +1,229 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0084",
+  "location": "Perth, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "seasonal and gift shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 9,
+      "searches_used": 74
+    }
+  ],
+  "companies": [
+    {
+      "name": "Red Dot",
+      "based_out_of": "High Wycombe, Australia",
+      "domain": "reddot.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Confectionery: bagged lollies, chocolate, gift confectionery (Cadbury Roses and Toblerone gift pouches), novelty lollies and gum (Mentos, Warheads) and chips, alongside party and seasonal ranges",
+      "channels_supplied": "About 40 Red Dot and Red Dot Home stores across Western Australia plus its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "WA-owned discount variety, party and seasonal chain with about 40 stores and a confectionery department that sells branded chocolate gift pouches and lollies from other brands. Its seasonal ranges (Halloween, Spring, party) suit Diablo's gift boxes, variety packs and advent calendars, and no sugar-free confectionery is shown, so Diablo would fill a gap.",
+      "what_they_do_well": [
+        "Proudly WA owned and operated since 1992, with 40 stores and over 700 West Australian staff."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.reddot.com.au/pages/about",
+        "https://www.reddot.com.au/confectionery/",
+        "https://www.reddot.com.au/product/cadbury-roses-gift-pouch-150g/",
+        "https://www.reddot.com.au/product/toblerone-milk-chocolate-gift-pouch/"
+      ]
+    },
+    {
+      "name": "Boxt",
+      "based_out_of": "Balcatta, Australia",
+      "domain": "boxt.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift hampers and single gift items with chocolate (Bahen & Co bars, Fremantle chocolate bars, Chocilo truffles), cookies and biscuits (Byron Bay cookies, Ogilvie & Co ANZAC biscuits), fudge and savoury snacks",
+      "channels_supplied": "Direct to shoppers and corporate clients online, same-day delivery across Perth metro, regional WA and Australia-wide",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth hamper retailer that packs other companies' branded chocolate, cookies, biscuits and snacks into gift boxes and also sells them as single items, with a chocolate category of around 36 lines. It has organic and gluten free hamper ranges but no sugar-free hamper, which Diablo's gift boxes and biscuits could fill for Christmas and corporate gifting.",
+      "what_they_do_well": [
+        "Has packed gift hampers from its own Perth warehouse for more than 20 years, with same-day Perth metro delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.boxt.com.au/gift-hampers-perth",
+        "https://www.boxt.com.au/buy/get-well-pamper-wellbeing-gift-hampers/snax-relax-gift-box",
+        "https://www.boxt.com.au/view-info-recipient/men/fremantle-choc-factory-aniseed-traditional-lollies-200g"
+      ]
+    },
+    {
+      "name": "The Grateful Gift Co",
+      "based_out_of": "Willetton, Australia",
+      "domain": "thegratefulgiftco.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift boxes and baskets with branded chocolate (Ferrero Rocher, Raffaello, Lindt Lindor, Cadbury, Bahen & Co) and biscuits (Ogilvie chocolate cookie biscuits), plus wellness and snack gift boxes",
+      "channels_supplied": "Direct to shoppers and corporate clients online, Perth metro and regional WA delivery and Australia-wide express",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth gift box shop whose own product pages show mainstream European chocolate brands such as Ferrero and Lindt alongside local brands, plus a wellness gift box range. A no-added-sugar chocolate or biscuit line would suit its wellness and Christmas boxes, and no sugar-free brand is shown today.",
+      "what_they_do_well": [
+        "Runs a Build Your Gift option and semi-corporate and full corporate gifting from its Willetton studio."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.thegratefulgiftco.com.au/products/festive-chocolate-gift-tower",
+        "https://www.thegratefulgiftco.com.au/products/wellness-gift-box",
+        "https://www.thegratefulgiftco.com.au/pages/about-us"
+      ]
+    },
+    {
+      "name": "Ginger B",
+      "based_out_of": "Perth, Australia",
+      "domain": "gingerb.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 3,
+      "distributes": "Gourmet gift hampers with chocolate from other brands (Bahen & Co, Chocolate Grove, Great Southern Truffles, Nougat & Nice, Charlotte Piper rocky road) and savoury snacks (Duck Creek macadamias, crackers and nuts)",
+      "channels_supplied": "Direct to shoppers and corporate clients (automotive, finance, legal, health, real estate) online with same-day Perth metro delivery and Australia-wide shipping",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth gift hamper retailer with 39 gourmet hampers built around chocolate and confectionery brands from other producers, plus gluten free and alcohol free ranges. Its corporate gifting and chocolate boxes are a natural home for Diablo's chocolate boxes and pralines; no sugar-free range is shown.",
+      "what_they_do_well": [
+        "Delivering local gift hampers in Perth since 2011, with a dedicated corporate gifting service by industry."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://gingerb.com.au/",
+        "https://gingerb.com.au/collections/gourmet-gift-basket-and-hampers",
+        "https://www.theurbanlist.com/perth/directory/ginger-b"
+      ]
+    },
+    {
+      "name": "St Anne's Florist & Gift Baskets",
+      "based_out_of": "Perth, Australia",
+      "domain": "stannesflorist.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 2,
+      "tier_rank": 4,
+      "distributes": "Gift hampers and chocolate and lolly hampers with Cadbury chocolate, Smarties, Perugina chocolate, The Natural Confectionery Co lollies, Margaret River Fudge Factory fudge and Smiths chips, plus chocolate bouquets and Easter and Christmas gifts",
+      "channels_supplied": "Its Newcastle Street shop in Perth and online, delivering across Perth metro, WA, Australia and internationally",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Long-running Perth gift basket and hamper shop whose chocolate and lolly hampers are filled with other companies' branded chocolate, lollies and snacks, with seasonal Easter and Christmas ranges. Flowers are also a large part of the business, but hampers and gift baskets are a core category with many branded sweets lines.",
+      "what_they_do_well": [
+        "Has delivered hampers, gift baskets and gifts across Perth since 1970."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://stannesflorist.com.au/hampers.html",
+        "https://stannesflorist.com.au/chocolate-lolly-hamper-perth.html",
+        "https://stannesflorist.com.au/hampers/easter-gifts-perth.html"
+      ]
+    },
+    {
+      "name": "Little Gift Box",
+      "based_out_of": "Perth, Australia",
+      "domain": "littlegiftbox.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Gift hampers with chocolate, cookies and sweet treats from WA makers, with branded add-ons such as Whistler's chocolate and Cuvee dark chocolate",
+      "channels_supplied": "Direct to shoppers and corporate clients online with Perth delivery",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-owned Perth gifting company selling birthday, sympathy, gourmet and corporate hampers with chocolate, cookies and sweets bought from other makers, plus a gluten free treats category. Small, and most named brands are local WA makers, so it sits in tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.littlegiftbox.com.au/",
+        "https://www.littlegiftbox.com.au/product-page/birthday-chocolate-fun-box",
+        "https://www.theurbanlist.com/perth/a-list/perths-coolest-gift-delivery-services"
+      ]
+    },
+    {
+      "name": "Plum Gifts",
+      "based_out_of": "Perth, Australia",
+      "domain": "plumgifts.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Gift baskets and hampers including Ferrero chocolate hampers, cookies and coffee hampers, Christmas munch boxes and bubbles and sweets hampers",
+      "channels_supplied": "Direct to shoppers and corporate clients online, delivering across Australia",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth gift basket retailer whose own product range includes a Ferrero chocolate hamper, cookie hampers and Christmas sweets boxes. Its product pages could not be read in full, so the wider brand list is not stated; tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.plumgifts.com.au/",
+        "https://www.plumgifts.com.au/product/ferrero-moet-moment/",
+        "https://www.plumgifts.com.au/product/cookies-and-coffee/"
+      ]
+    },
+    {
+      "name": "Relish Gourmet",
+      "based_out_of": "Osborne Park, Australia",
+      "domain": "relishgourmet.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 3,
+      "distributes": "Gourmet gift hampers with chocolates from Margaret River, Yarra Valley and Barossa producers, chocolate hampers and gourmet snacks",
+      "channels_supplied": "Its Osborne Park showroom and store plus online, for private and corporate clients in Perth, country WA, interstate and overseas",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Family-run Perth hamper retailer with a showroom that stocks chocolates and gourmet products from local and interstate producers for corporate and private gifting. Brand names are not listed on the pages that open, so it sits in tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.relishgourmet.com.au/showroom/",
+        "https://getprospect.com/business-directory/relish-gourmet"
+      ]
+    },
+    {
+      "name": "Tasty Gifts",
+      "based_out_of": "Perth, Australia",
+      "domain": "tastygifts.com.au",
+      "channel_category": [
+        "seasonal and gift shops"
+      ],
+      "tier": 3,
+      "tier_rank": 4,
+      "distributes": "Chocolate bouquets and hampers built from branded chocolate (Ferrero Rocher Christmas trees and bouquets), chocolate box hampers and cookie and chocolate hampers",
+      "channels_supplied": "Direct to shoppers online",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Perth chocolate bouquet and hamper shop whose own product range is built on branded chocolate such as Ferrero Rocher, with seasonal Christmas tree gifts. Its product pages could not be read in full and its address is not stated on the pages seen, so it sits in tier 3.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://tastygifts.com.au/product/traditional-christmas-tree/",
+        "https://tastygifts.com.au/product/cookie-and-chocolate-delights-hamper-2/",
+        "https://www.weekendnotes.com/best-chocolate-bouquet-in-perth/"
+      ]
+    }
+  ]
+}
