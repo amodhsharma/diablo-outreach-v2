@@ -1,0 +1,358 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0087",
+  "location": "Gold Coast, Australia",
+  "run_date": "2026-10-27",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "retailers",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 2,
+      "searches_used": 17
+    },
+    {
+      "channel": "sports shops and sports nutrition shops",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 0,
+      "searches_used": 26
+    },
+    {
+      "channel": "office snack and pantry suppliers",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 5,
+      "searches_used": 29
+    },
+    {
+      "channel": "snack vending operators",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 6,
+      "searches_used": 26
+    },
+    {
+      "channel": "corporate gifting and hamper companies",
+      "template": "general",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 50,
+      "companies_found": 3,
+      "searches_used": 19
+    }
+  ],
+  "companies": [
+    {
+      "name": "Mass Nutrition Gold Coast",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "massnutritiongoldcoast.com",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sports nutrition and supplements, with a protein bars and snacks category: protein bars, protein cookies and protein pastries from other brands",
+      "channels_supplied": "Its Gold Coast store, click and collect, free local delivery within 20 km and its online shop shipping across Australia",
+      "sf_brands_carried": "Max's Muscle Meal cookies and Super Shred bars, Legendary Foods protein sweet rolls and pastries, Smart Protein bars",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Gold Coast sports nutrition shop selling bars and cookies from other brands to health-conscious shoppers, which fits Diablo's muesli bars, cookies and spreads. Its online shop ships Australia wide, giving reach beyond the single store. Store address not stated on the pages seen.",
+      "what_they_do_well": [
+        "Runs click and collect, free local delivery within 20 km and Australia-wide online shipping from its Gold Coast store."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://massnutritiongoldcoast.com/",
+        "https://massnutritiongoldcoast.com/collections/protein-bars-snacks"
+      ]
+    },
+    {
+      "name": "The Wholefood Pantry Palm Beach",
+      "based_out_of": "Palm Beach, Gold Coast, Australia",
+      "domain": "twppalmbeach.com.au",
+      "channel_category": [
+        "retailers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Organic groceries with snacks, cookies, chocolate and superfood treats, spreads and syrups, vegan goodies and gift boxes sections; organic cookies from Britt's Organic",
+      "channels_supplied": "Its organic health food store and cafe at Palm Beach and its online shop",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An organic health food store whose online shop has snacks, cookies, chocolate treats and spreads and syrups sections, matching Diablo's vegan cookies, spreads and dessert toppings. It is a single store, so reach is small; the brand names in each section were not listed on the pages seen.",
+      "what_they_do_well": [
+        "Online shop with 48 categories, including dedicated vegan, gluten free and snacks sections, alongside the Palm Beach store."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://twppalmbeach.com.au/",
+        "https://twppalmbeach.com.au/our-store/"
+      ]
+    },
+    {
+      "name": "The Fruit Box Group",
+      "based_out_of": "Crestmead, Australia",
+      "domain": "thefruitboxgroup.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Office pantry range of sweet biscuits, confectionery, bars, healthy sweet and savoury snacks and spreads from other brands, plus snack boxes, fruit, milk, drinks and coffee",
+      "channels_supplied": "Workplaces and offices Australia wide, including the Gold Coast, through pantry top-up, snack box and fruit delivery services",
+      "sf_brands_carried": "Healthy, allergen-free and vegan snack lines; no snack brands named and no direct sugar-free competitor seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "The largest office pantry supplier seen serving the Gold Coast, buying sweet biscuits, confectionery and bars from many suppliers and restocking workplace pantries; it absorbed Snackwize and runs healthy snack boxes, a natural home for Diablo's better-for-you chocolate, biscuits and bars. Head office city is not stated on its website; the Gold Coast is served from its Brisbane centre. Storage: national distribution centres in Crestmead (Brisbane), Kensington, Enfield, Pooraka and Canning Vale.",
+      "what_they_do_well": [
+        "Says it pioneered workplace fruit delivery in Australia over 25 years ago.",
+        "Makes about 20,000 deliveries a week to Australian workplaces from five distribution centres."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://thefruitboxgroup.com.au/pantry-delivery/",
+        "https://thefruitboxgroup.com.au/snackwize/",
+        "https://thefruitboxgroup.com.au/fruit-delivery/",
+        "https://thefruitboxgroup.com.au/get-a-quote/"
+      ]
+    },
+    {
+      "name": "Captain Vending",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "captainvending.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Snack and drink vending for workplaces",
+      "channels_supplied": "Workplaces across the Gold Coast, Logan, Ipswich and south Brisbane through free vending machines",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Gold Coast based snack and drink vending operator that fills, services and maintains its machines at no cost to the site, so it buys packaged snacks to restock them. Tier 3 because its website names no snack categories or brands beyond snacks and drinks. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.captainvending.com.au/"
+      ]
+    },
+    {
+      "name": "Vendit Vending Services",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "venditservices.com.au",
+      "channel_category": [
+        "office snack and pantry suppliers",
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Drink and snack machine vending for workplaces",
+      "channels_supplied": "Workplaces on the Gold Coast and Tweed Coast through machines it installs and stocks",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent vending operator servicing the Gold Coast and Tweed Coast that handles stocking of its drink and snack machines, so it buys packaged snacks for workplaces. Tier 3 because its website names no snack categories, brands or address. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.venditservices.com.au/"
+      ]
+    },
+    {
+      "name": "Vend Halen",
+      "based_out_of": "Loganholme, Australia",
+      "domain": "vendhalen.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate (Cadbury Dairy Milk, Kit Kat, Snickers, Mars, M&Ms, Twix, Whittaker's), cookies (Cookieman), lollies (Allen's, Pascall), protein bars, chips and other packaged snacks and drinks through vending machines",
+      "channels_supplied": "Workplace vending machines in healthcare, aged care, engineering and trade firms, factories, warehouses, education and offices across the Gold Coast, Logan and Brisbane",
+      "sf_brands_carried": "Marks healthier choices: Muscle Nation protein bar, Piranha snaps, Vege Chips, Cobs popcorn and zero sugar drinks; no sugar-free confectionery",
+      "competing_brand_flag": false,
+      "fit_rationale": "Its own range page lists a wide branded range of chocolate, cookies, lollies and bars from other companies, with healthier choices marked for staff. It tailors each machine's selection from sales data, so a sugar-free chocolate or cookie line can be tested site by site. Storage: buys and holds stock to restock 35+ machines itself, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Runs 35+ placed machines with 50+ restocks a week across three service areas.",
+        "Uses its own in-house software and sales statistics to tailor each machine's product selection."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vendhalen.com.au/range",
+        "https://www.vendhalen.com.au/",
+        "https://www.vendhalen.com.au/about"
+      ]
+    },
+    {
+      "name": "R.A.E. Enterprises Vending",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "raeenterprisesvending.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 1,
+      "tier_rank": 2,
+      "distributes": "Chocolate (Cadbury, Nestle), cookies, fudge, lollies, chips and snacks, plus drinks and microwave meals through vending machines",
+      "channels_supplied": "Vending machines at workplaces and sites across the Gold Coast and Brisbane",
+      "sf_brands_carried": "Healthier drinks such as water, juice, protein drinks and Gatorade and Powerade; no sugar-free confectionery named",
+      "competing_brand_flag": false,
+      "fit_rationale": "Its own website lists branded chocolate from Cadbury and Nestle plus cookies, fudge and lollies, which are Diablo's core categories. It says it handles servicing, restocking and stock control itself and tailors ranges on request. Storage: sells from its own stock, warehouse not named on its website; base suburb not stated.",
+      "what_they_do_well": [
+        "Handles servicing, restocking and cleaning of remotely monitored machines itself across the Gold Coast and Brisbane."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://raeenterprisesvending.com.au/"
+      ]
+    },
+    {
+      "name": "Gold Coast Vending Machines (GCVM)",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "goldcoastvendingmachines.com.au",
+      "channel_category": [
+        "snack vending operators",
+        "office snack and pantry suppliers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Snacks, protein bars and gluten-free snacks, plus drinks, protein shakes and juices through vending machines",
+      "channels_supplied": "Vending machines in offices, hospitals, showrooms, warehouses, TAFEs, accommodation venues and building sites across the Gold Coast and Northern NSW",
+      "sf_brands_carried": "Protein bars and gluten-free options; brands not named on its website",
+      "competing_brand_flag": false,
+      "fit_rationale": "An independent Gold Coast operator since 2008 that stocks snacks and protein bars for health-conscious workplaces, hospitals and TAFEs. It ranks below tier 1 because its website names no snack brands. Storage: restocks its own machines weekly or daily from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Independently owned and operated Gold Coast vending business founded in 2008.",
+        "Services sites weekly and restocks larger sites daily, seven days a week."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://goldcoastvendingmachines.com.au/"
+      ]
+    },
+    {
+      "name": "Veles Vending",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "velesvending.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Chocolates and chips, plus soft drinks, juices, energy drinks and ready-made meals through vending machines",
+      "channels_supplied": "Free-placement vending machines in Gold Coast businesses",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Gold Coast operator that installs, maintains and restocks machines stocked with chocolates and chips, with a customisable range. Tier 3 because it is small and its website names no brands or machine count. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [],
+      "confidence": "medium",
+      "source_urls": [
+        "https://velesvending.com.au/"
+      ]
+    },
+    {
+      "name": "City to Surf Vending",
+      "based_out_of": "Nerang, Australia",
+      "domain": "citytosurfvending.com.au",
+      "channel_category": [
+        "snack vending operators"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Snacks and healthy snacks, plus drinks and meals through vending machines",
+      "channels_supplied": "Vending machines in offices, factories, gyms, hotels, schools, hospitals, theme parks and transport hubs across the Gold Coast, Brisbane and the Tweed",
+      "sf_brands_carried": "Healthy snacks and beverages; brands not named on its website",
+      "competing_brand_flag": false,
+      "fit_rationale": "A Nerang based operator that stocks and refills its own snack machines using real-time stock tracking across the Gold Coast, Brisbane and Tweed. Tier 3 because its website names no snack categories or brands in detail. Storage: refills machines from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Tracks machine stock levels in real time and refills as needed."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.citytosurfvending.com.au/service-areas",
+        "https://www.citytosurfvending.com.au/faqs"
+      ]
+    },
+    {
+      "name": "Gifts on the Gold Coast",
+      "based_out_of": "Maudsland, Australia",
+      "domain": "giftsonthegoldcoast.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Gift hampers and baskets with branded chocolate (Lindt, Ferrero Rocher, Whittaker's, Cadbury, Toblerone), sweets and gummies (Haribo, The Natural Confectionery Co, Darrell Lea, Skittles), cookies and biscuits (Byron Bay Cookies, MallowPuffs) and snacks",
+      "channels_supplied": "Online shop with free same-day delivery across the Gold Coast; corporate gift orders",
+      "sf_brands_carried": "Avalanche Sugar-Free Drinking Chocolate",
+      "competing_brand_flag": false,
+      "fit_rationale": "Locally owned Gold Coast hamper company whose product pages list many other brands' chocolate, lollies, cookies and snacks, including non-alcoholic sweet hampers for corporate and personal gifting. It already uses a sugar-free drinking chocolate, so Diablo chocolate, gummies and cookies would fit its sweet hampers. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Offers free same-day hamper delivery across the Gold Coast, seven days a week, naming suburbs from Surfers Paradise to Coomera."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.giftsonthegoldcoast.com.au/chocolate-hampers-gold-coast",
+        "https://www.giftsonthegoldcoast.com.au/gift-hampers-gold-coast",
+        "https://www.giftsonthegoldcoast.com.au/"
+      ]
+    },
+    {
+      "name": "Gift Box Gallery",
+      "based_out_of": "Nerang, Australia",
+      "domain": "giftboxgallery.com.au",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Gift boxes and hampers with branded chocolate (Whittaker's, Chocolatier, Choca Mama, Ferrero), cookies and fudge (Byron Bay), sweets (Ogilvie & Co humbugs, rocky road) and snacks (Sweet Az popcorn)",
+      "channels_supplied": "Online shop with Australia-wide delivery; corporate client gifts, staff rewards and real estate settlement gifts",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Gold Coast hamper company with a strong corporate gifting business whose product pages list several other brands' chocolate, cookies, sweets and snacks. Its Gourmet Snacker and Sweet Moments boxes are built around exactly the categories Diablo sells. Storage: sells from its own stock, assembled at its studio in Nerang.",
+      "what_they_do_well": [
+        "A second-generation Gold Coast business creating premium gift hampers since 1998.",
+        "Runs a corporate programme with logo-branded cards and volume discounts for orders of ten or more."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.giftboxgallery.com.au/",
+        "https://www.giftboxgallery.com.au/gourmet-snacker",
+        "https://www.giftboxgallery.com.au/sweet-moments-chocolate-gift-box",
+        "https://www.seekbusiness.com.au/business-listing/established-online-gift-hamper-business-gold-coast/720275"
+      ]
+    },
+    {
+      "name": "Custom Hamper Gifts",
+      "based_out_of": "Gold Coast, Australia",
+      "domain": "customhampergifts.com",
+      "channel_category": [
+        "corporate gifting and hamper companies"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Custom gift hampers and treat bouquets with imported UK chocolate and sweets (Yorkie, Curly Wurly, Lion Bar)",
+      "channels_supplied": "Online shop with Australia-wide shipping and same-day Gold Coast delivery; bulk and corporate gift orders by quote",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Small family hamper business on the Gold Coast that builds hampers from imported UK chocolate and sweets brands, so a UK-made range like Diablo's fits its offer. It takes corporate and bulk orders by quote. Tier 3 because it is small and its website names few brands. Storage: sells from its own stock, warehouse not named on its website.",
+      "what_they_do_well": [
+        "Imports UK chocolates and sweets for its UK treat hampers, shipped across Australia."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://customhampergifts.com/",
+        "https://customhampergifts.com/products/uk-treats-for-dad-sweets-hamper-fathers-day-lollies-chocolates-sweets-gifts-across-the-miles-gift-from-home-taste-of-home"
+      ]
+    }
+  ]
+}
