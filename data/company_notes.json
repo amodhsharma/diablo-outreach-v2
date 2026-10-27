@@ -7558,6 +7558,25 @@
     "research_file": "research/2026-10-27/J0081_2026-10-27_brisbane-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "giftxo.com.au": {
+    "name": "GIFTxo",
+    "based_out_of": "Newcastle, Australia",
+    "market": "Newcastle, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "Owner-run Newcastle gift hamper retailer that buys branded chocolate and packaged snacks from other producers and resells them in hampers through its own online shop. Its Beers and Snacks and Gourmet Graze hampers show chocolate and snacks as a regular part of the range. Small, with reach limited to Newcastle and Lake Macquarie and no store count, hence tier 3.",
+    "what_they_do_well": [
+      "Delivers free across the Newcastle and Lake Macquarie council areas on orders over $100."
+    ],
+    "distributes": "Gift hampers with branded chocolate (Sweet Addiction) and packaged snacks such as popcorn, crackers, jerky and pork crackle, plus craft beer and grazing items",
+    "channels_supplied": "Its own online shop, with free local delivery across Newcastle and Lake Macquarie and custom hampers for gift buyers",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0092_2026-10-27_newcastle-australia_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "gingerb.com.au": {
     "name": "Ginger B",
     "based_out_of": "Perth, Australia",
