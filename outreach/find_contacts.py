@@ -227,12 +227,10 @@ def gate1_summary(total, rows, full, tried, left, cfg, held=None):
                      f"{_names(no_more)} (0 contacts)")
     if no_site:
         lines.append(f"- {_n(len(no_site))} {_has(len(no_site))} no website in HubSpot: {_names(no_site)} (0 contacts)")
-    # Not run this time: only the companies left for the next run (Ariel, 27 Oct 2026). The companies
-    # an earlier run already dealt with (full, or short and already checked this month) are not listed.
+    # Not run this time: only how many companies wait for the next run, with no contact count (Ariel,
+    # 27 Oct 2026). The companies an earlier run already dealt with are not listed.
     if left:
-        lines += ["", f"Not run this time: (Total {_c(has(left))})",
-                  f"- {_n(len(left))} left for the next run ({cfg['companies_per_run']} companies per run) "
-                  f"({_c(has(left))})"]
+        lines += ["", "Not run this time:", f"- Waiting to run {_n(len(left))}"]
     return "\n".join(lines)
 
 

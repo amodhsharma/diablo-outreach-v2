@@ -125,7 +125,7 @@ def test_new_companies_go_before_top_ups():
     s["contacts"]["companies_per_run"] = 1
     summary = find_contacts.run("test", s, hs, apollo, log=quiet)
     assert [d for d, _, _ in apollo.searches][0] == "new.example"
-    assert "1 company left for the next run" in summary["gate1"]
+    assert "Waiting to run 1 company" in summary["gate1"]
 
 
 def test_the_summary_line_counts_every_company_on_gate_1():
@@ -149,5 +149,5 @@ def test_the_summary_line_counts_every_company_on_gate_1():
 - 2 companies had no contacts at any source, might need manual intervention: Sport Benzin, Go Fitness (0 contacts)
 - 1 company had fewer than 2 contacts and Apollo had nobody else; it goes ahead with the contacts it has, and Apollo is checked again next month: E (0 contacts)
 
-Not run this time: (Total 0 contacts)
-- 1 company left for the next run (25 companies per run) (0 contacts)"""
+Not run this time:
+- Waiting to run 1 company"""
