@@ -234,6 +234,31 @@ def gate1_summary(total, rows, full, tried, left, cfg, held=None):
     return "\n".join(lines)
 
 
+def hubspot_filters(owner=""):
+    """The HubSpot filters that show each group of companies, under button 3's summary (Ariel, 27 Oct 2026)."""
+    gate1 = "Lead status is GATE1: Approved for outreach"
+    owner_line = (f"Company owner is {owner} (leave this out to see everyone's companies)" if owner else
+                  "Company owner is you (leave this out to see everyone's companies)")
+    return "\n".join([
+        "### HubSpot filters to check these companies",
+        "",
+        'In HubSpot, open Companies and click "Advanced filters". Every view starts with: Lead source is '
+        f"AUTO-OUTREACH, and {owner_line}. Then add:",
+        "",
+        f"1. GATE 1, has 2 people, button 3 is done with it: {gate1}; Number of associated contacts is greater "
+        "than or equal to 2",
+        f"2. GATE 1, has 1 contact: {gate1}; Number of associated contacts is equal to 1",
+        f"3. GATE 1, not run yet, no contacts: {gate1}; Number of associated contacts is equal to 0",
+        "4. No contacts at any source, needs you: Lead status is Missing Info",
+        "5. Already has contacts in the CRM (change them to AUTO-OUTREACH): Lead status is Contact exists, "
+        "not AUTO-OUTREACH",
+        "",
+        "View 2 shows both the companies waiting for a second person and those Apollo was already asked about "
+        "this month. Number of associated contacts counts every contact linked to the company, including "
+        "company inboxes and contacts added by hand.",
+    ])
+
+
 def _props(companies):
     """Company records as rows with a "company" name, for _names."""
     return [{"company": (c.get("properties") or {}).get("name")} for c in companies]
@@ -346,7 +371,8 @@ def run(target, settings, hs, apollo, log=print):
     gate1 = gate1_summary(len(approved), log_rows, full, tried, left, cfg, held)
     if linked_summary.get("unlinked"):
         gate1 += "\n\n" + unlinked_summary(hs, linked_summary["unlinked"])
-    step_summary("## Button 3: companies on GATE 1\n\n" + gate1)
+    step_summary("## Button 3: companies on GATE 1\n\n" + gate1 + "\n\n"
+                 + hubspot_filters((cfg.get("_owner_names") or {}).get(cfg.get("_job_owner"), "")))
     log(gate1)
     try:  # 23 Oct 2026: "Missing info on Apollo" companies; never stops the run
         apollo_status.tidy(hs, statuses, log)

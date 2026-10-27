@@ -151,3 +151,10 @@ def test_the_summary_line_counts_every_company_on_gate_1():
 
 Not run this time:
 - Waiting to run 1 company"""
+
+
+def test_the_summary_page_ends_with_the_hubspot_filters():
+    text = find_contacts.hubspot_filters("Amodh Sharma")
+    assert "Company owner is Amodh Sharma" in text
+    assert "4. No contacts at any source, needs you: Lead status is Missing Info" in text
+    assert "Company owner is you" in find_contacts.hubspot_filters()
