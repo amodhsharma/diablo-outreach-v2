@@ -1249,6 +1249,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "awm.gov.au": {
+    "name": "Memorial Shop at the Australian War Memorial",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Canberra gift shop with its own biscuits and confectionery collection selling other companies' packaged biscuits, with seasonal peaks around Anzac Day. It is tier 3 because food is a small part of a memorial gift range and the range shown is mainly Australian biscuits.",
+    "what_they_do_well": [
+      "Sells RSL-endorsed Anzac biscuits from Bakers' Finest, tying its food range to Anzac Day commemoration."
+    ],
+    "distributes": "Biscuits and confectionery: RSL Anzac biscuits and gingernuts (Bakers' Finest), Jen's Traditional Biscuits and biscuit gift tins",
+    "channels_supplied": "Memorial Shop at the Australian War Memorial in Canberra and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0090_2026-10-27_canberra-australia_seasonal-and-gift-shops.json"
+  },
   "axionenergy.com": {
     "name": "Axion Energy (Spot convenience stores)",
     "based_out_of": "Buenos Aires, Argentina",
@@ -6987,6 +7005,24 @@
     "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "ggsflowers.com.au": {
+    "name": "GG's Flowers",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Canberra social enterprise florist with a hamper range that buys in branded chocolate, wafers and treats from other companies, including a Christmas hamper. It is tier 3 because hampers are a smaller part of a flower business and it reaches Canberra shoppers only.",
+    "what_they_do_well": [
+      "Describes itself as Canberra's most loved social enterprise florist, employing people with disabilities."
+    ],
+    "distributes": "Gift hampers with chocolate from Mildura Chocolate Company, chocolate coated macadamias (Indigiearth), chocolate wafers, chocolate balls and cookies, plus Christmas hampers",
+    "channels_supplied": "Its own online shop with delivery around the Canberra region",
+    "sf_brands_carried": "Protein balls (GH Nutrition) in its treat hamper",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0090_2026-10-27_canberra-australia_seasonal-and-gift-shops.json"
+  },
   "ghioldisa.ch": {
     "name": "Ghioldi SA",
     "based_out_of": "Stabio, Switzerland",
@@ -12424,6 +12460,24 @@
     "sf_brands_carried": "",
     "added": "2026-10-15",
     "research_file": "research/2026-10-15/J0008_2026-10-15_newcastle-upon-tyne-united-kingdom_distributors-wholesalers-retailers.json"
+  },
+  "nma.gov.au": {
+    "name": "National Museum of Australia Museum Shop",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Seasonal and gift shops",
+    "channels": [
+      "seasonal and gift shops"
+    ],
+    "fit_rationale": "A Canberra gift shop with its own chocolate, sweets and spreads sections stocked with other companies' brands, including foreign gourmet sweets. It is tier 3 because food is one department of a wider museum gift range and store count is one.",
+    "what_they_do_well": [
+      "Runs a dedicated chocolate collection and a food section with sweets and spreads alongside its museum gifts."
+    ],
+    "distributes": "Chocolate (Chocamama chocolates and lolly mixes), confectionery from Nutworks (fudge, brittle, rocky road), Candy Kittens gourmet lollies, spreads and jams in its food section",
+    "channels_supplied": "Museum Shop at the National Museum of Australia in Canberra and its online shop with pick-up in store",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0090_2026-10-27_canberra-australia_seasonal-and-gift-shops.json"
   },
   "nolans.ie": {
     "name": "Nolans Supermarket",
