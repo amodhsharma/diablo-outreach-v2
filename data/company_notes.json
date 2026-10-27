@@ -970,6 +970,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json"
   },
+  "asiansavoury.com.au": {
+    "name": "Asian Savoury",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "An Asian grocer whose own online shop has a clear snacks section with branded biscuits, sweets and chocolate bars, sold to shoppers with home delivery across the ACT. Branded sweets and biscuits are a real part of its shelf, so it passes rule 8. Tier 3 because it is one store.",
+    "what_they_do_well": [
+      "Delivers its online grocery orders to homes across the ACT and Queanbeyan."
+    ],
+    "distributes": "Branded snacks, biscuits, sweets and chocolate bars (Fibisco, Regent, Goldilocks, Cloud 9, Lala, Choko-choko, Humpy Dumpy, Piattos)",
+    "channels_supplied": "Its shop at Capital Food Market, Belconnen, its online shop with delivery across the ACT and Queanbeyan, and DoorDash",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "aspenandco.co.za": {
     "name": "Aspen&Co",
     "based_out_of": "Cape Town, South Africa",
@@ -1445,6 +1464,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "barton-grocer.myshopify.com": {
+    "name": "Barton Grocer",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A local grocery store in Barton, close to Parliament House offices, with its own online shop. Website did not open; trading confirmed on localsearch.com.au. Tier 3 because it is one small store and its range could not be read.",
+    "what_they_do_well": [],
+    "distributes": "General groceries including packaged sweets, chocolate and snacks, as a local grocery store",
+    "channels_supplied": "Its own store in Barton and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "basenutrition.co": {
     "name": "Base Nutrition",
@@ -2364,6 +2400,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "bootynbuff.com": {
+    "name": "Booty N Buff",
+    "based_out_of": "Caringbah, Australia",
+    "market": "Canberra, Australia",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "A sports nutrition shop whose snacks section lists 31 products from other brands, including protein cookies, bars and peanut butter cups, sold to health-conscious shoppers online. Diablo's sugar-free chocolate, cookies and spreads sit alongside the low sugar protein snacks it already sells.",
+    "what_they_do_well": [
+      "Runs a dedicated snacks collection of 31 products across brands such as Quest, Legendary Foods and Lenny & Larry's."
+    ],
+    "distributes": "Protein bars, protein cookies, peanut butter cups, protein snacks and peanut butter spread from other brands (Quest, Lenny & Larry's, EQ Food, Legendary Foods, Body Science, ATP Science, Macro Mike)",
+    "channels_supplied": "Its own sports nutrition shop in Caringbah, Sydney and its online shop for Australian shoppers; delivery area not stated on the pages checked",
+    "sf_brands_carried": "Low sugar and high protein snacks: Quest, Legendary Foods, Body Science low carb bars, Lenny & Larry's",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "bosfood.de": {
     "name": "Bos Food GmbH",
@@ -7004,6 +7059,26 @@
     "research_file": "research/2026-10-26/J0072_2026-10-26_australia_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "giftbasketboutique.com.au": {
+    "name": "Gift Basket Boutique",
+    "based_out_of": "Gold Coast, Australia",
+    "market": "Canberra, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A national hamper company that has served Canberra for over ten years and builds its baskets from branded chocolate such as Lindt and Cadbury plus biscuits and snacks. Diablo's chocolate boxes, biscuits and gift packs fit its sweet and get well hampers, and a sugar free hamper is a natural addition for corporate buyers. Storage: makes up hampers to order from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Delivering gift hampers Australia-wide since 2010 and serving Canberra for over ten years.",
+      "Gives each customer a dedicated sales coordinator for custom hampers."
+    ],
+    "distributes": "Gift hampers with chocolate (Lindt, Cadbury), shortbread biscuits, popcorn and savoury snacks, plus pamper and baby hampers",
+    "channels_supplied": "Corporate and private customers Australia-wide, with a Canberra page, free standard delivery and express next business day delivery to Canberra",
+    "sf_brands_carried": "Organic and green living hampers; no sugar free brand named",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "giftbaskets.co.za": {
     "name": "Gifts by Fusspot",
     "based_out_of": "Cape Town, South Africa",
@@ -7589,6 +7664,26 @@
     "added": "2026-10-22",
     "research_file": "research/2026-10-22/J0025_2026-10-22_switzerland_retailers-pharmacy-and-drugstore-chains-health-food-and-organic-retailers-kiosk.json",
     "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "gourmetbydesign.com.au": {
+    "name": "Gourmet by Design",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A Canberra hamper house since 2004 that buys in branded biscuits and chocolate snacks from other makers, such as Charlie's and Butterfingers, and packs them into corporate and private hampers. Diablo's biscuits, chocolate and gift boxes would suit its sweet, gluten free and vegan hamper lines. It also packs some chocolate bark under its own name. Storage: sells from its own stock at its Hume premises, warehouse size not named on its website.",
+    "what_they_do_well": [
+      "Gifting in Canberra since 2004, with same day delivery across Canberra and Queanbeyan.",
+      "Handles large corporate orders through a dedicated corporate hampers page."
+    ],
+    "distributes": "Gift hampers with biscuits and cookies (Charlie's, Butterfingers), chocolate, chocolate coated nuts (Nutworks) and sweet selections; 131 hampers plus build your own",
+    "channels_supplied": "Corporate clients and shoppers in Canberra and Queanbeyan with same day delivery, Australia-wide shipping and click and collect at Hume",
+    "sf_brands_carried": "Gluten free, vegan and dairy free hamper filters; no sugar free brand named",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "gqf.com.au": {
     "name": "Global Quality Foods (GQF)",
@@ -10292,6 +10387,23 @@
     "research_file": "research/2026-10-23/J0036_2026-10-23_switzerland_diabetic-low-sugar-and-keto-shops-gluten-free-and-free-from-shops-vegan-and-vege.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "letsbenatural.com.au": {
+    "name": "Let's Be Natural",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Canberra health food store whose own online shop has a food and drink section with snacks and biscuits categories and branded protein bars. Diablo's bars, biscuits and vegan cookies fit its health-conscious shoppers. Tier 3 because it is a single store and its website blocks automated reading, so brand counts are not stated.",
+    "what_they_do_well": [],
+    "distributes": "Health foods with a snacks section: biscuits, protein bars and chocolate coated snacks from other brands",
+    "channels_supplied": "Its own health food store in Mawson and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "the website address no longer exists"
+  },
   "lidl.co.uk": {
     "name": "Lidl GB",
     "based_out_of": "London, United Kingdom",
@@ -10744,6 +10856,23 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0060_2026-10-26_pretoria-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli-2.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "lyonsfg.com.au": {
+    "name": "Lyons Friendly Grocer",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "An independent suburban grocery store in Lyons that is listed in the sweets and candy category on Uber Eats for Canberra. Website did not open; trading confirmed on localsearch.com.au. Tier 3 because it is a single small store.",
+    "what_they_do_well": [],
+    "distributes": "General groceries, packaged sweets, chocolate and snacks, as a suburban grocery and liquor store",
+    "channels_supplied": "Its own store in Lyons and Uber Eats delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "mabrotherscashandcarry.co.uk": {
     "name": "M.A. Brothers Cash & Carry",
@@ -11681,6 +11810,25 @@
     "added": "2026-10-14",
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json"
   },
+  "mkohampers.com.au": {
+    "name": "MKO Hampers",
+    "based_out_of": "Australia",
+    "market": "Canberra, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "An Australian owned hamper company with a Canberra corporate offer whose hampers include chocolates, nougat bars and biscuits bought in for its gift boxes. Diablo's chocolate, bars and biscuits suit its corporate Christmas hampers. Tier 3 because its website names neither its head office city nor the brands inside its hampers. Storage: dispatches same day from its own stock, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Dispatches orders received by 12pm the same day with free delivery Australia-wide."
+    ],
+    "distributes": "Gift hampers with chocolates, nougat bars, biscuits, jams and nibbles alongside Australian wine and craft beer",
+    "channels_supplied": "Corporate client and staff hampers with branding on orders of 25 or more, and shoppers Australia-wide with a Canberra page and free delivery",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "mmfitness.com.au": {
     "name": "M&M Fitness",
     "based_out_of": "Australia",
@@ -11802,6 +11950,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "mountaincreekwholefoods.com.au": {
+    "name": "Mountain Creek Wholefoods",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A Canberra health food store that stocks more than 8,000 products from about 200 suppliers, with a dedicated chocolate, sweets and snacks category of better-for-you brands. Its shoppers already buy free from and sugar-free sweets, so Diablo's chocolate, biscuits, bars and spreads suit the shelf. It carries Free From Fellows, a direct sugar-free competitor.",
+    "what_they_do_well": [
+      "Trading in Griffith since 1977, stocking over 8,000 products from about 200 suppliers."
+    ],
+    "distributes": "Chocolate, sweets and snacks, honey, jam and spreads, breakfast cereals and wholefoods from other brands (Loving Earth, Pana Organic, Ceres Organics, Blue Dinosaur, Free From Fellows, Nutra Organics, The Carob Kitchen)",
+    "channels_supplied": "Its own shop in Griffith and its online shop",
+    "sf_brands_carried": "Free From Fellows (sugar-free lollies), Blue Dinosaur, Loving Earth, Pana Organic",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "mpos.ie": {
     "name": "M&P O'Sullivan",
@@ -14888,6 +15055,24 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json"
   },
+  "rundna.com.au": {
+    "name": "RunDNA (formerly Sportitude)",
+    "based_out_of": "Australia",
+    "market": "Canberra, Australia",
+    "category": "Sports shops and sports nutrition shops",
+    "channels": [
+      "sports shops and sports nutrition shops"
+    ],
+    "fit_rationale": "An online running and sports shop with its own Energy Bars and Snacks category of other brands' bars and chews, sold to runners and other health-conscious shoppers across Australia. Diablo's muesli and cereal bars and gummies fit the bars and chews it already stocks.",
+    "what_they_do_well": [
+      "Built a dedicated sports nutrition range of bars, chews, gels and hydration from brands such as Clif, Maurten and Winners."
+    ],
+    "distributes": "Energy bars, protein bars, energy chews and gels from other brands (Clif, Winners, Shotz, Max's, Maurten, Koda, PURE)",
+    "channels_supplied": "Its online running shop for Australian shoppers (sportitude.com.au now redirects to it); head office not stated on its website",
+    "sf_brands_carried": "Max's Hydroxy Phase+ Cut Carbs high protein bars",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
+  },
   "runnersshop.com.au": {
     "name": "Runners Shop",
     "based_out_of": "Randwick, Australia",
@@ -17381,6 +17566,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0054_2026-10-26_johannesburg-south-africa_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
   },
+  "thecookgrocer.com.au": {
+    "name": "The Cook Grocer",
+    "based_out_of": "Canberra, Australia",
+    "market": "Canberra, Australia",
+    "category": "Retailers",
+    "channels": [
+      "retailers"
+    ],
+    "fit_rationale": "A family-run suburban grocer in Cook with an online shop that lists branded chocolate bars, including Jasper and Myrtle, and runs home delivery. A general grocer sells packaged sweets and snacks by its nature and takes product requests from shoppers. Tier 3 because it is one store and its full snacks range is not shown on the pages read.",
+    "what_they_do_well": [
+      "Runs home delivery and a membership scheme for its Cook shoppers."
+    ],
+    "distributes": "General groceries with chocolate from other brands (Jasper and Myrtle chocolate bars, white and dark chocolate), snacks and local produce",
+    "channels_supplied": "Its own grocery store in Cook, home delivery and its online shop",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "thedeli.co.za": {
     "name": "The Deli",
     "based_out_of": "Durbanville, Cape Town, South Africa",
@@ -17793,6 +17997,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-27",
     "research_file": "research/2026-10-27/J0082_2026-10-27_brisbane-australia_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "thesweetowlhampers.com.au": {
+    "name": "The Sweet Owl Hampers",
+    "based_out_of": "Ballarat, Australia",
+    "market": "Canberra, Australia",
+    "category": "Corporate gifting and hamper companies",
+    "channels": [
+      "corporate gifting and hamper companies"
+    ],
+    "fit_rationale": "A sweets-led hamper company whose hampers are built from branded confectionery and biscuits such as Darrell Lea and Oreo, handpicked from outside suppliers, with corporate and bulk ordering. Diablo's chocolate, gummies and biscuits match its range directly and would give it a sugar free hamper. Storage: ships hampers from its own stock and runs a chocolate store in Ballarat, warehouse not named on its website.",
+    "what_they_do_well": [
+      "Offers over 100 gift hampers delivered Australia-wide, including a Canberra collection.",
+      "Donates to the On Track Foundation's Soup Bus."
+    ],
+    "distributes": "Confectionery and chocolate hampers with Darrell Lea liquorice and chocolate, Oreo chocolate coated cookies, jubes, nougat, pretzels and nuts; over 100 hampers",
+    "channels_supplied": "Corporate gift hampers and bulk orders, shoppers Australia-wide with a Canberra collection, a wholesale account option and a Ballarat chocolate store",
+    "sf_brands_carried": "",
+    "added": "2026-10-27",
+    "research_file": "research/2026-10-27/J0089_2026-10-27_canberra-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "thetrail.co": {
