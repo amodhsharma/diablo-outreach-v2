@@ -56,3 +56,12 @@ def no_real_job_counter(tmp_path, monkeypatch):
     """No test reads or writes the real research/last_job_id.txt."""
     from outreach import research_queue
     monkeypatch.setattr(research_queue, "LAST_ID_FILE", tmp_path / "last_job_id.txt")
+
+
+@pytest.fixture(autouse=True)
+def no_real_daily_log(tmp_path, monkeypatch):
+    """No test reads or writes the real daily log of the summary email (27 Oct 2026)."""
+    from outreach import daily_log
+    monkeypatch.setattr(daily_log, "LOG_FILE", tmp_path / "daily_log.json")
+    monkeypatch.delenv("DAILY_REPORT_TO", raising=False)
+    monkeypatch.delenv("DAILY_REPORT_APP_PASSWORD", raising=False)

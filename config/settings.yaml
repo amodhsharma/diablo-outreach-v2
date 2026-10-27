@@ -307,3 +307,12 @@ import_checks:
 sync:
   # Only Instantly campaigns whose name starts with this are synced.
   campaign_prefix: "Diablo |"
+
+# The daily summary email (agreed 27 Oct 2026, Ariel): at 9 AM India time, the day before, for three
+# colleagues. Sent through Google from a mailbox that sends no campaigns. The recipients and the
+# mailbox's Google app password are the GitHub secrets DAILY_REPORT_TO and DAILY_REPORT_APP_PASSWORD.
+daily_report:
+  sender: admin@diablosnosugar.com
+  sender_name: Diablo Partner Outreach
+  smtp_host: smtp.gmail.com
+  smtp_port: 587

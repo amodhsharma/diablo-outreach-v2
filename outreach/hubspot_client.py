@@ -224,6 +224,19 @@ class HubSpot(TagGuard):
             out.extend(data.get("results", []))
         return out
 
+    def history(self, object_type, ids, prop, properties=()):
+        """{record id: (properties, [(value, timestamp), ...])}: every value a field has had, newest
+        first, e.g. each Lead Status a company went through (read only; 27 Oct 2026)."""
+        out = {}
+        for chunk in _chunks(list(ids), 50):  # HubSpot reads at most 50 records with history at once
+            body = {"inputs": [{"id": str(i)} for i in chunk], "properties": sorted(set(properties) | {prop}),
+                    "propertiesWithHistory": [prop]}
+            data = self.request("POST", f"/crm/v3/objects/{object_type}/batch/read", ok=(200, 207), json=body)
+            for row in data.get("results", []):
+                past = [(h.get("value"), h.get("timestamp")) for h in (row.get("propertiesWithHistory") or {}).get(prop) or []]
+                out[str(row["id"])] = (row.get("properties") or {}, past)
+        return out
+
     def list_all(self, object_type, properties):
         """Every record of a type, with no 10,000 limit (HubSpot's plain list, 100 at a time)."""
         out, after = [], None

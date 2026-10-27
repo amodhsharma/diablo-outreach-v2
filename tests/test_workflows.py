@@ -67,9 +67,10 @@ def test_the_timer_inputs_exist():
 def test_only_the_four_buttons_are_left():
     names = sorted(yaml.safe_load(p.read_text())["name"] for p in (ROOT / ".github" / "workflows").glob("*.yml"))
     # Plus the strain test helper (19 Oct 2026), which only ever works on the test account, and the
-    # bond paragraph preview (26 Oct 2026), which only creates its own never-launched test campaign.
+    # bond paragraph preview (26 Oct 2026), which only creates its own never-launched test campaign,
+    # and the daily summary email (27 Oct 2026), which only reads.
     assert names == ["1 - Setup HubSpot (once per account)", "2 - Research", "3 - Find contacts",
-                     "4 - Send and follow up", "T - Bond paragraph preview (Instantly)",
+                     "4 - Send and follow up", "R - Daily summary email", "T - Bond paragraph preview (Instantly)",
                      "T - Strain test: give test contacts the test addresses (test account only)"]
     helper = (ROOT / ".github" / "workflows" / "test-addresses.yml").read_text()
     assert "HUBSPOT_TOKEN_TEST" in helper and "HUBSPOT_TOKEN_LIVE" not in helper

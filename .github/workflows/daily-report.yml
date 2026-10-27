@@ -1,0 +1,42 @@
+name: 'R - Daily summary email'
+
+# Agreed 27 Oct 2026 (Ariel). The partner outreach summary of the day before (India time), sent at
+# 9 AM India time to three colleagues from admin@diablosnosugar.com, through Google. Nothing to
+# press: cron-job.org starts it every morning (docs/outside_timer.md). Press it yourself with
+# "Preview only" ticked to see the email on this page without sending it.
+# HubSpot and Instantly are only read; nothing is changed. The recipients and the mailbox's Google
+# app password are the GitHub secrets DAILY_REPORT_TO and DAILY_REPORT_APP_PASSWORD.
+on:
+  workflow_dispatch:
+    inputs:
+      preview:
+        description: "Preview only: show the email on this page, send nothing"
+        type: boolean
+        default: false
+
+jobs:
+  report:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+      HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+      INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+      INSTANTLY_ACCOUNTS_KEY: ${{ secrets.INSTANTLY_ACCOUNTS_KEY }}
+      DAILY_REPORT_TO: ${{ secrets.DAILY_REPORT_TO }}
+      DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: "Before: tests pass"
+        run: python -m pytest -q
+      - name: "The daily summary email"
+        run: |
+          if [ "${{ inputs.preview }}" = "true" ]; then
+            python -m outreach.daily_report --target "$TARGET" --preview
+          else
+            python -m outreach.daily_report --target "$TARGET"
+          fi

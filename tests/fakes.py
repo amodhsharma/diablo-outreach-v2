@@ -57,6 +57,12 @@ class FakeCRM(TagGuard):
             return val in (None, "")
         if op == "EQ":
             return str(val).lower() == str(f["value"]).lower()
+        if op in ("GTE", "LT") and f["propertyName"] in ("createdate", "hs_lastmodifieddate"):
+            from outreach.next_in_line import parse_time
+            when, limit = parse_time(val), parse_time(f["value"])
+            if when is None:
+                return False
+            return when >= limit if op == "GTE" else when < limit
         if op == "GTE":
             return val is not None and int(val) >= int(f["value"])
         if op == "IN":
@@ -129,6 +135,12 @@ class FakeCRM(TagGuard):
             if str(b) not in self.links.setdefault(str(a), []):
                 self.links[str(a)].append(str(b))
             self.primary[str(a)] = str(b)
+
+    def history(self, object_type, ids, prop, properties=()):
+        """self.past: {(object type, id): [(value, timestamp)]} set by a test, newest first."""
+        past = getattr(self, "past", {})
+        return {str(i): (dict(self.records[object_type][str(i)]), list(past.get((object_type, str(i)), [])))
+                for i in ids if str(i) in self.records[object_type]}
 
     def associated_types(self, from_type, to_type, ids):
         assert (from_type, to_type) == ("contacts", "companies")

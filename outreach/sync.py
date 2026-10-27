@@ -47,7 +47,7 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from . import timeline
+from . import daily_log, timeline
 from .stages import COLLEAGUE_STAGES, EMAILED, TEAM, LeadStatus, forward
 
 
@@ -477,6 +477,10 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
             log(f"Wrote {noted} notes on contacts' timelines (email sent, bounced or replied)")
     except Exception as err:  # never stops the run
         log(f"Could not write the timeline notes: {str(err)[:200]}")
+    try:  # 27 Oct 2026 (Ariel): replies, bounces and opt-outs by day, for the daily summary email
+        daily_log.record(seen)
+    except Exception as err:  # never stops the run
+        log(f"Could not write the daily log: {str(err)[:200]}")
     opt_out_rows = []
     opted = [c for c in changed if c["event"] in OPT_OUT_EVENTS]
     stop_reasons(hs, "contacts", [(c["contact_id"], f"{STOP_TEXT.get(c['event'], 'Opted out')} ({today()})")
