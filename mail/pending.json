@@ -1,5 +1,492 @@
 {
-  "generated_at": "2026-10-28T05:51:32+00:00",
+  "generated_at": "2026-10-28T06:34:18+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "904859530466",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Activend",
+        "domain": "activend.com.au",
+        "location": "Australia",
+        "channel": "Leisure and venue snack suppliers",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Nationally branded chocolate bars, confectionery, muesli slices, cereals, chips and savoury snacks, dried fruit and nuts",
+        "channels_supplied": "Vending machines in clubs, hotels, businesses and community organisations across Sydney",
+        "sf_brands_carried": "A Fresh and Healthy menu with muesli slices and diet drinks; no direct competitor seen",
+        "what_they_do_well": [],
+        "fit_rationale": "A Sydney vending operator that supplies, services and restocks machines in clubs and hotels with nationally branded chocolate bars and confectionery. Its healthy selections menu suits Diablo's bars and no added sugar chocolate. Brands are not named on its website."
+      }
+    },
+    {
+      "contact_id": "904774080739",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Bockers & Pony",
+        "domain": "bockersandpony.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Arndell Park, Sydney, Australia",
+        "distributes": "Chocolate and chocolate gift hampers with other brands (Aury Chocolates, Nina's Belgian chocolates), plus nougat and biscuits (Rinaldi, Baylies, Butterflies) in hampers",
+        "channels_supplied": "Direct to shoppers and corporate buyers through its own online shop, with delivery across Sydney, Melbourne and Australia; previously sold through the Dan Murphy's marketplace",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has handcrafted gift hampers since 2004, citing over 20 years' experience."
+        ],
+        "fit_rationale": "A Sydney gift hamper company with a dedicated corporate gifts service whose chocolate hampers are built from other companies' branded chocolates and biscuits. Diablo's gift boxes, chocolate and biscuits suit its chocolate and corporate hampers. Storage: sells hampers from its own stock, warehouse not named on its website; footer address Arndell Park NSW."
+      }
+    },
+    {
+      "contact_id": "905305762005",
+      "job_title": "Business Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Brandconnect",
+        "domain": "brandconnect.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Branded chocolate (Lindt, Cadbury Dairy Milk, KitKat, Mars) and muesli bars (Carman's)",
+        "channels_supplied": "Corporate clients Australia-wide",
+        "sf_brands_carried": "Carman's muesli bars",
+        "what_they_do_well": [],
+        "fit_rationale": "Its confectionery range carries Lindt, Cadbury, KitKat, Mars and Carman's bars with branded sleeves and labels. Diablo's chocolate and muesli bars match both sides of that range. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
+      "contact_id": "905264764153",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Chilli Promotions",
+        "domain": "chillipromotions.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Port Melbourne, Australia",
+        "distributes": "Sweets (Mentos), chocolates, biscuits, mixed bars, jelly beans and lollipops",
+        "channels_supplied": "Leading Australian organisations; city pages across every state and territory",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Celebrated 25 years of supplying Australia's leading organisations in 2026."
+        ],
+        "fit_rationale": "Runs a 26-category promotional confectionery range including Mentos, chocolates, biscuits and mixed bars. Diablo's chocolate, biscuits and bars fit those categories. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
+      "contact_id": "905302185186",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Coastal Direct Promotional Products",
+        "domain": "coastaldirectpromoproducts.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Queensland, Australia",
+        "distributes": "Branded chocolate (Lindt Lindor, M&M's) and sweets (Allen's, Skittles, Jelly Belly)",
+        "channels_supplied": "Businesses in Brisbane, Gold Coast, Sunshine Coast and Toowoomba",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Its promotional and branded chocolates categories carry Lindt, M&M's, Allen's and Jelly Belly packs for business clients. Diablo's chocolate and sweets fit the same gifting use. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
+      "contact_id": "905267208408",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Country Culture",
+        "domain": "countryculture.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Alexandria, Sydney, Australia",
+        "distributes": "Gift hampers and single products including chocolates and sweet treats, crackers and nuts from Australian small producers",
+        "channels_supplied": "Corporate gifting for staff and clients (logos include Microsoft, Westpac, Qantas, Lendlease and Atlassian) and direct to shoppers through its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Corporate client logos on its website include Microsoft, Westpac, Qantas, Lendlease and Atlassian."
+        ],
+        "fit_rationale": "A Sydney corporate gift hamper company with a Chocolates and Sweet Treats section and a Sweet Treats hamper range sourced from other businesses. Its large corporate client base gives Diablo's chocolate, biscuits and gift boxes access to staff and client gifting. Storage: dispatches from its Sydney fulfilment centre."
+      }
+    },
+    {
+      "contact_id": "904796119250",
+      "job_title": "CEO, Co-Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Crafty",
+        "domain": "craftydelivers.com",
+        "location": "Australia",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Chicago, United States",
+        "distributes": "Office pantry snacks and drinks: Kinder Bueno chocolate bars, Quest protein bars, Pocky biscuit sticks, Laid Back Snacks and other local and national brands",
+        "channels_supplied": "Offices in Sydney and Melbourne, restocked by its local teams",
+        "sf_brands_carried": "Quest protein bars and Red Bull Sugar Free; no direct competitor",
+        "what_they_do_well": [],
+        "fit_rationale": "A managed office pantry service that restocks Sydney and Melbourne offices with branded chocolate bars, protein bars and biscuits. It already stocks low sugar and better for you lines, so Diablo fits its pantry mix. Storage: sells from its own stock restocked by its Sydney and Melbourne teams, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "904730931399",
+      "job_title": "Business Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Cubic Promote",
+        "domain": "cubicpromote.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Branded sweets (Allen's lollies range) and chocolates and lollies for trade shows",
+        "channels_supplied": "Corporate and trade show clients Australia-wide; New Zealand sister site",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "ISO 9001:2015 certified and a member of APPA and Sedex."
+        ],
+        "fit_rationale": "Has a dedicated Allen's promotional candy range within its chocolates and lollies category. Diablo's sweets and chocolate fit the same tradeshow use. Storage: offers 3PL warehousing and kitting; warehouse location not named on its website."
+      }
+    },
+    {
+      "contact_id": "904865571016",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Gift Republiq",
+        "domain": "giftrepubliq.com",
+        "location": "Sydney, Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Gift hampers and gift boxes with branded chocolate (Koko Black), chocolate blocks and caramelised nuts",
+        "channels_supplied": "Corporate gifting with bulk ordering and branding, and direct to shoppers online with delivery to Sydney, Melbourne, Brisbane and Perth",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Sydney founded gift box company that fills its hampers with other companies' branded chocolate such as Koko Black and offers corporate bulk orders. Diablo's chocolate and gift boxes match its chocolate led hampers. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "904781856977",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Hotel Products Direct",
+        "domain": "hotelproductsdirect.com.au",
+        "location": "Australia",
+        "channel": "Hotel minibar suppliers",
+        "based_out_of": "Fairfield, Australia",
+        "distributes": "Guest room food and drink: biscuits (Cookie Chef Co shortbread), chocolates and mints (Terry's Twilight Mints, foil chocolate hearts), jams and spreads (Bonne Maman, Beerenberg), muesli, tea and coffee",
+        "channels_supplied": "Hotels, motels, guesthouses, inns, serviced apartments, B&Bs and youth hostels, Australia wide through its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over 20 years supplying commercial accommodation products to hotels, motels and serviced apartments across Australia."
+        ],
+        "fit_rationale": "An online accommodation supplier with biscuits, chocolates and mints and jams sections stocked with other companies' brands for guest rooms. Diablo's individually wrapped chocolates, biscuits and portion jams match what it already sells to hotels. Storage: sells from its own stock through its online shop, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "905273478375",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Just In Case Direct",
+        "domain": "justincasedirect.com.au",
+        "location": "Australia",
+        "channel": "Leisure and venue snack suppliers",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Chocolate (Whittaker's), sweets and jelly beans (Jelly Belly, Skittles), biscuits and cookies (Kez's Cookies), salty snacks (Smiths, Red Rock Deli, Pringles) and healthy snacks for minibars",
+        "channels_supplied": "Hotel minibars, accommodation providers, minibar operators, conferences, conventions and events in Australia and abroad",
+        "sf_brands_carried": "A healthy products section; no direct competitor seen",
+        "what_they_do_well": [
+          "Offers more than 250 minibar lines to hotels, from chocolate and biscuits to travel essentials."
+        ],
+        "fit_rationale": "A wholesale supplier of branded minibar snacks and treats to hotels and accommodation, a clear venue channel where packs are sold to guests as they are. It already lists biscuits, chocolate and confectionery from other brands, so Diablo's single serve chocolate and cookies fit its range. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "904869792970",
+      "job_title": "Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "LePack Accommodation Supplies",
+        "domain": "lepack.com.au",
+        "location": "Australia",
+        "channel": "Hotel minibar suppliers",
+        "based_out_of": "Gold Coast, Australia",
+        "distributes": "Guest room and minibar food: biscuits (Arnott's, Lotus Biscoff, Aussie Biscuit), snack slices and bars (Springhill Farm), nut and dark chocolate snack mixes (Brookfarm), jams and spreads (Beerenberg), breakfast and snack packs",
+        "channels_supplied": "Hotels, motels, resorts, serviced apartments, Airbnb hosts, clubs, conference venues and tour groups, Australia wide",
+        "sf_brands_carried": "Better-for-you snacks from Brookfarm and Springhill Farm; no sugar-free brand seen",
+        "what_they_do_well": [
+          "Has supplied hotels, motels and resorts since 2006, with breakfast and snack packs assembled at its own premises."
+        ],
+        "fit_rationale": "An accommodation supply wholesaler with its own Snacks, Jams and Spreads and Minibar sections selling other companies' biscuits, bars and snacks to hotels and short stay hosts. Diablo's wafers, cookies, bars and portion jams fit straight into its guest room and snack pack ranges. Storage: assembles and ships snack and breakfast packs from its own premises on the Gold Coast."
+      }
+    },
+    {
+      "contact_id": "904601965758",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "PromoShop",
+        "domain": "promoshop.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Port Melbourne, Australia",
+        "distributes": "Chocolate (Lindt), sweets (Allen's, M&M's, Mentos), biscuits, mixed bars, jelly beans and lollipops",
+        "channels_supplied": "Corporate clients Australia-wide; offices in Port Melbourne and Banksmeadow",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Its confectionery range has biscuits and mixed bars categories alongside Lindt, Allen's, M&M's and Mentos packs. Diablo's chocolate, biscuits and bars fit those categories. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
+      "contact_id": "904780302536",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Simple Vending Solution",
+        "domain": "simplevendingsolution.com.au",
+        "location": "Australia",
+        "channel": "Leisure and venue snack suppliers",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Snacks and protein bars, healthy snacks and cold drinks for vending machines",
+        "channels_supplied": "Vending machines in gyms, community and leisure centres, aquatic centres, sports clubs, RSLs, bowling clubs, hotels and motels across greater Sydney",
+        "sf_brands_carried": "Healthy options for gyms; no brand named",
+        "what_they_do_well": [
+          "Places machines at sports grounds, RSLs, bowling clubs and aquatic centres across Sydney's metro and western suburbs."
+        ],
+        "fit_rationale": "A Sydney vending operator whose named sites are exactly this channel: leisure and aquatic centres, sports clubs, RSLs and hotels. It supplies, restocks and services its machines, selling protein bars and snacks to the active, health conscious visitors Diablo targets. Brands stocked are not named on its website."
+      }
+    },
+    {
+      "contact_id": "904665103592",
+      "job_title": "Business Development Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "SVA Vending",
+        "domain": "svavending.com.au",
+        "location": "Australia",
+        "channel": "Leisure and venue snack suppliers",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Chocolate (Cadbury, Mars, Snickers, KitKat, Dove), sweets and lollies, biscuits (Tim Tam), protein and muesli bars, chips and nuts, including low sugar, vegan and gluten free options",
+        "channels_supplied": "Snack vending machines in gyms, schools, offices and hospitals in Victoria",
+        "sf_brands_carried": "Low sugar, vegan and gluten free snack options; no brand named; no direct competitor seen",
+        "what_they_do_well": [
+          "More than 15 years in Australian vending."
+        ],
+        "fit_rationale": "A vending operator that delivers, installs and restocks its machines with branded chocolate, lollies, biscuits and bars, with a dedicated gym vending range. Its low sugar options give Diablo's bars and chocolate a natural slot. It buys and restocks the products itself."
+      }
+    },
+    {
+      "contact_id": "904493454565",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Umall",
+        "domain": "umall.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Retailers",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Snacks and confectionery from other brands, including chocolate (KitKat), chips (Calbee, Lay's) and Asian sweets and biscuits, within an online supermarket of over 20,000 items",
+        "channels_supplied": "Online direct to shoppers with same day and next day delivery across Sydney Metro, Wollongong and Canberra",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Built a 20,000 plus item online Asian supermarket in Sydney since 2021, serving tens of thousands of households by 2025."
+        ],
+        "fit_rationale": "Sydney's largest online Asian supermarket, founded in 2021, with its own snacks and confectionery collection of branded products sold to households across Sydney. Its broad branded range and Sydney wide delivery make it a channel for packaged sweets and snacks. Storage: own warehouse in Chullora, NSW, with automated storage and robotic picking."
+      }
+    },
+    {
+      "contact_id": "904789842121",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vending Is Us",
+        "domain": "vendingisus.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Confectionery, chips and nuts, café-style snacks, healthy snacks, fresh meals and drinks in its own vending machines and unattended retail outlets",
+        "channels_supplied": "Sydney workplaces through free vending service and unattended retail outlets",
+        "sf_brands_carried": "Healthy snacks, drinks and meals; no sugar-free brand named",
+        "what_they_do_well": [
+          "States more than 25 years as a Sydney vending machine service provider."
+        ],
+        "fit_rationale": "An Australian-owned Sydney operator that stocks its own machines with confectionery and snacks, planning restocking with telemetry. Its healthy snacks line suits Diablo's sugar-free sweets and chocolate. Brands stocked are not fully named on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "904869629134",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Vending Simplicity",
+        "domain": "vendingsimplicity.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Wakerley, Australia",
+        "distributes": "Chocolates, chips, healthy snacks, fresh food and drinks",
+        "channels_supplied": "Workplaces and schools in Brisbane, the Gold Coast, Sunshine Coast, Toowoomba and Northern NSW",
+        "sf_brands_carried": "Healthy options; brands not named",
+        "what_they_do_well": [
+          "Has serviced Brisbane since 2009 using its own technicians, with no subcontractors."
+        ],
+        "fit_rationale": "A Brisbane operator since 2009 that installs, stocks and services machines with its own technicians and no subcontractors. Its snack machines carry chocolates and healthy options, which suits Diablo's chocolate and bars. Storage: restocks from its Wakerley unit, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "904764327123",
+      "job_title": "Customer Service Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Wild Earth",
+        "domain": "wildearth.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Bars and snacks (Clif energy bars, Koda energy bars, Blue Dinosaur snack bars), energy chews, gels and hiking meals",
+        "channels_supplied": "Own online shop shipping Australia wide, including Sydney, and its own stores including Brisbane Airport",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "B Corp certified outdoor retailer with a dedicated Food and Nutrition department covering bars, snacks, chews and gels.",
+          "Opened a new adventure gear store at Brisbane Airport's Skygate precinct."
+        ],
+        "fit_rationale": "An outdoor and adventure sports retailer with its own Bars and Snacks category stocking several other brands, aimed at hikers, runners and campers. It serves Sydney through its national online shop; a Sydney store is not shown on its website."
+      }
+    },
+    {
+      "contact_id": "904866493637",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Xvend",
+        "domain": "xvend.com.au",
+        "location": "Australia",
+        "channel": "Leisure and venue snack suppliers",
+        "based_out_of": "Gold Coast, Australia",
+        "distributes": "Chocolate (Mars), snacks (Kettle, Doritos), healthy options and drinks for vending",
+        "channels_supplied": "Managed vending machines in gyms, hotels, holiday letting, offices, warehouses and factories across Brisbane, the Gold Coast, Ipswich and Northern NSW",
+        "sf_brands_carried": "A Healthy Options category; no brand named in it",
+        "what_they_do_well": [
+          "Trading since 2012 across South East Queensland and Northern NSW."
+        ],
+        "fit_rationale": "Xvend owns and manages its vending machines and stocks them with branded snacks and chocolate, including at gyms and hotels. A healthy options category gives Diablo's bars and chocolate a place. Its full product list is a separate PDF that was not checked."
+      }
+    },
+    {
+      "contact_id": "905305762004",
+      "job_title": "Account Manager/Customer Service",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Brandconnect",
+        "domain": "brandconnect.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Branded chocolate (Lindt, Cadbury Dairy Milk, KitKat, Mars) and muesli bars (Carman's)",
+        "channels_supplied": "Corporate clients Australia-wide",
+        "sf_brands_carried": "Carman's muesli bars",
+        "what_they_do_well": [],
+        "fit_rationale": "Its confectionery range carries Lindt, Cadbury, KitKat, Mars and Carman's bars with branded sleeves and labels. Diablo's chocolate and muesli bars match both sides of that range. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
+      "contact_id": "904796119251",
+      "job_title": "Co-Founder",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Crafty",
+        "domain": "craftydelivers.com",
+        "location": "Australia",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Chicago, United States",
+        "distributes": "Office pantry snacks and drinks: Kinder Bueno chocolate bars, Quest protein bars, Pocky biscuit sticks, Laid Back Snacks and other local and national brands",
+        "channels_supplied": "Offices in Sydney and Melbourne, restocked by its local teams",
+        "sf_brands_carried": "Quest protein bars and Red Bull Sugar Free; no direct competitor",
+        "what_they_do_well": [],
+        "fit_rationale": "A managed office pantry service that restocks Sydney and Melbourne offices with branded chocolate bars, protein bars and biscuits. It already stocks low sugar and better for you lines, so Diablo fits its pantry mix. Storage: sells from its own stock restocked by its Sydney and Melbourne teams, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "904730931400",
+      "job_title": "Creative Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Cubic Promote",
+        "domain": "cubicpromote.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Branded sweets (Allen's lollies range) and chocolates and lollies for trade shows",
+        "channels_supplied": "Corporate and trade show clients Australia-wide; New Zealand sister site",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "ISO 9001:2015 certified and a member of APPA and Sedex."
+        ],
+        "fit_rationale": "Has a dedicated Allen's promotional candy range within its chocolates and lollies category. Diablo's sweets and chocolate fit the same tradeshow use. Storage: offers 3PL warehousing and kitting; warehouse location not named on its website."
+      }
+    },
+    {
+      "contact_id": "904665103591",
+      "job_title": "Operations Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "SVA Vending",
+        "domain": "svavending.com.au",
+        "location": "Australia",
+        "channel": "Leisure and venue snack suppliers",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Chocolate (Cadbury, Mars, Snickers, KitKat, Dove), sweets and lollies, biscuits (Tim Tam), protein and muesli bars, chips and nuts, including low sugar, vegan and gluten free options",
+        "channels_supplied": "Snack vending machines in gyms, schools, offices and hospitals in Victoria",
+        "sf_brands_carried": "Low sugar, vegan and gluten free snack options; no brand named; no direct competitor seen",
+        "what_they_do_well": [
+          "More than 15 years in Australian vending."
+        ],
+        "fit_rationale": "A vending operator that delivers, installs and restocks its machines with branded chocolate, lollies, biscuits and bars, with a dedicated gym vending range. Its low sugar options give Diablo's bars and chocolate a natural slot. It buys and restocks the products itself."
+      }
+    },
+    {
+      "contact_id": "904764327124",
+      "job_title": "Warehouse Office Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Wild Earth",
+        "domain": "wildearth.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Bars and snacks (Clif energy bars, Koda energy bars, Blue Dinosaur snack bars), energy chews, gels and hiking meals",
+        "channels_supplied": "Own online shop shipping Australia wide, including Sydney, and its own stores including Brisbane Airport",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "B Corp certified outdoor retailer with a dedicated Food and Nutrition department covering bars, snacks, chews and gels.",
+          "Opened a new adventure gear store at Brisbane Airport's Skygate precinct."
+        ],
+        "fit_rationale": "An outdoor and adventure sports retailer with its own Bars and Snacks category stocking several other brands, aimed at hikers, runners and campers. It serves Sydney through its national online shop; a Sydney store is not shown on its website."
+      }
+    }
+  ]
 }
