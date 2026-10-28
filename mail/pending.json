@@ -1,7 +1,87 @@
 {
-  "generated_at": "2026-10-28T05:28:53+00:00",
+  "generated_at": "2026-10-28T05:36:31+00:00",
   "target": "live",
   "contacts": [
+    {
+      "contact_id": "905301264629",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "99 Bikes",
+        "domain": "99bikes.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Energy bars, nut butter bars, oat bars and energy chews from Clif Bar, SIS and Maurten",
+        "channels_supplied": "Bike stores in 12 regions across Australia plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has stores across 12 regions from Perth to Tasmania."
+        ],
+        "fit_rationale": "National bike retail chain, part of Pedal Group, with an energy and recovery food shelf of branded bars. Diablo's muesli and cereal bars suit cyclists on its nutrition shelf."
+      }
+    },
+    {
+      "contact_id": "904862798018",
+      "job_title": "Retail Bicycle Store Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Bicycle Superstore",
+        "domain": "bicyclesuperstore.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Victoria, Australia",
+        "distributes": "Energy bars, nut butter bars, oat bars and energy chews from Clif, SIS, GU and Koda",
+        "channels_supplied": "Five Victorian stores (Carnegie, Mentone, Mornington, Geelong, Nunawading) plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs five stores across Melbourne, Mornington and Geelong."
+        ],
+        "fit_rationale": "Victorian bike chain with five stores and a cycling nutrition department of branded bars. Diablo's cereal and muesli bars fit its ride food shelf."
+      }
+    },
+    {
+      "contact_id": "904627758266",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Bindle",
+        "domain": "bindle.com.au",
+        "location": "Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Boutique gift hampers with chocolate (Chocamama, Bahen & Co), crackers (Valley Produce Co) and snacks",
+        "channels_supplied": "Corporate gifting for clients such as Xero, Cbus, Australian Unity and Fulton Hogan, plus online sales to shoppers Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Delivering Australian corporate gifts since 2012, with clients including Xero, Cbus and Australian Unity."
+        ],
+        "fit_rationale": "Melbourne corporate gifting company trading since 2012 that sources boutique food from other Australian makers for its hampers. Its chocolate hampers and named corporate accounts make Diablo's chocolate and gift boxes a fit for its client gifting. Storage: ships Australia-wide from its Cheltenham VIC headquarters."
+      }
+    },
+    {
+      "contact_id": "904749654253",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Biome",
+        "domain": "biomestores.com",
+        "location": "Australia",
+        "channel": "Vegan and vegetarian shops",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Vegan chocolate (Loco Love, Bennetto, Pana, Booja-Booja, Alter Eco, Vego), vegan lollies, healthy snacks, jams and spreads",
+        "channels_supplied": "Its own eco stores in Brisbane and Melbourne and its online shop, which also ships to the US and Canada",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has screened the products it sells for their environmental and ethical standards since 2003."
+        ],
+        "fit_rationale": "An eco and vegan store chain with a Chocolate and Snacks section of other brands' vegan chocolate, lollies and healthy snacks, plus jams and spreads. Its own Biome brand covers cleaning and cosmetics, not food, so Diablo's vegan bars, cookie and peanut butters would sit beside third-party brands. Store count: six stores according to Eco Hub Map; Biome's own page names Brisbane and Melbourne stores."
+      }
+    },
     {
       "contact_id": "905294827737",
       "job_title": "Company inbox (from website)",
@@ -43,6 +123,26 @@
       }
     },
     {
+      "contact_id": "904864719052",
+      "job_title": "Pharmacist",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "David Jones Pharmacy",
+        "domain": "davidjonespharmacy.com.au",
+        "location": "Australia",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Australia",
+        "distributes": "Healthy snacks and bars, sports bars and snacks, confectionery, gum and mints and a health foods pantry from other brands",
+        "channels_supplied": "Its own online pharmacy with Australia wide shipping",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Trading as a pharmacy since 1916, according to its own website."
+        ],
+        "fit_rationale": "A pharmacy, trading since 1916, whose own online shop has a Health Foods and Pantry department with Healthy Snacks and Bars, a keto, gluten free and vegan diets shelf and a Confectionery, Gum and Mints category. Diablo's bars, sweets and spreads match these shelves. Head office and store count are not stated on its website."
+      }
+    },
+    {
       "contact_id": "904764208368",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -60,6 +160,62 @@
           "Offers same-day hamper delivery in Brisbane, Sydney, Melbourne, Perth and Adelaide."
         ],
         "fit_rationale": "A national online gifting seller whose Gift Basket hampers are built from branded cookies and chocolate packed as they are. Diablo's gift boxes and chocolate boxes suit its sweet gift range; head office is not stated on the pages checked."
+      }
+    },
+    {
+      "contact_id": "904798045431",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Elite Health Supplements",
+        "domain": "elitehealthsupplements.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Newcastle, Australia",
+        "distributes": "Protein bars, energy bars, protein snacks, keto snacks and a chocolate category with brands such as Tony's Chocolonely, Little Zebra and Vego",
+        "channels_supplied": "Its own online shop, shipping from Newcastle, Maitland, Greenhills and Erina",
+        "sf_brands_carried": "Keto snack and keto cereal categories",
+        "what_they_do_well": [
+          "Ships Australia-wide from four NSW locations: Newcastle, Maitland, Greenhills and Erina."
+        ],
+        "fit_rationale": "Online sports nutrition retailer with its own chocolate category and keto snack range from other brands. Diablo's sugar free chocolate fits its keto and better-for-you shoppers directly."
+      }
+    },
+    {
+      "contact_id": "904773983459",
+      "job_title": "Inventory Coordinator",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Gr8 Health",
+        "domain": "gr8health.com.au",
+        "location": "Australia",
+        "channel": "Gluten free and free from shops",
+        "based_out_of": "Australia",
+        "distributes": "Gluten free chocolate, vegan confectionery (nougat pralines, marshmallows) and snack bars from other brands",
+        "channels_supplied": "Own online shop with Australia-wide shipping and click and collect",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An online health shop whose gluten free food and pantry section lists 335 products, including Vego and Loving Earth chocolate, Dandies marshmallows and Kuranda and Botanika bars. Diablo's chocolate, sweets and bars fit this free from section. Its head office city is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "904798049518",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Hampers by Design",
+        "domain": "hampersbydesign.com.au",
+        "location": "Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Gift hampers with branded chocolate (Lindt, Chocolatier, Walker), shortbread cookies (Ogilvie), sweet sauces and jams",
+        "channels_supplied": "Corporate gift hampers for clients and employees with corporate branding, plus online sales to shoppers; also trades as Christmas Hampers Perth",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Perth hamper company that fills its hampers with products from Australian producers and named chocolate and biscuit brands. It offers corporate branded hampers and its own Perth delivery team, so Diablo's chocolate, cookies and jams fit its sweet and savoury hampers. Storage: Wangara WA premises shown on its website, delivery by its in-house van team."
       }
     },
     {
@@ -197,6 +353,24 @@
       }
     },
     {
+      "contact_id": "904726843628",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Paddy Pallin",
+        "domain": "paddypallin.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Energy bars and protein bars from Clif Bar, plus camp food and trail running nutrition",
+        "channels_supplied": "Outdoor stores and its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Long-established outdoor and hiking retailer with a camp food and trail nutrition shelf carrying Clif bars. Diablo's muesli bars and chocolate suit hiking snack ranges. Store count not stated on the pages read."
+      }
+    },
+    {
       "contact_id": "904625980636",
       "job_title": "Marketing Coordinator",
       "seniority": "Everyone else",
@@ -255,6 +429,24 @@
       }
     },
     {
+      "contact_id": "904864719058",
+      "job_title": "Head of Product",
+      "seniority": "Heads and junior directors",
+      "rank": 1,
+      "company": {
+        "name": "Pushys",
+        "domain": "pushys.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Energy bars, protein bites and endurance bars from Maurten, Clif Bar, SIS, GU, Styrkr, Em's Power Bites and High5",
+        "channels_supplied": "Its own online shop plus stores with click and collect",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Online bike retailer with physical stores and a dedicated bars section from seven nutrition brands. Store count and head office city not stated on the page read."
+      }
+    },
+    {
       "contact_id": "904749630694",
       "job_title": "Managing Director",
       "seniority": "Top leadership",
@@ -270,6 +462,26 @@
         "sf_brands_carried": "Muscle Nation protein bars",
         "what_they_do_well": [],
         "fit_rationale": "National sports shop chain that sells protein bars from other brands online and in store, a food shelf for health-conscious shoppers. Diablo's muesli bars and sugar-free chocolate bars fit next to them. Store count is not stated on the page checked."
+      }
+    },
+    {
+      "contact_id": "904789727430",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Running Warehouse Australia",
+        "domain": "runningwarehouse.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Energy bars category, maple waffles from UnTapped, Clif energy chews and SaltStick energy gummies",
+        "channels_supplied": "Eight running stores in VIC, WA, NSW, QLD and SA plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs eight stores in Victoria, Western Australia, NSW, Queensland and South Australia."
+        ],
+        "fit_rationale": "Running specialist with eight stores in five states and a nutrition department with bars, waffles and gummies from other brands. Head office city not stated on its website."
       }
     },
     {
@@ -313,6 +525,44 @@
       }
     },
     {
+      "contact_id": "904775648458",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Snowgoose",
+        "domain": "snowgoose.com.au",
+        "location": "Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Australia",
+        "distributes": "Fruit baskets and gift hampers with branded chocolate (Ferrero), fine and Belgian chocolates and sweet hampers",
+        "channels_supplied": "Corporate hampers with custom branding through a corporate team, plus online sales to shoppers Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has filled hampers for more than 30 years and ships from the warehouse closest to each delivery."
+        ],
+        "fit_rationale": "Hamper company filling hampers for more than 30 years from partner growers and artisan providores, with sweet hampers built on branded chocolate. Its corporate team handles custom branded hampers, so Diablo's chocolate and gift boxes fit its sweet range. Storage: orders ship from its warehouse closest to the delivery area."
+      }
+    },
+    {
+      "contact_id": "904620664024",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Supplement Dr",
+        "domain": "supplementdr.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Augustine Heights, Australia",
+        "distributes": "Protein bars, protein cookies, protein pretzels and jerky from ATP Science, Rule 1, Blessed, Lenny and Larry's, EQ and Redcon1",
+        "channels_supplied": "Its stores (it offers franchises) and its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Queensland sports nutrition retailer with a franchise model and a bars and snacks range including cookies from several brands. Store count not stated on its website."
+      }
+    },
+    {
       "contact_id": "904522483906",
       "job_title": "Manager Retail",
       "seniority": "Managers",
@@ -333,6 +583,26 @@
       }
     },
     {
+      "contact_id": "904765925611",
+      "job_title": "Corporate Branding Dispatch & Returns Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "The Hamper Emporium",
+        "domain": "thehamperemporium.com.au",
+        "location": "Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Corporate and gift hampers with chocolate (Maggie Beer), sweets, peanut brittle, caramel and biscuits",
+        "channels_supplied": "Corporate hampers with branding and a corporate ordering platform, plus online sales to shoppers Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs a dedicated corporate ordering platform and says it has worked with thousands of Australian organisations."
+        ],
+        "fit_rationale": "Sydney hamper company that assembles hampers onsite and says it has worked with thousands of Australian organisations. Its sweet and chocolate hampers carry branded chocolate and sweets, so Diablo's chocolate, sweets and biscuits fit its corporate sweet range. Storage: hampers assembled onsite in Sydney, warehouse not named on its website."
+      }
+    },
+    {
       "contact_id": "905288804593",
       "job_title": "Chief Executive Officer",
       "seniority": "Top leadership",
@@ -350,6 +620,104 @@
           "Opened two new sites in Melbourne's west, Truganina and Yarraville, in September 2024."
         ],
         "fit_rationale": "Fuel and convenience network whose Quickstop stores sell snacks, cookies, muffins and groceries from other brands. Diablo's cookies, cakes and chocolate fit its snack range. Site count is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "904791872707",
+      "job_title": "Marketing Manager & Clinical Nutritionist",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Wholefood Merchants",
+        "domain": "wholefoodmerchants.com",
+        "location": "Australia",
+        "channel": "Gluten free and free from shops",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Chocolate, sweets, biscuits, cakes and cookies, snack bars and nut butters and fruit spreads, with gluten free and allergy friendly ranges",
+        "channels_supplied": "Large store in Ferntree Gully and its own online shop with Australia-wide delivery",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over 35,000 products in store and more than 6,000 online, with over 20 years in the health food trade."
+        ],
+        "fit_rationale": "A large health food store with dedicated gluten free and allergy friendly ranges and categories for chocolate, sweets, biscuits and cookies, snack bars and spreads from health brands. Diablo's stevia sweetened ranges suit its free from shoppers in store and online."
+      }
+    },
+    {
+      "contact_id": "905301264628",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "99 Bikes",
+        "domain": "99bikes.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Energy bars, nut butter bars, oat bars and energy chews from Clif Bar, SIS and Maurten",
+        "channels_supplied": "Bike stores in 12 regions across Australia plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has stores across 12 regions from Perth to Tasmania."
+        ],
+        "fit_rationale": "National bike retail chain, part of Pedal Group, with an energy and recovery food shelf of branded bars. Diablo's muesli and cereal bars suit cyclists on its nutrition shelf."
+      }
+    },
+    {
+      "contact_id": "904627757305",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Bindle",
+        "domain": "bindle.com.au",
+        "location": "Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Boutique gift hampers with chocolate (Chocamama, Bahen & Co), crackers (Valley Produce Co) and snacks",
+        "channels_supplied": "Corporate gifting for clients such as Xero, Cbus, Australian Unity and Fulton Hogan, plus online sales to shoppers Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Delivering Australian corporate gifts since 2012, with clients including Xero, Cbus and Australian Unity."
+        ],
+        "fit_rationale": "Melbourne corporate gifting company trading since 2012 that sources boutique food from other Australian makers for its hampers. Its chocolate hampers and named corporate accounts make Diablo's chocolate and gift boxes a fit for its client gifting. Storage: ships Australia-wide from its Cheltenham VIC headquarters."
+      }
+    },
+    {
+      "contact_id": "904749654252",
+      "job_title": "Assistant Manager In Store & Online",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Biome",
+        "domain": "biomestores.com",
+        "location": "Australia",
+        "channel": "Vegan and vegetarian shops",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Vegan chocolate (Loco Love, Bennetto, Pana, Booja-Booja, Alter Eco, Vego), vegan lollies, healthy snacks, jams and spreads",
+        "channels_supplied": "Its own eco stores in Brisbane and Melbourne and its online shop, which also ships to the US and Canada",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has screened the products it sells for their environmental and ethical standards since 2003."
+        ],
+        "fit_rationale": "An eco and vegan store chain with a Chocolate and Snacks section of other brands' vegan chocolate, lollies and healthy snacks, plus jams and spreads. Its own Biome brand covers cleaning and cosmetics, not food, so Diablo's vegan bars, cookie and peanut butters would sit beside third-party brands. Store count: six stores according to Eco Hub Map; Biome's own page names Brisbane and Melbourne stores."
+      }
+    },
+    {
+      "contact_id": "904773983460",
+      "job_title": "Marketing Specialist",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Gr8 Health",
+        "domain": "gr8health.com.au",
+        "location": "Australia",
+        "channel": "Gluten free and free from shops",
+        "based_out_of": "Australia",
+        "distributes": "Gluten free chocolate, vegan confectionery (nougat pralines, marshmallows) and snack bars from other brands",
+        "channels_supplied": "Own online shop with Australia-wide shipping and click and collect",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An online health shop whose gluten free food and pantry section lists 335 products, including Vego and Loving Earth chocolate, Dandies marshmallows and Kuranda and Botanika bars. Diablo's chocolate, sweets and bars fit this free from section. Its head office city is not stated on its website."
       }
     },
     {
@@ -447,6 +815,24 @@
       }
     },
     {
+      "contact_id": "904726843629",
+      "job_title": "Purchasing Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Paddy Pallin",
+        "domain": "paddypallin.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Energy bars and protein bars from Clif Bar, plus camp food and trail running nutrition",
+        "channels_supplied": "Outdoor stores and its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Long-established outdoor and hiking retailer with a camp food and trail nutrition shelf carrying Clif bars. Diablo's muesli bars and chocolate suit hiking snack ranges. Store count not stated on the pages read."
+      }
+    },
+    {
       "contact_id": "904654530780",
       "job_title": "Procurement Manager",
       "seniority": "Managers",
@@ -464,6 +850,24 @@
           "Serving customers since 2007 and grown to over 50 stores nationwide."
         ],
         "fit_rationale": "A discount pharmacy chain of over 50 stores whose own shop has a health food section with a snacks category and a Sugarless brand page, a clear home for Diablo's no added sugar bars, sweets and chocolate. It already lists Sugarless Confectionery, a direct sugar free competitor."
+      }
+    },
+    {
+      "contact_id": "904864719059",
+      "job_title": "Head of Marketing and eCommerce",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "Pushys",
+        "domain": "pushys.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Energy bars, protein bites and endurance bars from Maurten, Clif Bar, SIS, GU, Styrkr, Em's Power Bites and High5",
+        "channels_supplied": "Its own online shop plus stores with click and collect",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Online bike retailer with physical stores and a dedicated bars section from seven nutrition brands. Store count and head office city not stated on the page read."
       }
     },
     {
@@ -562,6 +966,26 @@
           "Opened two new sites in Melbourne's west, Truganina and Yarraville, in September 2024."
         ],
         "fit_rationale": "Fuel and convenience network whose Quickstop stores sell snacks, cookies, muffins and groceries from other brands. Diablo's cookies, cakes and chocolate fit its snack range. Site count is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "904791872708",
+      "job_title": "Naturopath",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Wholefood Merchants",
+        "domain": "wholefoodmerchants.com",
+        "location": "Australia",
+        "channel": "Gluten free and free from shops",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Chocolate, sweets, biscuits, cakes and cookies, snack bars and nut butters and fruit spreads, with gluten free and allergy friendly ranges",
+        "channels_supplied": "Large store in Ferntree Gully and its own online shop with Australia-wide delivery",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over 35,000 products in store and more than 6,000 online, with over 20 years in the health food trade."
+        ],
+        "fit_rationale": "A large health food store with dedicated gluten free and allergy friendly ranges and categories for chocolate, sweets, biscuits and cookies, snack bars and spreads from health brands. Diablo's stevia sweetened ranges suit its free from shoppers in store and online."
       }
     }
   ]
