@@ -322,7 +322,6 @@ id,name,domain,country,why
 382824786159,,comerbal.com,,other
 383646401750,,comercial.aviludo.pt,,other
 382891106519,,comercialcofig.com.br,,other
-382896748793,,comercialhispana.com,,other
 381557338359,,comerciallily.cl,,other
 381155008736,,comercialmonlevade.com.br,,other
 451902345422,,comercialolimpia.cl,,other
@@ -1610,6 +1609,7 @@ id,name,domain,country,why
 454349923544,,sportpursuit.co.uk,,other
 384278928617,,springer.com.au,,other
 386375247093,,spx001.jevy.nl,,other
+459100530878,,srg.com.au,,other
 383128188141,,srs.domeneshop.no,,other
 381713487085,,srs.unodata.com.br,,other
 427274748106,,srsly.life,,other
@@ -7298,6 +7298,7 @@ id,name,domain,country,why
 426293155055,Bodegas Castillo Viejo,castilloviejo.com,Uruguay,other
 426294212835,BODEGAS CERROLAZA,bodegascerrolaza.com,Spain,other
 426292698351,Bodegas Chivite SA,chivite.com,Spain,other
+458501125335,Bodegas de Importación,bodegasdeimportacion.com,Mexico,other
 426293119202,Bodegas Hnos. Pérez Pascuas - Viña Pedrosa,perezpascuas.com,Spain,other
 426291667168,Bodegas La Purísima,bodegaslapurisima.com,Spain,other
 426294608067,Bodegas Martín,bodegasmartin.com,Spain,other
@@ -7972,6 +7973,7 @@ id,name,domain,country,why
 457131228346,Brittans Sweets,brittans.co.za,South Africa,auto-outreach
 421801554129,Brivaca,brivarca.com,Venezuela,other
 425255432380,Brixton Brewery,brixtonbrewery.com,United Kingdom,other
+459086181602,Brizcas,moisaner.com,Mexico,other
 458006408441,Brizzie Baskets and Blooms,brizziebaskets.com,Australia,auto-outreach
 426209674427,Broadhead Brewing Company,broadheadbeer.com,Canada,other
 426297851070,Broadleaf Game,broadleafgame.com,United States,other
@@ -10814,6 +10816,7 @@ id,name,domain,country,why
 421715474657,Comercial Gutisona S.l.,comercialgutisona.com,,other
 421741207783,Comercial H. MartÃn S.a.,comercialhmartin.com,,other
 421797811436,COMERCIAL HERMANOS ORTEGA SA,chortega.es,Spain,other
+382896748793,Comercial Hispana,comercialhispana.com,Mexico,other
 421715559636,Comercial Hispana,comercialhispana.com.mx,Mexico,other
 381339944166,Comercial Importadora LaticÃnios Napolitano Do Abc Ltda.,napolitano.com.br,,other
 381135059154,Comercial Infante,jinfante.com,,other
@@ -10825,6 +10828,7 @@ id,name,domain,country,why
 421799504095,Comercial Konbini Mercadorias Em Geral Ltda.,konbini.com.br,Brazil,other
 381314822342,Comercial Maelen,maelen.es,,other
 381066941642,Comercial Mik Ltda,telsur.cl,,other
+421768330485,Comercial Monarrez,comercialmonarrez.com,Mexico,other
 421728796906,Comercial Monlevade,hipercomercialmonlevade.com.br,bresil,other
 426230668493,Comercial Moraes - Cestas Básicas,comercialmoraes.com.br,Brazil,other
 421808587963,COMERCIAL NOVA COFIG DE ALIMENTOS LTDA,cofigdistribuidora.com.br,Brazil,other
@@ -10842,6 +10846,7 @@ id,name,domain,country,why
 421711901899,Comercial Zazueta,comercialzazueta.com,Mexico,other
 381334804683,Comercializadora Anmar Ltda,anmarltda.com,,other
 421735816409,Comercializadora Centro Guarenas C.A.,automercadosemporium.com,Venezuela,other
+459080846531,Comercializadora de Golosinas,cgolosinas.com,Mexico,other
 426262238432,Comercializadora de Productos Alimenticios Mylpan,mylpan.cl,Chile,other
 381139839201,COMERCIALIZADORA DISTAR,,,other
 426222249176,Comercializadora HSM,hsmcom.com,Mexico,other
@@ -10850,6 +10855,7 @@ id,name,domain,country,why
 421803354340,Comercializadora Mafabre C.A.,mafabre.com,Venezuela,other
 421753806055,Comercializadora Mexport Sa De Cv,otela.com,Mexico,other
 426294125759,Comercializadora Milagritos Ltda.,milagritos.cl,Chile,other
+459086181601,Comercializadora Salani,salani.com.mx,Mexico,other
 421744875740,comercialsouzaatacado,comercialsouzaatacado.com.br,Brazil,other
 421799528691,Comercio Brazil,comerciobrasil.co.uk,United Kingdom,other
 421750333654,Comerciovending,comerciovending.com,Spain,other
@@ -10875,7 +10881,6 @@ id,name,domain,country,why
 421715529964,Commerces valaisans de proximitÃ©,cvdp.ch,Switzerland,auto-outreach
 421710130388,"Commercial Food Systems, INC.",commercialfoodsystems.com,United States,other
 449344937204,Commercial Investment Company,cic.com.na,Namibia,other
-421768330485,Commercial Monarrez,comercialmonarrez.com,Mexico,other
 421771821268,Commerciale GiCap S.p.A.,gicap.it,Italy,other
 381115412714,Commerciale Ocsa S.r.l,ocsasrl.it,Italy,other
 381052655864,Commercio Virtuoso,commerciovirtuoso.it,Italy,other
@@ -13306,6 +13311,7 @@ id,name,domain,country,why
 421746837751,Distribuidora Jandy,jandysac.com,Peru,other
 381054554341,Distribuidora JirÃ³n,distribuidorajiron.com,,other
 381414211775,Distribuidora Jota Be Sa,distribuidorajotabe.com,,other
+458747719882,Distribuidora La Abundancia,labundancia.com.mx,Mexico,other
 381147218169,Distribuidora La BendiciÃ³n,distrilabendicion.com,,other
 421750240472,Distribuidora La Canasta,lacanasta.com.mx,Mexico,other
 381322138841,Distribuidora La Escoba,laescoba.cl,,other
@@ -17082,6 +17088,7 @@ id,name,domain,country,why
 421804913879,Food Europe,foodeurope.fr,France,other
 421806748869,Food Excellence Specialist,foodempire.com,,other
 421761067254,Food Export International,foodexportinternational.co.uk,England,other
+458722531521,Food Express de México,foodexpressdemex.com,Mexico,other
 426291158217,Food Factory Group,olivesworld.com,Egypt,other
 421752086743,Food Factory Sales,foodfactorysales.com.au,Australia,other
 421748428007,Food Fare,foodfare.com,Canada,other
@@ -18681,6 +18688,7 @@ id,name,domain,country,why
 381147216100,giddy candy,giddycandy.com,,other
 421741201614,Gideon Services Pty Ltd,gideonservices.com.au,Australia,other
 450043769060,GIF - Gourmet Italian Food,gourmetitalianfood.it,Italy,other
+458497541355,Gifan Internacional,gifan.com.mx,Mexico,other
 425199686893,giffits.it,giffits.it,Italy,other
 426294421692,Gifford's Ice Cream,giffordsicecream.com,United States,other
 425124837580,GiFi,gifi-talents.fr,France,other
@@ -20095,6 +20103,7 @@ id,name,domain,country,why
 425205023936,Grupo Cimed,cimedremedios.com.br,Brazil,other
 451341477109,Grupo Cinbersol,cinbersol.com,Mexico,other
 421790502108,Grupo Clazamar,clazamar.com,Spain,other
+458742335703,Grupo Comalca Gourmet,comalcagourmet.com,Mexico,other
 421713809634,Grupo Comercial Chedraui,grupochedraui.com,Mexico,other
 421794161896,GRUPO COMERCIAL CONTROL,ccontrol.com.mx,Mexico,other
 421795987688,Grupo Comercial Italiana,grupocomit.com,,other
@@ -20172,6 +20181,7 @@ id,name,domain,country,why
 426294513877,Grupo Norawa,norawa.com,Mexico,other
 381068979387,Grupo Nordeste,gruponefarma.com.br,,other
 421796098235,Grupo Nova Era,supernovaera.com.br,Brasil,other
+459080846533,Grupo Novelda,gruponovelda.com.mx,Mexico,other
 426294248647,GRUPO OLEÍCOLA JAÉN,oleicolajaen.es,Spain,other
 421761149152,Grupo PajeÃº,vendaspajeu.com.br,Brazil,other
 385640448236,Grupo Pajeú,grupopajeu.com.br,,other
@@ -22448,7 +22458,7 @@ id,name,domain,country,why
 426294311134,"Importaciones Deliciosas, S.A. de C.V.",importacionesdeliciosas.com,Mexico,other
 455402519787,Importaciones El Trébol,importrebol.com,Colombia,other
 421757388986,Importaciones Fuentes,impfuentes.com.ni,Nicaragua,other
-421728658643,Importaciones Torre Vieja S.a. De C.v.,torrevieja.com.mx,,other
+421728658643,Importaciones Torre Vieja S.a. De C.v.,torrevieja.com.mx,Mexico,other
 425252455617,Importaco,importaco.com,Spain,other
 421706520773,Importadora De Frutas La Violetera Ltda.,lavioletera.com.br,Brasil,other
 426246438118,Importadora E Exportadora Guriri Ltda,guririltda.com.br,Brazil,other
@@ -22472,7 +22482,7 @@ id,name,domain,country,why
 421723181280,Imposudamericana,imposudamericana.com.ar,Argentina,other
 425208700114,Impresso Coffee llc,impresso.coffee,United States,other
 421790498013,Impuls domzale,impuls-domzale.si,Slovenia,other
-421735866606,Impulsa,proimpulsa.com.mx,México,other
+421735866606,Impulsa,proimpulsa.com.mx,Mexico,other
 426294288612,IMPULSA SA DE CV,impulsaelsalvador.com,El Salvador,other
 383297811688,Impulse Plus,impulseplusinc.com,,other
 425252539602,Impulsivos,impulsivos.es,Spain,other
@@ -24504,6 +24514,7 @@ id,name,domain,country,why
 426299846883,Khushboo Cool Products Pvt. Ltd.,khushbooicecream.in,India,other
 426292778180,"Ki Delicia Foods, Inc.",kidelicia.com,United States,other
 421796022471,Ki Group S.p.a.,kigroup.com,,other
+459082616010,Ki-An Comercializadora,kian.com.mx,Mexico,other
 381316590840,Ki-Life Natural,ki-life.ro,,other
 421741306042,Kiah Organic & Wholefoods Warehouse,kiahorganics.com.au,Australia,other
 381343728852,Kiama Sweet Co,kiamasweetcompany.com.au,Australia,other
@@ -25388,6 +25399,7 @@ id,name,domain,country,why
 381339939059,La Oveja,,,other
 426292754645,La Panzanella Artisanal Foods Co.,lapanzanella.com,United States,other
 426292778188,La Parmesana,laparmesana.com,Peru,other
+459077222648,La Pasiega,la-pasiega.com,Mexico,other
 421737574622,La Pastina,lapastina.com,Brazil,other
 382839647444,La petite cabane,petitecabaneasucre.com,,other
 382884652261,La Petite Cabane à Sucre de Québec,petitecabane.com,,other
@@ -30472,6 +30484,7 @@ id,name,domain,country,why
 421786885362,Nature's Whole Food Depot,natureswholefooddepot.com,USA,other
 421786887382,Natureco S.l,natureco.cat,Spain,other
 421715482829,naturedoc,naturedoc.co.uk,England,other
+458740524264,Natureganix,natureganix.com,Mexico,other
 381250360557,Naturelinking,,Germany,other
 421723177188,Naturell,naturell.sk,Slovakia,other
 421799515344,Naturely shop,naturelyshop.com.au,Australia,other
@@ -31713,6 +31726,7 @@ id,name,domain,country,why
 426294131908,Off The Rail,offtherailbrewing.com,United States,other
 421766498520,off the wagon shop,offthewagonshop.com,United States,other
 425255511274,Offenburg University of Applied Sciences,hs-offenburg.de,Germany,other
+458672382192,Office Brands,officebrands.com.au,,other
 421799571690,Office Choice Ltd,officechoice.com.au,autralia,other
 421725034735,Office Circle,officecircle.co.uk,England,other
 381031652554,Office Crave,officecrave.com,USA,other
