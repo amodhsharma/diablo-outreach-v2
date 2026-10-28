@@ -1,0 +1,78 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-10-28",
+  "run_type": "manual",
+  "generated_from": "2026-10-28T05:50:47+00:00",
+  "lines": [
+    {
+      "contact_id": "904730846398",
+      "company_name": "Parcelle",
+      "personal_line": "We have great respect for the way your team curates gift boxes for corporate clients such as McGrath and Rakuten Advertising. Those clients send gifts to many people at once, and we believe a sugar free option may suit those very same clients. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "curates luxury gift boxes with chocolate and biscuits for corporate clients",
+      "style": "E"
+    },
+    {
+      "contact_id": "904654530780",
+      "company_name": "Pharmacy 4 Less",
+      "personal_line": "We have great respect for the way your team brings value to pharmacy customers across its stores and online shop. Your customers include people cutting down on sugar, and we believe sugar free sweets and snacks may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "stocks sugar free sweets and snacks in its discount pharmacies",
+      "style": "E"
+    },
+    {
+      "contact_id": "904864719059",
+      "company_name": "Pushys",
+      "personal_line": "We have great respect for the way your team serves cyclists through its online shop and its stores with click and collect. Riders put real effort into staying active, and we believe sugar free snacks alongside the nutrition they come in for may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "equips cyclists with bikes and a dedicated range of ride bars",
+      "style": "E"
+    },
+    {
+      "contact_id": "904789745851",
+      "company_name": "Quality Vend",
+      "personal_line": "We have great respect for the way your team has kept offices in Sydney and Melbourne stocked since 2012. Many staff like a choice when they reach for a snack at work, and we believe sugar free snacks may suit those very same staff. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your service.",
+      "company_note": "runs office micro markets stocked with national and international snacks",
+      "style": "E"
+    },
+    {
+      "contact_id": "904749630695",
+      "company_name": "Rebel Sport",
+      "personal_line": "Your team's work in building a national sports store chain with a shelf for active shoppers' nutrition speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "stocks protein snacks alongside its sports equipment",
+      "style": "B"
+    },
+    {
+      "contact_id": "904609853626",
+      "company_name": "Santos Organics",
+      "personal_line": "Your team's work in running a not for profit social enterprise that delivers groceries across Australia speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "stocks chocolate and snacks for shoppers who care about their food",
+      "style": "B"
+    },
+    {
+      "contact_id": "904747694305",
+      "company_name": "Snack Box Hampers",
+      "personal_line": "We have great respect for the way your team fills its hampers with well known chocolate and biscuit brands for corporate and seasonal orders. With such established reach across Australia and beyond, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "sells chocolate and snack gift hampers online",
+      "style": "A"
+    },
+    {
+      "contact_id": "904522483905",
+      "company_name": "Taste Organic",
+      "personal_line": "Your range, from Loving Earth chocolate to Kitz snacks and Food to Nourish spreads, reflects a careful choice of brands for shoppers who care about what they eat. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "stocks chocolate and snacks from its trusted suppliers",
+      "style": "C"
+    },
+    {
+      "contact_id": "905288804594",
+      "company_name": "United Petroleum (Quickstop)",
+      "personal_line": "We hold your team in high regard for expanding its Quickstop network with new sites in Truganina and Yarraville. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "sells snacks and cookies in its convenience stores",
+      "style": "D"
+    },
+    {
+      "contact_id": "904791872708",
+      "company_name": "Wholefood Merchants",
+      "personal_line": "We hold your team in high regard for over two decades in the health food trade and a store range of tens of thousands of products. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "stocks chocolate and sweets in gluten free and allergy friendly ranges",
+      "style": "D"
+    }
+  ]
+}
