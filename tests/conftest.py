@@ -68,3 +68,11 @@ def no_real_daily_log(tmp_path, monkeypatch):
     monkeypatch.delenv("REPLY_FORWARD_TO", raising=False)
     from outreach import reply_forward
     monkeypatch.setattr(reply_forward, "FILE", tmp_path / "forwarded_replies.json")
+
+
+@pytest.fixture(autouse=True)
+def no_real_promoted_list(tmp_path, monkeypatch):
+    """No test reads or writes the real list of contacts moved up after a dead address (28 Oct 2026)."""
+    from outreach import corrupt
+    monkeypatch.setattr(corrupt, "PROMOTED_FILE", tmp_path / "promoted.json")
+    monkeypatch.delenv("GITHUB_RUN_ID", raising=False)

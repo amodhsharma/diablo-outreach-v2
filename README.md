@@ -60,6 +60,8 @@ choices are never changed.
 | Person 1's one reminder sent | | Reminder sent |
 | They replied | In Progress | In Progress |
 | Rejected, not interested, no reply, opted out or bounced | Unqualified | Unqualified |
+| A dead address: a hard bounce, or an automatic reply saying they have left (28 Oct 2026) | unchanged; GATE1 again when nobody is left | "Unqualified Contact: Contact corrupt" (Outreach order 0) |
+| A company inbox bounced and nobody is left to email (28 Oct 2026) | "Invalid inbox: Mail bounced, need input" | "Unqualified Contact: Contact corrupt" |
 
 Any other Lead Status (for example Emailed or Won) means a person has taken the record over:
 the pipeline stops there and never changes it. To reject a company at gate 1, set it to
@@ -145,7 +147,10 @@ company. Each must be approved at gate 2. Then, with one email to the company ev
   person: days 0 and 7).
 - The moment anyone at the company replies or opts out, also in reply to a forward, nobody else
   there is emailed. A bounced person is never named; if person 1 bounces, person 2 gets the
-  introduction instead.
+  introduction instead. A dead address (28 Oct 2026, `outreach/corrupt.py`) becomes "Unqualified
+  Contact: Contact corrupt" with Outreach order 0, everyone below moves up one, and the new number 1
+  becomes GATE2 (now, or as soon as its personal line arrives) and gets the introduction at the next
+  run of button 4.
 - Everything stays in the one monthly campaign and mailbox: only person 1 is a campaign lead, the
   others are reached by forwarding person 1's thread. Who was emailed and when is read from
   Instantly itself, so HubSpot needs no extra fields for it.

@@ -35,7 +35,8 @@ COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STAT
 #   queued    in Instantly, first email not sent yet
 #   sent      emailed, no reply
 #   bounced   the email bounced (the company carries on with the others)
-#   skipped   set to Unqualified before being emailed (rejected at gate 2): left out
+#   skipped   set to Unqualified before being emailed (rejected at gate 2), or a dead address
+#             ("Unqualified Contact: Contact corrupt", 28 Oct 2026): left out
 #   stop      replied, opted out, not interested, or taken over by a person: the company stops
 STOP = "stop"
 
@@ -78,6 +79,8 @@ def instantly_view(instantly, prefix):
 def contact_state(contact, statuses, leads):
     stage = statuses.of("contacts", contact)
     lead = leads.get((contact["properties"].get("email") or "").lower())
+    if stage == "corrupt":  # 28 Oct 2026: a dead address, never emailed again; the others carry on
+        return "skipped"
     if stage in ("", "found", "copy_ready"):
         return "pending"
     if stage == "approved":

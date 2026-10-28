@@ -12,7 +12,8 @@ LIVE_COMPANY_STATUS = {"New": "New", "Missing Info": "Missing Info", "Emailed": 
                        "GATE1: Approved for outreach": "GATE1: Approved for outreach",
                        "Contacted, but no response, unqualified": "Contacted, but no response, unqualified",
                        "Missing info on Apollo": "Missing info on Apollo",
-                       "Contact exists, not AUTO-OUTREACH": "Contact exists, not AUTO-OUTREACH"}
+                       "Contact exists, not AUTO-OUTREACH": "Contact exists, not AUTO-OUTREACH",
+                       "Invalid inbox: Mail bounced, need input": "Invalid inbox: Mail bounced, need input"}
 LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": "Emailed",
                        "IN_PROGRESS": "In Progress", "UNQUALIFIED": "Unqualified",
                        "ATTEMPTED_TO_CONTACT": "Attempted to Contact", "WON": "WON",
@@ -22,7 +23,8 @@ LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": 
                        "COLLEAGUE_REPLIED_NEGATIVE": "Colleague replied: negative",
                        "COLLEAGUE_REPLIED": "Colleague replied", "COLLEAGUE_OPTED_OUT": "Colleague opted out",
                        "UNQUALIFIED_COMPANY": "Unqualified company",
-                       "CONTACTED_NO_RESPONSE_UNQUALIFIED": "Contacted, but no response, unqualified"}
+                       "CONTACTED_NO_RESPONSE_UNQUALIFIED": "Contacted, but no response, unqualified",
+                       "UNQUALIFIED_CONTACT_CORRUPT": "Unqualified Contact: Contact corrupt"}
 
 
 class FakeCRM(TagGuard):

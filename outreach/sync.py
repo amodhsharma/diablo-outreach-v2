@@ -14,6 +14,9 @@ Instantly lead whose HubSpot contact lacks the tag is ignored. Statuses only mov
     an automatic answer (out of        unchanged             unchanged (no reply: the loop carries on)
       office, holiday)
     bounced                            Unqualified           unchanged (the others carry on)
+    a dead address (28 Oct 2026: hard   Unqualified Contact:  see corrupt.py: the next person moves up;
+      bounce, or has left)              Contact corrupt       with nobody left, back to GATE1 (or
+                                                              Invalid inbox for a company inbox)
 
 After an opt-out the others at the company show "Colleague opted out", and "Outreach stopped
 because" says why on the person, the colleagues and the company, with a note on the timeline
@@ -47,7 +50,7 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from . import daily_log, reply_forward, timeline
+from . import corrupt, daily_log, reply_forward, timeline
 from .stages import COLLEAGUE_STAGES, EMAILED, TEAM, LeadStatus, forward
 
 
@@ -321,7 +324,7 @@ COLLEAGUE_STAGE = {"marked interested": "colleague_positive", "replied": "collea
 
 # Contacts left alone when their company is Unqualified: their own Unqualified, a status that already
 # says what happened at the company, one a person set by hand, and those already done.
-KEEP_WHEN_COMPANY_CLOSED = ("closed", "company_unqualified", "no_response", TEAM) + COLLEAGUE_STAGES
+KEEP_WHEN_COMPANY_CLOSED = ("closed", "company_unqualified", "no_response", "corrupt", TEAM) + COLLEAGUE_STAGES
 
 
 def colleague_answer(contacts, statuses, leads, blocked=None):
@@ -414,7 +417,7 @@ def mark_colleagues(hs, statuses, company_contacts, answered_ids, stage, log=pri
     updates = []
     for c in company_contacts:
         current = statuses.of("contacts", c)
-        if str(c["id"]) in answered or current in ("replied", "closed", TEAM) + COLLEAGUE_STAGES:
+        if str(c["id"]) in answered or current in ("replied", "closed", "corrupt", TEAM) + COLLEAGUE_STAGES:
             continue
         updates.append((c["id"], statuses.props("contacts", stage)))
     if updates:
@@ -538,8 +541,14 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                             log(f"{cname}: {c['jobtitle']} opted out ({c['event']}); the company is now Unqualified "
                                 "and nobody else there is emailed")
 
+    try:  # 28 Oct 2026 (Ariel): dead addresses are "Contact corrupt" and the next person moves up
+        dead = corrupt.check(hs, emails_api, leads, statuses, seen, log)
+    except Exception as err:  # never stops the run; tried again next run
+        dead = {"corrupt": 0}
+        log(f"Could not check the dead addresses: {str(err)[:200]}")
     moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads,
                     blocked=blocked, opt_out_rows=opt_out_rows)
+    moved["contacts_corrupt"] = dead.get("corrupt", 0)
     try:  # 21 Oct 2026: the contacts of every Unqualified company become "Unqualified company"
         moved["company_contacts_closed"] = close_company_contacts(hs, statuses, log, leads=leads,
                                                                    blocked=blocked)
@@ -1011,6 +1020,9 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             continue
         campaign = last_campaign(contacts)
         if not due or why != "next" or not campaign or not due["properties"].get(PERSONAL_LINE):
+            continue
+        if corrupt.held_now(due["id"]):  # 28 Oct 2026: moved up after a dead address in this run
+            waiting_rows.append(f"| {name} | the introduction to the new number 1, at the next run | - |")
             continue
         lead = lead_for(due, props, notes)  # nobody reached yet (e.g. person 1 bounced before sending)
         if not last_check(company, name, contacts, details):

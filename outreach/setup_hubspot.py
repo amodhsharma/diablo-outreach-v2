@@ -94,7 +94,8 @@ def ensure_property(hs, object_type, spec, existing, plan, add_missing_options=T
 LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                   "Contacted, but no response, unqualified",  # 21 Oct 2026
                                   "Missing info on Apollo",  # 23 Oct 2026
-                                  "Contact exists, not AUTO-OUTREACH"},  # 26 Oct 2026
+                                  "Contact exists, not AUTO-OUTREACH",  # 26 Oct 2026
+                                  "Invalid inbox: Mail bounced, need input"},  # 28 Oct 2026
                     "contacts": {"New, Personal line filled", "GATE2: Approved to send",
                                  "Forward sent", "Reminder sent",  # these two added 14 Oct 2026
                                  # the rest of a company once someone there has answered (19 Oct 2026)
@@ -102,7 +103,8 @@ LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                  "Colleague replied",
                                  "Colleague opted out",  # 19 Oct 2026
                                  "Unqualified company",  # 21 Oct 2026
-                                 "Contacted, but no response, unqualified"}}  # 21 Oct 2026
+                                 "Contacted, but no response, unqualified",  # 21 Oct 2026
+                                 "Unqualified Contact: Contact corrupt"}}  # 28 Oct 2026
 
 
 def ensure_lead_status(hs, object_type, existing, plan, live=False):

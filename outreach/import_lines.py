@@ -22,7 +22,7 @@ import os
 import sys
 from pathlib import Path
 
-from . import export_for_lines
+from . import corrupt, export_for_lines
 from .common import ROOT, PipelineError, check_target, now_iso
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE
@@ -84,7 +84,8 @@ def import_file(path, hs, done_ids=None):
     statuses = LeadStatus(hs)
     ids = [str(l["contact_id"]) for l in data["lines"]]
     current = {str(c["id"]): c for c in hs.tagged_read("contacts", ids, [LEAD_STATUS])}
-    updates, moved_on, missing = [], 0, 0
+    updates, moved_on, missing, approved = [], 0, 0, 0
+    promoted = corrupt.load_promoted()  # 28 Oct 2026: moved up after a dead address: straight to GATE2
     for line in data["lines"]:
         cid = str(line["contact_id"])
         if cid not in current:
@@ -92,14 +93,20 @@ def import_file(path, hs, done_ids=None):
         elif statuses.of("contacts", current[cid]) != "found":
             moved_on += 1
         else:
-            props = {PERSONAL_LINE: line["personal_line"], **statuses.props("contacts", "copy_ready")}
+            stage = "copy_ready"
+            if corrupt.waiting_for_line(cid, promoted) and statuses.has("contacts", "approved"):
+                stage, approved = "approved", approved + 1
+            props = {PERSONAL_LINE: line["personal_line"], **statuses.props("contacts", stage)}
             if line.get("company_note"):  # lines files from 15 Oct 2026 also carry the company note
                 props[COMPANY_NOTE] = line["company_note"]
             updates.append((cid, props))
     hs.update_tagged("contacts", updates)
     if done_ids is not None:
         done_ids.update(cid for cid, _ in updates)
-    result = f"{len(updates)} contacts now on 'New, Personal line filled'"
+    result = f"{len(updates) - approved} contacts now on 'New, Personal line filled'"
+    if approved:
+        result += (f", {approved} straight to 'GATE2: Approved to send' (moved up to number 1 after a dead "
+                   "address)")
     if moved_on:
         result += f", {moved_on} skipped (Lead Status no longer New)"
     if missing:

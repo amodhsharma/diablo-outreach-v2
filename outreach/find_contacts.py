@@ -252,6 +252,8 @@ def hubspot_filters(owner=""):
         "4. No contacts at any source, needs you: Lead status is Missing Info",
         "5. Already has contacts in the CRM (change them to AUTO-OUTREACH): Lead status is Contact exists, "
         "not AUTO-OUTREACH",
+        "6. Invalid inbox, needs you (add a working address, then set it back to GATE 1): Lead status is "
+        "Invalid inbox: Mail bounced, need input",
         "",
         "View 2 shows both the companies waiting for a second person and those Apollo was already asked about "
         "this month. Number of associated contacts counts every contact linked to the company, including "
@@ -328,15 +330,20 @@ def run(target, settings, hs, apollo, log=print):
     # does not count as a person), once a month; new companies go first.
     links = hs.associated_ids("companies", "contacts", [c["id"] for c in approved]) if approved else {}
     linked = sorted({x for xs in links.values() for x in xs})
-    ours = {str(r["id"]): r for r in hs.tagged_read("contacts", linked, ["email", "jobtitle", ORDER])} if linked else {}
+    ours = {str(r["id"]): r for r in hs.tagged_read("contacts", linked, ["email", "jobtitle", ORDER, LEAD_STATUS])
+            } if linked else {}
     topped, month = load_topped(), _month()
     fresh, topup, full, tried = [], [], [], []
     held = {}  # company ID: the AUTO-OUTREACH contacts it already has (for the summary)
     for c in approved:
-        mine = [ours[x] for x in links.get(str(c["id"])) or [] if x in ours]
+        linked_here = [ours[x] for x in links.get(str(c["id"])) or [] if x in ours]
+        # 28 Oct 2026 (Ariel): a dead address ("Contact corrupt") is not one of the company's people; a
+        # company with only dead addresses has the rest searched for like a top-up, so nobody already in
+        # HubSpot (the dead address itself included) is ever added again.
+        mine = [m for m in linked_here if statuses.of("contacts", m) != "corrupt"]
         held[str(c["id"])] = len(mine)
         people = [m for m in mine if not is_company_inbox(m)]
-        if not mine:
+        if not linked_here:
             fresh.append((c, None))
         elif len(people) >= cfg["per_company"]:
             full.append(c)

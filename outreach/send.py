@@ -19,7 +19,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import bond, timeline
+from . import bond, corrupt, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -503,6 +503,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         company_contacts = annotate(everyone.get(company_id) or [c], statuses, in_instantly)
         due, why = decide(company_contacts, company_stage, gap, follow_ups=one_email[0],
                           no_reply_days=one_email[1], inbox_reminder=one_email[2])
+        if why == "next" and due and due["id"] == c["id"] and corrupt.held_now(c["id"]):
+            waiting += 1  # 28 Oct 2026: moved up after a dead address in this run; goes at the next run
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: moved up to number 1 "
+                "after a dead address in this run; the introduction goes at the next run")
+            continue
         if why != "next" or not due or due["id"] != c["id"]:  # only person 1 goes through the campaign
             waiting += 1
             log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "
