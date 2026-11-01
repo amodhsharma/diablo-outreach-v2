@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-10-31 22:52 UTC
+Written 2026-11-01 07:54 UTC
 
 ```
 263 leads in the Diablo campaigns in Instantly
@@ -9,7 +9,11 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Contacted, but no response, unqualified)
-Could not mark the contacts of Unqualified companies: HTTPSConnectionPool(host='api.hubapi.com', port=443): Read timed out. (read timeout=30)
-Updated 0 contacts and 0 companies in HubSpot
+Wrote 11 notes on contacts' timelines (email sent, bounced or replied)
+Iberpasion GmbH: no reply to the introduction; the company is now "Contacted, but no response, unqualified"
+drogi.ch GmbH: no reply to the introduction; the company is now "Contacted, but no response, unqualified"
+NOWFIT Sports Nutrition Sagl: no reply to the introduction; the company is now "Contacted, but no response, unqualified"
+Get Vending: no reply to the introduction; the company is now "Contacted, but no response, unqualified"
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 4 finished with no reply (now Contacted, but no response, unqualified)
+Updated 1 contacts and 0 companies in HubSpot
 ```
