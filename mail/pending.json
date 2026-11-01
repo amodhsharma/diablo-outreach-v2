@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T09:27:44+00:00",
+  "generated_at": "2026-11-01T09:37:44+00:00",
   "target": "live",
   "contacts": [
     {
@@ -447,6 +447,24 @@
           "Trading since 2003 from its Rocklea warehouse, delivering organic groceries across South East Queensland and beyond."
         ],
         "fit_rationale": "A Brisbane online organic grocer that sells branded chocolate and snacks from Loving Earth, Pana Organic, Vego and Ceres to households across South East Queensland. Tier 3 because biscuits, bars and spreads were not seen in the pages opened and it is a single online shop."
+      }
+    },
+    {
+      "contact_id": "909274181878",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Fastgear",
+        "domain": "fastgear.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Energy bars, protein bars, vegan gummy energy bars, waffles and energy chews from 226ERS, Clif and SaltStick",
+        "channels_supplied": "Its Sydney store and its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Sydney triathlon gear specialist with bars, gummies and waffles categories in its sports nutrition range. Tier 3 for its single store."
       }
     },
     {
