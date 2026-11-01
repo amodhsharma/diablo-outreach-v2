@@ -1,0 +1,99 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-11-01",
+  "run_type": "manual",
+  "generated_from": "2026-11-01T10:12:30+00:00",
+  "lines": [
+    {
+      "contact_id": "909194083534",
+      "company_name": "Mega Office Supplies",
+      "personal_line": "We have great respect for the way your team keeps businesses across Australia supplied with breakroom snacks. Staff reach for a snack during the working day, and we believe sugar free snacks may suit those very same staff. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "supplies breakroom confectionery and biscuits to offices",
+      "style": "E"
+    },
+    {
+      "contact_id": "909227478236",
+      "company_name": "Memorial Shop at the Australian War Memorial",
+      "personal_line": "We have great respect for the way your team offers biscuits that tie its range to Anzac Day commemoration. With such established reach across its shop in Canberra and online, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "sells biscuits and confectionery in its memorial gift shop",
+      "style": "A"
+    },
+    {
+      "contact_id": "909195248835",
+      "company_name": "Mercha",
+      "personal_line": "We have great respect for the way your team offers businesses custom branded confectionery through its web shop. Your corporate clients hand out branded gifts, and we believe branded sugar free treats may suit those very same clients. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "supplies custom branded confectionery to businesses",
+      "style": "E"
+    },
+    {
+      "contact_id": "909187002566",
+      "company_name": "Mighty Ape Australia",
+      "personal_line": "Your team's work in building a lollies and chocolate section that ships across Australia speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "sells lollies and chocolate online",
+      "style": "B"
+    },
+    {
+      "contact_id": "909237407980",
+      "company_name": "Monsterzeug",
+      "personal_line": "Your range, from Haribo gummies to Hanuta wafers, reflects a careful choice of sweet gifts for shoppers in Switzerland. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "sells sweet and chocolate gifts online",
+      "style": "C"
+    },
+    {
+      "contact_id": "909221791960",
+      "company_name": "National Hotel Supplies",
+      "personal_line": "We have great respect for the way your team serves the accommodation industry across Australia as a family business. Hotel guests often look for a lighter choice in their room, and we believe sugar free snacks may suit those very same guests. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "supplies biscuits and sweets for hotel guest rooms",
+      "style": "E"
+    },
+    {
+      "contact_id": "909229339867",
+      "company_name": "National Museum of Australia Museum Shop",
+      "personal_line": "Your range, from Chocamama chocolates to Candy Kittens lollies, reflects a careful choice of brands for museum visitors. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "sells chocolate and lollies in its museum gift shop",
+      "style": "C"
+    },
+    {
+      "contact_id": "909193960695",
+      "company_name": "New Age Promotions",
+      "personal_line": "We have great respect for the way your team offers corporate clients well known chocolate alongside sugar free mints. Those clients hand out branded gifts, and we believe branded sugar free treats may suit those very same clients. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "supplies branded chocolate and sweets to corporate clients",
+      "style": "E"
+    },
+    {
+      "contact_id": "909223235817",
+      "company_name": "Red Rhubarb Gifts",
+      "personal_line": "We have great respect for the way your team packs each corporate gift by hand in Brisbane. Your corporate clients send gifts to many people, and we believe a sugar free option may suit those very same clients. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "creates branded gift boxes with chocolate for corporate clients",
+      "style": "E"
+    },
+    {
+      "contact_id": "909194502340",
+      "company_name": "Roses Only",
+      "personal_line": "We have great respect for the way your team delivers flowers and gifts across Australia on the same day. With such established reach across Australia, Singapore, New York and London, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "sells chocolate and sweets as gifts online",
+      "style": "A"
+    },
+    {
+      "contact_id": "909041371381",
+      "company_name": "Snowys Outdoors",
+      "personal_line": "We have great respect for the way your team serves outdoor customers from its stores and online shop. Hikers and campers put real effort into their time outdoors, and we believe sugar free snacks next to the gear they come in for may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "equips hikers and campers with gear and trail snacks",
+      "style": "E"
+    },
+    {
+      "contact_id": "909072449777",
+      "company_name": "Style Bundle",
+      "personal_line": "Your team's work in serving corporate clients in every Australian state speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the products you already offer.",
+      "company_note": "fills corporate hampers with chocolate and gourmet food",
+      "style": "B"
+    },
+    {
+      "contact_id": "909218774214",
+      "company_name": "The Running Shop Australia",
+      "personal_line": "We have great respect for the way your team keeps runners equipped for training and racing. Your customers are active people who look after themselves, and we believe sugar free snacks alongside the chews they come in for may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "equips runners with shoes and energy chews",
+      "style": "E"
+    }
+  ]
+}
