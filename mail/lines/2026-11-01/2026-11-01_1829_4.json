@@ -1,0 +1,36 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-11-01",
+  "run_type": "scheduled",
+  "generated_from": "2026-11-01T12:32:01+00:00",
+  "lines": [
+    {
+      "contact_id": "909314631886",
+      "company_name": "Cycle Fitness Nutrition",
+      "personal_line": "We have great respect for the way your team looks after cyclists and triathletes, from their bikes to their nutrition. Your customers already put real effort into training and recovery, and we believe sugar free snacks alongside the bars and gels they come in for may suit those very same riders. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "sells bikes alongside energy bars and gels for cyclists and triathletes",
+      "style": "E"
+    },
+    {
+      "contact_id": "909311035598",
+      "company_name": "Gift Sensations",
+      "personal_line": "We have great respect for the way your team has built its corporate gifting programme, with a dedicated specialist for every client. Your clients send gifts to many people with different tastes, and we believe a sugar free option may suit those very same clients. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "fills gourmet gift baskets with chocolates and biscuits for corporate clients",
+      "style": "E"
+    },
+    {
+      "contact_id": "909310010593",
+      "company_name": "Newcastle Flowers By Design",
+      "personal_line": "We have great respect for the way your team creates chocolate and snack hampers with same-day delivery for gift buyers. Many of your customers choose a gift for someone with particular tastes, and we believe a sugar free hamper may suit those very same customers. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "creates chocolate hampers and savoury snack hampers for gift buyers",
+      "style": "E"
+    },
+    {
+      "contact_id": "909308194026",
+      "company_name": "Vendy",
+      "personal_line": "We have great respect for the way your team brings better-for-you vending to hospitals and universities such as Monash Health and Monash University. People reach for a snack between shifts, classes and meetings, and we believe sugar free bars and chocolate may suit those very same staff and students. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your range.",
+      "company_note": "runs vending machines stocked with lighter snacks for hospitals and universities",
+      "style": "E"
+    }
+  ]
+}
