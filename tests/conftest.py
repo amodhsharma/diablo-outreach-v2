@@ -98,3 +98,10 @@ def no_real_promoted_list(tmp_path, monkeypatch):
     from outreach import corrupt
     monkeypatch.setattr(corrupt, "PROMOTED_FILE", tmp_path / "promoted.json")
     monkeypatch.delenv("GITHUB_RUN_ID", raising=False)
+
+
+@pytest.fixture(autouse=True)
+def no_real_website_recheck_list(tmp_path, monkeypatch):
+    """No test reads or writes the real list of Missing Info websites read again (1 Nov 2026)."""
+    from outreach import apollo_status
+    monkeypatch.setattr(apollo_status, "_rechecked_file", lambda: tmp_path / "website_rechecked.json")

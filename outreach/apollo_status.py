@@ -207,3 +207,71 @@ def back_to_gate1(hs, statuses, company_ids, log=print):
     if updates:
         hs.update_tagged("companies", updates)
     return len(updates)
+
+
+# ---- Websites read again for hidden addresses (agreed 1 Nov 2026, Ariel) -----------------------------
+# Until 1 Nov 2026 button 3 could not read addresses hidden by Cloudflare's email protection (Cycle Fitness
+# Nutrition shows info@ to people, "[email protected]" to programs). Each "Missing Info" company whose note
+# says "No contact found anywhere" has its website read once more; when an address is found now, the
+# company goes back to "GATE1: Approved for outreach" and button 3 adds that address as its company inbox
+# in the same run. data/website_rechecked.json remembers which companies were read again (company IDs and
+# the day only), so each is read once; at most WEBSITE_RECHECK_LIMIT a run, so the run stays short.
+WEBSITE_FOUND = "Its website address was found after all"
+WEBSITE_RECHECK_LIMIT = 60
+
+
+def _rechecked_file():
+    from .common import ROOT
+    return ROOT / "data" / "website_rechecked.json"
+
+
+def load_rechecked(path=None):
+    import json
+    try:
+        data = json.loads((path or _rechecked_file()).read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def save_rechecked(data, path=None):
+    import json
+    path = path or _rechecked_file()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(dict(sorted(data.items())), indent=1) + "\n", encoding="utf-8")
+
+
+def recheck_websites(hs, statuses, log=print, limit=WEBSITE_RECHECK_LIMIT, path=None, find=None):
+    """Read again the websites of "No contact found anywhere" companies (once each). Returns
+    {"read": n, "back_to_gate1": [names], "left": n}."""
+    from . import company_inbox
+    find = find or company_inbox.find_inbox
+    done = load_rechecked(path)
+    companies = hs.tagged_search("companies", [statuses.filter("companies", "missing_info")], PROPS, max_results=5000)
+    due = [c for c in companies if is_nowhere(c) and str(c["id"]) not in done
+           and (c["properties"].get("domain") or "").strip()]
+    back, read = [], 0
+    try:
+        for c in due[:limit]:
+            p = c["properties"]
+            email = find(p.get("domain"), name=p.get("name"))
+            read += 1
+            done[str(c["id"])] = _today().isoformat()
+            if email:
+                back.append(c)
+    finally:  # whatever happens, the companies already read are not read again
+        if read:
+            save_rechecked(done, path)
+    if back:
+        props = dict(statuses.props("companies", "approved"))
+        if has_reason_field(hs):
+            props[STOP_REASON] = f"{WEBSITE_FOUND} ({_today().isoformat()}): back to GATE1"
+        hs.update_tagged("companies", [(c["id"], props) for c in back])
+        for c in back:
+            log(f'{c["properties"].get("name") or "A company"}: its website shows a contact address after all; the '
+                "company is back on GATE1 and gets it as its company inbox in this run (or the next)")
+    left = max(0, len(due) - read)
+    if read:
+        log(f"Missing Info: {read} websites read again for hidden addresses, {len(back)} back on GATE1"
+            + (f", {left} left for the next runs" if left else ""))
+    return {"read": read, "back_to_gate1": [c["properties"].get("name") or "" for c in back], "left": left}

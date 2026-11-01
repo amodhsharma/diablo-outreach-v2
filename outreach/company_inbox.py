@@ -92,10 +92,31 @@ def _deobfuscate(text):
     return _DOT.sub(".", text)
 
 
+# Cloudflare's "email protection" (1 Nov 2026, Cycle Fitness Nutrition): the page holds "[email protected]"
+# and the address scrambled in hex, which the visitor's browser turns back into the address. The first
+# byte is the key; every byte after it, combined with the key (XOR), is one letter.
+_CLOUDFLARE = re.compile(r"(?:data-cfemail=[\"']|/cdn-cgi/l/email-protection#)([0-9a-fA-F]{6,})")
+
+
+def cloudflare_emails(text):
+    """The addresses Cloudflare's email protection hides in a page, unscrambled."""
+    out = []
+    for hexed in _CLOUDFLARE.findall(text or ""):
+        try:
+            data = bytes.fromhex(hexed[: len(hexed) // 2 * 2])
+            plain = unquote(bytes(b ^ data[0] for b in data[1:]).decode("utf-8", "ignore"))
+        except ValueError:
+            continue
+        out += EMAIL.findall(plain)
+    return out
+
+
 def emails_in(text):
-    """Every email address in a page, in order of appearance, lower case and without duplicates."""
+    """Every email address in a page, in order of appearance, lower case and without duplicates; the
+    addresses hidden by Cloudflare's email protection included (1 Nov 2026)."""
     seen, out = set(), []
-    for m in EMAIL.finditer(_deobfuscate(text)):
+    hidden = " ".join(cloudflare_emails(text))
+    for m in EMAIL.finditer(_deobfuscate(text) + (" " + hidden if hidden else "")):
         email = m.group(0).strip(".").lower()
         if email.endswith((".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg")):  # image names like logo@2x.png
             continue

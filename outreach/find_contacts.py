@@ -322,6 +322,11 @@ def run(target, settings, hs, apollo, log=print):
     except Exception as err:
         linked_summary = {}
         log(f"Could not link the contacts to their companies: {str(err)[:200]}")
+    try:  # 1 Nov 2026 (Ariel): "Missing Info" websites read again for addresses hidden by Cloudflare
+        website_summary = apollo_status.recheck_websites(hs, statuses, log)
+    except Exception as err:
+        website_summary = {}
+        log(f"Could not read the Missing Info websites again: {str(err)[:200]}")
     cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes(), _owner_names=_owner_names(hs))
     approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")],
                                 COMPANY_PROPS + [apollo_status.STOP_REASON], max_results=GATE1_LIMIT)
@@ -378,6 +383,11 @@ def run(target, settings, hs, apollo, log=print):
     gate1 = gate1_summary(len(approved), log_rows, full, tried, left, cfg, held)
     if linked_summary.get("unlinked"):
         gate1 += "\n\n" + unlinked_summary(hs, linked_summary["unlinked"])
+    if website_summary.get("read"):
+        back = website_summary["back_to_gate1"]
+        gate1 += (f"\n\nMissing Info websites read again for hidden addresses: {website_summary['read']}, "
+                  f"{len(back)} back on GATE 1" + (f": {', '.join(back)}" if back else "")
+                  + (f" ({website_summary['left']} left for the next runs)" if website_summary.get("left") else ""))
     step_summary("## Button 3: companies on GATE 1\n\n" + gate1 + "\n\n"
                  + hubspot_filters((cfg.get("_owner_names") or {}).get(cfg.get("_job_owner"), "")))
     log(gate1)
