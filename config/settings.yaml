@@ -16,8 +16,8 @@ contacts:
   # Most emails to reveal per company while trying to reach per_company verified ones.
   # Apollo charges about 1 credit per email revealed, verified or not. 3 from 23 Oct 2026 (5 before).
   max_reveals_per_company: 3
-  # Most companies to process in one run.
-  companies_per_run: 25
+  # Most companies to process in one run (50 from 1 Nov 2026, Ariel; 25 before).
+  companies_per_run: 50
   # Stop revealing emails once this many Apollo credits are used in one run.
   max_credits_per_run: 150
   # Only these Apollo email statuses are kept.
