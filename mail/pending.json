@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T09:15:28+00:00",
+  "generated_at": "2026-11-01T09:27:44+00:00",
   "target": "live",
   "contacts": [
     {
@@ -1050,6 +1050,26 @@
       }
     },
     {
+      "contact_id": "909237407979",
+      "job_title": "Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Monsterzeug",
+        "domain": "monsterzeug.ch",
+        "location": "St. Gallen, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Hannover, Germany",
+        "distributes": "Sweet and chocolate gifts, including a sweets gift box with Haribo gummies, Hanuta wafers, Valensina sweets and Mars chocolate bars",
+        "channels_supplied": "Its Swiss online gift shop monsterzeug.ch, priced in CHF",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has run its online gift shop since 2008."
+        ],
+        "fit_rationale": "An online gift shop with Swiss pricing whose 'Suesse Geschenke' and 'Schokoladen Geschenke' sections sell branded sweets and chocolate as gifts. It is based in Germany and its Swiss delivery terms are not stated on the pages seen, hence tier 3."
+      }
+    },
+    {
       "contact_id": "909021453561",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -1235,6 +1255,24 @@
           "WA owned and operated for over 15 years."
         ],
         "fit_rationale": "A WA owned operator with 15 years of trading that owns, stocks and services its machines. Snack brands are not named on its website. Storage: owns and restocks its machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909271543031",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Powershop Luescher + Co.",
+        "domain": "powershop.ch",
+        "location": "Lugano, Switzerland",
+        "channel": "Retailers",
+        "based_out_of": "Safenwil, Switzerland",
+        "distributes": "Protein bars (Weider) in a sports nutrition range from many brands (ESN, Optimum Nutrition, Powerbar, Sponser)",
+        "channels_supplied": "Its own Swiss online sports nutrition shop and its shop in Safenwil",
+        "sf_brands_carried": "Weider 32% protein bars",
+        "what_they_do_well": [],
+        "fit_rationale": "A Swiss sports nutrition shop with a bars category stocked from outside brands such as Weider. Diablo's bars and snacks suit its fitness shoppers. Tier 3 because the bars range seen is small and delivery to Ticino is not stated on its website."
       }
     },
     {
@@ -1545,6 +1583,27 @@
           "Providing vending services in Sydney since 1999."
         ],
         "fit_rationale": "A family owned operator since 1999 that restocks machines from sales data and has a dedicated healthy options page. Snack brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909264423150",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "TAH Northern Trading",
+        "domain": "tahnortherntrading.com.au",
+        "location": "Australia",
+        "channel": "Snack distributors",
+        "based_out_of": "Darwin, Australia",
+        "distributes": "Grocery wholesale with chocolate and lollies, muesli bars, biscuits and snack foods from other brands, alongside dry, chilled and frozen groceries",
+        "channels_supplied": "Retail stores in remote communities and townships across the Top End of the Northern Territory, plus some food service customers; member of the NAFDA buying group",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Describes itself as the Territory's first Indigenous-owned grocery wholesaler, supplying remote communities from the coast to the desert.",
+          "Has traded for over 21 years, starting as TH Northern Trading before becoming TAH Northern Trading in 2019."
+        ],
+        "fit_rationale": "Indigenous-owned grocery wholesaler whose product list has its own chocolate and lollies, muesli bars and biscuits sections, supplying remote community stores that have few other suppliers. It reaches one region only, which keeps it at tier 2. Storage: dry stores and chiller stores at its Winnellie premises in Darwin."
       }
     },
     {
@@ -2285,6 +2344,26 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Online general retailer with a lollies and chocolate section that it sells from its own stock as well as through marketplace sellers. Tier 3 because its head office and Australian warehouse are not stated on the page checked."
+      }
+    },
+    {
+      "contact_id": "909237407980",
+      "job_title": "Head of Human Resources",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "Monsterzeug",
+        "domain": "monsterzeug.ch",
+        "location": "St. Gallen, Switzerland",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Hannover, Germany",
+        "distributes": "Sweet and chocolate gifts, including a sweets gift box with Haribo gummies, Hanuta wafers, Valensina sweets and Mars chocolate bars",
+        "channels_supplied": "Its Swiss online gift shop monsterzeug.ch, priced in CHF",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has run its online gift shop since 2008."
+        ],
+        "fit_rationale": "An online gift shop with Swiss pricing whose 'Suesse Geschenke' and 'Schokoladen Geschenke' sections sell branded sweets and chocolate as gifts. It is based in Germany and its Swiss delivery terms are not stated on the pages seen, hence tier 3."
       }
     },
     {
