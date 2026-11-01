@@ -234,3 +234,22 @@ To use the live HubSpot account for the automatic jobs, add a repository variabl
 pip install -r requirements.txt
 python -m pytest -q
 ```
+
+To run every check as if it were another day: `CHECK_DATE=2027-01-01T00:30:00+05:30 python -m pytest -q`,
+or all the difficult days at once: `bash .github/scripts/date_checks.sh`.
+
+## When the checks run, and the emails when something goes wrong (1 Nov 2026)
+
+On 1 Nov 2026 three checks that assumed it was still October stopped every button. So:
+
+- **The code is checked once, when it changes**, by "Code checks (automatic, nothing to press)": every
+  check today, then again as if it were each of the difficult days (month ends, the new year and
+  29 February, India and UK time). If both pass, that version is marked as checked (the branch
+  `checked-code`).
+- **The buttons use only checked code** (`.github/scripts/use_checked_code.sh`) and never run the checks
+  themselves, so a date cannot stop them. If the newest change has not passed, a run uses the last
+  checked version and says so on its page.
+- **Emails to DAILY_REPORT_TO** (`outreach/alert.py`): when any button's run fails (which button, which
+  steps failed, which had already done their work, and the link), when a code change fails the checks
+  and is held back, and on the 25th of each month when button R's rehearsal of the start of next month
+  finds something that would fail (an early warning; the summary email still goes out).

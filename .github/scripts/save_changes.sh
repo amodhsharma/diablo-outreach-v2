@@ -17,6 +17,9 @@ git config user.name "github-actions[bot]"
 git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
 git add -- "$@"
 git commit -m "$message"
+# Anything else changed on disk is never saved; it is put aside so the pull below can run (1 Nov 2026: a
+# run that used the last checked version of the code has that code on disk, not in the repository).
+git diff --quiet || git stash push --quiet
 for attempt in 1 2 3; do
   if git pull --rebase && git push; then
     exit 0

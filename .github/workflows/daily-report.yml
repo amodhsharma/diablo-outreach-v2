@@ -17,6 +17,9 @@ on:
 jobs:
   report:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: read  # 1 Nov 2026: the failure email names the steps that failed
     timeout-minutes: 20
     env:
       TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
@@ -31,8 +34,23 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - name: "Before: tests pass"
-        run: python -m pytest -q
+      - name: "Before: using only code that passed the automatic checks"
+        run: bash .github/scripts/use_checked_code.sh
+      - name: "On the 25th: rehearse the start of next month (early warning)"
+        # 1 Nov 2026 (Ariel): on the 25th, every check is run as if it were the end of this month and the
+        # start of the next. If anything would fail, an early warning goes to DAILY_REPORT_TO; the summary
+        # email below goes out either way.
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$(TZ=Asia/Kolkata date +%d)" != "25" ]; then echo "Only on the 25th."; exit 0; fi
+          if bash .github/scripts/date_checks.sh next-month > rehearsal.txt 2>&1; then
+            cat rehearsal.txt
+          else
+            cat rehearsal.txt
+            DATE_CHECKS_FAILED="$(sed -n 's/: FAILED$//p' rehearsal.txt | tr '\n' ' ')" python -m outreach.alert --early-warning
+          fi
       - name: "The daily summary email"
         run: |
           if [ "${{ inputs.preview }}" = "true" ]; then
@@ -40,3 +58,11 @@ jobs:
           else
             python -m outreach.daily_report --target "$TARGET"
           fi
+
+      - name: "After: email if this run failed"
+        if: failure()
+        env:
+          DAILY_REPORT_TO: ${{ secrets.DAILY_REPORT_TO }}
+          DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m outreach.alert --run-failed

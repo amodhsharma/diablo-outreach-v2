@@ -1,0 +1,59 @@
+name: 'Code checks (automatic, nothing to press)'
+
+# 1 Nov 2026 (Ariel): the code is checked once, when it changes, never at every run of a button, so a
+# date can never stop the buttons again. Runs by itself whenever the code is changed; it has no button.
+#   1. Every automatic check, as today.
+#   2. Every check again as if it were each of the difficult days: month ends, the new year and
+#      29 February, in India and UK time (.github/scripts/date_checks.sh).
+#   3. Both passed: this version is marked as checked (the branch checked-code), and the buttons use it.
+#      Either failed: the change is held back, the buttons keep using the last checked version, and an
+#      email goes to DAILY_REPORT_TO.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "outreach/**"
+      - "tests/**"
+      - "skills/outreachResearch/scripts/**"
+      - "skills/outreachMailWriting/scripts/**"
+      - "config/**"
+      - "templates/**"
+      - "requirements.txt"
+      - ".github/**"
+
+concurrency:
+  group: code-checks
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    env:
+      DAILY_REPORT_TO: ${{ secrets.DAILY_REPORT_TO }}
+      DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: "1. Every check, today"
+        run: python -m pytest -q
+      - name: "2. Every check, on the difficult days"
+        run: bash .github/scripts/date_checks.sh
+      - name: "3. Mark this version as checked"
+        run: |
+          if git fetch -q origin checked-code 2>/dev/null && ! git merge-base --is-ancestor FETCH_HEAD "$GITHUB_SHA"; then
+            echo "A newer version is already marked as checked; nothing to do."
+            exit 0
+          fi
+          git push --force origin "$GITHUB_SHA:refs/heads/checked-code"
+          echo "This version is now the one the buttons use." >> "$GITHUB_STEP_SUMMARY"
+      - name: "After: email if the change was held back"
+        if: failure()
+        run: python -m outreach.alert --held-back

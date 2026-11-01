@@ -36,6 +36,7 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
+      actions: read  # 1 Nov 2026: the failure email names the steps that failed
     env:
       HUBSPOT_TOKEN: ${{ inputs.target == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
     steps:
@@ -44,8 +45,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - name: "Before: tests pass"
-        run: python -m pytest -q
+      - name: "Before: using only code that passed the automatic checks"
+        run: bash .github/scripts/use_checked_code.sh
       - name: "Add the fields and Lead Status choices"
         run: |
           ARGS=""
@@ -59,3 +60,11 @@ jobs:
           bash .github/scripts/save_changes.sh "Setup: list of companies already in HubSpot" \
             data/known_companies.csv data/known_companies_state.json \
             data/known_companies_test.csv data/known_companies_test_state.json
+
+      - name: "After: email if this run failed"
+        if: failure()
+        env:
+          DAILY_REPORT_TO: ${{ secrets.DAILY_REPORT_TO }}
+          DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m outreach.alert --run-failed

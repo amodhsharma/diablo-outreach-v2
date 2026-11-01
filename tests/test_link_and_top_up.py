@@ -103,13 +103,16 @@ def test_nobody_more_in_apollo_changes_nothing_and_waits_for_next_month(monkeypa
     _contact(hs, cid, "only@gamma.example", 1)
     apollo = FakeApollo({"gamma.example": []}, {})
     s = load_settings()
+    # The months are set by the check itself, never read from the calendar (1 Nov 2026: "next month" was
+    # written as November, so the check failed once November came).
+    monkeypatch.setattr(find_contacts, "_month", lambda: "JAN2030")
     find_contacts.run("test", s, hs, apollo, log=quiet)
     assert hs.records["companies"][cid]["hs_lead_status"] == "GATE1: Approved for outreach"  # not Missing Info
     assert len(apollo.searches) >= 1
     searches = len(apollo.searches)
     find_contacts.run("test", s, hs, apollo, log=quiet)  # the same month: not asked again
     assert len(apollo.searches) == searches
-    monkeypatch.setattr(find_contacts, "_month", lambda: "NOV2026")  # the next month: asked again
+    monkeypatch.setattr(find_contacts, "_month", lambda: "FEB2030")  # the next month: asked again
     find_contacts.run("test", s, hs, apollo, log=quiet)
     assert len(apollo.searches) > searches
 

@@ -53,6 +53,12 @@ def _details(instantly, connected=None):
     instantly.request = request
 
 
+def _month():
+    """This month's campaign label, as button 4 names the campaigns (e.g. NOV2026)."""
+    from outreach.send import month_label
+    return month_label()
+
+
 def _world():
     hs, instantly = FakeCRM(), FakeInstantly()
     # Research on 26 Oct (India time): two in Australia, one in South Africa; one the day before.
@@ -85,8 +91,8 @@ def _world():
                    hs_lead_status="IN_PROGRESS")
     hs.links[happy] = [felfel]
     # Instantly: three introductions sent on 26 Oct (one to a company inbox), one on 25 Oct.
-    main = instantly.create_campaign({"name": "Diablo | OCT2026", "email_list": ["sales@x.example"], "status": 1})["id"]
-    box = instantly.create_campaign({"name": "Diablo | OCT2026 | Company inboxes", "email_list": [], "status": 1})["id"]
+    main = instantly.create_campaign({"name": f"Diablo | {_month()}", "email_list": ["sales@x.example"], "status": 1})["id"]
+    box = instantly.create_campaign({"name": f"Diablo | {_month()} | Company inboxes", "email_list": [], "status": 1})["id"]
     instantly.leads[main] = [{"email": "a@felfel.example", "timestamp_last_contact": "2026-10-26T09:00:00Z"},
                              {"email": "b@x.example", "timestamp_last_contact": "2026-10-26T10:00:00Z"},
                              {"email": "c@x.example", "timestamp_last_contact": "2026-10-25T10:00:00Z"}]
@@ -160,7 +166,7 @@ def test_it_is_sent_from_the_agreed_mailbox(monkeypatch):
 
 def test_a_quiet_day_and_all_healthy():
     hs, instantly = FakeCRM(), FakeInstantly()
-    instantly.create_campaign({"name": "Diablo | OCT2026", "email_list": ["sales@x.example"], "status": 1})
+    instantly.create_campaign({"name": f"Diablo | {_month()}", "email_list": ["sales@x.example"], "status": 1})
     _details(instantly)
     accounts = Accounts([{"email": "sales@x.example", "status": 1, "warmup_status": 1, "stat_warmup_score": 99}])
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date="2026-11-01",
@@ -172,7 +178,7 @@ def test_a_quiet_day_and_all_healthy():
 
 def test_a_mailbox_that_needs_attention_is_named():
     hs, instantly = FakeCRM(), FakeInstantly()
-    instantly.create_campaign({"name": "Diablo | OCT2026", "email_list": ["sales@x.example"], "status": 1})
+    instantly.create_campaign({"name": f"Diablo | {_month()}", "email_list": ["sales@x.example"], "status": 1})
     _details(instantly)
     accounts = Accounts([{"email": "sales@x.example", "status": -1, "warmup_status": 1, "stat_warmup_score": 100}])
     assert daily_report.health(instantly, load_settings(), accounts) == ["sales@x.example needs attention (connection error)"]

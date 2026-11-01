@@ -1,4 +1,26 @@
+import os
+
 import pytest
+
+# 1 Nov 2026 (Ariel): no date may ever stop the buttons again. With CHECK_DATE set (for example
+# CHECK_DATE=2027-01-01T00:30:00+05:30), every check runs as if that were the time now; the clock keeps
+# ticking from there. .github/scripts/date_checks.sh runs all the checks this way on the difficult days
+# (month ends, the new year, 29 February) whenever the code changes, and on the 25th of each month.
+_PRETEND = None
+
+
+def pytest_configure(config):
+    global _PRETEND
+    when = os.environ.get("CHECK_DATE", "").strip()
+    if when:
+        from freezegun import freeze_time
+        _PRETEND = freeze_time(when, tick=True)
+        _PRETEND.start()
+
+
+def pytest_unconfigure(config):
+    if _PRETEND is not None:
+        _PRETEND.stop()
 
 
 @pytest.fixture(autouse=True)

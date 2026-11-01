@@ -68,5 +68,19 @@ def test_only_the_four_buttons_are_left():
     names = sorted(yaml.safe_load(p.read_text())["name"] for p in (ROOT / ".github" / "workflows").glob("*.yml"))
     # Plus the daily summary email (27 Oct 2026), which only reads. The strain test helper and the bond
     # paragraph preview were removed on 27 Oct 2026 (Ariel): no longer needed.
+    # Plus "Code checks" (1 Nov 2026), which has no button: it runs by itself when the code changes.
     assert names == ["1 - Setup HubSpot (once per account)", "2 - Research", "3 - Find contacts",
-                     "4 - Send and follow up", "R - Daily summary email"]
+                     "4 - Send and follow up", "Code checks (automatic, nothing to press)", "R - Daily summary email"]
+    checks = yaml.safe_load((ROOT / ".github/workflows/checks.yml").read_text())
+    assert "workflow_dispatch" not in checks[True]  # never a button to press
+
+
+def test_the_buttons_never_run_the_checks_themselves_and_email_when_they_fail():
+    """1 Nov 2026 (Ariel): a date can never stop a button again. The buttons use only code that passed the
+    checks, and each emails DAILY_REPORT_TO when its run fails."""
+    for name in ("setup", "research", "outreach", "send-loop", "daily-report"):
+        text = (ROOT / ".github/workflows" / f"{name}.yml").read_text()
+        assert "pytest" not in text and "use_checked_code.sh" in text, name
+        steps = yaml.safe_load(text)["jobs"]
+        last = list(steps.values())[-1]["steps"][-1]
+        assert last["if"] == "failure()" and "outreach.alert --run-failed" in last["run"], name

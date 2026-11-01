@@ -37,6 +37,7 @@ jobs:
     timeout-minutes: 60
     permissions:
       contents: write
+      actions: read  # 1 Nov 2026: the failure email names the steps that failed
     env:
       TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
       MODE: ${{ github.event_name == 'push' && 'lines' || (inputs.check_only == true || inputs.check_only == 'true') && 'check' || 'full' }}
@@ -48,10 +49,10 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - name: "Before: up to date and tests pass"
+      - name: "Before: up to date, using only code that passed the automatic checks"
         run: |
           git pull --rebase
-          python -m pytest -q
+          bash .github/scripts/use_checked_code.sh
 
       - name: "1. Find people at GATE1 companies (Apollo)"
         id: people
@@ -105,5 +106,13 @@ jobs:
           [ "${{ steps.lines.outcome }}" = "failure" ] && failed="$failed 2 (personal lines);"
           [ "${{ steps.pending.outcome }}" = "failure" ] && failed="$failed 3 (list for Claude);"
           [ "${{ steps.health.outcome }}" = "failure" ] && failed="$failed health check;"
-          if [ -n "$failed" ]; then echo "::error::These steps failed:$failed open them above for the reason."; exit 1; fi
+          if [ -n "$failed" ]; then echo "FAILED_STEPS=$failed" >> "$GITHUB_ENV"; echo "::error::These steps failed:$failed open them above for the reason."; exit 1; fi
           echo "Every step worked."
+
+      - name: "After: email if this run failed"
+        if: failure()
+        env:
+          DAILY_REPORT_TO: ${{ secrets.DAILY_REPORT_TO }}
+          DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m outreach.alert --run-failed
