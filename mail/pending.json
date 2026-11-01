@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T08:04:51+00:00",
+  "generated_at": "2026-11-01T08:17:23+00:00",
   "target": "live",
   "contacts": [
     {
@@ -38,6 +38,26 @@
           "Family owned since 1968, with eight IGA X-press grocery stores on its forecourts."
         ],
         "fit_rationale": "A family owned fuel and convenience retailer with 27 stores in Victoria and NSW and more being built, buying from its Geelong support office. Its IGA X-press sites carry a wider grocery and snack range of other brands. Tier 3 for its small store count."
+      }
+    },
+    {
+      "contact_id": "909195247854",
+      "job_title": "Founding Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "APD Promotions",
+        "domain": "apdpromotions.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Chocolate (Lindt Lindor balls, chocolate baubles), advent calendars, sweets, jubes and mints",
+        "channels_supplied": "Corporate clients; offices in Sydney, Melbourne, Brisbane and overseas",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Operates offices in Sydney, Melbourne and Brisbane plus the USA, New Zealand, Singapore and the UK."
+        ],
+        "fit_rationale": "Sells Lindor ball gift boxes, advent calendars and chocolate for corporate Christmas gifting, which matches Diablo's seasonal gift boxes and advent calendars. It ranks in tier 3 because most of its sweets are unbranded. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
       }
     },
     {
@@ -139,6 +159,24 @@
       }
     },
     {
+      "contact_id": "909225777339",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Cranks Bikes",
+        "domain": "cranks.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Pro Bar meal bars, GU and Skratch Labs energy chews (gummies), plus gels and electrolytes from Koda and SIS",
+        "channels_supplied": "Its bike shop in Chatswood and its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Chatswood bike shop with its own Nutrition category of 14 products from other brands, including bars and chews for riders. It is a single shop."
+      }
+    },
+    {
       "contact_id": "909193934017",
       "job_title": "Founder and Managing Director",
       "seniority": "Top leadership",
@@ -154,6 +192,82 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "An Australian owned operator with over 30 years in vending that uses its own staff and remote monitoring to keep machines full of chips and chocolates. Street address and brands are not stated on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909225383119",
+      "job_title": "Business Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Daily Blooms",
+        "domain": "dailyblooms.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Gift hampers with chocolate (Loco Love, Bahen and Co), cookies (Sweet Splits), cake (Sweet Bakes) and sweets (Sweeta rock candy and chocolate freckles), sold with flowers.",
+        "channels_supplied": "Its own online flower and gift shop with delivery in Melbourne, Sydney, Brisbane and Perth and nationally.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Flower delivery business that started in Melbourne and has a Fitzroy studio, and its gift hamper range resells other brands' chocolate, cookies and sweets. Flowers lead the range and its sweets shelf is small, so it is tier 3."
+      }
+    },
+    {
+      "contact_id": "909192348915",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Delicious Buds",
+        "domain": "deliciousbuds.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Chocolate bouquets, chocolate gift boxes and hampers made with branded chocolates (Ferrero Rocher, Baci, Cadbury)",
+        "channels_supplied": "Own online shop delivering to Sydney, Blue Mountains, Central Coast and Newcastle",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Sydney chocolate gift business that resells branded chocolates as bouquets and gift boxes for seasonal occasions. Tier 3 because it is small and its address and years of trading are not stated on its website."
+      }
+    },
+    {
+      "contact_id": "909217960125",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Farm Fresh Organics",
+        "domain": "freshorganics.com.au",
+        "location": "Brisbane, Australia",
+        "channel": "Retailers",
+        "based_out_of": "Rocklea, Australia",
+        "distributes": "Organic groceries including chocolate (Loving Earth, Pana Organic, Vego pralines, Green Grove), snacks and crackers, alongside fresh produce",
+        "channels_supplied": "Its own online shop with home delivery across Brisbane, Gold Coast, Ipswich, Sunshine Coast and Toowoomba, and to QLD, NSW, VIC and ACT",
+        "sf_brands_carried": "Has a sugar free filter in its shop; no direct sugar free confectionery competitor seen",
+        "what_they_do_well": [
+          "Trading since 2003 from its Rocklea warehouse, delivering organic groceries across South East Queensland and beyond."
+        ],
+        "fit_rationale": "A Brisbane online organic grocer that sells branded chocolate and snacks from Loving Earth, Pana Organic, Vego and Ceres to households across South East Queensland. Tier 3 because biscuits, bars and spreads were not seen in the pages opened and it is a single online shop."
+      }
+    },
+    {
+      "contact_id": "909221443791",
+      "job_title": "Founder & CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Fig & Bloom",
+        "domain": "figandbloom.com",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Kew, Australia",
+        "distributes": "Chocolate gifts from other brands (Koko Black pralines and chocolate, Pebbly Path rocky road, chocolate raspberries), sold with flowers and plants.",
+        "channels_supplied": "Its own studios in Melbourne (Fairfield), Sydney and Brisbane and its online shop delivering to 14 cities.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Launched in 2015 and now delivers to 14 cities from studios in Melbourne, Sydney and Brisbane."
+        ],
+        "fit_rationale": "Florist and gift company founded in 2015 with a Victorian contact address and a Fairfield studio, whose chocolate category resells Koko Black and Pebbly Path. Flowers lead its range, so it is tier 3, but chocolate gift boxes are a standing category on its shop."
       }
     },
     {
@@ -231,6 +345,24 @@
       }
     },
     {
+      "contact_id": "909209473223",
+      "job_title": "Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Giftroo",
+        "domain": "giftroo.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "",
+        "distributes": "Gift hampers with gourmet chocolates, biscuits and sweets, including Koko Black chocolate hampers, plus wine and tea.",
+        "channels_supplied": "Its own online hamper shop delivering across Melbourne, Sydney, Brisbane, Perth, Adelaide and regional areas, with a Melbourne corporate gifts page.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Australian-owned online hamper retailer that delivers to Melbourne and names Koko Black in its chocolate hampers. Its head office location is not stated on its website and most item brands are not named, so it is tier 3."
+      }
+    },
+    {
       "contact_id": "909034568920",
       "job_title": "Owner",
       "seniority": "Top leadership",
@@ -287,6 +419,42 @@
       }
     },
     {
+      "contact_id": "909220532421",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Hamper My Style",
+        "domain": "hampermystyle.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Windsor, Australia",
+        "distributes": "Sweet treat hampers with other brands' chocolate and sweets: Cocoa Emporium chocolate almonds, Cocoa Lane chocolate-coated raspberry lollies, Grounded Pleasures marshmallows and Chow Cacao chocolate.",
+        "channels_supplied": "Its own online hamper shop delivering Australia-wide, including Melbourne.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Small New South Wales hamper business that sells sweet treat hampers built from other brands' chocolate and sweets and ships them nationally, Melbourne included. It is small and based outside Melbourne, so it is tier 3."
+      }
+    },
+    {
+      "contact_id": "909075733695",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Healthy Hampers",
+        "domain": "healthyhampers.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Australia (head office not stated on its website)",
+        "distributes": "Healthy gift hampers with branded chocolate (Alter Eco) and biscuits (Gingerbread Folk), plus keto, vegan and gluten free snack hampers",
+        "channels_supplied": "Corporate hampers with corporate discounts and direct to shoppers online, with delivery to Sydney and Australia wide",
+        "sf_brands_carried": "Keto and vegan snack hampers; Alter Eco chocolate",
+        "what_they_do_well": [],
+        "fit_rationale": "A health focused hamper company with keto, vegan and dietary hampers for corporate and private buyers, which matches Diablo's no added sugar and vegan lines. Tier 3 because its head office and warehouse are not stated on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
       "contact_id": "909189862617",
       "job_title": "Director",
       "seniority": "Directors",
@@ -322,6 +490,42 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Brisbane supplement retailer with a protein bars, snacks, foods and drinks department including cookies and desserts. Tier 3 for its single store; brands are not named on the page read."
+      }
+    },
+    {
+      "contact_id": "909223636209",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "IBA Distributors",
+        "domain": "ibadistributors.com.au",
+        "location": "Australia",
+        "channel": "Leisure and venue snack suppliers",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Sweets and gummies (Trolli, Nerds, Skittles, Warheads, Mike & Ike, Hubba Bubba), chocolate (M&M's, Dubai style chocolate bars), chips and snacks, protein bars and drinks",
+        "channels_supplied": "Pubs, clubs, motels, hotels and service stations across Brisbane, the Gold Coast, the Sunshine Coast and Ipswich",
+        "sf_brands_carried": "Protein bars; no sugar free confectionery seen; no direct competitor seen",
+        "what_they_do_well": [],
+        "fit_rationale": "An owner run wholesaler of Australian, American and New Zealand branded sweets, chocolate and snacks to pubs, clubs and motels. It already carries Dubai style chocolate, one of Diablo's lines. It is a one person business, which limits its reach. Storage: sells from its own stock through a trade web shop and its own delivery; warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909223531756",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "J&K Vending",
+        "domain": "jandkvending.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Healthy and treat snacks, novelty goods and drinks",
+        "channels_supplied": "Businesses in south east Brisbane",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A family owned operator that supplies machines and refills them with healthy and treat snacks. Brands are not named on its website. Storage: refills its own machines, warehouse not named on its website."
       }
     },
     {
@@ -383,6 +587,24 @@
       }
     },
     {
+      "contact_id": "909197955294",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Local Vending",
+        "domain": "localvending.com.au",
+        "location": "Brisbane, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Snacks, drinks and fresh meals in workplace vending machines, including healthy snacks",
+        "channels_supplied": "Workplaces throughout Brisbane and surrounding areas",
+        "sf_brands_carried": "Healthy options offered; no brands named",
+        "what_they_do_well": [],
+        "fit_rationale": "Local Brisbane business that supplies, fills and maintains its own snack machines and tailors the range to each workplace. Tier 3 because its website names no brands, suburbs or clients. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
       "contact_id": "909019656383",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -418,6 +640,24 @@
           "Curates and packs products from over 400 independent makers, handling sourcing, branding, logistics and delivery for corporate clients."
         ],
         "fit_rationale": "Corporate gifting company that sources and packs products from over 400 independent Australian makers, including fudge, honeycomb and chocolate. Tier 3 because the brands in its treat boxes and its head office are not named on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909195248834",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Mercha",
+        "domain": "mercha.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Australia",
+        "distributes": "Branded sweets (M&M's packs, Mentos) and custom branded confectionery",
+        "channels_supplied": "Businesses through its web shop and B2B portal",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Sells branded M&M's packs and Mentos within a custom branded confectionery collection to businesses. It ranks in tier 3 because its confectionery range is small and its head office is not stated on its website. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
       }
     },
     {
@@ -495,6 +735,42 @@
       }
     },
     {
+      "contact_id": "909221791959",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "National Hotel Supplies",
+        "domain": "nationalhotelsupplies.com.au",
+        "location": "Australia",
+        "channel": "Hotel minibar suppliers",
+        "based_out_of": "Australia",
+        "distributes": "Guest room biscuits and sweets: Arnott's (Tim Tam, Scotch Finger, Butternut Snap), Lotus Biscoff, Little Bakes, Gumnut and Aussie Biscuits, Mentos mints, plus jams and condiments",
+        "channels_supplied": "Accommodation industry Australia wide through its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A family run accommodation supplier with a Biscuits and Sweets section of other companies' branded biscuits and mints for hotel rooms. Diablo's biscuits, wafers and sweets fit this range directly. Tier 3 because its website names neither its head office city nor its warehouse. Storage: sells from its own stock through its online shop, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909193960694",
+      "job_title": "Production Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "New Age Promotions",
+        "domain": "newage.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Australia",
+        "distributes": "Branded chocolate (M&M's, Lindt, Toblerone, Jaffas), sweets, mini muffins and cupcakes",
+        "channels_supplied": "Corporate clients in Australia",
+        "sf_brands_carried": "Sugar-free breath mints (unbranded)",
+        "what_they_do_well": [],
+        "fit_rationale": "Its promotional confectionery collection includes M&M's, Lindt and Toblerone and sugar-free mints. It ranks in tier 3 because it is small and its head office is not stated on its website. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
       "contact_id": "909021455587",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -512,6 +788,24 @@
           "Over 10 years serving businesses across the Northern Territory."
         ],
         "fit_rationale": "A Darwin operator with over 10 years of trading that provides snack machines with chips and candy bars. Restocking detail and brands are not stated on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909221811416",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Office National Capalaba",
+        "domain": "oncap.com.au",
+        "location": "Brisbane, Australia",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Canteen and kitchen confectionery: Mentos pillow packs, Skittles candy chews, jubes and lollipops, plus biscuits",
+        "channels_supplied": "Offices and businesses in Brisbane's bayside through its web shop and store",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Brisbane bayside Office National member with its own confectionery and chocolate category of branded sweets for office kitchens. Tier 3 because it serves a local area. Storage: store and web shop with stock and prices at Steel Street, Capalaba."
       }
     },
     {
@@ -571,6 +865,144 @@
       }
     },
     {
+      "contact_id": "909157685465",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Promotional Products",
+        "domain": "promotionalproducts.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Australia",
+        "distributes": "Branded chocolate (Lindt Lindor, M&M's) and printed chocolate sleeves",
+        "channels_supplied": "Corporate clients Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Trading since 1998, per its website."
+        ],
+        "fit_rationale": "Carries Lindt and M&M's chocolate categories for corporate gifting. It ranks in tier 3 because its range covers fewer of Diablo's categories and its head office is not stated on its website. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
+      "contact_id": "909223740657",
+      "job_title": "Brand Ambassador",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Protein King",
+        "domain": "proteinking.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "High protein low carb bars and snacks (Body Science collagen and plant protein bars, Musashi P8 bars) plus protein powders",
+        "channels_supplied": "Its own online shop and its premises at Tepko Road, Terrey Hills",
+        "sf_brands_carried": "Body Science low carb protein bars",
+        "what_they_do_well": [
+          "Publishes its own product reviews of the brands it stocks, such as Musashi and Hammer Nutrition."
+        ],
+        "fit_rationale": "A Terrey Hills sports nutrition retailer with its own Bars and Snacks collection of other brands' protein bars. Its pages block automated reading, so the range was confirmed from its own product page listings in search results."
+      }
+    },
+    {
+      "contact_id": "909196304584",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "QS Vending",
+        "domain": "qsvending.com.au",
+        "location": "Australia",
+        "channel": "Leisure and venue snack suppliers",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Protein bars, energy snacks and healthy snacks for vending",
+        "channels_supplied": "Vending machines in gyms, events, offices, schools and warehouses across Queensland",
+        "sf_brands_carried": "QLD canteen compliant healthy options; no brand named",
+        "what_they_do_well": [
+          "More than 150 installations across Queensland."
+        ],
+        "fit_rationale": "A Brisbane vending operator that restocks and services its own machines, including gyms and events, with protein bars and energy snacks. That gym and event mix suits Diablo's bars. Brands are not named on its website."
+      }
+    },
+    {
+      "contact_id": "909223235818",
+      "job_title": "Co-Founder of Red Rhubarb | Corporate Gift Specialist",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Red Rhubarb Gifts",
+        "domain": "redrhubarb.com.au",
+        "location": "Brisbane, Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Customised corporate gift boxes with branded chocolate (Koko Black wafer chocolate), champagne, cheese boards and candles",
+        "channels_supplied": "Corporate clients Australia-wide, with logo and message branding",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Customises gifts with client logos and messages, packed by its own team in Brisbane."
+        ],
+        "fit_rationale": "A Brisbane boutique corporate gifting service whose boxes pair branded chocolate with drinks and homewares. It names few food brands on its website and its boxes are drinks-led, hence tier 3. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909194502339",
+      "job_title": "Chief Executive Officer",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Roses Only",
+        "domain": "rosesonly.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Chocolate and sweets add-ons and gift boxes from other brands: Chocolatier chocolates, Bennetto chocolate, Random Harvest fudge, Rinaldi nougat and Kokopod coconut snacks.",
+        "channels_supplied": "Its own online flower and gift shop with same-day delivery across Australia, including Melbourne.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Established in 1995 and now also serves Singapore, New York and London."
+        ],
+        "fit_rationale": "National flower and gift retailer, founded in 1995 by a Sydney florist, that sells other brands' chocolate and sweets as gifts and add-ons, delivered same day in Melbourne. Flowers lead the range and its chocolate list is short, so it is tier 3."
+      }
+    },
+    {
+      "contact_id": "909196182747",
+      "job_title": "Your Growth Partner",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Royal Vending",
+        "domain": "royalvending.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Chips, chocolates and confectionery, muesli bars, protein bars, popcorn and baked snacks in its own snack and combo vending machines",
+        "channels_supplied": "Workplaces in Sydney, including Liverpool and the Central Coast, and nationally through its own network",
+        "sf_brands_carried": "Healthy vending range with muesli and protein bars; no sugar-free brand named",
+        "what_they_do_well": [],
+        "fit_rationale": "A vending operator serving Sydney that stocks and restocks its free hire machines with chocolates, confectionery and bars through its national network. Tier 3 because its website names neither its head office nor the brands it stocks. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909195459802",
+      "job_title": "Business Development Manager / Marketing",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Service With A Smile",
+        "domain": "servicewithasmile.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Chipping Norton, Australia",
+        "distributes": "Brand name snacks, chips, chocolate and drinks in its own snack, combo and drink vending machines",
+        "channels_supplied": "Businesses across Sydney, with route fillers covering west and south west Sydney",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Established around 1991, with over 35 years in the vending industry."
+        ],
+        "fit_rationale": "A Sydney operator that replenishes its machines with brand name snacks and chocolate every week and employs its own route fillers. Tier 3 because its website does not name the snack brands it stocks. Storage: sells from its own stock, warehouse not named on its website (business at Childs Road, Chipping Norton)."
+      }
+    },
+    {
       "contact_id": "909041371380",
       "job_title": "Managing Director",
       "seniority": "Top leadership",
@@ -589,6 +1021,62 @@
       }
     },
     {
+      "contact_id": "909072449776",
+      "job_title": "CEO & Co-Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Style Bundle",
+        "domain": "stylebundle.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Luxury and corporate gift hampers with chocolate (Koko Black) and gourmet food, alongside homewares and body care.",
+        "channels_supplied": "Corporate clients in real estate, mortgage broking and property development across every Australian state, through its own online shop.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Melbourne corporate gifting business that sources Koko Black chocolate among other brands for client hampers. Chocolate is one category among homewares and body care, so it is tier 3."
+      }
+    },
+    {
+      "contact_id": "909197245626",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Sunshine Coast Vending",
+        "domain": "sunshinecoastvending.com.au",
+        "location": "Brisbane, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Sunshine Coast, Australia",
+        "distributes": "Healthy vending range: protein bars, crackers and light snacks, nut mixes, low sugar drinks and ready meals, alongside treats",
+        "channels_supplied": "Offices, gyms, schools and industrial sites on the Sunshine Coast, North Brisbane and greater Brisbane",
+        "sf_brands_carried": "Low sugar drinks, kombucha and protein bars; no brands named",
+        "what_they_do_well": [],
+        "fit_rationale": "Family-owned Queensland operator with a healthy vending offer and a fully managed service for Brisbane sites. Its low sugar positioning suits Diablo's bars and cookies; tier 3 because its website gives no address and names no brands. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909225574647",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Super Nutrition",
+        "domain": "supernutrition.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Protein bars (Fibre Boost Cold Pressed Protein Bar, Optimum Nutrition Protein Bar) plus protein powders and sports supplements",
+        "channels_supplied": "Its shop at 185-211 Broadway, Ultimo, with in store pickup, and its own online shop",
+        "sf_brands_carried": "Fibre Boost",
+        "what_they_do_well": [
+          "Named among Sydney's best supplement stores by Man of Many."
+        ],
+        "fit_rationale": "An Ultimo sports nutrition shop beside the city universities that sells bars from other brands alongside big name supplements. It is a single shop with a small bars shelf."
+      }
+    },
+    {
       "contact_id": "909216522457",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -604,6 +1092,26 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Australian-owned sports nutrition shop with a healthy food and snacks category selling branded bars in store and online. Tier 3 because it is a single store with an online shop."
+      }
+    },
+    {
+      "contact_id": "909225376957",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Supplement Mania",
+        "domain": "supplementmania.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Protein bars and protein cookies (Maxine's Burn Bars, Max's Super Shred Cookie, Fibre Boost bars) plus sports supplements",
+        "channels_supplied": "Its shop at 238 Sydenham Road, Marrickville, click and collect and its own online shop shipping Australia wide",
+        "sf_brands_carried": "Max's and Maxine's low carb protein snacks, Fibre Boost",
+        "what_they_do_well": [
+          "Named among Sydney's best supplement stores by Man of Many."
+        ],
+        "fit_rationale": "An independent Marrickville sports nutrition shop that sells bars and cookies from other brands to gym goers in store and online. It is a single shop, so its reach is small."
       }
     },
     {
@@ -701,6 +1209,26 @@
       }
     },
     {
+      "contact_id": "909225452737",
+      "job_title": "Business Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "The Running Company",
+        "domain": "therunningcompany.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Energy chews (gummies) from Enervit and Precision Fuel, plus energy gels and drink mixes from Koda, SIS, Maurten and Pure",
+        "channels_supplied": "14 specialist running stores, including The Shire store in Kirrawee, Sydney, and its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Founded by Chris Chapman in Bondi Beach in October 2009 and grown to 14 stores."
+        ],
+        "fit_rationale": "A running shoe chain founded in Bondi Beach with a Nutrition and Hydration collection from other brands sold to runners in store and online. Its food shelf is chews and gels only, and its head office is not stated on its website."
+      }
+    },
+    {
       "contact_id": "909218774213",
       "job_title": "Owner",
       "seniority": "Top leadership",
@@ -737,6 +1265,26 @@
       }
     },
     {
+      "contact_id": "909034661101",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Tukr Snacks",
+        "domain": "tukr.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Office and team snack boxes of other brands: bars (Clif Bar, Bounce), chocolate (Loving Earth), cookies (Byron Bay Cookie Company), chips, popcorn, nuts and jerky",
+        "channels_supplied": "Offices and teams across Australian metro areas with free delivery, bulk orders, and through the eCater and EatFirst catering platforms",
+        "sf_brands_carried": "Better-for-you brands such as Loving Earth, Ceres Organics, Health Lab and Blue Dinosaur; no direct Diablo competitor seen",
+        "what_they_do_well": [
+          "Listed as a snack supplier on both the eCater and EatFirst workplace catering platforms."
+        ],
+        "fit_rationale": "A dietitian-owned office snack box business that curates more than 100 brands of bars, chocolate and cookies for workplaces, a natural home for Diablo's sugar-free bars and biscuits. It is small and its head office address is not stated on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
       "contact_id": "909221413092",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -770,6 +1318,24 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "A South East Queensland operator that keeps its machines fully stocked with chocolate and protein bars. Brands are not named on its website. Storage: stocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909223547087",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vending First",
+        "domain": "vendingfirst.com.au",
+        "location": "Brisbane, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Chips, chocolate and other snacks in snack and combination machines, plus drinks and fresh food machines with healthy snacks",
+        "channels_supplied": "Corporate and business sites across Brisbane through vending services, machine hire and smart fridges",
+        "sf_brands_carried": "Healthy snacks in its fresh food machines; no brands named",
+        "what_they_do_well": [],
+        "fit_rationale": "Eagle Farm vending company that monitors its machines remotely for restocking and fills its fresh food machines daily, alongside snack and chocolate machines. Tier 3 because it also sells and hires machines and its website names no brands. Storage: sells from its own stock from its Eagle Farm premises, warehouse not named on its website."
       }
     },
     {
@@ -849,6 +1415,44 @@
       }
     },
     {
+      "contact_id": "909197234363",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "VendoSnacks",
+        "domain": "vendosnacks.com.au",
+        "location": "Sydney, Australia",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Smeaton Grange, Australia",
+        "distributes": "Popular snacks, beverages and everyday essentials through vending machines",
+        "channels_supplied": "Offices, warehouses and public sites Sydney wide, with clients including Sydney Airport and Officeworks",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Names Sydney Airport and Officeworks among its clients on its website."
+        ],
+        "fit_rationale": "A Sydney vending operator that installs machines in workplaces for free and restocks them with snacks based on usage. It sits in tier 3 because its website names no snack brands. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909223532755",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "What's In That Box",
+        "domain": "whatsinthatbox.com.au",
+        "location": "Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Gift hampers with chocolate (Koko Black, Organic Times chocolate almonds, Freckleberry) and Christmas and morning tea hampers",
+        "channels_supplied": "Its own online shop, Australia-wide shipping",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A small Victorian gift hamper retailer whose chocolate and Christmas hampers use other brands' chocolate. Tier 3 because it is small and its head office address is not stated on its website."
+      }
+    },
+    {
       "contact_id": "909189744847",
       "job_title": "Franchise Owner",
       "seniority": "Top leadership",
@@ -869,6 +1473,26 @@
       }
     },
     {
+      "contact_id": "909195247855",
+      "job_title": "Production Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "APD Promotions",
+        "domain": "apdpromotions.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Chocolate (Lindt Lindor balls, chocolate baubles), advent calendars, sweets, jubes and mints",
+        "channels_supplied": "Corporate clients; offices in Sydney, Melbourne, Brisbane and overseas",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Operates offices in Sydney, Melbourne and Brisbane plus the USA, New Zealand, Singapore and the UK."
+        ],
+        "fit_rationale": "Sells Lindor ball gift boxes, advent calendars and chocolate for corporate Christmas gifting, which matches Diablo's seasonal gift boxes and advent calendars. It ranks in tier 3 because most of its sweets are unbranded. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
       "contact_id": "909188869343",
       "job_title": "Sales Specialist",
       "seniority": "Everyone else",
@@ -884,6 +1508,44 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Adelaide cycling retailer with a bars section of branded energy bars. Tier 3 for its two stores and small bar range."
+      }
+    },
+    {
+      "contact_id": "909225383118",
+      "job_title": "Florist & COO",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Daily Blooms",
+        "domain": "dailyblooms.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Gift hampers with chocolate (Loco Love, Bahen and Co), cookies (Sweet Splits), cake (Sweet Bakes) and sweets (Sweeta rock candy and chocolate freckles), sold with flowers.",
+        "channels_supplied": "Its own online flower and gift shop with delivery in Melbourne, Sydney, Brisbane and Perth and nationally.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Flower delivery business that started in Melbourne and has a Fitzroy studio, and its gift hamper range resells other brands' chocolate, cookies and sweets. Flowers lead the range and its sweets shelf is small, so it is tier 3."
+      }
+    },
+    {
+      "contact_id": "909221443792",
+      "job_title": "Product Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Fig & Bloom",
+        "domain": "figandbloom.com",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Kew, Australia",
+        "distributes": "Chocolate gifts from other brands (Koko Black pralines and chocolate, Pebbly Path rocky road, chocolate raspberries), sold with flowers and plants.",
+        "channels_supplied": "Its own studios in Melbourne (Fairfield), Sydney and Brisbane and its online shop delivering to 14 cities.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Launched in 2015 and now delivers to 14 cities from studios in Melbourne, Sydney and Brisbane."
+        ],
+        "fit_rationale": "Florist and gift company founded in 2015 with a Victorian contact address and a Fairfield studio, whose chocolate category resells Koko Black and Pebbly Path. Flowers lead its range, so it is tier 3, but chocolate gift boxes are a standing category on its shop."
       }
     },
     {
@@ -963,6 +1625,24 @@
       }
     },
     {
+      "contact_id": "909195248835",
+      "job_title": "Chief Revenue Officer (CRO)",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Mercha",
+        "domain": "mercha.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Australia",
+        "distributes": "Branded sweets (M&M's packs, Mentos) and custom branded confectionery",
+        "channels_supplied": "Businesses through its web shop and B2B portal",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Sells branded M&M's packs and Mentos within a custom branded confectionery collection to businesses. It ranks in tier 3 because its confectionery range is small and its head office is not stated on its website. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
       "contact_id": "909187002566",
       "job_title": "General Manager",
       "seniority": "Directors",
@@ -981,6 +1661,82 @@
       }
     },
     {
+      "contact_id": "909221791960",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "National Hotel Supplies",
+        "domain": "nationalhotelsupplies.com.au",
+        "location": "Australia",
+        "channel": "Hotel minibar suppliers",
+        "based_out_of": "Australia",
+        "distributes": "Guest room biscuits and sweets: Arnott's (Tim Tam, Scotch Finger, Butternut Snap), Lotus Biscoff, Little Bakes, Gumnut and Aussie Biscuits, Mentos mints, plus jams and condiments",
+        "channels_supplied": "Accommodation industry Australia wide through its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A family run accommodation supplier with a Biscuits and Sweets section of other companies' branded biscuits and mints for hotel rooms. Diablo's biscuits, wafers and sweets fit this range directly. Tier 3 because its website names neither its head office city nor its warehouse. Storage: sells from its own stock through its online shop, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909193960695",
+      "job_title": "Production Manager and Assistant",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "New Age Promotions",
+        "domain": "newage.com.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Australia",
+        "distributes": "Branded chocolate (M&M's, Lindt, Toblerone, Jaffas), sweets, mini muffins and cupcakes",
+        "channels_supplied": "Corporate clients in Australia",
+        "sf_brands_carried": "Sugar-free breath mints (unbranded)",
+        "what_they_do_well": [],
+        "fit_rationale": "Its promotional confectionery collection includes M&M's, Lindt and Toblerone and sugar-free mints. It ranks in tier 3 because it is small and its head office is not stated on its website. Storage: warehouse not named on its website; it supplies the branded packs decorated to order."
+      }
+    },
+    {
+      "contact_id": "909223235817",
+      "job_title": "Operations Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Red Rhubarb Gifts",
+        "domain": "redrhubarb.com.au",
+        "location": "Brisbane, Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Customised corporate gift boxes with branded chocolate (Koko Black wafer chocolate), champagne, cheese boards and candles",
+        "channels_supplied": "Corporate clients Australia-wide, with logo and message branding",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Customises gifts with client logos and messages, packed by its own team in Brisbane."
+        ],
+        "fit_rationale": "A Brisbane boutique corporate gifting service whose boxes pair branded chocolate with drinks and homewares. It names few food brands on its website and its boxes are drinks-led, hence tier 3. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909194502340",
+      "job_title": "Consumer Sales Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Roses Only",
+        "domain": "rosesonly.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Chocolate and sweets add-ons and gift boxes from other brands: Chocolatier chocolates, Bennetto chocolate, Random Harvest fudge, Rinaldi nougat and Kokopod coconut snacks.",
+        "channels_supplied": "Its own online flower and gift shop with same-day delivery across Australia, including Melbourne.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Established in 1995 and now also serves Singapore, New York and London."
+        ],
+        "fit_rationale": "National flower and gift retailer, founded in 1995 by a Sydney florist, that sells other brands' chocolate and sweets as gifts and add-ons, delivered same day in Melbourne. Flowers lead the range and its chocolate list is short, so it is tier 3."
+      }
+    },
+    {
       "contact_id": "909041371381",
       "job_title": "Owner & Founder",
       "seniority": "Top leadership",
@@ -996,6 +1752,24 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Outdoor and camping retailer with a hiking food and snacks shelf of branded bars. Tier 3 for its two stores and small snack range."
+      }
+    },
+    {
+      "contact_id": "909072449777",
+      "job_title": "Director/Founder",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Style Bundle",
+        "domain": "stylebundle.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Luxury and corporate gift hampers with chocolate (Koko Black) and gourmet food, alongside homewares and body care.",
+        "channels_supplied": "Corporate clients in real estate, mortgage broking and property development across every Australian state, through its own online shop.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Melbourne corporate gifting business that sources Koko Black chocolate among other brands for client hampers. Chocolate is one category among homewares and body care, so it is tier 3."
       }
     },
     {
