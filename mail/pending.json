@@ -1,7 +1,25 @@
 {
-  "generated_at": "2026-11-01T07:33:03+00:00",
+  "generated_at": "2026-11-01T08:04:51+00:00",
   "target": "live",
   "contacts": [
+    {
+      "contact_id": "909067121860",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Advanced Vending",
+        "domain": "advancedvending.solutions",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Bellambi, Australia",
+        "distributes": "Snacks, nutritious foods and drinks",
+        "channels_supplied": "Offices, factories, shopping centres, gyms and schools in the Illawarra",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Wollongong area operator that delivers, stocks and maintains snack machines at no cost to the site. Brands are not named on its website. Storage: stocks its own machines, warehouse not named on its website."
+      }
+    },
     {
       "contact_id": "909189744846",
       "job_title": "Store Owner",
@@ -20,6 +38,44 @@
           "Family owned since 1968, with eight IGA X-press grocery stores on its forecourts."
         ],
         "fit_rationale": "A family owned fuel and convenience retailer with 27 stores in Victoria and NSW and more being built, buying from its Geelong support office. Its IGA X-press sites carry a wider grocery and snack range of other brands. Tier 3 for its small store count."
+      }
+    },
+    {
+      "contact_id": "909194233019",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Asian Pantry",
+        "domain": "asianpantry.com.au",
+        "location": "Australia",
+        "channel": "Halal food distributors",
+        "based_out_of": "Carrum Downs, Australia",
+        "distributes": "Online Asian grocery of over 3,000 products with snacks sections for chocolates, candy and gummies, biscuits and crackers, and a halal collection of about 350 products",
+        "channels_supplied": "Direct to shoppers through its own online shop, Australia-wide delivery from a Melbourne warehouse",
+        "sf_brands_carried": "Has a Sugar Free collection; brands not named on the pages checked",
+        "what_they_do_well": [
+          "Rated 4.8 out of 5 from 798 Google reviews and delivers Australia-wide from Melbourne."
+        ],
+        "fit_rationale": "An online grocer with a dedicated halal collection and its own chocolate, candy and biscuit sections from other brands, serving Malaysian, Indonesian and other Muslim shoppers across Australia. It sells only to shoppers, so it is tier 3. Storage: ships from its own Melbourne warehouse."
+      }
+    },
+    {
+      "contact_id": "909188869342",
+      "job_title": "Sales Employee",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Bike Society",
+        "domain": "bikesociety.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Adelaide, Australia",
+        "distributes": "Energy bars from SiS and Clif Bar",
+        "channels_supplied": "Two Adelaide stores plus its own online shop for Australia and New Zealand",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Adelaide cycling retailer with a bars section of branded energy bars. Tier 3 for its two stores and small bar range."
       }
     },
     {
@@ -43,6 +99,82 @@
       }
     },
     {
+      "contact_id": "909112924392",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "CBF Supplements",
+        "domain": "cbfsupps.com",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Hobart, Australia",
+        "distributes": "Protein bars and healthy snacks category, alongside supplements from many brands",
+        "channels_supplied": "Its own online shop, Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Tasmanian owned and operated since 2019."
+        ],
+        "fit_rationale": "Tasmanian owned sports nutrition retailer established in 2019 with a snacks and bars category and a wide range of other brands. Tier 3 for its size; bar brands are not named on its home page."
+      }
+    },
+    {
+      "contact_id": "909036434667",
+      "job_title": "Founder and CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Charlie's Safe Treat Box",
+        "domain": "charliessafetreatbox.com.au",
+        "location": "Australia",
+        "channel": "Gluten free and free from shops",
+        "based_out_of": "Australia",
+        "distributes": "Allergy friendly lollies and gummies, chocolate and snacks from other brands, plus snack and gift boxes",
+        "channels_supplied": "Own online shop with Australia-wide shipping",
+        "sf_brands_carried": "Koochikoo, YumEarth",
+        "what_they_do_well": [
+          "Founded by a parent of a child with multiple life threatening food allergies; every product is free from the top 10 allergens."
+        ],
+        "fit_rationale": "An online allergy friendly store selling top 10 allergen free snacks from brands such as YumEarth, Koochikoo and Gummy Rush, packed into snack and gift boxes. Diablo's products would need to meet its allergen free standard, and it is small. Its head office city is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "909193934017",
+      "job_title": "Founder and Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Custom Vending",
+        "domain": "customvending.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Chips, chocolates, light meals and drinks",
+        "channels_supplied": "Workplaces in the Sydney metro area, including Toyota",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An Australian owned operator with over 30 years in vending that uses its own staff and remote monitoring to keep machines full of chips and chocolates. Street address and brands are not stated on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909211679938",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Five Vegans",
+        "domain": "fivevegans.com.au",
+        "location": "Australia",
+        "channel": "Gluten free and free from shops",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Vegan chocolate bars, chocolate spread, pralines, shortbread biscuits, caramels and marshmallows from other brands",
+        "channels_supplied": "Own online shop shipping across Australia",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An online vegan shop where food is the main seller, stocking Vego chocolate and spread, Loco Love shortbread and caramels and Dandies marshmallows. Diablo's vegan cookie, wafer, peanut butters and jams fit; it is small and online only."
+      }
+    },
+    {
       "contact_id": "909212985541",
       "job_title": "Managing Director",
       "seniority": "Top leadership",
@@ -58,6 +190,44 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "An independent fuel retailer whose service stations and truck stops in Queensland and NSW run their own convenience stores, with a loyalty discount on convenience store items. Tier 3 because its website does not show the store count or name its snack brands."
+      }
+    },
+    {
+      "contact_id": "909221233881",
+      "job_title": "Interim CEO & Chance Creator",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Fruit2Work",
+        "domain": "fruit2work.com.au",
+        "location": "Australia",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Office pantry and tearoom supplies including muesli bars, biscuits and popcorn, with fruit, milk, coffee and tea",
+        "channels_supplied": "Offices in Melbourne, Geelong, Ballarat, Mornington Peninsula, Brisbane, Sunshine Coast and Gold Coast",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "A certified social enterprise employing people affected by the justice system."
+        ],
+        "fit_rationale": "A certified social enterprise that delivers fruit, milk and pantry supplies, including muesli bars and biscuits, to offices in Victoria and Queensland. Its pantry range names no brands on its website. Storage: delivers from its own premises in Laverton North and Archerfield."
+      }
+    },
+    {
+      "contact_id": "909223412952",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Gift Hamper Collective",
+        "domain": "gifthampercollective.com.au",
+        "location": "Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Australia",
+        "distributes": "Gift hampers with biscuits and cookies (Luken & May, Byron Bay Cookies, Butterfingers), chocolate (Duck Creek) and snacks (Wallaby Bites)",
+        "channels_supplied": "Corporate, client and real estate settlement hampers in bulk, plus online sales to shoppers Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Australian-owned hamper company whose sweet hampers are made up entirely of other brands' biscuits, cookies and chocolate. Tier 3 because its head office address is not stated on its website. Storage: sells from its own stock, warehouse not named on its website."
       }
     },
     {
@@ -94,6 +264,26 @@
         "sf_brands_carried": "Dietitian-curated healthy snack range; brands not named on its website",
         "what_they_do_well": [],
         "fit_rationale": "A Sydney healthy snack wholesaler and vending operator whose dietitian-curated range targets health-conscious buyers, a close match for Diablo's sugar-free bars and biscuits. Tier 3 because it serves canteens, workplaces and vending sites and its website names no brands. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909150753981",
+      "job_title": "Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Grazie Gift Baskets & Hampers",
+        "domain": "grazie.com.au",
+        "location": "Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Bibra Lake, Australia",
+        "distributes": "Gift hampers with chocolate (Lindt Lindor, Fremantle Chocolate Co), biscuits and shortbread (Bisko, Luken and May jam filled biscuits) and snacks",
+        "channels_supplied": "Its own online shop, Perth and Western Australia delivery",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Trading since 2006, when it started as Cyn Creations."
+        ],
+        "fit_rationale": "A Perth gift basket retailer whose snack and chocolate hampers combine Lindt and other branded chocolate with branded biscuits. Tier 3 because it serves mainly Western Australia."
       }
     },
     {
@@ -135,6 +325,102 @@
       }
     },
     {
+      "contact_id": "909220500692",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Just Vending",
+        "domain": "justvend.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Chips, chocolate and snack foods in snack machines, plus cold drinks",
+        "channels_supplied": "Workplaces across Greater Sydney",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Australian owned and trading in Sydney vending since 1983."
+        ],
+        "fit_rationale": "An independent, Australian owned Sydney operator since 1983 that supplies snack machines with chips and chocolate from all suppliers. Restocking detail is not stated on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909192303814",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "La Vida Vegan",
+        "domain": "lavidavegan.com.au",
+        "location": "Australia",
+        "channel": "Gluten free and free from shops",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Vegan chocolate and pralines (95 chocolate products) and groceries from other brands",
+        "channels_supplied": "One store in Subiaco and its own online shop shipping Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Describes itself as Perth's only 100% vegan grocery store, in Subiaco with Australia-wide online delivery."
+        ],
+        "fit_rationale": "A dairy free, 100% vegan grocery with 95 chocolate products from brands such as Vego and Vegolino. Diablo's vegan wafer, cookie, bars and spreads fit its free from shoppers; it is a single store with an online shop."
+      }
+    },
+    {
+      "contact_id": "909223320767",
+      "job_title": "Co Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Little Shop of Happiness",
+        "domain": "littleshopofhappiness.com.au",
+        "location": "Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Balcatta, Australia",
+        "distributes": "Lolly, dessert and Christmas hampers with sweets and gummies (Sweet Switch sour worms, lolly mixes), chocolate bars (Chocolate Grove) and brownie mixes",
+        "channels_supplied": "Its own online shop and Balcatta store, delivery to Perth, Brisbane, Adelaide and Melbourne",
+        "sf_brands_carried": "Sweet Switch (reduced sugar lollies)",
+        "what_they_do_well": [],
+        "fit_rationale": "A Perth gift hamper shop with dedicated lolly and dessert hampers that already carries Sweet Switch, a better-for-you lolly brand. Tier 3 because it is a single store with online sales; Sweet Switch competes with Diablo's gummies."
+      }
+    },
+    {
+      "contact_id": "909019656383",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "M&M Fitness",
+        "domain": "mmfitness.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Protein bars, protein cookies, pancakes and chips from Fibre Boost, Muscle Nation, ATP Science, Optimum Nutrition, Power Crunch, Max's, EHP Labs, EQ Food and Quest",
+        "channels_supplied": "Its own online shop with in-store pickup",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Online sports nutrition retailer with a protein bars and healthy snacks category of many brands. Tier 3 because its store count and city are not stated on its website."
+      }
+    },
+    {
+      "contact_id": "909157648630",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Madebox",
+        "domain": "madebox.co",
+        "location": "Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Australia",
+        "distributes": "Gift boxes and hampers from over 400 independent makers, with fudge, honeycomb, chocolate and sweet and salty snacks",
+        "channels_supplied": "Corporate gifting programmes for staff, clients, settlements and conferences across Australia and New Zealand",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Curates and packs products from over 400 independent makers, handling sourcing, branding, logistics and delivery for corporate clients."
+        ],
+        "fit_rationale": "Corporate gifting company that sources and packs products from over 400 independent Australian makers, including fudge, honeycomb and chocolate. Tier 3 because the brands in its treat boxes and its head office are not named on its website. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
       "contact_id": "909184067825",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -170,6 +456,62 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Online general retailer with a lollies and chocolate section that it sells from its own stock as well as through marketplace sellers. Tier 3 because its head office and Australian warehouse are not stated on the page checked."
+      }
+    },
+    {
+      "contact_id": "909192308963",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Mini Mart Vending",
+        "domain": "minimartvending.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Chocolates, chips, healthy snacks, noodles and drinks",
+        "channels_supplied": "Workplaces in Perth and surrounding areas",
+        "sf_brands_carried": "Healthy snacks; brands not named",
+        "what_they_do_well": [],
+        "fit_rationale": "A Perth operator that custom stocks and restocks machines with chocolates and healthy snacks. Brands other than Mi Goreng are not named on its website. Storage: restocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909021453561",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Moores Elite Vending",
+        "domain": "mooreselitevending.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "East Victoria Park, Australia",
+        "distributes": "Protein bars, sugar free and lighter snacks, nut mixes and drinks",
+        "channels_supplied": "Workplaces and gyms across Perth",
+        "sf_brands_carried": "Sugar free and low sugar snacks; brands not named",
+        "what_they_do_well": [],
+        "fit_rationale": "A Perth family business that stocks and restocks machines with protein bars and sugar free snacks, which fits Diablo's positioning. Brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909021455587",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "NT Vending",
+        "domain": "ntvending.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Darwin, Australia",
+        "distributes": "Snacks, chips, candy bars and cold drinks",
+        "channels_supplied": "Businesses, offices, schools and government departments in Darwin and the Northern Territory",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Over 10 years serving businesses across the Northern Territory."
+        ],
+        "fit_rationale": "A Darwin operator with over 10 years of trading that provides snack machines with chips and candy bars. Restocking detail and brands are not stated on its website. Storage: sells from its own stock, warehouse not named on its website."
       }
     },
     {
@@ -209,6 +551,44 @@
       }
     },
     {
+      "contact_id": "909223416045",
+      "job_title": "Operations Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Perth Vending",
+        "domain": "perthvending.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Snacks, healthier picks and chilled drinks in combination machines",
+        "channels_supplied": "Perth metro sites with 30 or more people",
+        "sf_brands_carried": "Healthier picks; brands not named",
+        "what_they_do_well": [
+          "WA owned and operated for over 15 years."
+        ],
+        "fit_rationale": "A WA owned operator with 15 years of trading that owns, stocks and services its machines. Snack brands are not named on its website. Storage: owns and restocks its machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909041371380",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Snowys Outdoors",
+        "domain": "snowys.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Keswick, Australia",
+        "distributes": "Hiking food and snacks including Offgrid Drifter bars, Clif energy bars and beef jerky",
+        "channels_supplied": "Stores in Keswick (SA) and Brendale (QLD) plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Outdoor and camping retailer with a hiking food and snacks shelf of branded bars. Tier 3 for its two stores and small snack range."
+      }
+    },
+    {
       "contact_id": "909216522457",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -224,6 +604,26 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Australian-owned sports nutrition shop with a healthy food and snacks category selling branded bars in store and online. Tier 3 because it is a single store with an online shop."
+      }
+    },
+    {
+      "contact_id": "909075707082",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Sydney Vending",
+        "domain": "sydvend.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Smithfield, Australia",
+        "distributes": "Snacks, drinks and meals with a healthy options range",
+        "channels_supplied": "Workplaces in Sydney",
+        "sf_brands_carried": "Healthy options range; brands not named",
+        "what_they_do_well": [
+          "Providing vending services in Sydney since 1999."
+        ],
+        "fit_rationale": "A family owned operator since 1999 that restocks machines from sales data and has a dedicated healthy options page. Snack brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website."
       }
     },
     {
@@ -265,6 +665,24 @@
       }
     },
     {
+      "contact_id": "909189847230",
+      "job_title": "System Administrator",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "The Odd Spoke",
+        "domain": "theoddspoke.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Dural, Australia",
+        "distributes": "Energy bars from Clif, Em's, Maurten and Science In Sport",
+        "channels_supplied": "One store in Dural, NSW, plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Independent Sydney bike store with an energy bars range from four brands. Tier 3 for its single store."
+      }
+    },
+    {
       "contact_id": "909209961682",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -283,6 +701,24 @@
       }
     },
     {
+      "contact_id": "909218774213",
+      "job_title": "Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "The Running Shop Australia",
+        "domain": "therunningshop.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Burleigh Heads, Australia",
+        "distributes": "Chew bars from Precision Fuel and energy chews from Clif",
+        "channels_supplied": "One store in Burleigh Heads, Gold Coast, plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Gold Coast running shop with a small nutrition shelf of branded bars and chews. Tier 3 for its single store and small food range."
+      }
+    },
+    {
       "contact_id": "909217989859",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -298,6 +734,118 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Online triathlon retailer with a nutrition range including bars. Tier 3 for its small food range; its city is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "909221413092",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "UR Snacks Vending",
+        "domain": "ursnacksvending.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Snacks, drinks and coffee",
+        "channels_supplied": "Workplaces in Brisbane, Sydney, Melbourne, Adelaide and Perth",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A family owned Brisbane operator that monitors machines remotely and restocks them with snacks. Brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909223620809",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vend2go",
+        "domain": "vend2go.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Gold Coast, Australia",
+        "distributes": "Chocolate, protein bars, chips and drinks",
+        "channels_supplied": "Businesses in Brisbane, Gold Coast, Logan, Ipswich and Toowoomba",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A South East Queensland operator that keeps its machines fully stocked with chocolate and protein bars. Brands are not named on its website. Storage: stocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909190167801",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vending HQ",
+        "domain": "vendinghq.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Snacks, bakery products, ready meals and drinks",
+        "channels_supplied": "Call centres, logistics, manufacturing, pubs and resorts from Brisbane's North Coast to Northern NSW",
+        "sf_brands_carried": "Healthy choices; brands not named",
+        "what_they_do_well": [
+          "Over two decades in the vending industry."
+        ],
+        "fit_rationale": "A family business with over two decades in vending that supplies and services its own snack machines. Brands are not named on its website. Storage: services its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909220438224",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vending Solutions Australia",
+        "domain": "vendingsolutionsaustralia.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Snacks, healthy snacks and drinks in cashless machines",
+        "channels_supplied": "Workplaces in Greater Melbourne",
+        "sf_brands_carried": "Healthy options page; brands not named",
+        "what_they_do_well": [],
+        "fit_rationale": "A family owned operator since 2018 that delivers, installs and restocks cashless snack machines. Brands are not named on its website. Storage: restocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909211686082",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vending Tasmania",
+        "domain": "vendingtasmania.com",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Tasmania, Australia",
+        "distributes": "Snacks, healthy vending options and drinks",
+        "channels_supplied": "Businesses across Tasmania",
+        "sf_brands_carried": "Healthy vending options; brands not named",
+        "what_they_do_well": [
+          "Started in 2012 with 11 machines and now serves sites across Tasmania."
+        ],
+        "fit_rationale": "A Tasmanian operator, started in 2012 with 11 machines, that keeps snack machines fully stocked. Its town and brands are not stated on its website. Storage: stocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909218777332",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vending WA",
+        "domain": "vendingwa.com.au",
+        "location": "Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Snacks and drinks stocked to client request",
+        "channels_supplied": "Offices, warehouses, government departments, aged care and hotels in Perth and Western Australia",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Perth based operator that monitors stock remotely and refills its free machines with snacks. Brands are not named on its website. Storage: refills its own machines, warehouse not named on its website."
       }
     },
     {
@@ -321,6 +869,24 @@
       }
     },
     {
+      "contact_id": "909188869343",
+      "job_title": "Sales Specialist",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Bike Society",
+        "domain": "bikesociety.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Adelaide, Australia",
+        "distributes": "Energy bars from SiS and Clif Bar",
+        "channels_supplied": "Two Adelaide stores plus its own online shop for Australia and New Zealand",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Adelaide cycling retailer with a bars section of branded energy bars. Tier 3 for its two stores and small bar range."
+      }
+    },
+    {
       "contact_id": "909212985542",
       "job_title": "General Manager - Retail",
       "seniority": "Directors",
@@ -336,6 +902,26 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "An independent fuel retailer whose service stations and truck stops in Queensland and NSW run their own convenience stores, with a loyalty discount on convenience store items. Tier 3 because its website does not show the store count or name its snack brands."
+      }
+    },
+    {
+      "contact_id": "909221233882",
+      "job_title": "Chief Organiser (EA)",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Fruit2Work",
+        "domain": "fruit2work.com.au",
+        "location": "Australia",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Office pantry and tearoom supplies including muesli bars, biscuits and popcorn, with fruit, milk, coffee and tea",
+        "channels_supplied": "Offices in Melbourne, Geelong, Ballarat, Mornington Peninsula, Brisbane, Sunshine Coast and Gold Coast",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "A certified social enterprise employing people affected by the justice system."
+        ],
+        "fit_rationale": "A certified social enterprise that delivers fruit, milk and pantry supplies, including muesli bars and biscuits, to offices in Victoria and Queensland. Its pantry range names no brands on its website. Storage: delivers from its own premises in Laverton North and Archerfield."
       }
     },
     {
@@ -392,6 +978,42 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Online general retailer with a lollies and chocolate section that it sells from its own stock as well as through marketplace sellers. Tier 3 because its head office and Australian warehouse are not stated on the page checked."
+      }
+    },
+    {
+      "contact_id": "909041371381",
+      "job_title": "Owner & Founder",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Snowys Outdoors",
+        "domain": "snowys.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Keswick, Australia",
+        "distributes": "Hiking food and snacks including Offgrid Drifter bars, Clif energy bars and beef jerky",
+        "channels_supplied": "Stores in Keswick (SA) and Brendale (QLD) plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Outdoor and camping retailer with a hiking food and snacks shelf of branded bars. Tier 3 for its two stores and small snack range."
+      }
+    },
+    {
+      "contact_id": "909218774214",
+      "job_title": "Former President",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "The Running Shop Australia",
+        "domain": "therunningshop.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Burleigh Heads, Australia",
+        "distributes": "Chew bars from Precision Fuel and energy chews from Clif",
+        "channels_supplied": "One store in Burleigh Heads, Gold Coast, plus its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Gold Coast running shop with a small nutrition shelf of branded bars and chews. Tier 3 for its single store and small food range."
       }
     }
   ]
