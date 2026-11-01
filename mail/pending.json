@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T08:24:19+00:00",
+  "generated_at": "2026-11-01T08:34:40+00:00",
   "target": "live",
   "contacts": [
     {
@@ -18,6 +18,26 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "A Wollongong area operator that delivers, stocks and maintains snack machines at no cost to the site. Brands are not named on its website. Storage: stocks its own machines, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909195513052",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Agora Markets",
+        "domain": "agoramarkets.com.au",
+        "location": "Newcastle, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Workplace micro markets stocked with chocolate bars and confectionery, cookies and baked goods, protein and better-for-you bars, chips and savoury snacks, drinks and fresh food",
+        "channels_supplied": "Unstaffed self-checkout micro markets in workplaces, operated Australia-wide from sites in Tullamarine, Leichhardt (NSW), Gaythorne and Bayswater; Metcash is a named client",
+        "sf_brands_carried": "Its catalogue covers low and no sugar options and better-for-you bars; no brands named on its website",
+        "what_they_do_well": [
+          "Handles installation, maintenance and daily restocking of self-checkout micro markets for clients such as Metcash."
+        ],
+        "fit_rationale": "A micro market operator that installs, maintains and restocks markets daily with mainstream snack brands, including chocolate, confectionery, cookies and bars, and already offers low and no sugar choices that fit Diablo's range. It is tier 3 because its website says it serves organisations country-wide from a Sydney (Leichhardt) site but does not name Newcastle. Storage: sells from its own stock and restocks its markets daily, warehouse not named on its website."
       }
     },
     {
@@ -559,6 +579,26 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": "Australian-owned online hamper retailer that delivers to Melbourne and names Koko Black in its chocolate hampers. Its head office location is not stated on its website and most item brands are not named, so it is tier 3."
+      }
+    },
+    {
+      "contact_id": "909198003438",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "GIFTxo",
+        "domain": "giftxo.com.au",
+        "location": "Newcastle, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Newcastle, Australia",
+        "distributes": "Gift hampers with branded chocolate (Sweet Addiction) and packaged snacks such as popcorn, crackers, jerky and pork crackle, plus craft beer and grazing items",
+        "channels_supplied": "Its own online shop, with free local delivery across Newcastle and Lake Macquarie and custom hampers for gift buyers",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Delivers free across the Newcastle and Lake Macquarie council areas on orders over $100."
+        ],
+        "fit_rationale": "Owner-run Newcastle gift hamper retailer that buys branded chocolate and packaged snacks from other producers and resells them in hampers through its own online shop. Its Beers and Snacks and Gourmet Graze hampers show chocolate and snacks as a regular part of the range. Small, with reach limited to Newcastle and Lake Macquarie and no store count, hence tier 3."
       }
     },
     {
