@@ -1,5 +1,87 @@
 {
-  "generated_at": "2026-11-01T10:13:20+00:00",
+  "generated_at": "2026-11-01T12:32:01+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "909314631886",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Cycle Fitness Nutrition",
+        "domain": "cyclefitnessnutrition.com",
+        "location": "Newcastle, Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Adamstown, Newcastle, Australia",
+        "distributes": "Energy bars (CLIF), energy gels (GU, SiS) and electrolytes and recovery products (Hammer Nutrition) alongside bikes and accessories",
+        "channels_supplied": "Its own shop in Adamstown, Newcastle and its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Listed by Hammer Nutrition Australia as one of its two Newcastle stockists."
+        ],
+        "fit_rationale": "An owner-run Newcastle bike and fitness shop with its own nutrition section selling other brands' energy bars and gels to cyclists and triathletes. It is a single shop, and the listed online products were out of stock when checked, though it says it carries bars and gels in store."
+      }
+    },
+    {
+      "contact_id": "909311035598",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Gift Sensations",
+        "domain": "giftsensations.com.au",
+        "location": "Newcastle, Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "West Gosford, Australia",
+        "distributes": "Gourmet gift baskets and hampers with chocolates, biscuits, cakes, crackers, nuts, coffee, tea and Hunter Valley wine; chocolate themed baskets such as Chocolate Indulgence.",
+        "channels_supplied": "Corporate clients across Australia through its corporate gifting programme, plus online consumer orders with courier delivery to Newcastle, Lake Macquarie, Maitland, Cessnock and Nelson Bay.",
+        "sf_brands_carried": "Gluten free baskets offered; no sugar free brands named on its website.",
+        "what_they_do_well": [
+          "Trading since 1999, starting in a Sydney garage and growing into one of Australia's larger corporate gift basket houses.",
+          "Says it serves over 1,000 Australian corporate clients, each with a dedicated corporate gifting specialist."
+        ],
+        "fit_rationale": "A long-running hamper house with premises in the Hunter Valley close to Newcastle's freight hubs, filling baskets with chocolates, biscuits and cakes sourced from Australian artisan kitchens and European suppliers. Its corporate programme gives Diablo's gift boxes and chocolate a route to over 1,000 business buyers. Storage: packs hampers to order at its Central Coast and Hunter Valley premises."
+      }
+    },
+    {
+      "contact_id": "909310010593",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Newcastle Flowers By Design",
+        "domain": "newcastleflowersbydesign.com.au",
+        "location": "Newcastle, Australia",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "New Lambton, Australia",
+        "distributes": "Gift hampers led by chocolate hampers and savoury snack hampers, with pamper, fruit and baby hampers and add-ons of wine and flowers.",
+        "channels_supplied": "Online orders with same-day delivery across Newcastle, Lake Macquarie and Maitland.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Offers same-day hamper delivery across Newcastle, Lake Macquarie and Maitland."
+        ],
+        "fit_rationale": "A Newcastle hamper seller whose hamper page leads with chocolate and savoury snack hampers, with flowers offered mainly as add-ons. Tier 3 because it serves local gift buyers, its website names no chocolate or snack brands and it does not describe a corporate service."
+      }
+    },
+    {
+      "contact_id": "909308194026",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Vendy",
+        "domain": "vendy.com.au",
+        "location": "Brisbane, Australia",
+        "channel": "Snack vending operators",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Healthy vending range of over 300 products including protein bars (Chief Collagen Protein Bars), snacks and better-for-you drinks (Freed Tea Soda)",
+        "channels_supplied": "Healthy vending machines at hospitals, universities and large organisations in Melbourne, Sydney, Brisbane and Perth",
+        "sf_brands_carried": "Chief Collagen Protein Bars (no added sugar) and Freed Tea Soda",
+        "what_they_do_well": [
+          "Healthy vending at Monash Health and Monash University, the first Victorian university to bring in healthy vending machines."
+        ],
+        "fit_rationale": "National healthy vending operator that buys other companies' better-for-you snacks and bars and restocks them locally, with its own Brisbane site at Gaythorne. Diablo's no added sugar bars, cookies and chocolate match its healthy choices brief for hospitals and campuses. Storage: offices and warehouses in each city, Brisbane at Unit 12, 51 Prospect Road, Gaythorne."
+      }
+    }
+  ]
 }
