@@ -1,5 +1,398 @@
 {
-  "generated_at": "2026-10-31T21:30:56+00:00",
+  "generated_at": "2026-11-01T07:33:03+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "909189744846",
+      "job_title": "Store Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "APCO",
+        "domain": "apco.com.au",
+        "location": "Australia",
+        "channel": "Petrol station and convenience chains",
+        "based_out_of": "Geelong, Australia",
+        "distributes": "Groceries, snacks and household items in its cafe24-7 convenience shops and IGA X-press grocery stores",
+        "channels_supplied": "27 APCO fuel and convenience stores in Victoria and NSW, eight of them IGA X-press stores",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family owned since 1968, with eight IGA X-press grocery stores on its forecourts."
+        ],
+        "fit_rationale": "A family owned fuel and convenience retailer with 27 stores in Victoria and NSW and more being built, buying from its Geelong support office. Its IGA X-press sites carry a wider grocery and snack range of other brands. Tier 3 for its small store count."
+      }
+    },
+    {
+      "contact_id": "909189093582",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Byron Bay Gifts",
+        "domain": "byronbaygifts.com.au",
+        "location": "Australia",
+        "channel": "Online sellers",
+        "based_out_of": "Byron Bay, Australia",
+        "distributes": "Chocolate gift hampers with cookies, pretzels, shortbread, chocolate macadamias, brownies, rocky road and chocolate bars from Byron Bay Cookies, Wallaby, Butterfingers, Duck Creek and Byron Bay Cacao",
+        "channels_supplied": "Own online shop with Australia-wide delivery",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Builds hampers from local Byron Bay producers such as Byron Bay Cookies and Duck Creek Macadamias."
+        ],
+        "fit_rationale": "A hamper seller that fills its chocolate hampers with packed cookies, bars and chocolate from other producers. It is tier 3 because it is small and focuses on Byron Bay producers; head office address is not stated."
+      }
+    },
+    {
+      "contact_id": "909212985541",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Freedom Fuels",
+        "domain": "freedomfuels.com.au",
+        "location": "Australia",
+        "channel": "Petrol station and convenience chains",
+        "based_out_of": "Queensland, Australia",
+        "distributes": "Snacks, drinks, food and coffee in its convenience stores, with sweets and chocolate sold as in any convenience store",
+        "channels_supplied": "Freedom service stations and truck stops in Queensland and NSW, with the Friends of Freedom loyalty club",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An independent fuel retailer whose service stations and truck stops in Queensland and NSW run their own convenience stores, with a loyalty discount on convenience store items. Tier 3 because its website does not show the store count or name its snack brands."
+      }
+    },
+    {
+      "contact_id": "909034568920",
+      "job_title": "Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Global Quality Foods (GQF)",
+        "domain": "gqf.com.au",
+        "location": "Australia",
+        "channel": "Cash and carry wholesalers",
+        "based_out_of": "Riverwood, Australia",
+        "distributes": "Snacks, chips, confectionery and candy, drinks, grocery, ice cream and frozen lines, packaging and cleaning products",
+        "channels_supplied": "School canteens, sporting clubs, cafes, wholesalers and food service businesses across Sydney",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A family-run Sydney wholesaler whose canteen and club customers resell packaged snacks and confectionery as they are, like the Swiss snack counter model. Tier 3 because it reaches canteens and clubs rather than many shops. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909183966432",
+      "job_title": "Founder of Gnibl",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Gnibl",
+        "domain": "gnibl.com.au",
+        "location": "Australia",
+        "channel": "Cash and carry wholesalers",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Healthy snacks, protein bars, chips and protein shakes for wholesale delivery and vending",
+        "channels_supplied": "School canteens, workplaces and vending machine sites such as gyms, universities, hospitals and warehouses",
+        "sf_brands_carried": "Dietitian-curated healthy snack range; brands not named on its website",
+        "what_they_do_well": [],
+        "fit_rationale": "A Sydney healthy snack wholesaler and vending operator whose dietitian-curated range targets health-conscious buyers, a close match for Diablo's sugar-free bars and biscuits. Tier 3 because it serves canteens, workplaces and vending sites and its website names no brands. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909189862617",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Healthyworld Pharmacy",
+        "domain": "healthyworldpharmacy.com.au",
+        "location": "Australia",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Confectionery from other brands: sugar free chocolate, jellies, chews, hard boiled sweets and licorice (Sugarless), ginger sweets (Buderim) and jelly beans (Glucojel)",
+        "channels_supplied": "Five pharmacies in South East Queensland shopping centres and its own online shop",
+        "sf_brands_carried": "Sugarless Confectionery Co, Glucojel",
+        "what_they_do_well": [
+          "Has run pharmacies in South East Queensland shopping centres for over 30 years."
+        ],
+        "fit_rationale": "A pharmacy group with a dedicated Confectionery menu on its own shop selling 23 Sugarless Confectionery Co lines, a direct sugar free competitor, so it already sells sugar free sweets and chocolate to its shoppers. Tier 3 because it has only five stores, all in South East Queensland."
+      }
+    },
+    {
+      "contact_id": "909157544137",
+      "job_title": "Dispatch Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "House of Supplements",
+        "domain": "houseofsupplements.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Morningside, Australia",
+        "distributes": "Protein bars and cookies, protein cereal, protein pancakes, protein desserts and peanut butter powder",
+        "channels_supplied": "Its Morningside, Brisbane store and its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Brisbane supplement retailer with a protein bars, snacks, foods and drinks department including cookies and desserts. Tier 3 for its single store; brands are not named on the page read."
+      }
+    },
+    {
+      "contact_id": "909184067825",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Metropolitan Snack Foods",
+        "domain": "metropolitansnackfoods.com.au",
+        "location": "Australia",
+        "channel": "Cash and carry wholesalers",
+        "based_out_of": "Cromer, Australia",
+        "distributes": "Snack foods, confectionery, beverages, iced confectionery, frozen foods, groceries and packaging",
+        "channels_supplied": "School canteens and clubs in metro and regional NSW",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Delivers to school and club canteens across metro and regional NSW seven days a week."
+        ],
+        "fit_rationale": "A Sydney canteen wholesaler delivering snack foods and confectionery to schools and clubs that sell them on as packs, seven days a week. Tier 3 because its customers are canteens and clubs and its website names no brands. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909187002565",
+      "job_title": "People & Culture Business Partner",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Mighty Ape Australia",
+        "domain": "mightyape.com.au",
+        "location": "Australia",
+        "channel": "Retailers",
+        "based_out_of": "",
+        "distributes": "Lollies and chocolate from other brands (Cadbury, Nestle, Pascall, Allen's, Delfi, Hubba Bubba)",
+        "channels_supplied": "Online retailer shipping Australia-wide, with items sold by Mighty Ape and by marketplace sellers",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Online general retailer with a lollies and chocolate section that it sells from its own stock as well as through marketplace sellers. Tier 3 because its head office and Australian warehouse are not stated on the page checked."
+      }
+    },
+    {
+      "contact_id": "909216524522",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Passion Foods",
+        "domain": "passionfoods.com.au",
+        "location": "Australia",
+        "channel": "Retailers",
+        "based_out_of": "South Melbourne, Australia",
+        "distributes": "Chocolate bars and blocks, biscuits, snacks and confectionery from other brands (Alter Eco, Loco Love, Monsieur Truffle, The Carob Kitchen, Lotus)",
+        "channels_supplied": "Health food store in South Melbourne and its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Health food shop that sells chocolate, biscuits, snacks and confectionery from other brands in store and online. Tier 3 because it is a single store."
+      }
+    },
+    {
+      "contact_id": "909187190006",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Perth Organics",
+        "domain": "perthorganics.com",
+        "location": "Australia",
+        "channel": "Health food and organic retailers",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Online organic grocery with a Chocolate & Confectionery section: chocolate (Organic Times, Alter Eco, Vego), marshmallows (Organic Times), cookies (Serious Cookies) and snack bars (Crunchbox)",
+        "channels_supplied": "Its online shop with delivery across Perth metro and regional WA and pickup in Caversham",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An online organic grocer for Perth and regional WA with its own Chocolate & Confectionery category of other brands' chocolate, cookies and bars. It suits Diablo's chocolate bars and cookies for WA shoppers. Its reach is regional and the exact delivery suburbs are not stated on its website."
+      }
+    },
+    {
+      "contact_id": "909216522457",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Supplement Empire",
+        "domain": "supplementempire.com.au",
+        "location": "Australia",
+        "channel": "Retailers",
+        "based_out_of": "Summer Hill, Australia",
+        "distributes": "Protein bars and healthy food and snacks from other brands (BSc Body Science, ATP Science)",
+        "channels_supplied": "Store in Summer Hill, Sydney and its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Australian-owned sports nutrition shop with a healthy food and snacks category selling branded bars in store and online. Tier 3 because it is a single store with an online shop."
+      }
+    },
+    {
+      "contact_id": "909183132905",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "The Diabetes Kitchen",
+        "domain": "thediabeteskitchen.com.au",
+        "location": "Australia",
+        "channel": "Diabetic, low sugar and keto shops",
+        "based_out_of": "",
+        "distributes": "Diabetic snacks and desserts: low sugar biscuits (SkinnyBiks), chocolate bars and peanut butter cups, protein bars (Atkins)",
+        "channels_supplied": "Own online shop for people living with diabetes",
+        "sf_brands_carried": "SkinnyBiks, Atkins",
+        "what_they_do_well": [],
+        "fit_rationale": "An Australian online shop built for people with diabetes, with a diabetic snacks and desserts section of biscuits, chocolate and bars from other brands. Diablo's sugar free chocolate and biscuits match this shopper exactly. Tier 3 because its size and head office are not stated on its website."
+      }
+    },
+    {
+      "contact_id": "909043367131",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "The Hamper Boutique Co",
+        "domain": "thehamperboutique.com.au",
+        "location": "Australia",
+        "channel": "Online sellers",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Chocolate and biscuit gift hampers with Whittaker's, Lakker, Charlotte Piper, Charlie's biscuits, Mother Megs biscuits and Pana Organic hot chocolate",
+        "channels_supplied": "Own online shop for corporate and personal gifting, free Australia-wide delivery",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Free Australia-wide hamper delivery, with same-day Melbourne delivery by arrangement."
+        ],
+        "fit_rationale": "A Melbourne corporate gifting seller whose hampers carry branded chocolate and biscuits from other companies. It is tier 3 because it is a small team founded in 2020 and sells mainly to corporate buyers."
+      }
+    },
+    {
+      "contact_id": "909209961682",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "The Organic Collective",
+        "domain": "organiccollective.com.au",
+        "location": "Australia",
+        "channel": "Health food and organic retailers",
+        "based_out_of": "Perth, Australia",
+        "distributes": "Organic shop and box delivery with a Snacks > Chocolate category (Organic Times chocolate)",
+        "channels_supplied": "Its organic shop in Hamilton Hill, Perth, and its online shop and veggie box delivery",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Perth organic shop with online ordering whose own shop has a Snacks section with a Chocolate category of other brands. It is one shop with box deliveries, so tier 3; the full snacks brand list did not show on the pages seen."
+      }
+    },
+    {
+      "contact_id": "909217989859",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "The Triathlon Store",
+        "domain": "thetriathlonstore.com.au",
+        "location": "Australia",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Australia",
+        "distributes": "Energy bars from Maurten and energy chews from GU and Precision Fuel",
+        "channels_supplied": "Its own online shop, Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Online triathlon retailer with a nutrition range including bars. Tier 3 for its small food range; its city is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "909189744847",
+      "job_title": "Franchise Owner",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "APCO",
+        "domain": "apco.com.au",
+        "location": "Australia",
+        "channel": "Petrol station and convenience chains",
+        "based_out_of": "Geelong, Australia",
+        "distributes": "Groceries, snacks and household items in its cafe24-7 convenience shops and IGA X-press grocery stores",
+        "channels_supplied": "27 APCO fuel and convenience stores in Victoria and NSW, eight of them IGA X-press stores",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Family owned since 1968, with eight IGA X-press grocery stores on its forecourts."
+        ],
+        "fit_rationale": "A family owned fuel and convenience retailer with 27 stores in Victoria and NSW and more being built, buying from its Geelong support office. Its IGA X-press sites carry a wider grocery and snack range of other brands. Tier 3 for its small store count."
+      }
+    },
+    {
+      "contact_id": "909212985542",
+      "job_title": "General Manager - Retail",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Freedom Fuels",
+        "domain": "freedomfuels.com.au",
+        "location": "Australia",
+        "channel": "Petrol station and convenience chains",
+        "based_out_of": "Queensland, Australia",
+        "distributes": "Snacks, drinks, food and coffee in its convenience stores, with sweets and chocolate sold as in any convenience store",
+        "channels_supplied": "Freedom service stations and truck stops in Queensland and NSW, with the Friends of Freedom loyalty club",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "An independent fuel retailer whose service stations and truck stops in Queensland and NSW run their own convenience stores, with a loyalty discount on convenience store items. Tier 3 because its website does not show the store count or name its snack brands."
+      }
+    },
+    {
+      "contact_id": "909034568919",
+      "job_title": "Executive Director",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Global Quality Foods (GQF)",
+        "domain": "gqf.com.au",
+        "location": "Australia",
+        "channel": "Cash and carry wholesalers",
+        "based_out_of": "Riverwood, Australia",
+        "distributes": "Snacks, chips, confectionery and candy, drinks, grocery, ice cream and frozen lines, packaging and cleaning products",
+        "channels_supplied": "School canteens, sporting clubs, cafes, wholesalers and food service businesses across Sydney",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A family-run Sydney wholesaler whose canteen and club customers resell packaged snacks and confectionery as they are, like the Swiss snack counter model. Tier 3 because it reaches canteens and clubs rather than many shops. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "909189862618",
+      "job_title": "Director Healthyworld Pharmacy Group",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Healthyworld Pharmacy",
+        "domain": "healthyworldpharmacy.com.au",
+        "location": "Australia",
+        "channel": "Pharmacy and drugstore chains",
+        "based_out_of": "Brisbane, Australia",
+        "distributes": "Confectionery from other brands: sugar free chocolate, jellies, chews, hard boiled sweets and licorice (Sugarless), ginger sweets (Buderim) and jelly beans (Glucojel)",
+        "channels_supplied": "Five pharmacies in South East Queensland shopping centres and its own online shop",
+        "sf_brands_carried": "Sugarless Confectionery Co, Glucojel",
+        "what_they_do_well": [
+          "Has run pharmacies in South East Queensland shopping centres for over 30 years."
+        ],
+        "fit_rationale": "A pharmacy group with a dedicated Confectionery menu on its own shop selling 23 Sugarless Confectionery Co lines, a direct sugar free competitor, so it already sells sugar free sweets and chocolate to its shoppers. Tier 3 because it has only five stores, all in South East Queensland."
+      }
+    },
+    {
+      "contact_id": "909187002566",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Mighty Ape Australia",
+        "domain": "mightyape.com.au",
+        "location": "Australia",
+        "channel": "Retailers",
+        "based_out_of": "",
+        "distributes": "Lollies and chocolate from other brands (Cadbury, Nestle, Pascall, Allen's, Delfi, Hubba Bubba)",
+        "channels_supplied": "Online retailer shipping Australia-wide, with items sold by Mighty Ape and by marketplace sellers",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Online general retailer with a lollies and chocolate section that it sells from its own stock as well as through marketplace sellers. Tier 3 because its head office and Australian warehouse are not stated on the page checked."
+      }
+    }
+  ]
 }
