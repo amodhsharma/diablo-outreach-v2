@@ -1,5 +1,42 @@
 {
-  "generated_at": "2026-11-02T06:30:51+00:00",
+  "generated_at": "2026-11-02T09:31:11+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "908032969941",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "National Hotel Supplies",
+        "domain": "nationalhotelsupplies.com.au",
+        "location": "Australia",
+        "channel": "Hotel minibar suppliers",
+        "based_out_of": "Australia",
+        "distributes": "Guest room biscuits and sweets: Arnott's (Tim Tam, Scotch Finger, Butternut Snap), Lotus Biscoff, Little Bakes, Gumnut and Aussie Biscuits, Mentos mints, plus jams and condiments",
+        "channels_supplied": "Accommodation industry Australia wide through its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A family run accommodation supplier with a Biscuits and Sweets section of other companies' branded biscuits and mints for hotel rooms. Diablo's biscuits, wafers and sweets fit this range directly. Tier 3 because its website names neither its head office city nor its warehouse. Storage: sells from its own stock through its online shop, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "908035120370",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "National Hotel Supplies",
+        "domain": "nationalhotelsupplies.com.au",
+        "location": "Australia",
+        "channel": "Hotel minibar suppliers",
+        "based_out_of": "Australia",
+        "distributes": "Guest room biscuits and sweets: Arnott's (Tim Tam, Scotch Finger, Butternut Snap), Lotus Biscoff, Little Bakes, Gumnut and Aussie Biscuits, Mentos mints, plus jams and condiments",
+        "channels_supplied": "Accommodation industry Australia wide through its online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A family run accommodation supplier with a Biscuits and Sweets section of other companies' branded biscuits and mints for hotel rooms. Diablo's biscuits, wafers and sweets fit this range directly. Tier 3 because its website names neither its head office city nor its warehouse. Storage: sells from its own stock through its online shop, warehouse not named on its website."
+      }
+    }
+  ]
 }
