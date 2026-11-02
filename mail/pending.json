@@ -1,26 +1,5 @@
 {
-  "generated_at": "2026-11-02T15:30:57+00:00",
+  "generated_at": "2026-11-02T17:13:48+00:00",
   "target": "live",
-  "contacts": [
-    {
-      "contact_id": "909803904220",
-      "job_title": "",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "The Running Centre",
-        "domain": "therunningcentre.com.au",
-        "location": "Perth, Australia",
-        "channel": "Sports shops and sports nutrition shops",
-        "based_out_of": "West Perth, Australia",
-        "distributes": "Sports nutrition fuel: energy bars, gels, hydration and recovery products from brands such as PURE, Pillar, BIX, Tailwind, Koda, Maurten and Hammer",
-        "channels_supplied": "Its running store on Hay Street, West Perth, and its own online shop",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Listed by On as an authorised dealer for its running shoes and apparel in West Perth."
-        ],
-        "fit_rationale": "A West Perth running shop whose own website has a fuel section with a Bars category alongside gels and hydration, all from other brands. Health-conscious runners are a good audience for Diablo's muesli and cereal bars. Tier 3 because it is a single store with a small food shelf."
-      }
-    }
-  ]
+  "contacts": []
 }
