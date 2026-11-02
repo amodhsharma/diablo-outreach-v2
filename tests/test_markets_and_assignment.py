@@ -117,6 +117,7 @@ def test_find_contacts_assigns_company_and_contacts(settings):
 
 
 def test_follow_up_after_three_days(settings):
+    settings["send"]["signature"]["name_from_mailbox"] = False  # this test checks the fixed-name layout
     # One loop per company (agreed 14 Oct 2026): Instantly sends only the introduction; Sync sends
     # the forwards and person 1's reminder.
     assert len(send.campaign_body("Diablo | X", "India", settings)["sequences"][0]["steps"]) == 1

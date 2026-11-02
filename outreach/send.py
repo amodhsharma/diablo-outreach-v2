@@ -286,6 +286,8 @@ def render(text, lead):
               "companyName": lead.get("company_name") or "", **lead.get("custom_variables", {})}
     for key, value in values.items():
         text = text.replace("{{" + key + "}}", str(value))
+    # 2 Nov 2026: Instantly fills in the sending mailbox's own first name (Dana, Elize or Joshua).
+    text = text.replace(SENDING_ACCOUNT_FIRST_NAME, "[first name of the mailbox that sends it]")
     # The hidden inbox preview line (template 4, 19 Oct 2026) is not part of what the reader sees.
     text = re.sub(r'<div style="display:none[^"]*">.*?</div>', "", text)
     text = text.replace("<ul>", "\n\n").replace("</ul>", "\n\n").replace("<li>", "\u2022 ").replace("</li>", "\n")

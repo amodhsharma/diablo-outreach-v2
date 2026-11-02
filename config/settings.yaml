@@ -132,8 +132,13 @@ send:
   # info@diablosnosugar.com added on 18 Oct 2026 (Ariel). Every email to one company (first email,
   # forwards, reminder) goes from the same mailbox; different companies are shared between these.
   # Also add each one to the campaign's "Accounts To Use" in Instantly.
-  sending_accounts: [sales@diablosnosugar.com, info@diablosnosugar.com]
-  daily_limit: 30
+  # 2 Nov 2026 (Ariel): the three diabloexport.com mailboxes added (warmed, score 100); every new
+  # monthly campaign now sends from all five.
+  sending_accounts: [sales@diablosnosugar.com, info@diablosnosugar.com, joshua@diabloexport.com,
+                     dana@diabloexport.com, elize@diabloexport.com]
+  # The campaign's total a day, shared by all its mailboxes (each mailbox's own limit, 30, is set in
+  # Instantly). 150 from 2 Nov 2026 (Ariel): 5 mailboxes x 30; 30 before.
+  daily_limit: 150
   # Order of emails at each company: ONE loop (agreed 14 Oct 2026). Up to 4 contacts, most senior
   # first, one email every next_contact_after_days days:
   #   Person 1   the introduction (templates.first_email, through the Instantly campaign)
@@ -245,13 +250,13 @@ send:
     title: Initial Outreach Team
     website: www.diablosugarfree.com
     phone: ""
-    # Signature name from the sending mailbox (provision added 18 Oct 2026, SWITCHED OFF: every
-    # email is signed with the name above). To switch it on, set name_from_mailbox to true and fill
+    # Signature name from the sending mailbox (provision added 18 Oct 2026, switched on 2 Nov 2026). To switch it on, set name_from_mailbox to true and fill
     # names_by_mailbox. Then the forwards and the reminder are signed with the name listed for the
     # mailbox that sends them (the same one that sent the first email), and the first email uses
     # Instantly's own first name of its sending mailbox (Email Accounts > the mailbox > sender name),
     # so keep both the same. A mailbox not listed is signed with the name above.
-    name_from_mailbox: false
+    # Switched ON 2 Nov 2026 (Ariel): Dana, Elize and Joshua sign as themselves, sales@ and info@ as Joshua.
+    name_from_mailbox: true
     names_by_mailbox:
       sales@diablosnosugar.com: Joshua
       info@diablosnosugar.com: Joshua

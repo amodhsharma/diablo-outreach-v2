@@ -152,6 +152,7 @@ def test_template_1_is_used_and_filled():
     from outreach.common import load_settings
     from outreach.next_in_line import market_country
     s = load_settings()["send"]
+    s["signature"]["name_from_mailbox"] = False  # this test checks the fixed-name layout
     # template 4 (template 3 with the 19 Oct 2026 fixes), with room for the bond paragraph since 26 Oct 2026
     assert s["templates"]["first_email"] == "templates/template_6.json"
     steps = send.sequence_steps(s)

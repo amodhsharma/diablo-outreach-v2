@@ -119,6 +119,7 @@ def test_find_contacts_no_domain_credit_cap_and_untagged(settings):
 
 
 def test_send_and_sync(settings):
+    settings["send"]["signature"]["name_from_mailbox"] = False  # this test checks the fixed-name layout
     hs, noble, _ = full_pipeline(settings)
     contact_id = next(iter(hs.records["contacts"]))
     c = hs.records["contacts"][contact_id]
@@ -292,6 +293,7 @@ def test_time_zones_instantly_accepts():
 
 
 def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
+    settings["send"]["signature"]["name_from_mailbox"] = False  # this test checks the fixed-name layout
     from .fakes import FakeInstantly
     steps = send.sequence_steps(settings["send"])
     body = steps[0]["variants"][0]["body"]

@@ -300,10 +300,16 @@ def test_without_the_new_choices_the_forward_falls_back_to_attempted(settings):
     assert status_of(hs, p2) == "ATTEMPTED_TO_CONTACT"
 
 
-def test_signature_name_from_the_mailbox_is_off_by_default_and_follows_the_mailbox_when_on(settings):
-    """Provision added 18 Oct 2026, switched off: every email is signed with signature.name."""
+def test_signature_name_from_the_mailbox_follows_the_mailbox(settings):
+    """Provision added 18 Oct 2026, switched on 2 Nov 2026 (Ariel): Dana, Elize and Joshua sign as
+    themselves, sales@ and info@ as Joshua. Switched off, every email is signed with signature.name."""
     s = settings["send"]
-    assert s["signature"]["name_from_mailbox"] is False
+    assert s["signature"]["name_from_mailbox"] is True
+    names = {k.lower(): v for k, v in s["signature"]["names_by_mailbox"].items()}
+    assert {m: names[m] for m in load_settings()["send"]["sending_accounts"]} == {
+        "sales@diablosnosugar.com": "Joshua", "info@diablosnosugar.com": "Joshua", "joshua@diabloexport.com": "Joshua",
+        "dana@diabloexport.com": "Dana", "elize@diabloexport.com": "Elize"}
+    s["signature"]["name_from_mailbox"] = False
     assert send.sender_name_for(s, "dana@diabloexport.com") == s["signature"]["name"]
     _, body = send._template("templates/template_3.json", s)
     assert "{{sendingAccountFirstName}}" not in body and s["signature"]["name"] in body
@@ -326,7 +332,9 @@ def test_signature_name_from_the_mailbox_is_off_by_default_and_follows_the_mailb
 
 def test_info_mailbox_is_a_sending_account():
     s = load_settings()["send"]
-    assert s["sending_accounts"] == ["sales@diablosnosugar.com", "info@diablosnosugar.com"]
+    assert s["sending_accounts"] == ["sales@diablosnosugar.com", "info@diablosnosugar.com", "joshua@diabloexport.com",
+                                     "dana@diabloexport.com", "elize@diabloexport.com"]  # 2 Nov 2026
+    assert s["daily_limit"] == 150  # 5 mailboxes x 30 (2 Nov 2026)
     assert not any(a.endswith("@diablosugarfree.com") for a in s["sending_accounts"])  # never the main domain
 
 
