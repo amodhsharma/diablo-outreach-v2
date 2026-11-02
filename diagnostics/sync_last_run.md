@@ -1,48 +1,32 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-02 19:30 UTC
+Written 2026-11-02 23:14 UTC
 
 ```
-UNEXPECTED ERROR: stedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/urllib3/connectionpool.py", line 540, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/urllib3/connection.py", line 638, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/http/client.py", line 1478, in getresponse
-    response.begin()
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/http/client.py", line 343, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/http/client.py", line 312, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/runner/work/diablo-outreach-v2/diablo-outreach-v2/outreach/sync.py", line 1232, in main
-    run(args.target, settings, HubSpot(), Instantly(), emails_api=Instantly(api_key=key) if key else None,
-  File "/home/runner/work/diablo-outreach-v2/diablo-outreach-v2/outreach/sync.py", line 480, in run
-    leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/diablo-outreach-v2/diablo-outreach-v2/outreach/next_in_line.py", line 74, in instantly_view
-    for lead in instantly.list_leads(c["id"]):
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/diablo-outreach-v2/diablo-outreach-v2/outreach/instantly_client.py", line 198, in list_leads
-    data = self.request("POST", "/leads/list", json=body)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/diablo-outreach-v2/diablo-outreach-v2/outreach/instantly_client.py", line 33, in request
-    resp = self.session.request(method, API + path, timeout=60, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/adapters.py", line 711, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
+505 leads in the Diablo campaigns in Instantly
+Instantly blocklist: 0 entries read (addresses and domains)
+Business Manager, The Running Centre sent only an automatic answer (the text says "on leave"); it does not count as a reply, so the loop carries on
+Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
+People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
+Country Managing Director was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Mitinhaber & Verantwortlich für den Standort Chur was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+HR Business Partner was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Collaborateur Marketing was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Key Account Manager was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Head of Operational Processes and Projects / Member of the Executive Board was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Pharmacist was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Responsable Commercial Romandie was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Responsable du Département du Détail de Lausanne was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Head of Finance and Controlling was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Chief Executive Officer was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Senior Product Owner was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Key Account Manager was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Chief Technology Officer (CTO) was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+CEO Retail und Mitglied der Konzernleitung was at GATE2: Approved to send, but Instantly already has them (queued); set back to Attempted to Contact
+Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
+Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
+CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
+Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Updated 15 contacts and 0 companies in HubSpot
 ```
