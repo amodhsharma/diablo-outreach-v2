@@ -56,7 +56,7 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from . import corrupt, daily_log, redirect, reply_forward, timeline
+from . import chain, corrupt, daily_log, redirect, reply_forward, timeline
 from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, STAGES, TEAM, LeadStatus,
                      forward)
 
@@ -466,7 +466,8 @@ def mark_colleagues(hs, statuses, company_contacts, answered_ids, stage, log=pri
     for c in company_contacts:
         current = statuses.of("contacts", c)
         if str(c["id"]) in answered or current in ("replied", "no_response", TEAM) + CONTACT_CLOSED + LEFT_OUT + COLLEAGUE_STAGES:
-            continue
+            if current != "colleague_no_response":  # a late answer replaces "no response" (2 Nov 2026)
+                continue
         updates.append((c["id"], statuses.props("contacts", stage)))
     if updates:
         hs.update_tagged("contacts", updates)
@@ -516,7 +517,10 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         # 2 Nov 2026: a contact still on plain Unqualified from before gets its exact label (said no, opted
         # out or bounced), read from Instantly; the company follows in close_company_contacts.
         exact = old == "closed" and new in CONTACT_CLOSED and new != "closed" and statuses.has("contacts", new)
-        if not forward(old, new) and not exact:
+        # 2 Nov 2026: an answer after the company closed as "no response" still counts (a reply, a no or an
+        # opt-out), so the company is never reopened from the backlog and the answer is seen.
+        late = old == "no_response" and new in ("replied", "said_no", "opted_out")
+        if not forward(old, new) and not exact and not late:
             continue
         if old == "approved":  # 23 Oct 2026: set back to GATE2 by hand, but Instantly already holds them
             log(f"{p.get('jobtitle') or 'A contact'} was at GATE2: Approved to send, but Instantly already has "
@@ -568,7 +572,7 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                 others = contacts_by_company(hs, [company_id]).get(company_id) or []
                 if any(str(o["id"]) not in closing and statuses.of("contacts", o) == "replied" for o in others):
                     continue
-            if forward(now_stage, stage):
+            if forward(now_stage, stage) or (now_stage == "no_response" and stage in ("replied", "said_no", "opted_out")):
                 company_updates[company_id] = statuses.props("companies", stage)
         hs.update_tagged("companies", list(company_updates.items()))
         # Everyone else at a company that has answered gets a Lead Status saying so (19 Oct 2026).
@@ -767,7 +771,8 @@ def forward_subject(chain):
 
 NEXT_STEP = {
     "next": "the introduction to the next person", "forward": "a forward to the next person",
-    "reminder": "person 1's reminder", "waiting": "the next email, 3 days after the last one",
+    "reminder": "a reminder (2 Nov 2026: a forward of their introduction)",
+    "waiting": "the next email, 3 days after the last one",
     "waiting_same_person": "person 1's reminder, a week after their introduction",
     "waiting_for_gate_2": "someone to be approved at GATE2", "waiting_for_emails_key":
     "the GitHub secret INSTANTLY_EMAILS_KEY", "stopped": "nothing (someone replied or a person took over)",
@@ -817,6 +822,8 @@ def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None, 
     gap = float(settings["send"].get("next_contact_after_days", 3))
     min_same = float((settings["send"].get("rotation") or {}).get("min_days_same_person", 7))
     one_email = follow_up_settings(settings["send"])
+    chain_cfg = chain.config(settings)
+    chain_state = chain.load_state() if chain_cfg else {}
     companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
                                  COMPANY_PROPS, max_results=5000)
     if not companies:
@@ -830,9 +837,10 @@ def overview(hs, instantly, settings, emails_api=None, now=None, statuses=None, 
         if emails_api is not None:
             touches, _, _ = company_mail(emails_api, contacts)
             mark_sent(contacts, touches)
+        rules = chain.company_rules(chain_cfg, chain_state, company["id"]) if chain_cfg else None
         _, why = decide(contacts, statuses.of("companies", company), gap, now, touches=touches, min_same_days=min_same,
                         follow_ups=one_email[0], no_reply_days=one_email[1],
-                        inbox_reminder=one_email[2])
+                        inbox_reminder=one_email[2], chain=rules, statuses=statuses)
         when = due_at(contacts, touches, why, gap, min_same, one_email[1])
         line = f"- **{name}**: next is {NEXT_STEP.get(why, why)}" + (f", due {ist(when)}" if when else "")
         if blocked is not None and getattr(blocked, "ok", True):
@@ -886,6 +894,19 @@ def stop_signals(contacts, blocked, leads, details=None):
     return found
 
 
+def month_campaign(instantly, settings, contact, cache, log=print):
+    """This month's campaign for the contact (people or company inboxes), created paused when missing."""
+    from . import send
+    kind = send.kind_for(is_company_inbox(contact))
+    name = send.name_for_kind(kind, settings["sync"]["campaign_prefix"], settings["send"])
+    if not cache:
+        cache.update({c["name"]: c["id"] for c in instantly.list_campaigns()})
+    if name not in cache:
+        cache[name] = instantly.create_campaign(send.campaign_body(name, "", settings, kind))["id"]
+        log(f"Created paused campaign: {name}")
+    return cache[name]
+
+
 def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statuses=None, leads=None,
             blocked=None, opt_out_rows=None):
     """Move each AUTO-OUTREACH company in outreach on through its one loop when the next email is due."""
@@ -908,6 +929,9 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     rot = settings["send"].get("rotation") or {}
     min_same = float(rot.get("min_days_same_person", 7))
     one_email = follow_up_settings(settings["send"])  # 21 Oct 2026: follow-ups to people off
+    chain_cfg = chain.config(settings)  # 2 Nov 2026 (Ariel): everyone gets their own introduction and a reminder
+    chain_state = chain.load_state() if chain_cfg else {}
+    month_campaigns = {}
     companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
                                  COMPANY_PROPS, max_results=5000)
     result = {"next_contacts_added": 0, "forwards_sent": 0, "reminders_sent": 0, "no_reply": 0,
@@ -995,10 +1019,14 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             sent_rows.append(f"| {name} | - | Reply received: nobody else there is emailed |")
             log(f"{name}: someone replied; nobody else there is emailed")
             continue
+        rules = None
+        if chain_cfg:
+            contact_updates.extend(chain.fill_lines(contacts, statuses, log, name))
+            rules = chain.company_rules(chain_cfg, chain_state, company["id"])
         due, why = decide(contacts, statuses.of("companies", company), gap, now,
                           touches=touches, min_same_days=min_same,
                           follow_ups=one_email[0], no_reply_days=one_email[1],
-                        inbox_reminder=one_email[2])
+                          inbox_reminder=one_email[2], chain=rules, statuses=statuses)
         if why == "no_reply":
             no_response(company, name, contacts)
             continue
@@ -1011,24 +1039,24 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             continue
         if why == "forward":
             prev = previous_colleague(due, contacts, touches)
-            chain = (history.get(prev["id"]) or [None])[-1] if prev else None
+            chain_email = (history.get(prev["id"]) or [None])[-1] if prev else None
             # forward_2.json (19 Oct 2026) uses the company note; the older forward.json the personal line.
             needed, label = forward_field(settings)
-            if chain is None or not due["properties"].get(needed):
+            if chain_email is None or not due["properties"].get(needed):
                 log(f"{name}: the next person cannot be emailed yet (no earlier email to forward, or no "
                     f"{label}); will try again next run")
                 continue
-            if not ((chain.get("body") or {}).get("html") or (chain.get("body") or {}).get("text")):
-                full = emails_api.get_email(chain["id"]) if hasattr(emails_api, "get_email") else None
+            if not ((chain_email.get("body") or {}).get("html") or (chain_email.get("body") or {}).get("text")):
+                full = emails_api.get_email(chain_email["id"]) if hasattr(emails_api, "get_email") else None
                 if full:  # the list of emails may leave out the body; read the one email in full
-                    chain = {**chain, **full}
-            html, text = forward_email(due, props, settings, notes, colleague=_name(prev), original=chain)
+                    chain_email = {**chain_email, **full}
+            html, text = forward_email(due, props, settings, notes, colleague=_name(prev), original=chain_email)
             first = min((e for es in history.values() for e in es),
-                        key=lambda e: _sent_time(e) or parse_time("2999-01-01"), default=chain)
+                        key=lambda e: _sent_time(e) or parse_time("2999-01-01"), default=chain_email)
             if not last_check(company, name, contacts, details):
                 continue
             try:
-                emails_api.forward(chain, due["properties"]["email"], forward_subject(first), html, text)
+                emails_api.forward(chain_email, due["properties"]["email"], forward_subject(first), html, text)
             except Exception as err:
                 log(f"{name}: Instantly refused the forward ({str(err)[:150]}); it is tried again next run")
                 continue
@@ -1038,6 +1066,40 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                              f"the {prev['properties'].get('jobtitle') or 'colleague'} (Lead Status: Forward sent) |")
             log(f"{name}: no reply yet; the chain was forwarded to "
                 f"{due['properties'].get('jobtitle') or 'the next contact'}, naming the colleague before them")
+            continue
+        if why == "reminder" and chain_cfg:
+            # 2 Nov 2026 (Ariel): the reminder goes as a forward of their introduction, "Fwd: " + its subject,
+            # from the mailbox that sent it, at most chain.reminders_per_mailbox_per_day a mailbox a day.
+            past = history.get(due["id"]) or []
+            title = due["properties"].get("jobtitle") or "contact"
+            if not past:
+                log(f"{name}: could not find the {title}'s introduction to forward; will try again next run")
+                continue
+            mailbox = past[-1].get("eaccount") or past[0].get("eaccount")
+            if chain.reminders_left(chain_state, mailbox, chain_cfg) <= 0:
+                waiting_rows.append(f"| {name} | the {title}'s reminder (its mailbox has sent its reminders for "
+                                    "today) | next run |")
+                continue
+            original = past[0]
+            if not ((original.get("body") or {}).get("html") or (original.get("body") or {}).get("text")):
+                full = emails_api.get_email(original["id"]) if hasattr(emails_api, "get_email") else None
+                if full:
+                    original = {**original, **full}
+            html, text = reminder_email(due, props, settings, notes, mailbox=mailbox)
+            html, text = add_forwarded(html, text, original)
+            if not last_check(company, name, contacts, details):
+                continue
+            try:
+                emails_api.send_in_thread(past[-1], due["properties"]["email"], forward_subject(original), html, text)
+            except Exception as err:
+                log(f"{name}: Instantly refused the reminder ({str(err)[:150]}); it is tried again next run")
+                continue
+            chain.count_reminder(chain_state, mailbox)
+            contact_updates.append((due["id"], statuses.props_or("contacts", "reminded", "in_outreach")))
+            result["reminders_sent"] += 1
+            sent_rows.append(f"| {name} | {title} | Reminder sent as a forward of their introduction (Lead Status: "
+                             "Reminder sent) |")
+            log(f"{name}: the {title} was sent their reminder, as a forward of their introduction")
             continue
         if why == "reminder":
             past = history.get(due["id"]) or []
@@ -1073,7 +1135,17 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             log(f"{name}: the loop is done; person 1 was sent their reminder, in their own thread")
             continue
         campaign = last_campaign(contacts)
+        if chain_cfg and due and why == "next":
+            # 2 Nov 2026 (Ariel): every email goes into the campaign of the month it is sent in.
+            try:
+                campaign = month_campaign(instantly, settings, due, month_campaigns, log)
+            except Exception as err:
+                log(f"{name}: this month's campaign could not be read or created ({str(err)[:150]}); next run")
+                continue
         if not due or why != "next" or not campaign or not due["properties"].get(PERSONAL_LINE):
+            continue
+        if chain_cfg and not (props.get("country") or "").strip():  # the email names the market
+            waiting_rows.append(f"| {name} | the next introduction: fill in the company's Country in HubSpot | - |")
             continue
         if corrupt.held_now(due["id"]):  # 28 Oct 2026: moved up after a dead address in this run
             waiting_rows.append(f"| {name} | the introduction to the new number 1, at the next run | - |")
@@ -1083,9 +1155,16 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             waiting_rows.append(f"| {name} | {wait} | - |")
             continue
         lead = lead_for(due, props, notes)  # nobody reached yet (e.g. person 1 bounced before sending)
+        if chain_cfg:  # the same email as person 1's, with its bond paragraph where the channel needs one
+            from . import bond, send
+            lead = send.with_bond(lead, props, notes, bond.load())
         if not last_check(company, name, contacts, details):
             continue
-        results = instantly.add_leads(campaign, [lead])
+        try:
+            results = instantly.add_leads(campaign, [lead])
+        except Exception as err:  # one refusal never loses the run's other HubSpot updates
+            log(f"{name}: Instantly refused the introduction ({str(err)[:150]}); it is tried again next run")
+            continue
         if sum(r.get("leads_uploaded") or 0 for r in results):
             contact_updates.append((due["id"], statuses.props("contacts", "in_outreach")))
             result["next_contacts_added"] += 1
@@ -1096,6 +1175,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             log(f"{name}: {lead['email']} is already in Instantly; not added again")
     hs.update_tagged("contacts", contact_updates)
     hs.update_tagged("companies", company_updates)
+    if chain_cfg:
+        chain.save_state(chain_state)
     if result["waiting_for_emails_key"]:
         log(f"{result['waiting_for_emails_key']} companies are ready for their next email, but the GitHub secret "
             "INSTANTLY_EMAILS_KEY (Instantly key with scope emails:all) is not set, so those emails wait")

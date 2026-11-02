@@ -33,6 +33,7 @@ def settings():
     # switched off since 21 Oct 2026 (follow_ups_to_people: false); the off mode has its own tests.
     s["send"]["follow_ups_to_people"] = True
     s["send"]["reminder_to_company_inbox"] = True
+    s["send"]["chain"]["enabled"] = False  # 2 Nov 2026: the chain (test_chain.py) replaces this loop when on
     return s
 
 

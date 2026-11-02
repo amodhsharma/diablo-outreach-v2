@@ -86,6 +86,19 @@ writes their line, they go to GATE2 by themselves, and the next run of button 4 
 nobody else at the company is emailed and the company is not closed as "no response". Button 3's
 summary lists every company it moved on this way, and any person you added without an email address.
 
+**Everyone at a company is emailed (2 Nov 2026).** Each person gets their own introduction through the
+month's campaign, 3 days apart in Outreach order (company inbox last), and a reminder a week after their
+own introduction, sent as a forward of it ("Fwd: " and its subject) from the mailbox that sent it. The
+company closes 3 days after the last reminder with no reply; a reply or opt-out from anyone stops it at
+once. Once you approve person 1 at gate 2, everyone else there goes to GATE2 by themselves, with person
+1's line copied where theirs is missing. Reminders go on top of each mailbox's 30 introductions, at most
+10 a mailbox a day. Every email goes into the campaign of the month it is sent in.
+
+**The backlog (2 Nov 2026).** Companies closed as "no response" are reopened each day, oldest first, only
+in the room the new introductions leave under the day's limit, at most 50 a day (button 4, step 2b). Two
+or more people: the next person's introduction at once, person 1's reminder 3 days later, then as above.
+One person: their reminder at once, and the company closes 7 days later with no reply.
+
 Any other Lead Status (for example Emailed or Won) means a person has taken the record over:
 the pipeline stops there and never changes it. To reject a company at gate 1, set it to
 Unqualified; to reject one person at gate 2, set them to Unqualified (the others carry on).

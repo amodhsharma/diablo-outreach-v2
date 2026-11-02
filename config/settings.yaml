@@ -161,6 +161,24 @@ send:
   # The company inbox's one reminder (info@ and the like, templates.reminder_company_inbox) is
   # switched off too (21 Oct 2026, Ariel, the same evening); kept, set to true to bring it back.
   reminder_to_company_inbox: false
+  # Everyone at a company is emailed (agreed 2 Nov 2026, Ariel; see outreach/chain.py): each person their
+  # own introduction through the month's campaign, next_contact_after_days apart in Outreach order (company
+  # inbox last), and a reminder rotation.min_days_same_person days after their own introduction, sent as a
+  # forward of it ("Fwd: " + its subject). The company closes next_contact_after_days after the last email
+  # with no reply. Once person 1 is approved, everyone else there goes to GATE2 by themselves (person 1's
+  # line copied where theirs is missing). It replaces the forwards and follow_ups_to_people below.
+  chain:
+    enabled: true
+    # Companies closed as "no response" reopened each day, oldest first, only in the room the new
+    # introductions leave under the day's limit, at most this many a day.
+    backlog_per_day: 50
+    # Reminders go on top of each mailbox's 30 introductions, at most this many a mailbox a day (40 in
+    # all, within the 50 a day that is safe for cold email); the rest wait for the next run.
+    reminders_per_mailbox_per_day: 10
+    # A reopened company with only one person closes this many days after their reminder.
+    backlog_single_close_days: 7
+    # Company inboxes get their reminder too (2 Nov 2026, Ariel).
+    company_inbox_reminder: true
   # With follow-ups off: days after the introduction with no reply before the company and the
   # person emailed become "Unqualified: Contacted, but no response" (the others there become
   # "Unqualified: Colleague Contacted, but no response"). A reply after that is still seen in Instantly.

@@ -93,6 +93,18 @@ jobs:
         continue-on-error: true
         run: python -m outreach.send --target "$TARGET" --skip-if-not-configured --test-gaps "$TEST_GAPS"
 
+      # 2 Nov 2026 (Ariel): after the new introductions, the companies closed with no reply are reopened,
+      # oldest first, in the room left under the day's limit (at most 50 a day): see outreach/chain.py.
+      - name: "2b. Backlog: reopen companies that never replied, oldest first, in the room left today"
+        id: backlog
+        if: env.MODE == 'full' || env.MODE == 'full_check'
+        continue-on-error: true
+        env:
+          # read before a company is reopened: anyone who replied or opted out after it closed keeps it closed
+          INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
+          INSTANTLY_BLOCKLIST_KEY: ${{ secrets.INSTANTLY_BLOCKLIST_KEY }}
+        run: python -m outreach.chain --target "$TARGET" --skip-if-not-configured
+
       - name: "3. Health check: mailboxes, campaigns, who is waiting and why"
         id: health
         if: env.MODE == 'check' || env.MODE == 'full_check'
@@ -108,7 +120,7 @@ jobs:
         run: |
           bash .github/scripts/save_changes.sh "Send and follow up ($MODE)" diagnostics/instantly_status.md \
             diagnostics/sync_last_run.md data/timeline_notes.json data/daily_log.json data/forwarded_replies.json \
-            data/promoted.json
+            data/promoted.json data/chain_state.json
 
       - uses: actions/upload-artifact@v6
         if: always()
@@ -123,6 +135,7 @@ jobs:
           failed=""
           [ "${{ steps.sync.outcome }}" = "failure" ] && failed="$failed 1 (Instantly results and the loop);"
           [ "${{ steps.send.outcome }}" = "failure" ] && failed="$failed 2 (send);"
+          [ "${{ steps.backlog.outcome }}" = "failure" ] && failed="$failed 2b (backlog);"
           [ "${{ steps.health.outcome }}" = "failure" ] && failed="$failed 3 (health check);"
           # 20 Oct 2026: emails still went out, but nobody should miss that opt-outs could not be checked.
           [ -f runs/blocklist_unreadable ] && failed="$failed Instantly's blocklist could not be read (emails still went out; add or check the secret INSTANTLY_BLOCKLIST_KEY);"

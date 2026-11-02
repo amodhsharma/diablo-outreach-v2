@@ -19,7 +19,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import bond, corrupt, timeline
+from . import bond, chain, corrupt, redirect, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -396,6 +396,7 @@ WAIT_REASONS = {
     "no_reply": "the company's loop is finished with no reply",
     "waiting_for_reply": "person 1 was emailed and the company is waiting for their reply (no follow-ups)",
     "next": "a more senior approved person at the company goes first",
+    "waiting_for_gate_2": "person 1 at the company is not approved yet",
 }
 
 
@@ -493,6 +494,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     notes = load_company_notes()
     everyone = contacts_by_company(hs, list(companies))
     groups, skipped, waiting = defaultdict(list), [], 0
+    chain_cfg = chain.config(settings)  # 2 Nov 2026: everyone at the company gets their own introduction
+    chain_state = chain.load_state() if chain_cfg else {}
     needs_note = first_email_uses(settings, "company_note")
     bond_config = bond.load()
     campaign_ids = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
@@ -509,14 +512,20 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             continue
         # One person per company at a time: only the one next in line goes now.
         company_contacts = annotate(everyone.get(company_id) or [c], statuses, in_instantly)
+        rules = chain.company_rules(chain_cfg, chain_state, company_id) if chain_cfg else None
         due, why = decide(company_contacts, company_stage, gap, follow_ups=one_email[0],
-                          no_reply_days=one_email[1], inbox_reminder=one_email[2])
+                          no_reply_days=one_email[1], inbox_reminder=one_email[2], chain=rules, statuses=statuses)
         if why == "next" and due and due["id"] == c["id"] and corrupt.held_now(c["id"]):
             waiting += 1  # 28 Oct 2026: moved up after a dead address in this run; goes at the next run
             log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: moved up to number 1 "
                 "after a dead address in this run; the introduction goes at the next run")
             continue
-        if why != "next" or not due or due["id"] != c["id"]:  # only person 1 goes through the campaign
+        hold = redirect.hold(company_contacts, c, statuses) if why == "next" and due and due["id"] == c["id"] else ""
+        if hold:  # 2 Nov 2026: the new number 1 after a Rejected/Redirected contact always goes first
+            waiting += 1
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: waiting for {hold}")
+            continue
+        if why != "next" or not due or due["id"] != c["id"]:  # only the one next in line goes now
             waiting += 1
             log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "
                 + WAIT_REASONS.get(why, "a more senior approved person at the company goes first"))
@@ -540,6 +549,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             continue
         if earlier and is_other_campaign(next((n for n, i in campaign_ids.items() if i == earlier), "")):
             earlier = None  # never added to an October "Other channels" campaign again
+        if chain_cfg:  # 2 Nov 2026 (Ariel): every email goes into the campaign of the month it is sent in
+            earlier = None
         key = ("campaign", earlier, kind) if earlier else ("month", kind)
         groups[key].append((c, company_id, comp, company_stage))
     if waiting:

@@ -105,3 +105,10 @@ def no_real_website_recheck_list(tmp_path, monkeypatch):
     """No test reads or writes the real list of Missing Info websites read again (1 Nov 2026)."""
     from outreach import apollo_status
     monkeypatch.setattr(apollo_status, "_rechecked_file", lambda: tmp_path / "website_rechecked.json")
+
+
+@pytest.fixture(autouse=True)
+def no_real_chain_state(tmp_path, monkeypatch):
+    """No test reads or writes the real list of reopened companies and the day's counts (2 Nov 2026)."""
+    from outreach import chain
+    monkeypatch.setattr(chain, "STATE_FILE", tmp_path / "chain_state.json")

@@ -85,19 +85,12 @@ def test_redirected_to_someone_added_by_hand(settings, monkeypatch):
     assert corrupt.waiting_for_line(new)
 
     monkeypatch.setenv("GITHUB_RUN_ID", "run2")
-    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert "p2@away.example" not in emailed(instantly)  # still waits for the new number 1
-    assert hs.records["companies"][cid][LS] == "Attempted to Contact"  # never closed as no response
-
-    rec(hs, new).update({LS: "NEW_PERSONAL_LINE_FILLED", "diablo_personal_line": "Line.",
-                         "diablo_company_note": "imports sweets"})  # the mail-writing run
-    monkeypatch.setenv("GITHUB_RUN_ID", "run3")
-    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert rec(hs, new)[LS] == "APPROVED_TO_SEND"  # GATE2 by itself
-    monkeypatch.setenv("GITHUB_RUN_ID", "run4")
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    # 2 Nov 2026: person 1's line is copied over, so the person added goes to GATE2 and is emailed at once
+    assert rec(hs, new)["diablo_personal_line"] == rec(hs, p1)["diablo_personal_line"]
     assert moved["next_contacts_added"] == 1 and rec(hs, new)[LS] == "ATTEMPTED_TO_CONTACT"
-    assert "p2@away.example" not in emailed(instantly)
+    assert "p2@away.example" not in emailed(instantly)  # the backup comes 3 days later
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
 
 
 def test_redirected_with_a_backup_who_has_a_line(settings, monkeypatch):

@@ -198,15 +198,86 @@ def _decide_one_email(contacts, states, now, touches, no_reply_days):
     return (None, "no_reply") if "bounced" in states else (None, "nothing")
 
 
+def intro_time(contact, touches=None):
+    """When this contact got their introduction: their first email."""
+    times = touch_times(contact, touches)
+    return times[0] if times else None
+
+
+def reminder_done(contact, touches=None):
+    """True once this contact had their reminder: HubSpot says so, or Instantly shows a second email."""
+    stage = str((contact.get("properties") or {}).get(LEAD_STATUS) or "").upper()
+    if stage in ("REMINDER_SENT", "REMINDER SENT"):
+        return True
+    return touches is not None and len(touch_times(contact, touches)) >= 2
+
+
+def decide_chain(contacts, company_stage, now=None, touches=None, chain=None, statuses=None):
+    """Everyone at the company gets their own introduction, one every `gap` days in Outreach order, and
+    each a reminder `reminder` days after their own introduction; the company closes `close` days after
+    the last email with no reply (agreed 2 Nov 2026, Ariel). Returns (contact or None, why): next (an
+    introduction, through the month's campaign), reminder, waiting, waiting_same_person,
+    waiting_for_gate_2, waiting_for_reply, no_reply, stopped or nothing. chain: {gap, reminder, close,
+    inbox_reminder, reminder_not_before (a time, for a company reopened from the backlog)}."""
+    chain = chain or {}
+    now = now or dt.datetime.now(dt.timezone.utc)
+    gap = dt.timedelta(days=float(chain.get("gap", 3)))
+    remind_after = dt.timedelta(days=float(chain.get("reminder", 7)))
+    close_after = dt.timedelta(days=float(chain.get("close", 3)))
+    not_before = chain.get("reminder_not_before")
+    if company_stage in COMPANY_STOPPED:
+        return None, "stopped"
+    states = [c["state"] for c in contacts]
+    if STOP in states:
+        return None, "stopped"
+    emailed = sorted((c for c in contacts if c["state"] == "sent" and intro_time(c, touches)),
+                     key=lambda c: intro_time(c, touches))
+
+    def remind_ok(c):
+        if statuses is not None and statuses.of("contacts", c) == "reminded":
+            return False
+        return chain.get("inbox_reminder", True) or not is_company_inbox(c)
+
+    owed = [c for c in emailed if remind_ok(c) and not reminder_done(c, touches)]
+    for c in owed:
+        due_at = intro_time(c, touches) + remind_after
+        if not_before and due_at < not_before:
+            due_at = not_before
+        if now >= due_at:
+            return c, "reminder"
+    queued = "queued" in states
+    # Without an email or a personal line a contact cannot be introduced: skipped, so the company still closes.
+    approved = sorted((c for c in contacts if c["state"] == "approved" and c["properties"].get("email")
+                       and (c["properties"].get(PERSONAL_LINE) or "").strip()), key=rank_of)
+    if approved and not queued:
+        last = max((intro_time(c, touches) for c in emailed), default=None)
+        if last is None or now - last >= gap:
+            return approved[0], "next"
+        return None, "waiting"
+    if owed:
+        return None, "waiting_same_person"
+    if queued or approved:
+        return None, "waiting"
+    if not emailed:
+        if "pending" in states:
+            return None, "waiting_for_gate_2"
+        return (None, "no_reply") if "bounced" in states else (None, "nothing")
+    last = max(t for c in emailed for t in touch_times(c, touches))
+    return (None, "no_reply") if now - last >= close_after else (None, "waiting_for_reply")
+
+
 def decide(contacts, company_stage, gap_days, now=None, touches=None, min_same_days=7,
-           follow_ups=True, no_reply_days=7, inbox_reminder=True):
+           follow_ups=True, no_reply_days=7, inbox_reminder=True, chain=None, statuses=None):
     """(the contact to email next or None, why). Contacts must be annotated (see annotate). why is
     one of: next (person 1's introduction, through the campaign), forward (the next person, a
     forward of the chain), reminder (person 1's one reminder, a reply in their thread), stopped,
     waiting, waiting_for_gate_2, waiting_same_person, waiting_for_emails_key, waiting_for_reply,
     no_reply, nothing. With follow_ups False (21 Oct 2026) only the introduction goes to people.
 
-    touches: {contact id: [times they were emailed]} from Instantly, or None when unknown."""
+    touches: {contact id: [times they were emailed]} from Instantly, or None when unknown. With `chain`
+    given and on (2 Nov 2026), decide_chain decides instead."""
+    if chain and chain.get("enabled"):
+        return decide_chain(contacts, company_stage, now, touches, chain, statuses)
     now = now or dt.datetime.now(dt.timezone.utc)
     if company_stage in COMPANY_STOPPED:
         return None, "stopped"
