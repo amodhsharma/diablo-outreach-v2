@@ -1,0 +1,15 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-11-02",
+  "run_type": "scheduled",
+  "generated_from": "2026-11-02T15:30:57+00:00",
+  "lines": [
+    {
+      "contact_id": "909803904220",
+      "company_name": "The Running Centre",
+      "personal_line": "We have great respect for the way your team equips and fuels the running community. Your customers are active people who look after themselves, and we believe sugar free bars alongside the fuel they already come in for may suit those very same runners. We would be grateful for the opportunity to discuss whether this could be a worthwhile addition to your shop.",
+      "company_note": "equips runners with shoes and fuels them with energy bars and gels",
+      "style": "E"
+    }
+  ]
+}
