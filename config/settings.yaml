@@ -136,9 +136,11 @@ send:
   # monthly campaign now sends from all five.
   sending_accounts: [sales@diablosnosugar.com, info@diablosnosugar.com, joshua@diabloexport.com,
                      dana@diabloexport.com, elize@diabloexport.com]
-  # The campaign's total a day, shared by all its mailboxes (each mailbox's own limit, 30, is set in
-  # Instantly). 150 from 2 Nov 2026 (Ariel): 5 mailboxes x 30; 30 before.
-  daily_limit: 150
+  # Rule of thumb (2 Nov 2026, Ariel): N mailboxes send at most 30 x N emails a day. Each campaign's daily
+  # limit (the people one and the company inbox one) is this number times the number of sending
+  # mailboxes, so 150 with five; it follows by itself when a mailbox is added or removed. Each mailbox's
+  # own limit (30) is set in Instantly and holds across both campaigns together. 30 a day in total before.
+  daily_limit_per_mailbox: 30
   # Order of emails at each company: ONE loop (agreed 14 Oct 2026). Up to 4 contacts, most senior
   # first, one email every next_contact_after_days days:
   #   Person 1   the introduction (templates.first_email, through the Instantly campaign)
@@ -221,9 +223,8 @@ send:
     # The month's company inbox campaign, e.g. "Diablo | OCT2026 | Company inboxes". Created
     # paused by button 4 like the main one; add its mailboxes in Instantly the same way.
     campaign_suffix: Company inboxes
-    # At most this many company inbox first emails per sending mailbox a day (agreed 19 Oct 2026);
-    # set as that campaign's daily limit (5 x the number of sending mailboxes).
-    daily_cap_per_mailbox: 5
+    # Its daily limit follows the same rule as the people campaign: daily_limit_per_mailbox x the number
+    # of sending mailboxes (2 Nov 2026, Ariel; 5 per mailbox before).
   # Channels outside our usual ones had their own campaigns from 23 to 26 Oct 2026 ("Diablo | OCT2026 |
   # Other channels" and "... | Company inboxes | Other channels"). Since 26 Oct 2026 (Ariel) there are
   # only two campaigns a month and nothing new goes to those; button 4 puts their never-emailed

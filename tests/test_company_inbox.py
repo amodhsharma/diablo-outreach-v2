@@ -193,7 +193,9 @@ def test_company_inboxes_get_their_own_campaign_greeting_and_cap():
     assert inbox == main + " | Company inboxes" and set(camps) == {main, inbox}
     assert [l["email"] for l in instantly.leads[camps[inbox]["id"]]] == ["info@alpha.example"]
     assert [l["email"] for l in instantly.leads[camps[main]["id"]]] == ["anna@beta.example"]
-    assert camps[inbox]["daily_limit"] == 10 and camps[main]["daily_limit"] == s["send"]["daily_limit"]
+    # 2 Nov 2026 (Ariel): both campaigns get 30 x the number of sending mailboxes.
+    n = len(s["send"]["sending_accounts"])
+    assert camps[inbox]["daily_limit"] == camps[main]["daily_limit"] == 30 * n
     inbox_body = camps[inbox]["sequences"][0]["steps"][0]["variants"][0]["body"]
     main_body = camps[main]["sequences"][0]["steps"][0]["variants"][0]["body"]
     assert "</div>Hello to the team at {{companyName}},</div>" in inbox_body and "pass this on to the person responsible" in inbox_body

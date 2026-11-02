@@ -115,7 +115,7 @@ def inbox_suffix(s):
 
 def inbox_campaign_name(prefix, s, month=None):
     """Company inboxes (agreed 19 Oct 2026) have their own campaign each month, e.g.
-    "Diablo | OCT2026 | Company inboxes", with their own first email and a smaller daily limit."""
+    "Diablo | OCT2026 | Company inboxes", with their own first email (the same daily limit since 2 Nov 2026)."""
     return campaign_name(prefix, month) + inbox_suffix(s)
 
 
@@ -319,6 +319,14 @@ def preview(name, leads, settings, kind=PERSON):
     return "\n".join(out)
 
 
+def daily_limit_for(s):
+    """The campaign's daily limit: daily_limit_per_mailbox (30) times the number of sending mailboxes. An
+    older settings file with a fixed daily_limit still works."""
+    if s.get("daily_limit_per_mailbox"):
+        return int(s["daily_limit_per_mailbox"]) * max(1, len(s.get("sending_accounts") or []))
+    return int(s.get("daily_limit", 30))
+
+
 def campaign_body(name, market, settings, kind=None):
     s = settings["send"]
     kind = kind or kind_of_campaign(name, s)
@@ -329,11 +337,9 @@ def campaign_body(name, market, settings, kind=None):
         )
     sched = schedule_for(market, s["schedule"])
     steps = sequence_steps(s, kind)
-    daily_limit = s["daily_limit"]
-    if kind == INBOX:  # at most this many company inbox first emails per mailbox a day (19 Oct 2026)
-        cap = int((s.get("company_inbox") or {}).get("daily_cap_per_mailbox", 5))
-        daily_limit = cap * max(1, len(s["sending_accounts"]))
-    elif kind == PERSON_OTHER:  # 23 Oct 2026: channels outside our usual ones
+    # 2 Nov 2026 (Ariel): N mailboxes send at most 30 x N a day, for the people and the company inbox campaign.
+    daily_limit = daily_limit_for(s)
+    if kind == PERSON_OTHER:  # 23 Oct 2026: channels outside our usual ones
         daily_limit = int((s.get("other_channels") or {}).get("daily_limit", 15))
     elif kind == INBOX_OTHER:
         daily_limit = int((s.get("other_channels") or {}).get("company_inbox_daily_limit", 5))

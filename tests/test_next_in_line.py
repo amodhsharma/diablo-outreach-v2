@@ -334,7 +334,7 @@ def test_info_mailbox_is_a_sending_account():
     s = load_settings()["send"]
     assert s["sending_accounts"] == ["sales@diablosnosugar.com", "info@diablosnosugar.com", "joshua@diabloexport.com",
                                      "dana@diabloexport.com", "elize@diabloexport.com"]  # 2 Nov 2026
-    assert s["daily_limit"] == 150  # 5 mailboxes x 30 (2 Nov 2026)
+    assert send.daily_limit_for(s) == 150  # 5 mailboxes x 30 (2 Nov 2026)
     assert not any(a.endswith("@diablosugarfree.com") for a in s["sending_accounts"])  # never the main domain
 
 
