@@ -155,8 +155,8 @@ send:
   # switched off too (21 Oct 2026, Ariel, the same evening); kept, set to true to bring it back.
   reminder_to_company_inbox: false
   # With follow-ups off: days after the introduction with no reply before the company and the
-  # person emailed become "Contacted, but no response, unqualified" (the others there become
-  # "Unqualified company"). A reply after that is still seen in Instantly.
+  # person emailed become "Unqualified: Contacted, but no response" (the others there become
+  # "Unqualified: Colleague Contacted, but no response"). A reply after that is still seen in Instantly.
   no_reply_after_days: 7
   rotation:
     min_days_same_person: 7

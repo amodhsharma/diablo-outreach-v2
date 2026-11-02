@@ -5,12 +5,14 @@ What it adds, and nothing else:
     and "Outreach order" (group "Diablo outreach");
   - Lead Status: the choices the pipeline needs that the account does not have yet. In the live
     account that is "GATE1: Approved for outreach" (companies), "New, Personal line filled" and "GATE2: Approved to send"
-    (contacts). Existing choices are never changed, renamed, reordered or removed;
+    (contacts). Existing choices are never changed, reordered or removed; the only renames are the
+    agreed ones in stages.RENAMED (2 Nov 2026: the dead ends all start "Unqualified:"), done in place
+    so the records on them move with them;
   - in a test account only: Lead Source and Industry Type, created to match the live account.
     The live account already has them, so there they are only checked.
 
-Safe to run more than once: it only adds what is missing. It never deletes or renames anything
-and never touches a company or contact record. A dry run reads the account and lists exactly
+Safe to run more than once: it only adds what is missing and makes the agreed renames once. It never
+deletes anything and never touches a company or contact record. A dry run reads the account and lists exactly
 what would be added, changing nothing.
 
 Usage:
@@ -26,7 +28,7 @@ import sys
 from .common import PRODUCTION_PORTAL_ID, step_summary  # the live account; refused without --allow-production
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import GROUP_LABEL, GROUP_NAME, LEAD_STATUS, MIRRORED_PROPERTIES, NEW_PROPERTIES, PROPERTIES
-from .stages import NEW_OPTION_VALUES, STAGES
+from .stages import NEW_OPTION_VALUES, RENAMED, STAGES
 
 
 class Plan:
@@ -92,19 +94,56 @@ def ensure_property(hs, object_type, spec, existing, plan, add_missing_options=T
 
 # The only Lead Status choices the live account may receive (agreed 13 Oct 2026).
 LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
-                                  "Contacted, but no response, unqualified",  # 21 Oct 2026
                                   "Missing info on Apollo",  # 23 Oct 2026
                                   "Contact exists, not AUTO-OUTREACH",  # 26 Oct 2026
-                                  "Invalid inbox: Mail bounced, need input"},  # 28 Oct 2026
+                                  # 2 Nov 2026 (Ariel): the dead ends, each its own "Unqualified:" choice
+                                  "Unqualified: Employee response negative",
+                                  "Unqualified: Employee Opted-out/Blocklist",
+                                  "Unqualified: Contacted, but no response",  # renamed (21 Oct 2026)
+                                  "Unqualified: Company inbox bounced",  # renamed (28 Oct 2026)
+                                  "Unqualified: Personal inbox bounced",
+                                  "Unqualified: One contact inputted, which is unavailable"},
                     "contacts": {"New, Personal line filled", "GATE2: Approved to send",
                                  "Forward sent", "Reminder sent",  # these two added 14 Oct 2026
                                  # the rest of a company once someone there has answered (19 Oct 2026)
-                                 "Colleague replied: positive", "Colleague replied: negative",
-                                 "Colleague replied",
-                                 "Colleague opted out",  # 19 Oct 2026
+                                 "Colleague replied: positive", "Colleague replied",
                                  "Unqualified company",  # 21 Oct 2026
-                                 "Contacted, but no response, unqualified",  # 21 Oct 2026
-                                 "Unqualified Contact: Contact corrupt"}}  # 28 Oct 2026
+                                 # 2 Nov 2026 (Ariel): the dead ends, each its own "Unqualified:" choice
+                                 "Unqualified: Colleague response negative",  # renamed (19 Oct 2026)
+                                 "Unqualified: Colleague Opted-out/Blocklist",  # renamed (19 Oct 2026)
+                                 "Unqualified: Contacted, but no response",  # renamed (21 Oct 2026)
+                                 "Unqualified: Contact corrupt",  # renamed (28 Oct 2026)
+                                 "Unqualified: Response negative", "Unqualified: Opted-out/Blocklist",
+                                 "Unqualified: Bounced, other reason",
+                                 "Unqualified: Colleague Contacted, but no response",
+                                 "Unqualified: Inbox Bounced",
+                                 "Unqualified: Rejected/Redirected by company owner"}}
+
+
+def rename_options(hs, object_type, current, plan):
+    """The agreed renames (stages.RENAMED): an old label that is there, while its new label is not, gets the
+    new label in place, keeping its internal value, so every record on it moves with it. Returns the
+    choices as they are afterwards."""
+    options = [dict(o) for o in current.get("options", [])]
+    labels = {str(o["label"]).strip().lower() for o in options}
+    done = []
+    for o in options:
+        new = RENAMED[object_type].get(str(o["label"]).strip())
+        if new and new.lower() not in labels:
+            done.append((o["label"], new))
+            o["label"] = new
+            labels.add(new.lower())
+    if done and (current.get("modificationMetadata") or {}).get("readOnlyOptions"):
+        for old, new in done:
+            plan.note("conflict", f'{object_type}: HubSpot does not let a key rename Lead Status choices in this '
+                                  f'account. Rename "{old}" to "{new}" by hand: Settings > Properties > Lead Status.')
+        return current.get("options", [])
+    if done and not plan.dry_run:
+        hs.request("PATCH", f"/crm/v3/properties/{object_type}/{LEAD_STATUS}", json={"options": options})
+    for old, new in done:
+        plan.note("updated", f'{object_type}: {LEAD_STATUS}: rename the choice "{old}" to "{new}" (its records '
+                             "move with it)")
+    return options
 
 
 def ensure_lead_status(hs, object_type, existing, plan, live=False):
@@ -115,7 +154,7 @@ def ensure_lead_status(hs, object_type, existing, plan, live=False):
         plan.note("conflict", f"{object_type}: HubSpot's Lead Status field is missing in this account; "
                               "the pipeline cannot run here.")
         return
-    options = current.get("options", [])
+    options = rename_options(hs, object_type, current, plan)
     labels = {str(o["label"]).strip().lower() for o in options}
     values = {str(o["value"]) for o in options}
     missing = []

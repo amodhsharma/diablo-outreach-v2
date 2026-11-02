@@ -5,26 +5,39 @@ import itertools
 from outreach.hubspot_client import TagGuard
 from outreach.schema import TAG, TAG_PROPERTY
 
-# Lead Status choices as in the live account (value: label), plus the three the setup adds.
+# Lead Status choices as in the live account (value: label) once button 1 has added and renamed the
+# pipeline's choices (2 Nov 2026: the dead ends all start "Unqualified:", renamed ones keep their value).
 LIVE_COMPANY_STATUS = {"New": "New", "Missing Info": "Missing Info", "Emailed": "Emailed",
                        "In Progress": "In Progress", "Unqualified": "Unqualified",
                        "Attempted to Contact": "Attempted to Contact", "Won": "Won",
                        "GATE1: Approved for outreach": "GATE1: Approved for outreach",
-                       "Contacted, but no response, unqualified": "Contacted, but no response, unqualified",
+                       "Contacted, but no response, unqualified": "Unqualified: Contacted, but no response",
                        "Missing info on Apollo": "Missing info on Apollo",
                        "Contact exists, not AUTO-OUTREACH": "Contact exists, not AUTO-OUTREACH",
-                       "Invalid inbox: Mail bounced, need input": "Invalid inbox: Mail bounced, need input"}
+                       "Invalid inbox: Mail bounced, need input": "Unqualified: Company inbox bounced",
+                       "Unqualified: Employee response negative": "Unqualified: Employee response negative",
+                       "Unqualified: Employee Opted-out/Blocklist": "Unqualified: Employee Opted-out/Blocklist",
+                       "Unqualified: Personal inbox bounced": "Unqualified: Personal inbox bounced",
+                       "Unqualified: One contact inputted, which is unavailable":
+                           "Unqualified: One contact inputted, which is unavailable"}
 LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": "Emailed",
                        "IN_PROGRESS": "In Progress", "UNQUALIFIED": "Unqualified",
                        "ATTEMPTED_TO_CONTACT": "Attempted to Contact", "WON": "WON",
                        "NEW_PERSONAL_LINE_FILLED": "New, Personal line filled", "APPROVED_TO_SEND": "GATE2: Approved to send",
                        "FORWARD_SENT": "Forward sent", "REMINDER_SENT": "Reminder sent",
                        "COLLEAGUE_REPLIED_POSITIVE": "Colleague replied: positive",
-                       "COLLEAGUE_REPLIED_NEGATIVE": "Colleague replied: negative",
-                       "COLLEAGUE_REPLIED": "Colleague replied", "COLLEAGUE_OPTED_OUT": "Colleague opted out",
+                       "COLLEAGUE_REPLIED_NEGATIVE": "Unqualified: Colleague response negative",
+                       "COLLEAGUE_REPLIED": "Colleague replied",
+                       "COLLEAGUE_OPTED_OUT": "Unqualified: Colleague Opted-out/Blocklist",
                        "UNQUALIFIED_COMPANY": "Unqualified company",
-                       "CONTACTED_NO_RESPONSE_UNQUALIFIED": "Contacted, but no response, unqualified",
-                       "UNQUALIFIED_CONTACT_CORRUPT": "Unqualified Contact: Contact corrupt"}
+                       "CONTACTED_NO_RESPONSE_UNQUALIFIED": "Unqualified: Contacted, but no response",
+                       "UNQUALIFIED_CONTACT_CORRUPT": "Unqualified: Contact corrupt",
+                       "UNQUALIFIED_RESPONSE_NEGATIVE": "Unqualified: Response negative",
+                       "UNQUALIFIED_OPTED_OUT_BLOCKLIST": "Unqualified: Opted-out/Blocklist",
+                       "UNQUALIFIED_BOUNCED_OTHER": "Unqualified: Bounced, other reason",
+                       "COLLEAGUE_CONTACTED_NO_RESPONSE": "Unqualified: Colleague Contacted, but no response",
+                       "UNQUALIFIED_INBOX_BOUNCED": "Unqualified: Inbox Bounced",
+                       "UNQUALIFIED_REDIRECTED": "Unqualified: Rejected/Redirected by company owner"}
 
 
 class FakeCRM(TagGuard):

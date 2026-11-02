@@ -106,7 +106,7 @@ def import_file(path, hs, done_ids=None):
     result = f"{len(updates) - approved} contacts now on 'New, Personal line filled'"
     if approved:
         result += (f", {approved} straight to 'GATE2: Approved to send' (moved up to number 1 after a dead "
-                   "address)")
+                   "address or a Rejected/Redirected contact)")
     if moved_on:
         result += f", {moved_on} skipped (Lead Status no longer New)"
     if missing:

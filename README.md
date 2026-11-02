@@ -42,11 +42,9 @@ allowed only for the duplicate checks. Tests fail if any code writes to HubSpot 
 Removing the tag from a record is a "hands off" switch; nobody should type AUTO-OUTREACH on
 their own records.
 
-**Lead Status** says where each record is (`outreach/stages.py`). Five choices are added to it:
-*GATE1: Approved for outreach* (companies), *"New, Personal line filled"*, *GATE2: Approved to send*,
-*Forward sent* and *Reminder sent* (contacts; the last two added 14 Oct 2026 so every email can be
-checked in HubSpot). The existing
-choices are never changed.
+**Lead Status** says where each record is (`outreach/stages.py`). Button 1 adds the pipeline's own
+choices to it (for example *GATE1: Approved for outreach*, *"New, Personal line filled"* and *GATE2:
+Approved to send*). The team's own choices, such as plain Unqualified, are never changed.
 
 | Step | Company | Contact |
 |---|---|---|
@@ -59,9 +57,34 @@ choices are never changed.
 | Forward sent to the next person (persons 2 to 4) | | Forward sent |
 | Person 1's one reminder sent | | Reminder sent |
 | They replied | In Progress | In Progress |
-| Rejected, not interested, no reply, opted out or bounced | Unqualified | Unqualified |
-| A dead address: a hard bounce, or an automatic reply saying they have left (28 Oct 2026) | unchanged; GATE1 again when nobody is left | "Unqualified Contact: Contact corrupt" (Outreach order 0) |
-| A company inbox bounced and nobody is left to email (28 Oct 2026) | "Invalid inbox: Mail bounced, need input" | "Unqualified Contact: Contact corrupt" |
+
+**The dead ends (2 Nov 2026).** Each has its own choice starting "Unqualified:", so HubSpot shows why
+outreach stopped. Button 1 renamed the older ones in place, so their records moved with them.
+
+| What happened | Company | Person emailed | The others there |
+|---|---|---|---|
+| You rejected it | Unqualified | Unqualified company | Unqualified company |
+| The person said no | Unqualified: Employee response negative | Unqualified: Response negative | Unqualified: Colleague response negative |
+| The person opted out (unsubscribed or blocklisted) | Unqualified: Employee Opted-out/Blocklist | Unqualified: Opted-out/Blocklist | Unqualified: Colleague Opted-out/Blocklist |
+| Emailed, no reply after 1 week | Unqualified: Contacted, but no response | Unqualified: Contacted, but no response | Unqualified: Colleague Contacted, but no response |
+| Its company inbox bounced and nobody is left | Unqualified: Company inbox bounced | Unqualified: Inbox Bounced | - |
+| The person's address is dead, someone else is left | Attempted to Contact (unchanged) | Unqualified: Contact corrupt (Outreach order 0) | the next person moves up to number 1 and goes to GATE2 |
+| The person's address is dead, nobody is left | Unqualified: Personal inbox bounced | Unqualified: Contact corrupt | - |
+| Bounced for another reason (a full mailbox) | unchanged | Unqualified: Bounced, other reason | unchanged |
+| You mark the person Rejected/Redirected (on leave, or they point to someone else) | unchanged; with nobody left: Unqualified: One contact inputted, which is unavailable | Unqualified: Rejected/Redirected by company owner (Outreach order 0) | the next person moves up (see below) |
+
+Plain "Unqualified" on a contact is now only a contact you rejected at gate 2. A contact or company
+still on plain Unqualified from before 2 Nov 2026 gets its exact label at the next run of button 4,
+read from Instantly. Only AUTO-OUTREACH records are ever changed.
+
+**When someone is on leave or points you to a colleague (2 Nov 2026).** Add the new person in HubSpot
+with their email address and Lead source AUTO-OUTREACH, link them to the company, and leave Lead
+Status and Outreach order empty. Then set the original person to "Unqualified: Rejected/Redirected by
+company owner". At the next run of button 3 the original person gets Outreach order 0, the people you
+added become number 1 (then the backups already there), and are set to New. The next mail-writing run
+writes their line, they go to GATE2 by themselves, and the next run of button 4 emails them. Until then
+nobody else at the company is emailed and the company is not closed as "no response". Button 3's
+summary lists every company it moved on this way, and any person you added without an email address.
 
 Any other Lead Status (for example Emailed or Won) means a person has taken the record over:
 the pipeline stops there and never changes it. To reject a company at gate 1, set it to

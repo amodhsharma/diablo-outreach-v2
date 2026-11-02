@@ -4,23 +4,24 @@ At every run of button 4, after Instantly's results are copied to HubSpot (sync.
 whose email bounced, and each contact whose automatic reply says they have left, is checked once:
 
     What happened                                   The contact
-    A hard bounce: the address does not exist or    "Unqualified Contact: Contact corrupt", Outreach
-      the mailbox is no longer used                   order 0, "Outreach stopped because" says why
+    A hard bounce: the address does not exist or    "Unqualified: Contact corrupt", Outreach order 0,
+      the mailbox is no longer used                   "Outreach stopped because" says why
     An automatic reply saying they have left the    the same
       company or the mailbox is no longer read
-    Any other bounce (a full mailbox, a server       left as it is today (Unqualified); listed on the
-      problem)                                         run's summary page
-    A bounce whose message cannot be read            left as it is today; listed on the summary page
-                                                       to be checked by hand
+    Any other bounce (a full mailbox, a server       "Unqualified: Bounced, other reason" (2 Nov 2026);
+      problem)                                         listed on the run's summary page
+    A bounce whose message cannot be read            the same; listed on the summary page to be
+                                                       checked by hand
 
-A company inbox (info@, sales@) with a dead address gets the same contact label. Then, at its company:
+A company inbox (info@, sales@) with a dead address gets "Unqualified: Inbox Bounced" instead (2 Nov
+2026). Then, at its company:
   - everyone below moves up one (2 becomes 1, 3 becomes 2, ...);
   - the new number 1 becomes "GATE2: Approved to send" when its personal line is written, or as soon
     as the line arrives (import_lines); its introduction goes at the NEXT run of button 4, never in
     the same run (data/promoted.json remembers who moved up and in which run);
-  - when nobody is left to email, the company goes back to "GATE1: Approved for outreach" so button 3
-    looks for new people at its next monthly check, or, when the dead address was its company inbox,
-    to "Invalid inbox: Mail bounced, need input" for a person to add a working address;
+  - when nobody is left to email, the company stops (2 Nov 2026, Ariel): "Unqualified: Personal inbox
+    bounced", or "Unqualified: Company inbox bounced" when the dead address was its company inbox (add
+    a working address and set it back to GATE1 by hand). Before 2 Nov 2026 it went back to GATE1;
   - a company closed as "no response" only because its contact bounced (before 28 Oct 2026) is put
     right the same way.
 A dead contact stays in HubSpot, so button 3 never adds the same address again. Only AUTO-OUTREACH
@@ -40,7 +41,8 @@ from .stages import EMAILED
 
 PROMOTED_FILE = ROOT / "data" / "promoted.json"
 HOLD_MINUTES = 60  # without a GitHub run number, someone approved this recently waits for the next run
-DONE_PREFIXES = ("contact corrupt", "email bounced")  # "Outreach stopped because": already checked
+DONE_PREFIXES = ("contact corrupt", "email bounced", "inbox bounced")  # "Outreach stopped because": checked
+BOUNCE_STAGES = EMAILED + ("closed", "bounced_other")
 
 # The bounce says the address is dead (address unknown, mailbox closed or no longer used).
 DEAD = re.compile(
@@ -174,7 +176,7 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
     from .sync import stop_reasons  # sync imports this module
     out = {"corrupt": 0, "rows": [], "to_check": []}
     if not statuses.has("contacts", "corrupt"):
-        log('The contact Lead Status choice "Unqualified Contact: Contact corrupt" is missing; run button 1 to add '
+        log('The contact Lead Status choice "Unqualified: Contact corrupt" is missing; run button 1 to add '
             "it. Dead addresses were not checked this run.")
         return out
     promoted = load_promoted(promoted_path)
@@ -185,9 +187,9 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
         return out
     bounced = {e: l for e, l in (leads or {}).items() if l.get("status") == -1}
     rows = hs.tagged_read("contacts", list(bounced), CONTACT_PROPS, id_property="email") if bounced else []
-    reasons, corrupt = [], {}  # corrupt: {contact id: (record, why)}
+    reasons, corrupt, other = [], {}, []  # corrupt: {contact id: (record, why)}
     for r in rows:
-        if statuses.of("contacts", r) not in EMAILED + ("closed",) or _done(r):
+        if statuses.of("contacts", r) not in BOUNCE_STAGES or _done(r):
             continue
         email = (r["properties"].get("email") or "").lower()
         try:
@@ -201,14 +203,16 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
             corrupt[str(r["id"])] = (r, f"Contact corrupt: email bounced, the address does not exist or is no "
                                         f"longer used ({today()})")
         else:
-            why = ("not a dead address (for example a full mailbox), so left as Unqualified" if kind == "other"
-                   else "the reason could not be read, check by hand")
+            why = ("not a dead address (for example a full mailbox): Unqualified: Bounced, other reason"
+                   if kind == "other" else "the reason could not be read, check by hand")
             reasons.append((r["id"], f"Email bounced ({today()}): {why}"))
             out["to_check"].append((r, why))
+            if statuses.of("contacts", r) != "bounced_other" and statuses.has("contacts", "bounced_other"):
+                other.append((r["id"], statuses.props("contacts", "bounced_other")))
     for r, _lead, event in seen or ():
         if event != "out of office" or str(r["id"]) in corrupt or _done(r):
             continue
-        if statuses.of("contacts", r) not in EMAILED + ("closed",):
+        if statuses.of("contacts", r) not in BOUNCE_STAGES:
             continue
         try:
             thread = emails_api.thread_emails((r["properties"].get("email") or "").lower())
@@ -217,6 +221,8 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
         if has_left(thread):
             corrupt[str(r["id"])] = (r, f"Contact corrupt: an automatic reply says they have left or the mailbox "
                                         f"is no longer read ({today()})")
+    if other:
+        hs.update_tagged("contacts", other)
     stop_reasons(hs, "contacts", reasons, log)
     if corrupt:
         _move_up(hs, statuses, corrupt, leads, promoted, out, log)
@@ -227,8 +233,12 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
 
 def _move_up(hs, statuses, corrupt, leads, promoted, out, log):
     from .sync import stop_reasons
-    value = statuses.props("contacts", "corrupt")
-    hs.update_tagged("contacts", [(cid, {**value, ORDER: "0"}) for cid in corrupt])
+    # 2 Nov 2026 (Ariel): a company inbox gets "Unqualified: Inbox Bounced", a person "Unqualified: Contact corrupt".
+    for cid, (r, why) in list(corrupt.items()):
+        if is_company_inbox(r):
+            corrupt[cid] = (r, why.replace("Contact corrupt:", "Inbox bounced:", 1))
+    hs.update_tagged("contacts", [(cid, {**statuses.props("contacts", "inbox_bounced" if is_company_inbox(r) else
+                                                          "corrupt"), ORDER: "0"}) for cid, (r, _) in corrupt.items()])
     stop_reasons(hs, "contacts", [(cid, why) for cid, (_, why) in corrupt.items()], log)
     out["corrupt"] += len(corrupt)
     owner_of, companies = tagged_company_of(hs, list(corrupt), ["name", LEAD_STATUS])
@@ -272,34 +282,26 @@ def _move_up(hs, statuses, corrupt, leads, promoted, out, log):
         usable = [c for c in rest if c["state"] in ("pending", "approved", "queued", "sent")]
         stage = statuses.of("companies", company) if company else "team"
         if not usable and stage in ("", "approved", "in_outreach", "no_response"):
+            # 2 Nov 2026 (Ariel): nobody left, so the company stops (it no longer goes back to GATE1).
             if dead_inbox and statuses.has("companies", "invalid_inbox"):
                 company_updates.append((company_id, statuses.props("companies", "invalid_inbox")))
                 stop_reasons(hs, "companies", [(company_id, f"Company inbox bounced, needs a working address "
                                                             f"({today()})")], log)
-                out["rows"].append(f"| {name} | - | Company: Invalid inbox: Mail bounced, need input |")
-                log(f'{name}: its company inbox bounced and nobody is left; the company is now "Invalid inbox: '
-                    'Mail bounced, need input"')
+                out["rows"].append(f"| {name} | - | Company: Unqualified: Company inbox bounced |")
+                log(f'{name}: its company inbox bounced and nobody is left; the company is now "Unqualified: '
+                    'Company inbox bounced"')
             else:
-                company_updates.append((company_id, statuses.props("companies", "approved")))
-                _company_reason(hs, company_id, f"Back to GATE1 ({today()}): its contacts' addresses are dead; "
-                                                "button 3 looks for new people", log)
-                out["rows"].append(f"| {name} | - | Company back to GATE1: button 3 looks for new people at its "
-                                   "next monthly check |")
-                log(f"{name}: nobody is left to email; the company is back on GATE1 for new people")
+                company_updates.append((company_id, statuses.props("companies", "personal_bounced")))
+                stop_reasons(hs, "companies", [(company_id, f"Personal inbox bounced: its contacts' addresses are "
+                                                            f"dead and nobody is left ({today()})")], log)
+                out["rows"].append(f"| {name} | - | Company: Unqualified: Personal inbox bounced (nobody left) |")
+                log(f'{name}: nobody is left to email; the company is now "Unqualified: Personal inbox bounced"')
         elif usable and stage == "no_response" and not any(c["state"] == "sent" for c in usable):
             company_updates.append((company_id, statuses.props("companies", "in_outreach")))
             out["rows"].append(f"| {name} | - | Company back in outreach (it was closed only because of the "
                                "bounce) |")
     hs.update_tagged("contacts", contact_updates)
     hs.update_tagged("companies", company_updates)
-
-
-def _company_reason(hs, company_id, text, log):
-    try:
-        if hs.has_property("companies", STOP_REASON):
-            hs.update_tagged("companies", [(company_id, {STOP_REASON: text[:250]})])
-    except Exception as err:
-        log(f"Could not write why the company went back to GATE1: {str(err)[:200]}")
 
 
 def _approve_waiting(hs, statuses, promoted, log):
@@ -328,7 +330,7 @@ def _approve_waiting(hs, statuses, promoted, log):
 def _summary(out):
     text = ""
     if out["rows"]:
-        text += ("## Dead addresses (Unqualified Contact: Contact corrupt)\n\n| Company | Person (job title) | "
+        text += ("## Dead addresses (Unqualified: Contact corrupt)\n\n| Company | Person (job title) | "
                  "What happened |\n|---|---|---|\n" + "\n".join(out["rows"]) + "\n\n")
     if out["to_check"]:
         text += ("## Bounces left as they are\n\n| Person (job title) | Why |\n|---|---|\n"

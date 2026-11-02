@@ -20,22 +20,35 @@ account itself, so the code works whatever the account calls a choice internally
     Forward sent to a colleague (persons 2-4)                                Forward sent
     Person 1's one reminder sent                                             Reminder sent
     They replied                               In Progress                   In Progress
-    Any dead end (rejected, not interested,    Unqualified                   Unqualified
-    opted out, bounced)
-    No reply in time (21 Oct 2026; follow-ups  "Contacted, but no response,   the same, for the person
-    to people are off)                         unqualified"                  emailed
-    The address is dead (28 Oct 2026): a hard                                "Unqualified Contact:
-    bounce, or an automatic reply saying the                                 Contact corrupt" (Outreach
-    person has left (see corrupt.py)                                         order 0)
-    Its company inbox bounced and nobody is    "Invalid inbox: Mail bounced,
-    left to email (28 Oct 2026)                need input"
-    The company is Unqualified (by a person                                  Unqualified company
-    or the loop, 21 Oct 2026): its other
-    contacts, so a contact's own Unqualified
-    stays apart
-    A colleague at the company answered for                                  "Colleague replied: positive",
-    everyone (19 Oct 2026): the others are                                   "Colleague replied: negative" or
-    never emailed and show what happened                                     "Colleague replied"
+    A colleague replied (19 Oct 2026)                                        "Colleague replied: positive"
+                                                                             or "Colleague replied"
+
+The dead ends (agreed 2 Nov 2026, Ariel). Columns: the company, the person emailed, the others there.
+
+    You rejected it          Unqualified                  Unqualified company          Unqualified company
+    The person said no       Unqualified: Employee        Unqualified: Response        Unqualified: Colleague
+                             response negative            negative                     response negative
+    The person opted out     Unqualified: Employee        Unqualified: Opted-out/      Unqualified: Colleague
+    (unsubscribed, on the    Opted-out/Blocklist          Blocklist                    Opted-out/Blocklist
+    blocklist, asked to stop)
+    No reply after 1 week    Unqualified: Contacted,      Unqualified: Contacted,      Unqualified: Colleague
+                             but no response              but no response              Contacted, but no response
+    Its company inbox        Unqualified: Company inbox   Unqualified: Inbox Bounced   -
+    bounced, nobody left     bounced
+    A dead address, someone  Attempted to Contact         Unqualified: Contact         the next person moves up
+    else is left             (unchanged)                  corrupt (Outreach order 0)   (corrupt.py)
+    A dead address, nobody   Unqualified: Personal inbox  Unqualified: Contact
+    left                     bounced                      corrupt
+    Any other bounce         unchanged                    Unqualified: Bounced,        unchanged
+    (a full mailbox)                                      other reason
+    A person marks the       unchanged while someone is   Unqualified: Rejected/       the next person moves up
+    contact by hand          left; with nobody left:      Redirected by company        (redirect.py)
+    (on leave, redirected)   "Unqualified: One contact    owner (Outreach order 0)
+                             inputted, which is
+                             unavailable"
+
+Plain "Unqualified" on a contact stays for a contact rejected at gate 2 by hand; the team's own
+records outside AUTO-OUTREACH use it too and are never touched.
 
 Any other Lead Status (for example Emailed or Won) means a person has taken the record over:
 the pipeline treats it as "team" and stops.
@@ -58,11 +71,18 @@ STAGES = {
         "approved": "GATE1: Approved for outreach",
         "in_outreach": "Attempted to Contact",
         "replied": "In Progress",
+        # 2 Nov 2026 (Ariel): plain Unqualified is now only "you rejected it".
         "closed": "Unqualified",
+        "said_no": "Unqualified: Employee response negative",
+        "opted_out": "Unqualified: Employee Opted-out/Blocklist",
         # 21 Oct 2026 (Ariel): the introduction got no reply in time; no follow-ups are sent.
-        "no_response": "Contacted, but no response, unqualified",
+        "no_response": "Unqualified: Contacted, but no response",
         # 28 Oct 2026 (Ariel): its company inbox bounced and nobody else is left to email.
-        "invalid_inbox": "Invalid inbox: Mail bounced, need input",
+        "invalid_inbox": "Unqualified: Company inbox bounced",
+        # 2 Nov 2026 (Ariel): a person's address is dead and nobody is left to email.
+        "personal_bounced": "Unqualified: Personal inbox bounced",
+        # 2 Nov 2026 (Ariel): the one contact was marked Rejected/Redirected and nobody is left.
+        "redirected_none": "Unqualified: One contact inputted, which is unavailable",
     },
     "contacts": {
         "found": "New",
@@ -72,53 +92,97 @@ STAGES = {
         "forwarded": "Forward sent",
         "reminded": "Reminder sent",
         "replied": "In Progress",
+        # 2 Nov 2026 (Ariel): plain Unqualified is now only a contact rejected at gate 2 by hand.
         "closed": "Unqualified",
+        "said_no": "Unqualified: Response negative",
+        "opted_out": "Unqualified: Opted-out/Blocklist",
+        "bounced_other": "Unqualified: Bounced, other reason",
         # The rest of a company once someone there has answered (agreed 19 Oct 2026).
         "colleague_positive": "Colleague replied: positive",
-        "colleague_negative": "Colleague replied: negative",
+        "colleague_negative": "Unqualified: Colleague response negative",
         "colleague_replied": "Colleague replied",
         # Someone at the company opted out (19 Oct 2026): blocklisted, unsubscribed or asked to stop.
-        "colleague_opted_out": "Colleague opted out",
-        # The company is Unqualified (21 Oct 2026, Ariel): every other contact there, kept apart from
-        # a contact's own "Unqualified".
+        "colleague_opted_out": "Unqualified: Colleague Opted-out/Blocklist",
+        # The company is Unqualified because you rejected it (21 Oct 2026, Ariel): every other contact there.
         "company_unqualified": "Unqualified company",
         # 21 Oct 2026 (Ariel): the person emailed did not reply in time.
-        "no_response": "Contacted, but no response, unqualified",
+        "no_response": "Unqualified: Contacted, but no response",
+        # 2 Nov 2026 (Ariel): the others at a company whose person emailed did not reply in time.
+        "colleague_no_response": "Unqualified: Colleague Contacted, but no response",
         # 28 Oct 2026 (Ariel): the address is dead (a hard bounce, or the person has left); the problem is
-        # the contact, not the company.
-        "corrupt": "Unqualified Contact: Contact corrupt",
+        # the contact, not the company. A company inbox gets its own label (2 Nov 2026).
+        "corrupt": "Unqualified: Contact corrupt",
+        "inbox_bounced": "Unqualified: Inbox Bounced",
+        # 2 Nov 2026 (Ariel): set by hand (on leave, or pointed us to someone else); see redirect.py.
+        "redirected": "Unqualified: Rejected/Redirected by company owner",
     },
 }
-COLLEAGUE_STAGES = ("colleague_positive", "colleague_negative", "colleague_replied", "colleague_opted_out")
+# The old labels, renamed in place by button 1 so the records on them move with them (2 Nov 2026).
+RENAMED = {
+    "companies": {"Contacted, but no response, unqualified": "Unqualified: Contacted, but no response",
+                  "Invalid inbox: Mail bounced, need input": "Unqualified: Company inbox bounced"},
+    "contacts": {"Colleague replied: negative": "Unqualified: Colleague response negative",
+                 "Colleague opted out": "Unqualified: Colleague Opted-out/Blocklist",
+                 "Contacted, but no response, unqualified": "Unqualified: Contacted, but no response",
+                 "Unqualified Contact: Contact corrupt": "Unqualified: Contact corrupt"},
+}
+COLLEAGUE_STAGES = ("colleague_positive", "colleague_negative", "colleague_replied", "colleague_opted_out",
+                    "colleague_no_response")
 # Contact stages that mean "emailed, no reply yet" (agreed 14 Oct 2026: the forward and the
 # reminder get their own Lead Status so they can be checked in HubSpot).
 EMAILED = ("in_outreach", "forwarded", "reminded")
+# A contact's own dead end (2 Nov 2026: plain Unqualified split by what happened).
+CONTACT_CLOSED = ("closed", "said_no", "opted_out", "bounced_other")
+# A contact who is never emailed again and whose place the next person takes.
+LEFT_OUT = ("corrupt", "inbox_bounced", "redirected")
+# A company that is Unqualified because of an answer, or because you rejected it.
+COMPANY_CLOSED = ("closed", "said_no", "opted_out")
+# Until button 1 adds a new choice, the stage used instead (2 Nov 2026).
+FALLBACK = {"said_no": "closed", "opted_out": "closed", "bounced_other": "closed", "inbox_bounced": "corrupt",
+            "colleague_no_response": "company_unqualified", "personal_bounced": "closed",
+            "redirected_none": "closed"}
 
 # The internal value given to a choice when the setup has to add it (matching the live
-# account's style: companies use the label itself, contacts use capitals).
+# account's style: companies use the label itself, contacts use capitals). A renamed choice keeps
+# the value it had.
 NEW_OPTION_VALUES = {
     "companies": {"GATE1: Approved for outreach": "GATE1: Approved for outreach", "Missing Info": "Missing Info",
                   "Missing info on Apollo": "Missing info on Apollo",
                   "Contact exists, not AUTO-OUTREACH": "Contact exists, not AUTO-OUTREACH", "New": "New", "Attempted to Contact": "Attempted to Contact",
                   "In Progress": "In Progress", "Unqualified": "Unqualified",
-                  "Contacted, but no response, unqualified": "Contacted, but no response, unqualified",
-                  "Invalid inbox: Mail bounced, need input": "Invalid inbox: Mail bounced, need input"},
+                  "Unqualified: Employee response negative": "Unqualified: Employee response negative",
+                  "Unqualified: Employee Opted-out/Blocklist": "Unqualified: Employee Opted-out/Blocklist",
+                  "Unqualified: Contacted, but no response": "Contacted, but no response, unqualified",
+                  "Unqualified: Company inbox bounced": "Invalid inbox: Mail bounced, need input",
+                  "Unqualified: Personal inbox bounced": "Unqualified: Personal inbox bounced",
+                  "Unqualified: One contact inputted, which is unavailable":
+                      "Unqualified: One contact inputted, which is unavailable"},
     "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
                  "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "Forward sent": "FORWARD_SENT",
                  "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
                  "Unqualified": "UNQUALIFIED", "Colleague replied: positive": "COLLEAGUE_REPLIED_POSITIVE",
-                 "Colleague replied: negative": "COLLEAGUE_REPLIED_NEGATIVE",
-                 "Colleague replied": "COLLEAGUE_REPLIED", "Colleague opted out": "COLLEAGUE_OPTED_OUT",
+                 "Unqualified: Colleague response negative": "COLLEAGUE_REPLIED_NEGATIVE",
+                 "Colleague replied": "COLLEAGUE_REPLIED",
+                 "Unqualified: Colleague Opted-out/Blocklist": "COLLEAGUE_OPTED_OUT",
                  "Unqualified company": "UNQUALIFIED_COMPANY",
-                 "Contacted, but no response, unqualified": "CONTACTED_NO_RESPONSE_UNQUALIFIED",
-                 "Unqualified Contact: Contact corrupt": "UNQUALIFIED_CONTACT_CORRUPT"},
+                 "Unqualified: Contacted, but no response": "CONTACTED_NO_RESPONSE_UNQUALIFIED",
+                 "Unqualified: Contact corrupt": "UNQUALIFIED_CONTACT_CORRUPT",
+                 "Unqualified: Response negative": "UNQUALIFIED_RESPONSE_NEGATIVE",
+                 "Unqualified: Opted-out/Blocklist": "UNQUALIFIED_OPTED_OUT_BLOCKLIST",
+                 "Unqualified: Bounced, other reason": "UNQUALIFIED_BOUNCED_OTHER",
+                 "Unqualified: Colleague Contacted, but no response": "COLLEAGUE_CONTACTED_NO_RESPONSE",
+                 "Unqualified: Inbox Bounced": "UNQUALIFIED_INBOX_BOUNCED",
+                 "Unqualified: Rejected/Redirected by company owner": "UNQUALIFIED_REDIRECTED"},
 }
 
 # Later stages win: a status only ever moves forward.
 ORDER = {"": 0, "found": 0, "missing_info": 0, "missing_apollo": 0, "contact_exists": 0, "copy_ready": 0, "approved": 0,
          "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3,
+         "said_no": 3, "opted_out": 3, "bounced_other": 3,
          "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2,
-         "company_unqualified": 3, "no_response": 3, "corrupt": 3, "invalid_inbox": 3}
+         "colleague_no_response": 3,
+         "company_unqualified": 3, "no_response": 3, "corrupt": 3, "inbox_bounced": 3, "redirected": 3,
+         "invalid_inbox": 3, "personal_bounced": 3, "redirected_none": 3}
 TEAM = "team"
 
 
@@ -135,8 +199,10 @@ class LeadStatus:
             by_label = {str(label).strip().lower(): value for value, label in labels.items()}
             self._value[obj] = {}
             self._stage[obj] = {}
+            old = {new.lower(): before.lower() for before, new in RENAMED[obj].items()}
             for stage, label in stages.items():
-                value = by_label.get(label.lower())
+                # Until button 1 has renamed a choice (2 Nov 2026), it is found under its old label.
+                value = by_label.get(label.lower(), by_label.get(old.get(label.lower(), "")))
                 if value is not None:
                     self._value[obj][stage] = value
                     self._stage[obj][str(value).lower()] = stage
@@ -177,6 +243,10 @@ class LeadStatus:
         return {"propertyName": LEAD_STATUS, "operator": "EQ", "value": self.value(obj, stage)}
 
     def props(self, obj, stage):
+        """The props for a stage. A choice added on 2 Nov 2026 that the account does not have yet (button 1
+        not pressed since) falls back to the one used before (FALLBACK), so nothing stops."""
+        if not self.has(obj, stage) and stage in FALLBACK:
+            return self.props(obj, FALLBACK[stage])
         return {LEAD_STATUS: self.value(obj, stage)}
 
 
@@ -189,4 +259,5 @@ def forward(old_stage, new_stage):
 
 
 # A company in one of these stages gets no more emails.
-COMPANY_STOPPED = {"replied", "closed", "no_response", "invalid_inbox", TEAM}
+COMPANY_STOPPED = {"replied", "closed", "said_no", "opted_out", "no_response", "invalid_inbox", "personal_bounced",
+                   "redirected_none", TEAM}

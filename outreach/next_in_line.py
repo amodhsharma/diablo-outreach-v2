@@ -23,7 +23,7 @@ import re
 
 from .common import INDUSTRY_PARTNER
 from .schema import COMPANY_NOTE, INBOX_TITLE, LEAD_STATUS, ORDER, PERSONAL_LINE, STOP_REASON
-from .stages import COMPANY_STOPPED, EMAILED
+from .stages import COMPANY_STOPPED, EMAILED, LEFT_OUT
 
 CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", PERSONAL_LINE, COMPANY_NOTE, LEAD_STATUS, ORDER,
                  STOP_REASON]
@@ -35,8 +35,9 @@ COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STAT
 #   queued    in Instantly, first email not sent yet
 #   sent      emailed, no reply
 #   bounced   the email bounced (the company carries on with the others)
-#   skipped   set to Unqualified before being emailed (rejected at gate 2), or a dead address
-#             ("Unqualified Contact: Contact corrupt", 28 Oct 2026): left out
+#   skipped   set to Unqualified before being emailed (rejected at gate 2), a dead address
+#             ("Unqualified: Contact corrupt" or "Unqualified: Inbox Bounced", 28 Oct 2026), or marked
+#             "Unqualified: Rejected/Redirected by company owner" by hand (2 Nov 2026): left out
 #   stop      replied, opted out, not interested, or taken over by a person: the company stops
 STOP = "stop"
 
@@ -79,17 +80,17 @@ def instantly_view(instantly, prefix):
 def contact_state(contact, statuses, leads):
     stage = statuses.of("contacts", contact)
     lead = leads.get((contact["properties"].get("email") or "").lower())
-    if stage == "corrupt":  # 28 Oct 2026: a dead address, never emailed again; the others carry on
+    if stage in LEFT_OUT:  # a dead address (28 Oct 2026) or redirected (2 Nov 2026): the others carry on
         return "skipped"
     if stage in ("", "found", "copy_ready"):
         return "pending"
     if stage == "approved":
         return "approved"
-    if stage in EMAILED + ("closed",) and lead is not None and lead.get("status") == -1:
+    if stage in EMAILED + ("closed", "bounced_other") and lead is not None and lead.get("status") == -1:
         return "bounced"
     if stage in EMAILED:
         return "sent" if lead and lead.get("timestamp_last_contact") else "queued"
-    if stage == "closed" and lead is None:
+    if stage in ("closed", "bounced_other") and lead is None:
         return "skipped"
     return STOP  # replied, closed (opted out or not interested) or a person's own Lead Status
 

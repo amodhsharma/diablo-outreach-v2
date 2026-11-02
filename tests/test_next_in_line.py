@@ -12,6 +12,8 @@ from outreach.schema import INBOX_TITLE
 
 from .fakes import FakeCRM, FakeEmails, FakeInstantly
 
+OPTED = "Unqualified: Employee Opted-out/Blocklist"  # the company after an opt-out (2 Nov 2026)
+
 
 def quiet(_):
     pass
@@ -196,7 +198,7 @@ def test_a_bounce_is_never_named_and_the_loop_carries_on(settings):
     hs, instantly, emails, cid, (p1, p2, p3) = started(settings, name="Bounce Co", domain="bounce.in", days=4)
     lead(instantly, "p1@bounce.in").update(status=-1)
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert status_of(hs, p1) == "UNQUALIFIED" and hs.records["companies"][cid][LS] == "Attempted to Contact"
+    assert status_of(hs, p1) == "UNQUALIFIED_BOUNCED_OTHER" and hs.records["companies"][cid][LS] == "Attempted to Contact"
     # Person 1 bounced: nobody to name and nothing worth forwarding, so person 2 gets the introduction.
     assert moved["forwards_sent"] == 0 and moved["next_contacts_added"] == 1
     assert status_of(hs, p2) == "ATTEMPTED_TO_CONTACT"
@@ -351,7 +353,7 @@ def test_colleagues_show_a_positive_or_negative_answer(settings):
     hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=0.5)
     lead(instantly, "p1@noble.in").update(lt_interest_status=-1)  # marked not interested
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert hs.records["companies"][cid][LS] == "Unqualified"
+    assert hs.records["companies"][cid][LS] == "Unqualified: Employee response negative"
     assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_REPLIED_NEGATIVE"
 
 
@@ -362,7 +364,7 @@ def test_a_blocklisted_person_1_stops_the_company(settings):
     instantly.blocked = {"p1@noble.in"}
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["forwards_sent"] == 0 and not emails.forwards
-    assert status_of(hs, p1) == "UNQUALIFIED" and hs.records["companies"][cid][LS] == "Unqualified"
+    assert status_of(hs, p1) == "UNQUALIFIED_OPTED_OUT_BLOCKLIST" and hs.records["companies"][cid][LS] == OPTED
     # 19 Oct 2026: the others show "Colleague opted out" and HubSpot says why, also on the timeline.
     assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_OPTED_OUT"
     assert hs.records["contacts"][p1]["diablo_stop_reason"].startswith("Opted out: on Instantly's blocklist (")
@@ -434,7 +436,7 @@ def test_an_unreadable_blocklist_never_stops_the_other_emails(settings, monkeypa
     instantly.blocklist = refuse
     hs.records["contacts"][q1]["diablo_stop_reason"] = "Opted out: on Instantly's blocklist (18 Oct 2026)"
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert moved["forwards_sent"] == 0 and hs.records["companies"][cid2][LS] == "Unqualified"
+    assert moved["forwards_sent"] == 0 and hs.records["companies"][cid2][LS] == OPTED
 
 
 def test_the_blocklist_is_checked_again_just_before_an_email(settings, monkeypatch):
@@ -448,7 +450,7 @@ def test_the_blocklist_is_checked_again_just_before_an_email(settings, monkeypat
     monkeypatch.setattr(sync, "BLOCKLIST_FRESH_SECONDS", -1)  # always read again before an email
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert len(calls) >= 2 and moved["forwards_sent"] == 0 and not emails.forwards
-    assert hs.records["companies"][cid][LS] == "Unqualified" and status_of(hs, p2) == "COLLEAGUE_OPTED_OUT"
+    assert hs.records["companies"][cid][LS] == OPTED and status_of(hs, p2) == "COLLEAGUE_OPTED_OUT"
 
 
 def test_an_automatic_answer_is_no_reply(settings):
@@ -480,8 +482,8 @@ def test_a_reply_asking_to_stop_is_an_opt_out(settings):
     lead(instantly, "p1@noble.in").update(email_reply_count=1)
     emails.received("p1@noble.in", ago(1), text="Please remove me from your mailing list.")
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert moved["forwards_sent"] == 0 and status_of(hs, p1) == "UNQUALIFIED"
-    assert hs.records["companies"][cid][LS] == "Unqualified" and status_of(hs, p2) == "COLLEAGUE_OPTED_OUT"
+    assert moved["forwards_sent"] == 0 and status_of(hs, p1) == "UNQUALIFIED_OPTED_OUT_BLOCKLIST"
+    assert hs.records["companies"][cid][LS] == OPTED and status_of(hs, p2) == "COLLEAGUE_OPTED_OUT"
     assert hs.records["contacts"][p1]["diablo_stop_reason"].startswith("Opted out: asked in a reply")
 
     # The same in German, to a forward (Instantly's campaign does not count replies to forwards).
@@ -491,8 +493,8 @@ def test_a_reply_asking_to_stop_is_an_opt_out(settings):
     for e in emails.emails[:-1]:
         e["timestamp_email"] = ago(4)
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert moved["forwards_sent"] == 0 and status_of(hs, p2) == "UNQUALIFIED"
-    assert hs.records["companies"][cid][LS] == "Unqualified" and status_of(hs, p3) == "COLLEAGUE_OPTED_OUT"
+    assert moved["forwards_sent"] == 0 and status_of(hs, p2) == "UNQUALIFIED_OPTED_OUT_BLOCKLIST"
+    assert hs.records["companies"][cid][LS] == OPTED and status_of(hs, p3) == "COLLEAGUE_OPTED_OUT"
 
 
 def test_without_the_new_choice_colleagues_show_negative(settings):
@@ -692,5 +694,5 @@ def test_with_follow_ups_off_the_company_closes_after_a_week(settings):
     assert moved["no_reply"] == 1 and moved["forwards_sent"] == 0 and moved["reminders_sent"] == 0
     assert hs.records["companies"][cid][LS] == "Contacted, but no response, unqualified"
     assert status_of(hs, p1) == "CONTACTED_NO_RESPONSE_UNQUALIFIED"
-    assert status_of(hs, p2) == status_of(hs, p3) == "UNQUALIFIED_COMPANY"  # in the same run
+    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_CONTACTED_NO_RESPONSE"  # in the same run
     assert emails.forwards == [] and emails.replies == []

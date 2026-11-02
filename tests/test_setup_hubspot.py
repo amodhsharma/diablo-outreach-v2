@@ -5,6 +5,7 @@ import pytest
 from outreach import setup_hubspot
 from outreach.hubspot_client import HubSpotError
 from outreach.schema import CONTACT_SOURCE, COMPANY_NOTE, GROUP_NAME, INDUSTRY_TYPES, NEW_PROPERTIES, ORDER, PERSONAL_LINE, STOP_REASON
+from outreach.setup_hubspot import LIVE_NEW_CHOICES
 from outreach.stages import STAGES
 
 
@@ -96,28 +97,14 @@ def test_live_gets_exactly_four_fields_and_five_choices():
     # the two groups, the five contact fields, (19 Oct 2026) the company's "Outreach stopped because"
     # and (21 Oct 2026) its "Job Number"
     assert summary["created"] == 9
-    # GATE1: Approved for outreach; "New, Personal line filled", GATE2: Approved to send, and (14 Oct 2026)
-    # "Forward sent" and "Reminder sent", and (19 Oct 2026) the three "Colleague replied" choices and
-    # "Colleague opted out", and (21 Oct 2026) "Unqualified company" and, on both, "Contacted, but no
-    # response, unqualified", and (23 Oct 2026) the company's "Missing info on Apollo" and (26 Oct 2026)
-    # "Contact exists, not AUTO-OUTREACH", and (28 Oct 2026) the company's "Invalid inbox: Mail bounced, need
-    # input" and the contact's "Unqualified Contact: Contact corrupt"
-    assert summary["updated"] == 16
+    # Every pipeline choice, under its 2 Nov 2026 label: 9 for companies, 17 for contacts.
+    assert summary["updated"] == 26
     assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, COMPANY_NOTE, ORDER,
                                          CONTACT_SOURCE, STOP_REASON}
     assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type", STOP_REASON,
                                           "diablo_job_number"}
-    assert sorted(labels(hs, "companies")[-5:]) == sorted(["GATE1: Approved for outreach",
-                                                          "Contacted, but no response, unqualified",
-                                                          "Missing info on Apollo",
-                                                          "Contact exists, not AUTO-OUTREACH",
-                                                          "Invalid inbox: Mail bounced, need input"])
-    assert sorted(labels(hs, "contacts")[-11:]) == sorted(["New, Personal line filled", "GATE2: Approved to send",
-                                                          "Forward sent", "Reminder sent", "Colleague replied: positive",
-                                                          "Colleague replied: negative", "Colleague replied",
-                                                          "Colleague opted out", "Unqualified company",
-                                                          "Contacted, but no response, unqualified",
-                                                          "Unqualified Contact: Contact corrupt"])
+    assert sorted(labels(hs, "companies")[-9:]) == sorted(LIVE_NEW_CHOICES["companies"])
+    assert sorted(labels(hs, "contacts")[-17:]) == sorted(LIVE_NEW_CHOICES["contacts"])
     for obj in ("companies", "contacts"):  # the team's choices are sent back exactly as they were
         assert hs.props[obj]["hs_lead_status"]["options"][:len(before[obj])] == before[obj]
     assert len(hs.props["companies"]["industry_type"]["options"]) == 6  # live's own field: untouched
@@ -148,7 +135,7 @@ def test_refuses_live_account_without_flag_but_a_dry_run_only_reads():
     shown = []
     summary = setup_hubspot.run(hs, dry_run=True, log=shown.append)
     assert all(method == "GET" for method, _ in hs.calls)
-    assert summary["updated"] == 16 and any("[would add]" in line for line in shown)
+    assert summary["updated"] == 26 and any("[would add]" in line for line in shown)
     assert "New, Personal line filled" not in labels(hs, "contacts")
 
 
@@ -179,7 +166,7 @@ def test_live_never_gets_other_choices_or_fields():
     summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
     assert summary["conflict"] == 2  # reported, not added
     assert "Missing Info" not in labels(hs, "companies") and "lead_source" not in hs.props["contacts"]
-    assert "GATE1: Approved for outreach" in labels(hs, "companies")[-4:]
+    assert "GATE1: Approved for outreach" in labels(hs, "companies")[-9:]
 
 
 def test_every_run_shows_the_key_steps_and_a_plain_reason(tmp_path, monkeypatch):
@@ -203,3 +190,27 @@ def test_errors_are_explained_in_plain_words():
     assert "missing one of the 9 scopes" in setup_hubspot.explain(HubSpotError("PATCH /x failed with 403: no"))[0]
     assert "HUBSPOT_TOKEN_LIVE" in setup_hubspot.explain(
         HubSpotError("HUBSPOT_TOKEN is not set."), "HUBSPOT_TOKEN_LIVE")[0]
+
+
+def test_the_agreed_renames_keep_each_choice_and_its_records():
+    """2 Nov 2026 (Ariel): the old dead-end labels are renamed in place, so their values (and the records
+    on them) stay; the new label is never added a second time."""
+    hs = live_like()
+    hs.props["companies"]["hs_lead_status"]["options"] = options(
+        LIVE_COMPANY + [("Contacted, but no response, unqualified", "Contacted, but no response, unqualified")])
+    hs.props["contacts"]["hs_lead_status"]["options"] = options(
+        LIVE_CONTACT + [("COLLEAGUE_REPLIED_NEGATIVE", "Colleague replied: negative"),
+                        ("CONTACTED_NO_RESPONSE_UNQUALIFIED", "Contacted, but no response, unqualified")])
+    shown = []
+    setup_hubspot.run(hs, dry_run=True, log=shown.append)
+    assert any('rename the choice "Colleague replied: negative"' in line for line in shown)
+    assert "Colleague replied: negative" in labels(hs, "contacts")  # a dry run changes nothing
+    setup_hubspot.run(hs, allow_production=True, log=quiet)
+    contacts = {o["value"]: o["label"] for o in hs.props["contacts"]["hs_lead_status"]["options"]}
+    assert contacts["COLLEAGUE_REPLIED_NEGATIVE"] == "Unqualified: Colleague response negative"
+    assert contacts["CONTACTED_NO_RESPONSE_UNQUALIFIED"] == "Unqualified: Contacted, but no response"
+    assert labels(hs, "contacts").count("Unqualified: Contacted, but no response") == 1
+    companies = {o["value"]: o["label"] for o in hs.props["companies"]["hs_lead_status"]["options"]}
+    assert companies["Contacted, but no response, unqualified"] == "Unqualified: Contacted, but no response"
+    assert companies["Unqualified"] == "Unqualified"  # the team's own choice is never renamed
+    assert set(setup_hubspot.run(hs, allow_production=True, log=quiet)) == {"unchanged"}

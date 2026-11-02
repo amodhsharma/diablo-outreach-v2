@@ -1,8 +1,9 @@
 """Dead addresses (28 Oct 2026, Ariel): a hard bounce, or an automatic reply saying the person has left,
-makes the contact "Unqualified Contact: Contact corrupt" with Outreach order 0; everyone below moves up
+makes the contact "Unqualified: Contact corrupt" with Outreach order 0; everyone below moves up
 one; the new number 1 becomes GATE2 (now, or when its line arrives) and its introduction goes at the
-next run of button 4, never the same one; with nobody left the company goes back to GATE1, or to
-"Invalid inbox: Mail bounced, need input" when the dead address was its company inbox."""
+next run of button 4, never the same one; with nobody left the company becomes "Unqualified: Personal
+inbox bounced", or "Unqualified: Company inbox bounced" when the dead address was its company inbox
+(which gets "Unqualified: Inbox Bounced" itself), agreed 2 Nov 2026."""
 
 import datetime as dt
 import json
@@ -139,20 +140,23 @@ def test_the_lines_import_puts_a_moved_up_contact_straight_on_gate_2(tmp_path):
     assert "straight to 'GATE2: Approved to send'" in result
 
 
-def test_nobody_left_sends_the_company_back_to_gate_1(settings):
+def test_nobody_left_stops_the_company(settings):
+    """2 Nov 2026 (Ariel): with nobody left the company stops; it no longer goes back to GATE1."""
     hs, instantly, emails, cid, (p1,) = started(settings, "solo.example", ("Director",))
     bounce(instantly, emails, "p1@solo.example")
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert rec(hs, p1)[LS] == CORRUPT
-    assert hs.records["companies"][cid][LS] == "GATE1: Approved for outreach"
-    assert hs.records["companies"][cid][REASON].startswith("Back to GATE1")
+    assert hs.records["companies"][cid][LS] == "Unqualified: Personal inbox bounced"
+    assert hs.records["companies"][cid][REASON].startswith("Personal inbox bounced")
 
 
 def test_a_dead_company_inbox_with_nobody_left_needs_input(settings):
     hs, instantly, emails, cid, (inbox,) = started(settings, "inbox.example", (INBOX_TITLE,))
     bounce(instantly, emails, "p1@inbox.example")
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert rec(hs, inbox)[LS] == CORRUPT and rec(hs, inbox)[ORDER] == "0"
+    assert rec(hs, inbox)[LS] == "UNQUALIFIED_INBOX_BOUNCED" and rec(hs, inbox)[ORDER] == "0"
+    assert rec(hs, inbox)[REASON].startswith("Inbox bounced")
+    # The renamed choice keeps its value, so the record holds the old value under the new label.
     assert hs.records["companies"][cid][LS] == "Invalid inbox: Mail bounced, need input"
     assert hs.records["companies"][cid][REASON].startswith("Company inbox bounced")
 
@@ -164,19 +168,19 @@ def test_a_company_closed_earlier_because_of_a_bounce_is_put_right(settings):
     hs.records["companies"][cid][LS] = "Contacted, but no response, unqualified"
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert rec(hs, p1)[LS] == CORRUPT
-    assert hs.records["companies"][cid][LS] == "GATE1: Approved for outreach"
+    assert hs.records["companies"][cid][LS] == "Unqualified: Personal inbox bounced"
 
 
 def test_other_and_unreadable_bounces_stay_as_today_and_are_checked_once(settings):
     hs, instantly, emails, cid, (p1, p2) = started(settings, "full.example", ("Owner", "Buyer"))
     bounce(instantly, emails, "p1@full.example", text="452 4.2.2 The recipient's mailbox is full, try again later")
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert rec(hs, p1)[LS] == "UNQUALIFIED" and rec(hs, p1)[REASON].startswith("Email bounced")
+    assert rec(hs, p1)[LS] == "UNQUALIFIED_BOUNCED_OTHER" and rec(hs, p1)[REASON].startswith("Email bounced")
     assert rec(hs, p2)[ORDER] == "2"  # nobody moved up
     hs2, instantly2, emails2, _, (q1, _) = started(settings, "blank.example", ("Owner", "Buyer"))
     bounce(instantly2, emails2, "p1@blank.example", text=None)  # no bounce message to read
     sync.run("test", settings, hs2, instantly2, log=quiet, emails_api=emails2)
-    assert rec(hs2, q1)[LS] == "UNQUALIFIED" and "could not be read" in rec(hs2, q1)[REASON]
+    assert rec(hs2, q1)[LS] == "UNQUALIFIED_BOUNCED_OTHER" and "could not be read" in rec(hs2, q1)[REASON]
 
 
 def test_an_automatic_reply_saying_they_left_is_a_dead_address_but_a_holiday_is_not(settings, monkeypatch):
@@ -220,5 +224,5 @@ def test_button_3_leaves_dead_addresses_out_and_never_adds_them_again():
     new = next(r for r in hs.records["contacts"].values() if r["email"] == "new@delta.example")
     assert new["diablo_outreach_order"] == "1"
     assert hs.records["companies"][cid]["hs_lead_status"] == "GATE1: Approved for outreach"
-    assert "6. Invalid inbox" in find_contacts.hubspot_filters("Amodh Sharma")
+    assert "6. Company inbox bounced" in find_contacts.hubspot_filters("Amodh Sharma")
     assert summary["gate1"]

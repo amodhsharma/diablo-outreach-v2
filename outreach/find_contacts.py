@@ -31,7 +31,7 @@ import os
 import re
 import sys
 
-from . import apollo_status, company_inbox, hand_tagged, linking
+from . import apollo_status, company_inbox, hand_tagged, linking, redirect
 from .job_owner import fill_owners, is_job_company, job_notes, job_owner
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
@@ -44,7 +44,7 @@ from .common import (
 from .next_in_line import is_company_inbox
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import CONTACT_SOURCE, INBOX_TITLE, LEAD_STATUS, ORDER, SOURCE_APOLLO, SOURCE_WEBSITE
-from .stages import LeadStatus
+from .stages import LEFT_OUT, LeadStatus
 
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS, "hubspot_owner_id"]
 
@@ -252,8 +252,8 @@ def hubspot_filters(owner=""):
         "4. No contacts at any source, needs you: Lead status is Missing Info",
         "5. Already has contacts in the CRM (change them to AUTO-OUTREACH): Lead status is Contact exists, "
         "not AUTO-OUTREACH",
-        "6. Invalid inbox, needs you (add a working address, then set it back to GATE 1): Lead status is "
-        "Invalid inbox: Mail bounced, need input",
+        "6. Company inbox bounced, needs you (add a working address, then set it back to GATE 1): Lead status "
+        "is Unqualified: Company inbox bounced",
         "",
         "View 2 shows both the companies waiting for a second person and those Apollo was already asked about "
         "this month. Number of associated contacts counts every contact linked to the company, including "
@@ -322,6 +322,11 @@ def run(target, settings, hs, apollo, log=print):
     except Exception as err:
         linked_summary = {}
         log(f"Could not link the contacts to their companies: {str(err)[:200]}")
+    try:  # 2 Nov 2026 (Ariel): a contact marked Rejected/Redirected: the next person moves up
+        redirected = redirect.run(hs, statuses, log)
+    except Exception as err:
+        redirected = {}
+        log(f"Could not move the contacts up after a Rejected/Redirected contact: {str(err)[:200]}")
     try:  # 1 Nov 2026 (Ariel): "Missing Info" websites read again for addresses hidden by Cloudflare
         website_summary = apollo_status.recheck_websites(hs, statuses, log)
     except Exception as err:
@@ -344,8 +349,9 @@ def run(target, settings, hs, apollo, log=print):
         linked_here = [ours[x] for x in links.get(str(c["id"])) or [] if x in ours]
         # 28 Oct 2026 (Ariel): a dead address ("Contact corrupt") is not one of the company's people; a
         # company with only dead addresses has the rest searched for like a top-up, so nobody already in
-        # HubSpot (the dead address itself included) is ever added again.
-        mine = [m for m in linked_here if statuses.of("contacts", m) != "corrupt"]
+        # HubSpot (the dead address itself included) is ever added again. The same for a contact marked
+        # Rejected/Redirected by hand (2 Nov 2026).
+        mine = [m for m in linked_here if statuses.of("contacts", m) not in LEFT_OUT]
         held[str(c["id"])] = len(mine)
         people = [m for m in mine if not is_company_inbox(m)]
         if not linked_here:
@@ -388,6 +394,8 @@ def run(target, settings, hs, apollo, log=print):
         gate1 += (f"\n\nMissing Info websites read again for hidden addresses: {website_summary['read']}, "
                   f"{len(back)} back on GATE 1" + (f": {', '.join(back)}" if back else "")
                   + (f" ({website_summary['left']} left for the next runs)" if website_summary.get("left") else ""))
+    if redirect.summary(redirected):
+        gate1 += "\n\n" + redirect.summary(redirected)
     step_summary("## Button 3: companies on GATE 1\n\n" + gate1 + "\n\n"
                  + hubspot_filters((cfg.get("_owner_names") or {}).get(cfg.get("_job_owner"), "")))
     log(gate1)
