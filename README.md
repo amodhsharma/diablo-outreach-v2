@@ -79,7 +79,7 @@ Plain "Unqualified" means a person set it, and the pipeline never changes it. On
 records are ever changed.
 
 **Bounces (3 Nov 2026).** Microsoft's "5.4.1 Access denied" counts as a dead address. The bounce message
-itself is written into the Stop reason, and bounces from before 3 Nov 2026 were read again once to add it.
+itself is written into the Stop reason, and bounces from before 3 Nov 2026 are read again once to add it (15 a run, so the run stays within its time).
 
 **Replies (3 Nov 2026).** When Instantly labels a reply Interested or Not interested, it is forwarded to
 the GitHub secret REPLY_FORWARD_TO, and the company, the person and everyone else there become "END:
@@ -89,7 +89,7 @@ out-of-office that says the person has left) for 1 to 3 new addresses at the sam
 "please contact". When it is sure, it adds them as contacts (AUTO-OUTREACH, job title "Referred by
 colleague", legal basis "Legitimate interest - prospect/lead", linked to the company), sets the person
 who replied to "Unqualified: Rejected/Redirected by company owner" and puts the company back on
-Attempted to Contact. When it is not sure, it changes nothing. Each morning with the daily summary, an
+Attempted to Contact (20 replies a run). When it is not sure, it changes nothing. Each morning with the daily summary, an
 email goes to ALERT_TO only: how many such replies were seen, switched and left, the details of the ones
 left (company, job title, why, part of the reply and the HubSpot link) and how many are still waiting
 from earlier days. A company on In Progress whose replier is now Rejected/Redirected, with nobody else
