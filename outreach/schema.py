@@ -43,6 +43,10 @@ JOB_NUMBER = "diablo_job_number"
 # they are recognised even before the field exists in an account.
 SOURCE_APOLLO, SOURCE_WEBSITE = "Apollo", "Company website"
 INBOX_TITLE = "Company inbox (from website)"
+# HubSpot's "Legal basis for processing contact's data" (3 Nov 2026: the account asks for it on every new
+# contact); this value shows as "Legitimate interest - Lead".
+LEGAL_BASIS = "hs_legal_basis"
+LEGAL_BASIS_LEAD = "Legitimate interest \u2013 prospect/lead"
 
 
 def text(name, label, description, group=GROUP_NAME):

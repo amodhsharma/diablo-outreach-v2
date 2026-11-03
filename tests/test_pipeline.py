@@ -207,8 +207,8 @@ def test_send_needs_sending_accounts(settings):
 def test_lead_status_mapping():
     assert sync.lead_result({"status": -1}) == ("bounced_other", None, "bounced")  # the others carry on
     assert sync.lead_result({"status": -2}) == ("opted_out", "opted_out", "unsubscribed")
-    assert sync.lead_result({"lt_interest_status": 1}) == ("replied", "replied", "marked interested")
-    assert sync.lead_result({"lt_interest_status": -1}) == ("said_no", "said_no", "marked not interested")
+    assert sync.lead_result({"lt_interest_status": 1}) == ("sales", "sales", "marked interested")
+    assert sync.lead_result({"lt_interest_status": -1}) == ("sales", "sales", "marked not interested")
     assert sync.lead_result({"email_reply_count": 2}) == ("replied", "replied", "replied")
     assert sync.lead_result({}) == ("in_outreach", None, "queued")
 
@@ -513,7 +513,7 @@ def test_sync_repairs_emailed_contacts_set_back_to_gate_2(settings):
     status = lambda cid: hs.records["contacts"][cid][CO]
     assert status(sent) == "ATTEMPTED_TO_CONTACT"
     assert status(replied) == "IN_PROGRESS" and hs.records["companies"][co2][CO] == "In Progress"
-    assert status(declined) == "UNQUALIFIED_RESPONSE_NEGATIVE" and hs.records["companies"][co3][CO] == "Unqualified: Employee response negative"
+    assert status(declined) == "END_FORWARDED_TO_SALES_TEAM" and hs.records["companies"][co3][CO] == "END: Forwarded to Sales Team"
     assert status(waiting) == "APPROVED_TO_SEND"  # not in Instantly: still waiting its turn
     assert any("was at GATE2" in line for line in logs)
     # The send step then emails nobody twice: person 1 is already emailed.

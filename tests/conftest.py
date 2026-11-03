@@ -112,3 +112,10 @@ def no_real_chain_state(tmp_path, monkeypatch):
     """No test reads or writes the real list of reopened companies and the day's counts (2 Nov 2026)."""
     from outreach import chain
     monkeypatch.setattr(chain, "STATE_FILE", tmp_path / "chain_state.json")
+
+
+@pytest.fixture(autouse=True)
+def no_real_referrals_list(tmp_path, monkeypatch):
+    """No test reads or writes the real list of replies that named someone else (3 Nov 2026)."""
+    from outreach import referrals
+    monkeypatch.setattr(referrals, "FILE", tmp_path / "referrals.json")

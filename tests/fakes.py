@@ -19,7 +19,9 @@ LIVE_COMPANY_STATUS = {"New": "New", "Missing Info": "Missing Info", "Emailed": 
                        "Unqualified: Employee Opted-out/Blocklist": "Unqualified: Employee Opted-out/Blocklist",
                        "Unqualified: Personal inbox bounced": "Unqualified: Personal inbox bounced",
                        "Unqualified: One contact inputted, which is unavailable":
-                           "Unqualified: One contact inputted, which is unavailable"}
+                           "Unqualified: One contact inputted, which is unavailable",
+                       "Unqualified: Bounced, other reason": "Unqualified: Bounced, other reason",
+                       "END: Forwarded to Sales Team": "END: Forwarded to Sales Team"}
 LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": "Emailed",
                        "IN_PROGRESS": "In Progress", "UNQUALIFIED": "Unqualified",
                        "ATTEMPTED_TO_CONTACT": "Attempted to Contact", "WON": "WON",
@@ -37,7 +39,8 @@ LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": 
                        "UNQUALIFIED_BOUNCED_OTHER": "Unqualified: Bounced, other reason",
                        "COLLEAGUE_CONTACTED_NO_RESPONSE": "Unqualified: Colleague Contacted, but no response",
                        "UNQUALIFIED_INBOX_BOUNCED": "Unqualified: Inbox Bounced",
-                       "UNQUALIFIED_REDIRECTED": "Unqualified: Rejected/Redirected by company owner"}
+                       "UNQUALIFIED_REDIRECTED": "Unqualified: Rejected/Redirected by company owner",
+                       "END_FORWARDED_TO_SALES_TEAM": "END: Forwarded to Sales Team"}
 
 
 class FakeCRM(TagGuard):

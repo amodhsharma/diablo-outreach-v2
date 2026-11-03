@@ -7,11 +7,11 @@ secret DAILY_REPORT_APP_PASSWORD). Sending it this way keeps it out of the clien
 Instantly. The subject starts with "[Outreach reply: Positive]", "[Outreach reply: Negative]" or
 "[Outreach reply: Neutral]", so an Outlook rule files it in "Outreach replies" with that tag.
 
-    Instantly                                   Forwarded as
-    marked interested                           Positive
-    marked not interested, or a reply asking    Negative
-      not to be emailed again
-    a real reply with no mark                   Neutral
+    Instantly                                   Forwarded as    To (3 Nov 2026, Ariel)
+    marked interested                           Positive        REPLY_FORWARD_TO (the sales team)
+    marked not interested                       Negative        REPLY_FORWARD_TO (the sales team)
+    a real reply with no mark                   Neutral         ALERT_TO only (handled by Amodh)
+    a reply asking not to be emailed again      not forwarded (an opt-out, not a sales lead)
 
 The email starts with (agreed with Ariel):
     Company: FELFEL (Switzerland)
@@ -31,8 +31,9 @@ from .common import ROOT
 from .next_in_line import parse_time, tagged_company_of
 
 FILE = ROOT / "data" / "forwarded_replies.json"
-KIND = {"marked interested": "Positive", "marked not interested": "Negative", "opted out by reply": "Negative",
-        "replied": "Neutral"}
+KIND = {"marked interested": "Positive", "marked not interested": "Negative", "replied": "Neutral"}
+# Who gets each kind (3 Nov 2026, Ariel): a clear yes or no goes to the sales team, the rest only to Amodh.
+SECRET = {"Positive": "REPLY_FORWARD_TO", "Negative": "REPLY_FORWARD_TO", "Neutral": "ALERT_TO"}
 INDIA = dt.timezone(dt.timedelta(hours=5, minutes=30))
 
 
@@ -108,16 +109,20 @@ def forward_replies(hs, emails_api, seen, settings, log=print, smtp=None, path=N
     todo = due(seen, done)
     if not todo:
         return 0
-    to = recipients(os.environ.get("REPLY_FORWARD_TO", ""))
     password = os.environ.get("DAILY_REPORT_APP_PASSWORD", "")
-    if not to or not password or emails_api is None:
-        log(f"{len(todo)} replies wait to be forwarded: add the GitHub secrets REPLY_FORWARD_TO and "
-            "DAILY_REPORT_APP_PASSWORD (and INSTANTLY_EMAILS_KEY to read the replies)")
+    to_for = {kind: recipients(os.environ.get(secret, "")) for kind, secret in SECRET.items()}
+    if not password or emails_api is None:
+        log(f"{len(todo)} replies wait to be forwarded: add the GitHub secrets DAILY_REPORT_APP_PASSWORD and "
+            "INSTANTLY_EMAILS_KEY (to read the replies)")
         return 0
     cfg = dict(DEFAULTS, **(settings.get("daily_report") or {}))
     owner_of, companies = tagged_company_of(hs, [r["id"] for r, _ in todo], ["name", "country"])
     sent = 0
     for record, kind in todo:
+        to = to_for.get(kind) or []
+        if not to:
+            log(f"A {kind.lower()} reply waits to be forwarded: add the GitHub secret {SECRET[kind]}")
+            continue
         p = record.get("properties") or {}
         address = p.get("email") or ""
         company = (companies.get(owner_of.get(str(record["id"]))) or {}).get("properties") or {}

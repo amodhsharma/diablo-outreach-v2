@@ -106,6 +106,7 @@ def test_a_dead_address_moves_everyone_up_and_the_new_number_1_goes_at_the_next_
 
 
 def test_the_new_number_1_without_a_line_becomes_gate_2_when_its_line_arrives(settings, monkeypatch):
+    settings["send"]["chain"]["enabled"] = False  # with the chain on, the line is copied at once (next test)
     hs, instantly, emails, cid, (p1, p2) = started(settings, "wait.example", ("Owner", "Buyer"))
     rec(hs, p2).update({LS: "NEW"})
     rec(hs, p2).pop("diablo_personal_line")
@@ -122,6 +123,20 @@ def test_the_new_number_1_without_a_line_becomes_gate_2_when_its_line_arrives(se
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["next_contacts_added"] == 1 and rec(hs, p2)[LS] == "ATTEMPTED_TO_CONTACT"
     assert corrupt.load_promoted() == {}
+
+
+def test_with_the_chain_on_the_new_number_1_gets_the_line_at_once_and_goes_at_the_next_run(settings, monkeypatch):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "copy.example", ("Owner", "Buyer"))
+    rec(hs, p2).update({LS: "NEW"})
+    rec(hs, p2).pop("diablo_personal_line")
+    bounce(instantly, emails, "p1@copy.example")
+    monkeypatch.setenv("GITHUB_RUN_ID", "run1")
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert rec(hs, p2)[ORDER] == "1" and rec(hs, p2)[LS] == "APPROVED_TO_SEND"
+    assert rec(hs, p2)["diablo_personal_line"] == "Line." and moved["next_contacts_added"] == 0  # not this run
+    monkeypatch.setenv("GITHUB_RUN_ID", "run2")
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["next_contacts_added"] == 1 and rec(hs, p2)[LS] == "ATTEMPTED_TO_CONTACT"
 
 
 def test_the_lines_import_puts_a_moved_up_contact_straight_on_gate_2(tmp_path):
@@ -164,7 +179,8 @@ def test_a_dead_company_inbox_with_nobody_left_needs_input(settings):
 def test_a_company_closed_earlier_because_of_a_bounce_is_put_right(settings):
     hs, instantly, emails, cid, (p1,) = started(settings, "past.example", ("Director",))
     bounce(instantly, emails, "p1@past.example")
-    rec(hs, p1)[LS] = "UNQUALIFIED"  # before 28 Oct 2026: Unqualified, and the company closed as no response
+    rec(hs, p1)[LS] = "UNQUALIFIED_BOUNCED_OTHER"  # read before 3 Nov 2026, without its message: read again once
+    rec(hs, p1)[REASON] = "Email bounced (28 Oct 2026): not a dead address (for example a full mailbox), so left as Unqualified"
     hs.records["companies"][cid][LS] = "Contacted, but no response, unqualified"
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert rec(hs, p1)[LS] == CORRUPT

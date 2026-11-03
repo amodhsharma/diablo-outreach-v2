@@ -350,20 +350,37 @@ def test_the_forward_waits_for_the_company_note_and_the_old_template_still_works
     assert "In case our earlier note to your colleague Q R" in text and "Line." in text
 
 
-def test_colleagues_show_a_positive_or_negative_answer(settings):
-    """S2 and S4 of the strain test (19 Oct 2026): when person 1 answers, persons 2 and 3 are not
-    left at gate 2 but show the answer."""
-    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=0.5)
-    lead(instantly, "p1@noble.in").update(lt_interest_status=1)  # Instantly's green thumbs up
-    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert status_of(hs, p1) == "IN_PROGRESS" and hs.records["companies"][cid][LS] == "In Progress"
-    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_REPLIED_POSITIVE"
+def test_a_clear_yes_or_no_goes_to_the_sales_team_with_everyone_at_the_company(settings):
+    """3 Nov 2026 (Ariel): a reply Instantly marks interested or not interested goes to the sales team: the
+    company, the person and their colleagues all become "END: Forwarded to Sales Team"."""
+    for interest in (1, -1):
+        hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=0.5)
+        lead(instantly, "p1@noble.in").update(lt_interest_status=interest)
+        sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+        assert hs.records["companies"][cid][LS] == "END: Forwarded to Sales Team"
+        assert status_of(hs, p1) == status_of(hs, p2) == status_of(hs, p3) == "END_FORWARDED_TO_SALES_TEAM"
 
+
+def test_a_yes_after_an_earlier_neutral_reply_still_takes_the_colleagues_to_end(settings):
+    """Review, 3 Nov 2026: the colleagues were left on "Colleague replied" when the label came a run later."""
     hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=0.5)
-    lead(instantly, "p1@noble.in").update(lt_interest_status=-1)  # marked not interested
+    lead(instantly, "p1@noble.in").update(email_reply_count=1)
+    emails.received("p1@noble.in", "2026-11-03T10:00:00Z", text="Thanks, we will look at it.")
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert hs.records["companies"][cid][LS] == "Unqualified: Employee response negative"
-    assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_REPLIED_NEGATIVE"
+    assert status_of(hs, p2) == "COLLEAGUE_REPLIED"
+    lead(instantly, "p1@noble.in").update(lt_interest_status=1)
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "END: Forwarded to Sales Team"
+    assert status_of(hs, p1) == status_of(hs, p2) == status_of(hs, p3) == "END_FORWARDED_TO_SALES_TEAM"
+
+
+def test_a_yes_from_a_blocklisted_domain_still_goes_to_the_sales_team(settings):
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=0.5)
+    instantly.blocked = {"noble.in"}
+    lead(instantly, "p1@noble.in").update(lt_interest_status=1)
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert status_of(hs, p1) == "END_FORWARDED_TO_SALES_TEAM"
+    assert hs.records["companies"][cid][LS] == "END: Forwarded to Sales Team"
 
 
 def test_a_blocklisted_person_1_stops_the_company(settings):
@@ -551,7 +568,7 @@ def test_an_automatic_answer_labelled_interested_is_still_no_reply(settings):
     lead(instantly, "p1@noble.in").update(email_reply_count=1, lt_interest_status=1)
     emails.received("p1@noble.in", ago(1), text="Yes, please send the price list.")
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert status_of(hs, p1) == "IN_PROGRESS" and status_of(hs, p2) == "COLLEAGUE_REPLIED_POSITIVE"
+    assert status_of(hs, p1) == status_of(hs, p2) == "END_FORWARDED_TO_SALES_TEAM"
     assert moved["forwards_sent"] == 0
 
 

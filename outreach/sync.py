@@ -6,9 +6,10 @@ Instantly lead whose HubSpot contact lacks the tag is ignored. Statuses only mov
 (for example Emailed or Won) is never changed.
 
     Instantly                          Contact                       Company
-    replied or marked interested       In Progress                   In Progress
-    marked not interested              Unqualified: Response         Unqualified: Employee response
-                                         negative                      negative
+    marked interested or not           END: Forwarded to Sales       END: Forwarded to Sales Team (and every
+      interested (3 Nov 2026: a clear    Team                          colleague); the reply goes to the sales
+      yes or no)                                                       team, the automation stops there
+    replied, with no yes or no         In Progress                   In Progress (paused; see referrals.py)
     unsubscribed (opted out)           Unqualified: Opted-out/       Unqualified: Employee Opted-out/
     on Instantly's blocklist             Blocklist                     Blocklist (nobody else is emailed)
     a reply asking us to stop
@@ -56,8 +57,8 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from . import chain, corrupt, daily_log, redirect, reply_forward, timeline
-from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, STAGES, TEAM, LeadStatus,
+from . import chain, corrupt, daily_log, redirect, referrals, reply_forward, timeline
+from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, TEAM, LeadStatus,
                      forward)
 
 
@@ -69,10 +70,11 @@ def lead_result(lead):
         return "opted_out", "opted_out", "unsubscribed"
     if status == -1:
         return "bounced_other", None, "bounced"
+    # 3 Nov 2026 (Ariel): a clear yes or no goes to the sales team and the automation stops there.
     if interest in (1, 2, 3, 4):
-        return "replied", "replied", "marked interested"
+        return "sales", "sales", "marked interested"
     if interest in (-1, -2, -3):
-        return "said_no", "said_no", "marked not interested"
+        return "sales", "sales", "marked not interested"
     if (lead.get("email_reply_count") or 0) > 0:
         return "replied", "replied", "replied"
     return "in_outreach", None, "emailed" if lead.get("timestamp_last_contact") else "queued"
@@ -331,7 +333,7 @@ COLLEAGUE_STAGE = {"marked interested": "colleague_positive", "replied": "collea
 
 # Contacts left alone when their company is Unqualified: their own Unqualified, a status that already
 # says what happened at the company, one a person set by hand, and those already done.
-KEEP_WHEN_COMPANY_CLOSED = CONTACT_CLOSED + LEFT_OUT + ("company_unqualified", "no_response", TEAM) + COLLEAGUE_STAGES
+KEEP_WHEN_COMPANY_CLOSED = CONTACT_CLOSED + LEFT_OUT + ("company_unqualified", "no_response", "sales", TEAM) + COLLEAGUE_STAGES
 # What the others at a company get, by the company's own Lead Status (agreed 2 Nov 2026, Ariel), when
 # nobody there has answered.
 OTHERS_WHEN = {"closed": "company_unqualified", "said_no": "colleague_negative",
@@ -373,19 +375,6 @@ def colleague_answer(contacts, statuses, leads, blocked=None):
     return None
 
 
-def exact_company_stage(company, people, statuses):
-    """For a company on plain Unqualified (before 2 Nov 2026 every dead end was): the exact label its
-    contacts call for, or "closed" when nobody there answered (you rejected it)."""
-    stages = {statuses.of("contacts", c) for c in people}
-    opted = (str((company.get("properties") or {}).get(STOP_REASON) or "").lower().startswith("a contact opted out")
-             or any(opted_out_earlier(c) for c in people) or {"opted_out", "colleague_opted_out"} & stages)
-    if opted and statuses.has("companies", "opted_out"):
-        return "opted_out"
-    if {"said_no", "colleague_negative"} & stages and statuses.has("companies", "said_no"):
-        return "said_no"
-    return "closed"
-
-
 def close_company_contacts(hs, statuses, log=print, leads=None, blocked=None):
     """Every AUTO-OUTREACH contact at an AUTO-OUTREACH company that is Unqualified (set by a person or by
     the loop) gets the label that says why (agreed 21 Oct 2026, by company status 2 Nov 2026):
@@ -418,13 +407,6 @@ def close_company_contacts(hs, statuses, log=print, leads=None, blocked=None):
         props = company.get("properties", {})
         people = everyone.get(company["id"]) or []
         company_stage = statuses.of("companies", company)
-        if company_stage == "closed":
-            exact = exact_company_stage(company, people, statuses)
-            if exact != "closed":
-                company_updates.append((company["id"], statuses.props("companies", exact)))
-                log(f'{props.get("name")}: the company was on plain Unqualified because someone there '
-                    f'{"opted out" if exact == "opted_out" else "said no"}; now "{STAGES["companies"][exact]}"')
-                company_stage = exact
         why = (props.get(STOP_REASON) or "").strip()
         text = f"The company is Unqualified ({today()})" + (f": {why}" if why else "")
         stage = colleague_answer(people, statuses, leads, blocked) or OTHERS_WHEN.get(company_stage, "company_unqualified")
@@ -465,7 +447,16 @@ def mark_colleagues(hs, statuses, company_contacts, answered_ids, stage, log=pri
     updates = []
     for c in company_contacts:
         current = statuses.of("contacts", c)
-        if str(c["id"]) in answered or current in ("replied", "no_response", TEAM) + CONTACT_CLOSED + LEFT_OUT + COLLEAGUE_STAGES:
+        if stage == "sales":
+            # 3 Nov 2026 (Ariel): a clear yes or no ends the company, so everyone still in it goes to END, also
+            # after an earlier neutral reply. Never a contact set by a person (plain Unqualified, the team's own
+            # statuses), a dead address, or one already at its own dead end.
+            if (str(c["id"]) in answered or current in ("sales", "closed", "company_unqualified", TEAM) + LEFT_OUT
+                    + CONTACT_CLOSED):
+                continue
+            updates.append((c["id"], statuses.props("contacts", stage)))
+            continue
+        if str(c["id"]) in answered or current in ("replied", "no_response", "sales", TEAM) + CONTACT_CLOSED + LEFT_OUT + COLLEAGUE_STAGES:
             if current != "colleague_no_response":  # a late answer replaces "no response" (2 Nov 2026)
                 continue
         updates.append((c["id"], statuses.props("contacts", stage)))
@@ -509,18 +500,17 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                 new, company_stage, event = "opted_out", "opted_out", "opted out by reply"
             elif kind == "reply" and lead.get("lt_interest_status") in (None, 0):
                 new, company_stage, event = "replied", "replied", "replied"
-        if is_blocked(p.get("email"), blocked) and new not in ("replied",) + CONTACT_CLOSED:
+        if is_blocked(p.get("email"), blocked) and new not in ("replied", "sales") + CONTACT_CLOSED:
             # Blocklisted in Instantly counts as an opt-out (19 Oct 2026): the company stops.
             new, company_stage, event = "opted_out", "opted_out", "blocklisted"
+        if new == "sales" and not statuses.has("contacts", "sales"):  # until button 1 adds the choice
+            new, company_stage = ("replied", "replied") if event == "marked interested" else ("said_no", "said_no")
         seen.append((r, lead, event))  # 26 Oct 2026: for the notes on the contact's timeline
         old = statuses.of("contacts", r)
-        # 2 Nov 2026: a contact still on plain Unqualified from before gets its exact label (said no, opted
-        # out or bounced), read from Instantly; the company follows in close_company_contacts.
-        exact = old == "closed" and new in CONTACT_CLOSED and new != "closed" and statuses.has("contacts", new)
-        # 2 Nov 2026: an answer after the company closed as "no response" still counts (a reply, a no or an
-        # opt-out), so the company is never reopened from the backlog and the answer is seen.
-        late = old == "no_response" and new in ("replied", "said_no", "opted_out")
-        if not forward(old, new) and not exact and not late:
+        # 2 Nov 2026: an answer after the company closed as "no response" still counts (a reply, a yes or no, or
+        # an opt-out), so the company is never reopened from the backlog and the answer is seen.
+        late = old == "no_response" and new in ("replied", "said_no", "opted_out", "sales")
+        if not forward(old, new) and not late:
             continue
         if old == "approved":  # 23 Oct 2026: set back to GATE2 by hand, but Instantly already holds them
             log(f"{p.get('jobtitle') or 'A contact'} was at GATE2: Approved to send, but Instantly already has "
@@ -572,7 +562,8 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                 others = contacts_by_company(hs, [company_id]).get(company_id) or []
                 if any(str(o["id"]) not in closing and statuses.of("contacts", o) == "replied" for o in others):
                     continue
-            if forward(now_stage, stage) or (now_stage == "no_response" and stage in ("replied", "said_no", "opted_out")):
+            if forward(now_stage, stage) or (now_stage == "no_response" and stage in ("replied", "said_no", "opted_out",
+                                                                                      "sales")):
                 company_updates[company_id] = statuses.props("companies", stage)
         hs.update_tagged("companies", list(company_updates.items()))
         # Everyone else at a company that has answered gets a Lead Status saying so (19 Oct 2026).
@@ -581,7 +572,10 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
             for company_id in company_updates:
                 events = [c["event"] for c in ups if owner_of.get(str(c["contact_id"])) == company_id]
                 answered = [c["contact_id"] for c in ups if owner_of.get(str(c["contact_id"])) == company_id]
-                kind = ("colleague_positive" if "marked interested" in events else
+                to_sales = (statuses.has("companies", "sales") and statuses.has("contacts", "sales") and
+                            company_updates[company_id].get(LEAD_STATUS) == statuses.value("companies", "sales"))
+                kind = ("sales" if to_sales else
+                        "colleague_positive" if "marked interested" in events else
                         "colleague_opted_out" if any(e in OPT_OUT_EVENTS for e in events) else
                         "colleague_negative" if any(COLLEAGUE_STAGE.get(e) == "colleague_negative" for e in events)
                         else "colleague_replied")
@@ -596,8 +590,25 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                             log(f"{cname}: {c['jobtitle']} opted out ({c['event']}); the company is now Unqualified "
                                 "and nobody else there is emailed")
 
+    found = {"ids": set()}
+    try:  # 3 Nov 2026 (Ariel): replies that only name someone else
+        found = referrals.process(hs, emails_api, statuses, seen, log)
+        if found["switched"] or found["unsure"]:
+            log(f"Replies naming someone else: {found['switched']} switched automatically, {found['unsure']} left "
+                "for a person")
+    except Exception as err:  # never stops the run
+        log(f"Could not read the replies that name someone else: {str(err)[:200]}")
+    try:  # a company whose replier is now Rejected/Redirected, with nobody else in conversation, resumes
+        referrals.release(hs, statuses, log, leads=leads)
+    except Exception as err:
+        log(f"Could not resume the companies whose replier was redirected: {str(err)[:200]}")
+    try:  # 3 Nov 2026 (Ariel): a new contact at an open company gets its colleague's line and goes to GATE2
+        chain.fill_open(hs, settings, statuses, leads, log)
+    except Exception as err:
+        log(f"Could not copy the lines to new contacts: {str(err)[:200]}")
     try:  # 28 Oct 2026 (Ariel): dead addresses are "Contact corrupt" and the next person moves up
-        dead = corrupt.check(hs, emails_api, leads, statuses, seen, log)
+        dead = corrupt.check(hs, emails_api, leads, statuses,
+                             [x for x in seen if str(x[0]["id"]) not in found.get("ids", set())], log)
     except Exception as err:  # never stops the run; tried again next run
         dead = {"corrupt": 0}
         log(f"Could not check the dead addresses: {str(err)[:200]}")
@@ -950,10 +961,14 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         become "Unqualified: Contacted, but no response" (Unqualified in an account where button 1 has
         not added that choice yet); the others there become "Unqualified: Colleague Contacted, but no
         response" in the same run (close_company_contacts, 2 Nov 2026)."""
-        company_updates.append((company["id"], statuses.props_or("companies", "no_response", "closed")))
+        company_updates.append((company["id"], statuses.props("companies", "no_response")))
         for c in contacts:
             if c.get("state") == "sent" and statuses.of("contacts", c) in EMAILED:
-                contact_updates.append((c["id"], statuses.props_or("contacts", "no_response", "closed")))
+                contact_updates.append((c["id"], statuses.props("contacts", "no_response")))
+        emailed = [c for c in contacts if c.get("state") == "sent"]
+        if chain_cfg and emailed and all(statuses.of("contacts", c) == "reminded" for c in emailed):
+            # 3 Nov 2026: everyone emailed had their reminder too, so the backlog never reopens it
+            chain_state.setdefault("closed", {})[str(company["id"])] = chain.today_str()
         result["no_reply"] += 1
         sent_rows.append(f"| {name} | - | No reply: company set to Unqualified: Contacted, but no response |")
         log(f"{name}: no reply to the introduction; the company is now \"Unqualified: Contacted, but no "
@@ -963,8 +978,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         """An opt-out at the company: that person and the company are Unqualified, everyone else
         there shows "Unqualified: Colleague Opted-out/Blocklist", and HubSpot says why (19 Oct 2026)."""
         for c, event in found:
-            own = statuses.of("contacts", c)
-            if forward(own, "opted_out") or (own == "closed" and statuses.has("contacts", "opted_out")):
+            if forward(statuses.of("contacts", c), "opted_out"):
                 contact_updates.append((c["id"], statuses.props("contacts", "opted_out")))
         if forward(statuses.of("companies", company), "opted_out"):
             company_updates.append((company["id"], statuses.props("companies", "opted_out")))
@@ -1021,7 +1035,9 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             continue
         rules = None
         if chain_cfg:
-            contact_updates.extend(chain.fill_lines(contacts, statuses, log, name))
+            filled = chain.fill_lines(contacts, statuses, log, name)
+            contact_updates.extend(filled)
+            corrupt.approved_elsewhere([cid for cid, _ in filled])  # moved up: still goes at the next run
             rules = chain.company_rules(chain_cfg, chain_state, company["id"])
         due, why = decide(contacts, statuses.of("companies", company), gap, now,
                           touches=touches, min_same_days=min_same,

@@ -13,6 +13,7 @@ def quiet(_):
 
 def _setup(monkeypatch):
     monkeypatch.setenv("REPLY_FORWARD_TO", "owner@team.example")
+    monkeypatch.setenv("ALERT_TO", "amodh@team.example")
     monkeypatch.setenv("DAILY_REPORT_APP_PASSWORD", "app-password")
     hs, emails = FakeCRM(), FakeEmails()
     cid = hs.add("companies", name="FELFEL", country="Switzerland")
@@ -56,9 +57,11 @@ def test_neutral_then_marked_goes_again_once_and_automatic_answers_never_go(monk
     assert reply_forward.forward_replies(hs, emails, [(_record(hs, pid), {}, "replied")], load_settings(), quiet,
                                          smtp=smtp) == 1
     assert smtp.sent[-1]["Subject"].startswith("[Outreach reply: Neutral] Re: hello")
+    assert smtp.sent[-1]["To"] == "amodh@team.example"  # 3 Nov 2026: a neutral reply only to Amodh
     assert reply_forward.forward_replies(hs, emails, [(_record(hs, pid), {}, "marked not interested")],
                                          load_settings(), quiet, smtp=smtp) == 1
     assert smtp.sent[-1]["Subject"].startswith("[Outreach reply: Negative]")
+    assert smtp.sent[-1]["To"] == "owner@team.example"  # a clear no goes to the sales team
     for event in ("marked not interested", "replied", "out of office", "unsubscribed"):
         assert reply_forward.forward_replies(hs, emails, [(_record(hs, pid), {}, event)], load_settings(), quiet,
                                              smtp=smtp) == 0

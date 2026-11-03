@@ -60,6 +60,19 @@ jobs:
             python -m outreach.daily_report --target "$TARGET"
           fi
 
+      # 3 Nov 2026 (Ariel): to ALERT_TO only (Amodh), the replies of the day before that only named someone else:
+      # how many, how many were switched automatically, and the details of those left for a person.
+      - name: "Replies that named someone else (to ALERT_TO only)"
+        continue-on-error: true
+        env:
+          INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
+        run: |
+          if [ "${{ inputs.preview }}" = "true" ]; then
+            python -m outreach.referrals --target "$TARGET" --preview
+          else
+            python -m outreach.referrals --target "$TARGET"
+          fi
+
       - name: "After: email if this run failed"
         if: failure()
         env:

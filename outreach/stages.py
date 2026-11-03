@@ -83,6 +83,11 @@ STAGES = {
         "personal_bounced": "Unqualified: Personal inbox bounced",
         # 2 Nov 2026 (Ariel): the one contact was marked Rejected/Redirected and nobody is left.
         "redirected_none": "Unqualified: One contact inputted, which is unavailable",
+        # 3 Nov 2026 (Ariel): the receiving company's mail system blocks us (a policy block): its colleagues
+        # would bounce too, so the company stops.
+        "bounced_other": "Unqualified: Bounced, other reason",
+        # 3 Nov 2026 (Ariel): a clear yes or no went to the sales team; the automation never touches it again.
+        "sales": "END: Forwarded to Sales Team",
     },
     "contacts": {
         "found": "New",
@@ -115,6 +120,8 @@ STAGES = {
         "inbox_bounced": "Unqualified: Inbox Bounced",
         # 2 Nov 2026 (Ariel): set by hand (on leave, or pointed us to someone else); see redirect.py.
         "redirected": "Unqualified: Rejected/Redirected by company owner",
+        # 3 Nov 2026 (Ariel): the person who gave a clear yes or no, and everyone else at that company.
+        "sales": "END: Forwarded to Sales Team",
     },
 }
 # The old labels, renamed in place by button 1 so the records on them move with them (2 Nov 2026).
@@ -137,10 +144,9 @@ CONTACT_CLOSED = ("closed", "said_no", "opted_out", "bounced_other")
 LEFT_OUT = ("corrupt", "inbox_bounced", "redirected")
 # A company that is Unqualified because of an answer, or because you rejected it.
 COMPANY_CLOSED = ("closed", "said_no", "opted_out")
-# Until button 1 adds a new choice, the stage used instead (2 Nov 2026).
-FALLBACK = {"said_no": "closed", "opted_out": "closed", "bounced_other": "closed", "inbox_bounced": "corrupt",
-            "colleague_no_response": "company_unqualified", "personal_bounced": "closed",
-            "redirected_none": "closed"}
+# Until button 1 adds a new choice, the stage used instead (2 Nov 2026). Since 3 Nov 2026 (Ariel) never
+# plain Unqualified: that is only ever set by a person, so the automation must not write it.
+FALLBACK = {"inbox_bounced": "corrupt", "colleague_no_response": "company_unqualified"}
 
 # The internal value given to a choice when the setup has to add it (matching the live
 # account's style: companies use the label itself, contacts use capitals). A renamed choice keeps
@@ -156,7 +162,9 @@ NEW_OPTION_VALUES = {
                   "Unqualified: Company inbox bounced": "Invalid inbox: Mail bounced, need input",
                   "Unqualified: Personal inbox bounced": "Unqualified: Personal inbox bounced",
                   "Unqualified: One contact inputted, which is unavailable":
-                      "Unqualified: One contact inputted, which is unavailable"},
+                      "Unqualified: One contact inputted, which is unavailable",
+                  "Unqualified: Bounced, other reason": "Unqualified: Bounced, other reason",
+                  "END: Forwarded to Sales Team": "END: Forwarded to Sales Team"},
     "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
                  "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "Forward sent": "FORWARD_SENT",
                  "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
@@ -172,7 +180,8 @@ NEW_OPTION_VALUES = {
                  "Unqualified: Bounced, other reason": "UNQUALIFIED_BOUNCED_OTHER",
                  "Unqualified: Colleague Contacted, but no response": "COLLEAGUE_CONTACTED_NO_RESPONSE",
                  "Unqualified: Inbox Bounced": "UNQUALIFIED_INBOX_BOUNCED",
-                 "Unqualified: Rejected/Redirected by company owner": "UNQUALIFIED_REDIRECTED"},
+                 "Unqualified: Rejected/Redirected by company owner": "UNQUALIFIED_REDIRECTED",
+                 "END: Forwarded to Sales Team": "END_FORWARDED_TO_SALES_TEAM"},
 }
 
 # Later stages win: a status only ever moves forward.
@@ -182,7 +191,8 @@ ORDER = {"": 0, "found": 0, "missing_info": 0, "missing_apollo": 0, "contact_exi
          "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2,
          "colleague_no_response": 3,
          "company_unqualified": 3, "no_response": 3, "corrupt": 3, "inbox_bounced": 3, "redirected": 3,
-         "invalid_inbox": 3, "personal_bounced": 3, "redirected_none": 3}
+         "invalid_inbox": 3, "personal_bounced": 3, "redirected_none": 3,
+         "sales": 4}  # 3 Nov 2026: the end; nothing moves a record on from there
 TEAM = "team"
 
 
@@ -260,4 +270,4 @@ def forward(old_stage, new_stage):
 
 # A company in one of these stages gets no more emails.
 COMPANY_STOPPED = {"replied", "closed", "said_no", "opted_out", "no_response", "invalid_inbox", "personal_bounced",
-                   "redirected_none", TEAM}
+                   "redirected_none", "bounced_other", "sales", TEAM}

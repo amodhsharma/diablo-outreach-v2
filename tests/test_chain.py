@@ -142,8 +142,12 @@ def started(settings, days, titles=("Owner", "Buyer")):
     return hs, instantly, emails, cid, people
 
 
-def test_person_2_gets_their_own_introduction_in_the_month_s_campaign(settings):
+def test_person_2_gets_their_own_introduction_in_the_month_s_campaign(settings, monkeypatch):
     hs, instantly, emails, cid, (p1, p2) = started(settings, 3.1)
+    monkeypatch.setenv("GITHUB_RUN_ID", "run1")
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["next_contacts_added"] == 0 and rec(hs, p2)[LS] == "APPROVED_TO_SEND"  # its line was copied this run
+    monkeypatch.setenv("GITHUB_RUN_ID", "run2")
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert moved["next_contacts_added"] == 1 and not emails.forwards
     assert rec(hs, p2)[LS] == "ATTEMPTED_TO_CONTACT"
@@ -195,7 +199,7 @@ def test_the_backlog_is_reopened_oldest_first_in_the_room_left(settings):
     older, (o1, o2) = closed_company(hs, instantly, "Older", "older.example", 25)
     single, (s1,) = closed_company(hs, instantly, "Solo", "solo.example", 20, backups=0)
     settings["send"]["chain"]["backlog_per_day"] = 2
-    out = chain.run_backlog(hs, instantly, settings, log=quiet, now=NOW)
+    out = chain.run_backlog(hs, instantly, settings, log=quiet, now=NOW, emails_api=FakeEmails())
     assert out["reopened"] == 2
     assert hs.records["companies"][older][LS] == "Attempted to Contact"  # the oldest first
     assert hs.records["companies"][single][LS] == "Attempted to Contact"  # then the next oldest

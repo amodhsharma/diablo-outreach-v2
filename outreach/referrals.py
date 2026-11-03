@@ -1,0 +1,390 @@
+"""Replies that only point us to someone else (agreed 3 Nov 2026, Ariel).
+
+A neutral reply (a real person, no yes or no: Instantly has not labelled it Interested or Not interested)
+often says "my address has changed" or "please write to my colleague". So does an automatic reply saying
+the person has left. At every run of button 4 each new one is read once, and the automation acts by
+itself only when it is sure, that is when all of these hold:
+
+  - the reply holds 1 to 3 email addresses that are new, at the same domain as the person or the company;
+  - its words say it is a redirect ("please contact", "new address", "no longer", "has left", "now
+    handled by" ..., in the languages of our markets); an automatic "has left" reply always does;
+  - nobody has dealt with it yet: the person is not already Rejected/Redirected, and no new address is a
+    team contact in HubSpot (one already tagged AUTO-OUTREACH is linked, never added twice).
+
+Then it adds the new contact(s) (AUTO-OUTREACH, linked to the company, job title "Referred by
+colleague", legal basis "Legitimate interest - Lead"), marks the person who replied
+"Unqualified: Rejected/Redirected by company owner" and puts the company back on Attempted to Contact.
+Button 3 then makes the new contact number 1 (redirect.py), button 4 copies the line, approves it and
+sends the introduction.
+
+When it is not sure it changes nothing: the company stays paused on In Progress for a person to handle.
+Either way the case goes into the email to ALERT_TO (Amodh only) at the time of the daily summary:
+how many such replies came in, how many were switched, and the details of those left for a person.
+
+A company paused on In Progress whose reply came from someone a person has since marked
+Rejected/Redirected, with nobody else there in conversation, goes back into the loop (release).
+
+data/referrals.json remembers which replies were read (HubSpot IDs, the day and the outcome only; no
+names, addresses or text).
+"""
+
+import datetime as dt
+import json
+import os
+import re
+import sys
+
+from .common import ROOT
+from .schema import LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD, TAG, TAG_PROPERTY
+
+FILE = ROOT / "data" / "referrals.json"
+INDIA = dt.timezone(dt.timedelta(hours=5, minutes=30))
+MAX_NEW = 3
+JOB_TITLE = "Referred by colleague"
+EMAIL = re.compile(r"[A-Za-z0-9._%+'-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")
+OURS = re.compile(r"@(?:[a-z0-9-]+\.)*(diablo[a-z0-9-]*\.[a-z.]+)$", re.I)
+# Only wording that clearly sends us elsewhere (3 Nov 2026, after review: "responsible for", "instead", "no longer"
+# on their own also appear in replies from the right person, so they no longer count).
+REDIRECT = re.compile(
+    r"(please (contact|write to|reach out to|email|send (it|your|this|them) to)|kindly (contact|write to|reach out to)|"
+    r"contact (my|our) (colleague|team|department|purchas|buyer|category)|reach out to (my|our) (colleague|team)|"
+    r"new (e-?mail )?address|e-?mail address (has )?changed|address has changed|"
+    r"no longer (with|at|work|employed|part of|in charge|responsible)|(has|have) left (the|our|this)|"
+    r"now (handled|managed|looked after) by|forward(ed)? (it|your|this) to|"
+    r"wenden sie sich|kontaktieren sie|schreiben sie (bitte )?an|neue (e-?mail-?)?adresse|nicht mehr (bei|im|f[üu]r)|"
+    r"veuillez contacter|merci de contacter|[ée]crivez [àa]|nouvelle adresse|n'est plus (chez|dans|en charge)|"
+    r"rivolgersi a|contattare|scrivere a|nuovo indirizzo|non (è|e) pi[uù] (in|con|presso|responsabile)|"
+    r"contacte con|escriba a|nueva direcci[óo]n|ya no (trabaja|est[áa]|es responsable)|"
+    r"neem contact op met|nieuw (e-?mail)?adres|niet meer (bij|werkzaam))", re.I)
+# Public mail services: an address there is never "the same company" just because it shares the domain.
+FREE_MAIL = re.compile(
+    r"^(gmail|googlemail|yahoo|ymail|hotmail|outlook|live|msn|icloud|me|mac|aol|gmx|web|mail|yandex|proton|"
+    r"protonmail|t-online|orange|libero|wp|o2|seznam|bigpond|optusnet|xtra|rediffmail|qq|163|126)\.", re.I)
+NEAR = 250  # the address must come within this many characters after the redirect words
+
+
+def today_india(now=None):
+    return (now or dt.datetime.now(dt.timezone.utc)).astimezone(INDIA).date().isoformat()
+
+
+def load(path=None):
+    try:
+        data = json.loads((path or FILE).read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def save(data, path=None):
+    path = path or FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def _domain(address):
+    return (address or "").rsplit("@", 1)[-1].lower().strip()
+
+
+def _site(domain):
+    d = (domain or "").lower().strip()
+    d = re.sub(r"^https?://", "", d).split("/")[0]
+    return d[4:] if d.startswith("www.") else d
+
+
+def addresses_in(text, sender=""):
+    """The email addresses in a text, lower case, without the sender's own and without ours."""
+    found = []
+    for a in EMAIL.findall(text or ""):
+        a = a.strip(".'").lower()
+        if a == (sender or "").lower() or OURS.search(a) or a in found:
+            continue
+        found.append(a)
+    return found
+
+
+def name_from(address):
+    """First and last name from an address such as anna.meier@ or anna_meier@; empty when unclear."""
+    local = address.split("@", 1)[0]
+    parts = [p for p in re.split(r"[._-]+", local) if p.isalpha() and len(p) > 1]
+    if len(parts) == 2:
+        return parts[0].capitalize(), parts[1].capitalize()
+    return "", ""
+
+
+def _near_redirect(text, address):
+    """True when the address comes shortly after redirect wording (not, say, alone in a signature)."""
+    low = (text or "").lower()
+    at = low.find(address)
+    return any(0 <= at - m.end() <= NEAR for m in REDIRECT.finditer(low[:at])) if at >= 0 else False
+
+
+def judge(text, sender, company_domain, automatic_left=False):
+    """(new addresses at the company, why not sure or "")."""
+    found = addresses_in(text, sender)
+    ours = {d for d in (_domain(sender), _site(company_domain)) if d and not FREE_MAIL.match(d)}
+    same = [a for a in found if _domain(a) in ours or any(_domain(a).endswith("." + d) for d in ours)]
+    if not found:
+        return [], "no email address in the reply"
+    if not same:
+        return [], "the address in the reply is not at the company's own domain"
+    if len(same) > MAX_NEW:
+        return [], f"more than {MAX_NEW} addresses in the reply"
+    if not automatic_left and not all(_near_redirect(text, a) for a in same):
+        return [], "no clear wording that it is a redirect"
+    return same, ""
+
+
+def _reply_texts(emails_api, address, automatic):
+    """The words of their replies (above any quoted email): the real ones, or for `automatic` the automatic
+    replies saying they have left."""
+    from .corrupt import LEFT, _is_notice
+    from .sync import _with_body, auto_reply_reason, reply_text
+    texts = []
+    for e in emails_api.thread_emails(address):
+        if e.get("ue_type") != 2 or _is_notice(e):
+            continue
+        full = _with_body(emails_api, e)
+        is_auto = bool(auto_reply_reason(full))
+        words = reply_text(full) or str(full.get("content_preview") or "")
+        if automatic and is_auto and LEFT.search(" ".join([str(full.get("subject") or ""), words])):
+            texts.append(words)
+        elif not automatic and not is_auto:
+            texts.append(words)
+    return texts
+
+
+def process(hs, emails_api, statuses, seen, log=print, path=None, now=None):
+    """Read each new neutral reply, or automatic "has left" reply, once (see the top). Returns
+    {"switched": n, "unsure": n}."""
+    from .next_in_line import tagged_company_of
+    from .stages import EMAILED
+    from .sync import stop_reasons
+    out = {"switched": 0, "unsure": 0, "ids": set()}
+    if emails_api is None or not statuses.has("contacts", "redirected"):
+        return out
+    state = load(path)
+    handled = state.setdefault("handled", {})
+    day = today_india(now)
+    todo = []
+    for r, lead, event in seen or ():
+        cid, stage = str(r["id"]), statuses.of("contacts", r)
+        if cid in handled:
+            continue
+        # The Lead Status read before this run's changes: In Progress, or still emailed when the reply is new.
+        if event == "replied" and stage in ("replied",) + EMAILED and (lead or {}).get("lt_interest_status") in (None, 0):
+            todo.append((r, False))
+        elif event == "out of office" and stage in EMAILED:
+            todo.append((r, True))
+    if not todo:
+        return out
+    owner_of, companies = tagged_company_of(hs, [r["id"] for r, _ in todo],
+                                            ["name", "domain", "country", "city", "hubspot_owner_id", LEAD_STATUS])
+    for r, automatic in todo:
+        try:
+            _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, day, out, log)
+        except Exception as err:  # this one is read again next run; the others carry on
+            log(f"A reply naming someone else could not be handled ({str(err)[:150]}); tried again next run")
+        save(state, path)  # after each, so what was done is never done twice
+    return out
+
+
+def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, day, out, log):
+    from .next_in_line import tagged_company_of
+    from .sync import stop_reasons
+    cid = str(r["id"])
+    address = (r["properties"].get("email") or "").lower()
+    company_id = owner_of.get(cid)
+    company = companies.get(company_id) or {}
+    cp = company.get("properties") or {}
+    if not company_id or statuses.of("companies", company) not in ("replied", "in_outreach", "approved",
+                                                                     "no_response"):
+        return
+    try:
+        texts = _reply_texts(emails_api, address, automatic)
+    except Exception as err:  # read again next run
+        log(f"{cp.get('name')}: the reply could not be read ({str(err)[:150]}); tried again next run")
+        return
+    if not texts:
+        if automatic:
+            handled[cid] = {"day": day, "outcome": "none"}  # an ordinary out-of-office
+        return
+    text = "\n".join(texts)
+    new, why = judge(text, address, cp.get("domain"), automatic_left=automatic)
+    if automatic and why and not addresses_in(text, address):
+        # "Has left" and no address: the dead-address rule (corrupt.py) handles it as before.
+        handled[cid] = {"day": day, "outcome": "none"}
+        return
+    known = {}
+    if new:
+        # Read every contact with these addresses, the team's too, so nobody is ever added twice.
+        known = {(x["properties"].get("email") or "").lower(): x for x in
+                 hs.batch_read("contacts", new, ["email", TAG_PROPERTY], id_property="email")}
+        if any((x.get("properties") or {}).get(TAG_PROPERTY) != TAG for x in known.values()):
+            new, why = [], "the new address is already one of the team's own contacts in HubSpot"
+        elif known:
+            elsewhere, _ = tagged_company_of(hs, [x["id"] for x in known.values()], ["name"])
+            if any(elsewhere.get(str(x["id"])) not in (None, str(company_id)) for x in known.values()):
+                new, why = [], "the new address is already a contact at another company in HubSpot"
+    if why:
+        handled[cid] = {"day": day, "outcome": "unsure", "company": str(company_id), "why": why,
+                        "automatic": automatic}
+        out["unsure"] += 1
+        log(f"{cp.get('name')}: a reply names someone else, but not clearly enough to act on ({why}); "
+            "left for a person")
+        return
+    records = []
+    for a in new:
+        if a in known:
+            continue
+        first, last = name_from(a)
+        # Lead Status stays empty on purpose: button 3 (redirect.py) numbers them and sets them to New.
+        props = {"email": a, "jobtitle": JOB_TITLE, LEGAL_BASIS: LEGAL_BASIS_LEAD, "company": cp.get("name") or ""}
+        props.update({k: v for k, v in (("firstname", first), ("lastname", last),
+                                        ("country", cp.get("country")), ("city", cp.get("city")),
+                                        ("hubspot_owner_id", cp.get("hubspot_owner_id"))) if v})
+        records.append(props)
+    created = hs.create_tagged("contacts", records) if records else []
+    ids = [str(x["id"]) for x in created if x] + [str(x["id"]) for x in known.values()]
+    hs.associate_primary_tagged([(i, company_id) for i in ids])
+    hs.update_tagged("contacts", [(cid, statuses.props("contacts", "redirected"))])
+    stop_reasons(hs, "contacts", [(cid, f"Redirected automatically ({dt.date.fromisoformat(day).strftime('%d %b %Y').lstrip('0')}): "
+                                        "their reply named a new contact")], log)
+    handled[cid] = {"day": day, "outcome": "switched", "company": str(company_id), "new": ids,
+                    "automatic": automatic}
+    out["switched"] += 1
+    out["ids"].add(cid)
+    log(f"{cp.get('name')}: a reply named {len(ids)} new contact(s); added, and the person who replied is "
+        "now Rejected/Redirected")
+
+
+def release(hs, statuses, log=print, leads=None):
+    """Companies paused on In Progress where everyone who replied is now Rejected/Redirected, and nobody
+    else there is in conversation or with the sales team, go back to Attempted to Contact. Returns how many."""
+    from .next_in_line import contacts_by_company
+    from .stages import TEAM
+    if not statuses.has("contacts", "redirected"):
+        return 0
+    paused = hs.tagged_search("companies", [statuses.filter("companies", "replied")], ["name", LEAD_STATUS],
+                              max_results=2000)
+    if not paused:
+        return 0
+    everyone = contacts_by_company(hs, [c["id"] for c in paused])
+    back = []
+    contacts = []
+    for company in paused:
+        people = everyone.get(company["id"]) or []
+        stages = [statuses.of("contacts", c) for c in people]
+        if "redirected" in stages and not ({"replied", "sales", TEAM} & set(stages)):
+            back.append((company["id"], statuses.props("companies", "in_outreach")))
+            # Its colleagues were paused as "Colleague replied" by the reply: back to where they were.
+            for c in people:
+                if statuses.of("contacts", c) == "colleague_replied":
+                    email = (c["properties"].get("email") or "").lower()
+                    if leads is not None and email in leads:
+                        stage = "in_outreach"  # already emailed (Instantly holds them): never back to GATE2
+                    else:
+                        has_line = bool((c["properties"].get("diablo_personal_line") or "").strip())
+                        stage = "approved" if has_line else "found"
+                    contacts.append((c["id"], statuses.props("contacts", stage)))
+            log(f"{(company.get('properties') or {}).get('name')}: the person who replied is Rejected/Redirected, "
+                "so the company is back on Attempted to Contact")
+    hs.update_tagged("companies", back)
+    hs.update_tagged("contacts", contacts)
+    return len(back)
+
+
+# ---- The daily email to ALERT_TO --------------------------------------------------------------------
+
+def report_text(hs, emails_api, statuses, day, path=None):
+    """(subject, text) of the email about the replies read on `day` (an India date), or (None, None)."""
+    from .common import PRODUCTION_PORTAL_ID
+    state = load(path)
+    handled = state.get("handled") or {}
+    cases = {cid: e for cid, e in handled.items() if e.get("outcome") in ("switched", "unsure")}
+    todays = {cid: e for cid, e in cases.items() if e.get("day") == day}
+    waiting = {cid: e for cid, e in cases.items() if e.get("outcome") == "unsure" and (e.get("day") or "") < day}
+    ids = sorted(set(todays) | set(waiting) | {n for e in todays.values() for n in e.get("new") or []})
+    people = {str(r["id"]): r for r in hs.tagged_read("contacts", ids, ["email", "jobtitle", LEAD_STATUS])} if ids else {}
+    company_ids = sorted({e.get("company") for e in list(todays.values()) + list(waiting.values()) if e.get("company")})
+    companies = {str(c["id"]): c for c in hs.tagged_read("companies", company_ids, ["name", LEAD_STATUS])} if company_ids else {}
+    try:
+        portal = hs.portal_id()
+    except Exception:
+        portal = PRODUCTION_PORTAL_ID
+
+    def company(e):
+        return ((companies.get(e.get("company")) or {}).get("properties") or {}).get("name") or "a company"
+
+    def job(cid):
+        return ((people.get(cid) or {}).get("properties") or {}).get("jobtitle") or "contact"
+
+    def still_paused(e):
+        c = companies.get(e.get("company"))
+        return bool(c) and statuses.of("companies", c) == "replied"
+
+    switched = [(cid, e) for cid, e in todays.items() if e["outcome"] == "switched"]
+    unsure = [(cid, e) for cid, e in todays.items() if e["outcome"] == "unsure"]
+    old = [(cid, e) for cid, e in waiting.items() if still_paused(e)]
+    long_day = dt.date.fromisoformat(day)
+    lines = [f"Replies read on {long_day.strftime('%A')} {long_day.day} {long_day.strftime('%B %Y')} that only named "
+             "someone else (no clear yes or no), or automatic replies saying the person has left.", "",
+             f"Seen: {len(todays)}", f"Switched automatically: {len(switched)}", f"Left for you: {len(unsure)}"]
+    if switched:
+        lines += ["", "SWITCHED AUTOMATICALLY (the old contact is now Rejected/Redirected; the new one is emailed "
+                      "after the next runs of buttons 3 and 4):"]
+        for cid, e in switched:
+            new = ", ".join(((people.get(n) or {}).get("properties") or {}).get("email") or "new contact"
+                            for n in e.get("new") or [])
+            lines.append(f"- {company(e)}: {job(cid)} -> {new}")
+    if unsure:
+        lines += ["", "LEFT FOR YOU (nothing was changed for the reply; a company with a reply waits on In "
+                      "Progress, and an automatic \"has left\" reply still marks that address Contact corrupt):"]
+        for cid, e in unsure:
+            address = ((people.get(cid) or {}).get("properties") or {}).get("email") or ""
+            excerpt = ""
+            if emails_api is not None and address:
+                try:
+                    texts = _reply_texts(emails_api, address, bool(e.get("automatic")))
+                    excerpt = " ".join(" ".join(texts).split())[:400]
+                except Exception:
+                    excerpt = ""
+            lines += [f"- {company(e)} (https://app.hubspot.com/contacts/{portal}/record/0-2/{e.get('company')})",
+                      f"  Who replied: {job(cid)}", f"  Why it was not sure: {e.get('why')}"]
+            if excerpt:
+                lines.append(f'  Their reply: "{excerpt}"')
+    if old:
+        lines += ["", f"Still waiting for you from earlier days: {len(old)} ("
+                      + ", ".join(sorted({company(e) for _, e in old})) + ")"]
+    if not todays and not old:
+        return None, None
+    lines += ["", "Kind regards,", "Diablo outreach"]
+    return f"Partner outreach: replies naming someone else ({long_day.day} {long_day.strftime('%b %Y')})", "\n".join(lines)
+
+
+def main(argv=None):
+    import argparse
+    from .common import check_target
+    from .hubspot_client import HubSpot
+    from .instantly_client import Instantly
+    from .stages import LeadStatus
+    from . import alert
+    p = argparse.ArgumentParser(description="Email ALERT_TO about yesterday's replies that named someone else")
+    p.add_argument("--target", default="test", choices=["test", "live"])
+    p.add_argument("--preview", action="store_true", help="show the email, send nothing")
+    args = p.parse_args(argv)
+    hs = HubSpot()
+    check_target(hs, args.target)
+    key = os.environ.get("INSTANTLY_EMAILS_KEY")
+    yesterday = (dt.datetime.now(INDIA).date() - dt.timedelta(days=1)).isoformat()
+    subject, text = report_text(hs, Instantly(api_key=key) if key else None, LeadStatus(hs), yesterday)
+    if not subject:
+        print("No reply named someone else yesterday, and none is waiting: nothing to send.")
+        return 0
+    print(subject + "\n\n" + text)
+    if not args.preview:
+        alert.send(subject, text)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

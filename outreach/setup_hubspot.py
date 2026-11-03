@@ -102,7 +102,9 @@ LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                   "Unqualified: Contacted, but no response",  # renamed (21 Oct 2026)
                                   "Unqualified: Company inbox bounced",  # renamed (28 Oct 2026)
                                   "Unqualified: Personal inbox bounced",
-                                  "Unqualified: One contact inputted, which is unavailable"},
+                                  "Unqualified: One contact inputted, which is unavailable",
+                                  "Unqualified: Bounced, other reason",  # 3 Nov 2026
+                                  "END: Forwarded to Sales Team"},  # 3 Nov 2026
                     "contacts": {"New, Personal line filled", "GATE2: Approved to send",
                                  "Forward sent", "Reminder sent",  # these two added 14 Oct 2026
                                  # the rest of a company once someone there has answered (19 Oct 2026)
@@ -117,7 +119,8 @@ LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                  "Unqualified: Bounced, other reason",
                                  "Unqualified: Colleague Contacted, but no response",
                                  "Unqualified: Inbox Bounced",
-                                 "Unqualified: Rejected/Redirected by company owner"}}
+                                 "Unqualified: Rejected/Redirected by company owner",
+                                 "END: Forwarded to Sales Team"}}  # 3 Nov 2026
 
 
 def rename_options(hs, object_type, current, plan):

@@ -31,7 +31,7 @@ import os
 import re
 import sys
 
-from . import apollo_status, company_inbox, hand_tagged, linking, redirect
+from . import apollo_status, chain, company_inbox, hand_tagged, linking, redirect
 from .job_owner import fill_owners, is_job_company, job_notes, job_owner
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
@@ -327,6 +327,10 @@ def run(target, settings, hs, apollo, log=print):
     except Exception as err:
         redirected = {}
         log(f"Could not move the contacts up after a Rejected/Redirected contact: {str(err)[:200]}")
+    try:  # 3 Nov 2026 (Ariel): a contact added later at an open company gets its colleague's line and GATE2
+        chain.fill_open(hs, settings, statuses, None, log)
+    except Exception as err:
+        log(f"Could not copy the lines to new contacts: {str(err)[:200]}")
     try:  # 1 Nov 2026 (Ariel): "Missing Info" websites read again for addresses hidden by Cloudflare
         website_summary = apollo_status.recheck_websites(hs, statuses, log)
     except Exception as err:

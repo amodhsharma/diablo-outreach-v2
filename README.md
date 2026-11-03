@@ -57,6 +57,7 @@ Approved to send*). The team's own choices, such as plain Unqualified, are never
 | Forward sent to the next person (persons 2 to 4) | | Forward sent |
 | Person 1's one reminder sent | | Reminder sent |
 | They replied | In Progress | In Progress |
+| A clear yes or no (Instantly label Interested or Not interested) | END: Forwarded to Sales Team | END: Forwarded to Sales Team (the person and everyone else there) |
 
 **The dead ends (2 Nov 2026).** Each has its own choice starting "Unqualified:", so HubSpot shows why
 outreach stopped. Button 1 renamed the older ones in place, so their records moved with them.
@@ -64,18 +65,35 @@ outreach stopped. Button 1 renamed the older ones in place, so their records mov
 | What happened | Company | Person emailed | The others there |
 |---|---|---|---|
 | You rejected it | Unqualified | Unqualified company | Unqualified company |
-| The person said no | Unqualified: Employee response negative | Unqualified: Response negative | Unqualified: Colleague response negative |
+| The person said no (before 3 Nov 2026; a clear no now goes to END: Forwarded to Sales Team) | Unqualified: Employee response negative | Unqualified: Response negative | Unqualified: Colleague response negative |
 | The person opted out (unsubscribed or blocklisted) | Unqualified: Employee Opted-out/Blocklist | Unqualified: Opted-out/Blocklist | Unqualified: Colleague Opted-out/Blocklist |
 | Emailed, no reply after 1 week | Unqualified: Contacted, but no response | Unqualified: Contacted, but no response | Unqualified: Colleague Contacted, but no response |
 | Its company inbox bounced and nobody is left | Unqualified: Company inbox bounced | Unqualified: Inbox Bounced | - |
 | The person's address is dead, someone else is left | Attempted to Contact (unchanged) | Unqualified: Contact corrupt (Outreach order 0) | the next person moves up to number 1 and goes to GATE2 |
 | The person's address is dead, nobody is left | Unqualified: Personal inbox bounced | Unqualified: Contact corrupt | - |
 | Bounced for another reason (a full mailbox) | unchanged | Unqualified: Bounced, other reason | unchanged |
+| Blocked by the company's mail policy (Google), nobody else there emailed yet | Unqualified: Bounced, other reason | Unqualified: Bounced, other reason | not emailed |
 | You mark the person Rejected/Redirected (on leave, or they point to someone else) | unchanged; with nobody left: Unqualified: One contact inputted, which is unavailable | Unqualified: Rejected/Redirected by company owner (Outreach order 0) | the next person moves up (see below) |
 
-Plain "Unqualified" on a contact is now only a contact you rejected at gate 2. A contact or company
-still on plain Unqualified from before 2 Nov 2026 gets its exact label at the next run of button 4,
-read from Instantly. Only AUTO-OUTREACH records are ever changed.
+Plain "Unqualified" means a person set it, and the pipeline never changes it. Only AUTO-OUTREACH
+records are ever changed.
+
+**Bounces (3 Nov 2026).** Microsoft's "5.4.1 Access denied" counts as a dead address. The bounce message
+itself is written into the Stop reason, and bounces from before 3 Nov 2026 were read again once to add it.
+
+**Replies (3 Nov 2026).** When Instantly labels a reply Interested or Not interested, it is forwarded to
+the GitHub secret REPLY_FORWARD_TO, and the company, the person and everyone else there become "END:
+Forwarded to Sales Team". The pipeline stops there. Every other reply is forwarded only to the secret
+ALERT_TO; opt-outs are not forwarded. Button 4 reads each reply that is not labelled (and each
+out-of-office that says the person has left) for 1 to 3 new addresses at the same company with words like
+"please contact". When it is sure, it adds them as contacts (AUTO-OUTREACH, job title "Referred by
+colleague", legal basis "Legitimate interest - prospect/lead", linked to the company), sets the person
+who replied to "Unqualified: Rejected/Redirected by company owner" and puts the company back on
+Attempted to Contact. When it is not sure, it changes nothing. Each morning with the daily summary, an
+email goes to ALERT_TO only: how many such replies were seen, switched and left, the details of the ones
+left (company, job title, why, part of the reply and the HubSpot link) and how many are still waiting
+from earlier days. A company on In Progress whose replier is now Rejected/Redirected, with nobody else
+there in conversation, carries on.
 
 **When someone is on leave or points you to a colleague (2 Nov 2026).** Add the new person in HubSpot
 with their email address and Lead source AUTO-OUTREACH, link them to the company, and leave Lead
@@ -91,10 +109,11 @@ month's campaign, 3 days apart in Outreach order (company inbox last), and a rem
 own introduction, sent as a forward of it ("Fwd: " and its subject) from the mailbox that sent it. The
 company closes 3 days after the last reminder with no reply; a reply or opt-out from anyone stops it at
 once. Once you approve person 1 at gate 2, everyone else there goes to GATE2 by themselves, with person
-1's line copied where theirs is missing. Reminders go on top of each mailbox's 30 introductions, at most
+1's line copied where theirs is missing. The same happens to a new contact added later at any company on
+GATE1 or Attempted to Contact (at the next run of button 3 or 4); they are emailed at the run after. Reminders go on top of each mailbox's 30 introductions, at most
 10 a mailbox a day. Every email goes into the campaign of the month it is sent in.
 
-**The backlog (2 Nov 2026).** Companies closed as "no response" are reopened each day, oldest first, only
+**The backlog (2 Nov 2026).** Companies closed as "no response" where someone got just one email are reopened each day, oldest first, only
 in the room the new introductions leave under the day's limit, at most 50 a day (button 4, step 2b). Two
 or more people: the next person's introduction at once, person 1's reminder 3 days later, then as above.
 One person: their reminder at once, and the company closes 7 days later with no reply.
@@ -250,6 +269,8 @@ Settings > Secrets and variables > Actions > New repository secret.
 | `INSTANTLY_API_KEY` | Instantly > Settings > Integrations > API keys (scopes: campaigns and leads) |
 | `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 4 to send the forwards and person 1's reminder |
 | `INSTANTLY_ACCOUNTS_KEY` | A second, read-only Instantly key with the scope `accounts:read`, used only by button 4's health check to read the mailboxes (`docs/instantly_accounts_key.md`) |
+| `REPLY_FORWARD_TO` | The sales team's addresses, separated by commas: clear yes or no replies are forwarded here |
+| `ALERT_TO` | Amodh's address only: failure emails, every other reply and the daily list of replies that named someone else |
 | `HUBSPOT_TOKEN_LIVE` | Only when testing is finished: the same kind of private app, made in the live account, with the same scopes |
 
 To use the live HubSpot account for the automatic jobs, add a repository variable

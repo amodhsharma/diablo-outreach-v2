@@ -117,13 +117,18 @@ def fill_lines(contacts, statuses, log=print, name=""):
     """When person 1 is approved or emailed, everyone else at the company not yet through gate 2 goes to
     GATE2: their own line if written, otherwise person 1's line and company note copied over. Returns
     [(contact id, props)] to write; the contacts are updated in place (state "approved")."""
-    if not any(c.get("state") in ("approved", "queued", "sent") for c in contacts):
-        return []
     from .next_in_line import rank_of
-    # The line of the current person 1 (approved or emailed), never a dead or redirected contact's.
+    from .stages import LEFT_OUT
+    # Person 1 was approved: someone is approved or emailed, or was before they left or were redirected.
+    gone = [c for c in contacts if statuses.of("contacts", c) in LEFT_OUT]
+    if not any(c.get("state") in ("approved", "queued", "sent") for c in contacts) and not gone:
+        return []
+    # The line of the current person 1 (approved or emailed); a dead or redirected contact's only when nobody
+    # else there has one (every line at a company is about the company).
     live = [c for c in sorted(contacts, key=rank_of) if c.get("state") in ("approved", "queued", "sent")
             and (c["properties"].get(PERSONAL_LINE) or "").strip()]
-    source = live[0] if live else None
+    old = [c for c in sorted(gone, key=rank_of) if (c["properties"].get(PERSONAL_LINE) or "").strip()]
+    source = (live or old or [None])[0]
     updates = []
     for c in contacts:
         if c.get("state") != "pending" or not c["properties"].get("email"):
@@ -144,6 +149,53 @@ def fill_lines(contacts, statuses, log=print, name=""):
         log(f"{name}: {len(updates)} more contact(s) there went to GATE2: Approved to send by themselves "
             "(person 1 is approved; lines copied where missing)")
     return updates
+
+
+def fill_open(hs, settings, statuses, leads=None, log=print):
+    """fill_lines for every open company (GATE1 or Attempted to Contact) that has a contact on New or "New,
+    Personal line filled" (3 Nov 2026, Ariel: a contact added later goes to GATE2 by itself, at button 3 or
+    button 4, whichever runs first). Returns how many contacts went to GATE2."""
+    from .next_in_line import annotate, contacts_by_company, tagged_company_of
+    if not config(settings):
+        return 0
+    waiting = []
+    for stage in ("found", "copy_ready"):
+        if statuses.has("contacts", stage):
+            waiting += hs.tagged_search("contacts", [statuses.filter("contacts", stage)], [ORDER], max_results=2000)
+    waiting = [c for c in waiting if str((c.get("properties") or {}).get(ORDER) or "").strip()]
+    if not waiting:
+        return 0
+    owner_of, companies = tagged_company_of(hs, [c["id"] for c in waiting], ["name", LEAD_STATUS])
+    open_ids = sorted({cid for cid in owner_of.values()
+                       if statuses.of("companies", companies.get(cid) or {}) in ("approved", "in_outreach")})
+    if not open_ids:
+        return 0
+    everyone = contacts_by_company(hs, open_ids)
+    updates = []
+    for cid in open_ids:
+        people = annotate(everyone.get(cid) or [], statuses, leads or {})
+        name = ((companies.get(cid) or {}).get("properties") or {}).get("name") or "a company"
+        updates += fill_lines(people, statuses, log, name)
+    hs.update_tagged("contacts", updates)
+    from .corrupt import approved_elsewhere
+    approved_elsewhere([cid for cid, _ in updates])  # moved up: still goes at the next run
+    return len(updates)
+
+
+def had_everything(emails_api, people):
+    """True when everyone emailed at the company has two emails from us in Instantly (introduction and
+    reminder); None when the emails cannot be read."""
+    if emails_api is None:
+        return None
+    try:
+        for c in people:
+            address = (c["properties"].get("email") or "").lower()
+            sent = [e for e in emails_api.thread_emails(address) if e.get("ue_type") in (1, 3)]
+            if len(sent) < 2:
+                return False
+        return True
+    except Exception:
+        return None
 
 
 # ---- The backlog -------------------------------------------------------------------------------
@@ -215,7 +267,8 @@ def run_backlog(hs, instantly, settings, log=print, now=None, state_path=None, e
                                  max_results=5000)
     reopened = state.setdefault("reopened", {})
     # Never twice: the state file remembers, and so does the company's "Outreach stopped because".
-    companies = [c for c in companies if str(c["id"]) not in reopened
+    closed_after = state.get("closed") or {}  # 3 Nov 2026: closed after everyone had their emails
+    companies = [c for c in companies if str(c["id"]) not in reopened and str(c["id"]) not in closed_after
                  and not str(c["properties"].get(STOP_REASON) or "").startswith(REOPENED)
                  and (c["properties"].get("country") or "").strip()]
     if not companies:
@@ -256,6 +309,14 @@ def run_backlog(hs, instantly, settings, log=print, now=None, state_path=None, e
         if why:
             log(f"Backlog: {name} is not reopened ({why}); it is left as it is")
             continue
+        if not waiting:
+            done = had_everything(emails_api, emailed)
+            if done is None:  # the emails could not be read: not reopened this time, tried again tomorrow
+                log(f"Backlog: {name} is not reopened today (its emails could not be read)")
+                continue
+            if done:  # 3 Nov 2026: everyone already had both emails
+                state.setdefault("closed", {})[cid] = today_str(now)
+                continue
         mine = {}  # this company's updates, kept only when it is reopened
         for c in emailed:
             mine[str(c["id"])] = dict(statuses.props("contacts", "in_outreach"))

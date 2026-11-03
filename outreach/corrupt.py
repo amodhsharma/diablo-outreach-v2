@@ -42,7 +42,9 @@ from .stages import EMAILED
 PROMOTED_FILE = ROOT / "data" / "promoted.json"
 HOLD_MINUTES = 60  # without a GitHub run number, someone approved this recently waits for the next run
 DONE_PREFIXES = ("contact corrupt", "email bounced", "inbox bounced")  # "Outreach stopped because": checked
-BOUNCE_STAGES = EMAILED + ("closed", "bounced_other")
+# 3 Nov 2026: never plain Unqualified (only a person sets it, and a person's choice is never changed).
+BOUNCE_STAGES = EMAILED + ("bounced_other",)
+MESSAGE = "Bounce message:"  # in "Outreach stopped because" since 3 Nov 2026
 
 # The bounce says the address is dead (address unknown, mailbox closed or no longer used).
 DEAD = re.compile(
@@ -52,8 +54,20 @@ DEAD = re.compile(
     r"has been disabled|is inactive|no longer)|account (has been |is )?(disabled|deactivated|closed|suspended|"
     r"inactive)|no longer (in use|active|valid|exists|available)|invalid (recipient|mailbox|address)|"
     r"\b5\.1\.1\b|\b5\.1\.10\b|\b5\.2\.1\b|\b5\.1\.6\b|"
+    # 3 Nov 2026: Microsoft's answer when the address is not in the company's directory
+    r"\b5\.4\.1\b|recipient address rejected: access denied|"
     r"empf[äa]nger (unbekannt|nicht gefunden)|existiert nicht|unbekannte(r)? empf[äa]nger|"
     r"adresse (introuvable|inconnue)|destinataire inconnu|n'existe pas)", re.I)
+# 3 Nov 2026 (Ariel): the receiving company's mail system blocks us (Google: "has a policy that prohibited the
+# mail"); the address exists, but its colleagues would bounce too, so the company stops.
+POLICY = re.compile(
+    r"(policy that prohibited|prohibited the mail|\b5\.7\.1\b|rejected (by|for) (policy|security)|"
+    r"blocked (by|due to) (policy|the recipient)|message (was )?blocked|sender (address )?(is )?blocked|"
+    r"not (allowed|authori[sz]ed) to send|spam (message )?rejected|rejected as spam|"
+    r"blocklisted|blacklisted)", re.I)
+# The words of a bounce worth showing in HubSpot: the diagnostic line, or an SMTP code with what follows.
+DIAGNOSTIC = re.compile(r"(diagnostic[- ]message[:\s]*|diagnostic[- ]code[:\s]*)?(\b[45]\d\d\b[\s-]*)?"
+                        r"\b[45]\.\d{1,3}\.\d{1,3}\b[^\n]{0,180}", re.I)
 # An email that is a bounce notice (from the mail system, not a person).
 NOTICE_SENDER = re.compile(r"(mailer-daemon|postmaster|mail delivery (sub)?system|microsoftexchange)", re.I)
 NOTICE_SUBJECT = re.compile(
@@ -114,6 +128,18 @@ def waiting_for_line(contact_id, promoted=None):
     return bool(entry) and not entry.get("approved_run_at")
 
 
+def approved_elsewhere(contact_ids, path=None):
+    """Contacts that moved up and were put on GATE2 by another step of this run (chain.fill_lines, 3 Nov
+    2026): their introduction still waits for the next run, as agreed for everyone who moves up."""
+    promoted = load_promoted(path)
+    hit = [str(c) for c in contact_ids]  # every one of them, not only those who moved up after a dead address
+    for cid in hit:
+        _approved_now(promoted, cid)
+    if hit:
+        save_promoted(promoted, path)
+    return hit
+
+
 def _approved_now(promoted, contact_id):
     promoted[str(contact_id)] = dict(promoted.get(str(contact_id)) or {}, approved_run=run_id(),
                                      approved_run_at=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"))
@@ -151,10 +177,22 @@ def bounce_text(lead, thread, emails_api=None):
 
 
 def kind_of_bounce(text):
-    """ "dead" (the address does not exist or is no longer used), "other" or "unreadable"."""
+    """ "dead" (the address does not exist or is no longer used), "policy" (their mail system blocks us),
+    "other" or "unreadable"."""
     if not (text or "").strip():
         return "unreadable"
-    return "dead" if DEAD.search(text) else "other"
+    if DEAD.search(text):
+        return "dead"
+    return "policy" if POLICY.search(text) else "other"
+
+
+def bounce_message(text):
+    """The bounce's own words, short, for "Outreach stopped because" (3 Nov 2026)."""
+    text = " ".join((text or "").split())
+    m = DIAGNOSTIC.search(text)
+    words = (m.group(0) if m else text)[:160].strip()
+    words = re.split(r"(?i)\b(for more information|please contact your|learn more)\b", words)[0]
+    return re.sub(r"https?://\S+", "", words).strip(" .;:")
 
 
 def has_left(thread):
@@ -168,7 +206,13 @@ def has_left(thread):
 # ---- The check at each run of button 4 --------------------------------------------------------
 
 def _done(contact):
-    return str((contact.get("properties") or {}).get(STOP_REASON) or "").strip().lower().startswith(DONE_PREFIXES)
+    """Checked already. A bounce noted before 3 Nov 2026 (without its message) is read once more, so the new
+    rules (Microsoft's 5.4.1, policy blocks) and the message reach it too."""
+    reason = str((contact.get("properties") or {}).get(STOP_REASON) or "").strip()
+    low = reason.lower()
+    if low.startswith("email bounced"):
+        return MESSAGE.lower() in low
+    return low.startswith(DONE_PREFIXES)
 
 
 def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=None):
@@ -187,7 +231,7 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
         return out
     bounced = {e: l for e, l in (leads or {}).items() if l.get("status") == -1}
     rows = hs.tagged_read("contacts", list(bounced), CONTACT_PROPS, id_property="email") if bounced else []
-    reasons, corrupt, other = [], {}, []  # corrupt: {contact id: (record, why)}
+    reasons, corrupt, other, blocked = [], {}, [], []  # corrupt: {contact id: (record, why)}
     for r in rows:
         if statuses.of("contacts", r) not in BOUNCE_STAGES or _done(r):
             continue
@@ -198,17 +242,22 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
             log(f"The bounce of a {r['properties'].get('jobtitle') or 'contact'} could not be read "
                 f"({str(err)[:150]}); tried again next run")
             continue
-        kind = kind_of_bounce(bounce_text(bounced.get(email), thread, emails_api))
+        text = bounce_text(bounced.get(email), thread, emails_api)
+        kind = kind_of_bounce(text)
+        said = f" {MESSAGE} {bounce_message(text)}" if text.strip() else f" {MESSAGE} (none could be read)"
         if kind == "dead":
             corrupt[str(r["id"])] = (r, f"Contact corrupt: email bounced, the address does not exist or is no "
-                                        f"longer used ({today()})")
+                                        f"longer used ({today()}).{said}")
         else:
-            why = ("not a dead address (for example a full mailbox): Unqualified: Bounced, other reason"
-                   if kind == "other" else "the reason could not be read, check by hand")
-            reasons.append((r["id"], f"Email bounced ({today()}): {why}"))
+            why = {"other": "not a dead address (for example a full mailbox)",
+                   "policy": "their mail system blocks our emails; the company stops",
+                   "unreadable": "the reason could not be read, check by hand"}[kind]
+            reasons.append((r["id"], f"Email bounced ({today()}): {why}.{said}"))
             out["to_check"].append((r, why))
             if statuses.of("contacts", r) != "bounced_other" and statuses.has("contacts", "bounced_other"):
                 other.append((r["id"], statuses.props("contacts", "bounced_other")))
+            if kind == "policy":
+                blocked.append(r)
     for r, _lead, event in seen or ():
         if event != "out of office" or str(r["id"]) in corrupt or _done(r):
             continue
@@ -224,11 +273,44 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
     if other:
         hs.update_tagged("contacts", other)
     stop_reasons(hs, "contacts", reasons, log)
+    if blocked:
+        _close_blocked(hs, statuses, blocked, leads, out, log)
     if corrupt:
         _move_up(hs, statuses, corrupt, leads, promoted, out, log)
     save_promoted(promoted, promoted_path)
     _summary(out)
     return out
+
+
+def _close_blocked(hs, statuses, blocked, leads, out, log):
+    """Their mail system blocks us (3 Nov 2026, Ariel): the company becomes "Unqualified: Bounced, other
+    reason" and its colleagues are not emailed, unless someone else there already received our email
+    (then the block is not the whole company's)."""
+    from .sync import stop_reasons
+    if not statuses.has("companies", "bounced_other"):
+        return
+    owner_of, companies = tagged_company_of(hs, [r["id"] for r in blocked], ["name", LEAD_STATUS])
+    by_company = {}
+    for r in blocked:
+        if owner_of.get(str(r["id"])):
+            by_company.setdefault(owner_of[str(r["id"])], set()).add(str(r["id"]))
+    everyone = contacts_by_company(hs, list(by_company)) if by_company else {}
+    updates = []
+    for company_id, ids in by_company.items():
+        company = companies.get(company_id) or {}
+        name = (company.get("properties") or {}).get("name") or "a company"
+        people = annotate(everyone.get(company_id) or [], statuses, leads or {})
+        if any(c["state"] == "sent" and str(c["id"]) not in ids for c in people):
+            continue
+        if statuses.of("companies", company) not in ("", "approved", "in_outreach", "no_response"):
+            continue
+        updates.append((company_id, statuses.props("companies", "bounced_other")))
+        stop_reasons(hs, "companies", [(company_id, f"Their mail system blocks our emails ({today()}): the "
+                                                    "colleagues there are not emailed")], log)
+        out["rows"].append(f"| {name} | - | Company: Unqualified: Bounced, other reason (their mail system blocks "
+                           "us; colleagues not emailed) |")
+        log(f'{name}: their mail system blocks our emails; the company is now "Unqualified: Bounced, other reason"')
+    hs.update_tagged("companies", updates)
 
 
 def _move_up(hs, statuses, corrupt, leads, promoted, out, log):
@@ -258,6 +340,9 @@ def _move_up(hs, statuses, corrupt, leads, promoted, out, log):
             r = corrupt[c][0]
             out["rows"].append(f"| {name} | {r['properties'].get('jobtitle') or 'contact'} | "
                                f"{corrupt[c][1].split(' (')[0]} |")
+        if (statuses.of("companies", company) if company else "team") not in ("", "approved", "in_outreach",
+                                                                              "no_response"):
+            continue  # 3 Nov 2026: in conversation, with the sales team or closed otherwise: nobody moves up
         # Everyone below moves up one: the numbers of those still in the loop become 1, 2, 3 ...
         ranked = sorted((c for c in rest if 1 <= rank_of(c) < 999), key=rank_of)
         for i, c in enumerate(ranked, start=1):

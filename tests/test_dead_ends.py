@@ -20,16 +20,13 @@ def emailed(instantly):
 
 # ---- Past records get their exact label at the next run of button 4 -------------------------------
 
-def test_a_past_no_gets_its_own_labels_on_the_person_the_company_and_the_others(settings):
-    hs, instantly, emails, cid, (p1, p2) = started(settings, "past.example", ("Owner", "Buyer"))
-    lead(instantly, "p1@past.example").update(lt_interest_status=-1, email_reply_count=1)
-    rec(hs, p1)[LS] = "UNQUALIFIED"  # as before 2 Nov 2026
-    rec(hs, p2)[LS] = "UNQUALIFIED_COMPANY"
-    hs.records["companies"][cid][LS] = "Unqualified"
-    sync.run("test", settings, hs, instantly, log=quiet)
-    assert rec(hs, p1)[LS] == "UNQUALIFIED_RESPONSE_NEGATIVE"
-    assert hs.records["companies"][cid][LS] == "Unqualified: Employee response negative"
-    assert rec(hs, p2)[LS] == "COLLEAGUE_REPLIED_NEGATIVE"  # now labelled "Unqualified: Colleague response negative"
+def test_a_contact_a_person_set_to_plain_unqualified_is_never_changed(settings):
+    """3 Nov 2026 (Ariel): plain Unqualified is only ever set by a person; the automation leaves it alone."""
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "manual.example", ("Owner", "Buyer"))
+    lead(instantly, "p1@manual.example").update(status=-1)
+    rec(hs, p1)[LS] = "UNQUALIFIED"
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert rec(hs, p1)[LS] == "UNQUALIFIED"
 
 
 def test_the_others_at_a_company_that_never_replied_get_their_own_label(settings):
@@ -79,10 +76,11 @@ def test_redirected_to_someone_added_by_hand(settings, monkeypatch):
     out = button_3(hs)
     assert out is not None
     assert rec(hs, p1)[ORDER] == "0" and rec(hs, p1)[REASON].startswith("Rejected/Redirected")
-    assert rec(hs, new)[ORDER] == "1" and rec(hs, new)[LS] == "NEW"  # first, and its line gets written
+    # first; 3 Nov 2026: button 3 copies person 1's line to it at once and puts it on GATE2
+    assert rec(hs, new)[ORDER] == "1" and rec(hs, new)[LS] == "APPROVED_TO_SEND"
+    assert rec(hs, new)["diablo_personal_line"] == rec(hs, p1)["diablo_personal_line"]
     assert rec(hs, p2)[ORDER] == "2" and rec(hs, p2)[LS] == "APPROVED_TO_SEND"
     assert hs.records["companies"][cid][LS] == "Attempted to Contact"
-    assert corrupt.waiting_for_line(new)
 
     monkeypatch.setenv("GITHUB_RUN_ID", "run2")
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
@@ -156,4 +154,4 @@ def test_before_button_1_the_old_labels_still_work():
     statuses = LeadStatus(Old())
     assert statuses.stage("companies", "Contacted, but no response, unqualified") == "no_response"
     assert statuses.stage("contacts", "COLLEAGUE_REPLIED_NEGATIVE") == "colleague_negative"
-    assert statuses.props("contacts", "said_no") == {"hs_lead_status": "UNQUALIFIED"}  # until it is added
+    assert not statuses.has("contacts", "said_no")  # 3 Nov 2026: never plain Unqualified in its place
