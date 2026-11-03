@@ -40,6 +40,7 @@ from .schema import LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD, TAG, TAG_PROPERT
 FILE = ROOT / "data" / "referrals.json"
 INDIA = dt.timezone(dt.timedelta(hours=5, minutes=30))
 MAX_NEW = 3
+PER_RUN = 20  # replies read per run of button 4 (Instantly's emails are slow to read); the rest next run
 JOB_TITLE = "Referred by colleague"
 EMAIL = re.compile(r"[A-Za-z0-9._%+'-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")
 OURS = re.compile(r"@(?:[a-z0-9-]+\.)*(diablo[a-z0-9-]*\.[a-z.]+)$", re.I)
@@ -177,6 +178,7 @@ def process(hs, emails_api, statuses, seen, log=print, path=None, now=None):
             todo.append((r, True))
     if not todo:
         return out
+    todo = todo[:PER_RUN]
     owner_of, companies = tagged_company_of(hs, [r["id"] for r, _ in todo],
                                             ["name", "domain", "country", "city", "hubspot_owner_id", LEAD_STATUS])
     for r, automatic in todo:
@@ -205,8 +207,7 @@ def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, d
         log(f"{cp.get('name')}: the reply could not be read ({str(err)[:150]}); tried again next run")
         return
     if not texts:
-        if automatic:
-            handled[cid] = {"day": day, "outcome": "none"}  # an ordinary out-of-office
+        handled[cid] = {"day": day, "outcome": "none"}  # an ordinary out-of-office, or nothing to read
         return
     text = "\n".join(texts)
     new, why = judge(text, address, cp.get("domain"), automatic_left=automatic)

@@ -205,6 +205,9 @@ def has_left(thread):
 
 # ---- The check at each run of button 4 --------------------------------------------------------
 
+REREAD_PER_RUN = 15
+
+
 def _done(contact):
     """Checked already. A bounce noted before 3 Nov 2026 (without its message) is read once more, so the new
     rules (Microsoft's 5.4.1, policy blocks) and the message reach it too."""
@@ -232,9 +235,15 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
     bounced = {e: l for e, l in (leads or {}).items() if l.get("status") == -1}
     rows = hs.tagged_read("contacts", list(bounced), CONTACT_PROPS, id_property="email") if bounced else []
     reasons, corrupt, other, blocked = [], {}, [], []  # corrupt: {contact id: (record, why)}
+    again = 0
     for r in rows:
         if statuses.of("contacts", r) not in BOUNCE_STAGES or _done(r):
             continue
+        if str(r["properties"].get(STOP_REASON) or "").strip().lower().startswith("email bounced"):
+            # 3 Nov 2026: an older bounce read once more; a few each run, as Instantly's emails are slow to read
+            again += 1
+            if again > REREAD_PER_RUN:
+                continue
         email = (r["properties"].get("email") or "").lower()
         try:
             thread = emails_api.thread_emails(email)

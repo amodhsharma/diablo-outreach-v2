@@ -43,11 +43,12 @@ concurrency:
 jobs:
   send:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 150  # 3 Nov 2026: step 1 alone took up to 59 minutes; the timer runs every 3 hours
     permissions:
       contents: write
       actions: read  # 1 Nov 2026: the failure email names the steps that failed
     env:
+      PYTHONUNBUFFERED: "1"  # 3 Nov 2026: the log is kept line by line, even when a run is stopped
       TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
       # full = steps 1 and 2 (also when nothing is chosen, as in the timer's runs); check = step 3 only;
       # full_check = steps 1, 2 and 3.
