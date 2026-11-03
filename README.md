@@ -285,7 +285,7 @@ On 1 Nov 2026 three checks that assumed it was still October stopped every butto
 - **The buttons use only checked code** (`.github/scripts/use_checked_code.sh`) and never run the checks
   themselves, so a date cannot stop them. If the newest change has not passed, a run uses the last
   checked version and says so on its page.
-- **Emails to DAILY_REPORT_TO** (`outreach/alert.py`): when any button's run fails (which button, which
+- **Emails ONLY to the GitHub secret ALERT_TO** (since 3 Nov 2026, never the daily summary list; without it nothing is emailed) (`outreach/alert.py`): when any button's run fails (which button, which
   steps failed, which had already done their work, and the link), when a code change fails the checks
   and is held back, and on the 25th of each month when button R's rehearsal of the start of next month
   finds something that would fail (an early warning; the summary email still goes out).

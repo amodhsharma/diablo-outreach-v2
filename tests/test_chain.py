@@ -167,6 +167,7 @@ def test_person_1_s_reminder_goes_as_a_forward_of_their_introduction(settings):
 
 def test_reminders_wait_when_the_mailbox_has_sent_its_share_today(settings):
     settings["send"]["chain"]["reminders_per_mailbox_per_day"] = 0
+    settings["send"]["chain"]["reminders_by_mailbox"] = {}
     hs, instantly, emails, cid, (p1, p2) = started(settings, 8)
     rec(hs, p2)[LS] = "UNQUALIFIED"
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
@@ -266,3 +267,11 @@ def test_a_reply_after_the_company_closed_is_still_seen(settings):
     sync.run("test", settings, hs, instantly, log=quiet)
     assert rec(hs, p1)[LS] == "IN_PROGRESS" and hs.records["companies"][cid][LS] == "In Progress"
     assert rec(hs, p2)[LS] == "COLLEAGUE_REPLIED"
+
+
+def test_sales_and_info_send_up_to_20_reminders_a_day_the_others_10():
+    cfg = chain.config(load_settings())
+    state = {}
+    assert chain.reminders_left(state, "Sales@diablosnosugar.com", cfg, NOW) == 20
+    assert chain.reminders_left(state, "info@diablosnosugar.com", cfg, NOW) == 20
+    assert chain.reminders_left(state, "dana@diabloexport.com", cfg, NOW) == 10

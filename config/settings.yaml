@@ -175,6 +175,11 @@ send:
     # Reminders go on top of each mailbox's 30 introductions, at most this many a mailbox a day (40 in
     # all, within the 50 a day that is safe for cold email); the rest wait for the next run.
     reminders_per_mailbox_per_day: 10
+    # A different cap for some mailboxes (3 Nov 2026, Ariel): sales@ and info@ sent every introduction
+    # before 2 Nov, so their reminders come from them; 20 each (50 a day in all, within the safe 50).
+    reminders_by_mailbox:
+      sales@diablosnosugar.com: 20
+      info@diablosnosugar.com: 20
     # A reopened company with only one person closes this many days after their reminder.
     backlog_single_close_days: 7
     # Company inboxes get their reminder too (2 Nov 2026, Ariel).

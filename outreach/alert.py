@@ -1,7 +1,9 @@
-"""Emails when something goes wrong, to the daily summary's recipients (agreed 1 Nov 2026, Ariel).
+"""Emails when something goes wrong (agreed 1 Nov 2026, Ariel).
 
-Sent from admin@diablosnosugar.com through Google, like the daily summary: the recipients are the GitHub
-secret DAILY_REPORT_TO and the mailbox's app password DAILY_REPORT_APP_PASSWORD.
+Sent from admin@diablosnosugar.com through Google, like the daily summary, with its app password
+DAILY_REPORT_APP_PASSWORD. Since 3 Nov 2026 they go ONLY to the GitHub secret ALERT_TO (one address, or
+several separated by commas), never to the daily summary's recipients; without ALERT_TO nothing is emailed
+and the run's page says so.
 
     python -m outreach.alert --run-failed      a button's run did not finish: which button, which steps
                                                failed, which had already done their work, and the link
@@ -110,12 +112,13 @@ def early_warning_text(days="", link=""):
 
 
 def send(subject, text, log=print, smtp=None):
-    """Send to DAILY_REPORT_TO. Returns True when sent."""
+    """Send to ALERT_TO only (3 Nov 2026). Returns True when sent."""
     from .daily_report import DEFAULTS, recipients, send_mail
-    to = recipients()
+    to = recipients(os.environ.get("ALERT_TO", ""))
     password = os.environ.get("DAILY_REPORT_APP_PASSWORD", "")
     if not to or not password:
-        log("Not emailed: the GitHub secrets DAILY_REPORT_TO and DAILY_REPORT_APP_PASSWORD are needed")
+        log("Not emailed: the GitHub secrets ALERT_TO (who gets these emails) and DAILY_REPORT_APP_PASSWORD are "
+            "needed")
         return False
     body = "".join(f"<div>{html_lib.escape(line) or '<br>'}</div>" for line in text.split("\n"))
     try:

@@ -56,6 +56,8 @@ def config(settings):
             "inbox_reminder": bool(c.get("company_inbox_reminder", True)),
             "backlog_per_day": int(c.get("backlog_per_day", 50)),
             "reminders_per_mailbox": int(c.get("reminders_per_mailbox_per_day", 10)),
+            "reminders_by_mailbox": {str(k).strip().lower(): int(v)
+                                     for k, v in (c.get("reminders_by_mailbox") or {}).items()},
             "single_close": float(c.get("backlog_single_close_days", 7))}
 
 
@@ -84,8 +86,9 @@ def _day(state, now=None):
 
 
 def reminders_left(state, mailbox, cfg, now=None):
-    used = int(_day(state, now)["reminders"].get((mailbox or "").lower(), 0))
-    return cfg["reminders_per_mailbox"] - used
+    key = (mailbox or "").lower()
+    used = int(_day(state, now)["reminders"].get(key, 0))
+    return (cfg.get("reminders_by_mailbox") or {}).get(key, cfg["reminders_per_mailbox"]) - used
 
 
 def count_reminder(state, mailbox, now=None):

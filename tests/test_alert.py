@@ -38,8 +38,9 @@ def test_a_run_that_stopped_before_doing_anything_says_nothing_was_sent():
     assert "nothing was sent or changed" in text
 
 
-def test_the_emails_go_to_the_daily_summary_recipients(monkeypatch):
-    monkeypatch.setenv("DAILY_REPORT_TO", "one@team.example, two@team.example")
+def test_the_emails_go_only_to_alert_to_never_the_daily_summary_list(monkeypatch):
+    monkeypatch.setenv("ALERT_TO", "one@team.example, two@team.example")
+    monkeypatch.setenv("DAILY_REPORT_TO", "everyone@team.example")
     monkeypatch.setenv("DAILY_REPORT_APP_PASSWORD", "secret")
     smtp = FakeSMTP()
     subject, text = alert.held_back_text()
@@ -51,9 +52,9 @@ def test_the_emails_go_to_the_daily_summary_recipients(monkeypatch):
 
 
 def test_no_secrets_no_email_and_no_error(monkeypatch):
-    monkeypatch.delenv("DAILY_REPORT_TO", raising=False)
+    monkeypatch.delenv("ALERT_TO", raising=False)
     said = []
-    assert alert.send("s", "t", log=said.append) is False and "DAILY_REPORT_TO" in said[0]
+    assert alert.send("s", "t", log=said.append) is False and "ALERT_TO" in said[0]
 
 
 def test_a_step_that_failed_but_let_the_run_go_on_is_named_from_the_run():

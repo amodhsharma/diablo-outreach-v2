@@ -171,6 +171,7 @@ jobs:
         if: failure()
         env:
           DAILY_REPORT_TO: ${{ secrets.DAILY_REPORT_TO }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}  # failure emails go only here (3 Nov 2026)
           DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
           GITHUB_TOKEN: ${{ github.token }}
         run: python -m outreach.alert --run-failed
