@@ -1,26 +1,5 @@
 {
-  "generated_at": "2026-11-03T18:31:45+00:00",
+  "generated_at": "2026-11-03T19:02:45+00:00",
   "target": "live",
-  "contacts": [
-    {
-      "contact_id": "911236804807",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Bag a Gift",
-        "domain": "bagagift.co.za",
-        "location": "South Africa",
-        "channel": "Seasonal and gift shops",
-        "based_out_of": "Durban, South Africa",
-        "distributes": "Chocolate gifts and bouquets (Twix, Lindor, Cadbury, Ferrero Rocher, KitKat, Toblerone), snack baskets, personalised chocolate and candy, party favours",
-        "channels_supplied": "Direct to shoppers through its online shop, doorstep delivery in Durban and collection from Chatsworth",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Sells chocolate bouquets built from six major brands including Lindor, Ferrero Rocher, Toblerone and KitKat."
-        ],
-        "fit_rationale": "A Durban online gift shop whose chocolate bouquets, snack baskets and party favours are built from branded chocolate and snacks from other companies. Diablo's chocolate bars, gift boxes and gummies would fit its bouquets and snack baskets as a sugar free option. Its reach is Durban delivery from its Chatsworth hub."
-      }
-    }
-  ]
+  "contacts": []
 }
