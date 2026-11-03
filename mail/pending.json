@@ -1,7 +1,190 @@
 {
-  "generated_at": "2026-11-03T13:01:54+00:00",
+  "generated_at": "2026-11-03T15:34:19+00:00",
   "target": "live",
   "contacts": [
+    {
+      "contact_id": "910989356264",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Candyman",
+        "domain": "candy-man.store",
+        "location": "Pretoria, South Africa",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "South Africa (city not stated on its website)",
+        "distributes": "Jelly sweets, retro sweets, chocolate, international sweets, pick and mix and sweet gift boxes",
+        "channels_supplied": "Its own online shop with nationwide delivery to shoppers, plus wholesale packs for retailers, events and businesses",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Selling sweets to shoppers across South Africa since 2007, according to its About page."
+        ],
+        "fit_rationale": "An online sweet shop with a gift boxes and international treats range, sourced from other suppliers and delivered anywhere in South Africa, including Pretoria. It sells both to shoppers and in wholesale quantities to retailers and events, so Diablo's gift boxes and sweets could reach gift buyers and small shops through one partner. Brands carried are not named on its website."
+      }
+    },
+    {
+      "contact_id": "910989746374",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Enduroplanet",
+        "domain": "enduroplanet.co.za",
+        "location": "Bloemfontein, South Africa",
+        "channel": "Sports shops and sports nutrition shops",
+        "based_out_of": "Bloemfontein, South Africa",
+        "distributes": "Bicycles, parts and training gear, with a training and nutrition section selling energy bars and protein bars (High5, Enduren, Cadence), gels, drink and race mixes",
+        "channels_supplied": "Its own shop at Pretty Gardens, Langenhovenpark, Bloemfontein and its own online shop",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "The only Trek retailer listed in Bloemfontein on Trek's South African store finder."
+        ],
+        "fit_rationale": "An established Bloemfontein bicycle shop and Trek retailer whose own online shop has a bars section with other brands' energy and protein bars from High5, Enduren and Cadence. It sells to health-conscious cyclists and athletes, a natural shelf for Diablo's muesli and cereal bars. Tier 3 because it is a single store; store count beyond the one shop is not stated on its website."
+      }
+    },
+    {
+      "contact_id": "910961926336",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Flowers PE",
+        "domain": "flowerspe.co.za",
+        "location": "Gqeberha, South Africa",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Gqeberha, South Africa",
+        "distributes": "Branded chocolates and gift boxes (Lindt, Ferrero Rocher, Sally Williams nougat), snack boxes, tuck boxes and seasonal Valentine's and Mother's Day hampers, alongside flowers",
+        "channels_supplied": "Its own shop at 43C 4th Avenue, Newton Park, and its online shop, with same-day delivery in Gqeberha, Despatch and Uitenhage",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Makes up hampers daily for same-day collection or delivery across Gqeberha, Despatch and Uitenhage."
+        ],
+        "fit_rationale": "A Gqeberha florist and gift shop with its own chocolates category of nine branded products and hampers made up daily, so a Diablo gift box or chocolate box fits its seasonal Valentine's, Mother's Day and Christmas gifting. It is small and reaches only shoppers in Nelson Mandela Bay, and it carries no sugar-free range today. Number of shops is one."
+      }
+    },
+    {
+      "contact_id": "910960890062",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Huize Bloemfontein",
+        "domain": "huize.co.za",
+        "location": "Bloemfontein, South Africa",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Bloemfontein, South Africa",
+        "distributes": "Snack hampers and snack hamper boxes (15 lines), biltong and snack hampers, celebration, seasonal and deluxe hampers, coffee and tea hampers, alongside a florist, deli, coffee shop and bridal boutique.",
+        "channels_supplied": "Sells direct to shoppers and businesses from its Bloemfontein shop and online shop, with same-day delivery across Bloemfontein for orders before 12:00 and custom hampers on request for a quote.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs florist, gift shop, deli, coffee shop and bridal boutique under one roof in Bloemfontein, with same-day delivery across the city."
+        ],
+        "fit_rationale": "A Bloemfontein gift shop with a dedicated snack hamper range of 15 lines and custom curated hampers, which buys in packaged treats and sells them as gifts in the city. Diablo's chocolate, sweets and biscuit gift packs suit its snack, celebration and seasonal hampers for health-conscious and diabetic recipients. Tier 3 because it is a single shop and its website does not name the brands inside its hampers. Storage: sells from its own shop stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "910713611493",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "MyCandies",
+        "domain": "mycandies.co.za",
+        "location": "East London, South Africa",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "South Africa (city not stated on its website)",
+        "distributes": "Gummies and jelly sweets, jelly beans, lollipops and personalised candy gift boxes and tubs, with Festive, Valentine's, Easter and year end gifting ranges; brands include Kings Gummies and Yummy Gummy",
+        "channels_supplied": "Own online shop delivering throughout South Africa, including the Eastern Cape, to shoppers and companies ordering gifts",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs seasonal gifting ranges for Festive, Valentine's, Easter and year end.",
+          "Offers personalised candy gift boxes and tubs for companies and events."
+        ],
+        "fit_rationale": "A family-run online candy gifting shop selling other brands' gummies and jelly sweets in seasonal gift boxes, which matches Diablo's gummies and gifting lines. It is small and its range is narrow, and it does not state its home city, hence tier 3."
+      }
+    },
+    {
+      "contact_id": "910971066605",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Onela Vending",
+        "domain": "onela.co.za",
+        "location": "East London, South Africa",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Eastern Cape, South Africa",
+        "distributes": "Packaged snacks and cold drinks through its own snack vending machines, plus hot drinks machines",
+        "channels_supplied": "Corporate clients in the Eastern Cape, through vending machines placed in offices and workplaces",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Offers a 24-hour response time for restocking and issues, with free delivery, installation and servicing of machines."
+        ],
+        "fit_rationale": "An Eastern Cape snack vending operator that places snack and drink machines with corporate clients, sources the vending products and restocks the machines itself within 24 hours, so Diablo's bars, chocolate and biscuits could go straight into workplace machines. It is small and founded in 2021, and its website names no snack brands or exact town. Storage: sells from its own stock, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "910993407221",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Rosella Flowers",
+        "domain": "rosellaflowers.co.za",
+        "location": "Polokwane, South Africa",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Polokwane, South Africa",
+        "distributes": "Flowers with chocolate gift boxes, chocolate bouquets and chocolate and sweets gift boxes from Ferrero Rocher, Raffaello and Lindt Lindor, plus gift bundles and cakes.",
+        "channels_supplied": "Direct to shoppers through its own web shop, app and WhatsApp, with delivery in Polokwane, Gauteng and Cape Town; corporate gifts.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs its own Polokwane delivery alongside Gauteng and Cape Town, ordered through its website, app or WhatsApp."
+        ],
+        "fit_rationale": "A Polokwane florist and gift shop whose own shop sells several chocolate and sweets gift boxes built on other brands such as Ferrero and Lindt. Diablo's chocolate boxes, pralines and gift boxes suit its gift bundles and corporate gifts for health-conscious recipients. Store count and walk-in shop are not stated on its website."
+      }
+    },
+    {
+      "contact_id": "911010530549",
+      "job_title": "Co-Founder",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "To Be Gift Boxes",
+        "domain": "tobegiftboxes.com",
+        "location": "Polokwane, South Africa",
+        "channel": "Corporate gifting and hamper companies",
+        "based_out_of": "Pretoria, South Africa",
+        "distributes": "Gift boxes and hampers with branded chocolate bars (Lindt slabs, Toblerone), chocolate nougat, chocolate coated nougat biscuits (Wedgewood Angels), cookies and shortbread biscuits (Mama Mac's), sold as boxes or single sweet treat add-ons",
+        "channels_supplied": "Direct to consumers and companies through its own online shop, corporate and event gift boxes, and its shop at Castle Gate Shopping Centre, Pretoria; nationwide delivery",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Lets clients build their own gift box within a set budget, with branded sweet treats sold as single add-ons.",
+          "Offers corporate and event gift boxes with nationwide delivery from its own warehouse."
+        ],
+        "fit_rationale": "A build your own gift box company that buys branded chocolate, nougat, biscuits and cookies from other brands and sells them in corporate and personal gift boxes, so Diablo's chocolate, biscuits and gift boxes fit straight into its sweet treat range. It states nationwide delivery in South Africa, which covers Polokwane; Polokwane is not named on its website. Storage: ships from its own warehouse, listed at Ryneveld Lifestyle Centre, Centurion."
+      }
+    },
+    {
+      "contact_id": "910988866798",
+      "job_title": "Chief Commercial Officer",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Waltons",
+        "domain": "waltons.co.za",
+        "location": "Gqeberha, South Africa",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Johannesburg, South Africa",
+        "distributes": "Sweets, biscuits and snacks in a Refreshments and Catering section (Snacks, Sweet Treats), for example Endearmints wrapped sweets, Sweets from Heaven gummies, Bakers Choice assorted biscuits and Pyotts Snacktime biscuits, alongside coffee, tea and office supplies.",
+        "channels_supplied": "Offices and businesses through over 60 stores nationwide, including a Gqeberha store with click and collect, and its online shop.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs over 60 stores nationwide with click and collect in Gqeberha.",
+          "Sells branded office snacks such as Endearmints sweets and Pyotts biscuits online."
+        ],
+        "fit_rationale": "Waltons is a national office supplier of the Bidvest Group that sells other companies' branded sweets and biscuits to workplaces from its own online shop and stores, including one in Gqeberha. A sugar-free sweets, biscuit and bar range suits its Refreshments and Catering shelf for health-conscious offices. Storage: sells from its own stock through its stores and online shop, warehouse not named on its website."
+      }
+    },
     {
       "contact_id": "910856946912",
       "job_title": "Business Owner",
@@ -101,6 +284,27 @@
           "Client logos include MTN, Vodacom, PwC, KPMG, Anglo American and the University of Johannesburg."
         ],
         "fit_rationale": "A national full-service operator since 1996 that installs, stocks and services snack machines with its own merchandisers and also supplies snack stock to the operators it sets up. It serves workplaces nationwide and runs a dedicated healthy vending line, so sugar-free chocolate, bars and biscuits suit both routes. Storage: sells from its own stock through its consumables shop and merchandiser routes, warehouse not named on its website."
+      }
+    },
+    {
+      "contact_id": "910988866799",
+      "job_title": "Group Head Furniture",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "Waltons",
+        "domain": "waltons.co.za",
+        "location": "Gqeberha, South Africa",
+        "channel": "Office snack and pantry suppliers",
+        "based_out_of": "Johannesburg, South Africa",
+        "distributes": "Sweets, biscuits and snacks in a Refreshments and Catering section (Snacks, Sweet Treats), for example Endearmints wrapped sweets, Sweets from Heaven gummies, Bakers Choice assorted biscuits and Pyotts Snacktime biscuits, alongside coffee, tea and office supplies.",
+        "channels_supplied": "Offices and businesses through over 60 stores nationwide, including a Gqeberha store with click and collect, and its online shop.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Runs over 60 stores nationwide with click and collect in Gqeberha.",
+          "Sells branded office snacks such as Endearmints sweets and Pyotts biscuits online."
+        ],
+        "fit_rationale": "Waltons is a national office supplier of the Bidvest Group that sells other companies' branded sweets and biscuits to workplaces from its own online shop and stores, including one in Gqeberha. A sugar-free sweets, biscuit and bar range suits its Refreshments and Catering shelf for health-conscious offices. Storage: sells from its own stock through its stores and online shop, warehouse not named on its website."
       }
     },
     {
