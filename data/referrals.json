@@ -1,0 +1,33 @@
+{
+ "handled": {
+  "898791683283": {
+   "day": "2026-11-04",
+   "outcome": "none"
+  },
+  "899852397780": {
+   "day": "2026-11-04",
+   "outcome": "none"
+  },
+  "900291279092": {
+   "automatic": false,
+   "company": "425252618475",
+   "day": "2026-11-04",
+   "outcome": "unsure",
+   "why": "no email address in the reply"
+  },
+  "900595080414": {
+   "automatic": false,
+   "company": "456262790352",
+   "day": "2026-11-04",
+   "outcome": "unsure",
+   "why": "no clear wording that it is a redirect"
+  },
+  "909195599085": {
+   "automatic": false,
+   "company": "457501330642",
+   "day": "2026-11-04",
+   "outcome": "unsure",
+   "why": "no clear wording that it is a redirect"
+  }
+ }
+}
