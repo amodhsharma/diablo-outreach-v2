@@ -120,6 +120,19 @@ class TagGuard:
         self._associate_primary(pairs)
 
 
+NETWORK_RETRIES = 3
+NETWORK_WAIT = (5, 10, 20)  # seconds before each new try
+# POSTs that only read, or that give the same result when sent twice.
+SAFE_POST_ENDINGS = ("/search", "/batch/read", "/batch/update", "/associations/contacts/companies/batch/create")
+
+
+def safe_to_repeat(method, path):
+    method = method.upper()
+    if method in ("GET", "PATCH", "PUT"):
+        return True
+    return method == "POST" and path.split("?")[0].endswith(SAFE_POST_ENDINGS)
+
+
 class HubSpot(TagGuard):
     def __init__(self, token=None, session=None):
         self.token = token or os.environ.get("HUBSPOT_TOKEN")
@@ -138,8 +151,18 @@ class HubSpot(TagGuard):
 
     def request(self, method, path, ok=(200, 201, 204), **kwargs):
         """Call the API, retrying on rate limits and server errors."""
+        dropped = 0
         for attempt in range(6):
-            resp = self.session.request(method, API + path, timeout=30, **kwargs)
+            try:
+                resp = self.session.request(method, API + path, timeout=30, **kwargs)
+            except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as err:
+                # 3 Nov 2026 (Ariel): no answer, or the connection dropped: wait and ask again, up to 3 times,
+                # but only where asking twice can do no harm (never creating a record or a note twice).
+                if dropped >= NETWORK_RETRIES or not safe_to_repeat(method, path):
+                    raise HubSpotError(f"{method} {path}: HubSpot did not answer ({str(err)[:200]})") from err
+                time.sleep(NETWORK_WAIT[dropped])
+                dropped += 1
+                continue
             if resp.status_code in ok:
                 return resp.json() if resp.content else {}
             if resp.status_code == 429 or resp.status_code >= 500:

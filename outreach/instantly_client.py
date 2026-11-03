@@ -12,6 +12,18 @@ class InstantlyError(RuntimeError):
     pass
 
 
+NETWORK_RETRIES = 3
+NETWORK_WAIT = (5, 10, 20)  # seconds before each new try
+# Requests where a second try can do no harm: reading, changing settings, and adding leads (Instantly skips
+# a lead it already has). Sending an email or creating a campaign is never repeated.
+SAFE_POSTS = ("/leads/add", "/leads/list", "/accounts/warmup-analytics")
+
+
+def safe_to_repeat(method, path):
+    method = method.upper()
+    return method in ("GET", "PATCH") or (method == "POST" and path.split("?")[0] in SAFE_POSTS)
+
+
 class Instantly:
     def __init__(self, api_key=None, session=None):
         self.api_key = api_key or os.environ.get("INSTANTLY_API_KEY")
@@ -29,8 +41,18 @@ class Instantly:
             # 26 Oct 2026: Instantly refuses a request marked as JSON that carries no body (e.g. a
             # DELETE), so a request without one is sent without that mark.
             kwargs["headers"] = dict(kwargs.get("headers") or {}, **{"Content-Type": None})
+        dropped = 0
         for attempt in range(8):
-            resp = self.session.request(method, API + path, timeout=60, **kwargs)
+            try:
+                resp = self.session.request(method, API + path, timeout=60, **kwargs)
+            except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as err:
+                # 3 Nov 2026 (Ariel): no answer, or the connection dropped: wait and ask again, up to 3 times,
+                # but only where asking twice can do no harm (never an email or a new campaign).
+                if dropped >= NETWORK_RETRIES or not safe_to_repeat(method, path):
+                    raise InstantlyError(f"{method} {path}: Instantly did not answer ({str(err)[:200]})") from err
+                time.sleep(NETWORK_WAIT[dropped])
+                dropped += 1
+                continue
             if resp.status_code in (200, 201):
                 return resp.json() if resp.content else {}
             if resp.status_code == 429 or resp.status_code >= 500:
