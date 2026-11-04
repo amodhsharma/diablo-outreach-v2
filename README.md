@@ -269,7 +269,7 @@ Settings > Secrets and variables > Actions > New repository secret.
 | `INSTANTLY_API_KEY` | Instantly > Settings > Integrations > API keys (scopes: campaigns and leads) |
 | `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 4 to send the forwards and person 1's reminder |
 | `INSTANTLY_ACCOUNTS_KEY` | A second, read-only Instantly key with the scope `accounts:read`, used only by button 4's health check to read the mailboxes (`docs/instantly_accounts_key.md`) |
-| `REPLY_FORWARD_TO` | The sales team's addresses, separated by commas: clear yes or no replies are forwarded here |
+| `REPLY_FORWARD_TO` | Amodh's and Ariel's addresses only (4 Nov 2026), separated by a comma: clear yes or no replies are forwarded here |
 | `ALERT_TO` | Amodh's address only: failure emails, every other reply and the daily list of replies that named someone else |
 | `HUBSPOT_TOKEN_LIVE` | Only when testing is finished: the same kind of private app, made in the live account, with the same scopes |
 
