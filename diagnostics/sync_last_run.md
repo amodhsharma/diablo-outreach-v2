@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-05 17:35 UTC
+Written 2026-11-05 20:37 UTC
 
 ```
 605 leads in the Diablo campaigns in Instantly
@@ -13,8 +13,6 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Wrote 2 notes on contacts' timelines (email sent, bounced or replied)
-Ch. Margot & Cie SA: negative reply forwarded
 Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 1 contacts and 1 companies in HubSpot
+Updated 0 contacts and 0 companies in HubSpot
 ```
