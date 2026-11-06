@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-06 20:35 UTC
+Written 2026-11-06 23:36 UTC
 
 ```
 620 leads in the Diablo campaigns in Instantly
@@ -13,8 +13,6 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-NutriFitness Suisse: a reply names someone else, but not clearly enough to act on (no email address in the reply); left for a person
-Replies naming someone else: 0 switched automatically, 1 left for a person
 Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
