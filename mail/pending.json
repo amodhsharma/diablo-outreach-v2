@@ -1,5 +1,24 @@
 {
-  "generated_at": "2026-11-07T06:31:04+00:00",
+  "generated_at": "2026-11-07T09:31:11+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "915837630707",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Veloplus",
+        "domain": "veloplus.ch",
+        "location": "Geneva, Switzerland",
+        "channel": "Retailers",
+        "based_out_of": "",
+        "distributes": "Cycling equipment with a food section of energy bars and gels from Powerbar, Sponser and Peak Punk (bars)",
+        "channels_supplied": "Veloplus bike stores in Switzerland and its online shop delivering nationwide; a Geneva store is not stated on its website",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "A Swiss cycling retailer with its own food section of branded energy bars for riders. It reaches Geneva shoppers through its online shop; store locations were not read, hence tier 3."
+      }
+    }
+  ]
 }
