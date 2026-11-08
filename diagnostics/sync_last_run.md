@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-07 23:33 UTC
+Written 2026-11-08 02:35 UTC
 
 ```
 637 leads in the Diablo campaigns in Instantly
@@ -14,6 +14,18 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+derSportShop.ch: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Lolly Direct: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Fresh Food Enterprises: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+David Jones Pharmacy: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Snowgoose: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Hampers by Design: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Thanx Hampers: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Pamper Hamper Gifts: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Kraus Foods: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Lifes A Hamper: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Robinsons Vending: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Gflam Vending: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Loop: 0 forwards, 8 reminders, 0 introductions added, 0 companies replied, 4 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
