@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-10 16:57 UTC
+Written 2026-11-10 19:54 UTC
 
 ```
-668 leads in the Diablo campaigns in Instantly
+671 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 Business Manager, The Running Centre sent only an automatic answer (the text says "on leave"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -15,11 +15,13 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 24 notes on contacts' timelines (email sent, bounced or replied)
-Email threads: 22 emails since the last run
-Food Corp Distributors Pty Ltd: the introduction goes to Company inbox (from website)
-THE DISTRIBUTORS BRISBANE PTY LTD: the introduction goes to the next contact
-Email threads: 124 companies read in full, 201 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 2 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 2 contacts and 0 companies in HubSpot
+Wrote 4 notes on contacts' timelines (email sent, bounced or replied)
+McDrogerie Der Artikel wird zum Warenkorb hinzugefügt: the reply has waited 7 days with nobody acting on it, so the company is back on Attempted to Contact
+Geschenkparadies.ch AG (cadeaux24.ch): the reply has waited 7 days with nobody acting on it, so the company is back on Attempted to Contact
+GG's Flowers: the reply has waited 7 days with nobody acting on it, so the company is back on Attempted to Contact
+Email threads: 3 emails since the last run
+Food Corp Distributors Pty Ltd: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Email threads: 105 companies read in full, 221 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
+Updated 1 contacts and 0 companies in HubSpot
 ```
