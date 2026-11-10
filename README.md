@@ -95,6 +95,23 @@ left (company, job title, why, part of the reply and the HubSpot link) and how m
 from earlier days. A company on In Progress whose replier is now Rejected/Redirected, with nobody else
 there in conversation, carries on.
 
+**Paused companies that go on by themselves (10 Nov 2026).** A company on In Progress goes back to
+Attempted to Contact when:
+- the person who replied is Rejected/Redirected and nobody else there really replied (contacts left on In
+  Progress by the rules before 2 Nov 2026, who never replied, no longer hold it back);
+- the "reply" was an out-of-office after all (it is then read again as one);
+- a neutral reply has waited 7 days with nobody changing anything: the person who replied keeps In
+  Progress and is never emailed again by the loop, and the others there carry on.
+The others paused with it go back to where they were: Attempted to Contact if Instantly already has them,
+otherwise GATE2 (with a line) or New. Amodh's daily email lists these under "Back in the loop".
+
+**Colleagues copied in, and stand-ins in out-of-offices (10 Nov 2026).** A colleague copied into a reply
+("Kate has been looped into this thread") counts like an address in the text, when the reply's words say
+it is a redirect. An out-of-office that names a stand-in at the same company ("in urgent cases contact
+shop@...") adds that address as a new contact on New: button 3 numbers it and copies a line, and it gets
+its own introduction. The person away stays as they are. Out-of-offices saying when the person is back
+are now recognised in French, German, Italian, Spanish and Dutch too.
+
 **When someone is on leave or points you to a colleague (2 Nov 2026).** Add the new person in HubSpot
 with their email address and Lead source AUTO-OUTREACH, link them to the company, and leave Lead
 Status and Outreach order empty. Then set the original person to "Unqualified: Rejected/Redirected by

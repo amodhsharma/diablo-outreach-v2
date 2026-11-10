@@ -273,8 +273,10 @@ class FakeEmails:
     def campaign_email(self, to, when, subject="Partnering to establish Diablo"):
         return self._add(ue_type=1, to_address_email_list=to, lead=to, subject=subject, timestamp_email=when)
 
-    def received(self, sender, when, subject="Re: hello", text=None):
+    def received(self, sender, when, subject="Re: hello", text=None, cc=None):
         extra = {"body": {"text": text}} if text is not None else {}
+        if cc:
+            extra["cc_address_email_list"] = cc
         return self._add(ue_type=2, from_address_email=sender, lead=sender, subject=subject, timestamp_email=when,
                          **extra)
 

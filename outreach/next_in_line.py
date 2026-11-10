@@ -77,9 +77,28 @@ def instantly_view(instantly, prefix):
     return view
 
 
+_PARKED = {"key": None, "ids": frozenset()}
+
+
+def parked_ids():
+    """The contacts whose neutral reply waited 7 days with nobody acting on it (10 Nov 2026, Ariel): they keep
+    In Progress, but their company went back into the loop, so the loop passes them by (data/referrals.json)."""
+    from . import referrals
+    try:
+        key = (str(referrals.FILE), referrals.FILE.stat().st_mtime_ns)
+    except OSError:
+        return frozenset()
+    if _PARKED["key"] != key:
+        handled = referrals.load().get("handled") or {}
+        _PARKED.update(key=key, ids=frozenset(c for c, e in handled.items() if e.get("parked")))
+    return _PARKED["ids"]
+
+
 def contact_state(contact, statuses, leads):
     stage = statuses.of("contacts", contact)
     lead = leads.get((contact["properties"].get("email") or "").lower())
+    if stage == "replied" and str(contact.get("id")) in parked_ids():
+        return "skipped"
     if stage in LEFT_OUT:  # a dead address (28 Oct 2026) or redirected (2 Nov 2026): the others carry on
         return "skipped"
     if stage in ("", "found", "copy_ready"):

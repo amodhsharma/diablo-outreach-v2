@@ -54,7 +54,7 @@ from .instantly_client import Instantly, InstantlyError
 from .next_in_line import (
     COMPANY_PROPS, annotate, apply_test_gaps, contacts_by_company, decide, follow_up_settings, instantly_view,
     is_company_inbox,
-    last_campaign, lead_for, mark_sent, parse_time, rank_of, tagged_company_of, touch_times,
+    last_campaign, lead_for, mark_sent, parked_ids, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
 from . import chain, corrupt, daily_log, redirect, referrals, reply_forward, timeline
@@ -196,6 +196,13 @@ AUTO_PHRASES = (
     r"automatisch antwoord", r"afwezig", r"met vakantie", r"niet aanwezig", r"autosvar", r"automatisk svar",
     r"fr[åa]nvarande", r"frav[æa]r", r"automatyczna odpowied", r"nieobecn", r"automatick[áa] odpov[ěe]d",
     r"mimo kancel[áa][řr]",
+    # 10 Nov 2026 (VELOMANIA): "back in the shop on the 10th", only with a workplace or a date, so a real
+    # answer such as "I will be back in touch" or "je vous recontacte à mon retour du salon" never counts
+    r"je (serai|serais|suis) de retour (au bureau |en magasin |au magasin )?(le |d[èe]s le |[àa] partir du )\d",
+    r"r[ée]pondrai [àa] (votre|vos) (message|e-?mail|courriel)s? (d[èe]s|[àa]) mon retour",
+    r"ab (dem )?\d{1,2}\.\s?\d{1,2}\.? wieder (im b[üu]ro|erreichbar|da)",
+    r"sar[òo] di ritorno (in ufficio |in negozio )?(il |dal )\d",
+    r"estar[ée] de (vuelta|regreso) (en la oficina |en la tienda )?(el |a partir del )\d", r"ben (weer )?terug (op|vanaf) \d",
 )
 AUTO_PHRASE = re.compile("(" + "|".join(AUTO_PHRASES) + ")", re.I)
 AUTO_HEADERS = re.compile(r"(auto-submitted:\s*auto-(replied|generated)|x-autoreply|x-autorespond|"
@@ -417,6 +424,8 @@ def close_company_contacts(hs, statuses, log=print, leads=None, blocked=None):
                        and statuses.has("contacts", stage) and company_stage != "closed")
             if own in KEEP_WHEN_COMPANY_CLOSED and not relabel:
                 continue
+            if own == "replied" and str(c["id"]) in parked_ids():
+                continue  # 10 Nov 2026: their reply waited 7 days and the company went on; they keep In Progress
             new = statuses.props("contacts", stage)
             if new[LEAD_STATUS] == (c.get("properties") or {}).get(LEAD_STATUS):
                 continue
@@ -598,8 +607,12 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                 "for a person")
     except Exception as err:  # never stops the run
         log(f"Could not read the replies that name someone else: {str(err)[:200]}")
-    try:  # a company whose replier is now Rejected/Redirected, with nobody else in conversation, resumes
-        referrals.release(hs, statuses, log, leads=leads)
+    try:  # 10 Nov 2026: a parked contact who writes again pauses the company once more
+        referrals.wake(hs, statuses, leads, log)
+    except Exception as err:
+        log(f"Could not check the parked replies: {str(err)[:200]}")
+    try:  # a company paused on In Progress goes on when nobody there is really in conversation (10 Nov 2026)
+        referrals.release(hs, statuses, log, leads=leads, seen=seen, emails_api=emails_api)
     except Exception as err:
         log(f"Could not resume the companies whose replier was redirected: {str(err)[:200]}")
     try:  # 3 Nov 2026 (Ariel): a new contact at an open company gets its colleague's line and goes to GATE2

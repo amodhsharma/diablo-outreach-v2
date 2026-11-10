@@ -211,3 +211,171 @@ def test_the_backlog_skips_a_company_whose_people_already_had_both_emails(settin
     emails.campaign_email("p1@twice.example", (NOW - dt.timedelta(days=18)).isoformat())  # the reminder
     assert chain.run_backlog(hs, instantly, settings, log=quiet, now=NOW, emails_api=emails)["reopened"] == 0
     assert str(cid) in chain.load_state()["closed"]
+
+
+# ---- 10 Nov 2026 (Ariel): copied colleagues, out-of-office stand-ins, paused companies that go on --------
+
+VELO = ("Bonjour, Je serais de retour en magasin le 10/11 et répondrai à vos messages à mon retour. En cas "
+        "d'urgence, vous pouvez contacter directement le magasin : shop@velo.example Meilleurs salutations, Yoan")
+
+
+def test_a_colleague_copied_into_the_reply_is_added_and_emailed(settings):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "bloom.example", ("Owner", "Buyer"))
+    lead(instantly, "p1@bloom.example").update(email_reply_count=1)
+    emails.received("p1@bloom.example", ago(0.5), subject="Re: hello", cc="kate@bloom.example",
+                    text="Thanks so much for reaching out! I'll point you in the direction of our Inventory "
+                         "Coordinator Kate, who will be your best point of contact. She has been looped into this thread.")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    new = next(i for i, r in hs.records["contacts"].items() if r.get("email") == "kate@bloom.example")
+    assert rec(hs, p1)[LS] == REDIRECTED and cid in hs.links[new]
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
+
+
+def test_a_copied_colleague_without_redirect_words_is_left_for_a_person():
+    new, why = referrals.judge("Thanks, we will look at it.", "p1@x.example", "x.example", copied=["boss@x.example"])
+    assert new == [] and "copied in" in why
+
+
+def test_a_french_out_of_office_is_automatic_and_its_stand_in_is_added(settings):
+    assert sync.auto_reply_reason({"subject": "Re: hello", "body": {"text": VELO}})
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "velo.example", ("Store Leader", "Buyer"))
+    lead(instantly, "p1@velo.example").update(email_reply_count=1)
+    emails.received("p1@velo.example", ago(0.5), subject="Re: A sugar-free brand", text=VELO)
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    new = next(i for i, r in hs.records["contacts"].items() if r.get("email") == "shop@velo.example")
+    assert rec(hs, p1)[LS] == "ATTEMPTED_TO_CONTACT"  # only away: left as they are
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
+    assert referrals.load()["handled"][p1]["outcome"] == "added"
+    find_contacts.run("test", load_settings(), hs, FakeApollo({}, {}), log=quiet)  # numbered, line copied
+    assert rec(hs, new)[ORDER] == "3" and rec(hs, new)[LS] == "APPROVED_TO_SEND"
+
+
+def test_a_misread_out_of_office_puts_the_company_back_and_is_read_again(settings):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "velo.example", ("Store Leader", "Buyer"))
+    lead(instantly, "p1@velo.example").update(email_reply_count=1)
+    emails.received("p1@velo.example", ago(2), subject="Re: A sugar-free brand", text=VELO)
+    rec(hs, p1)[LS], rec(hs, p2)[LS] = "IN_PROGRESS", "COLLEAGUE_REPLIED"  # read as a real reply before today
+    hs.records["companies"][cid][LS] = "In Progress"
+    referrals.save({"handled": {p1: {"day": "2026-11-07", "outcome": "unsure", "company": cid, "why": "x"}}})
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
+    assert rec(hs, p1)[LS] == "ATTEMPTED_TO_CONTACT" and rec(hs, p2)[LS] == "APPROVED_TO_SEND"
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)  # now read as an out-of-office
+    assert any(r.get("email") == "shop@velo.example" for r in hs.records["contacts"].values())
+
+
+def test_old_in_progress_colleagues_do_not_hold_a_redirected_company_back(settings):
+    """Vita Drogerie: the replier is Rejected/Redirected, the others were left on In Progress by the old rules."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, "vita.example", ("Owner", "Buyer", "Shop"))
+    rec(hs, p1)[LS] = REDIRECTED
+    rec(hs, p2)[LS] = rec(hs, p3)[LS] = "IN_PROGRESS"
+    hs.records["companies"][cid][LS] = "In Progress"
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
+    assert rec(hs, p2)[LS] == rec(hs, p3)[LS] == "APPROVED_TO_SEND"
+
+
+def test_someone_really_in_conversation_still_holds_the_company(settings):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "talk.example", ("Owner", "Buyer"))
+    neutral(instantly, emails, "p1@talk.example", "Thanks, we will look at it and come back to you.")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    rec(hs, p2)[LS] = REDIRECTED  # someone else there redirected: the real reply still holds the company
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "In Progress" and rec(hs, p1)[LS] == "IN_PROGRESS"
+
+
+def test_a_neutral_reply_nobody_acted_on_for_7_days_lets_the_company_go_on(settings, monkeypatch):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "slow.example", ("Owner", "Buyer"))
+    neutral(instantly, emails, "p1@slow.example", "Thanks, I will come back to you in a few days.")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert rec(hs, p2)[LS] == "COLLEAGUE_REPLIED" and hs.records["companies"][cid][LS] == "In Progress"
+    state = referrals.load()
+    state["handled"][p1]["day"] = (dt.date.fromisoformat(state["handled"][p1]["day"]) - dt.timedelta(days=7)).isoformat()
+    referrals.save(state)
+    monkeypatch.setenv("GITHUB_RUN_ID", "run2")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
+    assert rec(hs, p1)[LS] == "IN_PROGRESS" and referrals.load()["handled"][p1]["parked"]
+    assert rec(hs, p2)[LS] == "ATTEMPTED_TO_CONTACT"  # Instantly already holds the colleague: back in the loop
+    from outreach.next_in_line import contact_state
+    assert contact_state({"id": p1, "properties": rec(hs, p1)}, LeadStatus(hs), {}) == "skipped"
+    for days in (4, 9):  # the colleague's turn, then the reminders: never one to the person who replied
+        monkeypatch.setenv("GITHUB_RUN_ID", f"run{days}")
+        lead(instantly, "p1@slow.example")["timestamp_last_contact"] = ago(days)
+        sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert rec(hs, p1)[LS] == "IN_PROGRESS"
+    assert not [r for r in emails.replies if "p1@slow.example" in str(r.get("address") or r.get("to"))]
+    today = referrals.today_india()
+    _, text = referrals.report_text(hs, None, LeadStatus(hs), today)
+    assert "BACK IN THE LOOP" in text and "waited 7 days" in text
+
+
+# ---- Review, 10 Nov 2026 -------------------------------------------------------------------------------
+
+def test_real_answers_that_mention_being_back_are_never_out_of_office():
+    for text in ("I will be back in touch next week with our feedback.", "I'll return to you after our review.",
+                 "Je vous recontacte à mon retour du salon.", "Ne parlo con il team al mio rientro.",
+                 "Lo reviso a mi regreso y le digo.", "I am back in the office on Monday, can you send prices?"):
+        assert not sync.auto_reply_reason({"subject": "Re: hello", "body": {"text": text}}), text
+
+
+def test_ordinary_questions_with_a_signature_address_are_never_a_redirect():
+    sig = "\n\nKind regards\nAnna\nShop Srl, Via Roma 1, 20100 Milano\norders@shop.it"
+    for text in ("Could you tell me who handles your EU logistics?", "Thanks, I have added your samples request.",
+                 "What is the best contact number for you?"):
+        assert referrals.judge(text + sig, "anna@shop.it", "shop.it")[0] == [], text
+    assert referrals.judge("Who manages your exports?", "anna@shop.it", "shop.it", copied=["boss@shop.it"])[0] == []
+
+
+def _parked_company(settings, domain):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, domain, ("Owner", "Buyer"))
+    neutral(instantly, emails, f"p1@{domain}", "Thanks, I will come back to you in a few days.")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    state = referrals.load()
+    state["handled"][p1]["day"] = "2026-01-01"
+    referrals.save(state)
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert referrals.load()["handled"][p1]["parked"] and hs.records["companies"][cid][LS] == "Attempted to Contact"
+    return hs, instantly, emails, cid, p1, p2
+
+
+def test_a_parked_reply_never_holds_the_company_back_later(settings):
+    hs, instantly, emails, cid, p1, p2 = _parked_company(settings, "park.example")
+    hs.records["companies"][cid][LS] = "In Progress"  # the colleague replied, then was redirected by a person
+    rec(hs, p2)[LS] = REDIRECTED
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
+
+
+def test_a_parked_contact_who_writes_again_pauses_the_company(settings):
+    hs, instantly, emails, cid, p1, p2 = _parked_company(settings, "again.example")
+    lead(instantly, "p1@again.example").update(email_reply_count=2)
+    emails.received("p1@again.example", ago(0.1), text="Sorry for the delay, could you send the price list?")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "In Progress"
+    assert p1 not in referrals.load()["handled"] or not referrals.load()["handled"][p1].get("parked")
+
+
+def test_a_reply_read_again_keeps_its_parked_flag():
+    handled = {"1": {"day": "2026-11-01", "outcome": "unsure", "parked": "2026-11-08", "replies": 1}}
+    referrals._record(handled, "1", {"day": "2026-11-10", "outcome": "unsure", "why": "x"})
+    assert handled["1"]["parked"] == "2026-11-08" and handled["1"]["day"] == "2026-11-01"
+
+
+def test_someone_who_really_replied_but_left_instantly_is_never_reset(settings):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "moved.example", ("Owner", "Buyer"))
+    rec(hs, p1)[LS] = REDIRECTED
+    rec(hs, p2)[LS] = "IN_PROGRESS"
+    hs.records["companies"][cid][LS] = "In Progress"
+    emails.campaign_email("p2@moved.example", ago(5))  # emailed from a campaign outside the Diablo ones
+    emails.received("p2@moved.example", ago(4), text="Yes, please send the catalogue.")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["companies"][cid][LS] == "In Progress" and rec(hs, p2)[LS] == "IN_PROGRESS"
+
+
+def test_a_buyer_copying_a_colleague_while_asking_for_prices_is_not_redirected():
+    text = "Send me prices please. I have cc'd my colleague so she sees it too."
+    assert referrals.judge(text, "anna@shop.it", "shop.it", copied=["maria@shop.it"])[0] == []
+    for real in ("Merci, je serai de retour au bureau lundi et je vous appelle.",
+                 "Grazie, sarò di ritorno in ufficio lunedì e la chiamo."):
+        assert not sync.auto_reply_reason({"subject": "Re: hello", "body": {"text": real}}), real
