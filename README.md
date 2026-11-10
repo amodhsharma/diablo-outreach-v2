@@ -37,7 +37,8 @@ Research searches through the brands first (who distributes Ferrero, Mondelez, H
 country), uses the trade's own words in the local language and follows Diablo's own list of big
 distributors. It looks for at most 30 per channel and stops when it runs out. Sports shops, health food
 shops, pharmacies, gift and hamper companies, office snack suppliers, vending, travel retail and the
-other small or niche channels are no longer searched (`docs/channels.json`).
+other small or niche channels are no longer searched. `docs/paused_channels.md` keeps each of them,
+with its old searches and rule sheet, and how to bring it back.
 
 ## HubSpot fields (agreed 13 Oct 2026)
 
