@@ -29,8 +29,9 @@ consumption, sales and distribution companies), wholesalers (confectionery, cash
 kiosk and convenience wholesalers, halal food distributors, kosher food distributors and supermarket
 chains. Then distributors, FMCG distributors and wholesalers again in the main business cities and
 regional capitals, one per region in a large country, so the strong regional players are found. Every
-company must be big enough (HARD RULE 12: about 200 shops or more, regional or national coverage, a big
-warehouse, fleet or sales force, the appointed distributor for international brands, or listed; at
+company must be big enough (HARD RULE 12: about 300 shops or more, regional or national coverage, a
+warehouse of about 1,000 m2, about 10 vehicles or a sales force of about 10, the appointed distributor for
+international brands, or listed; at
 least about 10 stores for a chain) and its "Why they fit Diablo" ends with "Scale: " and "Storage: ".
 Research searches through the brands first (who distributes Ferrero, Mondelez, Haribo ... in the
 country), uses the trade's own words in the local language and follows Diablo's own list of big
