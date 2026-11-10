@@ -17,18 +17,12 @@
    ],
    "outcome": "switched"
   },
-  "900082411735": {
-   "automatic": false,
-   "company": "455572492537",
-   "day": "2026-11-07",
-   "outcome": "unsure",
-   "why": "no clear wording that it is a redirect"
-  },
   "900100766921": {
    "automatic": false,
    "company": "455955263729",
    "day": "2026-11-07",
    "outcome": "unsure",
+   "rules": 2,
    "why": "no email address in the reply"
   },
   "900291279092": {
@@ -36,6 +30,7 @@
    "company": "425252618475",
    "day": "2026-11-04",
    "outcome": "unsure",
+   "rules": 2,
    "why": "no email address in the reply"
   },
   "900595080414": {
@@ -43,6 +38,7 @@
    "company": "456262790352",
    "day": "2026-11-04",
    "outcome": "unsure",
+   "rules": 2,
    "why": "no clear wording that it is a redirect"
   },
   "905340916930": {
@@ -50,21 +46,40 @@
    "company": "457488639186",
    "day": "2026-11-09",
    "outcome": "unsure",
+   "rules": 2,
    "why": "no email address in the reply"
   },
   "908033011929": {
    "automatic": false,
    "company": "457669442780",
-   "day": "2026-11-09",
-   "outcome": "unsure",
-   "why": "no email address in the reply"
+   "day": "2026-11-10",
+   "new": [
+    "918021778675"
+   ],
+   "outcome": "switched",
+   "rules": 2
   },
   "909195599085": {
    "automatic": false,
    "company": "457501330642",
    "day": "2026-11-04",
    "outcome": "unsure",
+   "rules": 2,
    "why": "no clear wording that it is a redirect"
+  }
+ },
+ "resumed": {
+  "421812105432": {
+   "day": "2026-11-10",
+   "why": "the person who replied is Rejected/Redirected and nobody else there is in conversation"
+  },
+  "455572492537": {
+   "day": "2026-11-10",
+   "why": "the reply was an out-of-office after all"
+  },
+  "457669442780": {
+   "day": "2026-11-10",
+   "why": "the person who replied is Rejected/Redirected and nobody else there is in conversation"
   }
  }
 }
