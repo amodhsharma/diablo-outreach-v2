@@ -147,15 +147,15 @@ def test_skill_scripts_end_to_end(repo):
     out = run_script(repo, "prepare_run.py")
     assert out.returncode == 0, out.stderr
     plan = json.loads((repo / "work" / "plan.json").read_text())
-    assert [c["template"] for c in plan["channels"]] == ["distributor", "marketplace_seller", "retailer"]
+    # 10 Nov 2026 (version 6, big partners only): no marketplace or shop sheets, so those channels use "general"
+    assert [c["template"] for c in plan["channels"]] == ["distributor", "general", "general"]
     prompt = (repo / "work" / "channel_2_prompt.md").read_text()
     assert "{{" not in prompt and "8 is the most companies to list, not a target" in prompt and "at most 120 web searches" in prompt
-    assert "HOW THE HARD RULES APPLY" in prompt and "Reject on evidence" in prompt  # 22 Oct 2026 (version 5)
+    assert "HOW THE HARD RULES APPLY" in prompt and "Reject on evidence" in prompt and "--big" in prompt
     assert "Known Foods Pvt Ltd (knownfoods.in)" in prompt  # same country
     assert "Lead Elsewhere" in prompt  # in the pipeline anywhere
     assert "Other Kenya" not in prompt  # another country, not in the pipeline
     assert "- otherkenya.com" in (repo / "work" / "exclusions.txt").read_text()  # but the checks know it
-    assert "storefront page is not a domain" in prompt
     assert (repo / "research" / "queue.csv").read_text().count("Waiting") == 3  # the skill never edits it
 
     work = repo / "work"
@@ -429,12 +429,24 @@ def test_country_short_forms_match():
 
 
 def test_prompt_versions_side_by_side(repo):
-    """Version 5 (in use from 22 Oct 2026) uses the _5 prompts; 4, 3, 2 and 1 still use their own files."""
+    """Version 6 (in use from 10 Nov 2026) uses the _6 prompts; 5, 4, 3, 2 and 1 still use their own files."""
     prompts = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "prompts"
     for name in ["channel_prompt", "channels/distributor", "channels/wholesaler", "channels/retailer",
                  "channels/general", "channels/marketplace_seller"]:
         for suffix in ("", "_2", "_3", "_4", "_5"):
             assert (prompts / f"{name}{suffix}.md").exists()
+    for name in ["channel_prompt", "channels/distributor", "channels/wholesaler", "channels/retailer",
+                 "channels/general", "channels/halal_distributor", "channels/kosher_distributor"]:
+        assert (prompts / f"{name}_6.md").exists()
+    assert run_script(repo, "prepare_run.py").returncode == 0
+    plan = json.loads((repo / "work" / "plan.json").read_text())
+    six = (repo / "work" / "channel_1_prompt.md").read_text()
+    assert plan["prompt_version"] == 6 and "HARD RULE" in six and "too small" in six and "Scale: " in six
+    assert "SEARCH THROUGH THE BRANDS FIRST" in six and "Muller & Phipps" in six and "atacadista" in six
+    assert "--big" in six and "Tier 3 is not used" in six and "Stern Market" not in six
+    assert plan["channels"][0]["companies_wanted"] == 8  # typed in the queue
+    settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    settings.write_text(settings.read_text().replace("prompt_version: 6", "prompt_version: 5"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
     five = (repo / "work" / "channel_1_prompt.md").read_text()
@@ -443,8 +455,7 @@ def test_prompt_versions_side_by_side(repo):
     assert "warehouse not named on its website" in five and "beeovita" in five
     assert "sports equipment shops" in five and "Unihockey Center" in five
     assert "local.ch" in five and "website did not open; trading confirmed on" in five and "Stern Market" in five
-    assert "Never use tier 3 for a doubtful" not in five
-    settings = repo / "skills" / "outreachResearch" / "settings.yaml"
+    assert "Never use tier 3 for a doubtful" not in five and "--big" not in five
     settings.write_text(settings.read_text().replace("prompt_version: 5", "prompt_version: 4"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
@@ -927,3 +938,38 @@ def test_button_2_market_command(tmp_path, monkeypatch):
     rows = rq.load()
     assert rows and {r["depth"] for r in rows} == {rq.COUNTRY} and rows[0]["list_cities"] == "yes"
     assert rq.last_job_number() == max(int(r["job_id"][1:]) for r in rows)
+
+
+def test_version_6_big_partners_only(tmp_path):
+    """10 Nov 2026 (Ariel): big wholesalers, distributors and supermarket chains; a size line and storage."""
+    import prepare_run
+    cov = rq.load_coverage()
+    assert cov["country_channels"] == ["distributors", "FMCG distributors", "wholesalers",
+                                       "kiosk and convenience wholesalers", "halal food distributors",
+                                       "kosher food distributors", "supermarket chains"]
+    assert "sports shops and sports nutrition shops" not in cov["city_channels"] + cov["country_channels"]
+    assert {prepare_run.choose_template(c, "_6") for c in ("FMCG distributors", "supermarket chains",
+            "kiosk and convenience wholesalers", "halal food distributors", "kosher food distributors",
+            "mass consumption distributors", "cash and carry wholesalers")} == {
+            "distributor", "retailer", "wholesaler", "halal_distributor", "kosher_distributor"}
+    f = tmp_path / "s.yaml"
+    f.write_text("prompt_version: 6\ndefault_companies_2: 50\nmin_floor_2: 25\ndefault_companies_6: 30\nmin_floor_6: 10\n")
+    s = rq.load_research_settings(f)
+    assert (s["default_companies"], s["min_floor"], rq.prompt_suffix(s)) == (30, 10, "_6")
+    good = {"name": "Big Co", "tier": 1, "fit_rationale": "Carries Haribo. Scale: 8,000 outlets. Storage: two depots."}
+    errors = []
+    check_output.check_big(errors, [good, dict(good, name="Small", tier=3),
+                                    dict(good, name="No scale", fit_rationale="Storage: depot."),
+                                    dict(good, name="No storage", fit_rationale="Scale: 300 shops.")], "distributors")
+    assert len(errors) == 3 and "tier 3" in errors[0] and "Scale" in errors[1] and "Storage" in errors[2]
+    errors = []
+    check_output.check_big(errors, [dict(good, fit_rationale="Scale: 120 stores.")], "supermarket chains")
+    assert errors == []  # a chain needs no storage line
+
+
+def test_version_6_channel_names_read_well_in_the_email():
+    from outreach.next_in_line import partner_type
+    assert partner_type("FMCG distributors") == "FMCG distributor"
+    assert partner_type("sales and distribution companies") == "distributor"
+    assert partner_type("British food importers") == "importer of British food"
+    assert partner_type("supermarket chains") == "supermarket chain"

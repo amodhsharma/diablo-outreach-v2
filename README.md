@@ -21,6 +21,23 @@ Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
 3. **2 - Research** starts by itself, checks the file again (and each company's website and Apollo) and adds the
    companies to HubSpot with Lead Status *New*. The queue line is marked Done.
 
+**Big partners only (10 Nov 2026, prompt version 6).** Research looks only for big wholesalers,
+distributors, importers and supermarket chains, not small retailers. A market added with button 2 is
+searched for: distributors (confectionery importers, snack, health food and British food importers,
+distributors of international confectionery brands), FMCG distributors (consumer goods, mass
+consumption, sales and distribution companies), wholesalers (confectionery, cash and carry),
+kiosk and convenience wholesalers, halal food distributors, kosher food distributors and supermarket
+chains. Then distributors, FMCG distributors and wholesalers again in the main business cities and
+regional capitals, one per region in a large country, so the strong regional players are found. Every
+company must be big enough (HARD RULE 12: about 200 shops or more, regional or national coverage, a big
+warehouse, fleet or sales force, the appointed distributor for international brands, or listed; at
+least about 10 stores for a chain) and its "Why they fit Diablo" ends with "Scale: " and "Storage: ".
+Research searches through the brands first (who distributes Ferrero, Mondelez, Haribo ... in the
+country), uses the trade's own words in the local language and follows Diablo's own list of big
+distributors. It looks for at most 30 per channel and stops when it runs out. Sports shops, health food
+shops, pharmacies, gift and hamper companies, office snack suppliers, vending, travel retail and the
+other small or niche channels are no longer searched (`docs/channels.json`).
+
 ## HubSpot fields (agreed 13 Oct 2026)
 
 The pipeline uses HubSpot's own fields wherever one fits. It adds only four fields, all on
@@ -260,7 +277,7 @@ On hold: already covered, Done, Done fewer than wanted, Failed, Cancelled.
 | Path | What it is |
 |---|---|
 | `skills/outreachResearch/SKILL.md` | The steps Claude follows for every research run |
-| `skills/outreachResearch/prompts/` | The research prompt, the Location prompt and the four Channel templates |
+| `skills/outreachResearch/prompts/` | The research prompt, the Location prompt and the Channel templates (version 6 from 10 Nov 2026: `*_6.md`) |
 | `skills/outreachResearch/settings.yaml` | Companies wanted, floor and search limits |
 | `skills/outreachResearch/output_format.md` | The JSON format and what the strict check rejects |
 | `research/<date>/` | Each run's report (`_report.md`) and JSON |

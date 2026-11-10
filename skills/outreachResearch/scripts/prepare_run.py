@@ -48,9 +48,11 @@ LOCATION_SEARCHES = 20  # searches for the manager's market structure and barrie
 CITIES_SECTION = """
 
 MAIN CITIES (this job only)
-Also save a JSON file at {{CITIES_FILE}}: the country's main business cities, where food importers,
-wholesalers and shop chains are based, at most {{MAX_CITIES}}, the most important first, each with the
-main language spoken there. Use the country's usual spelling
+Also save a JSON file at {{CITIES_FILE}}: the country's main business cities and regional capitals, where
+food importers, distributors and wholesalers are based, at most {{MAX_CITIES}}, the most important first,
+each with the main language spoken there. In a large country (for example Brazil, Indonesia, India,
+Argentina, Mexico or Nigeria) spread them across the states or regions, one city per region, so that the
+strong regional distributors of each region are searched (10 Nov 2026). Use the country's usual spelling
 in English. Exactly this shape:
 [{"city": "Hamburg", "language": "German"}, {"city": "Munich", "language": "German"}]
 Use no more than five of your searches for it, or none if you already know the cities well.
@@ -256,6 +258,8 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
                      f"--exclusions {work / 'exclusions.txt'}")
             if rq.prompt_version(settings) >= 3:
                 check += " --catalogue"  # 21 Oct 2026: each company must sell something from our catalogue
+            if rq.prompt_version(settings) >= 6:
+                check += " --big"  # 10 Nov 2026: big partners only, with Scale and Storage lines
             harder = line.get("depth") in (rq.DEEP, rq.FOLLOW_UP)  # typed in button 2: searched harder
             channel_exclude = exclude_text
             if line.get("depth") == rq.FOLLOW_UP:

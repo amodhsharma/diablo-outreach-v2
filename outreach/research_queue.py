@@ -93,10 +93,14 @@ def load_research_settings(path=None):
             if value:
                 values[key] = int(value) if value.isdigit() else value
     # Prompt version 2 (agreed 14 Oct 2026) has its own numbers; version 1 keeps the originals.
-    if prompt_version(values) >= 2:
+    version = prompt_version(values)
+    if version >= 2:
         for key in ("default_companies", "min_floor"):
-            if f"{key}_2" in values:
-                values[key] = values[f"{key}_2"]
+            # 10 Nov 2026: a version's own numbers ("_6") first, then version 2's
+            for own in (f"{key}_{version}", f"{key}_2"):
+                if own in values:
+                    values[key] = values[own]
+                    break
     return values
 
 
@@ -104,9 +108,10 @@ def prompt_version(settings):
     """1 = the original research prompts, 2 = the _2 prompts (the default when not set),
     3 = the _3 prompts (21 Oct 2026: Diablo's hard rules and catalogue), 4 = the _4 prompts (21 Oct
     2026: the final version after Diablo's review of all the Swiss research, for every channel),
-    5 = the _5 prompts (22 Oct 2026: version 4 loosened, reject on evidence, sports nutrition shops)."""
+    5 = the _5 prompts (22 Oct 2026: version 4 loosened, reject on evidence, sports nutrition shops),
+    6 = the _6 prompts (10 Nov 2026: big wholesalers, distributors and supermarket chains only)."""
     value = str(settings.get("prompt_version", 2)).strip()
-    return {"1": 1, "3": 3, "4": 4, "5": 5}.get(value, 2)
+    return {"1": 1, "3": 3, "4": 4, "5": 5, "6": 6}.get(value, 2)
 
 
 def prompt_suffix(settings):

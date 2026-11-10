@@ -136,9 +136,19 @@ If the first Step 2 said `NOTHING TO DO`, the summary is one line: "Nothing wait
 
 ## What the files are
 
-- Five versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
+- Six versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
   `settings.yaml` picks one, and prepare_run.py writes the chosen version into `work/`:
-  - version 5 (in use from 22 Oct 2026): `prompts/channel_prompt_5.md` and
+  - version 6 (in use from 10 Nov 2026, Ariel): `prompts/channel_prompt_6.md` and
+    `prompts/channels/*_6.md`. Big partners only: distributors and importers (FMCG and consumer goods
+    distributors too), wholesalers and cash and carry, kiosk and convenience wholesalers, halal and kosher
+    food distributors, and supermarket chains; not small retailers. HARD RULE 12 (size: about 200 shops
+    or more, regional or national coverage, a big warehouse, fleet or sales force, appointed distributor
+    for international brands, listed or part of a large group; at least about 10 stores for a chain),
+    written after "Scale: " in the fit rationale; storage must be seen ("Storage: "); search through the
+    brands first (who distributes Ferrero, Mondelez, Haribo ... in the country, principals pages);
+    state by state in large countries; local trade words in ten languages; Diablo's own list of big
+    distributors (7 Oct 2026) as the models; tiers 1 and 2 only. The check adds `--big`;
+  - version 5 (used from 22 Oct 2026 to 10 Nov 2026): `prompts/channel_prompt_5.md` and
     `prompts/channels/*_5.md`. Version 4 loosened after Ariel found it too strict: reject only on
     evidence, list a company that passes even when a detail such as the warehouse is not on its
     website (state it plainly, tier 3 if needed), sports shops (also sports equipment shops with

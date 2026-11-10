@@ -323,7 +323,33 @@ def check_own_website(errors, companies, channel):
                           '"no website" (HARD RULE 9)')
 
 
-def check_part(data, exclusions=(set(), set()), catalogue=False):
+CHAIN_WORDS = re.compile(r"supermarket|hypermarket|chain|\bstores?\b|\bshops?\b", re.I)  # sells from its own stores
+
+
+def check_big(errors, companies, channel):
+    """Prompt version 6 (10 Nov 2026, big partners only): tier 1 or 2, a "Scale: " line (HARD RULE 12) and,
+    except for supermarket chains, a "Storage: " line showing the storage seen (HARD RULE 4)."""
+    chain = bool(CHAIN_WORDS.search(str(channel or "")))
+    for c in companies:
+        if not isinstance(c, dict) or not isinstance(c.get("name"), str):
+            continue
+        name, why = c["name"].strip(), str(c.get("fit_rationale") or "")
+        if c.get("tier") == 3:
+            errors.append(f'Company "{name}": tier 3 is not used; a company too small for tier 2 is left out with '
+                          'the reason "too small" (HARD RULE 12)')
+        if "scale:" not in why.lower():
+            errors.append(f'Company "{name}": the fit rationale has no "Scale: " line saying how big it is; add '
+                          'what its website shows, or leave it out with the reason "too small" (HARD RULE 12)')
+        if not chain and "storage:" not in why.lower():
+            errors.append(f'Company "{name}": the fit rationale has no "Storage: " line; add the warehouse, depot, '
+                          'cash and carry, fleet or B2B shop seen, or leave it out with the reason "does not hold '
+                          'stock" (HARD RULE 4)')
+        if "no storage seen" in why.lower():
+            errors.append(f'Company "{name}": no storage seen; leave it out with the reason "does not hold stock" '
+                          '(HARD RULE 4)')
+
+
+def check_part(data, exclusions=(set(), set()), catalogue=False, big=False):
     errors = []
     if not _keys(errors, "The file", data, PART_KEYS):
         return errors
@@ -352,6 +378,8 @@ def check_part(data, exclusions=(set(), set()), catalogue=False):
         check_catalogue(errors, companies)
         check_weak_fit(errors, companies)
         check_own_website(errors, companies, data.get("channel"))
+    if big:  # research prompt version 6
+        check_big(errors, companies, data.get("channel"))
     return errors
 
 
@@ -455,6 +483,8 @@ def main(argv=None):
     p.add_argument("--catalogue", action="store_true",
                    help="prompt version 3: each company must sell something from Diablo's catalogue, at "
                         "medium or high confidence, with no hedged fit")
+    p.add_argument("--big", action="store_true",
+                   help="prompt version 6: big partners only, tier 1 or 2 with Scale and Storage lines")
     args = p.parse_args(argv)
     try:
         data = json.loads(Path(args.file).read_text(encoding="utf-8"))
@@ -463,7 +493,7 @@ def main(argv=None):
         return 1
     exclusions = load_exclusions(args.exclusions)
     if args.kind == "part":
-        errors = check_part(data, exclusions, catalogue=args.catalogue)
+        errors = check_part(data, exclusions, catalogue=args.catalogue, big=args.big)
     else:
         report = Path(args.report).read_text(encoding="utf-8") if args.report else None
         errors = check_final(data, report, exclusions)

@@ -2,7 +2,13 @@
 # Edit on GitHub with the pencil icon. One "name: number" per line.
 
 # Which research prompts are used (agreed 14 Oct 2026):
-#   5 = in use from 22 Oct 2026: prompts/channel_prompt_5.md and prompts/channels/*_5.md, version 4
+#   6 = in use from 10 Nov 2026 (Ariel): prompts/channel_prompt_6.md and prompts/channels/*_6.md, big
+#       wholesalers, distributors, importers (FMCG distributors too) and supermarket chains only, not small
+#       retailers: a size rule (HARD RULE 12, "Scale: " in the fit rationale), storage must be seen,
+#       search through the brands (who distributes Ferrero, Mondelez, Haribo ... in the country),
+#       state by state in large countries, local trade words, Diablo's own list of big distributors as
+#       the models, tiers 1 and 2 only.
+#   5 = used from 22 Oct 2026 to 10 Nov 2026: prompts/channel_prompt_5.md and prompts/channels/*_5.md, version 4
 #       loosened after Ariel found it too strict: reject only on evidence, list a company that passes
 #       even when a detail (such as the warehouse) is not on its website, sports shops (also sports
 #       equipment shops with healthy food), sports nutrition and fitness shops, snack vending and petrol
@@ -18,8 +24,8 @@
 #       default_companies_2 and min_floor_2 below
 #   1 = the original prompts (prompts/channel_prompt.md and prompts/channels/*.md), with
 #       default_companies and min_floor
-# To go back, change 5 to 4, 3, 2 or 1. Every set is kept unchanged side by side.
-prompt_version: 5
+# To go back, change 6 to 5, 4, 3, 2 or 1. Every set is kept unchanged side by side.
+prompt_version: 6
 
 # Companies wanted per Channel when the "Companies wanted" box is left empty.
 default_companies: 60
@@ -32,6 +38,11 @@ min_floor: 30
 # live, Ariel: search each city exhaustively): 30 and 15 before.
 default_companies_2: 50
 min_floor_2: 25
+
+# The same two numbers for prompt version 6 (10 Nov 2026): a market may have only 10 to 30 big
+# distributors in a channel, so research stops when it runs out instead of filling places.
+default_companies_6: 30
+min_floor_6: 10
 
 # Most web searches each helper may run for one Channel (60 before 20 Oct 2026: a deeper search of
 # each city; a research run takes longer).
@@ -46,7 +57,7 @@ max_follow_ups: 2
 # Most channels in one job (each channel is one helper working at the same time).
 channels_per_job: 5
 # Most other main cities research lists for a country; GitHub then queues a lighter search of each.
-max_cities_per_market: 8
+max_cities_per_market: 10
 
 # Most companies listed in the prompt's exclusion list.
 max_exclusions_in_prompt: 500

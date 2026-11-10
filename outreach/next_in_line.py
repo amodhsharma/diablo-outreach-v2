@@ -347,7 +347,11 @@ def last_campaign(contacts):
 
 
 PARTNER_TYPES = {"distributors": "distributor", "wholesalers": "wholesaler", "retailers": "retailer",
-                 "marketplace sellers": "online seller", "importers": "importer"}
+                 "marketplace sellers": "online seller", "importers": "importer",
+                 # 10 Nov 2026: the research channels of prompt version 6
+                 "fmcg distributors": "FMCG distributor", "sales and distribution companies": "distributor",
+                 "distributors of international confectionery brands": "distributor",
+                 "british food importers": "importer of British food"}
 
 
 def partner_type(channel):

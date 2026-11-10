@@ -1,15 +1,8 @@
 {
   "title": "Diablo outreach channels",
-  "updated": "2026-10-22",
+  "updated": "10 Nov 2026",
   "about": "Every outreach channel: the ones research runs today and the new ones suggested on 22 Oct 2026, from Ariel's product certificates sheet (92 products; the sheet itself was not changed). type_in_button_2 is what to type in the Channels box of button 2 (2 - Research). ready_to_run says whether today's research rules handle it, or it needs its own rule sheet first. From 22 Oct 2026 'Add a market' searches every channel in config/coverage.json (the list the research uses); this file stays the reference.",
-  "summary": {
-    "all_channels": 26,
-    "in_use": 8,
-    "new": 18,
-    "new_ready_on_general_rules": 13,
-    "new_needing_own_rule_sheet": 0,
-    "new_with_own_rule_sheet": 5
-  },
+  "summary": "From 10 Nov 2026 (Ariel) research looks only for big partners: distributors and importers, FMCG distributors, wholesalers and cash and carry, kiosk and convenience wholesalers, halal and kosher food distributors, and supermarket chains. Every other channel below is no longer searched. Prompt version 6, HARD RULE 12 (size).",
   "channels": [
     {
       "number": 1,
@@ -18,6 +11,17 @@
       "who_they_are": "Buy other companies' branded sweets and snacks, hold them in their own warehouse and sell them to shops, kiosks and vending",
       "why_it_fits_diablo": "Core channel: every product is sugar free or no added sugar",
       "came_from": "In use",
+      "research_rules_today": "Distributor",
+      "ready_to_run": "Yes, in use",
+      "priority": "High"
+    },
+    {
+      "number": 27,
+      "channel": "FMCG and consumer goods distributors",
+      "type_in_button_2": "FMCG distributors",
+      "who_they_are": "Multi-category distributors (food, personal care, household) that carry confectionery and snack brands for their owners and reach thousands of outlets",
+      "why_it_fits_diablo": "Most of Diablo's own list of big distributors (7 Oct 2026) is this kind: Corripio, Muller & Phipps, Suy Sing, Delfi Marketing",
+      "came_from": "Added 10 Nov 2026 (Ariel)",
       "research_rules_today": "Distributor",
       "ready_to_run": "Yes, in use",
       "priority": "High"
@@ -46,13 +50,13 @@
     },
     {
       "number": 4,
-      "channel": "Retailers (supermarket and grocery chains)",
-      "type_in_button_2": "retailers",
-      "who_they_are": "Chains and shops that buy direct and sell to shoppers",
+      "channel": "Supermarket chains",
+      "type_in_button_2": "supermarket chains",
+      "who_they_are": "Supermarket and hypermarket chains with many stores that buy centrally",
       "why_it_fits_diablo": "Whole range",
       "came_from": "In use",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, in use",
+      "ready_to_run": "Yes, in use (10 Nov 2026: chains only, not single shops)",
       "priority": "High"
     },
     {
@@ -63,8 +67,8 @@
       "why_it_fits_diablo": "Sugar free and no added sugar range",
       "came_from": "In use",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, in use",
-      "priority": "High"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 6,
@@ -74,8 +78,8 @@
       "why_it_fits_diablo": "Sugar free, gluten free and vegan products",
       "came_from": "In use",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, in use",
-      "priority": "Medium"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 7,
@@ -85,8 +89,8 @@
       "why_it_fits_diablo": "Whole range",
       "came_from": "In use",
       "research_rules_today": "Marketplace seller",
-      "ready_to_run": "Yes, in use",
-      "priority": "Medium"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 8,
@@ -96,7 +100,7 @@
       "why_it_fits_diablo": null,
       "came_from": "In use",
       "research_rules_today": "General",
-      "ready_to_run": "Yes, in use",
+      "ready_to_run": "Yes, in use (10 Nov 2026: big companies only)",
       "priority": "-"
     },
     {
@@ -107,8 +111,8 @@
       "why_it_fits_diablo": "Advent calendar, chocolate boxes (115g, 142g) and gift boxes",
       "came_from": "Suggested earlier",
       "research_rules_today": "General",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "High"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 10,
@@ -118,8 +122,8 @@
       "why_it_fits_diablo": "Single-serve bars (30g), muffins (45g), cookies (34g, 44g)",
       "came_from": "Suggested earlier",
       "research_rules_today": "General",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "High"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 11,
@@ -129,8 +133,8 @@
       "why_it_fits_diablo": "Single-serve packs",
       "came_from": "Suggested earlier",
       "research_rules_today": "General",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "High"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 12,
@@ -140,8 +144,8 @@
       "why_it_fits_diablo": "Single-serve packs and gift boxes",
       "came_from": "Suggested earlier",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "Medium"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 13,
@@ -151,8 +155,8 @@
       "why_it_fits_diablo": "Impulse-size products",
       "came_from": "Suggested earlier",
       "research_rules_today": "Petrol station and convenience (own rule sheet)",
-      "ready_to_run": "Yes, own rule sheet (22 Oct 2026)",
-      "priority": "Medium"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 14,
@@ -162,8 +166,8 @@
       "why_it_fits_diablo": "Single-serve packs (tier 3, like Authentic Food Solutions)",
       "came_from": "Suggested earlier",
       "research_rules_today": "General",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "Low"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 15,
@@ -173,8 +177,8 @@
       "why_it_fits_diablo": "Chocolate bars, buttons, sweets",
       "came_from": "Suggested earlier",
       "research_rules_today": "General",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "Low"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 16,
@@ -184,8 +188,8 @@
       "why_it_fits_diablo": "Muesli bars, sugar free snacks",
       "came_from": "Suggested earlier",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "Medium"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 17,
@@ -195,8 +199,8 @@
       "why_it_fits_diablo": "Whole range",
       "came_from": "Suggested earlier",
       "research_rules_today": "General",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "Low"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 18,
@@ -206,8 +210,8 @@
       "why_it_fits_diablo": "All 92 products are sugar free or no added sugar (no health claims in research or emails)",
       "came_from": "Suggested earlier and From your product sheet",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "High"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 19,
@@ -217,8 +221,8 @@
       "why_it_fits_diablo": "Chocolate and sweets",
       "came_from": "Suggested earlier",
       "research_rules_today": "General",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "Low"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 20,
@@ -250,8 +254,8 @@
       "why_it_fits_diablo": "56 kosher products",
       "came_from": "From your product sheet",
       "research_rules_today": "Kosher shop (own rule sheet)",
-      "ready_to_run": "Yes, own rule sheet (22 Oct 2026)",
-      "priority": "High"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 23,
@@ -261,8 +265,8 @@
       "why_it_fits_diablo": "35 gluten free (many certified); free from egg 51, peanuts 41, dairy 26, nuts 16",
       "came_from": "From your product sheet",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "High"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 24,
@@ -272,8 +276,8 @@
       "why_it_fits_diablo": "Single-serve packs",
       "came_from": "From your product sheet",
       "research_rules_today": "Hospital and care home shop (own rule sheet)",
-      "ready_to_run": "Yes, own rule sheet (22 Oct 2026)",
-      "priority": "Medium"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 25,
@@ -283,8 +287,8 @@
       "why_it_fits_diablo": "Advent calendar, chocolate boxes, gift boxes",
       "came_from": "From your product sheet",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "Medium"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     },
     {
       "number": 26,
@@ -294,8 +298,8 @@
       "why_it_fits_diablo": "13 vegan (most not on pack), 88 vegetarian, 87 gelatin free",
       "came_from": "From your product sheet",
       "research_rules_today": "Retailer",
-      "ready_to_run": "Yes, on general rules (own rule sheet recommended)",
-      "priority": "Low"
+      "ready_to_run": "No longer searched (10 Nov 2026, Ariel: big wholesalers, distributors and supermarket chains only)",
+      "priority": "-"
     }
   ],
   "product_evidence": [
