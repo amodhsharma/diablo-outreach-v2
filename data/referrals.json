@@ -17,6 +17,16 @@
    ],
    "outcome": "switched"
   },
+  "900082411735": {
+   "automatic": true,
+   "company": "455572492537",
+   "day": "2026-11-10",
+   "new": [
+    "918435892439"
+   ],
+   "outcome": "added",
+   "rules": 2
+  },
   "900100766921": {
    "automatic": false,
    "company": "455955263729",
