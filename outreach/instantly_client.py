@@ -161,6 +161,23 @@ class Instantly:
             if not cursor or not batch:
                 return items
 
+    def emails_since(self, min_created, max_pages=30):
+        """Every email (sent and received) Instantly added since min_created (ISO time), oldest first, or None
+        when there are more than max_pages pages of 100 (10 Nov 2026: what may have changed since the last
+        run of button 4, see mail_watch.py)."""
+        items, cursor = [], None
+        for _ in range(max_pages):
+            params = {"min_timestamp_created": min_created, "limit": 100, "sort_order": "asc"}
+            if cursor:
+                params["starting_after"] = cursor
+            data = self.request("GET", "/emails", params=params)
+            batch = data.get("items", [])
+            items.extend(batch)
+            cursor = data.get("next_starting_after")
+            if not cursor or not batch:
+                return items
+        return None
+
     def get_email(self, email_id):
         """One email in full (body included)."""
         try:

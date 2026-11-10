@@ -247,6 +247,16 @@ emails a failure notice and the buttons can still be pressed by hand.
 
 ## One loop per company, one person at a time
 
+**Only the email threads that can have changed are read (agreed 10 Nov 2026, Ariel).** Button 4 used to
+read the whole email history of everyone at every company in its loop, one person at a time, and Instantly
+lets that be read only 20 times a minute (263 people took 22 minutes on 31 Oct 2026, 620 people 66 minutes
+on 6 Nov). Now each run first asks Instantly once for every email added since the last run (with an hour of
+overlap) and reads a company again in full only when one of its people appears in those emails, changed in
+Instantly or HubSpot, or was last read more than 18 to 30 hours ago (spread by company); if the new emails
+cannot be listed, everything is read as before. Before anything is sent or closed (a forward, a reminder,
+an introduction, "no response", a line copied, an opt-out) the company is always read in full first.
+`data/mail_watch.json` keeps only contact IDs, their state and when they were emailed (`outreach/mail_watch.py`).
+
 Agreed 14 Oct 2026 (replaces the three rounds of 13 Oct). Button 3 finds the top 4 people at each
 company. Each must be approved at gate 2. Then, with one email to the company every 3 days:
 

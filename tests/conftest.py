@@ -128,3 +128,10 @@ def no_real_blocklist(monkeypatch):
     from outreach import takeover
     from outreach.sync import BlockList
     monkeypatch.setattr(takeover, "read_blocked", lambda log=print: BlockList(ok=False, problem="not read in tests"))
+
+
+@pytest.fixture(autouse=True)
+def no_real_mail_watch(tmp_path, monkeypatch):
+    """No test reads or writes the real record of which email threads button 4 read (10 Nov 2026)."""
+    from outreach import mail_watch
+    monkeypatch.setattr(mail_watch, "FILE", tmp_path / "mail_watch.json")

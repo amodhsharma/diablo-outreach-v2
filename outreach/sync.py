@@ -57,7 +57,7 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parked_ids, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from . import chain, corrupt, daily_log, redirect, referrals, reply_forward, timeline
+from . import chain, corrupt, daily_log, mail_watch, redirect, referrals, reply_forward, timeline
 from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, TEAM, LeadStatus,
                      forward)
 
@@ -968,6 +968,23 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     notes = load_company_notes()
     contact_updates, company_updates = [], []
     sent_rows, waiting_rows = [], []
+    # 10 Nov 2026 (Ariel): only the threads that can have changed are read in full (mail_watch.py)
+    watch = mail_watch.Watch(emails_api, log, now=now) if emails_api is not None else None
+
+    def stays_quiet(company, contacts, touches):
+        """What decide() says for a company whose emails have not changed, worked out on a copy, or None when
+        anything would happen to it (then it is read in full first, as always)."""
+        import copy
+        trial = mark_sent(copy.deepcopy(contacts), touches)
+        if stop_signals(trial, blocklist["now"], leads, {}):
+            return None
+        if chain_cfg and chain.fill_lines(trial, statuses, lambda *_: None, ""):
+            return None
+        rules = chain.company_rules(chain_cfg, chain_state, company["id"]) if chain_cfg else None
+        _, why = decide(trial, statuses.of("companies", company), gap, now, touches=touches, min_same_days=min_same,
+                        follow_ups=one_email[0], no_reply_days=one_email[1], inbox_reminder=one_email[2],
+                        chain=rules, statuses=statuses)
+        return (why, trial) if why in mail_watch.QUIET else None
 
     def no_response(company, name, contacts):
         """The loop is finished with no reply (21 Oct 2026): the company and everyone emailed there
@@ -1022,7 +1039,19 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         name = props.get("name")
         contacts = annotate(everyone.get(company["id"]) or [], statuses, leads)
         touches, history, replied, details = None, {}, set(), {}
+        states = {c["id"]: c.get("state") for c in contacts}
         if emails_api is not None and any(c["state"] in ("queued", "sent", "bounced") for c in contacts):
+            kept = watch.cached(company["id"], contacts) if watch is not None else None
+            quiet = stays_quiet(company, contacts, kept) if kept is not None else None
+            if quiet is not None:  # nothing new in its emails and nothing due: same result as a full read
+                why, trial = quiet
+                watch.quiet += 1
+                if why in ("waiting", "waiting_same_person", "waiting_for_gate_2", "nothing", "stopped"):
+                    when = due_at(trial, kept, why, gap, min_same)
+                    waiting_rows.append(f"| {name} | {NEXT_STEP.get(why, why)} | {ist(when) if when else '-'} |")
+                continue
+            if watch is not None:
+                watch.read_full += 1
             try:
                 touches, history, replied = company_mail(emails_api, contacts, details)
             except Exception as err:  # one company's emails not readable never stops the others
@@ -1056,6 +1085,11 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                           touches=touches, min_same_days=min_same,
                           follow_ups=one_email[0], no_reply_days=one_email[1],
                           inbox_reminder=one_email[2], chain=rules, statuses=statuses)
+        if watch is not None and touches is not None:  # read in full: kept for the next runs while it waits
+            if why in mail_watch.QUIET and not (chain_cfg and filled):
+                watch.remember(states, touches)
+            else:
+                watch.forget(states)
         if why == "no_reply":
             no_response(company, name, contacts)
             continue
@@ -1206,6 +1240,11 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     hs.update_tagged("companies", company_updates)
     if chain_cfg:
         chain.save_state(chain_state)
+    if watch is not None:
+        try:  # never stops the run: without the file, every company is read in full next time
+            watch.finish()
+        except Exception as err:
+            log(f"Could not save which email threads were read: {str(err)[:200]}")
     if result["waiting_for_emails_key"]:
         log(f"{result['waiting_for_emails_key']} companies are ready for their next email, but the GitHub secret "
             "INSTANTLY_EMAILS_KEY (Instantly key with scope emails:all) is not set, so those emails wait")
