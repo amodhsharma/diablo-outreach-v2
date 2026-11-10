@@ -611,6 +611,7 @@ id,name,domain,country,why
 386709676239,,forrestfood.com,,other
 382839101647,,fosinvestments.co.za,,other
 386192055503,,fourrivers.crs,,other
+464024133857,,foursq.org,,other
 385642227920,,fozzysupport.zendesk.com,,other
 386202798312,,fp-lp.fr,,other
 382738883804,,fragua.com.mx,,other
@@ -862,6 +863,7 @@ id,name,domain,country,why
 385822204128,,intanmediaservicegmbh.onmicrosoft.com,,other
 382390879430,,interdis.carrefour.com,,other
 381532094668,,interfood.su,,other
+463956067536,,intltraders.net,,other
 381067726045,,investor.com.ge,,other
 381070764251,,invictusfmcg.com,,other
 382885703873,,invitations.mailinblack.com,,other
@@ -2461,7 +2463,7 @@ id,name,domain,country,why
 385631170787,Accor,accor.com,,other
 425252387050,Accord Healthcare,accord-healthcare.com,United Kingdom,other
 425201486018,Account Manager,ipartner.cl,Chile,other
-421808613573,Accredited Distributors,accredited.com.au,Australia,other
+421808613573,Accredited Distributors,accredited.com.au,Australia,auto-outreach
 421797935295,Accutor,accutor.com,Malta,other
 421799603405,Ace Exports,aceexports.co.uk,United Kingdom,other
 421746804951,Ace Fmcg,acefmcg.com,England,other
@@ -3513,7 +3515,7 @@ id,name,domain,country,why
 421797808344,All Fect Distributors Pty Ltd,,,other
 421711887556,"All Food And Candy, Inc",allfoodandcandy.com,,other
 426292394171,All Food Co.,allfoodco.com,Bahrain,other
-421803201762,All Food Distributors,allfooddistributors.com.au,Australia,other
+421803201762,All Food Distributors,allfooddistributors.com.au,Australia,auto-outreach
 421799589074,ALL FOOD SERVICE,allfs.ru,Russia,other
 421734020288,All Foods Inc,allfoodsusa.com,,other
 421744860405,All foods market,allfoodsmarket.com,Australia,other
@@ -5250,12 +5252,12 @@ id,name,domain,country,why
 426292968677,Austin Beerworks,austinbeerworks.com,United States,other
 421737667777,Austins Department Stores,austins-uk.com,Ireland,other
 381322151159,Australasian Bulk Foods Pty Ltd,austbulk.com.au,Australia,other
-381463617768,Australia Direct Brand Distributors Pty Ltd,directbranddistributors.com,Australia,other
+381463617768,Australia Direct Brand Distributors Pty Ltd,directbranddistributors.com,Australia,auto-outreach
 426292853955,Australian Beverage Contract Filling Pty Ltd,abcfilling.com.au,Australia,other
 426293236950,Australian Beverages Council,australianbeverages.org,Australia,other
 421748368571,Australian Bulk Foods Pty Ltd,abf-foods.com.au,Australia,other
 425196052714,Australian Industry Group (Ai Group),aigroup.com.au,Australia,other
-421770023134,Australian International Traders Pty Ltd,aitraders.com.au,Australia,other
+421770023134,Australian International Traders Pty Ltd,aitraders.com.au,Australia,auto-outreach
 448033540286,Australian Liquor Marketers,almliquor.com.au,,other
 457129547998,Australian Muscle,australianmuscle.com.au,Australia,auto-outreach
 421797806266,Australian Organic Product,australianorganicproducts.com.au,Australia,other
@@ -5709,7 +5711,7 @@ id,name,domain,country,why
 421728641229,Baldini.cz,baldini.cz,Czech Republic,other
 421766444261,"Baldor Specialty Foods, Inc.",baldorfood.com,USA,other
 426294270186,Baldoré Cía. Ltda.,baldore.com,Ecuador,other
-421725013205,Baldwin  Wholesale,baldwinwholesale.com.au,Australia,other
+421725013205,Baldwin  Wholesale,baldwinwholesale.com.au,Australia,auto-outreach
 426211218633,Bale Breaker Brewing Company,balebreaker.com,United States,other
 426294165750,Balestrino Mayorista,pedrobalestrino.com.ar,Argentina,other
 421770010837,Balev bio,balevbio.bg,Bulgaria,other
@@ -6287,7 +6289,7 @@ id,name,domain,country,why
 381059971277,BENSI IMPORTS,bensi.com.mx,,other
 421739554027,Bensons Trading,bensonstrading.com.au,Australia,other
 426205916352,Bent Tree Coffee Roasters,benttreecoffee.com,United States,other
-421762838774,Bentleigh East Supermarket,bentleigh-east.shop.ritchies.com.au,Australia,other
+421762838774,Bentleigh East Supermarket,bentleigh-east.shop.ritchies.com.au,Australia,auto-outreach
 426209672421,Bentosul Distribuidor De Alimentos,bentosul.com.br,Brazil,other
 421803189465,BENU,benulekaren.sk,,other
 425252455620,BENU Farmacia,benufarma.it,Italy,other
@@ -7149,7 +7151,7 @@ id,name,domain,country,why
 426299850983,Blasta Brewing Company,blastabrewing.com,Australia,other
 421732399315,Blasta Wholefoods,dungarvanhealthstore.ie,Ireland,other
 421726809308,Blavit Distributie Srl,blavit.ro,Romania,other
-421715485923,Blayney Wholesale Foods,blayneyfoods.com.au,Australia,other
+421715485923,Blayney Wholesale Foods,blayneyfoods.com.au,Australia,auto-outreach
 462635978970,BLB,blb.uz,Uzbekistan,other
 421735779521,Blejese Shkoj,blejeseshkoj.com,Kosovo,other
 426294608103,Blend Coffee Factory,blendcoffee.net,Egypt,other
@@ -7855,7 +7857,7 @@ id,name,domain,country,why
 381145382103,Brennan Atkinson,brennanatkinson.co.uk,England,other
 386378829032,Brent Group,brentgroupinternational.com,,other
 421748421864,Brent Supermarkets,brentstores.com,Nigeria,other
-421734015184,Brentcorp Distributors,brentcorp.com.au,Australia,other
+421734015184,Brentcorp Distributors,brentcorp.com.au,Australia,auto-outreach
 421796016358,Brentmead Chemists,brentmeadpharmacy.co.uk,England,other
 381241651425,bresa diet,bresadiet.fr,France,other
 382893308105,Brestbakaleya,brestbakaleya.com,,other
@@ -9833,6 +9835,7 @@ id,name,domain,country,why
 425255582966,CGC Japan,cgcjapan.co.jp,Japan,other
 421766543558,CGT Maldives,cgtmaldives.com,Maldives,other
 454668084428,Ch. Margot & Cie SA,margot.ch,Switzerland,auto-outreach
+463954330826,CH2,ch2.net.au,,other
 382885606599,CH2 Direct,oborne.com.au,,other
 421766660286,Chaadi Food,chaadifood.com,France,other
 426262235342,Chacha choudhary masala,chachachoudhary.com,India,other
@@ -9910,7 +9913,7 @@ id,name,domain,country,why
 425252560073,Charlotte Tilbury Beauty,charlottetilbury.com,United Kingdom,other
 381336590568,Charlotte Trading,charlotte.com.qa,,other
 381414213853,Charminar bazaar,charminarbazaar.com,,other
-421737574618,Charmlaw Distributions,charmlaw.com.au,Australia,other
+421737574618,Charmlaw Distributions,charmlaw.com.au,Australia,auto-outreach
 381115405543,Charms Uganda Ltd,charmsuganda.com,Uganda,other
 425255339208,Charter Communications,rr.com,United States,other
 389012544728,Charters,nclcorp.com,,other
@@ -10589,7 +10592,7 @@ id,name,domain,country,why
 452203001078,Co-op Partners Warehouse,cpw.coop,United States,other
 421753877721,Co-op Star,coopstar.hu,Hungary,other
 428082135253,Co-op Wholesale,coopwholesale.co.uk,,other
-421801547972,Co-Operative Supermarkets Australia,coopsupermarkets.com.au,Australia,other
+421801547972,Co-Operative Supermarkets Australia,coopsupermarkets.com.au,Australia,auto-outreach
 381139839180,Co-opportunity Market,coopportunity.com,United States,other
 381142537422,Co-Ro,co-ro.com,,other
 421750398172,Co.op mart,co-opmart.com.vn,Vietnam,other
@@ -11056,7 +11059,7 @@ id,name,domain,country,why
 421797811438,confectionery heaven,confectioneryheaven.co.uk,,other
 381079558388,Confectionery House,confectioneryhouse.com,USA,other
 456808974560,Confectionery Only,confectioneryonly.com.au,Australia,auto-outreach
-421739452632,Confectionery Trading Co. Pty Ltd,ctcaustralia.com,Australia,other
+421739452632,Confectionery Trading Co. Pty Ltd,ctcaustralia.com,Australia,auto-outreach
 421741221096,Confectionery Warehouse,tomscw.com.au,Australia,other
 421803201730,Confectionery World,,,other
 381148813511,confectionerywarehouse,confectionerywarehouse.com.au,Australia,other
@@ -11183,7 +11186,7 @@ id,name,domain,country,why
 381075951861,CONTINENTAL GROUP OF COMPANIES,,,other
 381068984540,Continental Importers,continentalimporters.ca,,other
 381416003833,Continental Imports,dutchimports.ca,,other
-381289853162,Continental Marketing,contimkt.com.au,Australia,other
+381289853162,Continental Marketing,contimkt.com.au,Australia,auto-outreach
 426207712468,Continental Quest Inc.,continentalquest.ca,Canada,other
 421797858550,Continental Sweets Benelux,continentalsweets.com,,other
 425010666732,Continental Wine and Food Limited,continental-wine.co.uk,United Kingdom,other
@@ -11387,7 +11390,7 @@ id,name,domain,country,why
 426293175487,Cornelissen USA,cornelissenusa.com,United States,other
 426292845783,Corner & Co.,corner.sk,Slovakia,other
 421766482118,Corner 99,corner99.co.nz,New Zealand,other
-421734012146,Cornetts Supermarkets,cornetts.com.au,Australia,other
+421734012146,Cornetts Supermarkets,cornetts.com.au,Australia,auto-outreach
 426292977861,Corning & Company,corningandcompany.com,United States,other
 381141709000,Cornucopia One Stop Organics,,,other
 425252445413,Cornwall Hospice Care,cornwallhospicecare.co.uk,United Kingdom,other
@@ -11474,7 +11477,7 @@ id,name,domain,country,why
 421750380757,Costao do Santinho,costao.com.br,bresil,other
 421808568520,Costavert,costavert.lu,Luxembourg,other
 382894038234,Costazul Supermercados,costazulsupermercados.com.br,,other
-421804943589,Costco Australia,costco.com.au,Australia,other
+421804943589,Costco Australia,costco.com.au,Australia,auto-outreach
 421771804904,Costco Canada,costco.ca,Canada,other
 421804943591,Costco China,costco.com.cn,China,other
 421788787909,Costco France,costco.fr,France,other
@@ -12507,7 +12510,7 @@ id,name,domain,country,why
 426291287282,Del Rey Avocado Co,delreyavocado.com,United States,other
 451873878236,Del Taco,deltaco.com,United States,other
 421750279411,Del Valle Import & Export,delvallela.com,USA,other
-421796012252,Del-re National Group Pty Ltd.,delrenational.com.au,Australia,other
+421796012252,Del-re National Group Pty Ltd.,delrenational.com.au,Australia,auto-outreach
 425255487705,Delamode Estonia,delamode-estonia.com,Estonia,other
 425255207098,DELANE SI,delanesi.com,France,other
 426265414855,Delatierra Vinoteca,delatierra.com,Spain,other
@@ -13825,7 +13828,7 @@ id,name,domain,country,why
 421803323624,Dragon Supermarket,superdragon.es,Spain,other
 426293057776,Dragonberry Produce Inc.,dragonberryproduce.com,United States,other
 425252469958,Dragsbæk A/S,dragsbaek.dk,Denmark,other
-421788766437,Drakes,drakes.com.au,Australia,other
+421788766437,Drakes,drakes.com.au,Australia,auto-outreach
 421797829860,drakfrukt,drakfrukt.se,Sweden,other
 426292911344,DRAM,dramapothecary.com,United States,other
 425197833451,Dran Engineers Pvt Ltd,dranindia.com,India,other
@@ -14712,7 +14715,7 @@ id,name,domain,country,why
 421801561287,EIBE,eibe-en.imweb.me,South Korea,other
 381063313635,Eidsvoll helsekost Sundet AS,eidsvollhelsekost.no,Norway,other
 381158098157,Eiffel Star General Trading Llc,eiffelstardubai.com,,other
-421796100296,EIG Cash & Carry Cairns,,Australia,other
+421796100296,EIG Cash & Carry Cairns,,Australia,auto-outreach
 425251080410,eigcairns.com.au,eigcairns.com.au,,other
 426294567145,Eighty-Eight Brewing Co.,eightyeightbrewing.ca,Canada,other
 421725124803,eigigu,eigigu.net,Nauru,other
@@ -15928,7 +15931,7 @@ id,name,domain,country,why
 381318614227,EyeCandy,eyecandy.eu,,other
 382799088831,EZ Hampers,ezhampers.co.uk,,other
 421728842950,EZ mart,ezmart.com,United States,other
-421796186307,EZ Mart Distribution Australia,ezymartdistribution.com.au,Australia,other
+421796186307,EZ Mart Distribution Australia,ezymartdistribution.com.au,Australia,auto-outreach
 421755565247,"Ezaki Glico Co., Ltd",saraya.world,,other
 381314793701,"Ezaki Glico Co., Ltd.",glico.com,Japan,other
 421797952736,ezdstore,ezdstore.com,Argentina,other
@@ -16495,8 +16498,8 @@ id,name,domain,country,why
 421770119414,Fernandes Group,fernandes.sr,Suriname,other
 421803396338,Fernandez Market,fernandez-market.com,Mexico,other
 382210003155,fernandez market s.a de c.v,fernandezmarket.com,,other
-381141928129,Ferndale Distributors,ferndaleconfectionery.com.au,Australia,other
-381243373756,ferndaleconfectionery,fdale.com.au,,other
+381141928129,Ferndale Distributors,ferndaleconfectionery.com.au,Australia,auto-outreach
+381243373756,ferndaleconfectionery,fdale.com.au,,auto-outreach
 381334584535,ferniplast,ferniplast.com,Argentina,other
 426291340532,Fernley Consulting Group - Food Industry Consultants - Technical and business services.,fernleyconsultinggroup.com,Australia,other
 421737589995,Ferns N Petals - Singapore,fnp.sg,Singapore,other
@@ -16523,7 +16526,7 @@ id,name,domain,country,why
 426293045449,Ferráspari,ferraspari.com.br,Brazil,other
 426251448561,Ferus Artisan Ales,ferusales.com,United States,other
 426291251425,Festa RDC,festa.cd,Democratic Republic of the Congo,other
-433022764278,Festival Distributors,festivaldistributors.com.au,Australia,other
+433022764278,Festival Distributors,festivaldistributors.com.au,Australia,auto-outreach
 421706515699,Festival Foods,festfoods.com,,other
 421750387928,Festival Foods USA,festivalfoods.net,USA,other
 421794185455,festpan,festpan.com,Brazil,other
@@ -17107,7 +17110,7 @@ id,name,domain,country,why
 381129941188,Food Company,food-company.com,Germany,other
 425068090590,Food Connections Ltd,foodconnections.co.uk,United Kingdom,other
 421804898499,Food Conspiracy Co-op,foodconspiracy.coop,,other
-421801487587,Food Corp Distributors Pty Ltd,food-corp.com.au,Australia,other
+421801487587,Food Corp Distributors Pty Ltd,food-corp.com.au,Australia,auto-outreach
 421735850202,Food Corporation Of Bhutan,fcbl.bt,Bhutan,other
 421741216992,Food Country TR,foodcountry.com.tr,Turkey,other
 421710168294,Food Craft,foodcraft.hk,,other
@@ -17222,7 +17225,7 @@ id,name,domain,country,why
 426222231784,Food View,foodview.nz,United States,other
 421739654377,Food Warehouse,thefoodwarehouse.com,United States,other
 421801589955,Food Way,foodwayshop.com,Pakistan,other
-421726838972,Food Works,foodworks.com.au,Australia,other
+421726838972,Food Works,foodworks.com.au,Australia,auto-outreach
 421744878807,Food World XL,foodworld-xl.com,Netherlands,other
 421753889988,Food&Beauty World,foodbeautyworld.cz,Czech Reublic,other
 421746698439,food-store,foodstore.one,Germany,other
@@ -17299,9 +17302,9 @@ id,name,domain,country,why
 421752008947,Foodkitchen,foodkitchen.nl,Netherlands,other
 381057888499,Foodl B.V.,foodl.nl,,other
 381333043389,Foodland marketfresh brighton,brightonfoodland.com.au,Australia,other
-421790556370,Foodland SA,foodlandsa.com.au,Australia,other
+421790556370,Foodland SA,foodlandsa.com.au,Australia,auto-outreach
 421726886091,Foodland Supermarket,foodland.co.th,Thailand,other
-381341720769,Foodland Supermarkets Australia,rbe.net.au,,other
+381341720769,Foodland Supermarkets Australia,rbe.net.au,,auto-outreach
 421788754130,foodland.,foodland.com,Hawaii,other
 425255561438,Foodle Asian Grocery + Kitchen 福多多,highpoint.com.au,Australia,other
 426211222719,Foodle MY,foodle.com.my,Malaysia,other
@@ -17396,8 +17399,8 @@ id,name,domain,country,why
 421723240634,FOODWEALTH LTD,foodwealth.gr,Greece,other
 421708405979,Foodwide,foodwide.cz,Czech Republic,other
 426204137696,FOODWORKS,foodworks.org,United States,other
-381141683415,Foodworks,myfoodworks.com,Australia,other
-381079556328,FoodWorks Orange,,australia,other
+381141683415,Foodworks,myfoodworks.com,Australia,auto-outreach
+381079556328,FoodWorks Orange,,australia,auto-outreach
 421753821399,Foodworld Supermarket Ltd.,foodworld.co.zw,Zambia,other
 385677376729,FoodWorld-XL,foodworld-xl.nl,,other
 381243372766,Foody,foody.ua,,other
@@ -17521,7 +17524,7 @@ id,name,domain,country,why
 382744199387,Four Sigmatic,foursigmatic.com,,other
 421715549396,Four Sigmatic,us.foursigmatic.com,USA,other
 383540071642,Four Square Productions,foursq.com,,other
-421770068194,Four Square Supermarkets (Australia - New Zealand),foursquare.co.nz,New Zealand,other
+421770068194,Four Square Supermarkets (Australia - New Zealand),foursquare.co.nz,New Zealand,auto-outreach
 381074347242,Fourchette,fourchette.md,,other
 421759187170,Foure commerce,fourltd.com.br,Brazil,other
 425255440573,FOURLIS Group of Companies,fourlis.com,Greece,other
@@ -17546,6 +17549,7 @@ id,name,domain,country,why
 426294349034,Foxy Snacks,foxysnacks.in,India,other
 426292853997,Foz Gourmet,fozgourmet.com,Portugal,other
 421741201635,Fozzy Cash&Carry,fozzy.ua,Ukrain,other
+464089691356,FP Mayorista SAC,inretailpharma.com,,other
 421803222212,Fpb Distribution Group Srl,fpbgroup.it,Italy,other
 425208698055,FR-Logistics,fr-logistics.net,United States,other
 421725016255,Fraal Import & Export N.v.,fraal.com,USA,other
@@ -17704,7 +17708,7 @@ id,name,domain,country,why
 381243373771,"Fresh & Fresh Japan, Inc.",faf.co.jp,,other
 426299942120,Fresh & Frozen Sourcing LLC,freshfrosourcing.com,United States,other
 425255326920,"FRESH & NATURAL FOODS, INC",freshandnaturalfoods.com,United States,other
-421735847138,Fresh & Save,freshandsave.com.au,Australia,other
+421735847138,Fresh & Save,freshandsave.com.au,Australia,auto-outreach
 421788821714,Fresh Alb Market,freshalbmarket.co.uk,United Kingdom,other
 381074347247,Fresh and Natural Foods,fnfoods.com,,other
 381332802753,Fresh Cart,freshcart.hk,,other
@@ -18291,7 +18295,7 @@ id,name,domain,country,why
 382884153550,Garabatos Papelería,garabatospapeleria.com,,other
 425251039448,Garage Coffee Roasters,garageroasted.co.uk,United Kingdom,other
 381079556309,Garagem Modelos,garagemmodelos.com.br,,other
-381172448452,Garbi Distributors,garbi.com.au,Australia,other
+381172448452,Garbi Distributors,garbi.com.au,Australia,auto-outreach
 421708382417,Garcia Hnos Srl,garcia-hnossrl.com.ar,Argentina,other
 426209645814,García de la Cruz,garciadelacruzoliveyou.com,Spain,other
 425252071666,Garda Import,gardaimport.com,Spain,other
@@ -18901,7 +18905,7 @@ id,name,domain,country,why
 421788751083,Global Choice Foods,globalchoicefoods.nl,Netherland,other
 421741210829,Global Companies Pty Ltd,globalcompanies.com.au,,other
 381384653030,Global Confectionery,globalconifectionery.com,,other
-381170617551,Global Confectionery Co,globalconfectionery.com,Australia,other
+381170617551,Global Confectionery Co,globalconfectionery.com,Australia,auto-outreach
 382896499939,Global Consumer Products Private Limited,globalcp.in,,other
 426292208841,Global Coverage Trading FZC,globalcoverage.ae,United Arab Emirates,other
 426293141731,GLOBAL CROP EXCHANGE,cropexchange.com,United States,other
@@ -19157,7 +19161,7 @@ id,name,domain,country,why
 426292778232,Goccia Umbra,gocciaumbra.com,Italy,other
 425252174053,GOCO Hospitality,gocohospitality.com,Thailand,other
 436402718930,Goddard Enterprises,goddardenterprisesltd.com,Barbados,other
-381345493202,Godden Food Group,goddenfoodgroup.com,Australia,other
+381345493202,Godden Food Group,goddenfoodgroup.com,Australia,auto-outreach
 382796172525,Godfrey Phillips,godfreyphillips.com,,other
 421803286725,Godfrey Phillips India Limited,godfreyphillips.co,India,other
 456249119933,GODIS (Bonbons Suédois),godis.swiss,Switzerland,auto-outreach
@@ -19500,7 +19504,7 @@ id,name,domain,country,why
 381076155605,Gourmet & More,gourmetandmore.com.au,Australia,other
 426292668607,Gourmet Attitude Truffles,gourmetattitude.com,United States,other
 426294541513,Gourmet Baklava®,gourmetbaklava.in,India,other
-421759219949,Gourmet Brands,gourmetbrands.com.au,Australia,other
+421759219949,Gourmet Brands,gourmetbrands.com.au,Australia,auto-outreach
 457467137222,Gourmet by Design,gourmetbydesign.com.au,Australia,auto-outreach
 381322142946,Gourmet Candy Company,gourmetcandycompany.com,,other
 426293118179,Gourmet de Ibéricos,gourmetdeibericos.com,Spain,other
@@ -20858,7 +20862,7 @@ id,name,domain,country,why
 425185088727,Harper Wira Sdn Bhd,harperwira.com.my,Malaysia,other
 421803348170,Harps Foods,harpsfood.com,USA,other
 426292810946,Harrens Lab Inc.,harrenslab.com,United States,other
-421730379970,Harris Farm Markets,harrisfarm.com.au,Australia,other
+421730379970,Harris Farm Markets,harrisfarm.com.au,Australia,auto-outreach
 425252544718,Harris Federation,harrisfederation.org.uk,United Kingdom,other
 455316757709,Harris Scarfe Australia Pty Ltd,harrisscarfe.com.au,Australia,other
 421768246494,Harris Teeter,harristeeter.com,USA,other
@@ -21010,7 +21014,7 @@ id,name,domain,country,why
 421713722559,Health and Sports Nutrition Group AB,bodystore.com,England,other
 421715506378,Health And Whole Food,healthandwholefood.com,England,other
 426224051389,Health Fit,healthfit.com.tr,Turkey,other
-421730379971,Health Food Distributors,healthfoodswa.com.au,Australia,other
+421730379971,Health Food Distributors,healthfoodswa.com.au,Australia,auto-outreach
 426251451638,Health Food Wall,healthfoodwall.com,Netherlands,other
 381061789887,health foods fulham,healthfoodsfulham.co.uk,England,other
 421723187391,Health Foods International,healthfoodsintl.com,Singapore,other
@@ -22711,7 +22715,7 @@ id,name,domain,country,why
 421790497986,Inkofoods Ltd.,inkofoods.com,Czech Republic,other
 421768287475,inkoop,inkoop.de,Germany,other
 381129937108,InkTon,inkton.hu,,other
-421746742462,Inland Distributors,inlanddistributors.com.au,Australia,other
+421746742462,Inland Distributors,inlanddistributors.com.au,Australia,auto-outreach
 426253229291,Inlet Seafish,inlet.es,Spain,other
 385627865317,InMotion Entertainment,inmotionstores.com,,other
 457084416198,inMotion Flowers (formerly Flowers for Africa),inmotionflowers.co.za,South Africa,auto-outreach
@@ -24031,7 +24035,7 @@ id,name,domain,country,why
 421723214038,Kachouri Getraenke Service,kachouri-getraenke-service.de,Germany,other
 384287901910,Kachouri Getränke-Service,kachouri.de,,other
 421711882486,Kada,kada.in,India,other
-421786898641,Kadac Pty Ltd,kadac.com.au,Australia,other
+421786898641,Kadac Pty Ltd,kadac.com.au,Australia,auto-outreach
 421753797845,KadaiRuncit.com,kadairuncit.com,Bruinei,other
 425211958518,KaDeWe,kadewe.de,Germany,other
 381329251524,Kadewe,store.kadewe.de,,other
@@ -24392,7 +24396,7 @@ id,name,domain,country,why
 421764562139,KELLMANN,kellmann-produktion.de,,other
 381141708987,Kelly Hunter,kellyhuniter.com,,other
 421752005833,Kelly Hunter Trading Ltd,kellyhunter.com,Ireland,other
-421762860276,Kelly's Distributors,kellysdistributors.com.au,Australia,other
+421762860276,Kelly's Distributors,kellysdistributors.com.au,Australia,auto-outreach
 381138279643,Kellys,kellyshungary.hu,,other
 421710132438,Kellys Wholesale,kellyswholesale.com,Netherlands,other
 426205918437,Keltenhof Frischprodukte GmbH,keltenhof.com,Germany,other
@@ -24538,7 +24542,7 @@ id,name,domain,country,why
 421739667666,Khanburgedei Group,khanburgedei.mn,Mongolia,other
 421723247863,Khandji Group,khandjigroup.com,Syria,other
 421734033639,Khanjra International Foods Ltd,khanjra.co.uk,England,other
-421803343061,Khans Supa Iga Supermarket Group,khangroup.com.au,Australia,other
+421803343061,Khans Supa Iga Supermarket Group,khangroup.com.au,Australia,auto-outreach
 382744336627,Khaos Control,khaoscontrol.com,,other
 381343728851,Khayr Qabe Trading,khayrqabegroup.com,,other
 426294443231,Khazana Canada - By Chef Sanjeev Kapoor,khazanacanada.com,Canada,other
@@ -24737,7 +24741,7 @@ id,name,domain,country,why
 421732298988,kismet sarkuteri Turkey,kismetsarkuteri.com,Turkey,other
 421808653500,Kispia,kispia.com,Spain,other
 381141921006,kiss candy,kisscandy.dk,,other
-421711918276,Kiss Distribution,kissdistribution.com.au,australia,other
+421711918276,Kiss Distribution,kissdistribution.com.au,australia,auto-outreach
 421730362555,Kiss My Keto,kissmyketo.com,,other
 425255442618,Kiss the Hippo Coffee,kissthehippo.com,United Kingdom,other
 421725034682,Kissan Food,kissanfood.com,Belgium,other
@@ -24811,8 +24815,8 @@ id,name,domain,country,why
 421808539842,Klondike Foods Inc.,klondikefoods.com,Indonesia,other
 425252173003,KLONDYKE GROUP LIMITED,klondyke.co.uk,United Kingdom,other
 421739453653,Kloof Fern Agencies,mweb.co.za,,other
-381156227287,Klose's Supermarkets & Cellarbrations,klose.com.au,australia,other
-421803289834,Kloseâ€™s,klose.com.au,Australia,other
+381156227287,Klose's Supermarkets & Cellarbrations,klose.com.au,australia,auto-outreach
+421803289834,Kloseâ€™s,klose.com.au,Australia,auto-outreach
 426297849064,Klosterbryggeriet,klosterbryggeriet.dk,Denmark,other
 421771763921,Klosterquell,klosterquell.com,,other
 421801409770,Klout International,klout-international.com,England,other
@@ -25610,7 +25614,7 @@ id,name,domain,country,why
 456332150003,LakLak Market,laklakmarket.tj,Tajikistan,other
 421799494863,Lakoc,lakoc.pl,Poland,other
 421735762159,LAKOC SP. Z O.O.,lakoc.com,,other
-421744761074,Lakonia Group,lakoniagroup.com.au,Australia,other
+421744761074,Lakonia Group,lakoniagroup.com.au,Australia,auto-outreach
 381336582371,Lakritsbutiken,lakritsfestivalen.se,,other
 421744766198,Lakritsroten,lakritsroten.se,Sweden,other
 425255357665,Lakritz-Spezialitaeten.de,lakritz-spezialitaeten.de,Germany,other
@@ -26346,7 +26350,7 @@ id,name,domain,country,why
 381075937508,lindas-diet-delites,lindasdietdelites.com,United States,other
 421744876734,Lindcorp,lindcorp.pe,Peru,other
 382837379316,Linden Hills Co-op,lindenhills.coop,,other
-421761075416,Lindir Pty Ltd trading,ferndaledistributors.com.au,Australia,other
+421761075416,Lindir Pty Ltd trading,ferndaledistributors.com.au,Australia,auto-outreach
 425255268585,Lindner & Portugall Transport- und Speditions GmbH,lindnerportugall.de,Germany,other
 421744858348,Lindo Mexican Restaurant & Supermarket,lindomichoacanmexicanfoodwi.com,USA,other
 421706516727,Lindo's Group of Companies,lindos.bm,Bermuda,other
@@ -28233,7 +28237,7 @@ id,name,domain,country,why
 421799509203,McDonald Wholesale,mcdonaldwhsl.com,United States,other
 425197833441,McDonald's,mcdonalds.com,United States,other
 426294352114,McDonald's Twente,mcdonalds-kalanderstraat-enschede.nl,Netherlands,other
-421770027238,Mcdonalds Wholesalers,mcdonaldswholesalers.com.au,Australia,other
+421770027238,Mcdonalds Wholesalers,mcdonaldswholesalers.com.au,Australia,auto-outreach
 425252618475,McDrogerie Der Artikel wird zum Warenkorb hinzugefügt,mcdrogerie.ch,Switzerland,auto-outreach
 421771765957,McElwee totalhealth Pharmacies,totalhealth.ie,Ireland,other
 421746686146,McFarling Foods,mcfarling.com,,other
@@ -29371,7 +29375,7 @@ id,name,domain,country,why
 421797986537,MMV Importadora,mmvinhos.com.br,Brazil,other
 426299704515,MN Foods,mnfood.bg,United Arab Emirates,other
 421757405409,Mnambox,mnambox.sk,,other
-421762766013,MNB Variety Imports,mnb.com.au,Australia,other
+421762766013,MNB Variety Imports,mnb.com.au,Australia,auto-outreach
 381966390461,MO Hruška,mohruska.cz,,other
 426262234336,MOA Coffee Co,moacoffeeco.com.au,United States,other
 426294383806,Moara Gliga Srl,moaragliga.ro,Romania,other
@@ -30969,12 +30973,12 @@ id,name,domain,country,why
 421766680763,Nielsen International,nielsen.international,Germany,other
 421759228106,"Niemann Foods, Inc.",mycountymarket.com,USA,other
 421710213306,niemirka,niemirka.com,Poland,other
-381321963722,Nievole Distributors Pty Ltd,nievole.com.au,Australia,other
+381321963722,Nievole Distributors Pty Ltd,nievole.com.au,Australia,auto-outreach
 381068774605,nife is life,nifeislife.com,England,other
 421753855216,nifty nut house,niftynuthouse.com,USA,other
 426230641871,Nigerian Breweries Plc,nbplc.com,Nigeria,other
 426294384849,NIGHTJAR,nightjar.coffee,United Arab Emirates,other
-421759206588,NightOwl,nightowl.com.au,Australia,other
+421759206588,NightOwl,nightowl.com.au,Australia,auto-outreach
 426249667830,NightOwl Martini,drinknightowl.com,United States,other
 381286489282,nigwa,care.daraz.com,,other
 381145216246,Nihant Stores,nihantstores.com,,other
@@ -31686,7 +31690,7 @@ id,name,domain,country,why
 381250366696,Oblimar Sa,oblimarsa.com.ar,,other
 421726811383,OBLIPUHA store,oblipuhashop.com.ua,Ukrain,other
 421737575667,OBLIQ.GR,obliq.gr,,other
-421804994757,Oborne Health Supplies,obornehealth.com.au,Australia,other
+421804994757,Oborne Health Supplies,obornehealth.com.au,Australia,auto-outreach
 426294275261,Obrador El Artesano,obradorelartesano.com,Spain,other
 381329244390,Obs,coop.no,,other
 426299846849,OBX Beverage,obxbev.com,United States,other
@@ -33154,7 +33158,7 @@ id,name,domain,country,why
 426291667188,PEAR & CARROT LTD,pearandcarrot.com,Hong Kong,other
 421799606501,Pear Tree Cafe,peartreecafe.co.uk,UK,other
 421726844146,Pear Village,binkert.services,,other
-421795975368,Pearl Coast Distributors,pearlcoastdistributors.com.au,Australia,other
+421795975368,Pearl Coast Distributors,pearlcoastdistributors.com.au,Australia,auto-outreach
 381332810972,Pearl Confectionery Pvt Ltd,pearlfoodind.com,Pakistan,other
 381129728219,Pearl Foods,,,other
 421728858336,Pearl Merchandising & Distribution,,USA,other
@@ -34258,7 +34262,7 @@ id,name,domain,country,why
 421748446457,Prestige FMCG,prestigefmcg.com,Nigeria,other
 425252456656,Prestige Food and Wine,prestigebuyonline.com,United Kingdom,other
 446465416407,Prestige Food and Wine,prestigefoodandwine.com,,other
-421804895441,Prestige Foods International Ltd,prestigefoods.com.au,Australia,other
+421804895441,Prestige Foods International Ltd,prestigefoods.com.au,Australia,auto-outreach
 421730376933,Prestige Hampers,prestigehampers.co.uk,England,other
 425252579567,Prestige Nursing & Care,prestige-nursing.co.uk,United Kingdom,other
 421762836700,Prestige Services,prestigeservicesinc.com,USA,other
@@ -34349,7 +34353,7 @@ id,name,domain,country,why
 381334589688,Prime Line Distributors,primelinedist.com,,other
 425251008709,Prime Minister's Office - UAE,mocaf.gov.ae,United Arab Emirates,other
 421796025545,Prime Pharmacy NG,primepharmacyng.com,Nigeria,other
-421734019270,Prime Products Wholesalers Pty. Ltd.,primeproducts.com.au,Australia,other
+421734019270,Prime Products Wholesalers Pty. Ltd.,primeproducts.com.au,Australia,auto-outreach
 426291251443,Prime Provisions,primeprovisions.cr,Costa Rica,other
 426262222032,Prime Roots,primeroots.com,United States,other
 436378094835,Prime Route To Sales,primeroute.co.tz,Tanazania,other
@@ -36035,8 +36039,8 @@ id,name,domain,country,why
 426299642081,Rita Arabia,rita.com.sa,Saudi Arabia,other
 381115408597,Rita Direct,,England,other
 426294270179,Ritchie Marketing,ritchiemarketing.com,United States,other
-421726870731,Ritchies IGA ( formerly part of Hastings Co-op),hastingscoop.com.au,Australia,other
-421732348143,Ritchies Stores Pty Ltd,ritchies.com.au,Australia,other
+421726870731,Ritchies IGA ( formerly part of Hastings Co-op),hastingscoop.com.au,Australia,auto-outreach
+421732348143,Ritchies Stores Pty Ltd,ritchies.com.au,Australia,auto-outreach
 426291317978,RITCO_IDEAL,ritco.jo,Jordan,other
 421734057184,Rite Aid,riteaid.com,USA,other
 426293244109,Rite Bite Group,ritebitegroup.com,Australia,other
@@ -36233,7 +36237,7 @@ id,name,domain,country,why
 421803172050,Romar Trading,romartrading.com,Aruba,other
 381339934935,Romega Food Distribution,,,other
 381316591831,Romega Food Distribution Srl,romegafood.ro,Romania,other
-421797863662,Romeos Retail Group,romeosretailgroup.com.au,Australia,other
+421797863662,Romeos Retail Group,romeosretailgroup.com.au,Australia,auto-outreach
 381341721795,Romeoâ€™s Food Hall North Sydney,romeosretail.com.au,,other
 381345498318,Romero Initiative - CIR,ci-romero.de,,other
 425252496611,Romex,romex.pe,Peru,other
@@ -36564,7 +36568,7 @@ id,name,domain,country,why
 386742064354,Ryan's Happy Place,ryanshappyplace.com,,other
 421755598010,Ryan's Happy Place Grocery Store,shop4meplease.com,Barbados,other
 381286494455,Ryan's SuperValu Group,ryangroup.ie,Ireland,other
-421746799809,Ryans IGA Supermarkets,ryansiga.com.au,australia,other
+421746799809,Ryans IGA Supermarkets,ryansiga.com.au,australia,auto-outreach
 387156077770,Rydges Hotels & Resorts,rydges.com,,other
 421799506106,Ryfors Confectionery,ryforskonfektyr.se,Sweden,other
 421708307687,Ryhl S. A.,ryhlsa.com.ar,Argentina,other
@@ -37265,7 +37269,7 @@ id,name,domain,country,why
 421726873797,Scarlino Supermercati S.r.l.,scarlinosupermercati.it,Italy,other
 421706519800,scarmardofoods,scarmardofoods.com,,other
 381061575902,Scarpone Foods,scarpones.com,,other
-421748409533,SCB Distributors,scbdistributors.com.au,Australia,other
+421748409533,SCB Distributors,scbdistributors.com.au,Australia,auto-outreach
 426292359390,SCB HoReCa distribution,scb.rs,Serbia,other
 421806770368,SCC Group,sccsb.com.my,Malaysia,other
 421723204841,scccomercial,scccomercial.com.br,Brazil,other
@@ -38751,7 +38755,7 @@ id,name,domain,country,why
 426230645950,Sococo Coffee,sococo.coffee,Netherlands,other
 381075614919,Socofram SARL wholesaler,wanadoo.fr,France,other
 421750236409,Socofram SARL wholesaler,wanadoo.fr,France,other
-381054357703,Socrates Distributors,socratesdistributors.com.au,Australia,other
+381054357703,Socrates Distributors,socratesdistributors.com.au,Australia,auto-outreach
 426209670367,Socratic CPG,socraticcpg.com,United States,other
 421803356403,SOD Distribution,sod-distribution.fr,France,other
 426251434191,Soda Factory Stockholm AB,sodafactory.se,Sweden,other
@@ -39116,9 +39120,9 @@ id,name,domain,country,why
 421710152936,SPAR (Zimbabwe),spar.co.zw,Zimbabwe,other
 381141710017,SPAR Albania,spar.al,France,other
 421755666624,Spar Angola,,Angola,other
-421752035546,Spar AU,spar.com.au,Australia,other
+421752035546,Spar AU,spar.com.au,Australia,auto-outreach
 421746806006,Spar Express Lambton,,Australia,other
-421759211742,SPAR Express Terrigal,sparexpressterrigal.com.au,Australia,other
+421759211742,SPAR Express Terrigal,sparexpressterrigal.com.au,Australia,auto-outreach
 421797911739,SPAR Franz Berchtold EH-M,spar-berchtold.at,Austria,other
 381961558258,SPAR Georgia,spar-georgia.com,,other
 421794116852,SPAR Georgia,sparonline.ge,Georgia,other
@@ -39377,7 +39381,7 @@ id,name,domain,country,why
 421746645178,Sprouts,sprouts.com,USA,other
 421788761311,SPS Handel,spshandel.pl,Poland,other
 421723183336,SPUD,spud.ca,Canada,other
-421803350215,Spudshed,spudshed.com.au,Australia,other
+421803350215,Spudshed,spudshed.com.au,Australia,auto-outreach
 421757511923,Sq Portugal,sqportugal.com,Portugal,other
 381526644971,SQ Portugal,sqportugal.pt,,other
 426293126351,SQS Network,sqsnetwork.it,Italy,other
@@ -39431,7 +39435,7 @@ id,name,domain,country,why
 425255441612,St Elizabeth's,stelizabeths.org.uk,United Kingdom,other
 385698964698,St Félix-La Salle,stfelixlasalle.fr,,other
 381336363253,St George Foodservice,sgfs.com.au,Australia,other
-381057888479,St George Foodworks,stgeorge.myfoodworks.com.au,australia,other
+381057888479,St George Foodworks,stgeorge.myfoodworks.com.au,australia,auto-outreach
 425216371953,St George's University Hospitals NHS Foundation Trust,stgeorges.nhs.uk,United Kingdom,other
 425010665710,St John Ambulance,sja.org.uk,United Kingdom,other
 421759206600,St Kilda Family Mart,stkildafamilymart.com.au,Australia,other
@@ -39565,7 +39569,7 @@ id,name,domain,country,why
 421744783582,STATENREGIMEN,statenregimen.com,,other
 421710150849,Stater Bros. Markets,staterbros.com,USA,other
 381289852138,Stateside distribution,statesidedistribution.com,United Kingdom,other
-421741234399,Statewide Independent Wholesalers,siw.com.au,Australia,other
+421741234399,Statewide Independent Wholesalers,siw.com.au,Australia,auto-outreach
 421768228028,Statewide Products,swpnm.com,"Mexico,USA",other
 425255504090,Statewide Products Co,statewideproducts.com,United States,other
 421715470561,Stationery Laan,kantoorboek.nl,Netherland,other
@@ -39782,7 +39786,7 @@ id,name,domain,country,why
 425206868190,Stroud Brewery | B Corp,stroudbrewery.com,United Kingdom,other
 421715520726,Struve,edeka-struve.de,Germany,other
 426205917422,Strype Wellness,strypewellness.com,United States,other
-381145201860,Stuart Alexander,stalex.com.au,,other
+381145201860,Stuart Alexander,stalex.com.au,,auto-outreach
 421770048744,stuartalexander,stuartalexander.com.au,Australia,other
 421766553798,Studenac,studenac.hr,croatia,other
 421732406500,Studenac Supermarket Meteor,kordun-slunj.com,Croatia,other
@@ -40060,7 +40064,7 @@ id,name,domain,country,why
 421797820654,Sup Space,supspace.fr,France,other
 421764635845,Supa Cheap Groceries Fawkner,supa-cheap-groceries-fawkner.business.site,Australia,other
 381321960666,Supa Save Online,supasave.com.bn,,other
-421759158465,Supabarn  Supermarkets,supabarn.com.au,Australia,other
+421759158465,Supabarn  Supermarkets,supabarn.com.au,Australia,auto-outreach
 421746663635,Supeco,supeco.ro,Romania,other
 421739571429,Supeco Spain,supeco.es,Spain,other
 425255384270,supeco.fr,supeco.fr,France,other
@@ -40806,7 +40810,7 @@ id,name,domain,country,why
 425181529288,Swain Group,theswaingroup.com,United Kingdom,other
 426299675865,SWAK FOODS,swakfoods.com,India,other
 426293235950,Swamp Rabbit Cafe and Grocery,swamprabbitcafe.com,United States,other
-421796026616,Swan Hill Wholesalers,swanhillwholesalers.com.au,Australia,other
+421796026616,Swan Hill Wholesalers,swanhillwholesalers.com.au,Australia,auto-outreach
 425252689105,Swansea University,swansea.ac.uk,United Kingdom,other
 425252478189,Swanson Australia,swansonaustralia.com,United States,other
 381316595927,Swanson Health,swansonvitamins.com,,other
@@ -41391,7 +41395,7 @@ id,name,domain,country,why
 426293146825,Tari Trading,taritrading.co,Iran,other
 425250902212,Tarifiq Foods,tarifiqfoods.co.uk,United Kingdom,other
 426294514937,Tariq Halal Meats Group,tariqhalalmeats.com,Canada,other
-421748367585,Tarlington Trading Co Pty Ltd,tarlington.com.au,Australia,other
+421748367585,Tarlington Trading Co Pty Ltd,tarlington.com.au,Australia,auto-outreach
 421790508273,Tarraco Import And Export,tarracoimportexport.com,Spain,other
 421801456872,Tarseel,tarseel.net,Pakistan,other
 382892894396,Tartu Consumer Cooperative,tartutk.ee,,other
@@ -42043,13 +42047,13 @@ id,name,domain,country,why
 426299750596,The Dinner Ladies,dinnerladies.com.au,Australia,other
 421755548904,The Discount Brands Cash & Carry,discountbrandscompany.co.uk,UK,other
 421806732532,The Distributors,thedistributorscairns.com.au,Australia,other
-421796086978,THE DISTRIBUTORS BRISBANE PTY LTD,thedistributorsbrisbane.com.au,Australia,other
-381129727179,The Distributors Mackay,mackayfoodservices.com.au,Australia,other
-421790506228,The Distributors Mt Gambier,gmwsa.com.au,Australia,other
+421796086978,THE DISTRIBUTORS BRISBANE PTY LTD,thedistributorsbrisbane.com.au,Australia,auto-outreach
+381129727179,The Distributors Mackay,mackayfoodservices.com.au,Australia,auto-outreach
+421790506228,The Distributors Mt Gambier,gmwsa.com.au,Australia,auto-outreach
 381135064313,The Distributors Perth,tdperth.com.au,,other
 381571786981,The Distributors Perth,thedistributorsperth.com,,other
-421741216994,The Distributors Service Nationally,foodplus.com.au,Australia,other
-421711877319,The Distributors Toowomba,tcwtwd.com.au,Australia,other
+421741216994,The Distributors Service Nationally,foodplus.com.au,Australia,auto-outreach
+421711877319,The Distributors Toowomba,tcwtwd.com.au,Australia,auto-outreach
 381070533833,The dottedi,thedottedi.in,,other
 426297851106,The Dough Club,thedoughclub.com,United States,other
 426294212857,The Dreaming Food Group,thedreamingfoodgroup.com.au,Australia,other
@@ -42812,7 +42816,7 @@ id,name,domain,country,why
 426294431973,TIMLA,pipsoye.com,India,other
 426249646272,Timmons Sheehan Company,timmonssheehan.com,United States,other
 425255419115,Timo Digital Bank,timo.vn,Vietnam,other
-381061574853,Timstock Trading House,timstock.com.au,Australia,other
+381061574853,Timstock Trading House,timstock.com.au,Australia,auto-outreach
 426294540484,"Tin. Tea Import Network | Teas & Infusions | Garden Series, MUMA tea | Private Label Specialist",tin-tea.com,Netherlands,other
 421741225148,tindale distributor,ts-spain.com,Spain,other
 426299881685,TiNDLE Foods,tindle.com,United States,other
@@ -44070,7 +44074,7 @@ id,name,domain,country,why
 386054292666,United Brands Ltd.,unitedbrandsltd.co.uk,,other
 426294384848,United Caro,unitedcaro.com,Spain,other
 426209670370,United Coffee Beans,ucb.az,Azerbaijan,other
-381159638260,United Convenience Buyers PTY LTD,ucbstores.com.au,Australia,other
+381159638260,United Convenience Buyers PTY LTD,ucbstores.com.au,Australia,auto-outreach
 421768236219,United Distributors,udld.biz,Pakistan,other
 425255440570,United Distributors,uniteddistributors.in,India,other
 421770058959,United Distributors Inc ( UDI ),,india,other
@@ -44140,7 +44144,7 @@ id,name,domain,country,why
 381054355659,Universal Beverages,unibev.net,,other
 426294124755,Universal Caffè,universalcaffe.com,Italy,other
 381332812013,Universal Candy,,,other
-381336378578,Universal Candy Australia,universalcandy.com.au,Australia,other
+381336378578,Universal Candy Australia,universalcandy.com.au,Australia,auto-outreach
 425255508166,Universal Carton Industries LLC,uci.ae,United Arab Emirates,other
 446926599387,Universal de Alimentos,universal.co.cr,Costa Rica,other
 421715483865,Universal Dolce,universaldolce.com,Italy,other
@@ -44712,6 +44716,7 @@ id,name,domain,country,why
 457664124101,Veles Vending,velesvending.com.au,Australia,auto-outreach
 421735778499,Veletabak d.o.o.,veletabak.hr,Croatia,other
 421761209548,Veletex,veletex.com,Montenegro,other
+463825961192,Veletrznica,veletrznica.co.rs,Serbia,other
 421761105127,velivery,velivery.com,Germany,other
 421790499062,Velmar Food Services Inc.,velmar-foods.com,,other
 421796098254,Velmart,velmart.md,Moldova,other
@@ -45768,7 +45773,7 @@ id,name,domain,country,why
 421746793680,Wendlandmarkt LÃ¼chow,wendlandmarkt.de,Germany,other
 382885871862,Wendler - Feines zum Feiern,feineszumfeiern.de,,other
 421762781401,Wendler Feines zum Feiern,,,other
-421739640013,wendoureewholesalers,wendoureewholesalers.com,AU,other
+421739640013,wendoureewholesalers,wendoureewholesalers.com,AU,auto-outreach
 425252543697,WENLOCK SPRING WATER LIMITED,wenlockspring.co.uk,United Kingdom,other
 426297834698,Wennerco,wennerco.fi,Finland,other
 425255429328,Wentworth,wit.edu,,other
@@ -45807,9 +45812,9 @@ id,name,domain,country,why
 426294277339,West-Indies Distribution,west-indies-distribution.com,France,other
 425255290091,Westacre Nursing Home,westacrenursinghome.com,United Kingdom,other
 421723263210,Westborn Market,westbornmarket.com,United States,other
-381068729582,Westco Distributors,westco-distributors.com.au,Australia,other
+381068729582,Westco Distributors,westco-distributors.com.au,Australia,auto-outreach
 421771884760,Westco Food,westcofoods.com,Trinidad and Tobago,other
-421726893285,westco-distributors,thedistributorsbathurst.com.au,Australia,other
+421726893285,westco-distributors,thedistributorsbathurst.com.au,Australia,auto-outreach
 421739455707,Westcountry Fruit Sales Ltd,westcountry.co.uk,UK,other
 381334586599,Westen.LV,westen.lv,,other
 382893139130,Westerberg & Partners,westerberg.com,,other
@@ -46374,7 +46379,7 @@ id,name,domain,country,why
 381289855221,WÃ¼nsche Group,wuenschegroup.de,,other
 426205914360,Wędlinka Group  Sp.z o.o.,wedlinka.eu,Poland,other
 421796176104,Włoski Klimat,wloskiklimat.pl,Poland,other
-421786938556,X Convenience,xconvenience.com.au,Australia,other
+421786938556,X Convenience,xconvenience.com.au,Australia,auto-outreach
 421803230455,X Protein,xprotein.co.il,Israel,other
 421737594078,X Sport,xsport.su,Russia,other
 421790494909,X Supermercados,xsupermercados.com.br,Brazil,other
