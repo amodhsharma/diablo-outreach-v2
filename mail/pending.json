@@ -1,5 +1,960 @@
 {
-  "generated_at": "2026-11-10T09:30:59+00:00",
+  "generated_at": "2026-11-10T10:31:26+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "917886645492",
+      "job_title": "Director of Operations",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Australian International Traders Pty Ltd",
+        "domain": "aitraders.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918302253305",
+      "job_title": "Operations Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Blayney Wholesale Foods",
+        "domain": "blayneyfoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918291613901",
+      "job_title": "Business Development Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Charmlaw Distributions",
+        "domain": "charmlaw.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918192648436",
+      "job_title": "Finance Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Cornetts Supermarkets",
+        "domain": "cornetts.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918295864566",
+      "job_title": "Real Estate Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Costco Australia",
+        "domain": "costco.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918227292360",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Del-re National Group Pty Ltd.",
+        "domain": "delrenational.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917979388100",
+      "job_title": "Executive Assistant to CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Drakes",
+        "domain": "drakes.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918304592086",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "EZ Mart Distribution Australia",
+        "domain": "ezymartdistribution.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917988539591",
+      "job_title": "Business Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Food Works",
+        "domain": "foodworks.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917892788465",
+      "job_title": "Chief Executive Officer",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Four Square Supermarkets (Australia - New Zealand)",
+        "domain": "foursquare.co.nz",
+        "location": "New Zealand",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917968580848",
+      "job_title": "Warehouse Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Gourmet Brands",
+        "domain": "gourmetbrands.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917968578759",
+      "job_title": "Co CEO - E-commerce & Finance",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Harris Farm Markets",
+        "domain": "harrisfarm.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917999261919",
+      "job_title": "National Account Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Inland Distributors",
+        "domain": "inlanddistributors.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917979389171",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Kadac Pty Ltd",
+        "domain": "kadac.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918001041614",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Kelly's Distributors",
+        "domain": "kellysdistributors.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918285042898",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Khans Supa Iga Supermarket Group",
+        "domain": "khangroup.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918192646333",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Lakonia Group",
+        "domain": "lakoniagroup.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918302251217",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Lindir Pty Ltd trading",
+        "domain": "ferndaledistributors.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918287624390",
+      "job_title": "Global Buying and Sales Director at MNB Variety Imports PTY LTD",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "MNB Variety Imports",
+        "domain": "mnb.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917957869759",
+      "job_title": "Owner",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "NightOwl",
+        "domain": "nightowl.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918227288308",
+      "job_title": "Business Development Manager- Practitioner",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Oborne Health Supplies",
+        "domain": "obornehealth.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918001038544",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Pearl Coast Distributors",
+        "domain": "pearlcoastdistributors.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918082443451",
+      "job_title": "Chief Executive Officer",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Ritchies IGA ( formerly part of Hastings Co-op)",
+        "domain": "hastingscoop.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918303644904",
+      "job_title": "Company Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Ritchies Stores Pty Ltd",
+        "domain": "ritchies.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918370851011",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Ritchies Stores Pty Ltd",
+        "domain": "ritchies.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918368785640",
+      "job_title": "General Manager Operations North",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Spar AU",
+        "domain": "spar.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918283877563",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "SPAR Express Terrigal",
+        "domain": "sparexpressterrigal.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918303492295",
+      "job_title": "General Manager Purchasing",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Spudshed",
+        "domain": "spudshed.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918303648958",
+      "job_title": "People Culture & Safety Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Statewide Independent Wholesalers",
+        "domain": "siw.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918368783602",
+      "job_title": "Merchandise Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Supabarn  Supermarkets",
+        "domain": "supabarn.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918287629553",
+      "job_title": "Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Swan Hill Wholesalers",
+        "domain": "swanhillwholesalers.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918227292367",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Tarlington Trading Co Pty Ltd",
+        "domain": "tarlington.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918006833348",
+      "job_title": "Head of Commercial",
+      "seniority": "Heads and junior directors",
+      "rank": 1,
+      "company": {
+        "name": "The Distributors Toowomba",
+        "domain": "tcwtwd.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918298800318",
+      "job_title": "Graphic Designer - Marketing Coordinator",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "X Convenience",
+        "domain": "xconvenience.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918291613900",
+      "job_title": "Territory Sales Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Charmlaw Distributions",
+        "domain": "charmlaw.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918192648437",
+      "job_title": "General Manager, HR and Safety",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Cornetts Supermarkets",
+        "domain": "cornetts.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918295864567",
+      "job_title": "Director, Construction",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Costco Australia",
+        "domain": "costco.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917979388101",
+      "job_title": "Chief Financial Officer",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Drakes",
+        "domain": "drakes.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917988539590",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Food Works",
+        "domain": "foodworks.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917892788464",
+      "job_title": "Owner/Operator - Four Square Karori",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Four Square Supermarkets (Australia - New Zealand)",
+        "domain": "foursquare.co.nz",
+        "location": "New Zealand",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917968578760",
+      "job_title": "Co-CEO",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Harris Farm Markets",
+        "domain": "harrisfarm.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917979389172",
+      "job_title": "Non Executive Director",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Kadac Pty Ltd",
+        "domain": "kadac.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918001041615",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Kelly's Distributors",
+        "domain": "kellysdistributors.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918285042897",
+      "job_title": "Information Technology Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Khans Supa Iga Supermarket Group",
+        "domain": "khangroup.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918287624389",
+      "job_title": "Global Buying & Sales Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "MNB Variety Imports",
+        "domain": "mnb.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917957869758",
+      "job_title": "Head of People Operations",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "NightOwl",
+        "domain": "nightowl.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918227288307",
+      "job_title": "Operations Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Oborne Health Supplies",
+        "domain": "obornehealth.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918082443450",
+      "job_title": "Engagement Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Ritchies IGA ( formerly part of Hastings Co-op)",
+        "domain": "hastingscoop.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918370851012",
+      "job_title": "Company Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Ritchies Stores Pty Ltd",
+        "domain": "ritchies.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918368785641",
+      "job_title": "Category Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Spar AU",
+        "domain": "spar.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918303492296",
+      "job_title": "Area Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Spudshed",
+        "domain": "spudshed.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918368783603",
+      "job_title": "Assistant Store Manager Operations",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Supabarn  Supermarkets",
+        "domain": "supabarn.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918287629554",
+      "job_title": "Purchasing Officer",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Swan Hill Wholesalers",
+        "domain": "swanhillwholesalers.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    }
+  ]
 }
