@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T11:42:03+00:00",
+  "generated_at": "2026-11-10T11:51:09+00:00",
   "target": "live",
   "contacts": [
     {
@@ -144,24 +144,6 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": ""
-      }
-    },
-    {
-      "contact_id": "918021778675",
-      "job_title": "Company inbox (from website)",
-      "seniority": "Everyone else",
-      "rank": 1,
-      "company": {
-        "name": "Daily Blooms",
-        "domain": "dailyblooms.com.au",
-        "location": "Melbourne, Australia",
-        "channel": "Seasonal and gift shops",
-        "based_out_of": "Melbourne, Australia",
-        "distributes": "Gift hampers with chocolate (Loco Love, Bahen and Co), cookies (Sweet Splits), cake (Sweet Bakes) and sweets (Sweeta rock candy and chocolate freckles), sold with flowers.",
-        "channels_supplied": "Its own online flower and gift shop with delivery in Melbourne, Sydney, Brisbane and Perth and nationally.",
-        "sf_brands_carried": "",
-        "what_they_do_well": [],
-        "fit_rationale": "Flower delivery business that started in Melbourne and has a Fitzroy studio, and its gift hamper range resells other brands' chocolate, cookies and sweets. Flowers lead the range and its sweets shelf is small, so it is tier 3."
       }
     },
     {
@@ -957,6 +939,24 @@
       }
     },
     {
+      "contact_id": "918320860392",
+      "job_title": "Senior Merchandise Manager CSA",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Co-Operative Supermarkets Australia",
+        "domain": "coopsupermarkets.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918192648437",
       "job_title": "General Manager, HR and Safety",
       "seniority": "Directors",
@@ -1092,6 +1092,24 @@
         "domain": "foursquare.co.nz",
         "location": "New Zealand",
         "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918082675946",
+      "job_title": "General Manager Transport & Warehousing",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Godden Food Group",
+        "domain": "goddenfoodgroup.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
@@ -1245,6 +1263,24 @@
       }
     },
     {
+      "contact_id": "918393082088",
+      "job_title": "Store Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Klose's Supermarkets & Cellarbrations",
+        "domain": "klose.com.au",
+        "location": "australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918287624389",
       "job_title": "Global Buying & Sales Director",
       "seniority": "Directors",
@@ -1362,6 +1398,42 @@
         "domain": "ritchies.com.au",
         "location": "Australia",
         "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917970638061",
+      "job_title": "Area Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Romeos Retail Group",
+        "domain": "romeosretailgroup.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918238445765",
+      "job_title": "Operations Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Socrates Distributors",
+        "domain": "socratesdistributors.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
