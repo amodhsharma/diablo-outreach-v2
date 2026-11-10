@@ -53,3 +53,4 @@ mail/lines/2026-11-04/2026-11-04_0029_1.json	2026-11-03T19:02:43+00:00	1 contact
 mail/lines/2026-11-07/2026-11-07_1529_1.json	2026-11-07T09:59:59+00:00	0 contacts now on 'New, Personal line filled', 1 straight to 'GATE2: Approved to send' (moved up to number 1 after a dead address or a Rejected/Redirected contact)
 mail/lines/2026-11-10/2026-11-10_1846_60.json	2026-11-10T13:17:52+00:00	60 contacts now on 'New, Personal line filled'
 mail/lines/2026-11-10/2026-11-10_1849_60.json	2026-11-10T13:20:19+00:00	60 contacts now on 'New, Personal line filled'
+mail/lines/2026-11-10/2026-11-10_1850_60.json	2026-11-10T13:20:53+00:00	60 contacts now on 'New, Personal line filled'
