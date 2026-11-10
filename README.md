@@ -57,7 +57,9 @@ not in HubSpot.
 creates carries it, and the pipeline never changes a record without it. Every search for work
 includes it; every change re-reads each record first and stops the whole job, saving nothing,
 if any record lacks it (`outreach/hubspot_client.py`, TagGuard). Reading every company is
-allowed only for the duplicate checks. Tests fail if any code writes to HubSpot another way.
+allowed only for the duplicate checks. Tests fail if any code writes to HubSpot another way. The one
+exception, agreed 10 Nov 2026: button 3 takes over the contacts already in HubSpot at approved companies
+(see "Existing contacts taken over" below).
 Removing the tag from a record is a "hands off" switch; nobody should type AUTO-OUTREACH on
 their own records.
 
@@ -70,6 +72,7 @@ Approved to send*). The team's own choices, such as plain Unqualified, are never
 | Research found it / contact found | New | New |
 | No website, or no contacts found | Missing Info | |
 | **Gate 1**: a person approves the company | **GATE1: Approved for outreach** | |
+| It has at least 1 contact (10 Nov 2026), until the first email | Contact located. Queued for processing | |
 | Email line written | | "New, Personal line filled" |
 | **Gate 2**: a person reads the line and approves it | | **GATE2: Approved to send** |
 | Emails going out | Attempted to Contact | Attempted to Contact (person 1's introduction) |
@@ -77,6 +80,27 @@ Approved to send*). The team's own choices, such as plain Unqualified, are never
 | Person 1's one reminder sent | | Reminder sent |
 | They replied | In Progress | In Progress |
 | A clear yes or no (Instantly label Interested or Not interested) | END: Forwarded to Sales Team | END: Forwarded to Sales Team (the person and everyone else there) |
+
+**Contact located. Queued for processing (agreed 10 Nov 2026, Ariel).** GATE1 only means "approved, still
+waiting for people". As soon as a GATE1 company has at least 1 AUTO-OUTREACH contact (a person or a
+company inbox), button 3 moves it on to *Contact located. Queued for processing*; it stays there while the
+lines are written, while its contacts wait for GATE2 and while they wait their turn, and becomes Attempted
+to Contact when the first email goes out. If every contact drops out before that (a dead address, or
+rejected at GATE2), it goes back to GATE1 and Apollo is asked again at its monthly check; with nobody left
+at all it gets the Unqualified choices as before. A company with 1 person still has Apollo checked once a
+month for a second. Before button 1 has added the choice, the companies simply stay on GATE1.
+
+**Existing contacts taken over (agreed 10 Nov 2026, Ariel).** Nobody tags contacts by hand any more. At the
+start of every run of button 3, every contact linked to a company on GATE1, on Contact located or on
+"Contact exists, not AUTO-OUTREACH" (any link, not only its Primary company) that is not AUTO-OUTREACH yet
+is made AUTO-OUTREACH with Lead Status New, whatever its status was, and treated as a new contact there:
+it gets its Outreach order after the contacts already in the loop (people first, then company inboxes),
+and Apollo is only asked for the people still missing. Never taken over: contacts marked Won or linked to
+a company marked Won, contacts who opted out (in HubSpot, on Instantly's blocklist or on an opted-out
+status), dead addresses and contacts with no email; when the blocklist cannot be read, nobody is taken over
+in that run. The owner stays; the legal basis "Legitimate interest – prospect/lead" is filled in when
+empty. This is the one change the pipeline makes to records without the tag (`takeover.py`, through
+`take_over_contacts`, which may set nothing but the tag, the Lead Status and the legal basis).
 
 **The dead ends (2 Nov 2026).** Each has its own choice starting "Unqualified:", so HubSpot shows why
 outreach stopped. Button 1 renamed the older ones in place, so their records moved with them.
@@ -177,7 +201,7 @@ failed, so GitHub emails you). One step failing never stops the others.
 |---|---|---|
 | **1 - Setup HubSpot (once per account)** | Press once per account, first with "Dry run" ticked | Adds the four contact fields and the Lead Status choices; reads every company already in that account |
 | **2 - Research** | Pick "What to do": Add a market (Location, Channels, optional languages and number), Cancel a market, Try a failed market again, or Allow a repeat (Job ID, optional Channel) | **When Claude saves research:** strict check, duplicate check, **website check and Apollo pre-check**, then the companies arrive as New (or Missing Info when a check fails). **Every 3 hours:** refresh the "already in HubSpot" list, import anything waiting, add the next automatic city |
-| **3 - Find contacts** | Nothing: the timer runs it every 3 hours (12, 3, 6, 9). Press it to run now | In order: Apollo finds the top 4 people at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); the list of people Claude still has to write for. Never emails anyone |
+| **3 - Find contacts** | Nothing: the timer runs it every 3 hours (12, 3, 6, 9). Press it to run now | In order: the contacts already in HubSpot at approved companies are taken over, then Apollo finds the people still missing at GATE1 companies; Claude's personal lines into HubSpot (also the moment Claude saves them); the list of people Claude still has to write for. Never emails anyone |
 | **4 - Send and follow up** | Nothing: the timer runs it every 3 hours (1, 4, 7, 10). Press it to run now. Its dropdown: "Usual run (results and send)" (picked to start with, and what the timer runs), "Run only Health Check" (nothing sent or changed) or "Run health check in addition to usual flow". Testing only: type CONFIRM in "TEST ONLY" for 15-minute gaps instead of 3 and 7 days (refused on live; the test run may send with the placeholder booking link) | In order: Instantly results into Lead Status (a reply stops a company first) and each company's loop (the forward to the next person naming the colleague before them, person 1's reminder, Unqualified at the end); person 1's introduction for GATE2 people at new companies; the health check only when chosen in the dropdown. The run's page starts with a table of what was sent and what is waiting until when; the health report (`diagnostics/instantly_status.md`) shows where every company is in its loop |
 | **R - Daily summary email** | Nothing: the timer runs it at 9 AM India time. Press it with "Preview only" ticked to see the email without sending it | The partner outreach summary of the day before, from admin@diablosnosugar.com to three colleagues (GitHub secrets DAILY_REPORT_TO and DAILY_REPORT_APP_PASSWORD); reads HubSpot and Instantly, changes nothing |
 
@@ -194,7 +218,8 @@ had passed their tests. The version before the change is kept as the branch `v2-
 2. **Claude researches it:** `/outreach-research` in a Claude chat, or within 3 hours by itself.
 3. **Companies arrive in HubSpot by themselves** as soon as the research is saved.
 4. **Gate 1:** set the companies worth contacting to *GATE1: Approved for outreach*.
-5. **Button 3** (or its 3-hourly run): finds the contacts and puts them on the list for lines.
+5. **Button 3** (or its 3-hourly run): takes over the contacts already in HubSpot, finds the rest and puts
+   them on the list for lines; the company moves on to *Contact located. Queued for processing*.
 6. **Claude writes the personal lines:** `/outreach-mail-writing`, or within 3 hours by itself.
 7. **Gate 2:** read each contact's line and set it to *GATE2: Approved to send*.
 8. **Button 4** (or its 3-hourly run): person 1 is emailed, and the rest of the loop runs by itself.
@@ -317,7 +342,9 @@ To use the live HubSpot account for the automatic jobs, add a repository variabl
 - The strict check runs twice: in Claude before saving and in GitHub before importing. A file
   that fails is rejected whole and the job is marked Failed with the reason.
 - Every job checks which HubSpot account the key belongs to and stops on a mismatch.
-- Only records with Lead Source AUTO-OUTREACH are ever changed (see "HubSpot fields").
+- Only records with Lead Source AUTO-OUTREACH are ever changed (see "HubSpot fields"), apart from the
+  take-over of existing contacts at approved companies (10 Nov 2026), which may only set the tag, the
+  Lead Status and the legal basis.
 - Nothing is sent without both gates; Instantly campaigns are created paused.
 - Companies already in HubSpot are never added again; Apollo spend stops at the credit cap.
 

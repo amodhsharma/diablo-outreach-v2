@@ -63,12 +63,17 @@ def _order(value):
         return 0
 
 
-def prepare(hs, settings, log=print, limit=2000):
-    """Make hand-tagged AUTO-OUTREACH contacts ready for outreach (see the top). Returns
-    {"contacts": n, "company_inboxes": n}."""
+def prepare(hs, settings, log=print, limit=2000, ids=()):
+    """Make hand-tagged AUTO-OUTREACH contacts ready for outreach (see the top). ids: contacts just taken
+    over (takeover.py, 10 Nov 2026), read by their ID because HubSpot's search can take a minute to show the
+    change. Returns {"contacts": n, "company_inboxes": n}."""
     done = {"contacts": 0, "company_inboxes": 0, "companies_back_to_gate1": 0}
+    props = ["email", "firstname", "lastname", "jobtitle", ORDER, LEAD_STATUS]
     rows = hs.tagged_search("contacts", [{"propertyName": ORDER, "operator": "NOT_HAS_PROPERTY"}],
-                            ["email", "firstname", "lastname", "jobtitle", ORDER, LEAD_STATUS], max_results=limit)
+                            props, max_results=limit)
+    seen = {str(r["id"]) for r in rows}
+    extra = [str(i) for i in ids if str(i) not in seen]
+    rows += hs.tagged_read("contacts", extra, props) if extra else []
     rows = [r for r in rows if not (r.get("properties") or {}).get(ORDER)]
     if not rows:
         return done

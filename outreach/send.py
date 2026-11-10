@@ -419,8 +419,9 @@ def skip_reason(contact, company, company_stage, needs_note=False):
                 "at companies it added itself)")
     if company_stage in COMPANY_STOPPED:
         return "its company's Lead Status says outreach has ended or a person has taken it over"
-    if company_stage not in ("approved", "in_outreach"):
-        return "its company is not GATE1: Approved for outreach (gate 1)"
+    if company_stage not in ("approved", "located", "in_outreach"):  # located: 10 Nov 2026
+        return ("its company is not GATE1: Approved for outreach or Contact located. Queued for processing "
+                "(gate 1)")
     if not p.get(PERSONAL_LINE):
         return "its Outreach personal line is empty"
     if needs_note and not p.get(COMPANY_NOTE):

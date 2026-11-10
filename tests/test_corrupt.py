@@ -239,6 +239,6 @@ def test_button_3_leaves_dead_addresses_out_and_never_adds_them_again():
     assert emails == ["dead@delta.example", "new@delta.example"]  # the dead address is not added twice
     new = next(r for r in hs.records["contacts"].values() if r["email"] == "new@delta.example")
     assert new["diablo_outreach_order"] == "1"
-    assert hs.records["companies"][cid]["hs_lead_status"] == "GATE1: Approved for outreach"
+    assert hs.records["companies"][cid]["hs_lead_status"] == "Contact located. Queued for processing"
     assert "6. Company inbox bounced" in find_contacts.hubspot_filters("Amodh Sharma")
     assert summary["gate1"]

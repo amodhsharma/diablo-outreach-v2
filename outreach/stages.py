@@ -14,6 +14,8 @@ account itself, so the code works whatever the account calls a choice internally
     usable address (23 Oct 2026): set it to
     GATE1 and button 3 searches everywhere
     Gate 1: a person approves the company      GATE1: Approved for outreach
+    It has at least 1 AUTO-OUTREACH contact    Contact located. Queued for
+    (10 Nov 2026), until the first email       processing
     Email lines written                                                      "New, Personal line filled"
     Gate 2: a person approves the wording                                    GATE2: Approved to send
     Emails going out                           Attempted to Contact          Attempted to Contact
@@ -69,6 +71,10 @@ STAGES = {
         # sets the company back to GATE1 by itself.
         "contact_exists": "Contact exists, not AUTO-OUTREACH",
         "approved": "GATE1: Approved for outreach",
+        # 10 Nov 2026 (Ariel): approved and has at least 1 AUTO-OUTREACH contact (a person or a company inbox);
+        # it stays here while the lines are written, the contacts wait for GATE2 and their turn, until the
+        # first email goes out. GATE1 now only means "approved, still waiting for people" (find_contacts.settle).
+        "located": "Contact located. Queued for processing",
         "in_outreach": "Attempted to Contact",
         "replied": "In Progress",
         # 2 Nov 2026 (Ariel): plain Unqualified is now only "you rejected it".
@@ -146,7 +152,9 @@ LEFT_OUT = ("corrupt", "inbox_bounced", "redirected")
 COMPANY_CLOSED = ("closed", "said_no", "opted_out")
 # Until button 1 adds a new choice, the stage used instead (2 Nov 2026). Since 3 Nov 2026 (Ariel) never
 # plain Unqualified: that is only ever set by a person, so the automation must not write it.
-FALLBACK = {"inbox_bounced": "corrupt", "colleague_no_response": "company_unqualified"}
+FALLBACK = {"inbox_bounced": "corrupt", "colleague_no_response": "company_unqualified", "located": "approved"}
+# A company that is approved and not emailed yet: on GATE1, or with its contacts located (10 Nov 2026).
+OPEN = ("approved", "located")
 
 # The internal value given to a choice when the setup has to add it (matching the live
 # account's style: companies use the label itself, contacts use capitals). A renamed choice keeps
@@ -154,7 +162,8 @@ FALLBACK = {"inbox_bounced": "corrupt", "colleague_no_response": "company_unqual
 NEW_OPTION_VALUES = {
     "companies": {"GATE1: Approved for outreach": "GATE1: Approved for outreach", "Missing Info": "Missing Info",
                   "Missing info on Apollo": "Missing info on Apollo",
-                  "Contact exists, not AUTO-OUTREACH": "Contact exists, not AUTO-OUTREACH", "New": "New", "Attempted to Contact": "Attempted to Contact",
+                  "Contact exists, not AUTO-OUTREACH": "Contact exists, not AUTO-OUTREACH", "New": "New",
+                  "Contact located. Queued for processing": "Contact located. Queued for processing", "Attempted to Contact": "Attempted to Contact",
                   "In Progress": "In Progress", "Unqualified": "Unqualified",
                   "Unqualified: Employee response negative": "Unqualified: Employee response negative",
                   "Unqualified: Employee Opted-out/Blocklist": "Unqualified: Employee Opted-out/Blocklist",
@@ -186,7 +195,7 @@ NEW_OPTION_VALUES = {
 
 # Later stages win: a status only ever moves forward.
 ORDER = {"": 0, "found": 0, "missing_info": 0, "missing_apollo": 0, "contact_exists": 0, "copy_ready": 0, "approved": 0,
-         "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3,
+         "located": 0.5, "in_outreach": 1, "forwarded": 1, "reminded": 1.5, "replied": 2, "closed": 3,
          "said_no": 3, "opted_out": 3, "bounced_other": 3,
          "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2,
          "colleague_no_response": 3,

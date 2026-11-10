@@ -288,7 +288,7 @@ def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, d
     company = companies.get(company_id) or {}
     cp = company.get("properties") or {}
     if not company_id or statuses.of("companies", company) not in ("replied", "in_outreach", "approved",
-                                                                     "no_response"):
+                                                                     "located", "no_response"):
         return
     cover = False
     try:
@@ -421,7 +421,7 @@ def wake(hs, statuses, leads, log=print, path=None):
         handled.pop(str(r["id"]), None)  # read again at the next run, as a new reply
         company_id = owner_of.get(str(r["id"]))
         company = companies.get(company_id)
-        if not company or statuses.of("companies", company) not in ("in_outreach", "approved", "no_response"):
+        if not company or statuses.of("companies", company) not in ("in_outreach", "approved", "located", "no_response"):
             continue
         name = (company.get("properties") or {}).get("name")
         hs.update_tagged("companies", [(company_id, statuses.props("companies", "replied"))])

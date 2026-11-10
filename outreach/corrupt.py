@@ -311,7 +311,7 @@ def _close_blocked(hs, statuses, blocked, leads, out, log):
         people = annotate(everyone.get(company_id) or [], statuses, leads or {})
         if any(c["state"] == "sent" and str(c["id"]) not in ids for c in people):
             continue
-        if statuses.of("companies", company) not in ("", "approved", "in_outreach", "no_response"):
+        if statuses.of("companies", company) not in ("", "approved", "located", "in_outreach", "no_response"):
             continue
         updates.append((company_id, statuses.props("companies", "bounced_other")))
         stop_reasons(hs, "companies", [(company_id, f"Their mail system blocks our emails ({today()}): the "
@@ -349,8 +349,8 @@ def _move_up(hs, statuses, corrupt, leads, promoted, out, log):
             r = corrupt[c][0]
             out["rows"].append(f"| {name} | {r['properties'].get('jobtitle') or 'contact'} | "
                                f"{corrupt[c][1].split(' (')[0]} |")
-        if (statuses.of("companies", company) if company else "team") not in ("", "approved", "in_outreach",
-                                                                              "no_response"):
+        if (statuses.of("companies", company) if company else "team") not in ("", "approved", "located",
+                                                                              "in_outreach", "no_response"):
             continue  # 3 Nov 2026: in conversation, with the sales team or closed otherwise: nobody moves up
         # Everyone below moves up one: the numbers of those still in the loop become 1, 2, 3 ...
         ranked = sorted((c for c in rest if 1 <= rank_of(c) < 999), key=rank_of)
@@ -375,7 +375,7 @@ def _move_up(hs, statuses, corrupt, leads, promoted, out, log):
             log(f"{name}: a dead address; {title} is now number 1")
         usable = [c for c in rest if c["state"] in ("pending", "approved", "queued", "sent")]
         stage = statuses.of("companies", company) if company else "team"
-        if not usable and stage in ("", "approved", "in_outreach", "no_response"):
+        if not usable and stage in ("", "approved", "located", "in_outreach", "no_response"):
             # 2 Nov 2026 (Ariel): nobody left, so the company stops (it no longer goes back to GATE1).
             if dead_inbox and statuses.has("companies", "invalid_inbox"):
                 company_updates.append((company_id, statuses.props("companies", "invalid_inbox")))

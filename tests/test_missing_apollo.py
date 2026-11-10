@@ -95,7 +95,7 @@ def test_button_3_with_a_contact_moves_on_and_clears_the_note(monkeypatch):
     cid = _gate1(hs, note=apollo_status.apollo_reason(dt.date(2026, 10, 20)))
     monkeypatch.setattr(company_inbox, "find_inbox", lambda domain, **k: "info@mcdrogerie.example")
     find_contacts.run("test", load_settings(), hs, FakeApollo({}, {}), log=quiet)
-    assert status(hs, cid) == "GATE1: Approved for outreach" and reason(hs, cid) == ""
+    assert status(hs, cid) == "Contact located. Queued for processing" and reason(hs, cid) == ""
     assert [c["email"] for c in hs.records["contacts"].values()] == ["info@mcdrogerie.example"]
 
 

@@ -31,7 +31,7 @@ import os
 import re
 import sys
 
-from . import apollo_status, chain, company_inbox, hand_tagged, linking, redirect
+from . import apollo_status, chain, company_inbox, hand_tagged, linking, redirect, takeover
 from .job_owner import fill_owners, is_job_company, job_notes, job_owner
 from .apollo_client import Apollo, ApolloError
 from .assign import Assigner
@@ -44,7 +44,7 @@ from .common import (
 from .next_in_line import is_company_inbox
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import CONTACT_SOURCE, INBOX_TITLE, LEAD_STATUS, ORDER, SOURCE_APOLLO, SOURCE_WEBSITE
-from .stages import LEFT_OUT, LeadStatus
+from .stages import CONTACT_CLOSED, LEFT_OUT, OPEN, TEAM, LeadStatus
 
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS, "hubspot_owner_id"]
 
@@ -187,7 +187,88 @@ def _c(count):
     return f"{count} contact{'s' if count != 1 else ''}"
 
 
-def gate1_summary(total, rows, full, tried, left, cfg, held=None):
+def approved_companies(hs, statuses, props, limit=GATE1_LIMIT):
+    """The approved AUTO-OUTREACH companies not emailed yet: on GATE1 or on "Contact located. Queued for
+    processing" (10 Nov 2026), each once. Before button 1 has added the new choice, GATE1 only."""
+    out, seen = [], set()
+    for stage in OPEN:
+        if not statuses.has("companies", stage):
+            continue
+        for c in hs.tagged_search("companies", [statuses.filter("companies", stage)], props, max_results=limit):
+            if str(c["id"]) not in seen:
+                seen.add(str(c["id"]))
+                out.append(c)
+    return out
+
+
+def live_contacts(contacts, statuses):
+    """The contacts that can still be emailed before a company's first email: not a dead address, not
+    marked Rejected/Redirected and not rejected at GATE2 (10 Nov 2026)."""
+    return [c for c in contacts if statuses.of("contacts", c) not in LEFT_OUT + CONTACT_CLOSED + (TEAM,)]
+
+
+def settle(hs, statuses, log=print, added=None):
+    """10 Nov 2026 (Ariel): a GATE1 company with at least 1 AUTO-OUTREACH contact that can still be emailed
+    (a person or a company inbox) becomes "Contact located. Queued for processing"; one on "Contact located"
+    whose contacts have all dropped out (dead addresses, rejected at GATE2) goes back to GATE1, so button 3
+    tries Apollo again at its monthly check. Companies left with nobody at all are made Unqualified by
+    corrupt.py and redirect.py as before. added: {company ID: contact IDs created in this run}, counted
+    even before HubSpot shows them. Returns {"located": [names], "back": [names]}."""
+    out = {"located": [], "back": []}
+    if not statuses.has("companies", "located"):
+        return out  # until button 1 adds the choice, the companies stay on GATE1
+    companies = approved_companies(hs, statuses, ["name", LEAD_STATUS])
+    if not companies:
+        return out
+    ids = [str(c["id"]) for c in companies]
+    links = hs.associated_ids("companies", "contacts", ids)
+    linked = sorted({str(x) for xs in links.values() for x in xs or []})
+    ours = {str(r["id"]): r for r in hs.tagged_read("contacts", linked, ["email", LEAD_STATUS])} if linked else {}
+    to_located, to_gate1, names = [], [], {}
+    for c in companies:
+        cid = str(c["id"])
+        names[cid] = (c.get("properties") or {}).get("name") or "A company"
+        mine = [ours[str(x)] for x in links.get(cid) or [] if str(x) in ours]
+        live = bool(live_contacts(mine, statuses)) or bool((added or {}).get(cid))
+        stage = statuses.of("companies", c)
+        name = (c.get("properties") or {}).get("name") or "A company"
+        if stage == "approved" and live:
+            to_located.append((cid, statuses.props("companies", "located")))
+        elif stage == "located" and not live:
+            to_gate1.append((cid, statuses.props("companies", "approved")))
+            log(f"{name}: none of its contacts can be emailed any more; back on GATE1, so Apollo is asked again "
+                "at its monthly check")
+    if to_located or to_gate1:
+        # HubSpot's search can lag behind: only companies still on the status seen above are changed (a
+        # company emailed by button 4 meanwhile is never moved back).
+        now = {str(r["id"]): statuses.of("companies", r)
+               for r in hs.tagged_read("companies", [i for i, _ in to_located + to_gate1], [LEAD_STATUS])}
+        to_located = [(i, p) for i, p in to_located if now.get(i) == "approved"]
+        to_gate1 = [(i, p) for i, p in to_gate1 if now.get(i) == "located"]
+        out = {"located": [names[i] for i, _ in to_located], "back": [names[i] for i, _ in to_gate1]}
+        hs.update_tagged("companies", to_located + to_gate1)
+    if out["located"]:
+        log(f'{len(out["located"])} companies with contacts moved to "Contact located. Queued for processing"')
+    return out
+
+
+def settle_summary(settled):
+    """Lines for the summary page about the companies settle() moved, or ""."""
+    lines = []
+    if (settled or {}).get("located"):
+        lines.append(f'Moved to "Contact located. Queued for processing" (they have contacts): '
+                     f'{len(settled["located"])}')
+    if (settled or {}).get("back"):
+        lines.append(f"Back on GATE 1 because none of their contacts can be emailed any more: "
+                     f"{_names(_props_named(settled['back']))}")
+    return "\n".join(lines)
+
+
+def _props_named(names):
+    return [{"company": n} for n in names]
+
+
+def gate1_summary(total, rows, full, tried, left, cfg, held=None, located=None):
     """Button 3's summary page (Ariel, 26 and 27 Oct 2026): what this run did with the companies on
     GATE1, then the ones it did not run, each company counted once, with the number of contacts: those
     added by this run, and those the companies not run already have. held: {company ID: contacts}."""
@@ -201,7 +282,11 @@ def gate1_summary(total, rows, full, tried, left, cfg, held=None):
         if r.get("contacts"):
             by_count.setdefault(r["contacts"], []).append(r)
     added = sum(r.get("contacts") or 0 for r in rows)
-    lines = [f"Out of {total} companies on GATE 1: ran {len(rows)} (Total {_c(added)})"]
+    if located is None:
+        lines = [f"Out of {total} companies on GATE 1: ran {len(rows)} (Total {_c(added)})"]
+    else:  # 10 Nov 2026: the approved companies are on GATE1 or already "Contact located. Queued for processing"
+        lines = [f"Out of {total} approved companies ({total - located} on GATE 1, {located} on Contact located): "
+                 f"ran {len(rows)} (Total {_c(added)})"]
     for n, rs in sorted(by_count.items(), reverse=True):
         topped = sum(1 for r in rs if r.get("kind") == "topup")
         inbox = sum(1 for r in rs if r.get("result") == "company inbox added")
@@ -237,6 +322,7 @@ def gate1_summary(total, rows, full, tried, left, cfg, held=None):
 def hubspot_filters(owner=""):
     """The HubSpot filters that show each group of companies, under button 3's summary (Ariel, 27 Oct 2026)."""
     gate1 = "Lead status is GATE1: Approved for outreach"
+    located = "Lead status is Contact located. Queued for processing"
     owner_line = (f"Company owner is {owner} (leave this out to see everyone's companies)" if owner else
                   "Company owner is you (leave this out to see everyone's companies)")
     return "\n".join([
@@ -245,13 +331,13 @@ def hubspot_filters(owner=""):
         'In HubSpot, open Companies and click "Advanced filters". Every view starts with: Lead source is '
         f"AUTO-OUTREACH, and {owner_line}. Then add:",
         "",
-        f"1. GATE 1, has 2 people, button 3 is done with it: {gate1}; Number of associated contacts is greater "
-        "than or equal to 2",
-        f"2. GATE 1, has 1 contact: {gate1}; Number of associated contacts is equal to 1",
-        f"3. GATE 1, not run yet, no contacts: {gate1}; Number of associated contacts is equal to 0",
+        f"1. Contacts found, has 2 people, button 3 is done with it: {located}; Number of associated contacts is "
+        "greater than or equal to 2",
+        f"2. Contacts found, has 1 contact: {located}; Number of associated contacts is equal to 1",
+        f"3. GATE 1, waiting for button 3 to find people: {gate1}",
         "4. No contacts at any source, needs you: Lead status is Missing Info",
-        "5. Already has contacts in the CRM (change them to AUTO-OUTREACH): Lead status is Contact exists, "
-        "not AUTO-OUTREACH",
+        "5. Already has contacts in the CRM: Lead status is Contact exists, not AUTO-OUTREACH (button 3 takes "
+        "their contacts over by itself; a company still here has only contacts marked Won, opted out or dead)",
         "6. Company inbox bounced, needs you (add a working address, then set it back to GATE 1): Lead status "
         "is Unqualified: Company inbox bounced",
         "",
@@ -305,12 +391,17 @@ def run(target, settings, hs, apollo, log=print):
     statuses = LeadStatus(hs)
     assigner = Assigner(hs, settings, log)
     out_dir = run_dir("contacts")
+    try:  # 10 Nov 2026 (Ariel): contacts already in HubSpot at approved companies become AUTO-OUTREACH, New
+        taken = takeover.run(hs, statuses, log)
+    except Exception as err:
+        taken = {}
+        log(f"Could not take over the existing contacts: {str(err)[:200]}")
     try:  # 23 Oct 2026: every AUTO-OUTREACH contact carries its company's Country; never stops the run
         fill_contact_places(hs, log)
     except Exception as err:
         log(f"Could not fill in the contacts' Country: {str(err)[:200]}")
     try:  # 26 Oct 2026: contacts tagged AUTO-OUTREACH by hand get an order and, if general, the inbox title
-        hand_tagged.prepare(hs, settings, log)
+        hand_tagged.prepare(hs, settings, log, ids=taken.get("ids") or ())
     except Exception as err:
         log(f"Could not prepare the contacts tagged by hand: {str(err)[:200]}")
     try:  # 23 Oct 2026: AUTO-OUTREACH companies and contacts with no owner get the job owner
@@ -337,8 +428,7 @@ def run(target, settings, hs, apollo, log=print):
         website_summary = {}
         log(f"Could not read the Missing Info websites again: {str(err)[:200]}")
     cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes(), _owner_names=_owner_names(hs))
-    approved = hs.tagged_search("companies", [statuses.filter("companies", "approved")],
-                                COMPANY_PROPS + [apollo_status.STOP_REASON], max_results=GATE1_LIMIT)
+    approved = approved_companies(hs, statuses, COMPANY_PROPS + [apollo_status.STOP_REASON])
     # Only AUTO-OUTREACH contacts count (HubSpot may link a team contact by itself). 26 Oct 2026 (Ariel):
     # a company with fewer people than contacts.per_company gets the rest searched for (a company inbox
     # does not count as a person), once a month; new companies go first.
@@ -357,7 +447,9 @@ def run(target, settings, hs, apollo, log=print):
         # Rejected/Redirected by hand (2 Nov 2026).
         mine = [m for m in linked_here if statuses.of("contacts", m) not in LEFT_OUT]
         held[str(c["id"])] = len(mine)
-        people = [m for m in mine if not is_company_inbox(m)]
+        # 10 Nov 2026: a contact rejected at GATE2 by hand (plain Unqualified) is not one of its people either,
+        # so a company whose contacts all dropped out is searched again at its monthly check.
+        people = [m for m in mine if not is_company_inbox(m) and statuses.of("contacts", m) not in CONTACT_CLOSED]
         if not linked_here:
             fresh.append((c, None))
         elif len(people) >= cfg["per_company"]:
@@ -368,7 +460,7 @@ def run(target, settings, hs, apollo, log=print):
             topup.append((c, mine))
     queue = fresh + topup
     companies, left = queue[:cfg["companies_per_run"]], queue[cfg["companies_per_run"]:]
-    log(f"{len(approved)} companies on GATE1: {len(fresh)} new, {len(topup)} to top up, {len(full)} with their "
+    log(f"{len(approved)} approved companies (GATE1 or Contact located): {len(fresh)} new, {len(topup)} to top up, {len(full)} with their "
         f"contacts, {len(tried)} already topped up this month; {len(companies)} processed in this run")
     notes = load_company_notes()
     skipped = load_skipped()
@@ -390,7 +482,18 @@ def run(target, settings, hs, apollo, log=print):
         save_topped(topped)
     done_ids = {r.get("company_id") for r in log_rows}
     left = [c for c, _ in companies if str(c["id"]) not in done_ids] + [c for c, _ in left]
-    gate1 = gate1_summary(len(approved), log_rows, full, tried, left, cfg, held)
+    try:  # 10 Nov 2026 (Ariel): GATE1 with a contact becomes "Contact located"; with nobody left, back to GATE1
+        settled = settle(hs, statuses, log, added={r["company_id"]: r.get("contact_ids") or [] for r in log_rows})
+    except Exception as err:
+        settled = {}
+        log(f'Could not move the companies with contacts to "Contact located. Queued for processing": {str(err)[:200]}')
+    located = sum(1 for c in approved if statuses.of("companies", c) == "located")
+    located = max(0, min(len(approved), located + len(settled.get("located") or []) - len(settled.get("back") or [])))
+    gate1 = gate1_summary(len(approved), log_rows, full, tried, left, cfg, held, located=located)
+    if takeover.summary(taken):
+        gate1 += "\n\n" + takeover.summary(taken)
+    if settle_summary(settled):
+        gate1 += "\n\n" + settle_summary(settled)
     if linked_summary.get("unlinked"):
         gate1 += "\n\n" + unlinked_summary(hs, linked_summary["unlinked"])
     if website_summary.get("read"):
@@ -410,7 +513,8 @@ def run(target, settings, hs, apollo, log=print):
         summary_apollo = {}
         log(f'Could not check the "Missing info on Apollo" companies again: {str(err)[:200]}')
     summary = {"companies": len(log_rows), "apollo_credits_used": credits, "rows": log_rows,
-               "missing_info_on_apollo": summary_apollo, "gate1": gate1, "linking": {
+               "missing_info_on_apollo": summary_apollo, "gate1": gate1,
+               "taken_over": {k: v for k, v in (taken or {}).items() if k != "ids"}, "settled": settled, "linking": {
                    k: (len(v) if isinstance(v, list) else v) for k, v in linked_summary.items()}}
     write_json(out_dir / "summary.json", summary)
     # The contacts just added, for step 3 of button 3 (agreed 15 Oct 2026): HubSpot's search can
@@ -542,7 +646,8 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
         topping = existing is not None  # 26 Oct 2026: the rest of the people at a company with some already
         people_have = [m for m in existing or [] if not is_company_inbox(m)]
         inboxes_have = [m for m in existing or [] if is_company_inbox(m)]
-        need = cfg["per_company"] - len(people_have)
+        # 10 Nov 2026: a contact rejected at GATE2 does not count towards the people still needed
+        need = cfg["per_company"] - sum(1 for m in people_have if statuses.of("contacts", m) not in CONTACT_CLOSED)
         row = {"company": name, "company_id": str(cid), "domain": domain, "contacts": 0,
                "kind": "topup" if topping else "new"}
 

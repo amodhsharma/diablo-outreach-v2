@@ -124,7 +124,7 @@ def run(hs, statuses, log=print, promoted_path=None):
                 company_updates.append((company_id, statuses.props("companies", "in_outreach")))
                 out["rows"].append(f"| {name} | - | Company back on Attempted to Contact |")
             log(f"{name}: a contact was marked Rejected/Redirected; {title} is now number 1")
-        elif stage in ("", "approved", "in_outreach", "no_response"):
+        elif stage in ("", "approved", "located", "in_outreach", "no_response"):
             company_updates.append((company_id, statuses.props("companies", "redirected_none")))
             company_reasons.append((company_id, f"Its one contact was marked Rejected/Redirected and nobody is left "
                                                 f"({today()})"))

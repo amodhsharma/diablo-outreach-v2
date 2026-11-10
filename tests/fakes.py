@@ -11,6 +11,7 @@ LIVE_COMPANY_STATUS = {"New": "New", "Missing Info": "Missing Info", "Emailed": 
                        "In Progress": "In Progress", "Unqualified": "Unqualified",
                        "Attempted to Contact": "Attempted to Contact", "Won": "Won",
                        "GATE1: Approved for outreach": "GATE1: Approved for outreach",
+                       "Contact located. Queued for processing": "Contact located. Queued for processing",
                        "Contacted, but no response, unqualified": "Unqualified: Contacted, but no response",
                        "Missing info on Apollo": "Missing info on Apollo",
                        "Contact exists, not AUTO-OUTREACH": "Contact exists, not AUTO-OUTREACH",

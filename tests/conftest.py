@@ -119,3 +119,12 @@ def no_real_referrals_list(tmp_path, monkeypatch):
     """No test reads or writes the real list of replies that named someone else (3 Nov 2026)."""
     from outreach import referrals
     monkeypatch.setattr(referrals, "FILE", tmp_path / "referrals.json")
+
+
+@pytest.fixture(autouse=True)
+def no_real_blocklist(monkeypatch):
+    """No test reads Instantly's real blocklist when button 3 takes over existing contacts (10 Nov 2026).
+    Unread, nobody is taken over; tests of the take-over give their own list."""
+    from outreach import takeover
+    from outreach.sync import BlockList
+    monkeypatch.setattr(takeover, "read_blocked", lambda log=print: BlockList(ok=False, problem="not read in tests"))

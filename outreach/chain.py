@@ -152,8 +152,8 @@ def fill_lines(contacts, statuses, log=print, name=""):
 
 
 def fill_open(hs, settings, statuses, leads=None, log=print):
-    """fill_lines for every open company (GATE1 or Attempted to Contact) that has a contact on New or "New,
-    Personal line filled" (3 Nov 2026, Ariel: a contact added later goes to GATE2 by itself, at button 3 or
+    """fill_lines for every open company (GATE1, Contact located or Attempted to Contact) that has a contact on
+    New or "New, Personal line filled" (3 Nov 2026, Ariel: a contact added later goes to GATE2 by itself, at button 3 or
     button 4, whichever runs first). Returns how many contacts went to GATE2."""
     from .next_in_line import annotate, contacts_by_company, tagged_company_of
     if not config(settings):
@@ -167,7 +167,7 @@ def fill_open(hs, settings, statuses, leads=None, log=print):
         return 0
     owner_of, companies = tagged_company_of(hs, [c["id"] for c in waiting], ["name", LEAD_STATUS])
     open_ids = sorted({cid for cid in owner_of.values()
-                       if statuses.of("companies", companies.get(cid) or {}) in ("approved", "in_outreach")})
+                       if statuses.of("companies", companies.get(cid) or {}) in ("approved", "located", "in_outreach")})
     if not open_ids:
         return 0
     everyone = contacts_by_company(hs, open_ids)

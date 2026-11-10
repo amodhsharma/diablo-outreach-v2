@@ -62,7 +62,8 @@ def test_missing_info_websites_are_read_once_and_found_ones_go_back_to_gate_1(mo
     # Back on GATE1 and, in the same run, given the address as its company inbox.
     inbox = [r for r in hs.records["contacts"].values() if r["email"] == "info@cyclefitnessnutrition.com"]
     assert len(inbox) == 1 and inbox[0]["jobtitle"] == INBOX_TITLE
-    assert hs.records["companies"][found]["hs_lead_status"] == "GATE1: Approved for outreach"
+    # 10 Nov 2026: with its company inbox it moves on to "Contact located. Queued for processing"
+    assert hs.records["companies"][found]["hs_lead_status"] == "Contact located. Queued for processing"
     assert "back on GATE 1: Cycle Fitness Nutrition" in summary["gate1"]
     assert sorted(json.loads(apollo_status._rechecked_file().read_text())) == sorted([found, empty])
     before = len(read)

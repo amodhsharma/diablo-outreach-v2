@@ -96,6 +96,7 @@ def ensure_property(hs, object_type, spec, existing, plan, add_missing_options=T
 LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                   "Missing info on Apollo",  # 23 Oct 2026
                                   "Contact exists, not AUTO-OUTREACH",  # 26 Oct 2026
+                                  "Contact located. Queued for processing",  # 10 Nov 2026
                                   # 2 Nov 2026 (Ariel): the dead ends, each its own "Unqualified:" choice
                                   "Unqualified: Employee response negative",
                                   "Unqualified: Employee Opted-out/Blocklist",

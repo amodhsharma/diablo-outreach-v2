@@ -92,6 +92,25 @@ class TagGuard:
         self._check_tags(object_type, [i for i, _ in updates], "change")
         self._batch_update(object_type, updates)
 
+    # The only properties a take-over may set besides the tag (10 Nov 2026).
+    TAKE_OVER_PROPS = {"hs_lead_status", "hs_legal_basis"}
+
+    def take_over_contacts(self, updates):
+        """The one exception to the rule above (agreed 10 Nov 2026, Ariel): contacts already in HubSpot that
+        are linked to an approved AUTO-OUTREACH company are made AUTO-OUTREACH and set to New, so they are
+        treated as new contacts there. takeover.py decides who (never Won, opted out or a dead address).
+        updates: [(contact id, props)]; props may only hold the Lead Status and the legal basis. Contacts
+        only; nothing else about them changes."""
+        merged = {}
+        for i, p in updates:
+            extra = set(p or {}) - self.TAKE_OVER_PROPS
+            if extra:
+                raise TagGuardError(f"SAFETY STOP: a take-over may only set the Lead Status and the legal basis "
+                                    f"(not {', '.join(sorted(extra))}). Nothing was saved.")
+            merged.setdefault(str(i), {}).update(p or {})
+        if merged:
+            self._batch_update("contacts", [(i, dict(p, **{TAG_PROPERTY: TAG})) for i, p in merged.items()])
+
     def note_tagged(self, object_type, notes):
         """Add a note to the timeline of AUTO-OUTREACH records: [(record id, text)]."""
         notes = [(str(rid), text) for rid, text in notes if text]

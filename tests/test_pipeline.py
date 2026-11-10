@@ -80,7 +80,7 @@ def test_find_contacts_keeps_only_verified_and_ranks_titles(settings):
     assert not any(k.startswith("diablo_") and k not in ("diablo_outreach_order", "diablo_contact_source")
                    for k in contacts[0])
     assert contacts[0]["diablo_contact_source"] == "Apollo"  # the field exists in this (fake) account
-    assert hs.records["companies"][noble][CO] == "GATE1: Approved for outreach"  # waits for gate 2 and the emails
+    assert hs.records["companies"][noble][CO] == "Contact located. Queued for processing"  # waits for gate 2 and the emails (10 Nov 2026)
     assert find_contacts.load_skipped(find_contacts.KEPT_FILE) == {"p2": next(iter(hs.records["contacts"]))}
     import json
     handed = json.loads(find_contacts.new_contacts_file().read_text())  # for step 3 of button 3
@@ -256,7 +256,7 @@ def test_find_contacts_collects_the_top_four_once(settings):
                                               key=lambda c: int(c["diablo_outreach_order"]))]
     assert ranked() == ["Chief Executive Officer", "COO", "Regional Director", "Assistant Director"]  # top 4
     assert summary["rows"][0]["verified"] == 4 and len(apollo.revealed) == 5  # one revealed was unverified
-    assert hs.records["companies"][cid][CO] == "GATE1: Approved for outreach"
+    assert hs.records["companies"][cid][CO] == "Contact located. Queued for processing"
 
     # A second run leaves a company that already has its contacts alone (no Apollo spend).
     find_contacts.run("test", settings, hs, apollo, log=quiet)

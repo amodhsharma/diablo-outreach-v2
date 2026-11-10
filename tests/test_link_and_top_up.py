@@ -88,7 +88,7 @@ def test_a_company_with_one_person_gets_the_rest_and_its_inbox_moves_after_them(
     assert len(new) == 1 and hs.records["contacts"][new[0]]["diablo_outreach_order"] == "2"
     assert hs.records["contacts"][first]["diablo_outreach_order"] == "1"
     assert hs.records["contacts"][inbox]["diablo_outreach_order"] == "3"  # the people go first
-    assert hs.records["companies"][cid]["hs_lead_status"] == "GATE1: Approved for outreach"
+    assert hs.records["companies"][cid]["hs_lead_status"] == "Contact located. Queued for processing"  # 10 Nov 2026: it has contacts
     assert hs.primary[new[0]] == cid
     assert json.loads(find_contacts.TOPPED_FILE.read_text()) == {cid: find_contacts._month()}
     # Now full: never searched again.
@@ -107,7 +107,7 @@ def test_nobody_more_in_apollo_changes_nothing_and_waits_for_next_month(monkeypa
     # written as November, so the check failed once November came).
     monkeypatch.setattr(find_contacts, "_month", lambda: "JAN2030")
     find_contacts.run("test", s, hs, apollo, log=quiet)
-    assert hs.records["companies"][cid]["hs_lead_status"] == "GATE1: Approved for outreach"  # not Missing Info
+    assert hs.records["companies"][cid]["hs_lead_status"] == "Contact located. Queued for processing"  # not Missing Info: it has 1 person
     assert len(apollo.searches) >= 1
     searches = len(apollo.searches)
     find_contacts.run("test", s, hs, apollo, log=quiet)  # the same month: not asked again
