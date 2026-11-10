@@ -1,7 +1,25 @@
 {
-  "generated_at": "2026-11-10T10:31:26+00:00",
+  "generated_at": "2026-11-10T11:42:03+00:00",
   "target": "live",
   "contacts": [
+    {
+      "contact_id": "917999432892",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Accredited Distributors",
+        "domain": "accredited.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
     {
       "contact_id": "917886645492",
       "job_title": "Director of Operations",
@@ -57,6 +75,42 @@
       }
     },
     {
+      "contact_id": "918092099833",
+      "job_title": "Chief Financial Officer",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Co-Operative Supermarkets Australia",
+        "domain": "coopsupermarkets.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918092103923",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Continental Marketing",
+        "domain": "contimkt.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918192648436",
       "job_title": "Finance Director",
       "seniority": "Directors",
@@ -90,6 +144,24 @@
         "sf_brands_carried": "",
         "what_they_do_well": [],
         "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918021778675",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Daily Blooms",
+        "domain": "dailyblooms.com.au",
+        "location": "Melbourne, Australia",
+        "channel": "Seasonal and gift shops",
+        "based_out_of": "Melbourne, Australia",
+        "distributes": "Gift hampers with chocolate (Loco Love, Bahen and Co), cookies (Sweet Splits), cake (Sweet Bakes) and sweets (Sweeta rock candy and chocolate freckles), sold with flowers.",
+        "channels_supplied": "Its own online flower and gift shop with delivery in Melbourne, Sydney, Brisbane and Perth and nationally.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": "Flower delivery business that started in Melbourne and has a Fitzroy studio, and its gift hamper range resells other brands' chocolate, cookies and sweets. Flowers lead the range and its sweets shelf is small, so it is tier 3."
       }
     },
     {
@@ -147,6 +219,42 @@
       }
     },
     {
+      "contact_id": "918319640789",
+      "job_title": "Chief Executive Officer",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "ferndaleconfectionery",
+        "domain": "fdale.com.au",
+        "location": "",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918029193432",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Festival Distributors",
+        "domain": "www.festivaldistributors.com.au",
+        "location": "Findon, Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "917988539591",
       "job_title": "Business Owner",
       "seniority": "Top leadership",
@@ -154,6 +262,24 @@
       "company": {
         "name": "Food Works",
         "domain": "foodworks.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917975899348",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Foodland SA",
+        "domain": "foodlandsa.com.au",
         "location": "Australia",
         "channel": "",
         "based_out_of": "",
@@ -174,6 +300,24 @@
         "domain": "foursquare.co.nz",
         "location": "New Zealand",
         "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918079127766",
+      "job_title": "Chief Executive Officer",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Godden Food Group",
+        "domain": "goddenfoodgroup.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
@@ -291,6 +435,60 @@
       }
     },
     {
+      "contact_id": "918392882420",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Kiss Distribution",
+        "domain": "kissdistribution.com.au",
+        "location": "australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918319636692",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Klose's Supermarkets & Cellarbrations",
+        "domain": "klose.com.au",
+        "location": "australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918390936773",
+      "job_title": "People and Culture Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Klose's Supermarkets & Cellarbrations",
+        "domain": "klose.com.au",
+        "location": "australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918192646333",
       "job_title": "Company inbox (from website)",
       "seniority": "Everyone else",
@@ -334,6 +532,24 @@
       "company": {
         "name": "MNB Variety Imports",
         "domain": "mnb.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918438759659",
+      "job_title": "Territory Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Nievole Distributors Pty Ltd",
+        "domain": "nievole.com.au",
         "location": "Australia",
         "channel": "Distributor Wholesaler",
         "based_out_of": "",
@@ -453,6 +669,42 @@
       }
     },
     {
+      "contact_id": "918317097193",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Romeos Retail Group",
+        "domain": "romeosretailgroup.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918390759657",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Socrates Distributors",
+        "domain": "socratesdistributors.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918368785640",
       "job_title": "General Manager Operations North",
       "seniority": "Directors",
@@ -516,6 +768,24 @@
         "domain": "siw.com.au",
         "location": "Australia",
         "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917970595021",
+      "job_title": "Chairman",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "Stuart Alexander",
+        "domain": "stalex.com.au",
+        "location": "",
+        "channel": "",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
@@ -597,6 +867,42 @@
       }
     },
     {
+      "contact_id": "918385090772",
+      "job_title": "CEO",
+      "seniority": "Top leadership",
+      "rank": 1,
+      "company": {
+        "name": "United Convenience Buyers PTY LTD",
+        "domain": "ucbstores.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918387754211",
+      "job_title": "National Key Account Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Universal Candy Australia",
+        "domain": "universalcandy.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918298800318",
       "job_title": "Graphic Designer - Marketing Coordinator",
       "seniority": "Everyone else",
@@ -604,6 +910,24 @@
       "company": {
         "name": "X Convenience",
         "domain": "xconvenience.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917999432891",
+      "job_title": "Regional Business Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Accredited Distributors",
+        "domain": "accredited.com.au",
         "location": "Australia",
         "channel": "",
         "based_out_of": "",
@@ -669,6 +993,24 @@
       }
     },
     {
+      "contact_id": "918321233103",
+      "job_title": "Business Development Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Del-re National Group Pty Ltd.",
+        "domain": "delrenational.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "917979388101",
       "job_title": "Chief Financial Officer",
       "seniority": "C-suite",
@@ -687,6 +1029,24 @@
       }
     },
     {
+      "contact_id": "918319640788",
+      "job_title": "Head of Sales",
+      "seniority": "Heads and junior directors",
+      "rank": 2,
+      "company": {
+        "name": "ferndaleconfectionery",
+        "domain": "fdale.com.au",
+        "location": "",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "917988539590",
       "job_title": "CEO",
       "seniority": "Top leadership",
@@ -694,6 +1054,24 @@
       "company": {
         "name": "Food Works",
         "domain": "foodworks.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917975899349",
+      "job_title": "Chief Operating Officer",
+      "seniority": "C-suite",
+      "rank": 2,
+      "company": {
+        "name": "Foodland SA",
+        "domain": "foodlandsa.com.au",
         "location": "Australia",
         "channel": "",
         "based_out_of": "",
@@ -723,6 +1101,24 @@
       }
     },
     {
+      "contact_id": "918122157260",
+      "job_title": "Global Logistics Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Gourmet Brands",
+        "domain": "gourmetbrands.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "917968578760",
       "job_title": "Co-CEO",
       "seniority": "Top leadership",
@@ -732,6 +1128,24 @@
         "domain": "harrisfarm.com.au",
         "location": "Australia",
         "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918399256780",
+      "job_title": "National Account Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Inland Distributors",
+        "domain": "inlanddistributors.com.au",
+        "location": "Australia",
+        "channel": "",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
@@ -795,6 +1209,42 @@
       }
     },
     {
+      "contact_id": "918392882419",
+      "job_title": "National Sales Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Kiss Distribution",
+        "domain": "kissdistribution.com.au",
+        "location": "australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918390936774",
+      "job_title": "Fresh Foods Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Klose's Supermarkets & Cellarbrations",
+        "domain": "klose.com.au",
+        "location": "australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918287624389",
       "job_title": "Global Buying & Sales Director",
       "seniority": "Directors",
@@ -802,6 +1252,24 @@
       "company": {
         "name": "MNB Variety Imports",
         "domain": "mnb.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918438759658",
+      "job_title": "Coffee Roaster",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Nievole Distributors Pty Ltd",
+        "domain": "nievole.com.au",
         "location": "Australia",
         "channel": "Distributor Wholesaler",
         "based_out_of": "",
@@ -867,6 +1335,24 @@
       }
     },
     {
+      "contact_id": "918253274346",
+      "job_title": "State Manager Victoria",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Ritchies Stores Pty Ltd",
+        "domain": "ritchies.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918370851012",
       "job_title": "Company Director",
       "seniority": "Directors",
@@ -921,6 +1407,42 @@
       }
     },
     {
+      "contact_id": "918001221861",
+      "job_title": "Safety, Health & Environment Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Statewide Independent Wholesalers",
+        "domain": "siw.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "917970595022",
+      "job_title": "Executive Assistant to CEO - Garry Browne",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Stuart Alexander",
+        "domain": "stalex.com.au",
+        "location": "",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
       "contact_id": "918368783603",
       "job_title": "Assistant Store Manager Operations",
       "seniority": "Managers",
@@ -948,6 +1470,60 @@
         "domain": "swanhillwholesalers.com.au",
         "location": "Australia",
         "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918390656237",
+      "job_title": "National Sales Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "The Distributors Toowomba",
+        "domain": "tcwtwd.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918385090771",
+      "job_title": "CEO's Office - Strategy and Transformation Leadership (Large Format Retail Network)",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "United Convenience Buyers PTY LTD",
+        "domain": "ucbstores.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "918387754210",
+      "job_title": "National Accounts & Private Label Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Universal Candy Australia",
+        "domain": "universalcandy.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
         "based_out_of": "",
         "distributes": "",
         "channels_supplied": "",
