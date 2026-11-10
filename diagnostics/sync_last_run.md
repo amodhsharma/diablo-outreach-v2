@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-10 19:54 UTC
+Written 2026-11-10 22:54 UTC
 
 ```
 671 leads in the Diablo campaigns in Instantly
@@ -15,13 +15,9 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 4 notes on contacts' timelines (email sent, bounced or replied)
-McDrogerie Der Artikel wird zum Warenkorb hinzugefügt: the reply has waited 7 days with nobody acting on it, so the company is back on Attempted to Contact
-Geschenkparadies.ch AG (cadeaux24.ch): the reply has waited 7 days with nobody acting on it, so the company is back on Attempted to Contact
-GG's Flowers: the reply has waited 7 days with nobody acting on it, so the company is back on Attempted to Contact
-Email threads: 3 emails since the last run
-Food Corp Distributors Pty Ltd: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
-Email threads: 105 companies read in full, 221 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 1 contacts and 0 companies in HubSpot
+Email threads: 0 emails since the last run
+GG's Flowers: the introduction goes to Community Support Worker
+Email threads: 102 companies read in full, 223 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 1 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Updated 0 contacts and 0 companies in HubSpot
 ```
