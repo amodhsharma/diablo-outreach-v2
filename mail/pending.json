@@ -1,5 +1,2154 @@
 {
-  "generated_at": "2026-11-11T12:31:06+00:00",
+  "generated_at": "2026-11-11T15:33:09+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "879217125600",
+      "job_title": "Buying Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "675089578185",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Angeles Fine Foods Australia",
+        "domain": "angelesfinefoods.com",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677133567191",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678751674609",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Bonfect Snackfood Services",
+        "domain": "bonfect.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673980483798",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Central Coast Confectionery",
+        "domain": "centralcoastconfectionery.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920167145681",
+      "job_title": "Sales rep",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Coffs Cordials & Confectionery",
+        "domain": "coffscordials.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671060193509",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Confectionery Warehouse",
+        "domain": "tomscw.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677409225916",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920165344480",
+      "job_title": "General Manager",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Eastern Cross",
+        "domain": "easterncross.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920113064137",
+      "job_title": "Director of Operations",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Exclusive Food Houses",
+        "domain": "efh.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920153168101",
+      "job_title": "National Administration Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "globalfood",
+        "domain": "globalfood.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920165344472",
+      "job_title": "Commercial Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Grocery Corporation",
+        "domain": "gcbrands.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671098740973",
+      "job_title": "Senior Business Development Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Harcher",
+        "domain": "harcher.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920217395394",
+      "job_title": "Purchasing Manager",
+      "seniority": "Managers",
+      "rank": 1,
+      "company": {
+        "name": "Hong Australia Corporation Ltd",
+        "domain": "hongaustralia.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680031196370",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Hong Australia Corporation Pty. Ltd.",
+        "domain": "net.com.au",
+        "location": "",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677083492577",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Intertrading Australia",
+        "domain": "intertrading.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677705042161",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "JB Metropolitan Distributor",
+        "domain": "jbmetro.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "672327879876",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "JB Metropolitan Distributors Adelaide",
+        "domain": "jbmetroadelaide.com.au",
+        "location": "",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "740042610920",
+      "job_title": "New Business Development Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Manassen Foods Ltd",
+        "domain": "manassen.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "679956221114",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Marco Polo Foods Pty Ltd",
+        "domain": "marcopolofoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678009403598",
+      "job_title": "Head of Supply Chain",
+      "seniority": "Heads and junior directors",
+      "rank": 1,
+      "company": {
+        "name": "Mayers Fine Food",
+        "domain": "mayers.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "888948802756",
+      "job_title": "FMCG Executive & General Manager",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Metcash Convenience",
+        "domain": "metcash.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671074502864",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Millennium Distributions Pty Ltd",
+        "domain": "millenniumdistributions.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673742006519",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Opera Foods Pty Ltd",
+        "domain": "operafoods.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920105863378",
+      "job_title": "Chief Operating Officer",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Rockman Australia",
+        "domain": "rockman.com.au",
+        "location": "Australia",
+        "channel": "Distributors",
+        "based_out_of": "Wetherill Park, Australia",
+        "distributes": "Asian packaged food and drinks for shops, with dedicated confectionery and jellies, biscuits and cakes, and chips and snacks categories; confectionery brands include Liu Liu Mei, Jin Jin, IOIO and Jelly B, plus Paldo and Harvestia in grocery and drinks.",
+        "channels_supplied": "Grocery stores and supermarkets nationwide, including Woolworths, Coles, Costco and IGA, through a trade web shop for business customers.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has built Asian food brands into Woolworths, Coles, Costco and IGA over more than 30 years.",
+          "Grew from Sydney into Queensland and Melbourne and now supplies businesses in all eight states and territories."
+        ],
+        "fit_rationale": "A national importer and wholesaler that already sells branded sweets, biscuits and snacks to supermarket chains and independent grocers, so it could place Diablo's sugar free range with the same buyers. It is a tier 2 fit because its range is Asian packaged food and it carries no European confectionery today. Scale: supplies Woolworths, Coles, Costco and IGA and delivers to businesses in every state and territory from Sydney and Melbourne sites. Storage: B2B trade web shop with carton packs and stock levels, run from its Wetherill Park NSW head office and Epping VIC site."
+      }
+    },
+    {
+      "contact_id": "888980031696",
+      "job_title": "Procurement Specialist FMCG",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Sabrands Australia",
+        "domain": "sabrands.com",
+        "location": "Melbourne, Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678360030440",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Spiroski Foods",
+        "domain": "spiroski.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920172545230",
+      "job_title": "Chief Financial Officer",
+      "seniority": "C-suite",
+      "rank": 1,
+      "company": {
+        "name": "Stellar Distribution",
+        "domain": "stellardistribution.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680301015229",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Sunshine Confectionery Outlet",
+        "domain": "sunshineconfectionery.com.au",
+        "location": "",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671028988151",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Taste Food Distributors",
+        "domain": "taste.net.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "670980008144",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "The Distributors",
+        "domain": "thedistributorscairns.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "880220658910",
+      "job_title": "Director, Group Procurement",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "woolworths Supermarket",
+        "domain": "woolworths.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "879228561613",
+      "job_title": "Director - Buying (Category)",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "674916596935",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Angeles Fine Foods Australia",
+        "domain": "angelesfinefoods.com",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677133567192",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "735198093529",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Bonfect Snackfood Services",
+        "domain": "bonfect.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671058398398",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Coffs Cordials & Confectionery",
+        "domain": "coffscordials.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671146599642",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Confectionery Warehouse",
+        "domain": "tomscw.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677751252175",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920165344479",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Eastern Cross",
+        "domain": "easterncross.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920113064138",
+      "job_title": "Sales Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Exclusive Food Houses",
+        "domain": "efh.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678121371884",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "globalfood",
+        "domain": "globalfood.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920165344473",
+      "job_title": "National Account Manager - Woolworths, Coles, ALDI, Costco, Kmart, BIG W, MYER, David Jones & TRS",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Grocery Corporation",
+        "domain": "gcbrands.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "670968825044",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Harcher",
+        "domain": "harcher.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920217395395",
+      "job_title": "Sales Representative",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Hong Australia Corporation Ltd",
+        "domain": "hongaustralia.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677126086843",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Intertrading Australia",
+        "domain": "intertrading.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "679885735103",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "JB Metropolitan Distributor",
+        "domain": "jbmetro.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920109465798",
+      "job_title": "State Manager SA / NT",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "JB Metropolitan Distributor",
+        "domain": "jbmetro.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "740046893285",
+      "job_title": "Sourcing Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Manassen Foods Ltd",
+        "domain": "manassen.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671047591122",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Marco Polo Foods Pty Ltd",
+        "domain": "marcopolofoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920137146567",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Mayers Fine Food",
+        "domain": "mayers.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677157575888",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Metcash Convenience",
+        "domain": "metcash.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678735717567",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Millennium Distributions Pty Ltd",
+        "domain": "millenniumdistributions.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920105863379",
+      "job_title": "Brand Marketing Manager",
+      "seniority": "Managers",
+      "rank": 2,
+      "company": {
+        "name": "Rockman Australia",
+        "domain": "rockman.com.au",
+        "location": "Australia",
+        "channel": "Distributors",
+        "based_out_of": "Wetherill Park, Australia",
+        "distributes": "Asian packaged food and drinks for shops, with dedicated confectionery and jellies, biscuits and cakes, and chips and snacks categories; confectionery brands include Liu Liu Mei, Jin Jin, IOIO and Jelly B, plus Paldo and Harvestia in grocery and drinks.",
+        "channels_supplied": "Grocery stores and supermarkets nationwide, including Woolworths, Coles, Costco and IGA, through a trade web shop for business customers.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Has built Asian food brands into Woolworths, Coles, Costco and IGA over more than 30 years.",
+          "Grew from Sydney into Queensland and Melbourne and now supplies businesses in all eight states and territories."
+        ],
+        "fit_rationale": "A national importer and wholesaler that already sells branded sweets, biscuits and snacks to supermarket chains and independent grocers, so it could place Diablo's sugar free range with the same buyers. It is a tier 2 fit because its range is Asian packaged food and it carries no European confectionery today. Scale: supplies Woolworths, Coles, Costco and IGA and delivers to businesses in every state and territory from Sydney and Melbourne sites. Storage: B2B trade web shop with carton packs and stock levels, run from its Wetherill Park NSW head office and Epping VIC site."
+      }
+    },
+    {
+      "contact_id": "920161745092",
+      "job_title": "Managing Director",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "Sabrands Australia",
+        "domain": "sabrands.com",
+        "location": "Melbourne, Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "676420809968",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Spiroski Foods",
+        "domain": "spiroski.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920172545231",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Stellar Distribution",
+        "domain": "stellardistribution.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671566729402",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "Taste Food Distributors",
+        "domain": "taste.net.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677230900434",
+      "job_title": "Store Assistant",
+      "seniority": "Everyone else",
+      "rank": 2,
+      "company": {
+        "name": "woolworths Supermarket",
+        "domain": "woolworths.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "920174344398",
+      "job_title": "Chief Executive Officer and Managing Director",
+      "seniority": "Top leadership",
+      "rank": 2,
+      "company": {
+        "name": "woolworths Supermarket",
+        "domain": "woolworths.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "879245478111",
+      "job_title": "Buying Director",
+      "seniority": "Directors",
+      "rank": 3,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "675091494137",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Angeles Fine Foods Australia",
+        "domain": "angelesfinefoods.com",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677152146645",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "679938231541",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Coffs Cordials & Confectionery",
+        "domain": "coffscordials.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671229367534",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Confectionery Warehouse",
+        "domain": "tomscw.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678429347048",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "674300019914",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Eastern Cross",
+        "domain": "easterncross.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "675045676227",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Exclusive Food Houses",
+        "domain": "efh.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677202400493",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Grocery Corporation",
+        "domain": "gcbrands.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671223967937",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Harcher",
+        "domain": "harcher.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673714165993",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Hong Australia Corporation Ltd",
+        "domain": "hongaustralia.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677202331893",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Intertrading Australia",
+        "domain": "intertrading.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680018919652",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "JB Metropolitan Distributor",
+        "domain": "jbmetro.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671631777014",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "JB Metropolitan Distributors Adelaide",
+        "domain": "jbmetroadelaide.com.au",
+        "location": "",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "740031554772",
+      "job_title": "Purchasing Officer",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Manassen Foods Ltd",
+        "domain": "manassen.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671060194495",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Marco Polo Foods Pty Ltd",
+        "domain": "marcopolofoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678459547859",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Mayers Fine Food",
+        "domain": "mayers.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678433221875",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Metcash Convenience",
+        "domain": "metcash.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "676987114723",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Spiroski Foods",
+        "domain": "spiroski.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671025346787",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Taste Food Distributors",
+        "domain": "taste.net.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "886878358728",
+      "job_title": "Confectionery",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "woolworths Supermarket",
+        "domain": "woolworths.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "883962175712",
+      "job_title": "National Buying Director",
+      "seniority": "Directors",
+      "rank": 4,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "679941807290",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Angeles Fine Foods Australia",
+        "domain": "angelesfinefoods.com",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677156885705",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678602509560",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Confectionery Warehouse",
+        "domain": "tomscw.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673708667106",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678350800066",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Grocery Corporation",
+        "domain": "gcbrands.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673174288598",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Harcher",
+        "domain": "harcher.com.au",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677222158553",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Intertrading Australia",
+        "domain": "intertrading.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678358218965",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "JB Metropolitan Distributor",
+        "domain": "jbmetro.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "888889823435",
+      "job_title": "Graphic Designer - FMCG",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Manassen Foods Ltd",
+        "domain": "manassen.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680045460725",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Metcash Convenience",
+        "domain": "metcash.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677126088907",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "Spiroski Foods",
+        "domain": "spiroski.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678590448837",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 4,
+      "company": {
+        "name": "woolworths Supermarket",
+        "domain": "woolworths.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "670965546203",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677236855012",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677408525511",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677676889308",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "Intertrading Australia",
+        "domain": "intertrading.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678356263113",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "Manassen Foods Ltd",
+        "domain": "manassen.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680309787841",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "Metcash Convenience",
+        "domain": "metcash.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678369563842",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 5,
+      "company": {
+        "name": "Spiroski Foods",
+        "domain": "spiroski.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671183979709",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 6,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677501539532",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 6,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677501785291",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 6,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678344093931",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 6,
+      "company": {
+        "name": "Intertrading Australia",
+        "domain": "intertrading.com.au",
+        "location": "Australia",
+        "channel": "Grocery Retail",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680432265444",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 6,
+      "company": {
+        "name": "Metcash Convenience",
+        "domain": "metcash.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "671185774788",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 7,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677616982262",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 7,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677620721900",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 7,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "680463251680",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 7,
+      "company": {
+        "name": "Metcash Convenience",
+        "domain": "metcash.com",
+        "location": "Australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "672966118609",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 8,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677639800010",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 8,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677647820007",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 8,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "673755227341",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 9,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "677676667081",
+      "job_title": "",
+      "seniority": "Everyone else",
+      "rank": 9,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678827944150",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 9,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "860314742987",
+      "job_title": "Procurement Leader",
+      "seniority": "Everyone else",
+      "rank": 10,
+      "company": {
+        "name": "Aldi Australia",
+        "domain": "aldi.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "676642174156",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 10,
+      "company": {
+        "name": "Bensons Trading",
+        "domain": "bensonstrading.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "678828534991",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 10,
+      "company": {
+        "name": "Conga Food",
+        "domain": "congafoods.com.au",
+        "location": "Australia",
+        "channel": "",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    }
+  ]
 }
