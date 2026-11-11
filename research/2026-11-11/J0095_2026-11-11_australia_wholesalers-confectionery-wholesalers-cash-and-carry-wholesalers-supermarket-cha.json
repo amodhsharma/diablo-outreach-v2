@@ -1,0 +1,56 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0095",
+  "location": "Australia",
+  "run_date": "2026-11-11",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 38
+    },
+    {
+      "channel": "confectionery wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 81
+    },
+    {
+      "channel": "cash and carry wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 44
+    },
+    {
+      "channel": "supermarket chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 17
+    },
+    {
+      "channel": "hypermarket chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 18
+    }
+  ],
+  "companies": []
+}
