@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-11 19:39 UTC
+Written 2026-11-11 22:41 UTC
 
 ```
-685 leads in the Diablo campaigns in Instantly
+686 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 Business Manager, The Running Centre sent only an automatic answer (the text says "on leave"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -16,9 +16,8 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
-Email threads: 0 emails since the last run
-Timstock Trading House: the introduction goes to the next contact
-Email threads: 22 companies read in full, 100 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 1 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 1 contacts and 0 companies in HubSpot
+Email threads: 1 emails since the last run
+Email threads: 16 companies read in full, 106 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Updated 0 contacts and 0 companies in HubSpot
 ```
