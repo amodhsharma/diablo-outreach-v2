@@ -15231,6 +15231,26 @@
     "research_file": "research/2026-10-23/J0040_2026-10-23_geneva-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "rockman.com.au": {
+    "name": "Rockman Australia",
+    "based_out_of": "Wetherill Park, Australia",
+    "market": "Australia",
+    "category": "Distributors",
+    "channels": [
+      "distributors",
+      "confectionery importers"
+    ],
+    "fit_rationale": "A national importer and wholesaler that already sells branded sweets, biscuits and snacks to supermarket chains and independent grocers, so it could place Diablo's sugar free range with the same buyers. It is a tier 2 fit because its range is Asian packaged food and it carries no European confectionery today. Scale: supplies Woolworths, Coles, Costco and IGA and delivers to businesses in every state and territory from Sydney and Melbourne sites. Storage: B2B trade web shop with carton packs and stock levels, run from its Wetherill Park NSW head office and Epping VIC site.",
+    "what_they_do_well": [
+      "Has built Asian food brands into Woolworths, Coles, Costco and IGA over more than 30 years.",
+      "Grew from Sydney into Queensland and Melbourne and now supplies businesses in all eight states and territories."
+    ],
+    "distributes": "Asian packaged food and drinks for shops, with dedicated confectionery and jellies, biscuits and cakes, and chips and snacks categories; confectionery brands include Liu Liu Mei, Jin Jin, IOIO and Jelly B, plus Paldo and Harvestia in grocery and drinks.",
+    "channels_supplied": "Grocery stores and supermarkets nationwide, including Woolworths, Coles, Costco and IGA, through a trade web shop for business customers.",
+    "sf_brands_carried": "",
+    "added": "2026-11-11",
+    "research_file": "research/2026-11-11/J0093_2026-11-11_australia_distributors-confectionery-importers-snack-distributors-health-food-distributors.json"
+  },
   "rogerswholesalefoods.co.uk": {
     "name": "Rogers Wholesale Foods",
     "based_out_of": "Poole, United Kingdom",
