@@ -80,6 +80,7 @@ Approved to send*). The team's own choices, such as plain Unqualified, are never
 | Person 1's one reminder sent | | Reminder sent |
 | They replied | In Progress | In Progress |
 | A clear yes or no (Instantly label Interested or Not interested) | END: Forwarded to Sales Team | END: Forwarded to Sales Team (the person and everyone else there) |
+| Found under a channel research no longer searches (11 Nov 2026) | Unqualified: Channel no longer targeted | Unqualified company |
 
 **Contact located. Queued for processing (agreed 10 Nov 2026, Ariel).** GATE1 only means "approved, still
 waiting for people". As soon as a GATE1 company has at least 1 AUTO-OUTREACH contact (a person or a
@@ -89,6 +90,12 @@ to Contact when the first email goes out. If every contact drops out before that
 rejected at GATE2), it goes back to GATE1 and Apollo is asked again at its monthly check; with nobody left
 at all it gets the Unqualified choices as before. A company with 1 person still has Apollo checked once a
 month for a second. Before button 1 has added the choice, the companies simply stay on GATE1.
+
+**Unqualified: Channel no longer targeted (agreed 11 Nov 2026, Ariel).** Companies found under one of the
+channels research no longer searches (`docs/paused_channels.md`) are set to this company Lead Status instead of
+plain Unqualified, which stays for "a person said no". It works like Unqualified: nobody there is emailed
+again and button 4 sets its contacts to "Unqualified company". One HubSpot filter finds them again if a channel
+comes back. Button 1 adds the choice.
 
 **Existing contacts taken over (agreed 10 Nov 2026, Ariel).** Nobody tags contacts by hand any more. At the
 start of every run of button 3, every contact linked to a company on GATE1, on Contact located or on

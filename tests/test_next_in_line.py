@@ -722,3 +722,18 @@ def test_with_follow_ups_off_the_company_closes_after_a_week(settings):
     assert status_of(hs, p1) == "CONTACTED_NO_RESPONSE_UNQUALIFIED"
     assert status_of(hs, p2) == status_of(hs, p3) == "COLLEAGUE_CONTACTED_NO_RESPONSE"  # in the same run
     assert emails.forwards == [] and emails.replies == []
+
+
+def test_a_company_whose_channel_is_no_longer_targeted_stops_and_its_contacts_follow():
+    """11 Nov 2026 (Ariel): "Unqualified: Channel no longer targeted" for companies found under a paused
+    channel; nobody there is emailed again and its contacts become "Unqualified company"."""
+    hs = FakeCRM()
+    cid = hs.add("companies", name="Vend Co", domain="vend.example", **{LS: "Unqualified: Channel no longer targeted"})
+    waiting = hs.add("contacts", email="a@vend.example", **{LS: "APPROVED_TO_SEND"})
+    emailed = hs.add("contacts", email="b@vend.example", **{LS: "ATTEMPTED_TO_CONTACT"})
+    for pid in (waiting, emailed):
+        hs.links[pid] = [cid]
+    assert sync.close_company_contacts(hs, sync.LeadStatus(hs), quiet) == 2
+    assert status_of(hs, waiting) == status_of(hs, emailed) == "UNQUALIFIED_COMPANY"
+    contact = {"properties": {"email": "a@vend.example", "diablo_personal_line": "Line."}}
+    assert "outreach has ended" in send.skip_reason(contact, {"id": cid}, "channel_paused")

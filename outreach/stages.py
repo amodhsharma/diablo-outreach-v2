@@ -30,6 +30,8 @@ The dead ends (agreed 2 Nov 2026, Ariel). Columns: the company, the person email
     You rejected it          Unqualified                  Unqualified company          Unqualified company
     The person said no       Unqualified: Employee        Unqualified: Response        Unqualified: Colleague
                              response negative            negative                     response negative
+    Its channel is no        Unqualified: Channel no      -                            Unqualified company
+    longer researched        longer targeted (11 Nov 2026)
     The person opted out     Unqualified: Employee        Unqualified: Opted-out/      Unqualified: Colleague
     (unsubscribed, on the    Opted-out/Blocklist          Blocklist                    Opted-out/Blocklist
     blocklist, asked to stop)
@@ -94,6 +96,10 @@ STAGES = {
         "bounced_other": "Unqualified: Bounced, other reason",
         # 3 Nov 2026 (Ariel): a clear yes or no went to the sales team; the automation never touches it again.
         "sales": "END: Forwarded to Sales Team",
+        # 11 Nov 2026 (Ariel): found under a channel research no longer searches (docs/paused_channels.md); no
+        # more emails, and its contacts become "Unqualified company". Kept apart from plain Unqualified (a person
+        # said no) so the companies can be found again if a channel comes back.
+        "channel_paused": "Unqualified: Channel no longer targeted",
     },
     "contacts": {
         "found": "New",
@@ -173,7 +179,8 @@ NEW_OPTION_VALUES = {
                   "Unqualified: One contact inputted, which is unavailable":
                       "Unqualified: One contact inputted, which is unavailable",
                   "Unqualified: Bounced, other reason": "Unqualified: Bounced, other reason",
-                  "END: Forwarded to Sales Team": "END: Forwarded to Sales Team"},
+                  "END: Forwarded to Sales Team": "END: Forwarded to Sales Team",
+                  "Unqualified: Channel no longer targeted": "Unqualified: Channel no longer targeted"},
     "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
                  "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "Forward sent": "FORWARD_SENT",
                  "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
@@ -201,6 +208,7 @@ ORDER = {"": 0, "found": 0, "missing_info": 0, "missing_apollo": 0, "contact_exi
          "colleague_no_response": 3,
          "company_unqualified": 3, "no_response": 3, "corrupt": 3, "inbox_bounced": 3, "redirected": 3,
          "invalid_inbox": 3, "personal_bounced": 3, "redirected_none": 3,
+         "channel_paused": 3,
          "sales": 4}  # 3 Nov 2026: the end; nothing moves a record on from there
 TEAM = "team"
 
@@ -279,4 +287,4 @@ def forward(old_stage, new_stage):
 
 # A company in one of these stages gets no more emails.
 COMPANY_STOPPED = {"replied", "closed", "said_no", "opted_out", "no_response", "invalid_inbox", "personal_bounced",
-                   "redirected_none", "bounced_other", "sales", TEAM}
+                   "redirected_none", "bounced_other", "sales", "channel_paused", TEAM}

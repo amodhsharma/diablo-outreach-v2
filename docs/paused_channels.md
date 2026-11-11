@@ -41,6 +41,13 @@ shops, pharmacy chains, office snacks, petrol stations, vending, gifting, hospit
 minibars, leisure venues, travel retail, promotional merchandise) were left in place, and the mail
 writing skill still knows them.
 
+## Companies already found under these channels
+
+From 11 Nov 2026 (Ariel) the companies research had already found under these channels are set to the company
+Lead Status "Unqualified: Channel no longer targeted": no more emails, and their contacts become "Unqualified
+company". To reopen them when a channel comes back, filter Companies on that Lead Status (and the channel in the
+company's research) and set the ones wanted back to GATE1.
+
 ## How to bring one back
 
 1. Add the channel name to `country_channels` in `config/coverage.json` (and to `city_channels` if it

@@ -105,7 +105,8 @@ LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                   "Unqualified: Personal inbox bounced",
                                   "Unqualified: One contact inputted, which is unavailable",
                                   "Unqualified: Bounced, other reason",  # 3 Nov 2026
-                                  "END: Forwarded to Sales Team"},  # 3 Nov 2026
+                                  "END: Forwarded to Sales Team",  # 3 Nov 2026
+                                  "Unqualified: Channel no longer targeted"},  # 11 Nov 2026
                     "contacts": {"New, Personal line filled", "GATE2: Approved to send",
                                  "Forward sent", "Reminder sent",  # these two added 14 Oct 2026
                                  # the rest of a company once someone there has answered (19 Oct 2026)

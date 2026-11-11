@@ -343,7 +343,7 @@ COLLEAGUE_STAGE = {"marked interested": "colleague_positive", "replied": "collea
 KEEP_WHEN_COMPANY_CLOSED = CONTACT_CLOSED + LEFT_OUT + ("company_unqualified", "no_response", "sales", TEAM) + COLLEAGUE_STAGES
 # What the others at a company get, by the company's own Lead Status (agreed 2 Nov 2026, Ariel), when
 # nobody there has answered.
-OTHERS_WHEN = {"closed": "company_unqualified", "said_no": "colleague_negative",
+OTHERS_WHEN = {"closed": "company_unqualified", "channel_paused": "company_unqualified", "said_no": "colleague_negative",
                "opted_out": "colleague_opted_out", "no_response": "colleague_no_response"}
 
 
@@ -391,6 +391,7 @@ def close_company_contacts(hs, statuses, log=print, leads=None, blocked=None):
         Unqualified: Employee response negative      Unqualified: Colleague response negative
         Unqualified: Employee Opted-out/Blocklist    Unqualified: Colleague Opted-out/Blocklist
         Unqualified: Contacted, but no response      Unqualified: Colleague Contacted, but no response
+        Unqualified: Channel no longer targeted      Unqualified company (11 Nov 2026)
 
     with the reason written in "Outreach stopped because" and on its timeline. When someone at the
     company answered (Instantly shows it), the others get that answer instead, such as "Colleague
@@ -402,7 +403,7 @@ def close_company_contacts(hs, statuses, log=print, leads=None, blocked=None):
             "Contacts at Unqualified companies were left as they are.")
         return 0
     companies = []
-    for stage in ("closed", "said_no", "opted_out", "no_response"):
+    for stage in ("closed", "said_no", "opted_out", "no_response", "channel_paused"):  # channel_paused: 11 Nov 2026
         if statuses.has("companies", stage):
             companies += hs.tagged_search("companies", [statuses.filter("companies", stage)],
                                           ["name", STOP_REASON, LEAD_STATUS], max_results=5000)

@@ -97,14 +97,14 @@ def test_live_gets_exactly_four_fields_and_five_choices():
     # the two groups, the five contact fields, (19 Oct 2026) the company's "Outreach stopped because"
     # and (21 Oct 2026) its "Job Number"
     assert summary["created"] == 9
-    # Every pipeline choice, under its 2 Nov 2026 label: 12 for companies (10 Nov 2026: Contact located),
-    # 18 for contacts (3 Nov 2026).
-    assert summary["updated"] == 30
+    # Every pipeline choice, under its 2 Nov 2026 label: 13 for companies (10 Nov 2026: Contact located; 11 Nov
+    # 2026: Channel no longer targeted), 18 for contacts (3 Nov 2026).
+    assert summary["updated"] == 31
     assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, COMPANY_NOTE, ORDER,
                                          CONTACT_SOURCE, STOP_REASON}
     assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type", STOP_REASON,
                                           "diablo_job_number"}
-    assert sorted(labels(hs, "companies")[-12:]) == sorted(LIVE_NEW_CHOICES["companies"])
+    assert sorted(labels(hs, "companies")[-13:]) == sorted(LIVE_NEW_CHOICES["companies"])
     assert sorted(labels(hs, "contacts")[-18:]) == sorted(LIVE_NEW_CHOICES["contacts"])
     for obj in ("companies", "contacts"):  # the team's choices are sent back exactly as they were
         assert hs.props[obj]["hs_lead_status"]["options"][:len(before[obj])] == before[obj]
@@ -136,7 +136,7 @@ def test_refuses_live_account_without_flag_but_a_dry_run_only_reads():
     shown = []
     summary = setup_hubspot.run(hs, dry_run=True, log=shown.append)
     assert all(method == "GET" for method, _ in hs.calls)
-    assert summary["updated"] == 30 and any("[would add]" in line for line in shown)
+    assert summary["updated"] == 31 and any("[would add]" in line for line in shown)
     assert "New, Personal line filled" not in labels(hs, "contacts")
 
 
@@ -167,7 +167,7 @@ def test_live_never_gets_other_choices_or_fields():
     summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
     assert summary["conflict"] == 2  # reported, not added
     assert "Missing Info" not in labels(hs, "companies") and "lead_source" not in hs.props["contacts"]
-    assert "GATE1: Approved for outreach" in labels(hs, "companies")[-10:]
+    assert "GATE1: Approved for outreach" in labels(hs, "companies")[-11:]
 
 
 def test_every_run_shows_the_key_steps_and_a_plain_reason(tmp_path, monkeypatch):

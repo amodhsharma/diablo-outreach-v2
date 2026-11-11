@@ -22,7 +22,8 @@ LIVE_COMPANY_STATUS = {"New": "New", "Missing Info": "Missing Info", "Emailed": 
                        "Unqualified: One contact inputted, which is unavailable":
                            "Unqualified: One contact inputted, which is unavailable",
                        "Unqualified: Bounced, other reason": "Unqualified: Bounced, other reason",
-                       "END: Forwarded to Sales Team": "END: Forwarded to Sales Team"}
+                       "END: Forwarded to Sales Team": "END: Forwarded to Sales Team",
+                       "Unqualified: Channel no longer targeted": "Unqualified: Channel no longer targeted"}
 LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": "Emailed",
                        "IN_PROGRESS": "In Progress", "UNQUALIFIED": "Unqualified",
                        "ATTEMPTED_TO_CONTACT": "Attempted to Contact", "WON": "WON",
