@@ -1,0 +1,87 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0093",
+  "location": "Australia",
+  "run_date": "2026-11-11",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 43
+    },
+    {
+      "channel": "confectionery importers",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 39
+    },
+    {
+      "channel": "snack distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 41
+    },
+    {
+      "channel": "health food distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 30
+    },
+    {
+      "channel": "British food importers",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 41
+    }
+  ],
+  "companies": [
+    {
+      "name": "Rockman Australia",
+      "based_out_of": "Wetherill Park, Australia",
+      "domain": "rockman.com.au",
+      "channel_category": [
+        "distributors",
+        "confectionery importers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Asian packaged food and drinks for shops, with dedicated confectionery and jellies, biscuits and cakes, and chips and snacks categories; confectionery brands include Liu Liu Mei, Jin Jin, IOIO and Jelly B, plus Paldo and Harvestia in grocery and drinks.",
+      "channels_supplied": "Grocery stores and supermarkets nationwide, including Woolworths, Coles, Costco and IGA, through a trade web shop for business customers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A national importer and wholesaler that already sells branded sweets, biscuits and snacks to supermarket chains and independent grocers, so it could place Diablo's sugar free range with the same buyers. It is a tier 2 fit because its range is Asian packaged food and it carries no European confectionery today. Scale: supplies Woolworths, Coles, Costco and IGA and delivers to businesses in every state and territory from Sydney and Melbourne sites. Storage: B2B trade web shop with carton packs and stock levels, run from its Wetherill Park NSW head office and Epping VIC site.",
+      "what_they_do_well": [
+        "Has built Asian food brands into Woolworths, Coles, Costco and IGA over more than 30 years.",
+        "Grew from Sydney into Queensland and Melbourne and now supplies businesses in all eight states and territories."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://rockman.com.au/about-us/",
+        "https://www.rockman.com.au/histories/",
+        "https://rockman.com.au/product-category/confectionery-jellies/",
+        "https://rockman.com.au/shop/",
+        "https://old.rockman.com.au/histories/",
+        "https://rockman.com.au/product-category/biscuits-cakes/",
+        "https://backup.rockman.com.au/?p=1593"
+      ]
+    }
+  ]
+}
