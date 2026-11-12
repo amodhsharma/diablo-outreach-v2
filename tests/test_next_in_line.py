@@ -309,7 +309,8 @@ def test_signature_name_from_the_mailbox_follows_the_mailbox(settings):
     names = {k.lower(): v for k, v in s["signature"]["names_by_mailbox"].items()}
     assert {m: names[m] for m in load_settings()["send"]["sending_accounts"]} == {
         "sales@diablosnosugar.com": "Joshua", "info@diablosnosugar.com": "Joshua", "joshua@diabloexport.com": "Joshua",
-        "dana@diabloexport.com": "Dana", "elize@diabloexport.com": "Elize"}
+        "dana@diabloexport.com": "Dana", "elize@diabloexport.com": "Elize", "joshua@meetdiablo.com": "Joshua",
+        "dana@meetdiablo.com": "Dana", "elize@meetdiablo.com": "Elize"}  # meetdiablo.com: 12 Nov 2026
     s["signature"]["name_from_mailbox"] = False
     assert send.sender_name_for(s, "dana@diabloexport.com") == s["signature"]["name"]
     _, body = send._template("templates/template_3.json", s)
@@ -334,8 +335,9 @@ def test_signature_name_from_the_mailbox_follows_the_mailbox(settings):
 def test_info_mailbox_is_a_sending_account():
     s = load_settings()["send"]
     assert s["sending_accounts"] == ["sales@diablosnosugar.com", "info@diablosnosugar.com", "joshua@diabloexport.com",
-                                     "dana@diabloexport.com", "elize@diabloexport.com"]  # 2 Nov 2026
-    assert send.daily_limit_for(s) == 150  # 5 mailboxes x 30 (2 Nov 2026)
+                                     "dana@diabloexport.com", "elize@diabloexport.com",  # 2 Nov 2026
+                                     "joshua@meetdiablo.com", "dana@meetdiablo.com", "elize@meetdiablo.com"]  # 12 Nov
+    assert send.daily_limit_for(s) == 240  # 8 mailboxes x 30 (12 Nov 2026)
     assert not any(a.endswith("@diablosugarfree.com") for a in s["sending_accounts"])  # never the main domain
 
 
