@@ -145,6 +145,28 @@ left (company, job title, why, part of the reply and the HubSpot link) and how m
 from earlier days. A company on In Progress whose replier is now Rejected/Redirected, with nobody else
 there in conversation, carries on.
 
+**Referrals come before Instantly's label (12 Nov 2026, Ariel, after Taste Organic).** Every real reply is
+first read for a hand-over to someone else, whatever Instantly labelled it ("the person to contact for new
+products is ... The contact is ...", "our buyer is ...", "please speak to ..." and the same in German, French,
+Italian, Spanish and Dutch, with the address shortly after the words).
+- A hand-over is a referral, also when Instantly labelled it Interested or Not interested: it is not sent to
+  the sales team, the person who replied becomes Rejected/Redirected and the new person is added as above.
+- The new person goes under the AUTO-OUTREACH company whose website is their address's domain when there is
+  one (a store pointing us to its head office), otherwise under the replier's company.
+- The new person's first email is a forward of the reply that named them, from the mailbox that received
+  it, with a short note on top (templates/referral.json): "Your colleague Matt kindly passed on your details
+  as the person who looks after new products, so I am sharing our note with you below." It goes at once
+  (outreach/referral_intro.py); they are then on "Forward sent" and their company on Attempted to Contact.
+  Button 4 never gives them the normal introduction.
+- A labelled reply that names a colleague but also asks for something (prices, samples, a quote) still goes
+  to the sales team; the colleague is added to HubSpot on END: Forwarded to Sales Team too.
+- The team gets these replies tagged "[Outreach reply: Referral]" (REPLY_FORWARD_TO).
+- To send one by hand for a reply handled before 12 Nov 2026: `python -m outreach.referral_intro --contact
+  <new person's HubSpot ID> --referrer <replier's HubSpot ID>`, then push data/referrals.json.
+
+**Legal basis (12 Nov 2026).** Every new contact, Apollo's and the website's too, gets "Legitimate interest -
+Lead", and button 3 fills it on any AUTO-OUTREACH contact still without it.
+
 **Paused companies that go on by themselves (10 Nov 2026).** A company on In Progress goes back to
 Attempted to Contact when:
 - the person who replied is Rejected/Redirected and nobody else there really replied (contacts left on In

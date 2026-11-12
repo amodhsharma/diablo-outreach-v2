@@ -19,7 +19,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import bond, chain, corrupt, redirect, timeline
+from . import bond, chain, corrupt, redirect, referral_intro, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -498,6 +498,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     chain_cfg = chain.config(settings)  # 2 Nov 2026: everyone at the company gets their own introduction
     chain_state = chain.load_state() if chain_cfg else {}
     needs_note = first_email_uses(settings, "company_note")
+    referral_waiting = referral_intro.waiting_ids()
     bond_config = bond.load()
     campaign_ids = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
     for c in contacts:
@@ -507,6 +508,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         company_stage = statuses.of("companies", company) if company else ""
         p = c["properties"]
         reason = skip_reason(c, comp, company_stage, needs_note)
+        if not reason and str(c["id"]) in referral_waiting:  # 12 Nov 2026: their first email is the referral forward
+            reason = "a colleague's reply named them, so their first email is a forward of that reply (button 4's sync)"
         if reason:
             skipped.append({"contact_id": c["id"], "email": mask(p.get("email")), "reason": reason})
             log(f"Skipped contact {c['id']} ({mask(p.get('email'))}): {reason}")

@@ -31,9 +31,15 @@ def test_a_reply_giving_a_new_address_is_switched_by_itself(settings):
     assert rec(hs, p1)[LS] == REDIRECTED
     assert hs.records["companies"][cid][LS] == "Attempted to Contact"  # back in the loop
     assert referrals.load()["handled"][p1]["outcome"] == "switched"
-    # Button 3 makes the new contact number 1, copies the line and puts it on GATE2
+    # 12 Nov 2026 (Ariel): the new person's first email is a forward of the reply, naming the colleague
+    fwd = next(f for f in emails.forwards if f["to"] == "anna.meier@shift.example")
+    assert "Your colleague P1 kindly passed on your details" in fwd["text"] and "Hi Anna," in fwd["text"]
+    assert "my email address has changed" in fwd["text"]  # their own words underneath
+    assert rec(hs, new)[LS] == "FORWARD_SENT" and rec(hs, new)[ORDER] == "1"
+    # Button 3 keeps them number 1 (already on its way), and the company stays in the loop
     find_contacts.run("test", load_settings(), hs, FakeApollo({}, {}), log=quiet)
-    assert rec(hs, new)[ORDER] == "1" and rec(hs, new)[LS] == "APPROVED_TO_SEND"
+    assert rec(hs, new)[ORDER] == "1" and rec(hs, new)[LS] == "FORWARD_SENT"
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
 
 
 def test_an_unclear_reply_changes_nothing_and_is_listed_for_amodh(settings):

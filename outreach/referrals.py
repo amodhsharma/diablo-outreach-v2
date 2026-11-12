@@ -48,7 +48,7 @@ import re
 import sys
 
 from .common import ROOT
-from .schema import LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD, TAG, TAG_PROPERTY
+from .schema import LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD, ORDER as ORDER_FIELD, TAG, TAG_PROPERTY
 
 FILE = ROOT / "data" / "referrals.json"
 INDIA = dt.timezone(dt.timedelta(hours=5, minutes=30))
@@ -71,7 +71,17 @@ REDIRECT = re.compile(
     r"veuillez contacter|merci de contacter|[ée]crivez [àa]|nouvelle adresse|n'est plus (chez|dans|en charge)|"
     r"rivolgersi a|contattare|scrivere a|nuovo indirizzo|non (è|e) pi[uù] (in|con|presso|responsabile)|"
     r"contacte con|escriba a|nueva direcci[óo]n|ya no (trabaja|est[áa]|es responsable)|"
-    r"neem contact op met|nieuw (e-?mail)?adres|niet meer (bij|werkzaam))", re.I)
+    r"neem contact op met|nieuw (e-?mail)?adres|niet meer (bij|werkzaam)|"
+    # 12 Nov 2026 (Ariel, Taste Organic): "the person to contact for new products is ... The contact is ..."
+    r"the (right |best |correct )?(person|people|contact) to (contact|speak to|talk to|email|write to|reach)|"
+    r"\b(the|our|my) contact (person )?is\b|(the )?(best|right|correct) (person|contact) (is|would be)|"
+    r"\bour (buyer|purchasing (manager|officer|team)|category manager|procurement (manager|team)) (is|would be)\b|"
+    r"please (speak|talk) (to|with)|(speak|talk) to (my|our) (colleague|buyer|manager|purchasing)|"
+    r"ansprechpartner(in)? (ist|f[üu]r)|zust[äa]ndig (ist|sind|w[äa]re)|"
+    r"(la (bonne )?personne [àa] contacter|votre (contact|interlocuteur) (est|sera)|notre acheteu(r|se) est)|"
+    r"(la persona (giusta )?da contattare|il (nostro )?referente [èe])|"
+    r"(la persona (indicada |adecuada )?(para|a) contactar|el contacto es|nuestro comprador es)|"
+    r"de (juiste )?contactpersoon is)", re.I)
 # A colleague copied into the reply (10 Nov 2026, Daily Blooms): only words that say so.
 COPIED = re.compile(
     r"(point(ed)? you (in the direction of|to(wards)?) (my|our)|(has|have) been (looped|cc'?d|copied) in|"
@@ -96,6 +106,14 @@ NEAR = 250  # the address must come within this many characters after the redire
 ASKS = re.compile(r"(\?|\b(send|price|prices|pricing|price list|catalogue|catalog|samples?|quote|quotation|offer|"
                   r"preis|preise|preisliste|katalog|muster|prix|tarifs?|catalogue|[ée]chantillons?|prezzi|listino|"
                   r"campioni|precios?|cat[áa]logo|muestras?|prijzen|prijslijst)\b)", re.I)
+# 12 Nov 2026 (Ariel): a reply Instantly labelled Interested or Not interested that names a colleague and also asks
+# us for something (prices, samples, a quote) is a buyer talking to us: it goes to the sales team (END) and the
+# colleague is added to HubSpot on END too. Only these words count, not a question mark or "send" ("please send it
+# to our buyer" is a hand-over).
+ASKS_WORDS = re.compile(r"\b(price|prices|pricing|price ?list|samples?|quote|quotation|moq|minimum order|"
+                        r"preis|preise|preisliste|muster|angebot|prix|tarifs?|[ée]chantillons?|devis|prezzi|listino|"
+                        r"campioni|preventivo|precios?|muestras?|cotizaci[óo]n|prijzen|prijslijst|monsters?|offerte)\b",
+                        re.I)
 
 
 def today_india(now=None):
@@ -171,9 +189,10 @@ def copied_in(emails, sender=""):
     return found
 
 
-def judge(text, sender, company_domain, automatic_left=False, copied=()):
+def judge(text, sender, company_domain, automatic_left=False, copied=(), ignore_asks=False):
     """(new addresses at the company, why not sure or ""). copied: the colleagues the reply was also sent to
-    (10 Nov 2026): they count when the reply's words say it is a redirect."""
+    (10 Nov 2026): they count when the reply's words say it is a redirect. ignore_asks: a colleague copied in
+    counts even when the reply also asks for something (precheck decides that part itself)."""
     found = addresses_in(text, sender)
     cc = [a for a in _same_company(copied, sender, company_domain) if a not in found]
     same = _same_company(found, sender, company_domain) + cc
@@ -188,7 +207,7 @@ def judge(text, sender, company_domain, automatic_left=False, copied=()):
             return [], "no clear wording that it is a redirect"
         if cc and not (REDIRECT.search(text or "") or COPIED.search(text or "")):
             return [], "a colleague was copied in, but no clear wording that it is a redirect"
-        if cc and ASKS.search(text or ""):
+        if cc and not ignore_asks and ASKS.search(text or ""):
             return [], "a colleague was copied in, but the reply also asks us for something"
     return same, ""
 
@@ -223,6 +242,96 @@ def _reply_parts(emails_api, address, kind):
     return texts, emails
 
 
+COMPANY_FIELDS = ["name", "domain", "country", "city", "hubspot_owner_id", LEAD_STATUS]
+
+
+def domain_company(hs, addresses, prefer=None):
+    """(company id, record) of the AUTO-OUTREACH company whose website is the addresses' domain (12 Nov 2026,
+    Ariel: a referral to bishnu@uniquewholefood.com.au goes under Unique Wholefood), or (None, None). All the
+    addresses must share one domain; `prefer` (the replier's company) wins when it matches too."""
+    domains = {_domain(a) for a in addresses}
+    if len(domains) != 1:
+        return None, None
+    d = domains.pop()
+    if not d or FREE_MAIL.match(d):
+        return None, None
+    rows = hs.tagged_search("companies", [{"propertyName": "domain", "operator": "IN", "values": [d, "www." + d]}],
+                            COMPANY_FIELDS, max_results=10)
+    rows = [r for r in rows if _site((r.get("properties") or {}).get("domain")) == d]
+    if not rows:
+        return None, None
+    chosen = next((r for r in rows if str(r["id"]) == str(prefer)), rows[0])
+    return str(chosen["id"]), chosen
+
+
+def precheck(hs, emails_api, record, company):
+    """What a real reply is, read before Instantly's label decides (12 Nov 2026, Ariel, Taste Organic):
+    ("switch", addresses) when it hands us to someone else at the company, ("mixed", addresses) when it names
+    a colleague but also asks us for something (prices, samples, a quote), or (None, [])."""
+    address = ((record.get("properties") or {}).get("email") or "").lower()
+    cp = (company or {}).get("properties") or {}
+    if emails_api is None or not address:
+        return None, []
+    texts, emails = _reply_parts(emails_api, address, "real")
+    if not texts:
+        return None, []
+    text = "\n".join(texts)
+    new, _ = judge(text, address, cp.get("domain"), copied=copied_in(emails, address), ignore_asks=True)
+    if not new:
+        return None, []
+    return ("mixed" if ASKS_WORDS.search(text) else "switch"), new
+
+
+def add_to_sales(hs, statuses, record, company_id, company, addresses, log=print, path=None, now=None):
+    """A labelled reply that names a colleague and also asks for something (12 Nov 2026, Ariel): the colleague is
+    added to HubSpot (AUTO-OUTREACH, linked like a referral) and set to END: Forwarded to Sales Team, like the
+    person who replied. A team contact is never touched. Returns the ids set to END."""
+    from .next_in_line import tagged_company_of
+    from .stages import forward as moves_on
+    state = load(path)
+    handled = state.setdefault("handled", {})
+    cid = str(record["id"])
+    if (handled.get(cid) or {}).get("outcome") == "mixed" or not statuses.has("contacts", "sales"):
+        return []
+    target_id, target = domain_company(hs, addresses, prefer=company_id)
+    target_id, target = (target_id, target) if target_id else (str(company_id), company)
+    tp = (target or {}).get("properties") or {}
+    known = {(x["properties"].get("email") or "").lower(): x for x in
+             hs.batch_read("contacts", addresses, ["email", TAG_PROPERTY, LEAD_STATUS], id_property="email")}
+    ids, records = [], []
+    for a in addresses:
+        x = known.get(a)
+        if x is not None:
+            if (x.get("properties") or {}).get(TAG_PROPERTY) == TAG:
+                ids.append(str(x["id"]))
+            continue  # the team's own contact: left alone
+        first, last = name_from(a)
+        props = {"email": a, "jobtitle": JOB_TITLE, LEGAL_BASIS: LEGAL_BASIS_LEAD, "company": tp.get("name") or "",
+                 **statuses.props("contacts", "sales")}
+        props.update({k: v for k, v in (("firstname", first), ("lastname", last), ("country", tp.get("country")),
+                                        ("city", tp.get("city")), ("hubspot_owner_id", tp.get("hubspot_owner_id")))
+                      if v})
+        records.append(props)
+    created = hs.create_tagged("contacts", records) if records else []
+    new_ids = [str(x["id"]) for x in created if x]
+    if ids:
+        elsewhere, _ = tagged_company_of(hs, ids, ["name"])
+        ids = [i for i in ids if elsewhere.get(i) in (None, str(company_id), target_id)]
+        current = {str(r["id"]): statuses.of("contacts", r) for r in hs.tagged_read("contacts", ids, [LEAD_STATUS])}
+        ids = [i for i in ids if moves_on(current.get(i, ""), "sales")]
+        hs.update_tagged("contacts", [(i, statuses.props("contacts", "sales")) for i in ids])
+    hs.associate_primary_tagged([(i, target_id) for i in new_ids + ids])
+    if target_id != str(company_id) and target is not None and moves_on(statuses.of("companies", target), "sales"):
+        hs.update_tagged("companies", [(target_id, statuses.props("companies", "sales"))])
+    handled[cid] = {"day": today_india(now), "outcome": "mixed", "company": str(company_id),
+                    "new": new_ids + ids, "rules": RULES}
+    save(state, path)
+    log(f"{(company or {}).get('properties', {}).get('name') or 'A company'}: the reply named "
+        f"{len(new_ids + ids)} colleague(s) and also asked for something; they were added to HubSpot on END with "
+        "the person who replied")
+    return new_ids + ids
+
+
 def _reply_texts(emails_api, address, automatic):
     """The words of their replies: the real ones, or for `automatic` the automatic ones that matter here."""
     if not automatic:
@@ -230,9 +339,11 @@ def _reply_texts(emails_api, address, automatic):
     return _reply_parts(emails_api, address, "left")[0] or _reply_parts(emails_api, address, "cover")[0]
 
 
-def process(hs, emails_api, statuses, seen, log=print, path=None, now=None):
-    """Read each new neutral reply, or automatic "has left" reply, once (see the top). Returns
+def process(hs, emails_api, statuses, seen, log=print, path=None, now=None, forced=()):
+    """Read each new neutral reply, or automatic "has left" reply, once (see the top). forced: contacts whose
+    reply Instantly labelled, but which hand us to someone else (12 Nov 2026), read as neutral ones. Returns
     {"switched": n, "unsure": n}."""
+    forced = {str(i) for i in forced}
     from .next_in_line import tagged_company_of
     from .stages import EMAILED
     from .sync import stop_reasons
@@ -249,18 +360,19 @@ def process(hs, emails_api, statuses, seen, log=print, path=None, now=None):
         if prev and not (prev.get("outcome") == "unsure" and int(prev.get("rules") or 1) < RULES):
             continue
         # The Lead Status read before this run's changes: In Progress, or still emailed when the reply is new.
-        if event == "replied" and stage in ("replied",) + EMAILED and (lead or {}).get("lt_interest_status") in (None, 0):
+        if event == "replied" and stage in ("replied",) + EMAILED and (
+                (lead or {}).get("lt_interest_status") in (None, 0) or cid in forced):
             todo.append((r, False))
         elif event == "out of office" and stage in EMAILED:
             todo.append((r, True))
     if not todo:
         return out
     todo = todo[:PER_RUN]
-    owner_of, companies = tagged_company_of(hs, [r["id"] for r, _ in todo],
-                                            ["name", "domain", "country", "city", "hubspot_owner_id", LEAD_STATUS])
+    owner_of, companies = tagged_company_of(hs, [r["id"] for r, _ in todo], COMPANY_FIELDS)
+    intros = state.setdefault("intro", {})
     for r, automatic in todo:
         try:
-            _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, day, out, log)
+            _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, day, out, log, intros=intros)
         except Exception as err:  # this one is read again next run; the others carry on
             log(f"A reply naming someone else could not be handled ({str(err)[:150]}); tried again next run")
         save(state, path)  # after each, so what was done is never done twice
@@ -279,8 +391,9 @@ def _record(handled, cid, entry):
     handled[cid] = entry
 
 
-def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, day, out, log):
+def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, day, out, log, intros=None):
     from .next_in_line import tagged_company_of
+    from .stages import COMPANY_STOPPED
     from .sync import stop_reasons
     cid = str(r["id"])
     address = (r["properties"].get("email") or "").lower()
@@ -317,6 +430,15 @@ def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, d
         _record(handled, cid, {"day": day, "outcome": "none"})
         return
     known = {}
+    target_id, target = str(company_id), company
+    if new and not cover:
+        # 12 Nov 2026 (Ariel): the new person goes under the AUTO-OUTREACH company whose website is their address's
+        # domain, when there is one (a store pointing us to its head office); otherwise under the replier's company.
+        found_id, found = domain_company(hs, new, prefer=company_id)
+        if found_id:
+            target_id, target = found_id, found
+            if found_id != str(company_id) and statuses.of("companies", found) in COMPANY_STOPPED:
+                new, why = [], "the new address belongs to a company in HubSpot whose outreach has ended"
     if new:
         # Read every contact with these addresses, the team's too, so nobody is ever added twice.
         known = {(x["properties"].get("email") or "").lower(): x for x in
@@ -325,7 +447,7 @@ def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, d
             new, why = [], "the new address is already one of the team's own contacts in HubSpot"
         elif known:
             elsewhere, _ = tagged_company_of(hs, [x["id"] for x in known.values()], ["name"])
-            if any(elsewhere.get(str(x["id"])) not in (None, str(company_id)) for x in known.values()):
+            if any(elsewhere.get(str(x["id"])) not in (None, str(company_id), target_id) for x in known.values()):
                 new, why = [], "the new address is already a contact at another company in HubSpot"
     if why:
         _record(handled, cid, {"day": day, "outcome": "unsure", "company": str(company_id), "why": why,
@@ -335,21 +457,25 @@ def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, d
             "left for a person")
         return
     records = []
+    tp = (target or {}).get("properties") or cp
     for a in new:
         if a in known:
             continue
         first, last = name_from(a)
-        # Lead Status stays empty on purpose: button 3 (redirect.py) numbers them and sets them to New.
-        props = {"email": a, "jobtitle": JOB_TITLE, LEGAL_BASIS: LEGAL_BASIS_LEAD, "company": cp.get("name") or ""}
-        if cover:  # a stand-in: New, so button 3 numbers it after the others and copies a line (no redirect)
+        # Lead Status stays empty on purpose: button 3 (redirect.py) numbers them and sets them to New. Under
+        # another company (no redirected contact there) they are New straight away, number 1.
+        props = {"email": a, "jobtitle": JOB_TITLE, LEGAL_BASIS: LEGAL_BASIS_LEAD, "company": tp.get("name") or ""}
+        if cover or target_id != str(company_id):  # a stand-in: New, numbered by button 3 after the others
             props.update(statuses.props("contacts", "found"))
+        if not cover:  # 12 Nov 2026: their referral email goes at once, so they need a place in the line already
+            props[ORDER_FIELD] = "1"
         props.update({k: v for k, v in (("firstname", first), ("lastname", last),
-                                        ("country", cp.get("country")), ("city", cp.get("city")),
-                                        ("hubspot_owner_id", cp.get("hubspot_owner_id"))) if v})
+                                        ("country", tp.get("country")), ("city", tp.get("city")),
+                                        ("hubspot_owner_id", tp.get("hubspot_owner_id"))) if v})
         records.append(props)
     created = hs.create_tagged("contacts", records) if records else []
     ids = [str(x["id"]) for x in created if x] + [str(x["id"]) for x in known.values()]
-    hs.associate_primary_tagged([(i, company_id) for i in ids])
+    hs.associate_primary_tagged([(i, company_id if cover else target_id) for i in ids])
     if cover:
         # The person is only away: they stay as they are. The stand-in is numbered by button 3, gets the
         # line copied and their own introduction (hand_tagged.py, chain.fill_open).
@@ -366,10 +492,14 @@ def _one(hs, emails_api, statuses, r, automatic, owner_of, companies, handled, d
                                         "their reply named a new contact")], log)
     _record(handled, cid, {"day": day, "outcome": "switched", "company": str(company_id), "new": ids,
                            "automatic": automatic})
+    if intros is not None and not automatic:  # 12 Nov 2026 (Ariel): their first email names the colleague
+        for i in ids:
+            intros.setdefault(i, {"from": cid, "company": target_id, "day": day})
     out["switched"] += 1
     out["ids"].add(cid)
-    log(f"{cp.get('name')}: a reply named {len(ids)} new contact(s); added, and the person who replied is "
-        "now Rejected/Redirected")
+    elsewhere_note = f", under {tp.get('name')}" if target_id != str(company_id) else ""
+    log(f"{cp.get('name')}: a reply named {len(ids)} new contact(s); added{elsewhere_note}, and the person who "
+        "replied is now Rejected/Redirected")
 
 
 def _days(since, day):

@@ -57,9 +57,22 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parked_ids, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from . import chain, corrupt, daily_log, mail_watch, redirect, referrals, reply_forward, timeline
+from . import chain, corrupt, daily_log, mail_watch, redirect, referral_intro, referrals, reply_forward, timeline
 from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, TEAM, LeadStatus,
                      forward)
+
+
+def referral_check(hs, emails_api, record, log=print):
+    """referrals.precheck for one contact's reply: ("switch" | "mixed" | None, addresses). Never stops the run."""
+    try:
+        owner_of, companies = tagged_company_of(hs, [record["id"]], ["name", "domain"])
+        company = companies.get(owner_of.get(str(record["id"])))
+        if company is None:
+            return None, []
+        return referrals.precheck(hs, emails_api, record, company)
+    except Exception as err:  # read as before (Instantly's label decides); tried again next run
+        log(f"Could not read a reply for a referral ({str(err)[:150]})")
+        return None, []
 
 
 def lead_result(lead):
@@ -487,12 +500,19 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
     rows = hs.tagged_read("contacts", list(leads), ["email", LEAD_STATUS, "jobtitle"], id_property="email")
     blocked = read_blocklist(instantly, emails_api, log=log)
     contact_updates, changed, seen = [], [], []
+    # 12 Nov 2026 (Ariel, Taste Organic): a reply that hands us to someone else is a referral, whatever label
+    # Instantly gave it. referral_ids: forwarded to the team as "Referral"; forced: labelled, but read as a
+    # neutral reply so referrals.py switches to the new person; mixed: names a colleague and asks for something.
+    referral_ids, forced, mixed = set(), set(), []
+    handled_before = referrals.load().get("handled") or {}
     for r in rows:
         p = r.get("properties", {})
         lead = leads.get((p.get("email") or "").lower())
         if not lead:
             continue
         new, company_stage, event = lead_result(lead)
+        labelled = lead.get("lt_interest_status") not in (None, 0)
+        before = handled_before.get(str(r["id"])) or {}
         # Every answer is read, whatever label Instantly gave it (20 Oct 2026, case e4: Instantly
         # labelled an automatic reply "Interested"). Only automatic answers: no reply, the loop carries
         # on and the label is ignored. A request to stop: an opt-out. A real answer: Instantly's label
@@ -508,8 +528,22 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                        else "") + "; it does not count as a reply, so the loop carries on")
             elif kind == "opt_out":
                 new, company_stage, event = "opted_out", "opted_out", "opted out by reply"
-            elif kind == "reply" and lead.get("lt_interest_status") in (None, 0):
-                new, company_stage, event = "replied", "replied", "replied"
+            elif kind == "reply" and labelled and before.get("outcome") == "switched":
+                new, company_stage, event = "replied", None, "replied"  # already switched: never END afterwards
+            elif kind == "reply":
+                if not labelled:
+                    new, company_stage, event = "replied", "replied", "replied"
+                if statuses.of("contacts", r) not in ("sales", "redirected") and not before:
+                    ref, named = referral_check(hs, emails_api, r, log)
+                    if ref == "switch":
+                        referral_ids.add(str(r["id"]))
+                        if labelled:
+                            forced.add(str(r["id"]))
+                            new, company_stage, event = "replied", "replied", "replied"
+                            log(f"{p.get('jobtitle') or 'A contact'} replied and Instantly labelled it, but the reply "
+                                "hands us to someone else, so it is read as a referral, not sent to the sales team")
+                    elif ref == "mixed" and labelled:
+                        mixed.append((r, named))
         if is_blocked(p.get("email"), blocked) and new not in ("replied", "sales") + CONTACT_CLOSED:
             # Blocklisted in Instantly counts as an opt-out (19 Oct 2026): the company stops.
             new, company_stage, event = "opted_out", "opted_out", "blocklisted"
@@ -540,7 +574,7 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
     except Exception as err:  # never stops the run
         log(f"Could not write the daily log: {str(err)[:200]}")
     try:  # 27 Oct 2026 (Ariel): every real reply forwarded once, tagged Positive, Negative or Neutral
-        reply_forward.forward_replies(hs, emails_api, seen, settings, log)
+        reply_forward.forward_replies(hs, emails_api, seen, settings, log, referral_ids=referral_ids)
     except Exception as err:  # never stops the run
         log(f"Could not forward the replies: {str(err)[:200]}")
     opt_out_rows = []
@@ -600,9 +634,17 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                             log(f"{cname}: {c['jobtitle']} opted out ({c['event']}); the company is now Unqualified "
                                 "and nobody else there is emailed")
 
+    for r, named in mixed:  # 12 Nov 2026 (Ariel): the colleague named in a yes or no goes to END with them
+        try:
+            owner_of, current = tagged_company_of(hs, [r["id"]], referrals.COMPANY_FIELDS)
+            company_id = owner_of.get(str(r["id"]))
+            if company_id:
+                referrals.add_to_sales(hs, statuses, r, company_id, current.get(company_id), named, log)
+        except Exception as err:  # never stops the run; read again next run
+            log(f"Could not add the colleague named in a reply ({str(err)[:200]})")
     found = {"ids": set()}
     try:  # 3 Nov 2026 (Ariel): replies that only name someone else
-        found = referrals.process(hs, emails_api, statuses, seen, log)
+        found = referrals.process(hs, emails_api, statuses, seen, log, forced=forced)
         if found["switched"] or found["unsure"]:
             log(f"Replies naming someone else: {found['switched']} switched automatically, {found['unsure']} left "
                 "for a person")
@@ -616,6 +658,10 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         referrals.release(hs, statuses, log, leads=leads, seen=seen, emails_api=emails_api)
     except Exception as err:
         log(f"Could not resume the companies whose replier was redirected: {str(err)[:200]}")
+    try:  # 12 Nov 2026 (Ariel): the referred person's first email, a forward of the reply naming them
+        referral_intro.send(hs, emails_api, statuses, settings, log, leads=leads, blocked=blocked)
+    except Exception as err:
+        log(f"Could not send the referral emails: {str(err)[:200]}")
     try:  # 3 Nov 2026 (Ariel): a new contact at an open company gets its colleague's line and goes to GATE2
         chain.fill_open(hs, settings, statuses, leads, log)
     except Exception as err:

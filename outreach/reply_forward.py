@@ -12,6 +12,9 @@ Instantly. The subject starts with "[Outreach reply: Positive]", "[Outreach repl
     marked not interested                       Negative        REPLY_FORWARD_TO (the sales team)
     a real reply with no mark                   Neutral         ALERT_TO only (handled by Amodh)
     a reply asking not to be emailed again      not forwarded (an opt-out, not a sales lead)
+    a reply handing us to someone else          Referral        REPLY_FORWARD_TO (12 Nov 2026, Ariel), whatever
+                                                                Instantly's label; the automation emails the new
+                                                                person (referrals.py, referral_intro.py)
 
 The email starts with (agreed with Ariel):
     Company: FELFEL (Switzerland)
@@ -33,7 +36,8 @@ from .next_in_line import parse_time, tagged_company_of
 FILE = ROOT / "data" / "forwarded_replies.json"
 KIND = {"marked interested": "Positive", "marked not interested": "Negative", "replied": "Neutral"}
 # Who gets each kind (3 Nov 2026, Ariel): a clear yes or no goes to the sales team, the rest only to Amodh.
-SECRET = {"Positive": "REPLY_FORWARD_TO", "Negative": "REPLY_FORWARD_TO", "Neutral": "ALERT_TO"}
+SECRET = {"Positive": "REPLY_FORWARD_TO", "Negative": "REPLY_FORWARD_TO", "Neutral": "ALERT_TO",
+          "Referral": "REPLY_FORWARD_TO"}
 INDIA = dt.timezone(dt.timedelta(hours=5, minutes=30))
 
 
@@ -51,11 +55,13 @@ def save(data, path=None):
     path.write_text(json.dumps(dict(sorted(data.items())), indent=1) + "\n", encoding="utf-8")
 
 
-def due(seen, done):
-    """[(contact record, kind)] to forward now: a tag not sent yet; Neutral only as the first one."""
+def due(seen, done, referral_ids=()):
+    """[(contact record, kind)] to forward now: a tag not sent yet; Neutral only as the first one. A reply that
+    hands us to someone else (referral_ids) goes as "Referral" instead of its label (12 Nov 2026)."""
     out = []
+    referral_ids = {str(i) for i in referral_ids}
     for record, _lead, event in seen:
-        kind = KIND.get(event)
+        kind = "Referral" if str(record["id"]) in referral_ids else KIND.get(event)
         had = done.get(str(record["id"])) or []
         if kind and kind not in had and not (kind == "Neutral" and had):
             out.append((record, kind))
@@ -102,11 +108,11 @@ def compose(kind, company, country, job, address, reply, original):
     return subject, html, text
 
 
-def forward_replies(hs, emails_api, seen, settings, log=print, smtp=None, path=None):
+def forward_replies(hs, emails_api, seen, settings, log=print, smtp=None, path=None, referral_ids=()):
     """Forward the replies not forwarded yet. Returns how many went. Never stops the run."""
     from .daily_report import DEFAULTS, recipients, send_mail
     done = load(path)
-    todo = due(seen, done)
+    todo = due(seen, done, referral_ids)
     if not todo:
         return 0
     password = os.environ.get("DAILY_REPORT_APP_PASSWORD", "")

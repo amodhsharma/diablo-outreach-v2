@@ -43,7 +43,8 @@ from .common import (
 )
 from .next_in_line import is_company_inbox
 from .hubspot_client import HubSpot, HubSpotError
-from .schema import CONTACT_SOURCE, INBOX_TITLE, LEAD_STATUS, ORDER, SOURCE_APOLLO, SOURCE_WEBSITE
+from .schema import (CONTACT_SOURCE, INBOX_TITLE, LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD, ORDER, SOURCE_APOLLO,
+                     SOURCE_WEBSITE)
 from .stages import CONTACT_CLOSED, LEFT_OUT, OPEN, TEAM, LeadStatus
 
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS, "hubspot_owner_id"]
@@ -385,6 +386,17 @@ def save_skipped(skipped, path=None):
     path.write_text(json.dumps(dict(sorted(skipped.items())), indent=1) + "\n", encoding="utf-8")
 
 
+def fill_legal_basis(hs, log=print, limit=2000):
+    """AUTO-OUTREACH contacts with no legal basis get "Legitimate interest - Lead" (12 Nov 2026, Ariel: the rule
+    for every new prospect contact; contacts Apollo or a website gave us were created without it). Returns how many."""
+    rows = hs.tagged_search("contacts", [{"propertyName": LEGAL_BASIS, "operator": "NOT_HAS_PROPERTY"}], ["email"],
+                            max_results=limit)
+    if rows:
+        hs.update_tagged("contacts", [(r["id"], {LEGAL_BASIS: LEGAL_BASIS_LEAD}) for r in rows])
+        log(f"Filled in the legal basis (Legitimate interest - Lead) on {len(rows)} AUTO-OUTREACH contacts")
+    return len(rows)
+
+
 def run(target, settings, hs, apollo, log=print):
     check_target(hs, target)
     cfg = settings["contacts"]
@@ -396,6 +408,10 @@ def run(target, settings, hs, apollo, log=print):
     except Exception as err:
         taken = {}
         log(f"Could not take over the existing contacts: {str(err)[:200]}")
+    try:  # 12 Nov 2026 (Ariel): every AUTO-OUTREACH contact has the legal basis; fills the ones made without it
+        fill_legal_basis(hs, log)
+    except Exception as err:
+        log(f"Could not fill in the contacts' legal basis: {str(err)[:200]}")
     try:  # 23 Oct 2026: every AUTO-OUTREACH contact carries its company's Country; never stops the run
         fill_contact_places(hs, log)
     except Exception as err:
@@ -621,7 +637,9 @@ def add_company_inbox(hs, cid, name, domain, cfg, statuses, owner, log, email=NO
 
 def _create_contacts(hs, records, log):
     """Create contacts in one go; if HubSpot refuses the batch (e.g. an email it already holds as
-    someone's second address), create them one by one and skip the ones it refuses."""
+    someone's second address), create them one by one and skip the ones it refuses. Every new contact gets the
+    legal basis "Legitimate interest - Lead" (12 Nov 2026: Apollo's and the website's had none)."""
+    records = [r if r.get(LEGAL_BASIS) else dict(r, **{LEGAL_BASIS: LEGAL_BASIS_LEAD}) for r in records]
     try:
         return hs.create_tagged("contacts", records)
     except HubSpotError as err:
