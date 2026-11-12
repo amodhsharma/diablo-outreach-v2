@@ -30,7 +30,7 @@ import html as html_lib
 import json
 import os
 
-from .common import ROOT
+from .common import ROOT, from_us
 from .next_in_line import parse_time, tagged_company_of
 
 FILE = ROOT / "data" / "forwarded_replies.json"
@@ -79,7 +79,7 @@ def their_reply(emails_api, address):
     thread = emails_api.thread_emails(address)
     real = []
     for e in thread:
-        if e.get("ue_type") == 2:
+        if e.get("ue_type") == 2 and not from_us(e):  # 12 Nov 2026: never a Diablo address writing in
             full = _with_body(emails_api, e)
             if not auto_reply_reason(full):
                 real.append(full)

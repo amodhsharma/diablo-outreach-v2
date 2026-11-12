@@ -46,6 +46,38 @@ def load_settings(path=None):
         return yaml.safe_load(fh)
 
 
+# 12 Nov 2026 (Ariel): an email from one of Diablo's own domains in a prospect's thread (someone at Diablo
+# writing in, e.g. from diablosugarfree.com) is never their reply: it does not stop or change the company's
+# loop, whatever label Instantly gives it. send.own_domains in config/settings.yaml lists the domains; every
+# sending mailbox's domain counts too.
+OWN_DOMAINS = ("diablosugarfree.com", "diablosnosugar.com", "diabloexport.com", "meetdiablo.com")
+_own_domains = None
+
+
+def own_domains(settings=None):
+    global _own_domains
+    if settings is None and _own_domains is not None:
+        return _own_domains
+    s = (settings or load_settings()).get("send") or {}
+    found = {d.strip().lower() for d in (s.get("own_domains") or OWN_DOMAINS) if d and d.strip()}
+    found |= {a.rsplit("@", 1)[-1].strip().lower() for a in s.get("sending_accounts") or [] if "@" in a}
+    if settings is None:
+        _own_domains = found
+    return found
+
+
+def from_us(email, domains=None):
+    """True when an email in a thread was sent from one of Diablo's own domains (see OWN_DOMAINS)."""
+    import re
+    domains = domains if domains is not None else own_domains()
+    for a in re.split(r"[,;\s<>]+", str((email or {}).get("from_address_email") or "")):
+        if "@" in a:
+            d = a.rsplit("@", 1)[-1].strip().lower().rstrip(".")
+            if d in domains or any(d.endswith("." + x) for x in domains):
+                return True
+    return False
+
+
 def load_exclusions(path=None):
     path = Path(path or ROOT / "config" / "exclude.txt")
     if not path.exists():

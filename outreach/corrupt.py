@@ -33,7 +33,7 @@ import json
 import os
 import re
 
-from .common import ROOT, step_summary
+from .common import ROOT, from_us, step_summary
 from .next_in_line import (CONTACT_PROPS, annotate, contacts_by_company, is_company_inbox, parse_time, rank_of,
                            tagged_company_of)
 from .schema import LEAD_STATUS, ORDER, PERSONAL_LINE, STOP_REASON
@@ -198,7 +198,7 @@ def bounce_message(text):
 def has_left(thread):
     """True when an automatic reply in the thread says the person has left or the mailbox is not read."""
     for e in thread or []:
-        if e.get("ue_type") == 2 and not _is_notice(e) and LEFT.search(_full_text(e)):
+        if e.get("ue_type") == 2 and not from_us(e) and not _is_notice(e) and LEFT.search(_full_text(e)):
             return True
     return False
 

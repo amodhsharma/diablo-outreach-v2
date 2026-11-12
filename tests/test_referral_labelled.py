@@ -151,3 +151,41 @@ def test_every_auto_outreach_contact_gets_the_legal_basis():
     company(hs2, "Fresh", "fresh.example", ("Owner",))
     find_contacts.run("test", load_settings(), hs2, FakeApollo({}, {}), log=quiet)
     assert all(r.get("hs_legal_basis") for r in hs2.records["contacts"].values() if r.get("lead_source"))
+
+
+# ---- Diablo's own domains writing in a prospect's thread (12 Nov 2026, Ariel) ----
+
+def ours(instantly, emails, address, sender="ariel@diablosugarfree.com", interest=1, text="Thanks, adding our "
+         "sales team here. Best, Ariel"):
+    lead(instantly, address).update(email_reply_count=1, lt_interest_status=interest)
+    e = emails.received(sender, ago(0.5), subject="Re: A sugar-free brand", text=text)
+    e["lead"] = address
+    return e
+
+
+def test_only_diablo_writing_in_the_thread_is_no_reply(settings):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "own.example", ("Owner", "Buyer"))
+    ours(instantly, emails, "p1@own.example")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert rec(hs, p1)[LS] not in ("END_FORWARDED_TO_SALES_TEAM", "IN_PROGRESS")
+    assert hs.records["companies"][cid][LS] == "Attempted to Contact"
+    assert referrals.load().get("handled", {}).get(p1) is None
+
+
+def test_a_real_reply_still_counts_when_diablo_also_wrote(settings):
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "both.example", ("Owner", "Buyer"))
+    ours(instantly, emails, "p1@both.example", sender="joshua@meetdiablo.com")
+    emails.received("p1@both.example", ago(0.4), subject="Re: A sugar-free brand",
+                    text="Yes, very interested. Please send prices.")
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert rec(hs, p1)[LS] == "END_FORWARDED_TO_SALES_TEAM"
+
+
+def test_which_addresses_are_diablo():
+    from outreach.common import from_us, own_domains
+    d = own_domains()
+    for a in ("ariel@diablosugarfree.com", "Ariel Mansouri <ariel@diablosugarfree.com>", "x@mail.diablosugarfree.com",
+              "sales@diablosnosugar.com", "dana@diabloexport.com", "elize@meetdiablo.com"):
+        assert from_us({"from_address_email": a}, d), a
+    for a in ("buyer@eldiablofoods.mx", "p1@shop.example", "", None):
+        assert not from_us({"from_address_email": a}, d), a

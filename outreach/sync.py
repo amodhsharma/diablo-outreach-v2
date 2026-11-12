@@ -48,7 +48,8 @@ import re
 import sys
 import time
 
-from .common import PipelineError, check_target, ist, load_company_notes, load_settings, run_dir, step_summary, write_json
+from .common import (PipelineError, check_target, from_us, ist, load_company_notes, load_settings, run_dir, step_summary,
+                     write_json)
 from .hubspot_client import HubSpot, HubSpotError
 from .instantly_client import Instantly, InstantlyError
 from .next_in_line import (
@@ -297,12 +298,16 @@ def _with_body(emails_api, email):
 
 def classify_replies(emails_api, address, why=None):
     """What a person's answers in Instantly amount to: "opt_out", "reply", "auto" (only automatic
-    answers) or None (no answer found, or the emails could not be read). why (a list) gets the reason
-    an answer was taken as automatic."""
+    answers), "ours" (only emails from Diablo's own domains, 12 Nov 2026) or None (no answer found, or the
+    emails could not be read). why (a list) gets the reason an answer was taken as automatic."""
     try:
         got = [e for e in emails_api.thread_emails(address) if e.get("ue_type") == 2]
     except Exception:
         return None
+    ours = [e for e in got if from_us(e)]
+    got = [e for e in got if not from_us(e)]  # 12 Nov 2026: someone at Diablo writing in is no reply
+    if ours and not got:
+        return "ours"
     kinds = set()
     for e in got:
         e = _with_body(emails_api, e)
@@ -521,7 +526,12 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                 and lead.get("status") not in (-1, -2)):
             why = []
             kind = classify_replies(emails_api, p.get("email"), why)
-            if kind == "auto":
+            if kind == "ours":  # 12 Nov 2026 (Ariel): only someone at Diablo wrote in the thread
+                new, company_stage, event = lead_result(dict(lead, lt_interest_status=0, email_reply_count=0))
+                log(f"The only answer in the thread of {p.get('jobtitle') or 'a contact'} came from a Diablo address"
+                    + ("; Instantly labelled it, the label is ignored" if labelled else "")
+                    + "; it does not count as a reply, so the loop carries on")
+            elif kind == "auto":
                 new, company_stage, event = "in_outreach", None, "out of office"
                 log(f"{p.get('jobtitle') or 'A contact'} sent only an automatic answer ({why[0] if why else 'out of office'})"
                     + ("; Instantly labelled it, the label is ignored" if lead.get("lt_interest_status") not in (None, 0)
@@ -731,6 +741,8 @@ def company_mail(emails_api, contacts, details=None):
     for e, asked in seen.values():
         kind = e.get("ue_type")
         if kind == 2:  # received: a reply from one of them (out-of-office answers do not count)
+            if from_us(e):  # 12 Nov 2026: someone at Diablo writing in the thread is no reply of theirs
+                continue
             e = _with_body(emails_api, e)
             if is_auto_reply(e):
                 if details is not None:

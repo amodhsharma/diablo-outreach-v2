@@ -164,6 +164,12 @@ Italian, Spanish and Dutch, with the address shortly after the words).
 - To send one by hand for a reply handled before 12 Nov 2026: `python -m outreach.referral_intro --contact
   <new person's HubSpot ID> --referrer <replier's HubSpot ID>`, then push data/referrals.json.
 
+**Diablo writing in a prospect's thread (12 Nov 2026, Ariel).** An email from one of Diablo's own domains
+(send.own_domains: diablosugarfree.com, diablosnosugar.com, diabloexport.com, meetdiablo.com, plus every
+sending mailbox's domain) is never the prospect's reply, whatever Instantly labels it: it does not pause,
+end or forward the company, and it is not read for referrals or opt-outs. When it is the only answer in the
+thread, the loop carries on as if nobody had answered.
+
 **Legal basis (12 Nov 2026).** Every new contact, Apollo's and the website's too, gets "Legitimate interest -
 Lead", and button 3 fills it on any AUTO-OUTREACH contact still without it.
 

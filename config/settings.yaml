@@ -139,6 +139,10 @@ send:
   sending_accounts: [sales@diablosnosugar.com, info@diablosnosugar.com, joshua@diabloexport.com,
                      dana@diabloexport.com, elize@diabloexport.com, joshua@meetdiablo.com,
                      dana@meetdiablo.com, elize@meetdiablo.com]
+  # 12 Nov 2026 (Ariel): Diablo's own domains. An email from any of them in a prospect's thread (someone at
+  # Diablo writing in) is never counted as the prospect's reply and never changes the company's loop, whatever
+  # Instantly labels it. Every sending mailbox's domain counts as well, so a new mailbox domain needs no entry.
+  own_domains: [diablosugarfree.com, diablosnosugar.com, diabloexport.com, meetdiablo.com]
   # Rule of thumb (2 Nov 2026, Ariel): N mailboxes send at most 30 x N emails a day. Each campaign's daily
   # limit (the people one and the company inbox one) is this number times the number of sending
   # mailboxes, so 240 with eight (150 with five before 12 Nov 2026); it follows by itself when a mailbox is added or removed. Each mailbox's

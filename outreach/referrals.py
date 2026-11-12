@@ -47,7 +47,7 @@ import os
 import re
 import sys
 
-from .common import ROOT
+from .common import ROOT, from_us
 from .schema import LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD, ORDER as ORDER_FIELD, TAG, TAG_PROPERTY
 
 FILE = ROOT / "data" / "referrals.json"
@@ -229,7 +229,7 @@ def _reply_parts(emails_api, address, kind):
     from .sync import _with_body, auto_reply_reason, reply_text
     texts, emails = [], []
     for e in emails_api.thread_emails(address):
-        if e.get("ue_type") != 2 or _is_notice(e):
+        if e.get("ue_type") != 2 or _is_notice(e) or from_us(e):
             continue
         full = _with_body(emails_api, e)
         is_auto = bool(auto_reply_reason(full))
@@ -517,7 +517,7 @@ def _history(emails_api, address):
         return None
     try:
         thread = emails_api.thread_emails(address)
-        got = [_with_body(emails_api, e) for e in thread if e.get("ue_type") == 2]
+        got = [_with_body(emails_api, e) for e in thread if e.get("ue_type") == 2 and not from_us(e)]
     except Exception:
         return None
     answered = ("reply" if any(not auto_reply_reason(e) for e in got) else "auto") if got else ""
