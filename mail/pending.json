@@ -1,5 +1,42 @@
 {
-  "generated_at": "2026-11-12T03:31:12+00:00",
+  "generated_at": "2026-11-12T06:31:21+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "920285107418",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Unique Wholefood",
+        "domain": "uniquewholefood.com.au",
+        "location": "australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    },
+    {
+      "contact_id": "672348682476",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 3,
+      "company": {
+        "name": "Unique Wholefood",
+        "domain": "uniquewholefood.com.au",
+        "location": "australia",
+        "channel": "Distributor Wholesaler",
+        "based_out_of": "",
+        "distributes": "",
+        "channels_supplied": "",
+        "sf_brands_carried": "",
+        "what_they_do_well": [],
+        "fit_rationale": ""
+      }
+    }
+  ]
 }
