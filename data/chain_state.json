@@ -3,6 +3,7 @@
   "381145211101": "2026-11-05",
   "381154255070": "2026-11-05",
   "381316592866": "2026-11-06",
+  "421735770349": "2026-11-12",
   "421737580738": "2026-11-10",
   "421739634902": "2026-11-09",
   "421746778312": "2026-11-05",
@@ -402,13 +403,9 @@
  },
  "today": {
   "backlog": 0,
-  "day": "2026-11-11",
+  "day": "2026-11-12",
   "reminders": {
-   "dana@diabloexport.com": 10,
-   "elize@diabloexport.com": 10,
-   "info@diablosnosugar.com": 8,
-   "joshua@diabloexport.com": 10,
-   "sales@diablosnosugar.com": 13
+   "joshua@diabloexport.com": 2
   }
  }
 }
