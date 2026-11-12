@@ -56,3 +56,4 @@ mail/lines/2026-11-10/2026-11-10_1849_60.json	2026-11-10T13:20:19+00:00	60 conta
 mail/lines/2026-11-10/2026-11-10_1850_60.json	2026-11-10T13:20:53+00:00	60 contacts now on 'New, Personal line filled'
 mail/lines/2026-11-11/2026-11-11_2128_60.json	2026-11-11T16:00:19+00:00	60 contacts now on 'New, Personal line filled'
 mail/lines/2026-11-12/2026-11-12_0030_59.json	2026-11-11T19:01:50+00:00	59 contacts now on 'New, Personal line filled'
+mail/lines/2026-11-12/2026-11-12_1228_2.json	2026-11-12T06:59:25+00:00	1 contacts now on 'New, Personal line filled', 1 skipped (Lead Status no longer New)
