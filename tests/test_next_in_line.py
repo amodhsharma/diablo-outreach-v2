@@ -739,3 +739,20 @@ def test_a_company_whose_channel_is_no_longer_targeted_stops_and_its_contacts_fo
     assert status_of(hs, waiting) == status_of(hs, emailed) == "UNQUALIFIED_COMPANY"
     contact = {"properties": {"email": "a@vend.example", "diablo_personal_line": "Line."}}
     assert "outreach has ended" in send.skip_reason(contact, {"id": cid}, "channel_paused")
+
+
+def test_running_campaigns_follow_the_number_of_mailboxes(settings):
+    """12 Nov 2026 (Ariel): adding mailboxes raises the campaigns already running too, and new months get it."""
+    from .fakes import FakeInstantly
+    instantly = FakeInstantly()
+    s = settings
+    people = instantly.create_campaign(dict(send.campaign_body("Diablo | NOV2026", "Australia", s), daily_limit=150))["id"]
+    inbox = instantly.create_campaign(dict(send.campaign_body("Diablo | NOV2026 | Company inboxes", "Australia", s),
+                                           daily_limit=150))["id"]
+    other = instantly.create_campaign({"name": "Someone else's campaign", "daily_limit": 50})["id"]
+    want = 30 * len(s["send"]["sending_accounts"])
+    assert send.refresh_campaign_limits(instantly, s, log=quiet) == 2
+    assert instantly.campaigns[people]["daily_limit"] == want == instantly.campaigns[inbox]["daily_limit"]
+    assert instantly.campaigns[other]["daily_limit"] == 50  # not ours: left alone
+    assert send.refresh_campaign_limits(instantly, s, log=quiet) == 0  # already right
+    assert send.campaign_body("Diablo | DEC2026", "Australia", s)["daily_limit"] == want  # the next month too

@@ -327,6 +327,37 @@ def daily_limit_for(s):
     return int(s.get("daily_limit", 30))
 
 
+def limit_for_kind(s, kind):
+    """The daily limit of a campaign of this kind. 2 Nov 2026 (Ariel): N mailboxes send at most 30 x N a day, for
+    the people and the company inbox campaign."""
+    if kind == PERSON_OTHER:  # 23 Oct 2026: channels outside our usual ones
+        return int((s.get("other_channels") or {}).get("daily_limit", 15))
+    if kind == INBOX_OTHER:
+        return int((s.get("other_channels") or {}).get("company_inbox_daily_limit", 5))
+    return daily_limit_for(s)
+
+
+def refresh_campaign_limits(instantly, settings, log=print):
+    """Keep every Diablo campaign's daily limit at 30 x the number of sending mailboxes (12 Nov 2026, Ariel: when a
+    mailbox is added, the campaigns already running are raised too, not only the next month's). Returns how many
+    campaigns were changed."""
+    prefix = settings["sync"]["campaign_prefix"]
+    s = settings["send"]
+    changed = 0
+    for camp in instantly.list_campaigns():
+        if not str(camp.get("name") or "").startswith(prefix):
+            continue
+        want = limit_for_kind(s, kind_of_campaign(camp.get("name"), s))
+        have = camp.get("daily_limit")
+        if have is not None and int(have) == want:
+            continue  # already right (when Instantly does not say, it is set again: harmless)
+        instantly.update_campaign(camp["id"], {"daily_limit": want})
+        changed += 1
+        log(f"Daily limit of campaign {camp['name']}: {have} -> {want} ({len(s.get('sending_accounts') or [])} "
+            "sending mailboxes x 30)")
+    return changed
+
+
 def campaign_body(name, market, settings, kind=None):
     s = settings["send"]
     kind = kind or kind_of_campaign(name, s)
@@ -337,12 +368,7 @@ def campaign_body(name, market, settings, kind=None):
         )
     sched = schedule_for(market, s["schedule"])
     steps = sequence_steps(s, kind)
-    # 2 Nov 2026 (Ariel): N mailboxes send at most 30 x N a day, for the people and the company inbox campaign.
-    daily_limit = daily_limit_for(s)
-    if kind == PERSON_OTHER:  # 23 Oct 2026: channels outside our usual ones
-        daily_limit = int((s.get("other_channels") or {}).get("daily_limit", 15))
-    elif kind == INBOX_OTHER:
-        daily_limit = int((s.get("other_channels") or {}).get("company_inbox_daily_limit", 5))
+    daily_limit = limit_for_kind(s, kind)
     return {
         "name": name,
         "campaign_schedule": {
@@ -478,6 +504,10 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             raise PipelineError("The waiting leads could not be given their bond paragraph, so the campaigns' "
                                 "emails were not changed and nothing was sent. It is tried again at the next run.")
         refresh_campaign_content(instantly, settings, log=log)
+        try:  # 12 Nov 2026 (Ariel): the running campaigns follow the number of sending mailboxes too
+            refresh_campaign_limits(instantly, settings, log=log)
+        except Exception as err:  # never stops the sending; tried again next run
+            log(f"Could not update the campaigns' daily limits: {str(err)[:300]}")
     contacts = hs.tagged_search("contacts", [statuses.filter("contacts", "approved")], CONTACT_PROPS,
                                 max_results=settings["send"]["contacts_per_run"])
     log(f"{len(contacts)} contacts approved to send")
