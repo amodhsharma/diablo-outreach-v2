@@ -1,0 +1,22 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-11-12",
+  "run_type": "scheduled",
+  "generated_from": "2026-11-12T06:31:21+00:00",
+  "lines": [
+    {
+      "contact_id": "920285107418",
+      "company_name": "Unique Wholefood",
+      "personal_line": "We have great respect for the way your team serves the trade as a distributor and wholesaler in Australia. With such established reach across the wholesale channel, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "A"
+    },
+    {
+      "contact_id": "672348682476",
+      "company_name": "Unique Wholefood",
+      "personal_line": "We hold your team in high regard for your established position as a distributor and wholesaler in Australia. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "is in the distribution space for confectionery products",
+      "style": "D"
+    }
+  ]
+}
