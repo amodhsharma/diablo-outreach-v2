@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-13 01:38 UTC
+Written 2026-11-13 04:44 UTC
 
 ```
 687 leads in the Diablo campaigns in Instantly
@@ -16,9 +16,38 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
-Email threads: 1 emails since the last run
-Email threads: 17 companies read in full, 89 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 0 emails since the last run
+Gladiator Fit: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Galaxus: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Commerces valaisans de proximitÃ©: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Victoria Apotheke: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Brack: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+DeinDeal: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Aldi Switzerland: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+ottos: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Aligro: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Valora Holding: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Menu and More: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Globus Supermarkets: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Choco Diffusion SA: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Bieler Sport: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+AVIA Distribution SA: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Schaetzle AG: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Jungfraubahnen (Top of Europe Shops): no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Bergfreunde (berg-freunde.ch): no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Hardloop: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Rose Betriebsverpflegung AG: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Vending Service AG: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+noury AG: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Bcyclet: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+ROSE Bikes Switzerland: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Bergzeit: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Organic Trader: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+TAH Northern Trading: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Nutrition Systems: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Perth Health: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+The Market Grocer: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Email threads: 44 companies read in full, 62 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 30 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
