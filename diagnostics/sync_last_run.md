@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-13 10:40 UTC
+Written 2026-11-13 13:40 UTC
 
 ```
 687 leads in the Diablo campaigns in Instantly
@@ -16,14 +16,15 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Email threads: 0 emails since the last run
-Toga Food: the Head of Sales - Mitglied des Managementteams was sent their reminder, as a forward of their introduction
-Prima: the Deputy Head was sent their reminder, as a forward of their introduction
-Coop Pronto: the CEO was sent their reminder, as a forward of their introduction
-Lidl (Switzerland): the Executive Director Controlling, Data&AI was sent their reminder, as a forward of their introduction
-shop-apotheke.ch: the Principal Product Owner was sent their reminder, as a forward of their introduction
-Bio Partner Schweiz AG: the Category Manager was sent their reminder, as a forward of their introduction
-Email threads: 19 companies read in full, 57 with no change since their last reading
-Loop: 0 forwards, 6 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 6 emails since the last run
+Sport Benzin: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+umamisnack: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Kirchenfeld Apotheke: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Dalchini World food Market: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Aggarwal: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+FELFEL: the contact was sent their reminder, as a forward of their introduction
+Monsterzeug: the Head of Human Resources was sent their reminder, as a forward of their introduction
+Email threads: 16 companies read in full, 60 with no change since their last reading
+Loop: 0 forwards, 7 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
