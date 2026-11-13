@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-12 22:39 UTC
+Written 2026-11-13 01:38 UTC
 
 ```
-686 leads in the Diablo campaigns in Instantly
+687 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -17,9 +17,8 @@ Leiterin Personal Schweiz sent only an automatic answer (the subject says "Autom
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
-Email threads: 0 emails since the last run
-Timstock Trading House: the introduction goes to Company inbox (from website)
-Email threads: 19 companies read in full, 87 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 1 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 1 contacts and 0 companies in HubSpot
+Email threads: 1 emails since the last run
+Email threads: 17 companies read in full, 89 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Updated 0 contacts and 0 companies in HubSpot
 ```
