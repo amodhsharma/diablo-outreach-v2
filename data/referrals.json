@@ -37,6 +37,8 @@
    "company": "455955263729",
    "day": "2026-11-07",
    "outcome": "unsure",
+   "parked": "2026-11-14",
+   "replies": 1,
    "rules": 2,
    "why": "no email address in the reply"
   },
@@ -114,6 +116,10 @@
   "455572492537": {
    "day": "2026-11-10",
    "why": "the reply was an out-of-office after all"
+  },
+  "455955263729": {
+   "day": "2026-11-14",
+   "why": "the reply has waited 7 days with nobody acting on it"
   },
   "456262790352": {
    "day": "2026-11-11",
