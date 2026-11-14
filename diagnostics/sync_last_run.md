@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-14 10:43 UTC
+Written 2026-11-14 13:36 UTC
 
 ```
-699 leads in the Diablo campaigns in Instantly
+700 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -17,10 +17,11 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Company inbox (from website) sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Unihockey Center: the reply was an out-of-office after all, so the company is back on Attempted to Contact
-Email threads: 15 emails since the last run
-VELOMANIA (Bikes Center SA): the introduction goes to Company inbox (from website)
-Email threads: 22 companies read in full, 37 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 1 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
+Email threads: 1 emails since the last run
+Unihockey Center: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
+Veloplus: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Email threads: 6 companies read in full, 54 with no change since their last reading
+Loop: 0 forwards, 1 reminders, 0 introductions added, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
