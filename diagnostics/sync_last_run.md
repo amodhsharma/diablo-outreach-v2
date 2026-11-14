@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-14 16:37 UTC
+Written 2026-11-14 19:36 UTC
 
 ```
 700 leads in the Diablo campaigns in Instantly
@@ -17,8 +17,8 @@ Company inbox (from website) sent only an automatic answer (the subject says "Ab
 Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Email threads: 1 emails since the last run
-Email threads: 10 companies read in full, 49 with no change since their last reading
+Email threads: 0 emails since the last run
+Email threads: 7 companies read in full, 52 with no change since their last reading
 Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
