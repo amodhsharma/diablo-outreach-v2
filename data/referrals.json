@@ -67,6 +67,8 @@
    "company": "457488639186",
    "day": "2026-11-09",
    "outcome": "unsure",
+   "parked": "2026-11-16",
+   "replies": 1,
    "rules": 2,
    "why": "no email address in the reply"
   },
@@ -127,6 +129,10 @@
   },
   "456262790352": {
    "day": "2026-11-11",
+   "why": "the reply has waited 7 days with nobody acting on it"
+  },
+  "457488639186": {
+   "day": "2026-11-16",
    "why": "the reply has waited 7 days with nobody acting on it"
   },
   "457501330642": {
