@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-15 07:37 UTC
+Written 2026-11-15 10:37 UTC
 
 ```
 700 leads in the Diablo campaigns in Instantly
@@ -18,8 +18,7 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Email threads: 0 emails since the last run
-Global Quality Foods (GQF): no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
-Email threads: 8 companies read in full, 48 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 7 companies read in full, 48 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
