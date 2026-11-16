@@ -443,7 +443,14 @@ def run(target, settings, hs, apollo, log=print):
     except Exception as err:
         website_summary = {}
         log(f"Could not read the Missing Info websites again: {str(err)[:200]}")
-    cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes(), _owner_names=_owner_names(hs))
+    blocked_box = {}
+    try:  # 16 Nov 2026 (Ariel): "Contact exists" companies whose contacts can none of them be used: Missing Info
+        apollo_status.recheck_exists(hs, statuses, _blocked({"_blocked_box": blocked_box}, log), log,
+                                     skip_contacts=taken.get("ids") or ())
+    except Exception as err:
+        log(f"Could not check the Contact exists companies again: {str(err)[:200]}")
+    cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes(), _owner_names=_owner_names(hs),
+               _blocked_box=blocked_box)
     approved = approved_companies(hs, statuses, COMPANY_PROPS + [apollo_status.STOP_REASON])
     # Only AUTO-OUTREACH contacts count (HubSpot may link a team contact by itself). 26 Oct 2026 (Ariel):
     # a company with fewer people than contacts.per_company gets the rest searched for (a company inbox
@@ -542,6 +549,18 @@ def run(target, settings, hs, apollo, log=print):
         log(f"{len(new_ids)} new contacts handed to step 3, so they get their lines in this run")
     log(f"Apollo credits used (approx.): {credits}")
     return summary
+
+
+def _blocked(cfg, log=print):
+    """Instantly's blocklist, read once a run (16 Nov 2026), or None when it cannot be read."""
+    box = cfg.setdefault("_blocked_box", {})
+    if "v" not in box:
+        try:
+            found = takeover.read_blocked(log)
+        except Exception:
+            found = None
+        box["v"] = None if found is None or getattr(found, "ok", True) is False else found
+    return box["v"]
 
 
 def _owner_names(hs):
@@ -776,7 +795,13 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
                                         place=place_of(p), seen=in_hubspot)
             inbox = bool(created)
         there = apollo_status.existing_contacts(hs, cid, in_hubspot) if not created else []
-        if not created and there:  # 26 Oct 2026: only contacts already in HubSpot, not tagged AUTO-OUTREACH
+        reasons = apollo_status.unusable_reasons(hs, statuses, cid, there, _blocked(cfg)) if there else None
+        if not created and there and reasons:  # 16 Nov 2026 (Ariel): none of them can be used: Missing Info
+            row["nowhere"] = True
+            hs.update_tagged("companies", [(cid, apollo_status.unusable_props(hs, statuses, reasons))])
+            log(f'{name}: {len(there)} contact(s) already in HubSpot, none of them usable; the company is now '
+                '"Missing Info"')
+        elif not created and there:  # 26 Oct 2026: only contacts already in HubSpot, not tagged AUTO-OUTREACH
             row["exists"] = True
             hs.update_tagged("companies", [(cid, apollo_status.exists_props(hs, statuses, there, cfg.get("_owner_names")))])
             log(f"{name}: {len(there)} contact(s) already in HubSpot, not AUTO-OUTREACH; the company is now "

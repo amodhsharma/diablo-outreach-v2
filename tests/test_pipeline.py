@@ -95,9 +95,10 @@ def test_find_contacts_never_adds_or_touches_an_existing_email(settings):
     find_contacts.run("test", settings, hs, apollo, log=quiet)
     assert list(hs.records["contacts"]) == [team]
     assert hs.records["contacts"][team] == {"email": "buyer@noblefoods.in", CO: "WON"}
-    # 26 Oct 2026: the only person found is already in HubSpot, so the company says so.
-    assert hs.records["companies"][company][CO] == "Contact exists, not AUTO-OUTREACH"
-    assert hs.records["companies"][company]["diablo_stop_reason"].startswith("Contact already in HubSpot")
+    # 26 Oct 2026: the only person found is already in HubSpot. 16 Nov 2026: a Won customer's contact can never be
+    # used, so the company is "Missing Info" with the reason, not "Contact exists".
+    assert hs.records["companies"][company][CO] == "Missing Info"
+    assert "the only contact belongs to a Won customer" in hs.records["companies"][company]["diablo_stop_reason"]
     assert all(team not in ids for _, _, ids in hs.writes)
 
 

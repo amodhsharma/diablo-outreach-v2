@@ -145,15 +145,19 @@ def recheck(hs, apollo, statuses, log=print, day=None, days=RECHECK_DAYS, limit=
 EXISTS = "Contact already in HubSpot"
 
 
+EXISTING_PROPS = ["email", "hubspot_owner_id", LEAD_STATUS, "hs_email_optout", "hs_email_hard_bounce_reason_enum",
+                  "lead_source"]
+
+
 def existing_contacts(hs, company_id, emails=()):
     """The contacts already in HubSpot for a company button 3 could add nobody to: everyone linked to
     the company, plus any address it found (in Apollo or on the website) that HubSpot already holds.
     Read only; none of them is ever changed. [contact records with hubspot_owner_id]."""
     linked = (hs.associated_ids("companies", "contacts", [str(company_id)]) or {}).get(str(company_id)) or []
-    found = hs.batch_read("contacts", linked, ["email", "hubspot_owner_id"]) if linked else []
+    found = hs.batch_read("contacts", linked, EXISTING_PROPS) if linked else []
     known = {str(r["id"]) for r in found}
     extra = [e for e in dict.fromkeys(emails) if e]
-    for r in hs.batch_read("contacts", extra, ["email", "hubspot_owner_id"], id_property="email") if extra else []:
+    for r in hs.batch_read("contacts", extra, EXISTING_PROPS, id_property="email") if extra else []:
         if str(r["id"]) not in known:
             found.append(r)
             known.add(str(r["id"]))
@@ -182,6 +186,109 @@ def exists_props(hs, statuses, contacts, names=None, day=None):
     if has_reason_field(hs):
         props[STOP_REASON] = exists_reason(contacts, names, day)[:250]
     return props
+
+
+# ---- No usable contact (agreed 16 Nov 2026, Ariel) -----------------------------------------------------
+# "Contact exists, not AUTO-OUTREACH" only means there is a person you can tag. When none of the contacts
+# already in HubSpot can be used (no email address, a Won customer's contact, opted out, a bounced address,
+# or already AUTO-OUTREACH under another company record), the company becomes "Missing Info" and
+# "Outreach stopped because" gives the real reason. Button 3 does this for new cases and, at the start of
+# every run, for the companies already on "Contact exists". Tagging a contact by hand still sends the
+# company back to GATE1 (back_to_gate1).
+UNUSABLE = "No usable contact"
+ELSEWHERE = "already AUTO-OUTREACH elsewhere"
+_ONE = {"no email": "the only contact has no email address",
+        "Won": "the only contact belongs to a Won customer",
+        "opted out": "the only contact opted out",
+        "dead address": "the only contact's address bounced",
+        ELSEWHERE: "the only contact is already AUTO-OUTREACH under another company record (this may be a duplicate)"}
+_MANY = {"no email": "{n} have no email address",
+         "Won": "{n} belong to a Won customer",
+         "opted out": "{n} opted out",
+         "dead address": "{n} bounced",
+         ELSEWHERE: "{n} are already AUTO-OUTREACH under another company record"}
+
+
+def unusable_reasons(hs, statuses, company_id, contacts, blocked=None):
+    """{reason: n} when none of the contacts can be tagged, or None when at least one can.
+    blocked: Instantly's blocklist, or None when it could not be read (then only HubSpot's own opt-out
+    counts, so a doubtful contact still counts as one you can tag)."""
+    from .hubspot_client import tagged
+    from .takeover import why_not, _is_won
+    if not contacts:
+        return None
+    ids = [str(c["id"]) for c in contacts]
+    theirs = hs.associated_ids("contacts", "companies", ids) or {}
+    others = sorted({str(x) for xs in theirs.values() for x in xs or [] if str(x) != str(company_id)})
+    rows = hs.batch_read("companies", others, [LEAD_STATUS]) if others else []
+    won = {str(r["id"]) for r in rows if _is_won(statuses, "companies", r.get("properties"))}
+    auto = {str(r["id"]) for r in rows if tagged(r.get("properties"))}
+    reasons = {}
+    for c in contacts:
+        links = [str(x) for x in theirs.get(str(c["id"])) or []]
+        if tagged(c.get("properties")):
+            if not any(x in auto for x in links):
+                return None  # in the loop at this company already
+            reason = ELSEWHERE
+        else:
+            reason = why_not(c, statuses, blocked, [x for x in links if x in won])
+            if reason is None:
+                return None
+        reasons[reason] = reasons.get(reason, 0) + 1
+    return reasons
+
+
+def unusable_reason(reasons, day=None):
+    """e.g. "No usable contact (16 Nov 2026): the only contact has no email address; fix it or add a
+    person, tag them AUTO-OUTREACH and button 3 sets the company back to GATE1"."""
+    n = sum(reasons.values())
+    if n == 1:
+        text = _ONE.get(next(iter(reasons)), "the only contact cannot be used")
+    else:
+        parts = [_MANY.get(k, "{n} cannot be used").format(n=v) for k, v in sorted(reasons.items(), key=lambda kv: -kv[1])]
+        text = f"none of its {n} contacts can be used: " + ", ".join(parts)
+        if set(reasons) == {ELSEWHERE}:
+            text += " (this may be a duplicate)"
+    return (f"{UNUSABLE} ({(day or _today()).strftime('%d %b %Y').lstrip('0')}): {text}; fix it or add a person, "
+            "tag them AUTO-OUTREACH and button 3 sets the company back to GATE1")
+
+
+def unusable_props(hs, statuses, reasons, day=None):
+    props = dict(statuses.props("companies", "missing_info"))
+    if has_reason_field(hs):
+        props[STOP_REASON] = unusable_reason(reasons, day)[:250]
+    return props
+
+
+def recheck_exists(hs, statuses, blocked=None, log=print, skip_contacts=()):
+    """The companies already on "Contact exists, not AUTO-OUTREACH" whose contacts can none of them be
+    used become "Missing Info" with the reason. Companies linked to a contact in skip_contacts (just
+    taken over in this run) are left alone. Returns how many changed."""
+    if not statuses.has("companies", "contact_exists"):
+        return 0
+    found = hs.tagged_search("companies", [statuses.filter("companies", "contact_exists")], ["name"],
+                             max_results=2000)
+    if not found:
+        return 0
+    links = hs.associated_ids("companies", "contacts", [str(c["id"]) for c in found]) or {}
+    skip = {str(x) for x in skip_contacts}
+    # Read again by ID: a company sent back to GATE1 earlier in this run may still show here in a search.
+    now = {str(r["id"]): r for r in hs.tagged_read("companies", [str(c["id"]) for c in found], ["name", LEAD_STATUS])}
+    updates = []
+    for c in found:
+        cid = str(c["id"])
+        linked = [str(x) for x in links.get(cid) or []]
+        row = now.get(cid)
+        if not linked or skip & set(linked) or not row or statuses.of("companies", row) != "contact_exists":
+            continue
+        reasons = unusable_reasons(hs, statuses, cid, hs.batch_read("contacts", linked, EXISTING_PROPS), blocked)
+        if reasons:
+            updates.append((cid, unusable_props(hs, statuses, reasons)))
+            log(f'{(row.get("properties") or {}).get("name") or "A company"}: none of its contacts can be used, so it '
+                'is now "Missing Info" (' + unusable_reason(reasons).split(": ", 1)[1].split(";")[0] + ")")
+    if updates:
+        hs.update_tagged("companies", updates)
+    return len(updates)
 
 
 BACK_TO_GATE1 = ("missing_info", "missing_apollo", "contact_exists")

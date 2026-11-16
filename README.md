@@ -109,6 +109,15 @@ in that run. The owner stays; the legal basis "Legitimate interest – prospect/
 empty. This is the one change the pipeline makes to records without the tag (`takeover.py`, through
 `take_over_contacts`, which may set nothing but the tag, the Lead Status and the legal basis).
 
+**No usable contact (agreed 16 Nov 2026, Ariel).** "Contact exists, not AUTO-OUTREACH" only means there is a
+person you can tag. When none of the contacts already in HubSpot can be used (no email address, a Won
+customer's contact, opted out, a bounced address, or already AUTO-OUTREACH under another company record, which
+usually means a duplicate), button 3 sets the company to "Missing Info" and "Outreach stopped because" gives
+the real reason, for example "No usable contact (16 Nov 2026): the only contact has no email address". It
+does this for new cases and, at the start of every run, for the companies already on "Contact exists". The
+contacts themselves are never changed. Fix the contact or add a person, tag them AUTO-OUTREACH, and button 3
+sets the company back to GATE1 as before (`apollo_status.unusable_reasons`, `recheck_exists`).
+
 **The dead ends (2 Nov 2026).** Each has its own choice starting "Unqualified:", so HubSpot shows why
 outreach stopped. Button 1 renamed the older ones in place, so their records moved with them.
 
