@@ -1,4 +1,4 @@
-name: 'R - Nightly flow charts (to Amodh)'
+name: 'R Sankey Chart to Amodh'
 
 # Agreed 16 Nov 2026 (Ariel). Two Sankey charts of how AUTO-OUTREACH companies moved through their company
 # Lead Statuses: that day, and the month so far by country. A new email to ALERT_TO only (Amodh), from the

@@ -72,7 +72,7 @@ def test_only_the_four_buttons_are_left():
     # Plus the nightly flow charts to Amodh (16 Nov 2026), which only reads.
     assert names == ["1 - Setup HubSpot (once per account)", "2 - Research", "3 - Find contacts",
                      "4 - Send and follow up", "Code checks (automatic, nothing to press)", "R - Daily summary email",
-                     "R - Nightly flow charts (to Amodh)"]
+                     "R Sankey Chart to Amodh"]
     checks = yaml.safe_load((ROOT / ".github/workflows/checks.yml").read_text())
     assert "workflow_dispatch" not in checks[True]  # never a button to press
 
