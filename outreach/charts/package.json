@@ -1,0 +1,9 @@
+{
+  "name": "outreach-flow-charts",
+  "private": true,
+  "description": "Renders the nightly company flow (Sankey) charts to PNG (16 Nov 2026).",
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "d3-sankey": "0.12.3"
+  }
+}

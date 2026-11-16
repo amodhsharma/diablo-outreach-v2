@@ -6,3 +6,4 @@ runs/
 work/
 work_mail/
 .research_run_id
+node_modules/

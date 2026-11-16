@@ -1,0 +1,69 @@
+name: 'R - Nightly flow charts (to Amodh)'
+
+# Agreed 16 Nov 2026 (Ariel). Two Sankey charts of how AUTO-OUTREACH companies moved through their company
+# Lead Statuses: that day, and the month so far by country. A new email to ALERT_TO only (Amodh), from the
+# same mailbox as the 9 AM summary, which is not changed. Nothing to press: cron-job.org starts it every
+# night at 23:59 India time (docs/outside_timer.md). Press it yourself to send the charts now: leave
+# "Day" empty for today, or type a date (YYYY-MM-DD) to chart that day and its month up to it. Tick
+# "Preview only" to draw the charts without sending them (they are saved on the run's page).
+# HubSpot is only read; nothing is changed (outreach/flow_charts.py, drawn by outreach/charts/render.js).
+on:
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "Day (YYYY-MM-DD, India time). Empty = today"
+        type: string
+        default: ""
+      preview:
+        description: "Preview only: draw the charts, send nothing"
+        type: boolean
+        default: false
+
+jobs:
+  charts:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: read  # the failure email names the steps that failed
+    timeout-minutes: 20
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+      HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+      ALERT_TO: ${{ secrets.ALERT_TO }}
+      DAILY_REPORT_TO: ${{ secrets.DAILY_REPORT_TO }}
+      DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: "Before: using only code that passed the automatic checks"
+        run: bash .github/scripts/use_checked_code.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: "The chart drawing tools"
+        run: |
+          npm ci --prefix outreach/charts --no-audit --no-fund
+          sudo apt-get install -y -qq fonts-dejavu-core > /dev/null || true
+      - name: "The flow charts email"
+        run: |
+          ARGS=(--target "$TARGET" --out flow_charts)
+          if [ -n "${{ inputs.day }}" ]; then ARGS+=(--day "${{ inputs.day }}"); fi
+          if [ "${{ inputs.preview }}" = "true" ]; then ARGS+=(--preview); fi
+          python -m outreach.flow_charts "${ARGS[@]}"
+      - name: "Save the charts on this page"
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: flow-charts
+          path: flow_charts/*.png
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: "After: email if this run failed"
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m outreach.alert --run-failed

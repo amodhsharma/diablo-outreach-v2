@@ -159,7 +159,12 @@ class FakeCRM(TagGuard):
     def history(self, object_type, ids, prop, properties=()):
         """self.past: {(object type, id): [(value, timestamp)]} set by a test, newest first."""
         past = getattr(self, "past", {})
-        return {str(i): (dict(self.records[object_type][str(i)]), list(past.get((object_type, str(i)), [])))
+
+        def of(i):  # (type, id, field) when a test sets one; (type, id) is the Lead Status (16 Nov 2026)
+            if (object_type, str(i), prop) in past:
+                return past[(object_type, str(i), prop)]
+            return past.get((object_type, str(i)), []) if prop != "lead_source" else []
+        return {str(i): (dict(self.records[object_type][str(i)]), list(of(i)))
                 for i in ids if str(i) in self.records[object_type]}
 
     def associated_types(self, from_type, to_type, ids):

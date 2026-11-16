@@ -2,8 +2,9 @@
 
 GitHub's own timer is best effort (on 7 and 8 Oct 2026 it skipped most of its runs), so a free
 outside timer, cron-job.org, presses the buttons on time through the GitHub API (agreed with Ariel
-on 8 Oct 2026). Three jobs, one button each, every 3 hours, one hour apart (set 14 Oct 2026), and a
-fourth job once a day for the summary email (27 Oct 2026):
+on 8 Oct 2026). Three jobs, one button each, every 3 hours, one hour apart (set 14 Oct 2026), a
+fourth job once a day for the summary email (27 Oct 2026) and a fifth every night for the flow charts
+to Amodh (16 Nov 2026):
 
 | Time (Asia/Kolkata) | Job | Button |
 |---|---|---|
@@ -11,6 +12,7 @@ fourth job once a day for the summary email (27 Oct 2026):
 | 1, 4, 7 and 10, AM and PM | Diablo NEW 4 Send | 4 - Send and follow up |
 | 2, 5, 8 and 11, AM and PM | Diablo NEW 2 Research | 2 - Research ("Automatic run") |
 | 9 AM, every day | Diablo NEW R Daily summary | R - Daily summary email |
+| 11:59 PM, every day | Diablo NEW R Flow charts | R - Nightly flow charts (to Amodh) |
 
 Claude's two scheduled tasks fit in between: personal lines 28 minutes after button 3, research 28
 minutes after button 2.
@@ -40,7 +42,7 @@ What this key can do: start the GitHub buttons of diablo-outreach-v2 and see the
 What it cannot do: read or change the code, see the HubSpot, Apollo or Instantly keys, or
 touch any other repository. To cut it off at any time, delete it on the same GitHub page.
 
-## Step 2: the four jobs in cron-job.org
+## Step 2: the five jobs in cron-job.org
 
 In **Settings**, the time zone is **Asia/Kolkata**. For each job: **Create cronjob**, then
 
@@ -59,6 +61,7 @@ In **Settings**, the time zone is **Asia/Kolkata**. For each job: **Create cronj
 | Diablo NEW 4 Send | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send-loop.yml/dispatches` | `0 1,4,7,10,13,16,19,22 * * *` | `{"ref":"main"}` |
 | Diablo NEW 2 Research | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/research.yml/dispatches` | `0 2,5,8,11,14,17,20,23 * * *` | `{"ref":"main","inputs":{"action":"Automatic run"}}` |
 | Diablo NEW R Daily summary | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/daily-report.yml/dispatches` | `0 9 * * *` | `{"ref":"main"}` |
+| Diablo NEW R Flow charts | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/flow-charts.yml/dispatches` | `59 23 * * *` | `{"ref":"main"}` |
 
 Button 4's body has no inputs since 26 Oct 2026: its "Check only" box became a dropdown, and a run
 started without one does the usual run (results and send), with no health check.
