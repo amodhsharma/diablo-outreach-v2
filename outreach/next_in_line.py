@@ -106,6 +106,9 @@ def contact_state(contact, statuses, leads):
     if stage == "approved":
         return "approved"
     if stage in EMAILED + ("closed", "bounced_other") and lead is not None and lead.get("status") == -1:
+        from .corrupt import temporary_ids
+        if stage in EMAILED and str(contact.get("id")) in temporary_ids():
+            return "sent" if lead.get("timestamp_last_contact") else "queued"  # 16 Nov 2026: a temporary bounce
         return "bounced"
     if stage in EMAILED:
         return "sent" if lead and lead.get("timestamp_last_contact") else "queued"

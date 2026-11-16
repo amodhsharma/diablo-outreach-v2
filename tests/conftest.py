@@ -97,6 +97,9 @@ def no_real_promoted_list(tmp_path, monkeypatch):
     """No test reads or writes the real list of contacts moved up after a dead address (28 Oct 2026)."""
     from outreach import corrupt
     monkeypatch.setattr(corrupt, "PROMOTED_FILE", tmp_path / "promoted.json")
+    monkeypatch.setattr(corrupt, "TEMPORARY_FILE", tmp_path / "temporary_bounces.json")  # 16 Nov 2026
+    from outreach import campaign_guard
+    monkeypatch.setattr(campaign_guard, "FILE", tmp_path / "campaign_guard.json")
     monkeypatch.delenv("GITHUB_RUN_ID", raising=False)
 
 

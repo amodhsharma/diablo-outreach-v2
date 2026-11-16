@@ -12,6 +12,10 @@ whose email bounced, and each contact whose automatic reply says they have left,
       problem)                                         listed on the run's summary page
     A bounce whose message cannot be read            the same; listed on the summary page to be
                                                        checked by hand
+    A temporary bounce (16 Nov 2026, Ariel): the      nothing changes: still "Attempted to Contact"; the
+      receiving or sending mail system was down        loop carries on and their reminder a week later is
+      ("try again later", "service unavailable",       the retry. A second temporary bounce for the same
+      a 4.x.x code), e.g. an Outlook outage            person counts as "Bounced, other reason"
 
 A company inbox (info@, sales@) with a dead address gets "Unqualified: Inbox Bounced" instead (2 Nov
 2026). Then, at its company:
@@ -40,6 +44,7 @@ from .schema import LEAD_STATUS, ORDER, PERSONAL_LINE, STOP_REASON
 from .stages import EMAILED
 
 PROMOTED_FILE = ROOT / "data" / "promoted.json"
+TEMPORARY_FILE = ROOT / "data" / "temporary_bounces.json"  # contact id: {day, notices}; IDs and dates only
 HOLD_MINUTES = 60  # without a GitHub run number, someone approved this recently waits for the next run
 DONE_PREFIXES = ("contact corrupt", "email bounced", "inbox bounced")  # "Outreach stopped because": checked
 # 3 Nov 2026: never plain Unqualified (only a person sets it, and a person's choice is never changed).
@@ -65,6 +70,18 @@ POLICY = re.compile(
     r"blocked (by|due to) (policy|the recipient)|message (was )?blocked|sender (address )?(is )?blocked|"
     r"not (allowed|authori[sz]ed) to send|spam (message )?rejected|rejected as spam|"
     r"blocklisted|blacklisted)", re.I)
+# 16 Nov 2026 (Ariel, after an Outlook outage): a temporary bounce, from a mail system that is down or busy.
+# Only when nothing in it is permanent (a 5.x.x code or a 5xx reply), so a dead address always stays dead.
+TEMPORARY = re.compile(
+    r"((?<![\d.])4\.\d{1,3}\.\d{1,3}\b|(?<![\d.])4[2-5]\d[ -]|temporar(y|ily)|try (again )?later|will (be )?retried|"
+    r"deferred|delivery (has been )?delayed|service (is )?(temporarily )?unavailable|server (is )?busy|"
+    r"too many (connections|messages|requests)|rate limit|throttl|timed? ?out|connection (refused|reset|lost)|"
+    r"gr[ae]ylist|vor[üu]bergehend|sp[äa]ter erneut|temporairement|r[ée]essayer plus tard)", re.I)
+PERMANENT = re.compile(r"((?<![\d.])5\.\d{1,3}\.\d{1,3}\b|(?<![\d.])5\d\d[ -])")  # not the 500 in 4.7.500
+# A full mailbox is about the person, not an outage: it stays "Bounced, other reason" (2 Nov 2026).
+FULL = re.compile(r"(mailbox (is )?full|over (the )?quota|quota exceeded|\b4\.2\.2\b|insufficient storage|"
+                  r"postfach (ist )?voll|bo[iî]te (aux lettres )?pleine)", re.I)
+TEMPORARY_LIMIT = 2  # the second temporary bounce for the same person counts as "Bounced, other reason"
 # The words of a bounce worth showing in HubSpot: the diagnostic line, or an SMTP code with what follows.
 DIAGNOSTIC = re.compile(r"(diagnostic[- ]message[:\s]*|diagnostic[- ]code[:\s]*)?(\b[45]\d\d\b[\s-]*)?"
                         r"\b[45]\.\d{1,3}\.\d{1,3}\b[^\n]{0,180}", re.I)
@@ -178,12 +195,49 @@ def bounce_text(lead, thread, emails_api=None):
 
 def kind_of_bounce(text):
     """ "dead" (the address does not exist or is no longer used), "policy" (their mail system blocks us),
-    "other" or "unreadable"."""
+    "temporary" (a mail system down or busy, 16 Nov 2026), "other" or "unreadable"."""
     if not (text or "").strip():
         return "unreadable"
     if DEAD.search(text):
         return "dead"
-    return "policy" if POLICY.search(text) else "other"
+    if POLICY.search(text):
+        return "policy"
+    temporary = TEMPORARY.search(text) and not PERMANENT.search(text) and not FULL.search(text)
+    return "temporary" if temporary else "other"
+
+
+_TEMPORARY = {"key": None, "ids": frozenset()}
+
+
+def load_temporary(path=None):
+    try:
+        return json.loads((path or TEMPORARY_FILE).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def save_temporary(data, path=None):
+    path = path or TEMPORARY_FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def temporary_ids(path=None):
+    """The contacts whose bounce was temporary and who stay in the loop (16 Nov 2026): Instantly still shows
+    them as bounced, so the loop and sync read this list instead."""
+    path = path or TEMPORARY_FILE
+    try:
+        key = (str(path), path.stat().st_mtime_ns)
+    except OSError:
+        return frozenset()
+    if _TEMPORARY["key"] != key:
+        data = load_temporary(path)
+        _TEMPORARY.update(key=key, ids=frozenset(c for c, e in data.items() if not e.get("gave_up")))
+    return _TEMPORARY["ids"]
+
+
+def notices(thread):
+    return [e for e in thread or [] if e.get("ue_type") == 2 and _is_notice(e)]
 
 
 def bounce_message(text):
@@ -235,10 +289,12 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
     bounced = {e: l for e, l in (leads or {}).items() if l.get("status") == -1}
     rows = hs.tagged_read("contacts", list(bounced), CONTACT_PROPS, id_property="email") if bounced else []
     reasons, corrupt, other, blocked = [], {}, [], []  # corrupt: {contact id: (record, why)}
+    temporary, back = load_temporary(), []  # 16 Nov 2026: temporary bounces stay in the loop
     again = 0
     for r in rows:
         if statuses.of("contacts", r) not in BOUNCE_STAGES or _done(r):
             continue
+        known = temporary.get(str(r["id"]))
         if str(r["properties"].get(STOP_REASON) or "").strip().lower().startswith("email bounced"):
             # 3 Nov 2026: an older bounce read once more; a few each run, as Instantly's emails are slow to read
             again += 1
@@ -251,9 +307,22 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
             log(f"The bounce of a {r['properties'].get('jobtitle') or 'contact'} could not be read "
                 f"({str(err)[:150]}); tried again next run")
             continue
+        count = len(notices(thread))
+        if known and not known.get("gave_up") and count <= known.get("notices", 0):
+            continue  # the same temporary bounce as before: nothing new to read
         text = bounce_text(bounced.get(email), thread, emails_api)
         kind = kind_of_bounce(text)
         said = f" {MESSAGE} {bounce_message(text)}" if text.strip() else f" {MESSAGE} (none could be read)"
+        if kind == "temporary" and count < TEMPORARY_LIMIT and not (known or {}).get("gave_up"):
+            temporary[str(r["id"])] = {"day": (known or {}).get("day") or today(), "notices": max(count, 1)}
+            if statuses.of("contacts", r) == "bounced_other":
+                back.append((r["id"], statuses.props("contacts", "in_outreach")))
+            log(f"The email to a {r['properties'].get('jobtitle') or 'contact'} bounced for a temporary reason "
+                f"({bounce_message(text)[:120]}); they stay in the loop and their reminder is the retry")
+            continue
+        if kind == "temporary":  # the second one: counted as any other bounce from now on
+            temporary[str(r["id"])] = dict(known or {}, notices=count, gave_up=today())
+            kind = "other"
         if kind == "dead":
             corrupt[str(r["id"])] = (r, f"Contact corrupt: email bounced, the address does not exist or is no "
                                         f"longer used ({today()}).{said}")
@@ -281,6 +350,9 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
                                         f"is no longer read ({today()})")
     if other:
         hs.update_tagged("contacts", other)
+    if back:
+        hs.update_tagged("contacts", back)
+    save_temporary(temporary)
     stop_reasons(hs, "contacts", reasons, log)
     if blocked:
         _close_blocked(hs, statuses, blocked, leads, out, log)

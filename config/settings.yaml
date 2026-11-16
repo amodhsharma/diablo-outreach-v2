@@ -139,6 +139,10 @@ send:
   sending_accounts: [sales@diablosnosugar.com, info@diablosnosugar.com, joshua@diabloexport.com,
                      dana@diabloexport.com, elize@diabloexport.com, joshua@meetdiablo.com,
                      dana@meetdiablo.com, elize@meetdiablo.com]
+  # 16 Nov 2026 (Ariel): a campaign Instantly paused for a mailbox problem (Accounts Unhealthy) is resumed
+  # automatically after this many hours, once its mailboxes are healthy and bounces are normal; Amodh is told
+  # (outreach/campaign_guard.py). Bounce Protect, a person's pause and a suspension are never resumed.
+  campaign_guard: {resume_after_hours: 6, bounce_limit: 5, repause_hours: 24}
   # 12 Nov 2026 (Ariel): Diablo's own domains. An email from any of them in a prospect's thread (someone at
   # Diablo writing in) is never counted as the prospect's reply and never changes the company's loop, whatever
   # Instantly labels it. Every sending mailbox's domain counts as well, so a new mailbox domain needs no entry.

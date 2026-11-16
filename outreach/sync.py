@@ -516,6 +516,8 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         if not lead:
             continue
         new, company_stage, event = lead_result(lead)
+        if lead.get("status") == -1 and str(r["id"]) in corrupt.temporary_ids():
+            new, company_stage, event = "in_outreach", None, "emailed"  # 16 Nov 2026: a temporary bounce
         labelled = lead.get("lt_interest_status") not in (None, 0)
         before = handled_before.get(str(r["id"])) or {}
         # Every answer is read, whatever label Instantly gave it (20 Oct 2026, case e4: Instantly
@@ -742,6 +744,8 @@ def company_mail(emails_api, contacts, details=None):
         kind = e.get("ue_type")
         if kind == 2:  # received: a reply from one of them (out-of-office answers do not count)
             if from_us(e):  # 12 Nov 2026: someone at Diablo writing in the thread is no reply of theirs
+                continue
+            if corrupt._is_notice(e):  # 16 Nov 2026: a bounce notice is never a reply (corrupt.py reads it)
                 continue
             e = _with_body(emails_api, e)
             if is_auto_reply(e):

@@ -164,6 +164,18 @@ Italian, Spanish and Dutch, with the address shortly after the words).
 - To send one by hand for a reply handled before 12 Nov 2026: `python -m outreach.referral_intro --contact
   <new person's HubSpot ID> --referrer <replier's HubSpot ID>`, then push data/referrals.json.
 
+**Paused campaigns and outages (16 Nov 2026, Ariel, after an Outlook outage).** Every run of button 4
+(step 1b, outreach/campaign_guard.py) reads each Diablo campaign's status in Instantly. A paused campaign is
+reported to Amodh (ALERT_TO) once. Only a pause for a mailbox problem ("Accounts Unhealthy") is resumed
+automatically: after 6 hours, when every mailbox the campaign uses is connected, error-free and at a warm-up
+score of 95 or more, and no more than 5 real bounces were logged since the pause. At most once a day; paused
+again within 24 hours means it is left for a person. Bounce Protect, a person's pause and a suspension are
+never resumed. Settings: send.campaign_guard in config/settings.yaml.
+A temporary bounce ("try again later", "service unavailable", a 4.x.x code, nothing permanent in it) no
+longer counts as a bounce: the person stays on Attempted to Contact and their reminder is the retry; a
+second temporary bounce counts as "Bounced, other reason" (data/temporary_bounces.json, IDs only). A full
+mailbox stays "Bounced, other reason" as before. A bounce notice is never read as a reply.
+
 **Diablo writing in a prospect's thread (12 Nov 2026, Ariel).** An email from one of Diablo's own domains
 (send.own_domains: diablosugarfree.com, diablosnosugar.com, diabloexport.com, meetdiablo.com, plus every
 sending mailbox's domain) is never the prospect's reply, whatever Instantly labels it: it does not pause,

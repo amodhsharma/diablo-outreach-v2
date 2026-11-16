@@ -85,6 +85,10 @@ class Instantly:
     def update_campaign(self, campaign_id, body):
         return self.request("PATCH", f"/campaigns/{campaign_id}", json=body)
 
+    def activate_campaign(self, campaign_id):
+        """Resume (activate) a paused campaign (16 Nov 2026: outreach/campaign_guard.py)."""
+        return self.request("POST", f"/campaigns/{campaign_id}/activate")
+
     def add_leads(self, campaign_id, leads):
         """Add up to 1,000 leads. Leads already anywhere in the workspace are skipped."""
         results = []
