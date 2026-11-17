@@ -1,0 +1,36 @@
+name: 'R - Bounce check (read only)'
+
+# Agreed 17 Nov 2026 (Ariel). Finds out where Instantly keeps the "undeliverable" notices of bounced emails,
+# and what each one says (outreach/bounce_check.py). HubSpot and Instantly are only read: nothing is changed
+# and nothing is saved in the repository. The results are on this run's page, by HubSpot contact ID, with
+# every email address in a reason replaced by <address>. Only started by hand; it reads Instantly's emails
+# slowly so buttons 3 and 4 are never held up.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Most bounces to read, newest first"
+        type: string
+        default: "500"
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    timeout-minutes: 150
+    env:
+      TARGET: ${{ vars.PIPELINE_TARGET || 'test' }}
+      HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+      INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+      INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: "Before: using only code that passed the automatic checks"
+        run: bash .github/scripts/use_checked_code.sh
+      - name: "Read the bounces (changes nothing)"
+        run: python -m outreach.bounce_check --target "$TARGET" --limit "${{ inputs.limit }}"

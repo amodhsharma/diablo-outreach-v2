@@ -70,9 +70,10 @@ def test_only_the_four_buttons_are_left():
     # paragraph preview were removed on 27 Oct 2026 (Ariel): no longer needed.
     # Plus "Code checks" (1 Nov 2026), which has no button: it runs by itself when the code changes.
     # Plus the nightly flow charts to Amodh (16 Nov 2026), which only reads.
+    # Plus the bounce check (17 Nov 2026), started by hand, which only reads.
     assert names == ["1 - Setup HubSpot (once per account)", "2 - Research", "3 - Find contacts",
-                     "4 - Send and follow up", "Code checks (automatic, nothing to press)", "R - Daily summary email",
-                     "R Sankey Chart to Amodh"]
+                     "4 - Send and follow up", "Code checks (automatic, nothing to press)", "R - Bounce check (read only)",
+                     "R - Daily summary email", "R Sankey Chart to Amodh"]
     checks = yaml.safe_load((ROOT / ".github/workflows/checks.yml").read_text())
     assert "workflow_dispatch" not in checks[True]  # never a button to press
 
