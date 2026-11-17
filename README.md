@@ -239,6 +239,13 @@ everyone on GATE2 and sends only the next person due at each company, companies 
 already started (oldest first, always sent), then new companies with only a company inbox, then the other
 new companies in the order they were approved; new companies only in the room left under the day's limit.
 
+**Closed companies stop at once (17 Nov 2026).** At every run of buttons 3 and 4, every AUTO-OUTREACH company
+on a closed Lead Status (Unqualified, Unqualified: Channel no longer targeted, Employee response negative,
+Employee Opted-out/Blocklist, Contacted but no response) is swept: an introduction of one of its people still
+waiting in a Diablo campaign in Instantly is taken out of Instantly, and its contacts get the label that says
+why (for example "Unqualified company"). An email already sent cannot be called back
+(`outreach/stop_closed.py`).
+
 **Sending 24/7 (17 Nov 2026).** Every run of button 4 checks the sending hours of every Diablo campaign in
 Instantly and sets any that differ to the hours in send.schedule: 00:00 to 23:59, every day, London time. A
 campaign already right is left alone; hours changed by hand in Instantly are put back within 3 hours, so to

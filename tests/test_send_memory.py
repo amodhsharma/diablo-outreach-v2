@@ -176,3 +176,31 @@ def test_every_running_campaign_is_kept_sending_24_7(settings):
     assert "Diablo | NOV2026 | Company inbox" in lines[0]
     assert send.refresh_campaign_schedules(instantly, settings, log=lines.append) == 0  # already right: left alone
     assert right  # created 24/7 from the start
+
+
+def test_a_closed_company_s_waiting_introductions_are_taken_out_of_instantly(settings):
+    # 17 Nov 2026 (Ariel): a company moved to "Channel no longer targeted" after its person 1 was queued.
+    from outreach import find_contacts, stop_closed
+    from outreach.stages import LeadStatus
+    from .fakes import FakeApollo
+    hs, instantly = FakeCRM(), FakeInstantly()
+    cid, people = company(hs, "Hong Co", "hong.example", ("Purchasing Manager", "Sales Representative"))
+    send.run("test", settings, hs, instantly, log=quiet)
+    queued = [l["email"] for ls in instantly.leads.values() for l in ls]
+    assert queued == ["p1@hong.example"]
+    hs.records["companies"][cid][LS] = "Unqualified: Channel no longer targeted"
+    lines = []
+    out = stop_closed.run(hs, instantly, settings, LeadStatus(hs), lines.append)
+    assert out["pulled"] == 1 and not [l for ls in instantly.leads.values() for l in ls]
+    assert "Channel no longer targeted" in lines[0] and "taken out" in lines[0]
+    # A sent email stays (it cannot be called back), and nothing is pulled twice.
+    assert stop_closed.run(hs, instantly, settings, LeadStatus(hs), quiet)["pulled"] == 0
+    # Button 3 does the same sweep and marks the people there.
+    send_memory.FILE.unlink(missing_ok=True)
+    hs2, instantly2 = FakeCRM(), FakeInstantly()
+    cid2, people2 = company(hs2, "Hong Co", "hong.example", ("Purchasing Manager", "Sales Representative"))
+    send.run("test", settings, hs2, instantly2, log=quiet)
+    hs2.records["companies"][cid2][LS] = "Unqualified: Channel no longer targeted"
+    find_contacts.run("test", settings, hs2, FakeApollo({}, {}), log=quiet, instantly=instantly2)
+    assert not [l for ls in instantly2.leads.values() for l in ls]
+    assert all(rec(hs2, p)[LS] == "UNQUALIFIED_COMPANY" for p in people2)  # "Unqualified company"

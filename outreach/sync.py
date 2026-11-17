@@ -58,7 +58,7 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parked_ids, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from . import chain, corrupt, daily_log, mail_watch, redirect, referral_intro, referrals, reply_forward, send_memory, timeline
+from . import chain, corrupt, daily_log, mail_watch, redirect, referral_intro, referrals, reply_forward, send_memory, stop_closed, timeline
 from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, TEAM, LeadStatus,
                      forward)
 
@@ -684,9 +684,15 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
     except Exception as err:  # never stops the run; tried again next run
         dead = {"corrupt": 0}
         log(f"Could not check the dead addresses: {str(err)[:200]}")
+    try:  # 17 Nov 2026 (Ariel): a closed company's introductions still waiting in Instantly are taken out at once
+        pulled = stop_closed.run(hs, instantly, settings, statuses, log, leads=leads)
+    except Exception as err:  # never stops the run; tried again next run
+        pulled = {"pulled": 0}
+        log(f"Could not take the closed companies' waiting introductions out of Instantly: {str(err)[:200]}")
     moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads,
                     blocked=blocked, opt_out_rows=opt_out_rows)
     moved["contacts_corrupt"] = dead.get("corrupt", 0)
+    moved["closed_introductions_pulled"] = pulled.get("pulled", 0)
     try:  # 21 Oct 2026: the contacts of every Unqualified company become "Unqualified company"
         moved["company_contacts_closed"] = close_company_contacts(hs, statuses, log, leads=leads,
                                                                    blocked=blocked)

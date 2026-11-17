@@ -397,7 +397,7 @@ def fill_legal_basis(hs, log=print, limit=2000):
     return len(rows)
 
 
-def run(target, settings, hs, apollo, log=print):
+def run(target, settings, hs, apollo, log=print, instantly=None):
     check_target(hs, target)
     cfg = settings["contacts"]
     statuses = LeadStatus(hs)
@@ -434,6 +434,12 @@ def run(target, settings, hs, apollo, log=print):
     except Exception as err:
         redirected = {}
         log(f"Could not move the contacts up after a Rejected/Redirected contact: {str(err)[:200]}")
+    try:  # 17 Nov 2026 (Ariel): every run, a closed company's people are marked and their waiting emails stopped
+        from . import stop_closed, sync
+        stop_closed.run(hs, instantly, settings, statuses, log)
+        sync.close_company_contacts(hs, statuses, log)
+    except Exception as err:
+        log(f"Could not stop the emails at closed companies: {str(err)[:200]}")
     try:  # 3 Nov 2026 (Ariel): a contact added later at an open company gets its colleague's line and GATE2
         chain.fill_open(hs, settings, statuses, None, log)
     except Exception as err:
@@ -836,7 +842,11 @@ def main(argv=None):
         print("Find people skipped: a key it needs is not added yet.")
         return 0
     try:
-        run(args.target, load_settings(), HubSpot(), Apollo())
+        instantly = None
+        if os.environ.get("INSTANTLY_API_KEY"):  # 17 Nov 2026: to stop the emails at closed companies
+            from .instantly_client import InstantlyClient
+            instantly = InstantlyClient()
+        run(args.target, load_settings(), HubSpot(), Apollo(), instantly=instantly)
     except (PipelineError, HubSpotError, ApolloError) as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1

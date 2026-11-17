@@ -243,6 +243,8 @@ class FakeInstantly:
         # Mimics skip_if_in_workspace: an email already anywhere is skipped.
         known = {l["email"] for ls in self.leads.values() for l in ls}
         new = [l for l in leads if l["email"] not in known]
+        for l in new:  # Instantly gives every lead its own ID
+            l.setdefault("id", "lead-" + l["email"])
         self.leads[campaign_id].extend(new)
         return [{"leads_uploaded": len(new), "skipped_count": len(leads) - len(new),
                  "created_leads": [{"email": l["email"]} for l in new]}]
