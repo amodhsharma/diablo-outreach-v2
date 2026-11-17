@@ -482,6 +482,12 @@
  "today": {
   "backlog": 0,
   "day": "2026-11-17",
-  "reminders": {}
+  "reminders": {
+   "dana@diabloexport.com": 7,
+   "elize@diabloexport.com": 8,
+   "info@diablosnosugar.com": 7,
+   "joshua@diabloexport.com": 7,
+   "sales@diablosnosugar.com": 8
+  }
  }
 }
