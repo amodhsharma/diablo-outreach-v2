@@ -1,5 +1,10 @@
 {
  "handled": {
+  "670972336321": {
+   "day": "2026-11-17",
+   "outcome": "none",
+   "rules": 2
+  },
   "673475951810": {
    "day": "2026-11-13",
    "outcome": "none",
@@ -91,6 +96,14 @@
    "replies": 1,
    "rules": 2,
    "why": "no clear wording that it is a redirect"
+  },
+  "910735942875": {
+   "automatic": false,
+   "company": "456982046951",
+   "day": "2026-11-17",
+   "outcome": "unsure",
+   "rules": 2,
+   "why": "no email address in the reply"
   },
   "911113093316": {
    "day": "2026-11-12",
