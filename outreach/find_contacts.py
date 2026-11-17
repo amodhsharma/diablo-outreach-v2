@@ -866,8 +866,8 @@ def main(argv=None):
     try:
         instantly = None
         if os.environ.get("INSTANTLY_API_KEY"):  # 17 Nov 2026: to stop the emails at closed companies
-            from .instantly_client import InstantlyClient
-            instantly = InstantlyClient()
+            from .instantly_client import Instantly
+            instantly = Instantly()
         run(args.target, load_settings(), HubSpot(), Apollo(), instantly=instantly)
     except (PipelineError, HubSpotError, ApolloError) as err:
         print(f"ERROR: {err}", file=sys.stderr)

@@ -219,3 +219,18 @@ def test_button_3_writes_every_company_s_country_one_way():
     assert co[a]["country"] == co[b]["country"] == co[c]["country"] == "Australia"
     assert co[d]["country"] == "au"  # never touched: not AUTO-OUTREACH
     assert find_contacts.place_of({"country": "au", "city": "Perth"}) == {"country": "Australia", "city": "Perth"}
+
+
+def test_button_3_starts_with_the_instantly_key(monkeypatch):
+    # 17 Nov 2026: button 3 failed at its start (a wrong name for the Instantly connection).
+    from outreach import find_contacts, instantly_client
+    made = []
+    monkeypatch.setenv("INSTANTLY_API_KEY", "key")
+    monkeypatch.setattr(instantly_client, "Instantly", lambda *a, **k: made.append(1) or "instantly")
+    monkeypatch.setattr(find_contacts, "HubSpot", lambda *a, **k: "hs")
+    monkeypatch.setattr(find_contacts, "Apollo", lambda *a, **k: "apollo")
+    seen = {}
+    monkeypatch.setattr(find_contacts, "run", lambda *a, **k: seen.update(k))
+    monkeypatch.setattr("sys.argv", ["find_contacts", "--target", "test"])
+    find_contacts.main()
+    assert made and seen.get("instantly") == "instantly"
