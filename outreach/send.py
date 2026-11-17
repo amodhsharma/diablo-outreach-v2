@@ -360,6 +360,52 @@ def refresh_campaign_limits(instantly, settings, log=print):
     return changed
 
 
+def wanted_schedule(settings, market=""):
+    """The campaign_schedule a Diablo campaign should have (send.schedule; 00:00 to 23:59 every day, London
+    time, since 17 Nov 2026)."""
+    sched = schedule_for(market, settings["send"]["schedule"])
+    return {"schedules": [{"name": f"{market} working hours",
+                           "timing": {"from": sched["from"], "to": sched["to"]},
+                           "days": schedule_days(sched),
+                           "timezone": instantly_timezone(sched["timezone"])}]}
+
+
+def _schedule_key(schedule):
+    """What matters in a campaign_schedule: the hours, the days switched on and the time zone."""
+    try:
+        first = ((schedule or {}).get("schedules") or [])[0]
+    except IndexError:
+        return None
+    days = first.get("days") or {}
+    return ((first.get("timing") or {}).get("from"), (first.get("timing") or {}).get("to"),
+            tuple(sorted(str(k) for k, v in days.items() if v)), first.get("timezone"))
+
+
+def refresh_campaign_schedules(instantly, settings, log=print):
+    """Keep every Diablo campaign sending at the hours in send.schedule (17 Nov 2026, Ariel: 24/7), so hours
+    changed by hand in Instantly are put back at the next run. A campaign already right is left alone. Returns
+    how many campaigns were changed."""
+    prefix = settings["sync"]["campaign_prefix"]
+    want = wanted_schedule(settings)
+    changed = 0
+    for camp in instantly.list_campaigns():
+        if not str(camp.get("name") or "").startswith(prefix):
+            continue
+        if _schedule_key(camp.get("campaign_schedule")) == _schedule_key(want):
+            continue
+        body = {"schedules": [dict(want["schedules"][0], name=(((camp.get("campaign_schedule") or {})
+                                                                .get("schedules") or [{}])[0].get("name")
+                                                               or want["schedules"][0]["name"]))]}
+        instantly.update_campaign(camp["id"], {"campaign_schedule": body})
+        changed += 1
+        first = want["schedules"][0]
+        log(f"Sending hours of campaign {camp['name']} set to {first['timing']['from']} to {first['timing']['to']}, "
+            f"every day switched on in send.schedule ({first['timezone']})")
+    if not changed:
+        log("Sending hours: every Diablo campaign already sends at the hours in send.schedule")
+    return changed
+
+
 def campaign_body(name, market, settings, kind=None):
     s = settings["send"]
     kind = kind or kind_of_campaign(name, s)
@@ -368,19 +414,11 @@ def campaign_body(name, market, settings, kind=None):
             "No sending mailboxes set. Add your warmed mailboxes to send.sending_accounts "
             "in config/settings.yaml first."
         )
-    sched = schedule_for(market, s["schedule"])
     steps = sequence_steps(s, kind)
     daily_limit = limit_for_kind(s, kind)
     return {
         "name": name,
-        "campaign_schedule": {
-            "schedules": [{
-                "name": f"{market} working hours",
-                "timing": {"from": sched["from"], "to": sched["to"]},
-                "days": schedule_days(sched),
-                "timezone": instantly_timezone(sched["timezone"]),
-            }]
-        },
+        "campaign_schedule": wanted_schedule(settings, market),
         "sequences": [{"steps": steps}],
         "email_list": s["sending_accounts"],
         "daily_limit": daily_limit,
@@ -511,6 +549,10 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             refresh_campaign_limits(instantly, settings, log=log)
         except Exception as err:  # never stops the sending; tried again next run
             log(f"Could not update the campaigns' daily limits: {str(err)[:300]}")
+        try:  # 17 Nov 2026 (Ariel): every running campaign sends 24/7 (send.schedule)
+            refresh_campaign_schedules(instantly, settings, log=log)
+        except Exception as err:  # never stops the sending; tried again next run
+            log(f"Could not update the campaigns' sending hours: {str(err)[:300]}")
     # 17 Nov 2026 (Ariel): every approved person is read, not only the first 200, and only the next person due
     # at each company goes; before, a company whose person 1 was not among the 200 waited for ever.
     contacts = hs.tagged_search("contacts", [statuses.filter("contacts", "approved")], CONTACT_PROPS,

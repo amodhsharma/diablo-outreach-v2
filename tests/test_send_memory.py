@@ -156,3 +156,23 @@ def test_the_daily_summary_counts_introductions_and_reminders_from_the_memory():
     }}
     assert send_memory.day_counts(memory, "2026-11-18", INDIA) == {"person": 1, "inbox": 1, "reminders": 1}
     assert send_memory.day_counts(memory, "2026-11-17", INDIA) is None  # not covered in full: counted as before
+
+
+def test_every_running_campaign_is_kept_sending_24_7(settings):
+    instantly = FakeInstantly()
+    right = instantly.create_campaign(send.campaign_body("Diablo | NOV2026", "", settings))["id"]
+    limited = instantly.create_campaign(dict(send.campaign_body("Diablo | NOV2026 | Company inbox", "", settings),
+                                             campaign_schedule={"schedules": [{
+                                                 "name": "Office hours", "timing": {"from": "09:00", "to": "17:00"},
+                                                 "days": {"1": True, "2": True, "3": True, "4": True, "5": True},
+                                                 "timezone": "Europe/London"}]}))["id"]
+    other = instantly.create_campaign({"name": "Someone else's campaign", "campaign_schedule": None})["id"]
+    lines = []
+    assert send.refresh_campaign_schedules(instantly, settings, log=lines.append) == 1
+    first = instantly.campaigns[limited]["campaign_schedule"]["schedules"][0]
+    assert first["timing"] == {"from": "00:00", "to": "23:59"} and all(first["days"][d] for d in "0123456")
+    assert first["name"] == "Office hours"  # the name is kept, only the hours change
+    assert instantly.campaigns[other]["campaign_schedule"] is None  # never touched
+    assert "Diablo | NOV2026 | Company inbox" in lines[0]
+    assert send.refresh_campaign_schedules(instantly, settings, log=lines.append) == 0  # already right: left alone
+    assert right  # created 24/7 from the start

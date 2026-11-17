@@ -239,6 +239,11 @@ everyone on GATE2 and sends only the next person due at each company, companies 
 already started (oldest first, always sent), then new companies with only a company inbox, then the other
 new companies in the order they were approved; new companies only in the room left under the day's limit.
 
+**Sending 24/7 (17 Nov 2026).** Every run of button 4 checks the sending hours of every Diablo campaign in
+Instantly and sets any that differ to the hours in send.schedule: 00:00 to 23:59, every day, London time. A
+campaign already right is left alone; hours changed by hand in Instantly are put back within 3 hours, so to
+limit the hours again, change send.schedule. The daily limits (30 a mailbox) are not affected.
+
 **Button 4's own memory (17 Nov 2026).** data/send_memory.json keeps, for every person (contact and company
 IDs, order and times only, never a name or an address), when their introduction was queued and sent, when
 their reminder went and when they were closed, so each person has their own timers. HubSpot is read too: a
