@@ -161,3 +161,13 @@ def test_the_renderer_draws_a_png(tmp_path):
     for spec in fc.specs(DAY, h, statuses()):
         png = fc.render(spec, tmp_path / "x.png")
         assert png.read_bytes()[:4] == b"\x89PNG"
+
+
+def test_countries_are_written_one_way_in_the_charts():
+    # 17 Nov 2026 (Ariel): "AU", "australia" and "Australia" were three countries in the chart.
+    h = history(a=("AU", [("New", at(10))]), b=("australia", [("New", at(11))]), c=("Australia", [("New", at(12))]),
+                d=("Hongkong", [("New", at(12))]), e=("serbia", [("New", at(12))]))
+    countries = sorted({c for c, _ in fc.companies_in(statuses(), h, DAY, DAY)})
+    assert countries == ["Australia", "Hong Kong", "Serbia"]
+    from outreach.countries import uniform
+    assert uniform("AU") == uniform(" AUSTRALIA ") == "Australia" and uniform("narnia land") == "Narnia Land"

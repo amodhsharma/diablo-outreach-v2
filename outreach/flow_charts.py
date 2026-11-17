@@ -46,6 +46,7 @@ from email.utils import make_msgid
 from pathlib import Path
 
 from .common import PipelineError, check_target, load_settings, step_summary
+from .countries import uniform
 from .daily_log import INDIA
 from .daily_report import DEFAULTS, recipients
 from .hubspot_client import HubSpot
@@ -135,8 +136,8 @@ def companies_in(statuses, history, first, last):
         if not moved_in(past, start, end):
             continue
         path = PATHS.get(end_stage(statuses, past, end))
-        if path:
-            out.append(((props.get("country") or "").strip() or "Other", path))
+        if path:  # 17 Nov 2026 (Ariel): "AU", "australia" and "Australia" are all "Australia"
+            out.append((uniform(props.get("country")) or "Other", path))
     return out
 
 
