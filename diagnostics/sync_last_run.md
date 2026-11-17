@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-17 13:39 UTC
+Written 2026-11-17 16:37 UTC
 
 ```
-893 leads in the Diablo campaigns in Instantly
+894 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -18,12 +18,9 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Wrote 9 notes on contacts' timelines (email sent, bounced or replied)
-Yabulela Gift Hampers: positive reply forwarded
-Email threads: 15 emails since the last run
-Sunshine Confectionery Outlet: no reply to the introduction; the company is now "Unqualified: Contacted, but no response"
-JB Metropolitan Distributors Adelaide: the introduction goes to State Manager SA / NT
-Email threads: 19 companies read in full, 211 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 1 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 3 contacts and 1 companies in HubSpot
+Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
+Email threads: 2 emails since the last run
+Email threads: 5 companies read in full, 119 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Updated 0 contacts and 0 companies in HubSpot
 ```
