@@ -24,6 +24,7 @@ import sys
 from pathlib import Path
 
 from . import known_companies
+from .countries import uniform
 from . import research_queue as rq
 from .common import (
     ROOT, PipelineError, check_target, clean_category, clean_domain, industry_type, known_file, load_settings,
@@ -115,6 +116,7 @@ def hubspot_records(data, statuses):
     AUTO-OUTREACH tag is added when the records are created (hubspot_client.TagGuard)."""
     records, notes = [], {}
     city, country = split_location(data["location"])
+    country = uniform(country) or country  # 17 Nov 2026 (Ariel): one way of writing each country
     for c in data["companies"]:
         channel = c["channel_category"][0]
         has_domain = c["domain"] != check_output.NO_DOMAIN

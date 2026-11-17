@@ -246,6 +246,11 @@ waiting in a Diablo campaign in Instantly is taken out of Instantly, and its con
 why (for example "Unqualified company"). An email already sent cannot be called back
 (`outreach/stop_closed.py`).
 
+**One way of writing each country (17 Nov 2026).** "AU", "australia" and "Australia" are all "Australia", with
+a capital first letter (`countries.uniform`). Button 2 writes new companies' Country this way, button 3 puts
+right any AUTO-OUTREACH company written another way at every run and gives contacts the same, and the flow
+charts group countries this way.
+
 **Sending 24/7 (17 Nov 2026).** Every run of button 4 checks the sending hours of every Diablo campaign in
 Instantly and sets any that differ to the hours in send.schedule: 00:00 to 23:59, every day, London time. A
 campaign already right is left alone; hours changed by hand in Instantly are put back within 3 hours, so to

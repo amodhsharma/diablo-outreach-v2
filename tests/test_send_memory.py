@@ -204,3 +204,18 @@ def test_a_closed_company_s_waiting_introductions_are_taken_out_of_instantly(set
     find_contacts.run("test", settings, hs2, FakeApollo({}, {}), log=quiet, instantly=instantly2)
     assert not [l for ls in instantly2.leads.values() for l in ls]
     assert all(rec(hs2, p)[LS] == "UNQUALIFIED_COMPANY" for p in people2)  # "Unqualified company"
+
+
+def test_button_3_writes_every_company_s_country_one_way():
+    # 17 Nov 2026 (Ariel): "AU", "australia" and "Australia" become "Australia"; only AUTO-OUTREACH companies.
+    from outreach import find_contacts
+    hs = FakeCRM()
+    a = hs.add("companies", name="A", country="AU")
+    b = hs.add("companies", name="B", country="australia")
+    c = hs.add("companies", name="C", country="Australia")
+    d = hs.add("companies", tagged=False, name="D", country="au")
+    assert find_contacts.tidy_countries(hs, quiet) == 2
+    co = hs.records["companies"]
+    assert co[a]["country"] == co[b]["country"] == co[c]["country"] == "Australia"
+    assert co[d]["country"] == "au"  # never touched: not AUTO-OUTREACH
+    assert find_contacts.place_of({"country": "au", "city": "Perth"}) == {"country": "Australia", "city": "Perth"}

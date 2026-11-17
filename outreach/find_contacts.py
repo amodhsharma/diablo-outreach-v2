@@ -31,6 +31,7 @@ import os
 import re
 import sys
 
+from .countries import uniform
 from . import apollo_status, chain, company_inbox, hand_tagged, linking, redirect, takeover
 from .job_owner import fill_owners, is_job_company, job_notes, job_owner
 from .apollo_client import Apollo, ApolloError
@@ -434,6 +435,10 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
     except Exception as err:
         redirected = {}
         log(f"Could not move the contacts up after a Rejected/Redirected contact: {str(err)[:200]}")
+    try:  # 17 Nov 2026 (Ariel): one way of writing each country
+        tidy_countries(hs, log)
+    except Exception as err:
+        log(f"Could not tidy the companies' Country: {str(err)[:200]}")
     try:  # 17 Nov 2026 (Ariel): every run, a closed company's people are marked and their waiting emails stopped
         from . import stop_closed, sync
         stop_closed.run(hs, instantly, settings, statuses, log)
@@ -599,8 +604,25 @@ def place_of(company_props):
     for key in ("country", "city"):
         value = (company_props.get(key) or "").strip()
         if value:
-            out[key] = value
+            out[key] = (uniform(value) or value) if key == "country" else value  # 17 Nov 2026: "AU" -> "Australia"
     return out
+
+
+def tidy_countries(hs, log=print):
+    """Every AUTO-OUTREACH company's Country written one way (17 Nov 2026, Ariel): "AU", "australia" and
+    "Australia" all become "Australia", with a capital first letter. Only the Country changes. Returns how many."""
+    rows = hs.tagged_search("companies", [{"propertyName": "country", "operator": "HAS_PROPERTY"}],
+                            ["name", "country"], max_results=10000)
+    updates = []
+    for r in rows:
+        have = (r.get("properties") or {}).get("country") or ""
+        want = uniform(have)
+        if want and want != have:
+            updates.append((r["id"], {"country": want}))
+            log(f'{(r.get("properties") or {}).get("name") or "A company"}: Country "{have}" is now "{want}"')
+    if updates:
+        hs.update_tagged("companies", updates)
+    return len(updates)
 
 
 def fill_contact_places(hs, log=print, limit=2000):
