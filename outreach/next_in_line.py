@@ -112,6 +112,8 @@ def contact_state(contact, statuses, leads):
         return "bounced"
     if stage in EMAILED:
         return "sent" if lead and lead.get("timestamp_last_contact") else "queued"
+    if stage == "no_response":  # 17 Nov 2026: closed 48 hours after their reminder; the others carry on
+        return "sent" if lead and lead.get("timestamp_last_contact") else "skipped"
     if stage in ("closed", "bounced_other") and lead is None:
         return "skipped"
     return STOP  # replied, closed (opted out or not interested) or a person's own Lead Status
@@ -229,8 +231,8 @@ def intro_time(contact, touches=None):
 def reminder_done(contact, touches=None):
     """True once this contact had their reminder: HubSpot says so, or Instantly shows a second email."""
     stage = str((contact.get("properties") or {}).get(LEAD_STATUS) or "").upper()
-    if stage in ("REMINDER_SENT", "REMINDER SENT"):
-        return True
+    if stage in ("REMINDER_SENT", "REMINDER SENT", "CONTACTED_NO_RESPONSE_UNQUALIFIED") or contact.get("mem_reminded"):
+        return True  # 17 Nov 2026: or button 4's memory says it went, or the person was closed after it
     return touches is not None and len(touch_times(contact, touches)) >= 2
 
 
@@ -255,8 +257,12 @@ def decide_chain(contacts, company_stage, now=None, touches=None, chain=None, st
     emailed = sorted((c for c in contacts if c["state"] == "sent" and intro_time(c, touches)),
                      key=lambda c: intro_time(c, touches))
 
+    skip = {str(x) for x in chain.get("skip_reminder") or ()}
+
     def remind_ok(c):
-        if statuses is not None and statuses.of("contacts", c) == "reminded":
+        if str(c.get("id")) in skip or c.get("mem_reminded"):
+            return False
+        if statuses is not None and statuses.of("contacts", c) in ("reminded", "no_response"):
             return False
         return chain.get("inbox_reminder", True) or not is_company_inbox(c)
 

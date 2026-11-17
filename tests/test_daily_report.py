@@ -126,7 +126,7 @@ Prospecting
 - Companies marked unqualified after no response within 7 days: 1
 
 Outreach
-- Introductory emails sent: 3 (2 to named contacts, 1 to general company inboxes)
+- New first time introductory mails sent: 3 (2 to named contacts, 1 to company inboxes)
 - Responses received: 2 (1 positive, 1 negative, 0 neutral)
 - Positive responses requiring follow-up: 1
   - FELFEL
@@ -172,7 +172,7 @@ def test_a_quiet_day_and_all_healthy():
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date="2026-11-01",
                             preview=True, log=quiet, log_data={})["text"]
     assert "- New prospective partners identified: 0\n" in text
-    assert "- Introductory emails sent: 0\n" in text and "- Responses received: 0\n" in text
+    assert "- New first time introductory mails sent: 0\n" in text and "- Responses received: 0\n" in text
     assert "- Sending accounts: all healthy" in text and "Month to date (1 November 2026)" in text
 
 

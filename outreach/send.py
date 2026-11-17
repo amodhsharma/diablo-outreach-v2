@@ -1,8 +1,10 @@
-"""Button 4, step 2: add person 1 of each newly approved company to an Instantly campaign.
+"""Button 4, step 2: add the next person due at each company to an Instantly campaign.
 
 Only AUTO-OUTREACH contacts whose Lead Status is GATE2: Approved to send are sent (gate 2), only at
-AUTO-OUTREACH companies, and only one person per company at a time, most senior first (see
-next_in_line.py). The sync job
+AUTO-OUTREACH companies, and only the next person due per company, in Outreach order (see chain.py). Every
+approved person is read (17 Nov 2026); companies already started go first, then new companies with only a
+company inbox, then the other new companies in the order they were approved, in the room left today. Button
+4's memory (send_memory.py) makes sure nobody gets a second introduction. The sync job
 moves each company on to its next person by itself. Campaigns are created paused; you
 press Start in Instantly for each new campaign.
 Usage:
@@ -19,7 +21,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import bond, chain, corrupt, redirect, referral_intro, timeline
+from . import bond, chain, corrupt, redirect, referral_intro, send_memory, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -415,13 +417,14 @@ def refresh_campaign_content(instantly, settings, log=print):
 
 WAIT_REASONS = {
     "stopped": "someone at the company has replied, opted out or been marked, so nobody else there is emailed",
-    "waiting": "the company's last email was under 3 days ago (one email every 3 days per company)",
+    "waiting": "its last introduction went under 48 hours ago, or one is still waiting in Instantly to go",
     "forward": "someone at the company was already emailed; Sync sends this person a forward of that email in turn",
     "reminder": "the company's loop is done; Sync sends person 1 their reminder",
-    "waiting_same_person": "the company's loop is done; person 1's reminder waits for its week",
+    "waiting_same_person": "everyone there is introduced; their reminders wait for their 96 hours",
     "no_reply": "the company's loop is finished with no reply",
     "waiting_for_reply": "person 1 was emailed and the company is waiting for their reply (no follow-ups)",
     "next": "a more senior approved person at the company goes first",
+    "nothing": "nobody there can be emailed yet",
     "waiting_for_gate_2": "person 1 at the company is not approved yet",
 }
 
@@ -508,8 +511,10 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             refresh_campaign_limits(instantly, settings, log=log)
         except Exception as err:  # never stops the sending; tried again next run
             log(f"Could not update the campaigns' daily limits: {str(err)[:300]}")
+    # 17 Nov 2026 (Ariel): every approved person is read, not only the first 200, and only the next person due
+    # at each company goes; before, a company whose person 1 was not among the 200 waited for ever.
     contacts = hs.tagged_search("contacts", [statuses.filter("contacts", "approved")], CONTACT_PROPS,
-                                max_results=settings["send"]["contacts_per_run"])
+                                max_results=int(settings["send"].get("contacts_per_run") or 10000))
     log(f"{len(contacts)} contacts approved to send")
     if not contacts:
         return {"queued": 0}
@@ -527,46 +532,86 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     groups, skipped, waiting = defaultdict(list), [], 0
     chain_cfg = chain.config(settings)  # 2 Nov 2026: everyone at the company gets their own introduction
     chain_state = chain.load_state() if chain_cfg else {}
+    memory = send_memory.load()  # 17 Nov 2026: button 4's own memory of every person and their timers
+    now = dt.datetime.now(dt.timezone.utc)
     needs_note = first_email_uses(settings, "company_note")
     referral_waiting = referral_intro.waiting_ids()
     bond_config = bond.load()
     campaign_ids = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
+    approved_at = defaultdict(list)
     for c in contacts:
         company_id = owner_of.get(str(c["id"]))
         company = companies.get(company_id)
-        comp = company["properties"] if company else None
-        company_stage = statuses.of("companies", company) if company else ""
+        reason = skip_reason(c, company["properties"] if company else None,
+                             statuses.of("companies", company) if company else "", needs_note)
+        if reason and (not company or reason.startswith("its company")):  # nothing at this company can go
+            skipped.append({"contact_id": c["id"], "email": mask(c["properties"].get("email")), "reason": reason})
+            log(f"Skipped contact {c['id']} ({mask(c['properties'].get('email'))}): {reason}")
+            continue
+        approved_at[company_id].append(c["id"])
+
+    # One next person per company, companies in this order (17 Nov 2026, Ariel): companies already started, the
+    # oldest first; then new companies with only a company inbox; then the other new companies, in the order
+    # they were approved.
+    plans = []
+    for company_id in approved_at:
+        company = companies[company_id]
+        company_contacts = annotate(everyone.get(company_id) or [], statuses, in_instantly)
+        send_memory.observe(memory, company_contacts, company_id, statuses, None, now, times=False)
+        send_memory.apply(memory, company_contacts, log, (company.get("properties") or {}).get("name") or "")
+        started = [c["sent_at"] for c in company_contacts if c.get("sent_at")] + \
+            [now for c in company_contacts if c.get("state") == "queued"]
+        people = [c for c in company_contacts if (c["properties"].get("email") or "") and c.get("state") != "skipped"]
+        inbox_only = bool(people) and all(is_company_inbox(c) for c in people)
+        if started:
+            key = (0, min(started).timestamp(), str(company_id))
+        else:
+            first = send_memory.first_approved(memory, approved_at[company_id])
+            key = (1 if inbox_only else 2, first.timestamp() if first else 0.0, str(company_id))
+        plans.append((key, company_id, company, company_contacts))
+    plans.sort(key=lambda x: x[0])
+    room = None
+    if not dry_run and chain_cfg:  # new companies only in the room left today; companies already started always
+        room = chain.room_today(in_instantly, daily_limit_for(settings["send"]))
+        log(f"Room for new introductions today: {room}")
+    for key, company_id, company, company_contacts in plans:
+        comp = company["properties"]
+        company_stage = statuses.of("companies", company)
+        name = comp.get("name") or "a company"
+        n_waiting = len(approved_at[company_id])
+        rules = chain.company_rules(chain_cfg, chain_state, company_id) if chain_cfg else None
+        due, why = decide(company_contacts, company_stage, gap, follow_ups=one_email[0],
+                          no_reply_days=one_email[1], inbox_reminder=one_email[2], chain=rules, statuses=statuses)
+        c = due if why == "next" and due else None
+        if c is None:
+            waiting += n_waiting
+            log(f"Waiting: {name}: {n_waiting} approved contact(s): "
+                + WAIT_REASONS.get(why, "nothing is due at this company yet"))
+            continue
         p = c["properties"]
         reason = skip_reason(c, comp, company_stage, needs_note)
         if not reason and str(c["id"]) in referral_waiting:  # 12 Nov 2026: their first email is the referral forward
             reason = "a colleague's reply named them, so their first email is a forward of that reply (button 4's sync)"
+        if not reason and send_memory.blocks_intro(memory, c["id"]):
+            reason = "button 4's memory shows they already had their introduction; never sent twice"
         if reason:
             skipped.append({"contact_id": c["id"], "email": mask(p.get("email")), "reason": reason})
-            log(f"Skipped contact {c['id']} ({mask(p.get('email'))}): {reason}")
+            log(f"Skipped contact {c['id']} ({mask(p.get('email'))}) at {name}: {reason}")
+            waiting += n_waiting - 1
             continue
-        # One person per company at a time: only the one next in line goes now.
-        company_contacts = annotate(everyone.get(company_id) or [c], statuses, in_instantly)
-        rules = chain.company_rules(chain_cfg, chain_state, company_id) if chain_cfg else None
-        due, why = decide(company_contacts, company_stage, gap, follow_ups=one_email[0],
-                          no_reply_days=one_email[1], inbox_reminder=one_email[2], chain=rules, statuses=statuses)
-        if why == "next" and due and due["id"] == c["id"] and corrupt.held_now(c["id"]):
-            waiting += 1  # 28 Oct 2026: moved up after a dead address in this run; goes at the next run
-            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: moved up to number 1 "
+        if corrupt.held_now(c["id"]):
+            waiting += n_waiting  # 28 Oct 2026: moved up after a dead address in this run; goes at the next run
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: moved up to number 1 "
                 "after a dead address in this run; the introduction goes at the next run")
             continue
-        hold = redirect.hold(company_contacts, c, statuses) if why == "next" and due and due["id"] == c["id"] else ""
+        hold = redirect.hold(company_contacts, c, statuses)
         if hold:  # 2 Nov 2026: the new number 1 after a Rejected/Redirected contact always goes first
-            waiting += 1
-            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: waiting for {hold}")
-            continue
-        if why != "next" or not due or due["id"] != c["id"]:  # only the one next in line goes now
-            waiting += 1
-            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: "
-                + WAIT_REASONS.get(why, "a more senior approved person at the company goes first"))
+            waiting += n_waiting
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: waiting for {hold}")
             continue
         if not (comp.get("country") or "").strip():  # 23 Oct 2026: "a direct partner in <country>" needs it
-            waiting += 1
-            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: the company has no "
+            waiting += n_waiting
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: the company has no "
                 "Country in HubSpot, so the email could not name the market; fill in its Country")
             continue
         earlier = last_campaign(company_contacts)
@@ -577,16 +622,23 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         kind = kind_for(is_company_inbox(c))
         other = bool(bond.bond_channel(channel_of(comp, notes), bond_config))
         if other and not bond_ready(settings, kind):
-            waiting += 1
-            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {comp.get('name')}: a channel outside our "
+            waiting += n_waiting
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: a channel outside our "
                 "usual ones, whose email needs the bond paragraph; the campaign's email does not have room for it yet")
             continue
+        if key[0] > 0 and room is not None:
+            if room <= 0:
+                waiting += n_waiting
+                log(f"Waiting: {name}: today's room for new introductions is used up; it goes first tomorrow")
+                continue
+            room -= 1
         if earlier and is_other_campaign(next((n for n, i in campaign_ids.items() if i == earlier), "")):
             earlier = None  # never added to an October "Other channels" campaign again
         if chain_cfg:  # 2 Nov 2026 (Ariel): every email goes into the campaign of the month it is sent in
             earlier = None
-        key = ("campaign", earlier, kind) if earlier else ("month", kind)
-        groups[key].append((c, company_id, comp, company_stage))
+        group = ("campaign", earlier, kind) if earlier else ("month", kind)
+        groups[group].append((c, company_id, comp, company_stage))
+        waiting += n_waiting - (1 if str(c["id"]) in {str(x) for x in approved_at[company_id]} else 0)
     if waiting:
         log(f"{waiting} approved contacts wait their turn (one person per company at a time)")
 
@@ -627,6 +679,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                     "It stays GATE2: Approved to send in HubSpot.")
                 continue
             contact_updates.append((c["id"], statuses.props("contacts", "in_outreach")))
+            send_memory.queued(memory, c, company_id)
             intros.append(f"| {(companies.get(company_id) or {}).get('properties', {}).get('name') or 'a company'} | "
                           f"{c['properties'].get('jobtitle') or 'person 1'} | Introduction added to the campaign "
                           "(Lead Status: Attempted to Contact) |")
@@ -634,6 +687,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                 company_updates[company_id] = statuses.props("companies", "in_outreach")
 
     if not dry_run:
+        send_memory.save(memory)  # first, so nobody is introduced twice even if HubSpot fails below
         hs.update_tagged("contacts", contact_updates)
         hs.update_tagged("companies", list(company_updates.items()))
         step_summary("## Button 4: introductions this run\n\n" + (

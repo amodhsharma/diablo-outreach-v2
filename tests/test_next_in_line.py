@@ -6,7 +6,7 @@ import datetime as dt
 
 import pytest
 
-from outreach import common, send, sync
+from outreach import common, send, send_memory, sync
 from outreach.common import load_settings
 from outreach.schema import INBOX_TITLE
 
@@ -34,6 +34,10 @@ def settings():
     s["send"]["follow_ups_to_people"] = True
     s["send"]["reminder_to_company_inbox"] = True
     s["send"]["chain"]["enabled"] = False  # 2 Nov 2026: the chain (test_chain.py) replaces this loop when on
+    # The old loop's own gaps (3 days between people, a week for the reminder); the chain's timings from
+    # 17 Nov 2026 (48 and 96 hours) are tested in test_chain.py and test_send_memory.py.
+    s["send"]["next_contact_after_days"] = 3
+    s["send"]["rotation"]["min_days_same_person"] = 7
     return s
 
 
@@ -70,6 +74,7 @@ def started(settings, name="Noble Foods", domain="noble.in", days=3.5):
     cid, people = company_with_three(hs, name, domain)
     for i, pid in enumerate(people):
         hs.records["contacts"][pid]["lastname"] = f"L{i + 1}"
+    send_memory.FILE.unlink(missing_ok=True)  # a fresh made-up account: its IDs start again from 1001
     result = send.run("test", settings, hs, instantly, log=quiet)
     assert result["queued"] == 1 and result["waiting"] == 2  # only person 1 goes through the campaign
     lead(instantly, f"p1@{domain}")["timestamp_last_contact"] = ago(days)

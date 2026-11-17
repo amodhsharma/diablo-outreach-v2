@@ -126,7 +126,8 @@ assignment:
   job_owner_id: "38945050"
 
 send:
-  contacts_per_run: 200
+  # 17 Nov 2026 (Ariel): every approved person is read (a ceiling only), then one next person per company goes.
+  contacts_per_run: 10000
   # Sending mailboxes connected in Instantly (warmed secondary domains only).
   # Example: ["ariel@getdiablo.com", "ariel@diablosnacks.com"]
   # info@diablosnosugar.com added on 18 Oct 2026 (Ariel). Every email to one company (first email,
@@ -162,7 +163,8 @@ send:
   # Persons 2 to 4 get one email each. next_contact_after_days after the last email with no
   # reply, the company becomes Unqualified. Any reply or opt-out stops the company at once.
   # Forwards and the reminder need the GitHub secret INSTANTLY_EMAILS_KEY (scope emails:all).
-  next_contact_after_days: 3
+  # 17 Nov 2026 (Ariel): the next person at a company 48 hours after the previous introduction.
+  next_contact_after_days: 2
   # FOLLOW-UPS TO PEOPLE SWITCHED OFF (21 Oct 2026, Ariel: follow-ups make us look desperate). Only
   # person 1's introduction is sent; the forwards to colleagues (every 3 days) and person 1's
   # reminder (after a week) described above are kept, not removed, and come back when this is set
@@ -185,14 +187,16 @@ send:
     backlog_per_day: 50
     # Reminders go on top of each mailbox's 30 introductions, at most this many a mailbox a day (40 in
     # all, within the 50 a day that is safe for cold email); the rest wait for the next run.
-    reminders_per_mailbox_per_day: 10
-    # A different cap for some mailboxes (3 Nov 2026, Ariel): sales@ and info@ sent every introduction
-    # before 2 Nov, so their reminders come from them; 20 each (50 a day in all, within the safe 50).
-    reminders_by_mailbox:
-      sales@diablosnosugar.com: 20
-      info@diablosnosugar.com: 20
+    # 17 Nov 2026 (Ariel): 20 a mailbox a day for every mailbox (50 a day in all with its 30 introductions,
+    # the safe maximum for cold email).
+    reminders_per_mailbox_per_day: 20
+    # 17 Nov 2026 (Ariel): a person with no reply this many hours after their reminder becomes "Unqualified:
+    # Contacted, but no response" (the company inbox too); the others at the company carry on.
+    contact_close_after_hours: 48
+    # 17 Nov 2026 (Ariel): the company closes this many days after its last reminder with no reply.
+    company_close_after_days: 3
     # A reopened company with only one person closes this many days after their reminder.
-    backlog_single_close_days: 7
+    backlog_single_close_days: 3
     # Company inboxes get their reminder too (2 Nov 2026, Ariel).
     company_inbox_reminder: true
   # With follow-ups off: days after the introduction with no reply before the company and the
@@ -200,7 +204,8 @@ send:
   # "Unqualified: Colleague Contacted, but no response"). A reply after that is still seen in Instantly.
   no_reply_after_days: 7
   rotation:
-    min_days_same_person: 7
+    # 17 Nov 2026 (Ariel): each person's one reminder 96 hours after their own introduction.
+    min_days_same_person: 4
     # Instantly forwards an email with our note on top. If the test shows the earlier email is not
     # included underneath, set this to true and Sync adds it itself.
     # The strain test (19 Oct 2026) showed Instantly's forward does NOT include the earlier email, so

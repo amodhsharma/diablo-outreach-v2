@@ -138,3 +138,10 @@ def no_real_mail_watch(tmp_path, monkeypatch):
     """No test reads or writes the real record of which email threads button 4 read (10 Nov 2026)."""
     from outreach import mail_watch
     monkeypatch.setattr(mail_watch, "FILE", tmp_path / "mail_watch.json")
+
+
+@pytest.fixture(autouse=True)
+def no_real_send_memory(tmp_path, monkeypatch):
+    """No test reads or writes button 4's real memory (17 Nov 2026)."""
+    from outreach import send_memory
+    monkeypatch.setattr(send_memory, "FILE", tmp_path / "send_memory.json")

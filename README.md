@@ -220,19 +220,36 @@ writes their line, they go to GATE2 by themselves, and the next run of button 4 
 nobody else at the company is emailed and the company is not closed as "no response". Button 3's
 summary lists every company it moved on this way, and any person you added without an email address.
 
-**Everyone at a company is emailed (2 Nov 2026).** Each person gets their own introduction through the
-month's campaign, 3 days apart in Outreach order (company inbox last), and a reminder a week after their
-own introduction, sent as a forward of it ("Fwd: " and its subject) from the mailbox that sent it. The
-company closes 3 days after the last reminder with no reply; a reply or opt-out from anyone stops it at
-once. Once you approve person 1 at gate 2, everyone else there goes to GATE2 by themselves, with person
-1's line copied where theirs is missing. The same happens to a new contact added later at any company on
-GATE1 or Attempted to Contact (at the next run of button 3 or 4); they are emailed at the run after. Reminders go on top of each mailbox's 30 introductions, at most
-10 a mailbox a day. Every email goes into the campaign of the month it is sent in.
+**Everyone at a company is emailed (2 Nov 2026; timings from 17 Nov 2026).** Each person gets their own
+introduction through the month's campaign, in Outreach order (company inbox last): the next person 48 hours
+after the previous introduction if nobody has replied. Each person gets one reminder 96 hours after their own
+introduction, sent as a forward of it ("Fwd: " and its subject) from the mailbox that sent it; a reminder and
+a new introduction due at the same time both simply go. A person with no reply 48 hours after their reminder
+becomes "Unqualified: Contacted, but no response" (the company inbox too), and the others carry on. The
+company closes 3 days after its last reminder with no reply; a reply or opt-out from anyone stops it at once.
+Once you approve person 1 at gate 2, everyone else there goes to GATE2 by themselves, with person 1's line
+copied where theirs is missing. The same happens to a new contact added later at any company on GATE1 or
+Attempted to Contact (at the next run of button 3 or 4); they are emailed at the run after. Reminders go on
+top of each mailbox's 30 introductions, at most 20 a mailbox a day. Every email goes into the campaign of
+the month it is sent in.
+
+**Every approved person is read, one next person per company (17 Nov 2026).** Until then button 4 read only
+the first 200 approved people, so a company whose person 1 was not among them waited for ever. Now it reads
+everyone on GATE2 and sends only the next person due at each company, companies in this order: those
+already started (oldest first, always sent), then new companies with only a company inbox, then the other
+new companies in the order they were approved; new companies only in the room left under the day's limit.
+
+**Button 4's own memory (17 Nov 2026).** data/send_memory.json keeps, for every person (contact and company
+IDs, order and times only, never a name or an address), when their introduction was queued and sent, when
+their reminder went and when they were closed, so each person has their own timers. HubSpot is read too: a
+reply always wins, and anyone the memory shows as already introduced, reminded or closed is never given that
+email again, whatever HubSpot says. The daily summary counts "New first time introductory mails sent" and
+"First reminder sent to N number of people" from it (`outreach/send_memory.py`).
 
 **The backlog (2 Nov 2026).** Companies closed as "no response" where someone got just one email are reopened each day, oldest first, only
 in the room the new introductions leave under the day's limit, at most 50 a day (button 4, step 2b). Two
-or more people: the next person's introduction at once, person 1's reminder 3 days later, then as above.
-One person: their reminder at once, and the company closes 7 days later with no reply.
+or more people: the next person's introduction at once, person 1's reminder 48 hours later, then as above.
+One person: their reminder at once, and the company closes 3 days later with no reply.
 
 Any other Lead Status (for example Emailed or Won) means a person has taken the record over:
 the pipeline stops there and never changes it. To reject a company at gate 1, set it to

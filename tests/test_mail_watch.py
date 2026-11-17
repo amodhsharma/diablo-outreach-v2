@@ -29,6 +29,8 @@ def _settings():
     s["send"]["follow_ups_to_people"] = True
     s["send"]["reminder_to_company_inbox"] = True
     s["send"]["chain"]["enabled"] = False
+    s["send"]["next_contact_after_days"] = 3  # the old loop's gaps (17 Nov 2026: the chain's are 48 and 96 hours)
+    s["send"]["rotation"]["min_days_same_person"] = 7
     return s
 
 

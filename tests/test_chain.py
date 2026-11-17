@@ -88,7 +88,7 @@ def test_a_reply_or_a_stopped_company_stops_everything():
     assert decide_chain([person("p1", 1, "sent")], "replied", at(5), {"p1": [at(0)]}, RULES) == (None, "stopped")
 
 
-def test_a_reopened_company_waits_3_days_for_person_1_s_reminder_and_one_person_closes_after_7():
+def test_a_reopened_company_waits_for_person_1_s_reminder_and_one_person_closes_after_3_days():
     state = {"reopened": {"c1": {"at": ago(1).isoformat(), "single": False},
                           "c2": {"at": ago(1).isoformat(), "single": True}}}
     cfg = chain.config(load_settings())
@@ -100,8 +100,9 @@ def test_a_reopened_company_waits_3_days_for_person_1_s_reminder_and_one_person_
     one = chain.company_rules(cfg, state, "c2")
     assert decide_chain([p1], "in_outreach", NOW, touches, one) == (p1, "reminder")
     touches["p1"].append(NOW)
-    assert decide_chain([p1], "in_outreach", NOW + dt.timedelta(days=6), touches, one) == (None, "waiting_for_reply")
-    assert decide_chain([p1], "in_outreach", NOW + dt.timedelta(days=7), touches, one) == (None, "no_reply")
+    # 17 Nov 2026: a reopened one-person company closes 3 days after the reminder, like every company.
+    assert decide_chain([p1], "in_outreach", NOW + dt.timedelta(days=2), touches, one) == (None, "waiting_for_reply")
+    assert decide_chain([p1], "in_outreach", NOW + dt.timedelta(days=3), touches, one) == (None, "no_reply")
 
 
 # ---- Gate 2 for everyone once person 1 is approved -----------------------------------------------
@@ -273,9 +274,12 @@ def test_a_reply_after_the_company_closed_is_still_seen(settings):
     assert rec(hs, p2)[LS] == "COLLEAGUE_REPLIED"
 
 
-def test_sales_and_info_send_up_to_20_reminders_a_day_the_others_10():
+def test_every_mailbox_sends_up_to_20_reminders_a_day():
+    # 17 Nov 2026 (Ariel): 20 for every mailbox (sales@ and info@ had 20, the others 10, until then).
     cfg = chain.config(load_settings())
     state = {}
     assert chain.reminders_left(state, "Sales@diablosnosugar.com", cfg, NOW) == 20
     assert chain.reminders_left(state, "info@diablosnosugar.com", cfg, NOW) == 20
-    assert chain.reminders_left(state, "dana@diabloexport.com", cfg, NOW) == 10
+    assert chain.reminders_left(state, "dana@diabloexport.com", cfg, NOW) == 20
+    chain.count_reminder(state, "dana@diabloexport.com", NOW)
+    assert chain.reminders_left(state, "dana@diabloexport.com", cfg, NOW) == 19

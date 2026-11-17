@@ -58,7 +58,7 @@ from .next_in_line import (
     last_campaign, lead_for, mark_sent, parked_ids, parse_time, rank_of, tagged_company_of, touch_times,
 )
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
-from . import chain, corrupt, daily_log, mail_watch, redirect, referral_intro, referrals, reply_forward, timeline
+from . import chain, corrupt, daily_log, mail_watch, redirect, referral_intro, referrals, reply_forward, send_memory, timeline
 from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, TEAM, LeadStatus,
                      forward)
 
@@ -1018,16 +1018,37 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     one_email = follow_up_settings(settings["send"])  # 21 Oct 2026: follow-ups to people off
     chain_cfg = chain.config(settings)  # 2 Nov 2026 (Ariel): everyone gets their own introduction and a reminder
     chain_state = chain.load_state() if chain_cfg else {}
+    memory = send_memory.load()  # 17 Nov 2026 (Ariel): button 4's own memory of every person and their timers
+    now_ = now or dt.datetime.now(dt.timezone.utc)
     month_campaigns = {}
     companies = hs.tagged_search("companies", [statuses.filter("companies", "in_outreach")],
                                  COMPANY_PROPS, max_results=5000)
     result = {"next_contacts_added": 0, "forwards_sent": 0, "reminders_sent": 0, "no_reply": 0,
-              "replied": 0, "waiting_for_emails_key": 0, "opted_out": 0}
+              "replied": 0, "waiting_for_emails_key": 0, "opted_out": 0, "contacts_closed": 0}
     opt_out_rows = list(opt_out_rows or [])
     if not companies:
         _summary([], [], opt_out_rows, blocklist["now"])
         return result
     everyone = contacts_by_company(hs, [c["id"] for c in companies])
+    close_after = dt.timedelta(hours=chain_cfg["contact_close_hours"]) if chain_cfg and \
+        chain_cfg.get("contact_close_hours") else None
+
+    def closes_due(contacts, touches):
+        """The people emailed here whose reminder went contact_close_after_hours ago with no reply (17 Nov
+        2026, Ariel): they become "Unqualified: Contacted, but no response", the others carry on."""
+        if close_after is None:
+            return []
+        out = []
+        for c in contacts:
+            if c.get("state") != "sent" or statuses.of("contacts", c) == "no_response":
+                continue
+            rem = send_memory.reminded_at(memory, c["id"])
+            sent = touch_times(c, touches) if touches is not None else []
+            if len(sent) >= 2:
+                rem = min(rem, sent[1]) if rem else sent[1]
+            if rem and now_ - rem >= close_after:
+                out.append((c, rem))
+        return out
     notes = load_company_notes()
     contact_updates, company_updates = [], []
     sent_rows, waiting_rows = [], []
@@ -1089,6 +1110,16 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         log(f"{name}: someone there opted out ({', '.join(sorted({e for _, e in found}))}); the company is now "
             '"Unqualified: Employee Opted-out/Blocklist" and nobody else there is emailed')
 
+    def then_next(company, contacts, touches, rules, done):
+        """What is due at the company once this reminder is dealt with (sent, or waiting for its mailbox):
+        a new introduction due now goes in the same run (17 Nov 2026, Ariel: every email simply goes when
+        it is due)."""
+        again = dict(rules or {})
+        again["skip_reminder"] = list(again.get("skip_reminder") or []) + [done["id"]]
+        return decide(contacts, statuses.of("companies", company), gap, now, touches=touches, min_same_days=min_same,
+                      follow_ups=one_email[0], no_reply_days=one_email[1], inbox_reminder=one_email[2],
+                      chain=again, statuses=statuses)
+
     def last_check(company, name, contacts, details):
         """Just before an email goes: anyone at the company opted out since the run started?"""
         found = stop_signals(contacts, fresh_blocklist(), leads, details)
@@ -1101,12 +1132,16 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         props = company.get("properties", {})
         name = props.get("name")
         contacts = annotate(everyone.get(company["id"]) or [], statuses, leads)
+        send_memory.observe(memory, contacts, company["id"], statuses, None, now_, times=False)
+        send_memory.apply(memory, contacts, log, name)
         touches, history, replied, details = None, {}, set(), {}
         states = {c["id"]: c.get("state") for c in contacts}
         if emails_api is not None and any(c["state"] in ("queued", "sent", "bounced") for c in contacts):
             kept = watch.cached(company["id"], contacts) if watch is not None else None
-            quiet = stays_quiet(company, contacts, kept) if kept is not None else None
+            quiet = stays_quiet(company, contacts, kept) if kept is not None and not closes_due(contacts, kept) \
+                else None
             if quiet is not None:  # nothing new in its emails and nothing due: same result as a full read
+                send_memory.observe(memory, contacts, company["id"], statuses, kept, now_)
                 why, trial = quiet
                 watch.quiet += 1
                 if why in ("waiting", "waiting_same_person", "waiting_for_gate_2", "nothing", "stopped"):
@@ -1123,6 +1158,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 waiting_rows.append(f"| {name} | emails could not be read, tried again next run | - |")
                 continue
             mark_sent(contacts, touches)
+            send_memory.observe(memory, contacts, company["id"], statuses, touches, now_)
+            send_memory.apply(memory, contacts, lambda *_: None, name)
         found = stop_signals(contacts, blocklist["now"], leads, details)
         if found:  # an opt-out comes before anything else, also before a colleague's reply
             stop_company(company, name, contacts, found)
@@ -1138,6 +1175,18 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             sent_rows.append(f"| {name} | - | Reply received: nobody else there is emailed |")
             log(f"{name}: someone replied; nobody else there is emailed")
             continue
+        for c, rem in closes_due(contacts, touches):  # 17 Nov 2026: 48 hours after their reminder, no reply
+            props_ = statuses.props("contacts", "no_response")
+            contact_updates.append((c["id"], props_))
+            c["properties"].update(props_)
+            c["mem_reminded"] = rem
+            send_memory.closed(memory, c, company["id"], now_)
+            result["contacts_closed"] += 1
+            title = c["properties"].get("jobtitle") or "contact"
+            sent_rows.append(f"| {name} | {title} | No reply 48 hours after their reminder: Unqualified: Contacted, "
+                             "but no response |")
+            log(f"{name}: the {title} did not reply within 48 hours of their reminder; they are now \"Unqualified: "
+                "Contacted, but no response\" (the others there carry on)")
         rules = None
         if chain_cfg:
             filled = chain.fill_lines(contacts, statuses, log, name)
@@ -1205,7 +1254,18 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             if chain.reminders_left(chain_state, mailbox, chain_cfg) <= 0:
                 waiting_rows.append(f"| {name} | the {title}'s reminder (its mailbox has sent its reminders for "
                                     "today) | next run |")
-                continue
+                due, why = then_next(company, contacts, touches, rules, due)
+                if why != "next":
+                    continue
+            elif send_memory.entry(memory, due["id"]).get("reminded"):
+                log(f"{name}: the {title}'s reminder already went (button 4's memory); never sent twice")
+                due, why = then_next(company, contacts, touches, rules, due)
+                if why != "next":
+                    continue
+        if why == "reminder" and chain_cfg:
+            past = history.get(due["id"]) or []
+            title = due["properties"].get("jobtitle") or "contact"
+            mailbox = past[-1].get("eaccount") or past[0].get("eaccount")
             original = past[0]
             if not ((original.get("body") or {}).get("html") or (original.get("body") or {}).get("text")):
                 full = emails_api.get_email(original["id"]) if hasattr(emails_api, "get_email") else None
@@ -1221,12 +1281,17 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 log(f"{name}: Instantly refused the reminder ({str(err)[:150]}); it is tried again next run")
                 continue
             chain.count_reminder(chain_state, mailbox)
+            send_memory.reminded(memory, due, company["id"], now_)
+            due["mem_reminded"] = now_
             contact_updates.append((due["id"], statuses.props_or("contacts", "reminded", "in_outreach")))
             result["reminders_sent"] += 1
             sent_rows.append(f"| {name} | {title} | Reminder sent as a forward of their introduction (Lead Status: "
                              "Reminder sent) |")
             log(f"{name}: the {title} was sent their reminder, as a forward of their introduction")
-            continue
+            # 17 Nov 2026 (Ariel): every email simply goes when it is due, so a new introduction due now goes too
+            due, why = then_next(company, contacts, touches, rules, due)
+            if why != "next":
+                continue
         if why == "reminder":
             past = history.get(due["id"]) or []
             if statuses.of("contacts", due) == "reminded":
@@ -1255,6 +1320,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 continue
             if statuses.has("contacts", "reminded") and forward(statuses.of("contacts", due), "reminded"):
                 contact_updates.append((due["id"], statuses.props("contacts", "reminded")))
+            send_memory.reminded(memory, due, company["id"], now_)
             result["reminders_sent"] += 1
             sent_rows.append(f"| {name} | {due['properties'].get('jobtitle') or 'person 1'} | Reminder sent, as a reply "
                              "in their own thread (Lead Status: Reminder sent) |")
@@ -1280,6 +1346,9 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         if wait:
             waiting_rows.append(f"| {name} | {wait} | - |")
             continue
+        if send_memory.blocks_intro(memory, due["id"]):  # 17 Nov 2026: never a second introduction
+            log(f"{name}: contact {due['id']} already had their introduction (button 4's memory); not sent again")
+            continue
         lead = lead_for(due, props, notes)  # nobody reached yet (e.g. person 1 bounced before sending)
         if chain_cfg:  # the same email as person 1's, with its bond paragraph where the channel needs one
             from . import bond, send
@@ -1293,6 +1362,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             continue
         if sum(r.get("leads_uploaded") or 0 for r in results):
             contact_updates.append((due["id"], statuses.props("contacts", "in_outreach")))
+            send_memory.queued(memory, due, company["id"], now_)
             result["next_contacts_added"] += 1
             sent_rows.append(f"| {name} | {due['properties'].get('jobtitle') or 'next contact'} | Introduction "
                              "(campaign) |")
@@ -1303,6 +1373,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
     hs.update_tagged("companies", company_updates)
     if chain_cfg:
         chain.save_state(chain_state)
+    send_memory.save(memory, now=now_)
     if watch is not None:
         try:  # never stops the run: without the file, every company is read in full next time
             watch.finish()
@@ -1313,7 +1384,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             "INSTANTLY_EMAILS_KEY (Instantly key with scope emails:all) is not set, so those emails wait")
     _summary(sent_rows, waiting_rows, opt_out_rows, blocklist["now"])
     log(f"Loop: {result['forwards_sent']} forwards, {result['reminders_sent']} reminders, "
-        f"{result['next_contacts_added']} introductions added, {result['replied']} companies replied, "
+        f"{result['next_contacts_added']} introductions added, {result['contacts_closed']} contacts closed 48 hours "
+        f"after their reminder, {result['replied']} companies replied, "
         f"{result['no_reply']} finished with no reply (now Unqualified: Contacted, but no response)")
     return result
 

@@ -50,6 +50,10 @@ class FakeCRM(TagGuard):
     top of it, so the tests check the safety rules themselves."""
 
     def __init__(self, portal=999):
+        # A new made-up account starts its IDs again from 1001, so button 4's memory starts afresh with it
+        # (17 Nov 2026); in the real account an ID is never used twice.
+        from outreach import send_memory
+        send_memory.FILE.unlink(missing_ok=True)
         self.portal = portal
         self.records = {"companies": {}, "contacts": {}}
         self.links = {}  # contact id -> [company id]

@@ -149,10 +149,18 @@ def outreach(hs, instantly, settings, date, month_first, log_data=None):
         if day == date:
             kind = kind_of_campaign(names.get(lead.get("_campaign_id")), settings["send"])
             sent["inbox" if kind in (INBOX, INBOX_OTHER) else "person"] += 1
+    # 17 Nov 2026 (Ariel): from the day button 4's memory covers in full, the introductions are counted from it
+    # (each person's first email), and the reminders too.
+    from . import send_memory
+    reminders = None
+    counted = send_memory.day_counts(send_memory.load(), date, daily_log.INDIA)
+    if counted is not None:
+        sent = {"person": counted["person"], "inbox": counted["inbox"]}
+        reminders = counted["reminders"]
     data = daily_log.load() if log_data is None else log_data
     today = daily_log.day(data, date)
     month = daily_log.month_counts(data, month_first, date)
-    return {"sent": sent, "day": {k: len(v) for k, v in today.items()},
+    return {"sent": sent, "reminders": reminders, "day": {k: len(v) for k, v in today.items()},
             "positive_names": _company_names(hs, today["positive"]),
             "month_sent": month_sent,
             "month_responses": month["positive"] + month["negative"] + month["neutral"],
@@ -236,9 +244,10 @@ def compose(date, p, o, issues, month_first, sender_name):
         (f"Introductions written, awaiting approval to send: {p['awaiting_send']}", []),
         (f"Companies marked unqualified after no response within 7 days: {p['no_response']}", []),
     ]
-    out = [
-        (f"Introductory emails sent: {sent}" + (f" ({o['sent']['person']} to named contacts, {o['sent']['inbox']} to "
-                                                f"general company inboxes)" if sent else ""), []),
+    out = [  # 17 Nov 2026 (Ariel): "New first time introductory mails sent" and "First reminder sent to N"
+        (f"New first time introductory mails sent: {sent}" + (f" ({o['sent']['person']} to named contacts, "
+                                                              f"{o['sent']['inbox']} to company inboxes)" if sent else ""), []),
+    ] + ([(f"First reminder sent to {o['reminders']} number of people", [])] if o.get("reminders") is not None else []) + [
         (f"Responses received: {responses}" + (f" ({day['positive']} positive, {day['negative']} negative, "
                                                f"{day['neutral']} neutral)" if responses else ""), []),
         (f"Positive responses requiring follow-up: {day['positive']}", o["positive_names"]),

@@ -1,12 +1,18 @@
-"""Everyone at a company is emailed, each with their own introduction (agreed 2 Nov 2026, Ariel).
+"""Everyone at a company is emailed, each with their own introduction (agreed 2 Nov 2026, Ariel; timings
+from 17 Nov 2026, Ariel: close companies fast and get positive replies).
 
-    Day 0      introduction to person 1 (the month's campaign)
-    Day 3      introduction to person 2, as if they were the first contact (the month's campaign)
-    Day 6 ...  the same for every further contact, company inbox last, 3 days apart
-    Day 7      person 1's reminder, sent as a forward of their introduction ("Fwd: " + its subject),
-               from the mailbox that sent it; everyone gets theirs a week after their own introduction
+    Hour 0     introduction to person 1 (the month's campaign)
+    Hour 48    introduction to person 2, as if they were the first contact (the month's campaign)
+    Hour 96    introduction to person 3, and person 1's reminder (sent as a forward of their introduction,
+               "Fwd: " + its subject, from the mailbox that sent it); everyone gets theirs 96 hours after
+               their own introduction, and each email simply goes when it is due
+    ...        every further contact 48 hours after the previous introduction, company inbox last
+    48 hours after a person's reminder with no reply: that person becomes "Unqualified: Contacted, but no
+    response" (send.chain.contact_close_after_hours; the company inbox too)
     3 days after the last reminder with no reply: the company and everyone emailed become
-    "Unqualified: Contacted, but no response"
+    "Unqualified: Contacted, but no response" (send.chain.company_close_after_days)
+
+Button 4 keeps its own memory of every person and their timers (send_memory.py).
 
 A reply or an opt-out from anyone stops the whole company at once. In HubSpot the company is one unit.
 
@@ -52,7 +58,9 @@ def config(settings):
         return None
     return {"enabled": True, "gap": float(s.get("next_contact_after_days", 3)),
             "reminder": float((s.get("rotation") or {}).get("min_days_same_person", 7)),
-            "close": float(s.get("next_contact_after_days", 3)),
+            # 17 Nov 2026 (Ariel): the company closes 3 days after its last reminder, whatever the gap.
+            "close": float(c.get("company_close_after_days", s.get("next_contact_after_days", 3))),
+            "contact_close_hours": float(c.get("contact_close_after_hours", 0) or 0),
             "inbox_reminder": bool(c.get("company_inbox_reminder", True)),
             "backlog_per_day": int(c.get("backlog_per_day", 50)),
             "reminders_per_mailbox": int(c.get("reminders_per_mailbox_per_day", 10)),
