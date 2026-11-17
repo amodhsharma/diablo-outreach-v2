@@ -6,7 +6,7 @@ name: 'R Sankey Chart to Amodh'
 # night at 23:59 India time (docs/outside_timer.md). Press it yourself to send the charts now: leave
 # "Day" empty for today, or type a date (YYYY-MM-DD) to chart that day and its month up to it. Tick
 # "Preview only" to draw the charts without sending them (they are saved on the run's page).
-# HubSpot is only read; nothing is changed (outreach/flow_charts.py, drawn by outreach/charts/render.js).
+# HubSpot is only read; nothing is changed (outreach/flow_charts.py, drawn by outreach/charts/render2.js).
 on:
   workflow_dispatch:
     inputs:

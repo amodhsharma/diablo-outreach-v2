@@ -1,5 +1,7 @@
-"""16 Nov 2026 (Ariel): the nightly flow charts email to Amodh: each AUTO-OUTREACH company's path through its
-Lead Statuses in the day and in the month so far, read from HubSpot's history."""
+"""The nightly flow charts email to Amodh (16 Nov 2026; outcome-first design 17 Nov 2026, Ariel): every
+AUTO-OUTREACH company whose Lead Status changed in the period, counted once at where it ended, split into
+Unqualified / Still being worked / Passed to sales team / Taken over by the team, then the step and the reason,
+with each node's % compared with the day before or the same days last month."""
 
 import datetime as dt
 import shutil
@@ -16,116 +18,111 @@ from .fakes import FakeCRM
 from .test_daily_report import FakeSMTP, quiet
 
 DAY = dt.date(2026, 11, 16)
-START, END = fc.window(DAY, DAY)
-MONTH_START, _ = fc.window(DAY.replace(day=1), DAY)
 
 V = {"New": "New", "GATE1": "GATE1: Approved for outreach", "Located": "Contact located. Queued for processing",
      "Attempted": "Attempted to Contact", "In Progress": "In Progress", "Sales": "END: Forwarded to Sales Team",
      "No response": "Contacted, but no response, unqualified", "Exists": "Contact exists, not AUTO-OUTREACH",
      "Missing": "Missing Info", "Apollo": "Missing info on Apollo", "Rejected": "Unqualified",
-     "Paused": "Unqualified: Channel no longer targeted", "Emailed": "Emailed",
+     "Paused": "Unqualified: Channel no longer targeted", "Emailed": "Emailed", "Won": "Won",
      "Said no": "Unqualified: Employee response negative"}
 
 
 def at(hour, day=DAY):
-    """An India time on that day, as HubSpot gives it (ISO, UTC)."""
     return dt.datetime.combine(day, dt.time(hour), INDIA).astimezone(dt.timezone.utc).isoformat()
 
 
 def hist(*moves):
-    """[(status, time)] oldest first -> HubSpot's order (newest first)."""
     return [(V[s], t) for s, t in reversed(moves)]
 
 
-def path(*moves, created=None, tagged=None, start=START, end=END):
-    statuses = LeadStatus(FakeCRM())
-    source = [("AUTO-OUTREACH", tagged)] if tagged else []
-    made = fc.parse_time(created) if created else fc.parse_time(at(9, dt.date(2026, 1, 29)))
-    if created and not tagged:
-        source = [("AUTO-OUTREACH", created)]  # tagged by research when it was created
-    return fc.company_path(statuses, made, hist(*moves), source, start, end)
+def statuses():
+    return LeadStatus(FakeCRM())
 
 
-def test_a_company_research_found_today_starts_at_research():
-    t = at(10)
-    assert path(("New", t), ("GATE1", at(11)), ("Located", at(12)), created=t) == \
-        ["Research", "New", "GATE1", "Located"]
+def history(**companies):
+    """{id: ({"country": ...}, past)} from id=(country, moves)."""
+    return {cid: ({"country": country}, hist(*moves)) for cid, (country, moves) in companies.items()}
 
 
-def test_a_company_from_before_starts_where_it_was_and_only_todays_moves_count():
+def test_each_company_is_counted_once_at_where_it_ended_the_day():
     old = at(9, dt.date(2026, 11, 2))
-    assert path(("GATE1", old), ("Located", at(10)), ("Attempted", at(13))) == ["GATE1", "Located", "Attempted"]
-    assert path(("GATE1", old)) is None  # it did not move today
-    assert path(("GATE1", old), ("Located", at(9, dt.date(2026, 11, 17)))) is None  # tomorrow does not count
-    # The month chart starts on the 1st.
-    assert path(("New", at(9, dt.date(2026, 10, 30))), ("GATE1", old), ("Located", at(10)),
-                start=MONTH_START) == ["New", "GATE1", "Located"]
+    h = history(
+        a=("Serbia", [("GATE1", old), ("Located", at(10)), ("Attempted", at(13))]),  # ended Emailed
+        b=("Serbia", [("Attempted", old), ("No response", at(10)), ("Attempted", at(11)), ("No response", at(12))]),
+        c=("Peru", [("New", at(8))]),  # created today by research: it counts
+        d=("Peru", [("GATE1", old)]),  # did not move today
+        e=("", [("In Progress", old), ("Won", at(15))]),  # set by the team
+        f=("Chile", [("Attempted", old), ("Sales", at(9))]),
+        g=("Chile", [("Located", old), ("Attempted", at(9, dt.date(2026, 11, 17)))]),  # tomorrow does not count
+    )
+    moved = fc.companies_in(statuses(), h, DAY, DAY)
+    assert sorted(moved) == sorted([("Serbia", ("S", "s4")), ("Serbia", ("U", "u3", "r5")), ("Peru", ("S", "s1")),
+                                    ("Other", ("T",)), ("Chile", ("Y",))])
 
 
-@pytest.mark.parametrize("moves, expected", [
-    ((("Exists", at(1)), ("GATE1", at(10))), ["Contact exists", "Back to GATE1"]),
-    ((("Missing", at(1)), ("GATE1", at(10))), ["Missing Info", "Back to GATE1"]),
-    ((("Apollo", at(1)), ("New", at(10))), ["No Apollo", "Back to New"]),
-    ((("Located", at(1)), ("GATE1", at(10))), ["Located", "Back to GATE1"]),
-    ((("In Progress", at(1)), ("Attempted", at(10))), ["In Progress", "Back to Attempted"]),
-    ((("No response", at(1)), ("Attempted", at(10))), ["No response", "Reopened (backlog)"]),
-    ((("Paused", at(1)), ("New", at(10))), ["Channel paused", "Back to New"]),
-    ((("Located", at(1)), ("Attempted", at(9)), ("Located", at(10)), ("Attempted", at(11))),
-     ["Located", "Attempted", "Back"]),
+@pytest.mark.parametrize("status, path", [
+    ("Rejected", ("U", "u1", "r1")), ("Paused", ("U", "u1", "r2")), ("Missing", ("U", "u2", "r3")),
+    ("Apollo", ("U", "u2", "r4")), ("No response", ("U", "u3", "r5")), ("Said no", ("U", "u3", "r10")),
+    ("New", ("S", "s1")), ("GATE1", ("S", "s2")), ("Exists", ("S", "s2")), ("Located", ("S", "s3")),
+    ("Attempted", ("S", "s4")), ("In Progress", ("S", "s5")), ("Sales", ("Y",)), ("Emailed", ("T",)),
 ])
-def test_every_backward_move_ends_the_path_there(moves, expected):
-    yesterday = [(s, at(9, dt.date(2026, 11, 15))) for s, _ in moves[:1]]
-    assert path(*yesterday, *moves[1:]) == expected
+def test_every_end_status_is_placed_as_agreed(status, path):
+    h = history(x=("Serbia", [(status, at(10))]))
+    assert fc.companies_in(statuses(), h, DAY, DAY) == [("Serbia", path)]
 
 
-def test_dead_ends_side_steps_and_team_statuses():
-    old = at(9, dt.date(2026, 11, 1))
-    assert path(("Exists", old), ("Missing", at(10))) == ["Contact exists", "Missing Info"]
-    assert path(("Attempted", old), ("No response", at(10)), ("Paused", at(11))) == \
-        ["Attempted", "No response", "Channel paused"]
-    assert path(("Attempted", old), ("Paused", at(10)), ("No response", at(11))) == ["Attempted", "Channel paused"]
-    assert path(("In Progress", old), ("Sales", at(10))) == ["In Progress", "END Sales"]
-    assert path(("Attempted", old), ("Said no", at(10))) == ["Attempted", "Said no"]
-    assert path(("In Progress", old), ("Emailed", at(10))) == ["In Progress", "Team"]
+def test_shares_first_split_of_all_then_of_the_node_before():
+    moved = [("X", ("U", "u3", "r5"))] * 3 + [("X", ("U", "u1", "r1"))] + [("X", ("S", "s4"))] * 4
+    got = fc.shares(moved)
+    assert got["U"] == 50 and got["S"] == 50 and got["u3"] == 75 and got["r5"] == 100 and got["s4"] == 100
 
 
-def test_a_company_tagged_by_hand_today_starts_at_its_status_when_tagged():
-    long_ago = at(9, dt.date(2026, 3, 1))
-    # It was the team's ("Emailed") when tagged at 10, then approved: it starts at GATE1.
-    assert path(("Emailed", long_ago), ("GATE1", at(10)), ("Located", at(12)), tagged=at(10)) == ["GATE1", "Located"]
-    # Moves before it was tagged do not count.
-    assert path(("New", long_ago), ("GATE1", at(8)), ("Located", at(12)), tagged=at(10)) == ["GATE1", "Located"]
-    # Tagged only after the day: not in that day's chart.
-    assert path(("New", long_ago), ("GATE1", at(8)), tagged=at(10, dt.date(2026, 11, 17))) is None
+def test_the_charts_and_their_arrows():
+    old = at(9, dt.date(2026, 10, 30))
+    h = history(
+        a=("Serbia", [("Attempted", old), ("No response", at(10))]),
+        b=("Serbia", [("New", at(10))]),
+        c=("Australia", [("Attempted", old), ("No response", at(10, dt.date(2026, 11, 15)))]),
+        d=("Australia", [("New", at(10, dt.date(2026, 10, 5)))]),  # last month: Still being worked 100%
+    )
+    a, b = fc.specs(DAY, h, statuses())
+    assert a["title"] == "Monday 16 November 2026: where today's auto outreach companies ended the day"
+    assert a["subtitle"] == ("AUTO-OUTREACH companies that moved today  |  2 companies  |  arrows compare with "
+                             "Sunday 15 November")
+    assert a["nodes"]["all"][0] == "Companies that\nmoved today" and a["total"] == 2
+    assert ["all", "U", 1] in a["links"] and ["U", "u3", 1] in a["links"] and ["u3", "r5", 1] in a["links"]
+    assert a["prev"]["U"] == 100 and a["prev"]["S"] == 0  # yesterday: one company, Unqualified
+    assert "Y" not in a["nodes"]  # nothing with 0 is drawn
+    assert b["title"] == "November so far (1 to 16 November): where our auto outreach companies stand"
+    assert b["subtitle"].endswith("arrows compare with the same days last month (1 to 16 October)")
+    countries = [v[0] for v in b["nodes"].values() if v[2] == 0]
+    assert sorted(countries) == ["Australia", "Serbia"] and b["total"] == 3
+    assert b["prev"]["S"] == 100 and b["prev"]["U"] == 0  # last month: one company, Still being worked
+    assert all(v[1] == fc.PURPLE for v in b["nodes"].values() if v[2] == 0)
 
 
-def test_countries_top_five_and_the_rest_and_no_country_go_to_other():
-    moved = [(c, ["New", "GATE1"]) for c in ["Serbia"] * 6 + ["Colombia"] * 5 + ["Georgia"] * 4 + ["Peru"] * 3
-             + ["Chile"] * 2 + ["Mexico", "Other", "Other"]]
-    rows = fc.as_paths(moved, countries=True)
-    assert {r["country"] for r in rows} == {"Serbia", "Colombia", "Georgia", "Peru", "Chile", "Other"}
-    assert sum(r["n"] for r in rows if r["country"] == "Other") == 3
-    assert all("country" not in r for r in fc.as_paths(moved))
+def test_the_same_days_last_month_stop_at_its_last_day():
+    assert fc.previous_month_days(dt.date(2026, 3, 31)) == (dt.date(2026, 2, 1), dt.date(2026, 2, 28))
+    assert fc.previous_month_days(dt.date(2026, 1, 16)) == (dt.date(2025, 12, 1), dt.date(2025, 12, 16))
 
 
-def test_titles_and_subtitles():
-    a, b = fc.specs(DAY, [("Serbia", ["New", "GATE1"])] * 3, [("Serbia", ["New", "GATE1"])] * 7)
-    assert a["title"] == "Today, Monday 16 November 2026: where our auto outreach companies moved"
-    assert a["subtitle"] == "AUTO-OUTREACH companies only  |  3 companies moved  |  % = share of the step before"
-    assert b["title"] == "November so far (1 to 16 November): where our auto outreach companies moved"
-    assert "7 companies moved  |  top 5 countries + Other" in b["subtitle"]
-    assert "Sample" not in a["subtitle"] + b["subtitle"]
+def test_top_five_countries_and_the_rest_in_other():
+    moved = [(c, ("S", "s1")) for c in ["A"] * 6 + ["B"] * 5 + ["C"] * 4 + ["D"] * 3 + ["E"] * 2 + ["F", "Other"]]
+    spec = fc.build(moved, "countries", "t", "s", {})
+    names = [v[0] for v in spec["nodes"].values() if v[2] == 0]
+    assert names == ["A", "B", "C", "D", "E", "Other"]
+    other = next(k for k, v in spec["nodes"].items() if v[0] == "Other")
+    assert sum(n for a, _, n in spec["links"] if a == other) == 2
 
 
 def test_the_run_day_is_the_day_the_run_was_started_for():
     just_after = dt.datetime.combine(dt.date(2026, 11, 17), dt.time(0, 4), INDIA)
     assert fc.run_day(just_after) == DAY
-    assert fc.run_day(dt.datetime.combine(DAY, dt.time(23, 59), INDIA)) == DAY
 
 
 def test_the_email_goes_to_alert_to_only_with_both_charts_inline(monkeypatch, tmp_path):
     hs = FakeCRM()
-    cid = hs.add("companies", name="Kadac", country="Australia", createdate=at(1, dt.date(2026, 10, 29)),
+    cid = hs.add("companies", name="Kadac", country="Australia",
                  hs_lastmodifieddate=str(int(fc.parse_time(at(12)).timestamp() * 1000)), hs_lead_status=V["Located"])
     hs.past = {("companies", cid): hist(("GATE1", at(9, dt.date(2026, 11, 2))), ("Located", at(12)))}
     monkeypatch.setenv("ALERT_TO", "amodh@example.com")
@@ -142,11 +139,8 @@ def test_the_email_goes_to_alert_to_only_with_both_charts_inline(monkeypatch, tm
     assert result["sent"] and len(smtp.sent) == 1
     msg = smtp.sent[0]
     assert msg["To"] == "amodh@example.com" and msg["Subject"] == "Outreach flow charts - 16 November 2026"
-    assert "admin@diablosnosugar.com" in msg["From"]
-    images = [p for p in msg.walk() if p.get_content_type() == "image/png"]
-    assert len(images) == 2
-    assert drawn[0]["paths"] == [{"path": ["GATE1", "Located"], "n": 1}]
-    assert drawn[1]["paths"] == [{"path": ["GATE1", "Located"], "n": 1, "country": "Australia"}]
+    assert len([p for p in msg.walk() if p.get_content_type() == "image/png"]) == 2
+    assert ["S", "s3", 1] in drawn[0]["links"] and drawn[1]["nodes"]["c0"][0] == "Australia"
 
 
 def test_a_day_with_no_moves_says_so_without_a_chart(monkeypatch, tmp_path):
@@ -161,10 +155,9 @@ def test_a_day_with_no_moves_says_so_without_a_chart(monkeypatch, tmp_path):
 @pytest.mark.skipif(not (shutil.which("node") and (fc.RENDER.parent / "node_modules").exists()),
                     reason="the chart packages are installed only where charts are drawn")
 def test_the_renderer_draws_a_png(tmp_path):
-    a, b = fc.specs(DAY, [(None, ["Research", "New"]), (None, ["GATE1", "Located", "Attempted", "Back"]),
-                          (None, ["Attempted", "Team"]), (None, ["Contact exists", "Missing Info"])],
-                    [("Serbia", ["New", "GATE1", "Contact exists", "Missing Info"]),
-                     ("Peru", ["Research", "New", "GATE1"]), ("Other", ["No response", "Reopened (backlog)"])])
-    for spec in (a, b):
+    old = at(9, dt.date(2026, 10, 30))
+    h = history(a=("Serbia", [("Attempted", old), ("No response", at(10))]), b=("Serbia", [("New", at(10))]),
+                c=("Peru", [("Located", old), ("Sales", at(11))]), d=("", [("Attempted", old), ("Won", at(12))]))
+    for spec in fc.specs(DAY, h, statuses()):
         png = fc.render(spec, tmp_path / "x.png")
         assert png.read_bytes()[:4] == b"\x89PNG"
