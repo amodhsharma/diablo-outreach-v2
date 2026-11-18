@@ -33429,6 +33429,7 @@ id,name,domain,country,why
 421766637765,Petro Outlet,petrooutlet.com,USA,other
 421803341017,PetroCanada,petro-canada.ca,Canada,other
 426222251208,Petrofood,petrofood.gr,,other
+470064651510,Petrokond,petrokond.ru,Russia,other
 445931665655,Petrovka Horeca,petrovka-horeca.com.ua,Ukraine,other
 425010657529,Petrow Food Group,petrowfoodgroup.com,United Kingdom,other
 426293157063,Petrucci & Natali,petrucci-natali.com,Italy,other
@@ -36965,7 +36966,6 @@ id,name,domain,country,why
 426230649073,San Gregorio farm products,sangregorio.com.co,Colombia,other
 381052480747,San Jose Imports Inc.,sanjoseimports.com,,other
 381156029654,San José Import Export S.A.,sanjosesa.com.py,Paraguay,other
-466587768047,San log,san-log.ru,,other
 425068090573,San Marco Group,sanmarcogroup.co.uk,United Kingdom,other
 384211178718,San Miguel,sanmiguel.com.ph,,other
 426262220992,San Miguel Alimentos,sanmiguel.me,Mexico,other
@@ -36999,6 +36999,7 @@ id,name,domain,country,why
 425252791540,Sanctuary Care Homes,sanctuary.co.uk,United Kingdom,other
 421757413582,Sandea Investments Ltd,sandea.co.uk,England,customer
 466461621482,Sander Logistik,sander-logistik.ru,Russia,other
+466587768047,Sander-Logistik,san-log.ru,Russia,other
 381329248469,Sanders,,,other
 425196052720,Sanders - A Division of Kar's Nuts,sanderscandy.com,United States,other
 381333039352,Sanderson,aptean.com,,other
@@ -38624,7 +38625,7 @@ id,name,domain,country,why
 421766619355,SMT store,smtstore.fi,Finland,other
 463528628448,SMTSB,smtsb.com.my,Malaysia,other
 421728804052,SMU Perú,maxiahorro.com.pe,Peru,other
-382824786169,SMU Perú,smu.pe,,other
+382824786169,SMU Perú,smu.pe,Peru,other
 421771857083,SMU S.A.,smu.cl,Chile,other
 454367967441,Smyk,smyk.com,,other
 454502894829,SMYK Group,smykgroup.com,Poland,other
