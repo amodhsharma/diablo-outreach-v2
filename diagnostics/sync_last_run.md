@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-18 04:36 UTC
+Written 2026-11-18 07:40 UTC
 
 ```
 894 leads in the Diablo campaigns in Instantly
@@ -19,11 +19,12 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
-Charmlaw Distributions: neutral reply forwarded
-Charmlaw Distributions: a reply names someone else, but not clearly enough to act on (no clear wording that it is a redirect); left for a person
-Replies naming someone else: 0 switched automatically, 1 left for a person
+Van Wyk Vending: positive reply forwarded
 Email threads: 1 emails since the last run
-Email threads: 2 companies read in full, 121 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+SCB Distributors: the introduction goes to Company inbox (from website)
+Westco Distributors: the introduction goes to Company inbox (from website)
+Garbi Distributors: the introduction goes to the next contact
+Email threads: 23 companies read in full, 100 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 3 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 1 contacts and 1 companies in HubSpot
 ```
