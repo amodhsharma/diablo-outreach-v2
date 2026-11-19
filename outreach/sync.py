@@ -59,6 +59,7 @@ from .next_in_line import (
 )
 from .schema import COMPANY_NOTE, LAST_CLOSED, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
 from . import chain, corrupt, daily_log, mail_watch, redirect, referral_intro, referrals, reply_forward, send_memory, stop_closed, timeline
+from . import restart
 from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, TEAM, LeadStatus,
                      forward)
 
@@ -1082,12 +1083,18 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         not added that choice yet); the others there become "Unqualified: Colleague Contacted, but no
         response" in the same run (close_company_contacts, 2 Nov 2026)."""
         closing = dict(statuses.props("companies", "no_response"))
+        last_round = statuses.restart and restart.finished(company.get("properties"), restart.config(settings))
+        if last_round:  # 20 Nov 2026 (Ariel): every round used: the final status, never emailed again
+            closing = dict(statuses.final("companies"))
         if statuses.restart:  # 19 Nov 2026: "No response: can restart", and the date it can be counted from
             closing[LAST_CLOSED] = now_.date().isoformat()
         company_updates.append((company["id"], closing))
+        person_end = statuses.final("contacts") if last_round else statuses.props("contacts", "no_response")
         for c in contacts:
             if c.get("state") == "sent" and statuses.of("contacts", c) in EMAILED:
-                contact_updates.append((c["id"], statuses.props("contacts", "no_response")))
+                contact_updates.append((c["id"], dict(person_end)))
+            elif last_round and statuses.can_restart("contacts", c):  # closed earlier in this last round
+                contact_updates.append((c["id"], dict(person_end)))
         emailed = [c for c in contacts if c.get("state") == "sent"]
         if chain_cfg and emailed and all(statuses.of("contacts", c) == "reminded" for c in emailed):
             # 3 Nov 2026: everyone emailed had their reminder too, so the backlog never reopens it
@@ -1095,7 +1102,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         result["no_reply"] += 1
         label = statuses.label("companies", closing[LEAD_STATUS])
         sent_rows.append(f"| {name} | - | No reply: company set to {label} |")
-        log(f'{name}: no reply to the introduction; the company is now "{label}"')
+        log(f'{name}: no reply to the introduction; the company is now "{label}"'
+            + (" (all its rounds are used, so it is never emailed again)" if last_round else ""))
 
     def stop_company(company, name, contacts, found):
         """An opt-out at the company: that person and the company are Unqualified, everyone else

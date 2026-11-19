@@ -22,7 +22,15 @@ config/settings.yaml). No new button: button 3, button 4 and the daily email do 
                  a lead unless it is already in that campaign), never to an address that bounced anywhere in
                  Instantly, and keeps the counters (update_counters).
 
-data/restarts.json remembers each company's round and when it started (company and contact IDs and times only).
+    Automatic    20 Nov 2026 (Ariel, restart.automatic): button 3 sets such a company to GATE1 by itself once its
+                 wait is over (auto_queue) and starts it in the same run, exactly as above. Fresh companies go
+                 first: in button 3 they get the Apollo credits first, in button 4 the day's room first.
+    The limit    At most restart.max_rounds rounds in total (3), the first outreach included. A company that ends
+                 its last round with no reply gets "Unqualified: Contacted, but no response" (sync.py), its no-reply
+                 contacts too, and is never emailed again; one set to GATE1 by mistake is put back on it (plan).
+
+data/restarts.json remembers each company's round and when it started (company and contact IDs and times only), and
+the day the companies were first moved to "No response: can restart" ("migrated"), so that move happens once.
 """
 
 import datetime as dt
@@ -47,7 +55,13 @@ def config(settings):
     if not r.get("enabled"):
         return None
     return {"wait_days": int(r.get("wait_days_after_close", 9)), "new_people": int(r.get("new_people", 3)),
-            "word": word(settings)}
+            "word": word(settings), "automatic": bool(r.get("automatic")),
+            "max_rounds": int(r.get("max_rounds") or 0)}
+
+
+def finished(props, cfg):
+    """True when the company has had every round it may have (restart.max_rounds; 0 means no limit)."""
+    return bool(cfg and cfg.get("max_rounds")) and round_of(props) >= cfg["max_rounds"]
 
 
 def word(settings):
@@ -90,14 +104,19 @@ def _date(value):
         return None
 
 
-def migrate(hs, statuses, log=print, now=None):
+def migrate(hs, statuses, log=print, now=None, data=None):
     """Once restarts are on: the companies and contacts still on "Unqualified: Contacted, but no response" move to
     "No response: can restart", each company with the date it got there as "Last closed on". Nobody is emailed.
+    Only once (data["migrated"]): afterwards that status means a company that used all its rounds (20 Nov 2026).
     Returns {"companies": n, "contacts": n}."""
     out = {"companies": 0, "contacts": 0}
     if not statuses.restart:
         return out
+    if data is not None and data.get("migrated"):
+        return out
     now = now or now_utc()
+    if data is not None:
+        data["migrated"] = now.date().isoformat()
     for obj in ("companies", "contacts"):
         values = statuses.values(obj, "no_response")
         if len(values) < 2:
@@ -160,7 +179,12 @@ def plan(hs, settings, statuses, approved, log=print, now=None, data=None):
         allowed = _date(company["properties"].get(LAST_CLOSED)) + dt.timedelta(days=cfg["wait_days"])
         people = everyone.get(cid) or []
         answered = [c for c in people if statuses.of("contacts", c) in REPLY_STAGES]
-        if answered:
+        if finished(company.get("properties"), cfg):  # 20 Nov 2026: every round used; back to the final status
+            hs.update_tagged("companies", [(company["id"], statuses.final("companies"))])
+            out["refused"].append((name, f"it has had all {cfg['max_rounds']} rounds"))
+            log(f'{name}: not restarted: it has had all {cfg["max_rounds"]} rounds, so it is back on "Unqualified: '
+                'Contacted, but no response" and is never emailed again')
+        elif answered:
             out["refused"].append((name, "someone there replied, said no, opted out or was passed to the sales team"))
             log(f"{name}: not restarted: someone there replied, said no, opted out or was passed to the sales team, "
                 "so nobody there is emailed again")
@@ -171,6 +195,50 @@ def plan(hs, settings, statuses, approved, log=print, now=None, data=None):
         else:
             out["start"].append((company, people))
     return out
+
+
+def auto_queue(hs, settings, statuses, props, log=print, now=None):
+    """20 Nov 2026 (Ariel): with restart.automatic on, every AUTO-OUTREACH company on "No response: can restart" whose
+    wait is over, that has rounds left and where nobody replied, is set to GATE1, as a person would do by hand.
+    The oldest closed go first. Returns those companies (their Lead Status already GATE1 in hand), so the same run
+    starts them even before HubSpot's search shows the change."""
+    from .next_in_line import contacts_by_company
+    cfg = config(settings)
+    if not cfg or not cfg["automatic"] or not statuses.restart:
+        return []
+    alias = statuses.values("companies", "no_response")[0]
+    now = now or now_utc()
+    rows = hs.tagged_search("companies", [{"propertyName": LEAD_STATUS, "operator": "EQ", "value": alias}],
+                            list(dict.fromkeys(list(props) + ["name", LEAD_STATUS, LAST_CLOSED, ROUND])),
+                            max_results=10000)
+    ready, later = [], 0
+    for c in rows:
+        p = c.get("properties") or {}
+        last = _date(p.get(LAST_CLOSED))
+        if last is None or finished(p, cfg):
+            continue  # no date to count from, or every round used (sync.py ends those for good)
+        if now.date() < last + dt.timedelta(days=cfg["wait_days"]):
+            later += 1
+            continue
+        ready.append(c)
+    if not ready:
+        if later:
+            log(f"Automatic restarts: none ready yet; {later} companies wait for their {cfg['wait_days']} days")
+        return []
+    everyone = contacts_by_company(hs, [c["id"] for c in ready])
+    queued, gate1 = [], statuses.props("companies", "approved")
+    for c in sorted(ready, key=lambda c: (str(c["properties"].get(LAST_CLOSED)), str(c["id"]))):
+        name = c["properties"].get("name") or "A company"
+        if any(statuses.of("contacts", x) in REPLY_STAGES for x in everyone.get(str(c["id"])) or []):
+            log(f"{name}: not restarted automatically: someone there replied, said no, opted out or was passed to "
+                "the sales team")
+            continue
+        c["properties"].update(gate1)
+        queued.append(c)
+    hs.update_tagged("companies", [(c["id"], dict(gate1)) for c in queued])
+    log(f"Automatic restarts: {len(queued)} companies set to GATE1 (their {cfg['wait_days']} days are over)"
+        + (f"; {later} more wait for their date" if later else ""))
+    return queued
 
 
 def finish(hs, statuses, company, people, created_ids, log=print, now=None, data=None):

@@ -380,3 +380,9 @@ restart:
   wait_days_after_close: 9
   new_people: 3
   campaign_word: RESTART
+  # 20 Nov 2026 (Ariel): button 3 restarts by itself every AUTO-OUTREACH company on "No response: can restart" whose
+  # wait is over (it sets it to GATE1 and starts it in the same run, as if done by hand). A company gets at most
+  # max_rounds rounds in total, the first outreach included; after the last one it ends on "Unqualified: Contacted,
+  # but no response" (its no-reply contacts too) and is never emailed again. Fresh companies go first in the day's room.
+  automatic: true
+  max_rounds: 3

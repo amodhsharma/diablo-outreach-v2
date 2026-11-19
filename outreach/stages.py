@@ -298,6 +298,17 @@ class LeadStatus:
         (for example before button 1 has added "Forward sent")."""
         return self.props(obj, stage if self.has(obj, stage) else fallback)
 
+    def final(self, obj):
+        """20 Nov 2026 (Ariel): the props for the end after the last round: "Unqualified: Contacted, but no response"
+        (the first label of "no_response"), never emailed again. With restarts on, nothing else writes it."""
+        return {LEAD_STATUS: self._value[obj]["no_response"]}
+
+    def can_restart(self, obj, record):
+        """True when the record is on "No response: can restart" itself (not on the final no-response label)."""
+        alias = self._alias.get(obj, {}).get("no_response")
+        value = str(((record or {}).get("properties") or {}).get(LEAD_STATUS) or "").lower()
+        return alias is not None and value == str(alias).lower()
+
     def values(self, obj, stage):
         """Every stored value that means this stage (two for "no_response" once its second label exists)."""
         out = [self.value(obj, stage)]

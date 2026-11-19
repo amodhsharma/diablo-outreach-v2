@@ -478,15 +478,23 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
     cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes(), _owner_names=_owner_names(hs),
                _blocked_box=blocked_box)
     restart_cfg = restart.config(settings)
+    restart_data = restart.load() if restart_cfg else None
     if restart_cfg:  # 19 Nov 2026 (Ariel): companies with no reply can be restarted
         try:
-            restart.migrate(hs, statuses, log)
+            restart.migrate(hs, statuses, log, data=restart_data)
         except Exception as err:
             log(f'Could not move the companies to "No response: can restart": {str(err)[:200]}')
-    approved = approved_companies(hs, statuses, COMPANY_PROPS + [apollo_status.STOP_REASON]
-                                  + ([restart.LAST_CLOSED, restart.ROUND] if restart_cfg else []))
+    company_props = COMPANY_PROPS + [apollo_status.STOP_REASON] + ([restart.LAST_CLOSED, restart.ROUND]
+                                                                    if restart_cfg else [])
+    approved = approved_companies(hs, statuses, company_props)
+    if restart_cfg and restart_cfg["automatic"]:  # 20 Nov 2026 (Ariel): ready companies set to GATE1 by button 3
+        try:
+            seen = {str(c["id"]) for c in approved}
+            approved += [c for c in restart.auto_queue(hs, settings, statuses, company_props, log)
+                         if str(c["id"]) not in seen]
+        except Exception as err:
+            log(f"Could not set the companies ready to restart to GATE1: {str(err)[:200]}")
     restarts = {"start": [], "wait": [], "refused": [], "skip": set()}
-    restart_data = restart.load() if restart_cfg else None
     if restart_cfg:
         try:
             restarts = restart.plan(hs, settings, statuses, approved, log, data=restart_data)
@@ -570,6 +578,7 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
                 restarted.append((company.get("properties") or {}).get("name") or "A company")
             except Exception as err:
                 log(f"Could not restart {(company.get('properties') or {}).get('name')}: {str(err)[:200]}")
+    if restart_cfg:
         restart.save(restart_data)
     try:  # 10 Nov 2026 (Ariel): GATE1 with a contact becomes "Contact located"; with nobody left, back to GATE1
         settled = settle(hs, statuses, log, added={r["company_id"]: r.get("contact_ids") or [] for r in log_rows},

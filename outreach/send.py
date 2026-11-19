@@ -602,7 +602,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
 
     # One next person per company, companies in this order (17 Nov 2026, Ariel): companies already started, the
     # oldest first; then new companies with only a company inbox; then the other new companies, in the order
-    # they were approved.
+    # they were approved; then restarted companies whose new round has not started yet (20 Nov 2026).
     plans = []
     restart_cfg = restart.config(settings)
     for company_id in approved_at:
@@ -618,13 +618,17 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         send_memory.apply(memory, company_contacts, log, (company.get("properties") or {}).get("name") or "")
         started = [c["sent_at"] for c in company_contacts if c.get("sent_at")] + \
             [now for c in company_contacts if c.get("state") == "queued"]
+        new_round = bool(restart_cfg) and restart.round_of(company.get("properties")) > 1
+        if new_round:  # 20 Nov 2026: only this round's emails count; the earlier rounds' are in the past
+            started = [c["sent_at"] for c in company_contacts if c.get("state") == "sent" and c.get("sent_at")] + \
+                [now for c in company_contacts if c.get("state") == "queued"]
         people = [c for c in company_contacts if (c["properties"].get("email") or "") and c.get("state") != "skipped"]
         inbox_only = bool(people) and all(is_company_inbox(c) for c in people)
         if started:
             key = (0, min(started).timestamp(), str(company_id))
-        else:
+        else:  # 20 Nov 2026 (Ariel): fresh companies first; a restarted company not started yet comes after them
             first = send_memory.first_approved(memory, approved_at[company_id])
-            key = (1 if inbox_only else 2, first.timestamp() if first else 0.0, str(company_id))
+            key = (3 if new_round else 1 if inbox_only else 2, first.timestamp() if first else 0.0, str(company_id))
         plans.append((key, company_id, company, company_contacts))
     plans.sort(key=lambda x: x[0])
     room = None
