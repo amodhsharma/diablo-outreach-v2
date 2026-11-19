@@ -89,15 +89,18 @@ class Instantly:
         """Resume (activate) a paused campaign (16 Nov 2026: outreach/campaign_guard.py)."""
         return self.request("POST", f"/campaigns/{campaign_id}/activate")
 
-    def add_leads(self, campaign_id, leads):
-        """Add up to 1,000 leads. Leads already anywhere in the workspace are skipped."""
+    def add_leads(self, campaign_id, leads, only_this_campaign=False):
+        """Add up to 1,000 leads. Leads already anywhere in the workspace are skipped; with only_this_campaign
+        (a restart campaign, 19 Nov 2026) only leads already in this campaign are."""
         results = []
         for i in range(0, len(leads), 1000):
             body = {
                 "campaign_id": campaign_id,
                 "leads": leads[i : i + 1000],
-                "skip_if_in_workspace": True,
+                "skip_if_in_workspace": not only_this_campaign,
             }
+            if only_this_campaign:
+                body["skip_if_in_campaign"] = True
             results.append(self.request("POST", "/leads/add", json=body))
         return results
 

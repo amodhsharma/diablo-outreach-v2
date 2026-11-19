@@ -263,6 +263,19 @@ reply always wins, and anyone the memory shows as already introduced, reminded o
 email again, whatever HubSpot says. The daily summary counts "New first time introductory mails sent" and
 "First reminder sent to N number of people" from it (`outreach/send_memory.py`).
 
+**Restarting companies with no reply (19 Nov 2026; switched on with `restart.enabled`, off until Ariel says so).**
+Once switched on, a company where nobody replied ends on "No response: can restart" (its emailed people too) with
+the date in "Last closed on"; the companies on "Unqualified: Contacted, but no response" move there once. Nothing
+restarts by itself: a person sets the company back to GATE1. Button 3 then waits until 9 days after "Last closed
+on", refuses the whole company if anyone there replied, said no, opted out or was passed to the sales team, finds
+3 new people in Apollo (send order 1, 2, 3, the earlier people after them, the company inbox last or first when
+there is nobody named), puts everyone who can be emailed on GATE2 with the same email as before, and moves the
+company to "Contact located" with "Outreach round" one higher. Button 4 sends the round under the chain rules in
+this month's "Diablo | RESTART | <MONTH>" campaigns (Instantly only skips a lead already in that campaign), never
+to an address that bounced in any campaign, and keeps "Introductions sent", "Reminders sent", "Times introduced"
+and "Times reminded" up to date. The backlog below stops while restarts are on. The daily email shows the restarts
+and the companies waiting for their 9 days (`outreach/restart.py`, data/restarts.json: IDs and dates only).
+
 **The backlog (2 Nov 2026).** Companies closed as "no response" where someone got just one email are reopened each day, oldest first, only
 in the room the new introductions leave under the day's limit, at most 50 a day (button 4, step 2b). Two
 or more people: the next person's introduction at once, person 1's reminder 48 hours later, then as above.

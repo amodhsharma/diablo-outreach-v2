@@ -57,7 +57,7 @@ from .next_in_line import (
     is_company_inbox,
     last_campaign, lead_for, mark_sent, parked_ids, parse_time, rank_of, tagged_company_of, touch_times,
 )
-from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
+from .schema import COMPANY_NOTE, LAST_CLOSED, LEAD_STATUS, PERSONAL_LINE, STOP_REASON
 from . import chain, corrupt, daily_log, mail_watch, redirect, referral_intro, referrals, reply_forward, send_memory, stop_closed, timeline
 from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, LEFT_OUT, TEAM, LeadStatus,
                      forward)
@@ -1081,7 +1081,10 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         become "Unqualified: Contacted, but no response" (Unqualified in an account where button 1 has
         not added that choice yet); the others there become "Unqualified: Colleague Contacted, but no
         response" in the same run (close_company_contacts, 2 Nov 2026)."""
-        company_updates.append((company["id"], statuses.props("companies", "no_response")))
+        closing = dict(statuses.props("companies", "no_response"))
+        if statuses.restart:  # 19 Nov 2026: "No response: can restart", and the date it can be counted from
+            closing[LAST_CLOSED] = now_.date().isoformat()
+        company_updates.append((company["id"], closing))
         for c in contacts:
             if c.get("state") == "sent" and statuses.of("contacts", c) in EMAILED:
                 contact_updates.append((c["id"], statuses.props("contacts", "no_response")))
@@ -1090,9 +1093,9 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             # 3 Nov 2026: everyone emailed had their reminder too, so the backlog never reopens it
             chain_state.setdefault("closed", {})[str(company["id"])] = chain.today_str()
         result["no_reply"] += 1
-        sent_rows.append(f"| {name} | - | No reply: company set to Unqualified: Contacted, but no response |")
-        log(f"{name}: no reply to the introduction; the company is now \"Unqualified: Contacted, but no "
-            "response\"")
+        label = statuses.label("companies", closing[LEAD_STATUS])
+        sent_rows.append(f"| {name} | - | No reply: company set to {label} |")
+        log(f'{name}: no reply to the introduction; the company is now "{label}"')
 
     def stop_company(company, name, contacts, found):
         """An opt-out at the company: that person and the company are Unqualified, everyone else

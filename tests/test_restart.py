@@ -1,0 +1,278 @@
+"""Restarting companies where nobody replied (19 Nov 2026, Ariel): off until switched on, and then nothing changes
+by itself; a person sets the company back to GATE1, it waits 9 days after closing, it is refused when anyone there
+replied, three new people go first and the earlier ones follow, everyone gets the same email again in this month's
+RESTART campaign, and nobody whose address bounced is ever emailed again."""
+
+import datetime as dt
+
+import pytest
+
+from outreach import chain, find_contacts, import_lines, restart, send, send_memory, stages
+from outreach.common import load_settings
+from outreach.next_in_line import instantly_view
+from outreach.schema import INBOX_TITLE, LAST_CLOSED, ROUND, TIMES_INTRODUCED, TIMES_REMINDED
+from outreach.stages import RESTART_LABEL, LeadStatus
+
+from .fakes import FakeApollo, FakeCRM, FakeInstantly
+
+LS, ORDER, LINE = "hs_lead_status", "diablo_outreach_order", "diablo_personal_line"
+OLD_C, OLD_P = "Contacted, but no response, unqualified", "CONTACTED_NO_RESPONSE_UNQUALIFIED"
+NEW_P = "NO_RESPONSE_CAN_RESTART"
+TODAY = dt.datetime.now(dt.timezone.utc).date()
+
+
+def quiet(*_):
+    pass
+
+
+def crm():
+    """A HubSpot account where button 1 has added "No response: can restart"."""
+    hs = FakeCRM()
+    hs.options[("companies", LS)][RESTART_LABEL] = RESTART_LABEL
+    hs.options[("contacts", LS)][NEW_P] = RESTART_LABEL
+    return hs
+
+
+def settings(on=True):
+    s = load_settings()
+    s["send"]["sending_accounts"] = ["one@getdiablo-test.com"]
+    s["send"]["booking_link"] = "https://book.example/diablo"
+    s["restart"]["enabled"] = on
+    return s
+
+
+@pytest.fixture
+def switched_on(monkeypatch):
+    monkeypatch.setattr(stages, "restart_on", lambda settings=None: True)
+
+
+def closed_company(hs, days_ago, status=RESTART_LABEL, people=None):
+    """A company that closed with no reply days_ago and was set back to GATE1 by a person."""
+    cid = hs.add("companies", name="Harris Farm", domain="harris.example", country="Australia",
+                 industry_type="Distributor Wholesaler",
+                 **{LS: "GATE1: Approved for outreach", LAST_CLOSED: (TODAY - dt.timedelta(days=days_ago)).isoformat()})
+    ids = {}
+    for key, title, st, order in people or (("p1", "Owner", NEW_P, 1), ("p2", "Buyer", "COLLEAGUE_CONTACTED_NO_RESPONSE", 2),
+                                            ("p3", "Category Manager", "UNQUALIFIED_BOUNCED_OTHER", 3),
+                                            ("inbox", INBOX_TITLE, NEW_P, 4)):
+        pid = hs.add("contacts", email=f"{key}@harris.example", firstname=key, lastname="L", jobtitle=title,
+                     diablo_company_note="imports sweets", **{ORDER: str(order), LS: st, LINE: f"Line of {key}."})
+        hs.links[pid] = [cid]
+        ids[key] = pid
+    return cid, ids
+
+
+def apollo_with_three():
+    people = [{"id": f"n{i}", "title": t, "seniority": "director", "first_name": f"N{i}", "last_name": "New"}
+              for i, t in enumerate(("Managing Director", "Head of Buying", "Purchasing Manager"), start=1)]
+    return FakeApollo({"harris.example": people},
+                      {f"n{i}": (f"n{i}@harris.example", "verified") for i in (1, 2, 3)})
+
+
+def by_email(hs, email):
+    return next(p for p in hs.records["contacts"].values() if p.get("email") == email)
+
+
+# ---- switched off: nothing changes ----------------------------------------------------------------------------
+
+
+def test_switched_off_everything_writes_and_sends_as_before():
+    hs = crm()
+    statuses = LeadStatus(hs, restart=False)
+    assert statuses.props("companies", "no_response")[LS] == OLD_C  # still the old label
+    assert statuses.props("contacts", "no_response")[LS] == OLD_P
+    assert statuses.filter("companies", "no_response")["operator"] == "IN"  # both labels are read as "no response"
+    assert statuses.stage("companies", RESTART_LABEL) == "no_response"
+    assert restart.config(settings(on=False)) is None
+    # Button 3 leaves a closed company on GATE1 alone (no migration, no restart).
+    cid, ids = closed_company(hs, 20, people=(("p1", "Owner", OLD_P, 1),))
+    hs.records["companies"][cid][LS] = OLD_C
+    find_contacts.run("test", settings(on=False), hs, apollo_with_three(), log=quiet)
+    assert hs.records["companies"][cid][LS] == OLD_C and hs.records["contacts"][ids["p1"]][LS] == OLD_P
+
+
+def test_switched_off_button_4_adds_leads_exactly_as_before():
+    hs, instantly = crm(), FakeInstantly()
+    cid = hs.add("companies", name="Costco", domain="costco.example", country="Australia",
+                 industry_type="Distributor Wholesaler", **{LS: "Contact located. Queued for processing", ROUND: "2"})
+    pid = hs.add("contacts", email="p1@costco.example", firstname="P", lastname="L", jobtitle="Buyer",
+                 diablo_company_note="imports sweets", **{ORDER: "1", LS: "APPROVED_TO_SEND", LINE: "Line."})
+    hs.links[pid] = [cid]
+    send.run("test", settings(on=False), hs, instantly, log=quiet)
+    assert instantly.add_calls == [("camp1", False)]  # "skip if anywhere in Instantly", as today
+    assert "RESTART" not in instantly.campaigns["camp1"]["name"]
+
+
+# ---- switching on ---------------------------------------------------------------------------------------------
+
+
+def test_switching_on_moves_the_no_response_companies_and_people_once_and_keeps_the_date(switched_on):
+    hs = crm()
+    cid = hs.add("companies", name="Old Co", country="Australia", **{LS: OLD_C})
+    pid = hs.add("contacts", email="a@old.example", **{LS: OLD_P})
+    other = hs.add("contacts", email="b@old.example", **{LS: "UNQUALIFIED_BOUNCED_OTHER"})
+    hs.past = {("companies", cid): [(OLD_C, "2026-11-01T10:00:00Z"), ("Attempted to Contact", "2026-10-20T10:00:00Z")]}
+    out = restart.migrate(hs, LeadStatus(hs), log=quiet)
+    assert out == {"companies": 1, "contacts": 1}
+    assert hs.records["companies"][cid][LS] == RESTART_LABEL and hs.records["companies"][cid][LAST_CLOSED] == "2026-11-01"
+    assert hs.records["contacts"][pid][LS] == NEW_P
+    assert hs.records["contacts"][other][LS] == "UNQUALIFIED_BOUNCED_OTHER"  # a bounce is never moved
+    assert restart.migrate(hs, LeadStatus(hs), log=quiet) == {"companies": 0, "contacts": 0}  # once only
+
+
+def test_switched_on_a_company_with_no_reply_ends_on_the_new_label():
+    hs = crm()
+    statuses = LeadStatus(hs, restart=True)
+    assert statuses.props("companies", "no_response")[LS] == RESTART_LABEL
+    assert statuses.props("contacts", "no_response")[LS] == NEW_P
+
+
+def test_the_old_backlog_reopening_stops_once_restarts_are_on():
+    shown = []
+    out = chain.run_backlog(FakeCRM(), FakeInstantly(), settings(on=True), log=shown.append)
+    assert out["reopened"] == 0 and "restarts are on" in shown[0]
+
+
+# ---- a restart ------------------------------------------------------------------------------------------------
+
+
+def test_nothing_restarts_before_9_days_after_closing(switched_on):
+    hs, apollo = crm(), apollo_with_three()
+    cid, ids = closed_company(hs, 5)
+    shown = []
+    find_contacts.run("test", settings(), hs, apollo, log=shown.append)
+    assert hs.records["companies"][cid][LS] == "GATE1: Approved for outreach"  # waits, your status is kept
+    assert apollo.revealed == [] and hs.records["contacts"][ids["p1"]][LS] == NEW_P
+    allowed = (TODAY + dt.timedelta(days=4)).isoformat()
+    assert any(f"allowed from {allowed}" in line for line in shown)
+
+
+@pytest.mark.parametrize("answered", ["IN_PROGRESS", "COLLEAGUE_REPLIED", "UNQUALIFIED_RESPONSE_NEGATIVE",
+                                      "UNQUALIFIED_OPTED_OUT_BLOCKLIST", "END_FORWARDED_TO_SALES_TEAM"])
+def test_a_company_where_anyone_replied_is_never_restarted(switched_on, answered):
+    hs, apollo = crm(), apollo_with_three()
+    cid, ids = closed_company(hs, 20, people=(("p1", "Owner", answered, 1), ("p2", "Buyer", "COLLEAGUE_REPLIED", 2),
+                                              ("p3", "Category Manager", NEW_P, 3)))
+    shown = []
+    find_contacts.run("test", settings(), hs, apollo, log=shown.append)
+    assert apollo.revealed == []
+    assert hs.records["contacts"][ids["p2"]][LS] == "COLLEAGUE_REPLIED"  # kept, never "can restart"
+    assert hs.records["contacts"][ids["p3"]][LS] == NEW_P and hs.records["companies"][cid].get(ROUND) is None
+    assert any("not restarted" in line for line in shown)
+
+
+def test_a_restart_puts_three_new_people_first_and_never_the_bounced_one(switched_on):
+    hs, apollo = crm(), apollo_with_three()
+    cid, ids = closed_company(hs, 10)
+    find_contacts.run("test", settings(), hs, apollo, log=quiet)
+    order = sorted(((int(p[ORDER]), p["email"], p[LS]) for p in hs.records["contacts"].values()
+                    if p.get(LS) == "APPROVED_TO_SEND"))
+    assert [e for _, e, _ in order] == ["n1@harris.example", "n2@harris.example", "n3@harris.example",
+                                        "p1@harris.example", "p2@harris.example", "inbox@harris.example"]
+    assert [o for o, _, _ in order] == [1, 2, 3, 4, 5, 6]
+    assert by_email(hs, "n1@harris.example")[LINE] == "Line of p1."  # the same email as before
+    assert hs.records["contacts"][ids["p3"]][LS] == "UNQUALIFIED_BOUNCED_OTHER"  # never emailed again
+    company = hs.records["companies"][cid]
+    assert company[LS] == "Contact located. Queued for processing" and company[ROUND] == "2"
+    assert restart.load()["companies"][str(cid)]["round"] == 2
+    # The next run does not start it again.
+    apollo.revealed.clear()
+    find_contacts.run("test", settings(), hs, apollo, log=quiet)
+    assert apollo.revealed == [] and hs.records["companies"][cid][ROUND] == "2"
+
+
+def test_button_4_sends_the_round_in_the_restart_campaign_and_the_memory_lets_it(switched_on):
+    hs, apollo, instantly = crm(), apollo_with_three(), FakeInstantly()
+    cid, ids = closed_company(hs, 10)
+    instantly.campaigns["old"] = {"name": "Diablo | OCT2026"}
+    instantly.leads["old"] = [
+        {"id": "l1", "email": "p1@harris.example", "status": 3, "timestamp_created": "2026-10-20T10:00:00Z",
+         "timestamp_last_contact": "2026-10-20T10:00:00Z"},
+        {"id": "l3", "email": "p3@harris.example", "status": -1, "timestamp_created": "2026-10-20T10:00:00Z"}]
+    memory = send_memory.load()
+    for key in ("p1", "p3"):
+        send_memory._set(memory, ids[key], "introduced", dt.datetime(2026, 10, 20, tzinfo=dt.timezone.utc),
+                         company=str(cid))
+    send_memory._set(memory, ids["p1"], "reminded", dt.datetime(2026, 10, 24, tzinfo=dt.timezone.utc))
+    send_memory.save(memory)
+    find_contacts.run("test", settings(), hs, apollo, log=quiet)
+    send.run("test", settings(), hs, instantly, log=quiet)
+    restart_campaign = next(cid_ for cid_, c in instantly.campaigns.items() if "RESTART" in c["name"])
+    assert instantly.campaigns[restart_campaign]["name"] == f"Diablo | RESTART | {send.month_label()}"
+    assert [l["email"] for l in instantly.leads[restart_campaign]] == ["n1@harris.example"]  # new person 1 first
+    assert (restart_campaign, True) in instantly.add_calls  # only "already in this campaign" is skipped
+    memory = send_memory.load()
+    assert not send_memory.blocks_intro(memory, ids["p1"])  # a new round: their introduction may go again
+    assert memory["contacts"][ids["p1"]]["past"][0]["introduced"].startswith("2026-10-20")
+    # The counters: p1 introduced and reminded once in round 1; the company counts everyone.
+    assert hs.records["contacts"][ids["p1"]][TIMES_INTRODUCED] == "1"
+    assert hs.records["contacts"][ids["p1"]][TIMES_REMINDED] == "1"
+    assert hs.records["companies"][cid]["diablo_introductions_sent"] == "3"  # p1, p3 and new person 1
+
+
+def test_an_address_that_bounced_anywhere_is_never_added_to_a_restart(switched_on):
+    hs, instantly = crm(), FakeInstantly()
+    cid = hs.add("companies", name="Bounce Co", domain="bounce.example", country="Australia",
+                 industry_type="Distributor Wholesaler", **{LS: "Contact located. Queued for processing", ROUND: "2"})
+    pid = hs.add("contacts", email="p1@bounce.example", firstname="P", lastname="L", jobtitle="Buyer",
+                 diablo_company_note="imports sweets", **{ORDER: "1", LS: "APPROVED_TO_SEND", LINE: "Line."})
+    hs.links[pid] = [cid]
+    instantly.campaigns["old"] = {"name": "Diablo | OCT2026"}
+    instantly.leads["old"] = [{"id": "l1", "email": "p1@bounce.example", "status": -1,
+                               "timestamp_created": "2026-10-20T10:00:00Z"}]
+    shown = []
+    send.run("test", settings(), hs, instantly, log=shown.append)
+    assert not any("RESTART" in c["name"] for c in instantly.campaigns.values())
+    assert any("bounced in an earlier campaign" in line for line in shown)
+    assert hs.records["contacts"][pid][LS] == "APPROVED_TO_SEND"  # never marked as sent
+
+
+def test_the_newest_lead_counts_and_a_bounce_anywhere_is_remembered():
+    instantly = FakeInstantly()
+    instantly.campaigns = {"a": {"name": "Diablo | OCT2026"}, "b": {"name": "Diablo | RESTART | NOV2026"}}
+    instantly.leads = {"a": [{"email": "x@y.example", "status": -1, "timestamp_created": "2026-10-01T00:00:00Z"}],
+                       "b": [{"email": "x@y.example", "status": 1, "timestamp_created": "2026-11-20T00:00:00Z"}]}
+    view = instantly_view(instantly, "Diablo |")
+    assert view["x@y.example"]["_campaign_id"] == "b" and view["x@y.example"]["_dead_anywhere"]
+
+
+def test_a_new_person_whose_line_was_still_to_write_goes_straight_to_gate2(switched_on, monkeypatch):
+    data = {"companies": {"9": {"round": 2, "started": "2026-11-20T00:00:00+00:00", "straight": ["55"]}}}
+    assert restart.straight_to_gate2("55", data) and not restart.straight_to_gate2("56", data)
+
+
+def test_the_counters_add_up_every_round():
+    memory = {"contacts": {
+        "1": {"company": "9", "round": 2, "introduced": "2026-11-20T00:00:00+00:00",
+              "past": [{"introduced": "2026-10-01T00:00:00+00:00", "reminded": "2026-10-05T00:00:00+00:00"}]},
+        "2": {"company": "9", "queued": "2026-11-21T00:00:00+00:00"}}}
+    people, companies = restart.counts(memory)
+    assert people == {"1": (2, 1), "2": (1, 0)} and companies == {"9": (3, 1)}
+
+
+def _day_of_sending(on, monkeypatch):
+    monkeypatch.setattr(stages, "restart_on", lambda settings=None: on)
+    hs, instantly = crm(), FakeInstantly()
+    for name, n in (("Alpha", 3), ("Beta", 1), ("Gamma", 2)):
+        cid = hs.add("companies", name=name, domain=f"{name.lower()}.example", country="Australia",
+                     industry_type="Distributor Wholesaler", **{LS: "Contact located. Queued for processing"})
+        for rank in range(1, n + 1):
+            pid = hs.add("contacts", email=f"p{rank}@{name.lower()}.example", firstname="P", lastname="L",
+                         jobtitle="Buyer", diablo_company_note="imports sweets",
+                         **{ORDER: str(rank), LS: "APPROVED_TO_SEND", LINE: "Line."})
+            hs.links[pid] = [cid]
+    send.run("test", settings(on=on), hs, instantly, log=quiet)
+    leads = sorted((c["name"], l["email"]) for k, c in instantly.campaigns.items() for l in instantly.leads[k])
+    counters = {"diablo_times_introduced", "diablo_times_reminded", "diablo_introductions_sent",
+                "diablo_reminders_sent", ROUND}
+    records = {obj: {i: {k: v for k, v in p.items() if k not in counters} for i, p in hs.records[obj].items()}
+               for obj in ("companies", "contacts")}
+    return leads, records, instantly.add_calls
+
+
+def test_with_restarts_on_but_no_company_restarted_the_sending_is_exactly_the_same(monkeypatch):
+    off = _day_of_sending(False, monkeypatch)
+    send_memory.FILE.unlink(missing_ok=True)
+    on = _day_of_sending(True, monkeypatch)
+    assert on == off
+    assert len(off[0]) == 3  # one introduction per company

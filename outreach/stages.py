@@ -145,6 +145,13 @@ RENAMED = {
                  "Contacted, but no response, unqualified": "Unqualified: Contacted, but no response",
                  "Unqualified Contact: Contact corrupt": "Unqualified: Contact corrupt"},
 }
+# 19 Nov 2026 (Ariel): with restarts switched on (restart.enabled in config/settings.yaml), a company where nobody
+# replied, and each person emailed there, ends on "No response: can restart" instead of "Unqualified: Contacted, but
+# no response". Both labels are the same stage ("no_response") everywhere in the code, so nothing else changes; only
+# what is written depends on the switch. The people who were not emailed keep "Unqualified: Colleague Contacted, but
+# no response". A person sets such a company back to GATE1 to restart it (outreach/restart.py).
+RESTART_LABEL = "No response: can restart"
+ALIASES = {"companies": {"no_response": RESTART_LABEL}, "contacts": {"no_response": RESTART_LABEL}}
 COLLEAGUE_STAGES = ("colleague_positive", "colleague_negative", "colleague_replied", "colleague_opted_out",
                     "colleague_no_response")
 # Contact stages that mean "emailed, no reply yet" (agreed 14 Oct 2026: the forward and the
@@ -180,7 +187,8 @@ NEW_OPTION_VALUES = {
                       "Unqualified: One contact inputted, which is unavailable",
                   "Unqualified: Bounced, other reason": "Unqualified: Bounced, other reason",
                   "END: Forwarded to Sales Team": "END: Forwarded to Sales Team",
-                  "Unqualified: Channel no longer targeted": "Unqualified: Channel no longer targeted"},
+                  "Unqualified: Channel no longer targeted": "Unqualified: Channel no longer targeted",
+                  RESTART_LABEL: RESTART_LABEL},
     "contacts": {"New, Personal line filled": "NEW_PERSONAL_LINE_FILLED", "GATE2: Approved to send": "APPROVED_TO_SEND", "New": "NEW",
                  "Attempted to Contact": "ATTEMPTED_TO_CONTACT", "Forward sent": "FORWARD_SENT",
                  "Reminder sent": "REMINDER_SENT", "In Progress": "IN_PROGRESS",
@@ -197,7 +205,8 @@ NEW_OPTION_VALUES = {
                  "Unqualified: Colleague Contacted, but no response": "COLLEAGUE_CONTACTED_NO_RESPONSE",
                  "Unqualified: Inbox Bounced": "UNQUALIFIED_INBOX_BOUNCED",
                  "Unqualified: Rejected/Redirected by company owner": "UNQUALIFIED_REDIRECTED",
-                 "END: Forwarded to Sales Team": "END_FORWARDED_TO_SALES_TEAM"},
+                 "END: Forwarded to Sales Team": "END_FORWARDED_TO_SALES_TEAM",
+                 RESTART_LABEL: "NO_RESPONSE_CAN_RESTART"},
 }
 
 # Later stages win: a status only ever moves forward.
@@ -213,13 +222,26 @@ ORDER = {"": 0, "found": 0, "missing_info": 0, "missing_apollo": 0, "contact_exi
 TEAM = "team"
 
 
+def restart_on(settings=None):
+    """True when restarts are switched on (restart.enabled in config/settings.yaml, 19 Nov 2026)."""
+    if settings is None:
+        try:
+            from .common import load_settings
+            settings = load_settings()
+        except Exception:
+            return False
+    return bool((settings.get("restart") or {}).get("enabled"))
+
+
 class LeadStatus:
     """Lead Status choices of one HubSpot account, read once."""
 
-    def __init__(self, hs):
+    def __init__(self, hs, restart=None):
         self._value = {}
         self._stage = {}
         self._labels = {}
+        self._alias = {}
+        self.restart = restart_on() if restart is None else bool(restart)
         for obj, stages in STAGES.items():
             labels = hs.option_labels(obj, LEAD_STATUS)  # {value: label}
             self._labels[obj] = {str(v).lower(): l for v, l in labels.items()}
@@ -233,8 +255,18 @@ class LeadStatus:
                 if value is not None:
                     self._value[obj][stage] = value
                     self._stage[obj][str(value).lower()] = stage
+            self._alias[obj] = {}
+            for stage, label in ALIASES.get(obj, {}).items():  # 19 Nov 2026: a second label for the same stage
+                value = by_label.get(label.lower())
+                if value is None:
+                    continue
+                self._alias[obj][stage] = value
+                self._stage[obj][str(value).lower()] = stage
+                self._value[obj].setdefault(stage, value)
 
     def value(self, obj, stage):
+        if self.restart and stage in self._alias.get(obj, {}):  # 19 Nov 2026: restarts on, the new label
+            return self._alias[obj][stage]
         try:
             return self._value[obj][stage]
         except KeyError:
@@ -266,8 +298,19 @@ class LeadStatus:
         (for example before button 1 has added "Forward sent")."""
         return self.props(obj, stage if self.has(obj, stage) else fallback)
 
+    def values(self, obj, stage):
+        """Every stored value that means this stage (two for "no_response" once its second label exists)."""
+        out = [self.value(obj, stage)]
+        for v in (self._value.get(obj, {}).get(stage), self._alias.get(obj, {}).get(stage)):
+            if v is not None and v not in out:
+                out.append(v)
+        return out
+
     def filter(self, obj, stage):
-        return {"propertyName": LEAD_STATUS, "operator": "EQ", "value": self.value(obj, stage)}
+        values = self.values(obj, stage)
+        if len(values) > 1:
+            return {"propertyName": LEAD_STATUS, "operator": "IN", "values": values}
+        return {"propertyName": LEAD_STATUS, "operator": "EQ", "value": values[0]}
 
     def props(self, obj, stage):
         """The props for a stage. A choice added on 2 Nov 2026 that the account does not have yet (button 1

@@ -76,13 +76,15 @@ def _between(prop, start, end):
 
 
 def _entered(past, value, start, end):
-    """True when the field became this value between start and end (past: newest first)."""
+    """True when the field became this value between start and end (past: newest first). value may be a list of
+    values that mean the same (19 Nov 2026: the two labels of "no response"); moving between them does not count."""
     from .next_in_line import parse_time
+    values = value if isinstance(value, (list, tuple, set)) else (value,)
     for i, (v, t) in enumerate(past):
         when = parse_time(t)
-        if v == value and when and start <= when < end:
+        if v in values and when and start <= when < end:
             before = past[i + 1][0] if i + 1 < len(past) else None
-            if before != value:
+            if before not in values:
                 return True
     return False
 
@@ -101,7 +103,10 @@ def prospecting(hs, statuses, date, month_first):
     approved, no_response, missing = (_value(statuses, "companies", s) for s in ("approved", "no_response", "missing_info"))
     out = {"new": len(created), "countries": countries.most_common()}
     out["approved"] = sum(1 for _, h in past.values() if approved and _entered(h, approved, start, end))
+    if no_response:
+        no_response = statuses.values("companies", "no_response")
     out["no_response"] = sum(1 for _, h in past.values() if no_response and _entered(h, no_response, start, end))
+    out["restart"] = restart_numbers(hs, statuses, date) if statuses.restart else None
     out["nowhere"] = sorted(((p.get("name") or "A company") for p, h in past.values()
                              if missing and _entered(h, missing, start, end)
                              and str(p.get(STOP_REASON) or "").startswith(NOWHERE)), key=str.lower)
@@ -121,6 +126,23 @@ def prospecting(hs, statuses, date, month_first):
     out["awaiting_send"] = hs.tagged_count("contacts", [statuses.filter("contacts", "copy_ready")])
     first_start, _ = window(month_first)
     out["month_new"] = hs.tagged_count("companies", _between("createdate", first_start, end))
+    return out
+
+
+def restart_numbers(hs, statuses, date):
+    """19 Nov 2026 (Ariel): companies restarted on the day, and those set back to GATE1 that wait for their 9 days."""
+    from . import restart
+    data = restart.load()
+    out = {"restarted": restart.restarted_on(date, data, INDIA), "waiting": 0}
+    days = int((load_settings().get("restart") or {}).get("wait_days_after_close", 9))
+    rows = hs.tagged_search("companies", [statuses.filter("companies", "approved"),
+                                          {"propertyName": restart.LAST_CLOSED, "operator": "HAS_PROPERTY"}],
+                            ["name", restart.LAST_CLOSED], max_results=5000) if statuses.has("companies", "approved") else []
+    today = dt.date.fromisoformat(date) + dt.timedelta(days=1)
+    for r in rows:
+        last = restart._date(r["properties"].get(restart.LAST_CLOSED))
+        if restart.pending(r, data) and last and today < last + dt.timedelta(days=days):
+            out["waiting"] += 1
     return out
 
 
@@ -242,8 +264,11 @@ def compose(date, p, o, issues, month_first, sender_name):
         (f"Companies where no contact was found, sales team input required: {len(p['nowhere'])}", p["nowhere"]),
         (f"New prospects awaiting approval for contact research: {p['awaiting_research']}", []),
         (f"Introductions written, awaiting approval to send: {p['awaiting_send']}", []),
-        (f"Companies marked unqualified after no response within 7 days: {p['no_response']}", []),
-    ]
+        (f"Companies marked unqualified after no response within 7 days: {p['no_response']}", [])
+        if not p.get("restart") else (f"Companies closed with no response (can be restarted): {p['no_response']}", []),
+    ] + ([(f"Companies restarted: {p['restart']['restarted']}", []),
+          (f"Companies set back to GATE1, waiting for their 9 days before restarting: {p['restart']['waiting']}", [])]
+         if p.get("restart") else [])
     out = [  # 17 Nov 2026 (Ariel): "New first time introductory mails sent" and "First reminder sent to N"
         (f"New first time introductory mails sent: {sent}" + (f" ({o['sent']['person']} to named contacts, "
                                                               f"{o['sent']['inbox']} to company inboxes)" if sent else ""), []),

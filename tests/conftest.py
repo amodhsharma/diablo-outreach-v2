@@ -145,3 +145,10 @@ def no_real_send_memory(tmp_path, monkeypatch):
     """No test reads or writes button 4's real memory (17 Nov 2026)."""
     from outreach import send_memory
     monkeypatch.setattr(send_memory, "FILE", tmp_path / "send_memory.json")
+
+
+@pytest.fixture(autouse=True)
+def no_real_restarts_file(tmp_path, monkeypatch):
+    """No test reads or writes the real list of restarted companies (19 Nov 2026)."""
+    from outreach import restart
+    monkeypatch.setattr(restart, "FILE", tmp_path / "restarts.json")

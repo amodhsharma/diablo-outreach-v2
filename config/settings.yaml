@@ -368,3 +368,15 @@ daily_report:
   sender_name: Diablo Partner Outreach
   smtp_host: smtp.gmail.com
   smtp_port: 587
+# Restarting companies where nobody replied (agreed 19 Nov 2026, Ariel). Such a company ends on "No response: can
+# restart" (its emailed people too); when a person sets it back to GATE1, button 3 starts a new round: it finds
+# new_people more people (send order 1, 2, 3, the earlier people below them), and button 4 emails everyone again
+# under the chain rules, in this month's "Diablo | RESTART | <MONTH>" campaigns. Never earlier than
+# wait_days_after_close days after the company was closed; never anyone who bounced, opted out or said no; never a
+# company where anyone replied. Off until Ariel says to switch it on (then the companies on "Unqualified: Contacted,
+# but no response" move to the new status once, and the old backlog reopening stops: restarts replace it).
+restart:
+  enabled: false
+  wait_days_after_close: 9
+  new_people: 3
+  campaign_word: RESTART

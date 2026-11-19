@@ -95,17 +95,20 @@ def test_live_gets_exactly_four_fields_and_five_choices():
     before = {obj: [dict(o) for o in hs.props[obj]["hs_lead_status"]["options"]] for obj in ("companies", "contacts")}
     summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
     # the two groups, the five contact fields, (19 Oct 2026) the company's "Outreach stopped because"
-    # and (21 Oct 2026) its "Job Number"
-    assert summary["created"] == 9
+    # and (21 Oct 2026) its "Job Number"; (19 Nov 2026) the six restart counters
+    assert summary["created"] == 15
     # Every pipeline choice, under its 2 Nov 2026 label: 13 for companies (10 Nov 2026: Contact located; 11 Nov
-    # 2026: Channel no longer targeted), 18 for contacts (3 Nov 2026).
-    assert summary["updated"] == 31
+    # 2026: Channel no longer targeted), 18 for contacts (3 Nov 2026); (19 Nov 2026) "No response: can restart"
+    # for both, 14 and 19.
+    assert summary["updated"] == 33
     assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, COMPANY_NOTE, ORDER,
-                                         CONTACT_SOURCE, STOP_REASON}
+                                         CONTACT_SOURCE, STOP_REASON, "diablo_times_introduced",
+                                         "diablo_times_reminded"}
     assert set(hs.props["companies"]) == {"hs_lead_status", "lead_source", "industry_type", STOP_REASON,
-                                          "diablo_job_number"}
-    assert sorted(labels(hs, "companies")[-13:]) == sorted(LIVE_NEW_CHOICES["companies"])
-    assert sorted(labels(hs, "contacts")[-18:]) == sorted(LIVE_NEW_CHOICES["contacts"])
+                                          "diablo_job_number", "diablo_outreach_round", "diablo_introductions_sent",
+                                          "diablo_reminders_sent", "diablo_last_closed_on"}
+    assert sorted(labels(hs, "companies")[-14:]) == sorted(LIVE_NEW_CHOICES["companies"])
+    assert sorted(labels(hs, "contacts")[-19:]) == sorted(LIVE_NEW_CHOICES["contacts"])
     for obj in ("companies", "contacts"):  # the team's choices are sent back exactly as they were
         assert hs.props[obj]["hs_lead_status"]["options"][:len(before[obj])] == before[obj]
     assert len(hs.props["companies"]["industry_type"]["options"]) == 6  # live's own field: untouched
@@ -136,7 +139,7 @@ def test_refuses_live_account_without_flag_but_a_dry_run_only_reads():
     shown = []
     summary = setup_hubspot.run(hs, dry_run=True, log=shown.append)
     assert all(method == "GET" for method, _ in hs.calls)
-    assert summary["updated"] == 31 and any("[would add]" in line for line in shown)
+    assert summary["updated"] == 33 and any("[would add]" in line for line in shown)
     assert "New, Personal line filled" not in labels(hs, "contacts")
 
 
@@ -150,8 +153,11 @@ def test_type_conflict_is_reported_not_overwritten():
 
 def test_schema_rules():
     assert [s["name"] for s in NEW_PROPERTIES["contacts"]] == [PERSONAL_LINE, COMPANY_NOTE, ORDER, CONTACT_SOURCE,
-                                                               STOP_REASON]
-    assert [s["name"] for s in NEW_PROPERTIES["companies"]] == ["diablo_job_number", STOP_REASON]
+                                                               STOP_REASON, "diablo_times_introduced",
+                                                               "diablo_times_reminded"]
+    assert [s["name"] for s in NEW_PROPERTIES["companies"]] == ["diablo_job_number", STOP_REASON, "diablo_outreach_round",
+                                                                "diablo_introductions_sent", "diablo_reminders_sent",
+                                                                "diablo_last_closed_on"]
     assert all(s["name"].startswith("diablo_") for s in NEW_PROPERTIES["contacts"])
 
 
@@ -167,7 +173,7 @@ def test_live_never_gets_other_choices_or_fields():
     summary = setup_hubspot.run(hs, allow_production=True, log=quiet)
     assert summary["conflict"] == 2  # reported, not added
     assert "Missing Info" not in labels(hs, "companies") and "lead_source" not in hs.props["contacts"]
-    assert "GATE1: Approved for outreach" in labels(hs, "companies")[-11:]
+    assert "GATE1: Approved for outreach" in labels(hs, "companies")[-12:]
 
 
 def test_every_run_shows_the_key_steps_and_a_plain_reason(tmp_path, monkeypatch):

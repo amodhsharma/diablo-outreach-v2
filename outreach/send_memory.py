@@ -150,6 +150,26 @@ def apply(memory, contacts, log=print, name=""):
     return contacts
 
 
+ROUND_FIELDS = ("approved", "queued", "introduced", "reminded", "closed")
+
+
+def new_round(memory, contact_ids, round_no):
+    """19 Nov 2026 (Ariel): a restarted company's people start a new round. Their earlier times move to "past" (kept
+    for the counters), so the new round's introduction is not blocked; each person once per round. Returns how many
+    people moved on."""
+    moved = 0
+    for cid in contact_ids:
+        rec = (memory.get("contacts") or {}).get(str(cid))
+        if not rec or int(rec.get("round") or 1) >= round_no:
+            continue
+        done = {k: rec.pop(k) for k in ROUND_FIELDS if rec.get(k)}
+        if done:
+            rec.setdefault("past", []).append(dict(done, round=int(rec.get("round") or 1)))
+        rec["round"] = round_no
+        moved += 1
+    return moved
+
+
 def blocks_intro(memory, contact_id):
     rec = entry(memory, contact_id)
     return bool(rec.get("queued") or rec.get("introduced") or rec.get("closed"))

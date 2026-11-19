@@ -47,6 +47,7 @@ from .hubspot_client import HubSpot, HubSpotError
 from .schema import (CONTACT_SOURCE, INBOX_TITLE, LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD, ORDER, SOURCE_APOLLO,
                      SOURCE_WEBSITE)
 from .stages import CONTACT_CLOSED, LEFT_OUT, OPEN, TEAM, LeadStatus
+from . import restart
 
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS, "hubspot_owner_id"]
 
@@ -209,7 +210,7 @@ def live_contacts(contacts, statuses):
     return [c for c in contacts if statuses.of("contacts", c) not in LEFT_OUT + CONTACT_CLOSED + (TEAM,)]
 
 
-def settle(hs, statuses, log=print, added=None):
+def settle(hs, statuses, log=print, added=None, skip=()):
     """10 Nov 2026 (Ariel): a GATE1 company with at least 1 AUTO-OUTREACH contact that can still be emailed
     (a person or a company inbox) becomes "Contact located. Queued for processing"; one on "Contact located"
     whose contacts have all dropped out (dead addresses, rejected at GATE2) goes back to GATE1, so button 3
@@ -229,6 +230,8 @@ def settle(hs, statuses, log=print, added=None):
     to_located, to_gate1, names = [], [], {}
     for c in companies:
         cid = str(c["id"])
+        if cid in skip:  # 19 Nov 2026: waiting for its restart (or refused one); restart.py decides
+            continue
         names[cid] = (c.get("properties") or {}).get("name") or "A company"
         mine = [ours[str(x)] for x in links.get(cid) or [] if str(x) in ours]
         live = bool(live_contacts(mine, statuses)) or bool((added or {}).get(cid))
@@ -252,6 +255,18 @@ def settle(hs, statuses, log=print, added=None):
     if out["located"]:
         log(f'{len(out["located"])} companies with contacts moved to "Contact located. Queued for processing"')
     return out
+
+
+def restart_summary(restarted, restarts):
+    """Lines for the summary page about the restarts (19 Nov 2026)."""
+    lines = []
+    if restarted:
+        lines.append(f"Restarted: {_n(len(restarted))} ({_names([{'company': n} for n in restarted])})")
+    if restarts.get("wait"):
+        lines.append("Waiting to restart: " + ", ".join(f"{n} (from {d})" for n, d in restarts["wait"]))
+    if restarts.get("refused"):
+        lines.append("Not restarted, someone there replied: " + ", ".join(n for n, _ in restarts["refused"]))
+    return "\n".join(lines)
 
 
 def settle_summary(settled):
@@ -462,7 +477,24 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
         log(f"Could not check the Contact exists companies again: {str(err)[:200]}")
     cfg = dict(cfg, _job_owner=job_owner(settings), _job_notes=job_notes(), _owner_names=_owner_names(hs),
                _blocked_box=blocked_box)
-    approved = approved_companies(hs, statuses, COMPANY_PROPS + [apollo_status.STOP_REASON])
+    restart_cfg = restart.config(settings)
+    if restart_cfg:  # 19 Nov 2026 (Ariel): companies with no reply can be restarted
+        try:
+            restart.migrate(hs, statuses, log)
+        except Exception as err:
+            log(f'Could not move the companies to "No response: can restart": {str(err)[:200]}')
+    approved = approved_companies(hs, statuses, COMPANY_PROPS + [apollo_status.STOP_REASON]
+                                  + ([restart.LAST_CLOSED, restart.ROUND] if restart_cfg else []))
+    restarts = {"start": [], "wait": [], "refused": [], "skip": set()}
+    restart_data = restart.load() if restart_cfg else None
+    if restart_cfg:
+        try:
+            restarts = restart.plan(hs, settings, statuses, approved, log, data=restart_data)
+        except Exception as err:
+            log(f"Could not check the companies waiting for a restart: {str(err)[:200]}")
+            restarts = {"start": [], "wait": [], "refused": [],
+                        "skip": {str(c["id"]) for c in approved if restart.pending(c, restart_data)}}
+        approved = [c for c in approved if str(c["id"]) not in restarts["skip"]]
     # Only AUTO-OUTREACH contacts count (HubSpot may link a team contact by itself). 26 Oct 2026 (Ariel):
     # a company with fewer people than contacts.per_company gets the rest searched for (a company inbox
     # does not count as a person), once a month; new companies go first.
@@ -516,8 +548,32 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
         save_topped(topped)
     done_ids = {r.get("company_id") for r in log_rows}
     left = [c for c, _ in companies if str(c["id"]) not in done_ids] + [c for c, _ in left]
+    restarted = []
+    if restarts["start"]:  # 19 Nov 2026 (Ariel): the new round: new people searched for, then everyone put in order
+        live = {str(c["id"]): [m for m in people if statuses.of("contacts", m) not in LEFT_OUT]
+                for c, people in restarts["start"]}
+        rows = []
+        rcfg = dict(cfg, _need={cid: restart_cfg["new_people"] for cid in live})
+        try:
+            credits += _process([(c, live[str(c["id"])]) for c, _ in restarts["start"]], hs, apollo, rcfg, statuses,
+                                assigner, notes, skipped, kept, rows, log)
+        finally:
+            save_skipped(skipped)
+            save_skipped(kept, KEPT_FILE)
+            save_topped(topped)
+        made = {r["company_id"]: r.get("contact_ids") or [] for r in rows}
+        for company, people in restarts["start"]:
+            if str(company["id"]) not in made:
+                continue  # the Apollo credit cap was reached: it starts at the next run
+            try:
+                restart.finish(hs, statuses, company, people, made[str(company["id"])], log, data=restart_data)
+                restarted.append((company.get("properties") or {}).get("name") or "A company")
+            except Exception as err:
+                log(f"Could not restart {(company.get('properties') or {}).get('name')}: {str(err)[:200]}")
+        restart.save(restart_data)
     try:  # 10 Nov 2026 (Ariel): GATE1 with a contact becomes "Contact located"; with nobody left, back to GATE1
-        settled = settle(hs, statuses, log, added={r["company_id"]: r.get("contact_ids") or [] for r in log_rows})
+        settled = settle(hs, statuses, log, added={r["company_id"]: r.get("contact_ids") or [] for r in log_rows},
+                         skip=restarts["skip"])
     except Exception as err:
         settled = {}
         log(f'Could not move the companies with contacts to "Contact located. Queued for processing": {str(err)[:200]}')
@@ -537,6 +593,8 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
                   + (f" ({website_summary['left']} left for the next runs)" if website_summary.get("left") else ""))
     if redirect.summary(redirected):
         gate1 += "\n\n" + redirect.summary(redirected)
+    if restarted or restarts["wait"] or restarts["refused"]:
+        gate1 += "\n\n" + restart_summary(restarted, restarts)
     step_summary("## Button 3: companies on GATE 1\n\n" + gate1 + "\n\n"
                  + hubspot_filters((cfg.get("_owner_names") or {}).get(cfg.get("_job_owner"), "")))
     log(gate1)
@@ -713,6 +771,8 @@ def _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kep
         inboxes_have = [m for m in existing or [] if is_company_inbox(m)]
         # 10 Nov 2026: a contact rejected at GATE2 does not count towards the people still needed
         need = cfg["per_company"] - sum(1 for m in people_have if statuses.of("contacts", m) not in CONTACT_CLOSED)
+        if str(cid) in (cfg.get("_need") or {}):  # 19 Nov 2026: a restart looks for this many new people
+            need = cfg["_need"][str(cid)]
         row = {"company": name, "company_id": str(cid), "domain": domain, "contacts": 0,
                "kind": "topup" if topping else "new"}
 

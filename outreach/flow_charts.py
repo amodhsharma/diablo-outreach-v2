@@ -112,9 +112,19 @@ def end_stage(statuses, past, end):
     return statuses.stage("companies", value) if value not in (None, "") else None
 
 
-def moved_in(past, start, end):
-    """True when the Lead Status changed (or was first set) in [start, end)."""
-    return any(start <= t < end for t in (parse_time(t) for _, t in past) if t)
+def moved_in(past, start, end, statuses=None):
+    """True when the Lead Status changed (or was first set) in [start, end). With statuses, a move between two labels
+    of the same stage (19 Nov 2026: the two labels of "no response") does not count."""
+    for i, (value, t) in enumerate(past):
+        when = parse_time(t)
+        if not when or not start <= when < end:
+            continue
+        if statuses is None or i + 1 >= len(past):
+            return True
+        before = past[i + 1][0]
+        if statuses.stage("companies", value) != statuses.stage("companies", before):
+            return True
+    return False
 
 
 def read_history(hs, since, log=print):
@@ -133,7 +143,7 @@ def companies_in(statuses, history, first, last):
     start, end = window(first, last)
     out = []
     for cid, (props, past) in history.items():
-        if not moved_in(past, start, end):
+        if not moved_in(past, start, end, statuses):
             continue
         path = PATHS.get(end_stage(statuses, past, end))
         if path:  # 17 Nov 2026 (Ariel): "AU", "australia" and "Australia" are all "Australia"

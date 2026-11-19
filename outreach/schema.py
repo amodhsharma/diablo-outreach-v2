@@ -42,6 +42,13 @@ JOB_NUMBER = "diablo_job_number"
 # address from its website when Apollo held nobody. Company inboxes also carry this job title, so
 # they are recognised even before the field exists in an account.
 SOURCE_APOLLO, SOURCE_WEBSITE = "Apollo", "Company website"
+# Restarts (19 Nov 2026, Ariel): how often a company and its people were approached, over every round.
+ROUND = "diablo_outreach_round"
+INTROS_SENT = "diablo_introductions_sent"
+REMINDERS_SENT = "diablo_reminders_sent"
+LAST_CLOSED = "diablo_last_closed_on"
+TIMES_INTRODUCED = "diablo_times_introduced"
+TIMES_REMINDED = "diablo_times_reminded"
 INBOX_TITLE = "Company inbox (from website)"
 # HubSpot's "Legal basis for processing contact's data" (3 Nov 2026: the account asks for it on every new
 # contact); this value shows as "Legitimate interest - Lead".
@@ -91,6 +98,16 @@ NEW_PROPERTIES = {
         text(STOP_REASON, "Outreach stopped because",
              "Why the pipeline stopped emailing this company, e.g. \"A contact opted out (19 Oct 2026)\" "
              "(added 19 Oct 2026)."),
+        number(ROUND, "Outreach round",
+               "How many rounds of emails the company has had: 1 for the first, 2 after its first restart, and so "
+               "on (added 19 Nov 2026)."),
+        number(INTROS_SENT, "Introductions sent",
+               "Introductions sent to people at this company, over every round (added 19 Nov 2026)."),
+        number(REMINDERS_SENT, "Reminders sent",
+               "Reminders sent to people at this company, over every round (added 19 Nov 2026)."),
+        text(LAST_CLOSED, "Last closed on",
+             "The date (YYYY-MM-DD) the company last closed with no reply; it can be restarted 9 days later "
+             "(added 19 Nov 2026)."),
     ],
     "contacts": [
         long_text(PERSONAL_LINE, "Outreach personal line",
@@ -109,6 +126,10 @@ NEW_PROPERTIES = {
         text(STOP_REASON, "Outreach stopped because",
              "Why the pipeline stopped emailing this person, e.g. \"Opted out: on Instantly's blocklist "
              "(19 Oct 2026)\" or \"A colleague opted out (19 Oct 2026)\" (added 19 Oct 2026)."),
+        number(TIMES_INTRODUCED, "Times introduced",
+               "How many introductions this person has had, over every round (added 19 Nov 2026)."),
+        number(TIMES_REMINDED, "Times reminded",
+               "How many reminders this person has had, over every round (added 19 Nov 2026)."),
     ],
 }
 

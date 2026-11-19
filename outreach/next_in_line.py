@@ -22,12 +22,12 @@ import datetime as dt
 import re
 
 from .common import INDUSTRY_PARTNER
-from .schema import COMPANY_NOTE, INBOX_TITLE, LEAD_STATUS, ORDER, PERSONAL_LINE, STOP_REASON
+from .schema import COMPANY_NOTE, INBOX_TITLE, LEAD_STATUS, ORDER, PERSONAL_LINE, ROUND, STOP_REASON
 from .stages import COMPANY_STOPPED, EMAILED, LEFT_OUT
 
 CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", PERSONAL_LINE, COMPANY_NOTE, LEAD_STATUS, ORDER,
                  STOP_REASON]
-COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS]
+COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS, ROUND]  # ROUND: 19 Nov 2026
 
 # Each contact's state, worked out from its Lead Status and what Instantly holds (instantly_view):
 #   pending   New or "New, Personal line filled": not through gate 2 yet
@@ -73,7 +73,16 @@ def instantly_view(instantly, prefix):
             continue
         for lead in instantly.list_leads(c["id"]):
             if lead.get("email"):
-                view[lead["email"].lower()] = dict(lead, _campaign_id=c["id"])
+                email = lead["email"].lower()
+                lead = dict(lead, _campaign_id=c["id"])
+                had = view.get(email)
+                bounced = lead.get("status") == -1 or bool(had and had.get("_dead_anywhere"))
+                # 19 Nov 2026: after a restart the same address is in two campaigns; the newest lead is the one
+                # that counts, and a bounce in any of them is remembered (restart.py never emails it again)
+                if had is None or str(lead.get("timestamp_created") or "") >= str(had.get("timestamp_created") or ""):
+                    view[email] = lead
+                if bounced:
+                    view[email]["_dead_anywhere"] = True
     return view
 
 

@@ -239,12 +239,14 @@ class FakeInstantly:
         self.leads[cid] = []
         return {"id": cid}
 
-    def add_leads(self, campaign_id, leads):
-        # Mimics skip_if_in_workspace: an email already anywhere is skipped.
-        known = {l["email"] for ls in self.leads.values() for l in ls}
+    def add_leads(self, campaign_id, leads, only_this_campaign=False):
+        # Mimics skip_if_in_workspace: an email already anywhere is skipped (only in this campaign for a restart).
+        pool = [self.leads.get(campaign_id, [])] if only_this_campaign else self.leads.values()
+        known = {l["email"] for ls in pool for l in ls}
+        self.add_calls = getattr(self, "add_calls", []) + [(campaign_id, only_this_campaign)]
         new = [l for l in leads if l["email"] not in known]
         for l in new:  # Instantly gives every lead its own ID
-            l.setdefault("id", "lead-" + l["email"])
+            l.setdefault("id", "lead-" + l["email"] + ("-" + str(campaign_id) if only_this_campaign else ""))
         self.leads[campaign_id].extend(new)
         return [{"leads_uploaded": len(new), "skipped_count": len(leads) - len(new),
                  "created_leads": [{"email": l["email"]} for l in new]}]

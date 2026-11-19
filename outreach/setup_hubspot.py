@@ -28,7 +28,7 @@ import sys
 from .common import PRODUCTION_PORTAL_ID, step_summary  # the live account; refused without --allow-production
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import GROUP_LABEL, GROUP_NAME, LEAD_STATUS, MIRRORED_PROPERTIES, NEW_PROPERTIES, PROPERTIES
-from .stages import NEW_OPTION_VALUES, RENAMED, STAGES
+from .stages import ALIASES, NEW_OPTION_VALUES, RENAMED, RESTART_LABEL, STAGES
 
 
 class Plan:
@@ -106,7 +106,8 @@ LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                   "Unqualified: One contact inputted, which is unavailable",
                                   "Unqualified: Bounced, other reason",  # 3 Nov 2026
                                   "END: Forwarded to Sales Team",  # 3 Nov 2026
-                                  "Unqualified: Channel no longer targeted"},  # 11 Nov 2026
+                                  "Unqualified: Channel no longer targeted",  # 11 Nov 2026
+                                  RESTART_LABEL},  # 19 Nov 2026
                     "contacts": {"New, Personal line filled", "GATE2: Approved to send",
                                  "Forward sent", "Reminder sent",  # these two added 14 Oct 2026
                                  # the rest of a company once someone there has answered (19 Oct 2026)
@@ -122,7 +123,8 @@ LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                  "Unqualified: Colleague Contacted, but no response",
                                  "Unqualified: Inbox Bounced",
                                  "Unqualified: Rejected/Redirected by company owner",
-                                 "END: Forwarded to Sales Team"}}  # 3 Nov 2026
+                                 "END: Forwarded to Sales Team",  # 3 Nov 2026
+                                 RESTART_LABEL}}  # 19 Nov 2026
 
 
 def rename_options(hs, object_type, current, plan):
@@ -151,6 +153,13 @@ def rename_options(hs, object_type, current, plan):
     return options
 
 
+def all_labels(object_type):
+    """Every Lead Status label the pipeline uses: one per stage, and the second labels (19 Nov 2026)."""
+    out = list(STAGES[object_type].values())
+    out += [label for label in ALIASES.get(object_type, {}).values() if label not in out]
+    return out
+
+
 def ensure_lead_status(hs, object_type, existing, plan, live=False):
     """Add the Lead Status choices the pipeline needs, matched by their label. In the live account
     only the agreed choices can be added; anything else missing is reported instead."""
@@ -163,7 +172,7 @@ def ensure_lead_status(hs, object_type, existing, plan, live=False):
     labels = {str(o["label"]).strip().lower() for o in options}
     values = {str(o["value"]) for o in options}
     missing = []
-    for label in STAGES[object_type].values():
+    for label in all_labels(object_type):
         if label.lower() in labels:
             continue
         if live and label not in LIVE_NEW_CHOICES[object_type]:
@@ -192,7 +201,7 @@ def run(hs, dry_run=False, allow_production=False, log=print):
         for object_type in ("companies", "contacts"):
             for spec in PROPERTIES[object_type]:
                 log(f"[plan] {object_type}: field {spec['label']} ({spec['name']})")
-            for label in STAGES[object_type].values():
+            for label in all_labels(object_type):
                 log(f"[plan] {object_type}: Lead Status choice \"{label}\" (added only if missing)")
         return {"planned": 1}
     portal = hs.portal_id()

@@ -21,7 +21,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import bond, chain, corrupt, redirect, referral_intro, send_memory, timeline
+from . import bond, chain, corrupt, redirect, referral_intro, restart, send_memory, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -105,8 +105,11 @@ def bond_ready(settings, kind):
     return "{{" + bond.VARIABLE + "}}" in template.get("body", "")
 
 
-def name_for_kind(kind, prefix, s, month=None):
-    """This month's campaign for a kind, e.g. "Diablo | OCT2026 | Company inboxes | Other channels"."""
+def name_for_kind(kind, prefix, s, month=None, restart_word=None):
+    """This month's campaign for a kind, e.g. "Diablo | OCT2026 | Company inboxes | Other channels". A restart
+    (19 Nov 2026) has its own: "Diablo | RESTART | NOV2026" and "Diablo | RESTART | NOV2026 | Company inboxes"."""
+    if restart_word:
+        prefix = f"{prefix} {restart_word} |"
     base = inbox_campaign_name(prefix, s, month) if kind in (INBOX, INBOX_OTHER) else campaign_name(prefix, month)
     return base + (other_suffix() if kind in (PERSON_OTHER, INBOX_OTHER) else "")
 
@@ -559,6 +562,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                                 max_results=int(settings["send"].get("contacts_per_run") or 10000))
     log(f"{len(contacts)} contacts approved to send")
     if not contacts:
+        if restart.config(settings) and not dry_run:  # 19 Nov 2026: the counters follow the reminders too
+            try:
+                restart.update_counters(hs, send_memory.load(), log)
+            except Exception as err:
+                log(f"Could not update the approach counters: {str(err)[:200]}")
         return {"queued": 0}
     if missing_link and not dry_run:
         raise PipelineError(missing_link)
@@ -596,8 +604,15 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     # oldest first; then new companies with only a company inbox; then the other new companies, in the order
     # they were approved.
     plans = []
+    restart_cfg = restart.config(settings)
     for company_id in approved_at:
         company = companies[company_id]
+        if restart_cfg and restart.round_of(company.get("properties")) > 1:  # 19 Nov 2026: a new round
+            moved = send_memory.new_round(memory, [c["id"] for c in everyone.get(company_id) or []],
+                                          restart.round_of(company.get("properties")))
+            if moved:
+                log(f"{(company.get('properties') or {}).get('name')}: round {restart.round_of(company['properties'])} "
+                    f"started for {moved} people in button 4's memory")
         company_contacts = annotate(everyone.get(company_id) or [], statuses, in_instantly)
         send_memory.observe(memory, company_contacts, company_id, statuses, None, now, times=False)
         send_memory.apply(memory, company_contacts, log, (company.get("properties") or {}).get("name") or "")
@@ -636,6 +651,9 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             reason = "a colleague's reply named them, so their first email is a forward of that reply (button 4's sync)"
         if not reason and send_memory.blocks_intro(memory, c["id"]):
             reason = "button 4's memory shows they already had their introduction; never sent twice"
+        restarting = bool(restart_cfg) and restart.round_of(comp) > 1
+        if not reason and restarting and (in_instantly.get((p.get("email") or "").lower()) or {}).get("_dead_anywhere"):
+            reason = "their address bounced in an earlier campaign; never emailed again (19 Nov 2026)"
         if reason:
             skipped.append({"contact_id": c["id"], "email": mask(p.get("email")), "reason": reason})
             log(f"Skipped contact {c['id']} ({mask(p.get('email'))}) at {name}: {reason}")
@@ -678,7 +696,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             earlier = None  # never added to an October "Other channels" campaign again
         if chain_cfg:  # 2 Nov 2026 (Ariel): every email goes into the campaign of the month it is sent in
             earlier = None
-        group = ("campaign", earlier, kind) if earlier else ("month", kind)
+        group = ("campaign", earlier, kind) if earlier else (("restart", kind) if restarting else ("month", kind))
         groups[group].append((c, company_id, comp, company_stage))
         waiting += n_waiting - (1 if str(c["id"]) in {str(x) for x in approved_at[company_id]} else 0)
     if waiting:
@@ -692,7 +710,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             campaign_id = key[1]
             name = next((n for n, i in existing.items() if i == campaign_id), f"campaign {campaign_id}")
         else:
-            name = name_for_kind(kind, prefix, settings["send"])
+            name = name_for_kind(kind, prefix, settings["send"],
+                                 restart_word=restart.word(settings) if key[0] == "restart" else None)
             campaign_id = existing.get(name)
         leads = [with_bond(lead_for(c, comp, notes), comp, notes, bond_config) for c, _, comp, _ in members]
         plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})
@@ -703,7 +722,10 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         if not campaign_id:
             campaign_id = instantly.create_campaign(body)["id"]
             log(f"Created paused campaign: {name}")
-        results = instantly.add_leads(campaign_id, leads)
+        if key[0] == "restart":  # 19 Nov 2026: these people were in an earlier campaign; only this one is checked
+            results = instantly.add_leads(campaign_id, leads, only_this_campaign=True)
+        else:
+            results = instantly.add_leads(campaign_id, leads)
         uploaded = sum(r.get("leads_uploaded") or 0 for r in results)
         skipped_n = sum(r.get("skipped_count") or 0 for r in results)
         invalid = sum(r.get("invalid_email_count") or 0 for r in results)
@@ -732,6 +754,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         send_memory.save(memory)  # first, so nobody is introduced twice even if HubSpot fails below
         hs.update_tagged("contacts", contact_updates)
         hs.update_tagged("companies", list(company_updates.items()))
+        if restart_cfg:  # 19 Nov 2026: how often each company and person was approached
+            try:
+                restart.update_counters(hs, memory, log)
+            except Exception as err:
+                log(f"Could not update the approach counters: {str(err)[:200]}")
         step_summary("## Button 4: introductions this run\n\n" + (
             "| Company | Person (job title) | What happened |\n|---|---|---|\n" + "\n".join(intros)
             if intros else "No new introduction was due this run."))

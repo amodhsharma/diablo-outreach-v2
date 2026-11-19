@@ -257,6 +257,9 @@ def run_backlog(hs, instantly, settings, log=print, now=None, state_path=None, e
     cfg = config(settings)
     if not cfg:
         return out
+    if (settings.get("restart") or {}).get("enabled"):  # 19 Nov 2026 (Ariel): restarts replace the backlog
+        log("Backlog: off while restarts are on (a company with no reply is restarted by setting it to GATE1)")
+        return out
     now = now or now_utc()
     state = load_state(state_path)
     day = _day(state, now)

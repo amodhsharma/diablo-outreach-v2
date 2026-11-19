@@ -22,8 +22,8 @@ import os
 import sys
 from pathlib import Path
 
-from . import corrupt, export_for_lines
-from .common import ROOT, PipelineError, check_target, now_iso
+from . import corrupt, export_for_lines, restart
+from .common import ROOT, PipelineError, check_target, load_settings, now_iso
 from .hubspot_client import HubSpot, HubSpotError
 from .schema import COMPANY_NOTE, LEAD_STATUS, PERSONAL_LINE
 from .stages import LeadStatus
@@ -86,6 +86,7 @@ def import_file(path, hs, done_ids=None):
     current = {str(c["id"]): c for c in hs.tagged_read("contacts", ids, [LEAD_STATUS])}
     updates, moved_on, missing, approved = [], 0, 0, 0
     promoted = corrupt.load_promoted()  # 28 Oct 2026: moved up after a dead address: straight to GATE2
+    restarts = restart.load() if restart.config(load_settings()) else None
     for line in data["lines"]:
         cid = str(line["contact_id"])
         if cid not in current:
@@ -95,6 +96,8 @@ def import_file(path, hs, done_ids=None):
         else:
             stage = "copy_ready"
             if corrupt.waiting_for_line(cid, promoted) and statuses.has("contacts", "approved"):
+                stage, approved = "approved", approved + 1
+            elif restarts is not None and restart.straight_to_gate2(cid, restarts):  # 19 Nov 2026: a restart round
                 stage, approved = "approved", approved + 1
             props = {PERSONAL_LINE: line["personal_line"], **statuses.props("contacts", stage)}
             if line.get("company_note"):  # lines files from 15 Oct 2026 also carry the company note
