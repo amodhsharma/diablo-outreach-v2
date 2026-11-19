@@ -1,4 +1,4 @@
-// Outcome-first month Sankey. Input: {title, subtitle, nodes:{id:[label,colour,col]}, links:[[s,t,v]]}
+// Outcome-first Sankey (Ariel's design, 20 Nov 2026). Input: {title, subtitle, total, shareCol, pad, nodes:{id:[label,colour,col]}, links:[[s,t,v]], prev, notes}
 const fs=require('fs');const {sankey,sankeyLinkHorizontal}=require('d3-sankey');const {Resvg}=require('@resvg/resvg-js');
 const spec=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
 const nodes=Object.entries(spec.nodes).map(([id,[name,c,col]])=>({id,name,c,col}));
@@ -23,10 +23,11 @@ const halo='stroke="#fff" stroke-width="5" paint-order="stroke" stroke-linejoin=
 for(const n of g.nodes){
  svg+=`<rect x="${n.x0}" y="${n.y0}" width="12" height="${Math.max(3,n.y1-n.y0)}" rx="2" fill="${n.c}"/>\n`;
  const par=n.targetLinks.length===1&&n.targetLinks[0].source.col>0?n.targetLinks[0].source:null;
- const pctNum=n.col===1?Math.round(100*n.value/spec.total):par?Math.round(100*n.value/par.value):null;
- const pct=n.col===1?` (${Math.round(100*n.value/spec.total)}%)`:par?` (${Math.round(100*n.value/par.value)}%)`:'';
+ const SC=spec.shareCol||1; const pctNum=n.col===SC?Math.round(100*n.value/spec.total):par?Math.round(100*n.value/par.value):null;
+ const pct=n.col===SC?` (${Math.round(100*n.value/spec.total)}%)`:par?` (${Math.round(100*n.value/par.value)}%)`:'';
  const lines=n.name.split('\n'),y=(n.y0+n.y1)/2,y0=y-9.5*lines.length;
  lines.forEach((t,i)=>svg+=`<text x="${n.x1+7}" y="${y0+i*19}" dominant-baseline="central" font-family="DejaVu Sans" font-size="16" fill="#1a1a19" ${halo}>${esc(t)}</text>\n`);
- svg+=`<text x="${n.x1+7}" y="${y0+lines.length*19}" dominant-baseline="central" font-family="DejaVu Sans" font-size="16" fill="#1a1a19" ${halo}><tspan font-weight="bold">${n.value}</tspan><tspan fill="#5F5E5A">${pct}</tspan>${arrow(n,pctNum)}</text>\n`;}
+ svg+=`<text x="${n.x1+7}" y="${y0+lines.length*19}" dominant-baseline="central" font-family="DejaVu Sans" font-size="16" fill="#1a1a19" ${halo}><tspan font-weight="bold">${n.value}</tspan><tspan fill="#5F5E5A">${pct}</tspan>${arrow(n,pctNum)}</text>\n`;
+ const note=(spec.notes||{})[n.id]; if(note) svg+=`<text x="${n.x1+7}" y="${y0+(lines.length+1)*19}" dominant-baseline="central" font-family="DejaVu Sans" font-size="13" fill="#854F0B" ${halo}>${esc(note)}</text>\n`;}
 svg+='</svg>';
 fs.writeFileSync(process.argv[3],new Resvg(svg,{fitTo:{mode:'zoom',value:2},font:{loadSystemFonts:true,defaultFontFamily:'DejaVu Sans'}}).render().asPng());console.log('ok',W,H);

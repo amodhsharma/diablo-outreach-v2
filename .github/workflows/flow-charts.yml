@@ -1,11 +1,12 @@
 name: 'R Sankey Chart to Amodh'
 
-# Agreed 16 Nov 2026 (Ariel). Two Sankey charts of how AUTO-OUTREACH companies moved through their company
-# Lead Statuses: that day, and the month so far by country. A new email to ALERT_TO only (Amodh), from the
+# Agreed 16 Nov 2026 (Ariel); Ariel's design of 20 Nov 2026. Three Sankey charts of how AUTO-OUTREACH companies
+# moved through their company Lead Statuses: that day, the week so far and the month so far, by country. A new email to ALERT_TO only (Amodh), from the
 # same mailbox as the 9 AM summary, which is not changed. Nothing to press: cron-job.org starts it every
 # night at 23:59 India time (docs/outside_timer.md). Press it yourself to send the charts now: leave
 # "Day" empty for today, or type a date (YYYY-MM-DD) to chart that day and its month up to it. Tick
-# "Preview only" to draw the charts without sending them (they are saved on the run's page).
+# "Preview only" to draw the charts without sending them (they are saved on the run's page). Tick "Sample"
+# to send them at once with the data up to that moment, marked as a sample, to Amodh only (20 Nov 2026).
 # HubSpot is only read; nothing is changed (outreach/flow_charts.py, drawn by outreach/charts/render2.js).
 on:
   workflow_dispatch:
@@ -16,6 +17,10 @@ on:
         default: ""
       preview:
         description: "Preview only: draw the charts, send nothing"
+        type: boolean
+        default: false
+      sample:
+        description: "Sample: send the charts now with the latest data, to Amodh only (marked as a sample)"
         type: boolean
         default: false
 
@@ -52,6 +57,7 @@ jobs:
           ARGS=(--target "$TARGET" --out flow_charts)
           if [ -n "${{ inputs.day }}" ]; then ARGS+=(--day "${{ inputs.day }}"); fi
           if [ "${{ inputs.preview }}" = "true" ]; then ARGS+=(--preview); fi
+          if [ "${{ inputs.sample }}" = "true" ]; then ARGS+=(--sample); fi
           python -m outreach.flow_charts "${ARGS[@]}"
       - name: "Save the charts on this page"
         if: always()
