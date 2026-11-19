@@ -424,3 +424,23 @@ def test_button_4_s_sync_keeps_restarted_people_on_gate2_despite_their_old_leads
     instantly.leads[restart_campaign][0]["timestamp_created"] = dt.datetime.now(dt.timezone.utc).isoformat()
     sync.run("test", settings(), hs, instantly, log=quiet)
     assert hs.records["contacts"][ids["p1"]][LS] != "APPROVED_TO_SEND"
+
+
+def test_when_instantly_s_plan_is_full_the_leads_wait_on_gate2_and_the_run_carries_on(switched_on, monkeypatch):
+    from outreach.instantly_client import InstantlyError
+    hs, instantly = crm(), FakeInstantly()
+    cid = hs.add("companies", name="Full Co", domain="full.example", country="Australia",
+                 industry_type="Distributor Wholesaler", **{LS: "Contact located. Queued for processing"})
+    pid = hs.add("contacts", email="p1@full.example", firstname="P", lastname="L", jobtitle="Buyer",
+                 diablo_company_note="imports sweets", **{ORDER: "1", LS: "APPROVED_TO_SEND", LINE: "Line."})
+    hs.links[pid] = [cid]
+
+    def full(*a, **k):
+        raise InstantlyError('POST /leads/add failed with 403: {"message":"Lead limit reached. Reamining uploads: 18."}')
+    monkeypatch.setattr(instantly, "add_leads", full)
+    shown = []
+    out = send.run("test", settings(), hs, instantly, log=shown.append)
+    assert out["plan_full"] and out["queued"] == 0
+    assert hs.records["contacts"][pid][LS] == "APPROVED_TO_SEND"
+    assert any("no uploads left" in line for line in shown)
+    assert not send_memory.blocks_intro(send_memory.load(), pid)  # nothing remembered as sent

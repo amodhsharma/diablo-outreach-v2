@@ -708,6 +708,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
 
     existing = campaign_ids
     plan, contact_updates, company_updates, previews, intros = [], [], {}, [], []
+    plan_full = None  # 20 Nov 2026: Instantly's plan has no uploads left; the rest wait on GATE2
     for key, members in groups.items():
         kind = key[-1]
         if key[0] == "campaign":  # the company's earlier contacts went here: keep it together
@@ -723,13 +724,25 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         body = campaign_body(name, "", settings, kind) if not campaign_id else None  # a dry run checks it too
         if dry_run:
             continue
+        if plan_full:
+            log(f"Not added to {name}: Instantly's plan has no uploads left ({len(leads)} wait on GATE2: Approved "
+                "to send)")
+            continue
         if not campaign_id:
             campaign_id = instantly.create_campaign(body)["id"]
             log(f"Created paused campaign: {name}")
-        if key[0] == "restart":  # 19 Nov 2026: these people were in an earlier campaign; only this one is checked
-            results = instantly.add_leads(campaign_id, leads, only_this_campaign=True)
-        else:
-            results = instantly.add_leads(campaign_id, leads)
+        try:
+            if key[0] == "restart":  # 19 Nov 2026: these people were in an earlier campaign; only this one is checked
+                results = instantly.add_leads(campaign_id, leads, only_this_campaign=True)
+            else:
+                results = instantly.add_leads(campaign_id, leads)
+        except InstantlyError as err:
+            if "lead limit" not in str(err).lower():
+                raise
+            plan_full = str(err)
+            log(f"Instantly's plan has no uploads left, so {len(leads)} lead(s) for {name} wait on GATE2: Approved "
+                f"to send and go once Instantly allows more uploads ({str(err)[-120:]})")
+            continue
         uploaded = sum(r.get("leads_uploaded") or 0 for r in results)
         skipped_n = sum(r.get("skipped_count") or 0 for r in results)
         invalid = sum(r.get("invalid_email_count") or 0 for r in results)
@@ -766,7 +779,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         step_summary("## Button 4: introductions this run\n\n" + (
             "| Company | Person (job title) | What happened |\n|---|---|---|\n" + "\n".join(intros)
             if intros else "No new introduction was due this run."))
-    write_json(out_dir / "plan.json", {"dry_run": dry_run, "campaigns": plan, "skipped": skipped})
+    if plan_full:
+        step_summary("## Instantly's plan has no uploads left\n\nNew introductions wait on GATE2: Approved to send "
+                     "until Instantly allows more uploads (a higher plan, or the next billing month).")
+    write_json(out_dir / "plan.json", {"dry_run": dry_run, "campaigns": plan, "skipped": skipped,
+                                       "plan_full": bool(plan_full)})
     if previews:
         (out_dir / "email_preview.txt").write_text("\n\n".join(previews), encoding="utf-8")
         log("\nEMAIL PREVIEW (also saved as email_preview.txt under Artifacts)\n")
@@ -775,7 +792,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     for row in plan:
         log(f"{'[dry run] ' if dry_run else ''}{row['campaign']}: {row['leads']} leads"
             + (" (new campaign, created paused)" if row["new_campaign"] else ""))
-    return {"queued": len(contact_updates), "campaigns": plan, "skipped": len(skipped), "waiting": waiting}
+    return {"queued": len(contact_updates), "campaigns": plan, "skipped": len(skipped), "waiting": waiting,
+            "plan_full": bool(plan_full)}
 
 
 def main(argv=None):
