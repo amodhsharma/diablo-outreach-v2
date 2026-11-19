@@ -110,6 +110,11 @@
    "outcome": "none",
    "rules": 2
   },
+  "918001221861": {
+   "day": "2026-11-19",
+   "outcome": "none",
+   "rules": 2
+  },
   "918291613901": {
    "automatic": false,
    "company": "421737574618",
@@ -117,6 +122,16 @@
    "outcome": "unsure",
    "rules": 2,
    "why": "no clear wording that it is a redirect"
+  },
+  "920165344479": {
+   "automatic": true,
+   "company": "421752029372",
+   "day": "2026-11-19",
+   "new": [
+    "920165344480"
+   ],
+   "outcome": "added",
+   "rules": 2
   }
  },
  "intro": {
