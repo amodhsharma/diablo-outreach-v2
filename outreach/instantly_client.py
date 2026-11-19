@@ -91,7 +91,9 @@ class Instantly:
 
     def add_leads(self, campaign_id, leads, only_this_campaign=False):
         """Add up to 1,000 leads. Leads already anywhere in the workspace are skipped; with only_this_campaign
-        (a restart campaign, 19 Nov 2026) only leads already in this campaign are."""
+        (a restart campaign, 19 Nov 2026) only leads already in this campaign are. Instantly's skip_if_in_campaign
+        skips a lead in ANY campaign (its documentation, checked 20 Nov 2026), so a restart sends every skip flag
+        off: Instantly never adds a lead twice to the same campaign anyway ("duplicated_leads")."""
         results = []
         for i in range(0, len(leads), 1000):
             body = {
@@ -100,7 +102,8 @@ class Instantly:
                 "skip_if_in_workspace": not only_this_campaign,
             }
             if only_this_campaign:
-                body["skip_if_in_campaign"] = True
+                body["skip_if_in_campaign"] = False
+                body["skip_if_in_list"] = False
             results.append(self.request("POST", "/leads/add", json=body))
         return results
 
