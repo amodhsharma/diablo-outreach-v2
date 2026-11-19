@@ -1,7 +1,7 @@
 name: 'R - Daily summary email'
 
 # Agreed 27 Oct 2026 (Ariel). The partner outreach summary of the day before (India time), sent at
-# 9 AM India time to three colleagues from admin@diablosnosugar.com, through Google. Nothing to
+# 10 AM UK time (from 20 Nov 2026, Ariel: the business team reading it is in the UK) to three colleagues from admin@diablosnosugar.com, through Google. Nothing to
 # press: cron-job.org starts it every morning (docs/outside_timer.md). Press it yourself with
 # "Preview only" ticked to see the email on this page without sending it.
 # HubSpot and Instantly are only read; nothing is changed. The recipients and the mailbox's Google

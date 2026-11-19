@@ -1,6 +1,6 @@
 """The daily summary email (agreed 27 Oct 2026, Ariel).
 
-Every morning at 9 AM India time a short summary of the day before goes to three colleagues, from
+Every morning at 10 AM UK time (9 AM India time until 20 Nov 2026) a short summary of the day before goes to three colleagues, from
 admin@diablosnosugar.com (a mailbox that sends no campaigns) through Google's own mail server. It is
 written for executives: no internal words such as gates or buttons. HubSpot and Instantly are only
 read; nothing is changed anywhere.

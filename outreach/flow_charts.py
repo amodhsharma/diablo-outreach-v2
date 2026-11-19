@@ -1,8 +1,8 @@
 """The nightly flow charts email (agreed 16 Nov 2026, Ariel; the design of Ariel's samples from 20 Nov 2026).
 
 Every night at 23:59 India time (the button "R Sankey Chart to Amodh", started by cron-job.org), a new email
-to Amodh only (the GitHub secret ALERT_TO), from the same mailbox as the 9 AM summary, with three Sankey
-charts as PNG images: the day, the week so far (Monday to that day) and the month so far. The 9 AM summary
+to Amodh only (the GitHub secret ALERT_TO), from the same mailbox as the daily summary, with three Sankey
+charts as PNG images: the day, the week so far (Monday to that day) and the month so far. The daily summary
 email is not changed in any way. HubSpot is only read. The button's "Sample" box sends the same email at once
 with the data up to that moment, marked as a sample, to Amodh only.
 
