@@ -376,7 +376,7 @@ daily_report:
 # company where anyone replied. Off until Ariel says to switch it on (then the companies on "Unqualified: Contacted,
 # but no response" move to the new status once, and the old backlog reopening stops: restarts replace it).
 restart:
-  enabled: false
+  enabled: true
   wait_days_after_close: 9
   new_people: 3
   campaign_word: RESTART

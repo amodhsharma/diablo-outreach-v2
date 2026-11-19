@@ -152,3 +152,30 @@ def no_real_restarts_file(tmp_path, monkeypatch):
     """No test reads or writes the real list of restarted companies (19 Nov 2026)."""
     from outreach import restart
     monkeypatch.setattr(restart, "FILE", tmp_path / "restarts.json")
+
+
+@pytest.fixture(autouse=True)
+def restarts_off_unless_a_test_says_so(monkeypatch):
+    """Tests run with restarts switched off, whatever config/settings.yaml says (19 Nov 2026).
+
+    A test that wants restarts on builds its own settings with restart.enabled set to true and passes them in,
+    as tests/test_restart.py does. This keeps every other test checking the usual flow."""
+    import importlib
+    import pkgutil
+    import sys
+    import outreach
+    from outreach import common
+
+    real = common.load_settings
+
+    def load_settings(path=None):
+        s = real(path)
+        if isinstance(s, dict) and isinstance(s.get("restart"), dict):
+            s["restart"] = dict(s["restart"], enabled=False)
+        return s
+
+    for info in pkgutil.iter_modules(outreach.__path__):
+        importlib.import_module(f"outreach.{info.name}")
+    for mod in list(sys.modules.values()):
+        if getattr(mod, "load_settings", None) is real:
+            monkeypatch.setattr(mod, "load_settings", load_settings)
