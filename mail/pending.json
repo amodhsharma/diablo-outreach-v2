@@ -1,5 +1,26 @@
 {
-  "generated_at": "2026-11-19T18:31:43+00:00",
+  "generated_at": "2026-11-19T19:26:03+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "931207289033",
+      "job_title": "Unknown",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Chocablock Chocolates",
+        "domain": "personalisedchocolates.net.au",
+        "location": "Australia",
+        "channel": "Promotional merchandise companies",
+        "based_out_of": "Moorabbin, Australia",
+        "distributes": "Branded chocolate (Lindt, Cadbury, Toblerone, Ferrero Rocher, Maltesers), sweets (Pascall, Skittles, Trolli, Chupa Chups, Mentos), biscuits (Arnott's, Tim Tam, Biscoff) and snacks (Pringles) in personalised packs",
+        "channels_supplied": "Corporate and private customers Australia-wide",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Australian owned and operated for over ten years, claiming more than 130,000 customers served Australia-wide."
+        ],
+        "fit_rationale": "Sells a wide spread of other companies' branded chocolate, sweets, biscuits and snacks, personalised for corporate gifting, so Diablo's chocolate, biscuits and gift boxes sit in its existing range. A better-for-you option is a natural addition to the brands it already shows. Storage: Moorabbin premises listed; warehouse not named on its website."
+      }
+    }
+  ]
 }
