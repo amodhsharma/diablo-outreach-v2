@@ -402,3 +402,25 @@ def test_a_company_ending_its_last_round_with_no_reply_is_closed_for_good(switch
     emails2.campaign_email("p1@chain.example", days_ago(10), subject="Fwd: A sugar-free brand")
     sync.run("test", s, hs2, instantly2, log=quiet, emails_api=emails2)
     assert hs2.records["companies"][cid2][LS] == RESTART_LABEL
+
+
+def test_button_4_s_sync_keeps_restarted_people_on_gate2_despite_their_old_leads(switched_on):
+    from outreach import sync
+    hs, instantly = crm(), FakeInstantly()
+    cid, ids = waiting_company(hs, 10, people=(("p1", "Owner", NEW_P, 1), ("inbox", INBOX_TITLE, NEW_P, 2)))
+    instantly.campaigns["old"] = {"name": "Diablo | OCT2026"}
+    instantly.leads["old"] = [
+        {"id": f"l{k}", "email": f"{k}@harris.example", "status": 3, "timestamp_created": "2026-10-20T10:00:00Z",
+         "timestamp_last_contact": "2026-10-24T10:00:00Z"} for k in ("p1", "inbox")]
+    find_contacts.run("test", settings(), hs, FakeApollo({}, {}), log=quiet)  # Apollo finds nobody new
+    assert hs.records["contacts"][ids["p1"]][LS] == "APPROVED_TO_SEND"
+    sync.run("test", settings(), hs, instantly, log=quiet)
+    assert hs.records["contacts"][ids["p1"]][LS] == "APPROVED_TO_SEND"  # the October lead is not this round's
+    assert hs.records["contacts"][ids["inbox"]][LS] == "APPROVED_TO_SEND"
+    send.run("test", settings(), hs, instantly, log=quiet)
+    restart_campaign = next(i for i, c in instantly.campaigns.items() if "RESTART" in c["name"])
+    assert [l["email"] for l in instantly.leads[restart_campaign]] == ["p1@harris.example"]
+    # Once the new round's lead is there, Instantly counts as usual.
+    instantly.leads[restart_campaign][0]["timestamp_created"] = dt.datetime.now(dt.timezone.utc).isoformat()
+    sync.run("test", settings(), hs, instantly, log=quiet)
+    assert hs.records["contacts"][ids["p1"]][LS] != "APPROVED_TO_SEND"

@@ -494,6 +494,32 @@ def mark_colleagues(hs, statuses, company_contacts, answered_ids, stage, log=pri
     return updates
 
 
+def earlier_round_leads(hs, statuses, rows, leads, settings):
+    """20 Nov 2026: the contacts on GATE2 at a restarted company whose Instantly lead is from an earlier round (made
+    before the company's new round started). That lead says they were emailed before, not that the new round's
+    introduction went, so they stay on GATE2 for button 4. A lead made after the round started counts as usual."""
+    if not (statuses.restart and restart.config(settings)):
+        return set()
+    started = {}
+    for cid, rec in (restart.load().get("companies") or {}).items():
+        try:
+            started[str(cid)] = dt.datetime.fromisoformat(str(rec.get("started")))
+        except (TypeError, ValueError):
+            continue
+    waiting = [r for r in rows if statuses.of("contacts", r) == "approved"]
+    if not started or not waiting:
+        return set()
+    owner_of, _ = tagged_company_of(hs, [r["id"] for r in waiting], ["name"])
+    out = set()
+    for r in waiting:
+        begun = started.get(str(owner_of.get(str(r["id"])) or ""))
+        lead = leads.get(((r.get("properties") or {}).get("email") or "").lower()) or {}
+        made = parse_time(lead.get("timestamp_created"))
+        if begun and (made is None or made < begun):
+            out.add(str(r["id"]))
+    return out
+
+
 def run(target, settings, hs, instantly, log=print, emails_api=None):
     check_target(hs, target)
     statuses = LeadStatus(hs)
@@ -504,6 +530,7 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
 
     # Only AUTO-OUTREACH contacts come back from tagged_read; any other email is ignored.
     rows = hs.tagged_read("contacts", list(leads), ["email", LEAD_STATUS, "jobtitle"], id_property="email")
+    earlier_round = earlier_round_leads(hs, statuses, rows, leads, settings)
     blocked = read_blocklist(instantly, emails_api, log=log)
     contact_updates, changed, seen = [], [], []
     # 12 Nov 2026 (Ariel, Taste Organic): a reply that hands us to someone else is a referral, whatever label
@@ -569,6 +596,8 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
         late = old == "no_response" and new in ("replied", "said_no", "opted_out", "sales")
         if not forward(old, new) and not late:
             continue
+        if old == "approved" and new == "in_outreach" and str(r["id"]) in earlier_round:
+            continue  # 20 Nov 2026: a restarted person's lead from an earlier round; their new round is still to go
         if old == "approved":  # 23 Oct 2026: set back to GATE2 by hand, but Instantly already holds them
             log(f"{p.get('jobtitle') or 'A contact'} was at GATE2: Approved to send, but Instantly already has "
                 f"them ({event}); set back to {statuses.label('contacts', statuses.props('contacts', new)[LEAD_STATUS])}")
