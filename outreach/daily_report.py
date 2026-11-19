@@ -5,7 +5,7 @@ admin@diablosnosugar.com (a mailbox that sends no campaigns) through Google's ow
 written for executives: no internal words such as gates or buttons. HubSpot and Instantly are only
 read; nothing is changed anywhere.
 
-The figures, for the India day before:
+The figures, for the UK day before (midnight to midnight UK time, 20 Nov 2026; the India day before that):
   Prospecting (HubSpot)
     - new prospective partners identified, by country (AUTO-OUTREACH companies created that day)
     - prospects approved for contact research (companies whose Lead Status became GATE1 that day)
@@ -50,19 +50,21 @@ from .schema import CONTACT_SOURCE, LEAD_STATUS, SOURCE_WEBSITE, STOP_REASON
 from .stages import LeadStatus
 
 INDIA = daily_log.INDIA
+DAY_ZONE = daily_log.UK  # 20 Nov 2026 (Ariel): the day reported is the UK day, midnight to midnight
 DEFAULTS = {"sender": "admin@diablosnosugar.com", "sender_name": "Diablo Partner Outreach",
             "smtp_host": "smtp.gmail.com", "smtp_port": 587}
 
 
 def yesterday(now=None):
+    """The UK date before today (UK time)."""
     now = now or dt.datetime.now(dt.timezone.utc)
-    return (now.astimezone(INDIA).date() - dt.timedelta(days=1)).isoformat()
+    return (now.astimezone(DAY_ZONE).date() - dt.timedelta(days=1)).isoformat()
 
 
 def window(first, last=None):
-    """(start, end) in UTC of the India dates first to last (inclusive)."""
-    start = dt.datetime.fromisoformat(first).replace(tzinfo=INDIA)
-    end = dt.datetime.fromisoformat(last or first).replace(tzinfo=INDIA) + dt.timedelta(days=1)
+    """(start, end) in UTC of the UK dates first to last (inclusive), midnight to midnight UK time."""
+    start = dt.datetime.combine(dt.date.fromisoformat(first), dt.time(), DAY_ZONE)
+    end = dt.datetime.combine(dt.date.fromisoformat(last or first) + dt.timedelta(days=1), dt.time(), DAY_ZONE)
     return start.astimezone(dt.timezone.utc), end.astimezone(dt.timezone.utc)
 
 
@@ -133,7 +135,7 @@ def restart_numbers(hs, statuses, date):
     """19 Nov 2026 (Ariel): companies restarted on the day, and those set back to GATE1 that wait for their 9 days."""
     from . import restart
     data = restart.load()
-    out = {"restarted": restart.restarted_on(date, data, INDIA), "waiting": 0}
+    out = {"restarted": restart.restarted_on(date, data, DAY_ZONE), "waiting": 0}
     days = int((load_settings().get("restart") or {}).get("wait_days_after_close", 9))
     rows = hs.tagged_search("companies", [statuses.filter("companies", "approved"),
                                           {"propertyName": restart.LAST_CLOSED, "operator": "HAS_PROPERTY"}],
@@ -165,7 +167,7 @@ def outreach(hs, instantly, settings, date, month_first, log_data=None):
         when = lead.get("timestamp_last_contact")
         if not when:
             continue
-        day = daily_log.india_day(when)
+        day = daily_log.uk_day(when)
         if month_first <= day <= date:
             month_sent += 1
         if day == date:
@@ -175,13 +177,13 @@ def outreach(hs, instantly, settings, date, month_first, log_data=None):
     # (each person's first email), and the reminders too.
     from . import send_memory
     reminders = None
-    counted = send_memory.day_counts(send_memory.load(), date, daily_log.INDIA)
+    counted = send_memory.day_counts(send_memory.load(), date, DAY_ZONE)
     if counted is not None:
         sent = {"person": counted["person"], "inbox": counted["inbox"]}
         reminders = counted["reminders"]
     data = daily_log.load() if log_data is None else log_data
-    today = daily_log.day(data, date)
-    month = daily_log.month_counts(data, month_first, date)
+    today = daily_log.day(data, date, uk=True)
+    month = daily_log.month_counts(data, month_first, date, uk=True)
     return {"sent": sent, "reminders": reminders, "day": {k: len(v) for k, v in today.items()},
             "positive_names": _company_names(hs, today["positive"]),
             "month_sent": month_sent,
@@ -367,7 +369,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="The daily summary email")
     ap.add_argument("--target", default="test", choices=["test", "live"])
     ap.add_argument("--preview", action="store_true", help="show the email, send nothing")
-    ap.add_argument("--day", default="", help="the India date to report on (default: yesterday)")
+    ap.add_argument("--day", default="", help="the UK date to report on (default: yesterday)")
     args = ap.parse_args(argv)
     try:
         settings = load_settings()

@@ -200,3 +200,40 @@ def test_the_log_records_each_answer_once_by_india_day(tmp_path):
     assert daily_log.day(data, DAY) == {"positive": [], "negative": [], "neutral": [], "auto": ["4"], "bounced": ["5"],
                                          "opted_out": ["6"]}
     assert daily_log.month_counts(data, "2026-10-01", "2026-10-31")["positive"] == 1  # from before the log
+
+
+import datetime as dt  # noqa: E402
+
+
+# ---- 20 Nov 2026 (Ariel): the day reported is the UK day, midnight to midnight UK time ------------------------
+
+def test_the_reported_day_is_the_uk_day_summer_time_included():
+    from outreach import daily_report as dr
+    ten_am_uk_winter = dt.datetime(2026, 11, 20, 10, 0, tzinfo=dt.timezone.utc)
+    assert dr.yesterday(ten_am_uk_winter) == "2026-11-19"
+    start, end = dr.window("2026-11-19")
+    assert (start.isoformat(), end.isoformat()) == ("2026-11-19T00:00:00+00:00", "2026-11-20T00:00:00+00:00")
+    start, end = dr.window("2026-07-01")  # British summer time: midnight UK is 23:00 UTC
+    assert (start.isoformat(), end.isoformat()) == ("2026-06-30T23:00:00+00:00", "2026-07-01T23:00:00+00:00")
+    start, end = dr.window("2027-03-28")  # the clocks go forward: a 23-hour day
+    assert (end - start) == dt.timedelta(hours=23)
+    just_after_midnight_india = dt.datetime(2026, 11, 20, 19, 0, tzinfo=dt.timezone.utc)  # 00:30 India, 19:00 UK
+    assert dr.yesterday(just_after_midnight_india) == "2026-11-19"
+
+
+def test_the_daily_log_keeps_uk_days_and_falls_back_to_india_days_before_them(tmp_path):
+    from outreach import daily_log
+    path = tmp_path / "log.json"
+    data = {"days": {"2026-11-18": {"positive": ["1"]}}, "seen": {}, "before": {}}
+    daily_log.save(data, path)
+    late = dt.datetime(2026, 11, 20, 20, 0, tzinfo=dt.timezone.utc)  # 20:00 UK on the 20th, 01:30 India on the 21st
+    rec = {"id": "2"}
+    lead = {"timestamp_last_reply": late.isoformat()}
+    daily_log.record([(rec, lead, "marked interested")], path=path, now=dt.datetime(2026, 11, 19, 21, 0,
+                                                                                      tzinfo=dt.timezone.utc))
+    data = daily_log.load(path)
+    assert data["days"]["2026-11-21"]["positive"] == ["2"] and data["uk_days"]["2026-11-20"]["positive"] == ["2"]
+    assert daily_log.day(data, "2026-11-20", uk=True)["positive"] == ["2"]
+    assert daily_log.day(data, "2026-11-18", uk=True)["positive"] == ["1"]  # before the UK record: India days
+    month = daily_log.month_counts(data, "2026-11-01", "2026-11-20", uk=True)
+    assert month["positive"] == 2  # the 18th from India days, the 20th from UK days, nobody twice
