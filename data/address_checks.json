@@ -1,0 +1,16 @@
+{
+ "brake": {
+  "dd236b1d-d354-4585-babd-e5b32150ba10": {
+   "bounced": 11,
+   "emailed": 134,
+   "rate": 0.0821,
+   "since": "2026-11-20"
+  },
+  "fcf44d9b-1b77-47fd-90c6-f822154499ce": {
+   "bounced": 9,
+   "emailed": 200,
+   "rate": 0.045,
+   "since": "2026-11-20"
+  }
+ }
+}

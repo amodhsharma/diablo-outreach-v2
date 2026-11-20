@@ -20,7 +20,10 @@
   "resumed": []
  },
  "fcf44d9b-1b77-47fd-90c6-f822154499ce": {
+  "alerted": "2026-11-20T16:45:50Z",
   "name": "Diablo | NOV2026",
-  "resumed": []
+  "resumed": [],
+  "since": "2026-11-20T16:45:50Z",
+  "status": -2
  }
 }
