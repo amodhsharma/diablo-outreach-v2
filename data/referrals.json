@@ -124,9 +124,11 @@
    "automatic": false,
    "company": "421737574618",
    "day": "2026-11-18",
-   "outcome": "unsure",
-   "rules": 2,
-   "why": "no clear wording that it is a redirect"
+   "new": [
+    "933351886022"
+   ],
+   "outcome": "switched",
+   "rules": 2
   },
   "920165344479": {
    "automatic": true,
@@ -145,6 +147,11 @@
    "day": "2026-11-12",
    "from": "904522483906",
    "sent": "2026-11-12"
+  },
+  "933351886022": {
+   "company": "421737574618",
+   "day": "2026-11-21",
+   "from": "918291613901"
   }
  },
  "resumed": {
