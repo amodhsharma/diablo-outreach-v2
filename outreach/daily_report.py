@@ -304,10 +304,16 @@ def as_text(date, sections, sender_name):
     return "\n".join(lines + ["Kind regards,", sender_name, ""])
 
 
-def as_html(date, sections, sender_name):
+def as_html(date, sections, sender_name, charts=()):
+    """charts: [(title, content id or None)] drawn at the top (20 Nov 2026, Ariel: the Sankey charts go to all three)."""
     e = html.escape
     parts = ['<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222">',
              "<p>Good morning,</p>", f"<p>Here is the summary of partner outreach for {e(_long_date(date))}.</p>"]
+    for title, cid in charts:
+        if cid:
+            parts.append(f'<p><img src="cid:{cid[1:-1]}" alt="{e(title)}" style="max-width:100%;height:auto"></p>')
+        else:
+            parts.append(f"<p>{e(title)}: no AUTO-OUTREACH company changed status.</p>")
     for heading, items in sections:
         parts.append(f'<p style="margin:16px 0 4px"><b>{e(heading)}</b></p><ul style="margin:0;padding-left:20px">')
         for line, names in items:
@@ -323,13 +329,20 @@ def recipients(value=None):
     return [a.strip() for a in re.split(r"[,;\s]+", value) if "@" in a]
 
 
-def send_mail(subject, text, html_body, cfg, to, password, smtp=None):
+def send_mail(subject, text, html_body, cfg, to, password, smtp=None, images=()):
+    """images: [(content id, png path)] shown inside the HTML (the Sankey charts)."""
+    from pathlib import Path
     msg = EmailMessage()
     msg["Subject"] = subject
     msg["From"] = f"{cfg['sender_name']} <{cfg['sender']}>"
     msg["To"] = ", ".join(to)
     msg.set_content(text)
     msg.add_alternative(html_body, subtype="html")
+    if images:
+        html_part = msg.get_payload()[1]
+        for cid, png in images:
+            html_part.add_related(Path(png).read_bytes(), maintype="image", subtype="png", cid=cid,
+                                  filename=Path(png).name)
     if smtp is None:
         smtp = smtplib.SMTP(cfg["smtp_host"], int(cfg["smtp_port"]), timeout=60)
         smtp.starttls(context=ssl.create_default_context())
@@ -338,8 +351,28 @@ def send_mail(subject, text, html_body, cfg, to, password, smtp=None):
         smtp.send_message(msg)
 
 
+def charts_for(hs, settings, date, log=print, draw=None, out_dir="flow_charts"):
+    """20 Nov 2026 (Ariel): the three Sankey charts (the UK day, the week so far, the month so far) for this email:
+    [(title, content id or None)], [(content id, png)]. A chart that cannot be drawn never stops the email."""
+    from email.utils import make_msgid
+    from . import flow_charts
+    try:
+        kw = {"draw": draw} if draw is not None else {}
+        drawn, _ = flow_charts.draw_all(hs, settings, dt.date.fromisoformat(date), out_dir, log, zone=DAY_ZONE, **kw)
+    except Exception as err:
+        log(f"The Sankey charts could not be drawn, so the email goes without them: {str(err)[:200]}")
+        return [], []
+    shown, images = [], []
+    for title, png in drawn:
+        cid = make_msgid(domain="diablo-outreach") if png else None
+        shown.append((title, cid))
+        if png:
+            images.append((cid, png))
+    return shown, images
+
+
 def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=False, log=print, smtp=None,
-        log_data=None):
+        log_data=None, charts=True, draw=None):
     check_target(hs, target)
     cfg = dict(DEFAULTS, **(settings.get("daily_report") or {}))
     date = date or yesterday()
@@ -350,6 +383,11 @@ def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=F
     issues = health(instantly, settings, accounts_api)
     subject, sections = compose(date, p, o, issues, month_first, cfg["sender_name"])
     text = as_text(date, sections, cfg["sender_name"])
+    shown, images = charts_for(hs, settings, date, log, draw) if charts else ([], [])
+    if shown:  # in the plain text version, under the opening line
+        intro = f"Here is the summary of partner outreach for {_long_date(date)}.\n"
+        text = text.replace(intro, intro + "".join(f"\n{t} (chart in the HTML version of this email)"
+                                                   for t, cid in shown if cid) + "\n", 1)
     step_summary(f"## Daily summary email\n\n**Subject:** {subject}\n\n" + text.replace("\n- ", "\n- "))
     log(f"Subject: {subject}\n\n{text}")
     if preview:
@@ -360,7 +398,7 @@ def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=F
     if not to or not password:
         raise PipelineError("The daily summary was not sent: add the GitHub secrets DAILY_REPORT_TO (the addresses) "
                             "and DAILY_REPORT_APP_PASSWORD (the Google app password of the sending mailbox).")
-    send_mail(subject, text, as_html(date, sections, cfg["sender_name"]), cfg, to, password, smtp)
+    send_mail(subject, text, as_html(date, sections, cfg["sender_name"], shown), cfg, to, password, smtp, images)
     log(f"Sent to {len(to)} {_plural(len(to), 'recipient')} from {cfg['sender']}.")
     return {"subject": subject, "text": text, "sent": True}
 

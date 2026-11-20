@@ -100,10 +100,12 @@ def run_day(now=None):
     return (now.astimezone(INDIA) - dt.timedelta(minutes=LATE_MINUTES)).date()
 
 
-def window(first, last):
-    """(start, end) in UTC of the India dates first to last (inclusive)."""
-    start = dt.datetime.combine(first, dt.time(), INDIA)
-    end = dt.datetime.combine(last + dt.timedelta(days=1), dt.time(), INDIA)
+def window(first, last, zone=None):
+    """(start, end) in UTC of the dates first to last (inclusive), in India time unless another zone is given
+    (20 Nov 2026: the daily summary email draws the charts for UK days)."""
+    zone = zone or INDIA
+    start = dt.datetime.combine(first, dt.time(), zone)
+    end = dt.datetime.combine(last + dt.timedelta(days=1), dt.time(), zone)
     return start.astimezone(dt.timezone.utc), end.astimezone(dt.timezone.utc)
 
 
@@ -228,7 +230,7 @@ def companies_in(statuses, history, first, last, ctx=None):
     """[(country, path, company id, end value)] for every company whose Lead Status changed from the India date
     first to last, at the status it had at the end. path: outcome and, when known, the node after it."""
     ctx = ctx or {}
-    start, end = window(first, last)
+    start, end = window(first, last, ctx.get("zone"))
     out = []
     for cid, (props, past) in history.items():
         if not moved_in(past, start, end, statuses):
@@ -460,6 +462,27 @@ def context(hs, settings, history, statuses, day, end, now=None):
             "restart": restart.config(settings)}
 
 
+def draw_all(hs, settings, day, out_dir=None, log=print, draw=render, now=None, zone=None):
+    """The three charts for `day` (in India time, or in `zone`): ([(title, png path or None)], (day, week, month)).
+    Used by the button "R Sankey Chart to Amodh" and, for UK days, by the daily summary email (20 Nov 2026)."""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    statuses = LeadStatus(hs)
+    first = min(previous_month_days(day)[0], week_days(day)[0] - dt.timedelta(days=7))
+    earliest, _ = window(first, day, zone)  # one read covers the six periods
+    _, end = window(day, day, zone)
+    history = read_history(hs, earliest, log)
+    ctx = context(hs, settings, history, statuses, day, end, now)
+    ctx["zone"] = zone
+    a, b, c = specs(day, history, statuses, ctx)
+    out_dir = Path(out_dir or tempfile.mkdtemp())
+    out_dir.mkdir(parents=True, exist_ok=True)
+    charts = []
+    for name, spec in (("today", a), ("week", b), ("month", c)):
+        png = draw(spec, out_dir / f"flow_{name}_{day.isoformat()}.png") if spec["total"] else None
+        charts.append((spec["title"], png))
+    return charts, (a, b, c)
+
+
 def run(target, settings, hs, day=None, preview=False, out_dir=None, log=print, smtp=None, draw=render,
         sample=False, now=None):
     check_target(hs, target)
@@ -467,18 +490,7 @@ def run(target, settings, hs, day=None, preview=False, out_dir=None, log=print, 
     now = now or dt.datetime.now(dt.timezone.utc)
     sample_at = now.astimezone(INDIA) if sample else None
     day = day or (sample_at.date() if sample_at else run_day(now))
-    statuses = LeadStatus(hs)
-    first = min(previous_month_days(day)[0], week_days(day)[0] - dt.timedelta(days=7))
-    earliest, _ = window(first, day)  # one read covers the six periods
-    _, end = window(day, day)
-    history = read_history(hs, earliest, log)
-    a, b, c = specs(day, history, statuses, context(hs, settings, history, statuses, day, end, now))
-    out_dir = Path(out_dir or tempfile.mkdtemp())
-    out_dir.mkdir(parents=True, exist_ok=True)
-    charts = []
-    for name, spec in (("today", a), ("week", b), ("month", c)):
-        png = draw(spec, out_dir / f"flow_{name}_{day.isoformat()}.png") if spec["total"] else None
-        charts.append((spec["title"], png))
+    charts, (a, b, c) = draw_all(hs, settings, day, out_dir, log, draw, now)
     step_summary(f"## Flow charts for {day.isoformat()}" + (" (sample)" if sample else "")
                  + f"\n\n- {a['subtitle']}\n- {b['subtitle']}\n- {c['subtitle']}\n")
     if preview:

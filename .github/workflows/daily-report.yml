@@ -1,6 +1,7 @@
 name: 'R - Daily summary email'
 
-# Agreed 27 Oct 2026 (Ariel). The partner outreach summary of the day before (India time), sent at
+# Agreed 27 Oct 2026 (Ariel). The partner outreach summary of the day before (the UK day since 20 Nov 2026), with
+# the three Sankey charts at the top (20 Nov 2026), sent at
 # 10 AM UK time (from 20 Nov 2026, Ariel: the business team reading it is in the UK) to three colleagues from admin@diablosnosugar.com, through Google. Nothing to
 # press: cron-job.org starts it every morning (docs/outside_timer.md). Press it yourself with
 # "Preview only" ticked to see the email on this page without sending it.
@@ -52,6 +53,15 @@ jobs:
             cat rehearsal.txt
             DATE_CHECKS_FAILED="$(sed -n 's/: FAILED$//p' rehearsal.txt | tr '\n' ' ')" python -m outreach.alert --early-warning
           fi
+      # 20 Nov 2026 (Ariel): the three Sankey charts (the UK day, the week so far, the month so far) go at the top
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: "The chart drawing tools"
+        continue-on-error: true  # without them the email still goes, without the charts
+        run: |
+          npm ci --prefix outreach/charts --no-audit --no-fund
+          sudo apt-get install -y -qq fonts-dejavu-core > /dev/null || true
       - name: "The daily summary email"
         run: |
           if [ "${{ inputs.preview }}" = "true" ]; then
@@ -59,6 +69,15 @@ jobs:
           else
             python -m outreach.daily_report --target "$TARGET"
           fi
+
+      - name: "Save the charts on this page"
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: flow-charts
+          path: flow_charts/*.png
+          if-no-files-found: ignore
+          retention-days: 14
 
       # 3 Nov 2026 (Ariel): to ALERT_TO only (Amodh), the replies of the day before that only named someone else:
       # how many, how many were switched automatically, and the details of those left for a person.

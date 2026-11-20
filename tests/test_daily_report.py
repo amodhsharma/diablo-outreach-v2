@@ -107,7 +107,7 @@ def _world():
 
 def test_the_email_reads_as_agreed():
     hs, instantly, accounts, log = _world()
-    result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date=DAY, preview=True,
+    result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY, preview=True,
                               log=quiet, log_data=log)
     assert result["subject"] == "Partner outreach: daily summary, Monday 26 October 2026"
     assert result["text"] == """Good morning,
@@ -150,11 +150,11 @@ def test_it_is_sent_from_the_agreed_mailbox(monkeypatch):
     hs, instantly, accounts, log = _world()
     smtp = FakeSMTP()
     with pytest.raises(PipelineError):  # no secrets yet: nothing is sent
-        daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date=DAY, log=quiet,
+        daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY, log=quiet,
                          smtp=smtp, log_data=log)
     monkeypatch.setenv("DAILY_REPORT_TO", "one@team.example, two@team.example,three@team.example")
     monkeypatch.setenv("DAILY_REPORT_APP_PASSWORD", "app-password")
-    daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date=DAY, log=quiet, smtp=smtp,
+    daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY, log=quiet, smtp=smtp,
                      log_data=log)
     msg = smtp.sent[0]
     assert smtp.login_as == ("admin@diablosnosugar.com", "app-password")
@@ -169,7 +169,7 @@ def test_a_quiet_day_and_all_healthy():
     instantly.create_campaign({"name": f"Diablo | {_month()}", "email_list": ["sales@x.example"], "status": 1})
     _details(instantly)
     accounts = Accounts([{"email": "sales@x.example", "status": 1, "warmup_status": 1, "stat_warmup_score": 99}])
-    text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date="2026-11-01",
+    text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date="2026-11-01",
                             preview=True, log=quiet, log_data={})["text"]
     assert "- New prospective partners identified: 0\n" in text
     assert "- New first time introductory mails sent: 0\n" in text and "- Responses received: 0\n" in text
@@ -237,3 +237,55 @@ def test_the_daily_log_keeps_uk_days_and_falls_back_to_india_days_before_them(tm
     assert daily_log.day(data, "2026-11-18", uk=True)["positive"] == ["1"]  # before the UK record: India days
     month = daily_log.month_counts(data, "2026-11-01", "2026-11-20", uk=True)
     assert month["positive"] == 2  # the 18th from India days, the 20th from UK days, nobody twice
+
+
+def _with_a_company_that_moved(hs, day):
+    when = dt.datetime.fromisoformat(f"{day}T12:00:00+00:00")
+    cid = hs.add("companies", name="Kadac", country="Australia", hs_lead_status="New",
+                 hs_lastmodifieddate=str(int(when.timestamp() * 1000)))
+    past = dict(getattr(hs, "past", {}) or {})
+    past[("companies", cid)] = [("New", when.isoformat())]
+    hs.past = past
+
+
+def test_the_sankey_charts_go_at_the_top_of_the_daily_email_to_everyone(monkeypatch, tmp_path):
+    """20 Nov 2026 (Ariel): the three Sankey charts for the UK day go in the daily summary to all three."""
+    from pathlib import Path
+    monkeypatch.setenv("DAILY_REPORT_TO", "a@example.com, b@example.com, c@example.com")
+    monkeypatch.setenv("DAILY_REPORT_APP_PASSWORD", "app-password")
+    monkeypatch.chdir(tmp_path)
+    drawn = []
+
+    def draw(spec, png):
+        drawn.append(spec)
+        Path(png).write_bytes(b"\x89PNG fake")
+        return png
+    hs, instantly, accounts, log = _world()
+    _with_a_company_that_moved(hs, DAY)
+    smtp = FakeSMTP()
+    daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date=DAY, log=quiet, smtp=smtp,
+                     log_data=log, draw=draw)
+    msg = smtp.sent[0]
+    assert msg["To"] == "a@example.com, b@example.com, c@example.com"
+    assert len([p for p in msg.walk() if p.get_content_type() == "image/png"]) == 3
+    html_body = msg.get_body(("html",)).get_content()
+    assert html_body.index("<img") < html_body.index("<b>")  # the charts come before the sections
+    assert drawn[0]["title"] == "Monday 26 October 2026: auto outreach companies assessed today"
+    text = msg.get_body(("plain",)).get_content()
+    assert "October so far (1 to 26 October 2026): auto outreach companies assessed (chart in the HTML" in text
+
+
+def test_the_daily_email_still_goes_when_the_charts_cannot_be_drawn(monkeypatch, tmp_path):
+    monkeypatch.setenv("DAILY_REPORT_TO", "a@example.com")
+    monkeypatch.setenv("DAILY_REPORT_APP_PASSWORD", "app-password")
+    monkeypatch.chdir(tmp_path)
+
+    def broken(spec, png):
+        raise RuntimeError("node is missing")
+    hs, instantly, accounts, log = _world()
+    _with_a_company_that_moved(hs, DAY)
+    smtp, shown = FakeSMTP(), []
+    daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date=DAY, log=shown.append,
+                     smtp=smtp, log_data=log, draw=broken)
+    assert smtp.sent and not [p for p in smtp.sent[0].walk() if p.get_content_type() == "image/png"]
+    assert any("could not be drawn" in line for line in shown)
