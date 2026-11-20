@@ -24,7 +24,7 @@ from email import policy
 LABEL = "BOUNCED"
 DAYS = 150  # notices older than this are not read again
 MAX_EMAILS = 1500
-OUR_DOMAINS = ("diablosnosugar.com", "diabloexport.com", "meetdiablo.com", "diablosugarfree.com")
+OUR_DOMAINS = ("diablosnosugar.com", "diabloexport.com", "meetdiablo.com", "diablosugarfree.com", "nosugardiablo.com")
 MAILBOXES = ("sales@diablosnosugar.com", "info@diablosnosugar.com", "joshua@diabloexport.com", "dana@diabloexport.com",
              "elize@diabloexport.com", "joshua@meetdiablo.com", "dana@meetdiablo.com", "elize@meetdiablo.com")
 # 20 Nov 2026: no quotes inside the search (Gmail's IMAP refused the first live run with "Could not parse command");
