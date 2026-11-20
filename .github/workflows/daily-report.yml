@@ -63,6 +63,8 @@ jobs:
           npm ci --prefix outreach/charts --no-audit --no-fund
           sudo apt-get install -y -qq fonts-dejavu-core > /dev/null || true
       - name: "The daily summary email"
+        env:  # 20 Nov 2026: to read which sending account each bounce came from
+          INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
         run: |
           if [ "${{ inputs.preview }}" = "true" ]; then
             python -m outreach.daily_report --target "$TARGET" --preview

@@ -175,7 +175,7 @@ def replies(hs, day_entry, date, forwarded=None):
     return sorted(follow, key=lambda r: r[0].lower()), sorted(negative, key=lambda r: r[0].lower())
 
 
-def bounce_detail(hs, instantly, settings, contact_ids, date):
+def bounce_detail(hs, instantly, settings, contact_ids, date, emails_api=None):
     """20 Nov 2026 (Ariel): where the day's bounces came from. {"accounts": [(sending account, bounced, sent that
     day)], "companies": [(company, country)]}, or None when it could not be read."""
     from .countries import uniform
@@ -190,12 +190,31 @@ def bounce_detail(hs, instantly, settings, contact_ids, date):
 
     def mailbox(lead):
         return str((lead or {}).get("last_step_from") or (lead or {}).get("eaccount") or "").lower() or None
-    bounced = Counter()
+    bounced, sent = Counter(), Counter()
     for r in records:
-        box = mailbox(view.get(str((r.get("properties") or {}).get("email") or "").lower()))
+        email = str((r.get("properties") or {}).get("email") or "").lower()
+        box = mailbox(view.get(email))
+        if not box and emails_api is not None:  # the last email we sent them, from Instantly's emails
+            try:
+                ours = emails_api.sent_emails(email)
+                box = str((ours[-1] if ours else {}).get("eaccount") or "").lower() or None
+            except (InstantlyError, AttributeError):
+                box = None
         bounced[box or "sending account not known"] += 1
-    sent = Counter(mailbox(lead) for lead in view.values()
-                   if lead.get("timestamp_last_contact") and daily_log.uk_day(lead["timestamp_last_contact"]) == date)
+    start, end = window(date)
+    try:  # every email each account sent that UK day (introductions and reminders)
+        emails = emails_api.emails_since(start.isoformat()) if emails_api is not None else None
+    except (InstantlyError, AttributeError):
+        emails = None
+    if emails is not None:
+        from .next_in_line import parse_time
+        for e in emails:
+            when = parse_time(e.get("timestamp_created") or e.get("timestamp_email"))
+            if e.get("ue_type") in (1, 3) and when and start <= when < end:
+                sent[str(e.get("eaccount") or "").lower()] += 1
+    else:
+        sent = Counter(mailbox(lead) for lead in view.values() if lead.get("timestamp_last_contact")
+                       and daily_log.uk_day(lead["timestamp_last_contact"]) == date)
     names = {}
     for cid in contact_ids:
         company = companies.get(owner_of.get(str(cid)))
@@ -223,7 +242,7 @@ def unknown_channels(hs, statuses, notes=None):
     return sorted(out, key=str.lower)
 
 
-def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=None, statuses=None):
+def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=None, statuses=None, emails_api=None):
     """Everything the "Key numbers" section shows (agreed 20 Nov 2026, Ariel), for the UK day `date`."""
     before = (dt.date.fromisoformat(date) - dt.timedelta(days=1)).isoformat()
     month_first = date[:8] + "01"
@@ -252,7 +271,7 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "gate2": hs.tagged_count("contacts", [statuses.filter("contacts", "copy_ready")])
         if statuses.has("contacts", "copy_ready") else 0,
         "nowhere": nobody_found(hs, statuses, date),
-        "bounces": bounce_detail(hs, instantly, settings, today["bounced"], date),
+        "bounces": bounce_detail(hs, instantly, settings, today["bounced"], date, emails_api),
         "unknown_channel": unknown_channels(hs, statuses),
     }
 
@@ -547,7 +566,7 @@ def compose(date, charts, key, problem=None, key_problem=None):
 
 
 def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=False, log=print, smtp=None,
-        log_data=None, charts=True, draw=None):
+        log_data=None, charts=True, draw=None, emails_api=None):
     cfg = dict(DEFAULTS, **(settings.get("daily_report") or {}))
     date = date or yesterday()
     problem = key_problem = None
@@ -565,7 +584,7 @@ def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=F
                 log(f"The Sankey charts could not be produced: {err}")
         if problem is None:
             try:
-                key = key_numbers(hs, instantly, settings, date, cfg, accounts_api, log_data)
+                key = key_numbers(hs, instantly, settings, date, cfg, accounts_api, log_data, emails_api=emails_api)
             except (HubSpotError, InstantlyError, KeyError, OSError) as err:
                 key_problem = str(err)[:200]
                 log(f"The key numbers could not be read: {err}")
@@ -594,9 +613,11 @@ def main(argv=None):
     try:
         settings = load_settings()
         accounts_key = os.environ.get("INSTANTLY_ACCOUNTS_KEY")
+        emails_key = os.environ.get("INSTANTLY_EMAILS_KEY")  # 20 Nov 2026: which account each bounce came from
         run(args.target, settings, HubSpot(), Instantly(),
             accounts_api=Instantly(api_key=accounts_key) if accounts_key else None,
-            date=args.day or None, preview=args.preview)
+            date=args.day or None, preview=args.preview,
+            emails_api=Instantly(api_key=emails_key) if emails_key else None)
     except (PipelineError, HubSpotError, InstantlyError, smtplib.SMTPException, OSError) as err:
         print(f"ERROR: {err}", file=sys.stderr)
         return 1
