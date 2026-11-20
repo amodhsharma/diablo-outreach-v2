@@ -444,3 +444,24 @@ def test_when_instantly_s_plan_is_full_the_leads_wait_on_gate2_and_the_run_carri
     assert hs.records["contacts"][pid][LS] == "APPROVED_TO_SEND"
     assert any("no uploads left" in line for line in shown)
     assert not send_memory.blocks_intro(send_memory.load(), pid)  # nothing remembered as sent
+
+
+def test_a_restarted_person_is_not_closed_by_their_october_reminder(switched_on, monkeypatch):
+    """20 Nov 2026: only the emails since the round started count for the reminder and the 48-hour close."""
+    from outreach import sync
+    from .test_chain import started
+    from .test_corrupt import ago as days_ago
+    s = settings()
+    hs, instantly, emails, cid, (p1, p2) = started(s, 1)  # this round's introduction went yesterday
+    hs.records["contacts"][p2]["hs_lead_status"] = "UNQUALIFIED"
+    hs.records["companies"][cid][ROUND] = "2"
+    emails.campaign_email("p1@chain.example", days_ago(30), subject="An earlier round")
+    emails.campaign_email("p1@chain.example", days_ago(20), subject="Fwd: An earlier round")  # its old reminder
+    restart.save({"companies": {str(cid): {"round": 2, "started": days_ago(1.5), "straight": []}},
+                  "migrated": "2026-11-19"})
+    sync.run("test", s, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["contacts"][p1][LS] == "ATTEMPTED_TO_CONTACT"  # not closed: this round has had no reminder yet
+    assert not emails.forwards  # and its reminder is not due yet (4 days after this round's introduction)
+    restart.save({"companies": {}, "migrated": "2026-11-19"})  # without the round, the old reminder would close them
+    sync.run("test", s, hs, instantly, log=quiet, emails_api=emails)
+    assert hs.records["contacts"][p1][LS] != "ATTEMPTED_TO_CONTACT"

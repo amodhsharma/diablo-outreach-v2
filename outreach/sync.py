@@ -1174,9 +1174,11 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             return False
         return True
 
+    starts = restart.round_starts() if statuses.restart else {}  # 20 Nov 2026: only this round's emails count
     for company in companies:
         props = company.get("properties", {})
         name = props.get("name")
+        begun = starts.get(str(company["id"]))
         contacts = annotate(everyone.get(company["id"]) or [], statuses, leads)
         send_memory.observe(memory, contacts, company["id"], statuses, None, now_, times=False)
         send_memory.apply(memory, contacts, log, name)
@@ -1184,6 +1186,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
         states = {c["id"]: c.get("state") for c in contacts}
         if emails_api is not None and any(c["state"] in ("queued", "sent", "bounced") for c in contacts):
             kept = watch.cached(company["id"], contacts) if watch is not None else None
+            kept = restart.this_round(kept, begun)
             quiet = stays_quiet(company, contacts, kept) if kept is not None and not closes_due(contacts, kept) \
                 else None
             if quiet is not None:  # nothing new in its emails and nothing due: same result as a full read
@@ -1198,6 +1201,7 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                 watch.read_full += 1
             try:
                 touches, history, replied = company_mail(emails_api, contacts, details)
+                touches = restart.this_round(touches, begun)
             except Exception as err:  # one company's emails not readable never stops the others
                 log(f"{name}: Instantly's emails for this company could not be read ({str(err)[:150]}); "
                     "nothing is sent to it this run, it is tried again next run")

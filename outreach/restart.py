@@ -197,6 +197,26 @@ def plan(hs, settings, statuses, approved, log=print, now=None, data=None):
     return out
 
 
+def round_starts(data=None):
+    """{company id: when its current round started} for every restarted company (data/restarts.json)."""
+    from .next_in_line import parse_time
+    data = load() if data is None else data
+    out = {}
+    for cid, rec in (data.get("companies") or {}).items():
+        when = parse_time(rec.get("started"))
+        if when:
+            out[str(cid)] = when
+    return out
+
+
+def this_round(touches, started):
+    """20 Nov 2026: a restarted company's emails from earlier rounds do not count for this round's reminder, the
+    48-hour close or the company's close: only the emails sent since its round started are kept."""
+    if touches is None or started is None:
+        return touches
+    return {k: [t for t in v if t and t >= started] for k, v in touches.items()}
+
+
 def auto_queue(hs, settings, statuses, props, log=print, now=None):
     """20 Nov 2026 (Ariel): with restart.automatic on, every AUTO-OUTREACH company on "No response: can restart" whose
     wait is over, that has rounds left and where nobody replied, is set to GATE1, as a person would do by hand.
