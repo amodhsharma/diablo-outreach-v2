@@ -14,6 +14,7 @@ address is the one the notice says could not be reached, matched to an AUTO-OUTR
 Nothing is saved: no address or email text is written to the repository.
 """
 
+import datetime as dt
 import email
 import imaplib
 import os
@@ -26,8 +27,10 @@ MAX_EMAILS = 1500
 OUR_DOMAINS = ("diablosnosugar.com", "diabloexport.com", "meetdiablo.com", "diablosugarfree.com")
 MAILBOXES = ("sales@diablosnosugar.com", "info@diablosnosugar.com", "joshua@diabloexport.com", "dana@diabloexport.com",
              "elize@diabloexport.com", "joshua@meetdiablo.com", "dana@meetdiablo.com", "elize@meetdiablo.com")
-SUBJECTS = ('undeliverable', '"delivery status notification"', '"undelivered mail"', '"mail delivery failed"',
-            '"returned mail"', '"delivery incomplete"', '"message not delivered"', '"failure notice"')
+# 20 Nov 2026: no quotes inside the search (Gmail's IMAP refused the first live run with "Could not parse command");
+# subject:(a b c) means every one of those words is in the subject.
+SUBJECTS = ("undeliverable", "(delivery status notification)", "(undelivered mail)", "(mail delivery failed)",
+            "(returned mail)", "(delivery incomplete)", "(message not delivered)", "(failure notice)")
 EMAIL = re.compile(r"[\w.+'-]+@[\w-]+(?:\.[\w-]+)+")
 RECIPIENT_FIELDS = re.compile(r"(?:final|original)-recipient:\s*(?:rfc822;)?\s*<?([^\s;<>]+@[^\s;<>]+)>?", re.I)
 NOT_A_RECIPIENT = re.compile(r"(mailer-daemon|postmaster|no-?reply|noreply|bounce|daemon)@", re.I)
@@ -110,11 +113,19 @@ def read(address, password, days=DAYS, imap=None, log=print):
     try:
         box = imap or imaplib.IMAP4_SSL("imap.gmail.com", 993, timeout=60)
         box.login(address, password)
-        typ, _ = box.select('"[Gmail]/All Mail"', readonly=True)
-        if typ != "OK":
-            box.select("INBOX", readonly=True)
-        typ, data = box.uid("SEARCH", "X-GM-RAW", f'"{gmail_query(days)}"')
-        uids = (data[0] or b"").split() if typ == "OK" and data else []
+        uids = []
+        try:  # the label and the notices forwarded by hand, in one Gmail search
+            typ, _ = box.select('"[Gmail]/All Mail"', readonly=True)
+            typ, data = box.uid("SEARCH", "X-GM-RAW", f'"{gmail_query(days)}"') if typ == "OK" else ("NO", None)
+            uids = (data[0] or b"").split() if typ == "OK" and data else []
+            if typ != "OK":
+                raise imaplib.IMAP4.error("the Gmail search was refused")
+        except imaplib.IMAP4.error as err:  # then the label on its own, as an IMAP folder
+            log(f"The Gmail search of admin@ was refused ({str(err)[:120]}); the BOUNCED label is read on its own")
+            box.select(LABEL, readonly=True)
+            since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)).strftime("%d-%b-%Y")
+            typ, data = box.uid("SEARCH", None, "SINCE", since)
+            uids = (data[0] or b"").split() if typ == "OK" and data else []
         for uid in uids[-MAX_EMAILS:]:
             typ, fetched = box.uid("FETCH", uid, "(BODY.PEEK[])")
             raw = next((f[1] for f in fetched or [] if isinstance(f, tuple) and len(f) > 1), None)

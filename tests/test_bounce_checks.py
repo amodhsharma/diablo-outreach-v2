@@ -127,6 +127,22 @@ def test_the_label_is_read_only_and_bounces_are_grouped_by_address():
     assert fetches and all(c[3] == "(BODY.PEEK[])" for c in fetches)  # never marked as read
     query = next(c for c in imap.calls if c[:2] == ("uid", "SEARCH"))[3]
     assert "label:BOUNCED" in query and "sales@diablosnosugar.com" in query
+    # one quoted string with no quotes inside it (Gmail refused the first live run: "Could not parse command")
+    assert query.startswith('"') and query.endswith('"') and '"' not in query[1:-1]
+
+
+def test_when_the_gmail_search_is_refused_the_label_is_read_as_a_folder():
+    import imaplib
+
+    class Refuses(FakeImap):
+        def uid(self, command, *args):
+            if command == "SEARCH" and args[0] == "X-GM-RAW":
+                raise imaplib.IMAP4.error("UID command error: BAD [b'Could not parse command']")
+            return super().uid(command, *args)
+    imap = Refuses([GMAIL_DSN])
+    out = bounce_inbox.read("admin@diablosnosugar.com", "app-password", imap=imap, log=quiet)
+    assert list(out) == ["sandesh.p@jbmetro.example"]
+    assert ("select", "BOUNCED", True) in imap.calls
 
 
 def test_no_password_or_an_error_means_no_notices_and_the_run_goes_on(monkeypatch):
