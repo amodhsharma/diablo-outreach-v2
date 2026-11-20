@@ -119,6 +119,20 @@ contacts:
       - Procurement Manager
       - Buying Director
       - Commercial Director
+    Pharmacy chains:
+      - Buyer
+      - Category Manager
+      - Purchasing Manager
+      - Procurement Manager
+      - Buying Director
+      - Commercial Director
+    Drugstore chains:
+      - Buyer
+      - Category Manager
+      - Purchasing Manager
+      - Procurement Manager
+      - Buying Director
+      - Commercial Director
 
 assignment:
   # Gives each approved company a salesperson (its HubSpot company owner) when
