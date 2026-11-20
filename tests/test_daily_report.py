@@ -167,14 +167,16 @@ def test_a_quiet_day_and_all_healthy():
                               date="2026-11-01", preview=True, log=quiet, log_data={})
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert "Introductions sent 0 0 = 0" in lines and "OK 1 of 1 healthy" in lines
-    # 21 Nov 2026: no positive or negative replies, no referral, nothing handled automatically; nothing waiting,
-    # and "Waiting for you" is now part of Initial stages
-    assert lines.count("None") == 4
+    # 21 Nov 2026: no positive or negative replies, no referral, no reply from outside; nothing waiting, and
+    # "Waiting for you" is now part of Initial stages; "Referrals handled automatically" only when there are some
+    assert lines.count("None") == 3
+    assert not any("Referrals handled automatically" in line for line in lines)
     assert "[Need Amodh's input] Replies not AUTO-OUTREACH 0" in lines
     assert "Your input needed 0" in lines and not any("Waiting for you" in line for line in lines)
     assert not any("nobody could be found" in line for line in lines)  # its own section only on days with some
     assert not any(line.startswith("Companies waiting for GATE1 approval") for line in lines)  # 0: left out
     assert "#0F6E56" in result["html"]  # the healthy line is green
+    assert 'color:#0F6E56;">No input needed (automatic)</td>' in result["html"]  # 21 Nov 2026: in green
 
 
 def test_every_company_that_replied_is_named_neutral_and_referrals_marked():
@@ -428,9 +430,9 @@ def test_initial_stages_section_says_what_needs_input_and_what_does_not():
     assert "New companies waiting for your GATE1 approval 4" in block
     assert "Introductions waiting for your GATE2 approval 1" in block
     assert "Approved Co (Australia)" in block
-    assert "No input needed (the automation is working on these) 3" in block
-    assert "Approved, Apollo search at the next button 3 run 2" in block  # Approved Co and Inbox Co on GATE1
-    assert "People found, introduction lines being written 1" in block
+    # 21 Nov 2026 (Ariel): one green line, without the breakdown
+    assert "No input needed (automatic) 3" in block
+    assert not any(line.startswith(("Approved, Apollo search", "People found, introduction")) for line in block)
 
 
 # ---- 20 Nov 2026 (Ariel): one cut-off for the whole email, midnight UK at the end of the day reported ----------

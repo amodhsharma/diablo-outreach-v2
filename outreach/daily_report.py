@@ -26,10 +26,12 @@ The email (20 Nov 2026, Ariel):
        Sending accounts: one green line when all are healthy, a red line naming each problem
        Positive replies to follow up: every company that replied that day tagged Positive, plus Neutral and
          Referral replies marked as such; Negative replies to convert into possible leads: the rest. No cap.
+       Referrals handled automatically: only on days the automation handled some (21 Nov 2026, Ariel).
        Initial stages - your input needed or not (at midnight UK): what the chart's Initial stages box holds,
          with the names of everything waiting for a person (GATE1 and GATE2 approval, contacts not yet tagged,
          contacts held because their record could not be put right, companies whose channel is not known). The
-         separate "Waiting for you" section was merged into it on 21 Nov 2026 (Ariel).
+         separate "Waiting for you" section was merged into it on 21 Nov 2026 (Ariel). What needs no input is one
+         green line, "No input needed (automatic)", without a breakdown (21 Nov 2026, Ariel).
        Companies where nobody could be found (need sales people input): only on days there are some.
 
 The recipients and the mailbox's Google app password (DAILY_REPORT_APP_PASSWORD) are never written in the
@@ -580,9 +582,11 @@ def reply_blocks(k):
         auto = [("line", "Could not be read this time", SAME)]
     n_unsure = len((ref or {}).get("unsure") or [])
     n_auto = sum(len((ref or {}).get(x) or []) for x in ("switched", "added", "resumed"))
-    return [(("Referrals the automation wasn't sure about", [AMODH], n_unsure), unsure),
-            (("Replies not AUTO-OUTREACH", [AMODH], len(outside or [])), outs),
-            (("Referrals handled automatically", [INFO], n_auto), auto or [("line", "None", SAME)])]
+    blocks = [(("Referrals the automation wasn't sure about", [AMODH], n_unsure), unsure),
+              (("Replies not AUTO-OUTREACH", [AMODH], len(outside or [])), outs)]
+    if n_auto:  # 21 Nov 2026 (Ariel): shown only when referrals were handled automatically, with the companies
+        blocks.append((("Referrals handled automatically", [INFO], n_auto), auto))
+    return blocks
 
 
 def _heading(h):
@@ -652,8 +656,8 @@ def key_rows(k):
                 text, detail = shown.get(label, (label, None))
                 rows.append(("row", "  " + text, _n(n), "", None, None, ""))
                 rows += [("name", w) for w in (detail or who)]
-        rows.append(("row", "No input needed (the automation is working on these)", _n(auto), "", None, None, ""))
-        rows += [("row", "  " + label, _n(n), "", None, None, "") for label, n in k["initial"]["auto"] if n]
+        # 21 Nov 2026 (Ariel): one green line, without the breakdown
+        rows.append(("row", "No input needed (automatic)", _n(auto), "", None, None, "", GOOD))
         moment = "at midnight UK" if k.get("at_midnight", True) else "right now"
         blocks.append(((f"Initial stages - your input needed or not ({moment})", [AMODH], need + auto), rows))
     else:  # Initial stages could not be worked out: the same things, the short way
@@ -683,7 +687,7 @@ def key_text(k):
         out.append(f"{label:<{width + 1}} {count}" if count is not None else label)
         for item in items:
             if item[0] == "row":
-                _, label, day, before, symbol, _good, month = item
+                _, label, day, before, symbol, _good, month = item[:7]
                 out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{month}".rstrip())
             elif item[0] == "line":
                 out.append(f"  {item[1]}")
@@ -729,11 +733,13 @@ def key_html(k):
                 parts.append(f'<tr><td colspan="4" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
                 continue
             if item[0] == "row":
-                _, label, day, before, symbol, good, month = item
+                _, label, day, before, symbol, good, month = item[:7]
                 colour = SAME if good is None else (GOOD if good else BAD)
                 arrow = f' <span style="color:{colour};font-weight:bold">{symbol}</span>' if symbol else ""
                 indent = 28 if label.startswith("  ") else 14
-                parts.append(f'<tr><td style="padding:2px 10px 2px {indent}px">{e(label.strip())}</td><td {cell}><b>{e(day)}</b></td>'
+                tint = f"color:{item[7]};" if len(item) > 7 else ""  # 21 Nov 2026: a row in its own colour
+                parts.append(f'<tr><td style="padding:2px 10px 2px {indent}px;{tint}">{e(label.strip())}</td>'
+                             f'<td {cell}><b style="{tint}">{e(day)}</b></td>'
                              f"<td {cell}>{e(before)}{arrow}</td><td {cell}>{e(month)}</td></tr>")
             elif item[0] == "line":
                 dot = f'<span style="color:{item[2]}">&#9679;</span> ' if item[2] in (GOOD, BAD) else ""
