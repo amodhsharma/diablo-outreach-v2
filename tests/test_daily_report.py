@@ -199,7 +199,7 @@ def test_the_log_records_each_answer_once_by_india_day(tmp_path):
     notes = tmp_path / "timeline_notes.json"
     notes.write_text(json.dumps({"reply:marked interested": ["1"], "bounced": ["2"]}))
     events = [({"id": "1"}, {}, "marked interested"),            # already known before the log: not again
-              ({"id": "3"}, {"timestamp_last_reply": "2026-10-26T20:00:00Z"}, "replied"),  # 27 Oct India time
+              ({"id": "3"}, {"timestamp_last_reply": "2026-10-26T20:00:00Z"}, "replied"),  # sent 27 Oct India time
               ({"id": "4"}, {}, "out of office"), ({"id": "5"}, {}, "bounced"), ({"id": "6"}, {}, "blocklisted"),
               ({"id": "7"}, {}, "emailed")]
     import datetime as dt
@@ -207,8 +207,9 @@ def test_the_log_records_each_answer_once_by_india_day(tmp_path):
     assert daily_log.record(events, notes_path=notes, now=now) == 4
     assert daily_log.record(events, notes_path=notes, now=now) == 0
     data = daily_log.load()
-    assert daily_log.day(data, "2026-10-27")["neutral"] == ["3"]
-    assert daily_log.day(data, DAY) == {"positive": [], "negative": [], "neutral": [], "auto": ["4"], "bounced": ["5"],
+    # 20 Nov 2026 (Ariel): filed on the day it was noticed, not the day it was sent
+    assert daily_log.day(data, "2026-10-27")["neutral"] == []
+    assert daily_log.day(data, DAY) == {"positive": [], "negative": [], "neutral": ["3"], "auto": ["4"], "bounced": ["5"],
                                          "opted_out": ["6"]}
     assert daily_log.month_counts(data, "2026-10-01", "2026-10-31")["positive"] == 1  # from before the log
 
@@ -235,13 +236,12 @@ def test_the_reported_day_is_the_uk_day_summer_time_included():
 def test_the_daily_log_keeps_uk_days_and_falls_back_to_india_days_before_them(tmp_path):
     from outreach import daily_log
     path = tmp_path / "log.json"
-    data = {"days": {"2026-11-18": {"positive": ["1"]}}, "seen": {}, "before": {}}
+    data = {"days": {"2026-11-18": {"positive": ["1"]}}, "seen": {}, "before": {}, "uk_since": "2026-11-19T00:00:00+00:00"}
     daily_log.save(data, path)
     late = dt.datetime(2026, 11, 20, 20, 0, tzinfo=dt.timezone.utc)  # 20:00 UK on the 20th, 01:30 India on the 21st
     rec = {"id": "2"}
-    lead = {"timestamp_last_reply": late.isoformat()}
-    daily_log.record([(rec, lead, "marked interested")], path=path, now=dt.datetime(2026, 11, 19, 21, 0,
-                                                                                      tzinfo=dt.timezone.utc))
+    lead = {"timestamp_last_reply": (late - dt.timedelta(hours=3)).isoformat()}  # filed when noticed (20 Nov 2026)
+    daily_log.record([(rec, lead, "marked interested")], path=path, now=late)
     data = daily_log.load(path)
     assert data["days"]["2026-11-21"]["positive"] == ["2"] and data["uk_days"]["2026-11-20"]["positive"] == ["2"]
     assert daily_log.day(data, "2026-11-20", uk=True)["positive"] == ["2"]
@@ -389,12 +389,12 @@ def test_companies_whose_channel_is_not_known_are_named_under_waiting_for_you():
 
 
 def test_initial_stages_section_says_what_needs_input_and_what_does_not():
-    """20 Nov 2026 (Ariel): under Key numbers, the companies not yet emailed, right now, by whether input is needed."""
+    """20 Nov 2026 (Ariel): under Key numbers, the companies not yet emailed, at midnight UK, by whether input is needed."""
     hs, instantly, accounts, log = _world()
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
-    at = lines.index("Initial stages - your input needed or not (right now)")
+    at = lines.index("Initial stages - your input needed or not (at midnight UK)")
     block = lines[at + 1:]
     assert block[0] == "Your input needed 5"  # 4 new companies and 1 introduction
     assert "New companies waiting for your GATE1 approval 4" in block
@@ -403,3 +403,42 @@ def test_initial_stages_section_says_what_needs_input_and_what_does_not():
     assert "No input needed (the automation is working on these) 3" in block
     assert "Approved, Apollo search at the next button 3 run 2" in block  # Approved Co and Inbox Co on GATE1
     assert "People found, introduction lines being written 1" in block
+
+
+# ---- 20 Nov 2026 (Ariel): one cut-off for the whole email, midnight UK at the end of the day reported ----------
+
+def test_waiting_and_initial_stages_are_as_they_stood_at_midnight_uk():
+    hs, instantly, accounts, log = _world()
+    # Approved at 00:02 UK the next morning: still waiting for GATE1 at midnight, so it counts
+    late = hs.add("companies", name="Late Co", country="Australia", hs_lead_status="GATE1: Approved for outreach",
+                  hs_lastmodifieddate="2026-10-27T00:02:00Z")
+    # Created at 00:03 UK the next morning: not there at midnight, so it does not count
+    tomorrow = hs.add("companies", name="Tomorrow Co", country="Australia", hs_lead_status="New",
+                      hs_lastmodifieddate="2026-10-27T00:03:00Z")
+    hs.past = {**hs.past, ("companies", late): [("GATE1: Approved for outreach", "2026-10-27T00:02:00Z"),
+                                                ("New", "2026-10-24T10:00:00Z")],
+               ("companies", tomorrow): [("New", "2026-10-27T00:03:00Z")]}
+    text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
+                            preview=True, log=quiet, log_data=log)["text"]
+    lines = [" ".join(line.split()) for line in text.splitlines()]
+    block = lines[lines.index("Initial stages - your input needed or not (at midnight UK)") + 1:]
+    assert "New companies waiting for your GATE1 approval 5" in block  # the 4 of the day and Late Co
+    assert "Late Co" in block and "Tomorrow Co" not in block
+    assert "Companies waiting for GATE1 approval 5" in lines  # Waiting for you says the same
+
+
+def test_a_day_not_over_yet_is_read_as_it_stands_now():
+    from outreach.stages import LeadStatus
+    hs = FakeCRM()
+    cid = hs.add("companies", name="Now Co", hs_lead_status="New", hs_lastmodifieddate="2026-10-26T10:00:00Z")
+    at = daily_report.AtCutoff(hs, LeadStatus(hs), dt.datetime(2026, 10, 27, tzinfo=dt.timezone.utc),
+                               now=dt.datetime(2026, 10, 26, 12, tzinfo=dt.timezone.utc))
+    assert at.live and [r["id"] for r in at.records("companies", "found")] == [cid]
+
+
+def test_the_check_names_chart_companies_missing_from_key_numbers():
+    key = {"initial": {"ids": {"1"}}}
+    assert daily_report.sync_check({"input": {"1": "Alpha"}}, key) is None
+    line = daily_report.sync_check({"input": {"1": "Alpha", "2": "Beta"}}, key)
+    assert line == "Check: the day chart shows 1 company needing your input that this list does not: Beta"
+    assert daily_report.sync_check({"input": {"2": "Beta"}}, {}) is None  # Key numbers could not be read

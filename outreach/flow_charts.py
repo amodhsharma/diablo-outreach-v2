@@ -4,7 +4,7 @@ Every night at 23:59 India time (the button "R Sankey Chart to Amodh", started b
 to Amodh only (the GitHub secret ALERT_TO), from the same mailbox as the daily summary, with three Sankey
 charts as PNG images: the day, the week so far (Monday to that day) and the month so far. The daily summary
 email is not changed in any way. HubSpot is only read. The button's "Sample" box (20 Nov 2026) sends Amodh only the
-whole 10 AM UK daily summary (charts and Key numbers) for the Day given (a UK date; empty: today so far), marked SAMPLE.
+whole daily summary (charts and Key numbers) for the Day given (a UK date; empty: today so far), marked SAMPLE.
 
 Which companies: only AUTO-OUTREACH companies whose Lead Status changed at least once in the period (a company
 created in the period counts: its Lead Status was set), read from HubSpot's history of each company's Lead
@@ -399,6 +399,9 @@ def specs(day, history, statuses, ctx=None):
                         f"arrows compare with {before.strftime('%A')} {before.day} {before.strftime('%B')}"]),
               shares(depth(yesterday, True)), pad=40,
               flag=no_replies(day, day, f"No replies received on {_long(day).rsplit(' ', 1)[0]}"))
+    # 20 Nov 2026 (Ariel): the companies under "Your input needed" today, for the daily email's check against Key numbers
+    a["input"] = {cid: (history.get(cid, ({}, []))[0].get("name") or "A company")
+                  for _c, path, cid, _v in today if "i1" in path}
 
     w_first, w_last = week_days(day)
     week, here = period(w_first, w_last, True)
@@ -574,7 +577,9 @@ def context(hs, settings, history, statuses, day, end, now=None):
 def input_needed(hs, statuses, history, end):
     """20 Nov 2026 (Ariel): {company id: "i1" or "i2"} for the companies on GATE1 or Contact located at the end of
     the period: "i1" (your input needed) when the company's channel is not known or someone there waits for GATE2
-    approval ("New, Personal line filled"), else "i2" (no input needed). Read from the company and its contacts now."""
+    approval ("New, Personal line filled"), else "i2" (no input needed). The contacts' Lead Status is the one they had
+    at the end of the period (from their history; 20 Nov 2026, Ariel: the charts and Key numbers describe the same
+    moment); the channel is read from the company now."""
     from . import channels
     from .common import load_company_notes
     ids = [cid for cid, (_p, past) in history.items() if end_stage(statuses, past, end) in ("approved", "located")]
@@ -583,10 +588,17 @@ def input_needed(hs, statuses, history, end):
     notes = load_company_notes()
     records = {str(r["id"]): r for r in hs.tagged_read("companies", ids, ["name", "domain", "industry_type"])}
     people = contacts_by_company(hs, ids)
+    contact_ids = sorted({str(c["id"]) for cs in people.values() for c in cs or []})
+    past = hs.history("contacts", contact_ids, LEAD_STATUS) if contact_ids else {}
+
+    def stage_then(contact):
+        h = (past.get(str(contact["id"])) or ({}, []))[1]
+        value = end_value(h, end) if h else (contact.get("properties") or {}).get(LEAD_STATUS)
+        return statuses.stage("contacts", value) if value not in (None, "") else None
     out = {}
     for cid in ids:
         props = (records.get(str(cid)) or {}).get("properties") or {}
-        waiting = any(statuses.of("contacts", c) == "copy_ready" for c in people.get(cid) or people.get(str(cid)) or [])
+        waiting = any(stage_then(c) == "copy_ready" for c in people.get(cid) or people.get(str(cid)) or [])
         out[str(cid)] = "i1" if waiting or channels.verdict(props, notes) is None else "i2"
     return out
 
@@ -640,7 +652,7 @@ def run(target, settings, hs, day=None, preview=False, out_dir=None, log=print, 
 
 
 def sample_daily_email(target, day=None, preview=False, log=print):
-    """The 10 AM UK daily summary exactly as it would go (the three charts, Key numbers and the rest), for the UK
+    """The daily summary (00:05 UK) exactly as it would go (the three charts, Key numbers and the rest), for the UK
     date `day` (default: today so far), to ALERT_TO only (Amodh), marked SAMPLE in the subject."""
     from . import daily_report
     from .instantly_client import Instantly, InstantlyError

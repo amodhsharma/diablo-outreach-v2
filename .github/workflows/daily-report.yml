@@ -2,8 +2,8 @@ name: 'R - Daily summary email'
 
 # Agreed 27 Oct 2026 (Ariel). The partner outreach summary of the day before (the UK day since 20 Nov 2026): the
 # three Sankey charts with "Key numbers" under them (20 Nov 2026, Ariel; the old written summary is gone), sent at
-# 10 AM UK time (from 20 Nov 2026, Ariel: the business team reading it is in the UK) to three colleagues from admin@diablosnosugar.com, through Google. Nothing to
-# press: cron-job.org starts it every morning (docs/outside_timer.md). Press it yourself with
+# 00:05 UK time (from 21 Nov 2026, Ariel: one cut-off, midnight UK, for the charts and Key numbers; 10 AM UK on 20 Nov) to three colleagues from admin@diablosnosugar.com, through Google. Nothing to
+# press: cron-job.org starts it every night just after midnight UK (docs/outside_timer.md). Press it yourself with
 # "Preview only" ticked to see the email on this page without sending it.
 # HubSpot and Instantly are only read; nothing is changed. The recipients and the mailbox's Google
 # app password are the GitHub secrets DAILY_REPORT_TO and DAILY_REPORT_APP_PASSWORD.

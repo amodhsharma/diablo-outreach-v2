@@ -336,3 +336,28 @@ def test_initial_stages_split_by_whether_input_is_needed_on_the_day_chart_too():
     links = {(s, t): n for s, t, n in day_["links"]}
     assert links[("I", "i1")] == 1 and links[("I", "i2")] == 1
     assert day_["nodes"]["i1"][0] == "Your input needed" and day_["nodes"]["i2"][0] == "No input needed"
+
+
+def test_input_needed_uses_each_contacts_status_at_the_end_of_the_period():
+    """20 Nov 2026 (Ariel): the charts and Key numbers describe the same moment (midnight UK). A contact waiting for
+    GATE2 at the end of the day makes its company "Your input needed", even if it was approved just after."""
+    hs = FakeCRM()
+    end = fc.parse_time(at(23))
+    waiting, done = (hs.add("companies", name=n, country="Serbia", hs_lead_status=V["Located"],
+                            industry_type="Distributor Wholesaler") for n in ("W", "D"))
+    late = hs.add("contacts", email="a@w.example", hs_lead_status="APPROVED_TO_SEND")  # approved after the end
+    early = hs.add("contacts", email="b@d.example", hs_lead_status="APPROVED_TO_SEND")  # approved before it
+    hs.links[late], hs.links[early] = [waiting], [done]
+    after, before = (end + dt.timedelta(minutes=2)).isoformat(), (end - dt.timedelta(hours=2)).isoformat()
+    hs.past = {("contacts", late): [("APPROVED_TO_SEND", after), ("NEW_PERSONAL_LINE_FILLED", at(9))],
+               ("contacts", early): [("APPROVED_TO_SEND", before), ("NEW_PERSONAL_LINE_FILLED", at(9))]}
+    h = {waiting: ({}, hist(("Located", at(10)))), done: ({}, hist(("Located", at(10))))}
+    out = fc.input_needed(hs, statuses(), h, end)
+    assert out == {waiting: "i1", done: "i2"}
+
+
+def test_the_day_chart_names_its_companies_needing_input_for_the_emails_check():
+    h = history(a=("Serbia", [("New", at(10))]), b=("Serbia", [("GATE1", at(11))]))
+    h["a"][0]["name"] = "Alpha"
+    day_, _, _ = fc.specs(DAY, h, statuses(), {"input": {}})
+    assert day_["input"] == {"a": "Alpha"}

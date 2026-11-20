@@ -11,7 +11,7 @@ to Amodh (16 Nov 2026):
 | 12, 3, 6 and 9, AM and PM | Diablo NEW 3 Outreach | 3 - Find contacts |
 | 1, 4, 7 and 10, AM and PM | Diablo NEW 4 Send | 4 - Send and follow up |
 | 2, 5, 8 and 11, AM and PM | Diablo NEW 2 Research | 2 - Research ("Automatic run") |
-| 10 AM UK time, every day (job time zone Europe/London, from 20 Nov 2026) | Diablo NEW R Daily summary | R - Daily summary email |
+| 00:05 UK time, every day (job time zone Europe/London; 00:05 from 21 Nov 2026, 10 AM on 20 Nov) | Diablo NEW R Daily summary | R - Daily summary email |
 
 Claude's two scheduled tasks fit in between: personal lines 28 minutes after button 3, research 28
 minutes after button 2.
@@ -59,7 +59,7 @@ In **Settings**, the time zone is **Asia/Kolkata**. For each job: **Create cronj
 | Diablo NEW 3 Outreach | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/outreach.yml/dispatches` | `0 0,3,6,9,12,15,18,21 * * *` | `{"ref":"main","inputs":{"check_only":"false"}}` |
 | Diablo NEW 4 Send | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/send-loop.yml/dispatches` | `0 1,4,7,10,13,16,19,22 * * *` | `{"ref":"main"}` |
 | Diablo NEW 2 Research | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/research.yml/dispatches` | `0 2,5,8,11,14,17,20,23 * * *` | `{"ref":"main","inputs":{"action":"Automatic run"}}` |
-| Diablo NEW R Daily summary | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/daily-report.yml/dispatches` | `0 10 * * *`, with this job's time zone set to **Europe/London** in its Advanced tab (20 Nov 2026: 10 AM UK time, summer time included) | `{"ref":"main"}` |
+| Diablo NEW R Daily summary | `https://api.github.com/repos/amodhsharma/diablo-outreach-v2/actions/workflows/daily-report.yml/dispatches` | `5 0 * * *`, with this job's time zone set to **Europe/London** in its Advanced tab (from 21 Nov 2026: 00:05 UK time, summer time included; the email covers the UK day that has just ended, every number fixed at midnight) | `{"ref":"main"}` |
 
 Button 4's body has no inputs since 26 Oct 2026: its "Check only" box became a dropdown, and a run
 started without one does the usual run (results and send), with no health check.
@@ -81,4 +81,4 @@ paused, or delete them. Going back to the earlier version would mean restoring t
   page). Nothing else presses these buttons by itself, except Claude saving research or lines,
   which starts buttons 2 and 3 for those files only.
 
-The 11:59 PM job "R Sankey Chart to Amodh" was deleted on 20 Nov 2026 (Ariel): the three charts now go in the 10 AM UK daily summary. The button stays for samples to Amodh.
+The 11:59 PM job "R Sankey Chart to Amodh" was deleted on 20 Nov 2026 (Ariel): the three charts now go in the daily summary (00:05 UK from 21 Nov 2026). The button stays for samples to Amodh.

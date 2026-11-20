@@ -94,12 +94,15 @@ def record(events, path=None, notes_path=None, now=None):
     added = 0
     for record_, lead, event in events:
         cid = str(record_["id"])
+        # 20 Nov 2026 (Ariel): every event is filed on the day button 4 notices it (replies too, as bounces and
+        # opt-outs already were), the moment HubSpot's Lead Status changes, so the daily email's charts and Key numbers
+        # count it on the same day. A reply sent at 23:00 UK and noticed at 01:30 is in the next day's email.
         if event in RESPONSE:
             group, kind = "response", RESPONSE[event]
-            when = lead.get("timestamp_last_reply") or now
+            when = now
         elif event == "out of office":
             group = kind = "auto"
-            when = lead.get("timestamp_last_reply") or now
+            when = now
         elif event == "bounced":
             group = kind = "bounced"
             when = now

@@ -1,9 +1,16 @@
 """The daily summary email (agreed 27 Oct 2026, Ariel; its content since 20 Nov 2026).
 
-Every morning at 10 AM UK time (cron-job.org starts the button "R - Daily summary email") one email goes to
-Amodh, Rafi and Ariel (the GitHub secret DAILY_REPORT_TO), from admin@diablosnosugar.com (a mailbox that sends no
-campaigns) through Google's own mail server. It reports the UK day before, midnight to midnight UK time. HubSpot
-and Instantly are only read; nothing is changed anywhere. The old written summary is gone (20 Nov 2026, Ariel).
+Every night at 00:05 UK time (cron-job.org starts the button "R - Daily summary email"; 10 AM UK until 20 Nov
+2026) one email goes to Amodh, Rafi and Ariel (the GitHub secret DAILY_REPORT_TO), from admin@diablosnosugar.com
+(a mailbox that sends no campaigns) through Google's own mail server. It reports the UK day that has just ended,
+midnight to midnight UK time. HubSpot and Instantly are only read; nothing is changed anywhere. The old written
+summary is gone (20 Nov 2026, Ariel).
+
+One cut-off for everything (20 Nov 2026, Ariel): the charts and every part of Key numbers describe the same
+moment, midnight UK at the end of the day reported. "Waiting for you" and "Initial stages" are worked out as they
+stood at that midnight (AtCutoff), not read when the email goes, so a change made at 00:02 never shows in one
+place and not the other. Before sending, the companies under "Your input needed" in the day chart are checked
+against Key numbers; any the Key numbers do not list are named in one red line.
 
 The email (20 Nov 2026, Ariel):
   1. The three Sankey charts (flow_charts.py): the UK day, the week so far and the month so far. A chart that
@@ -21,6 +28,7 @@ The email (20 Nov 2026, Ariel):
        Waiting for you: companies waiting for GATE1 approval, introductions waiting for GATE2 approval, and
          Companies where nobody could be found (need sales people input), with their names; and, when there are
          any, the companies whose channel is not known (nobody is emailed until it is set; outreach/channels.py).
+       Initial stages - your input needed or not (at midnight UK): what the chart's Initial stages box holds.
 
 The recipients and the mailbox's Google app password (DAILY_REPORT_APP_PASSWORD) are never written in the
 repository.
@@ -129,6 +137,52 @@ def uploads(instantly, cfg):
     return len(emails), int(cfg.get("instantly_allowance") or 25000)
 
 
+class AtCutoff:
+    """20 Nov 2026 (Ariel): the AUTO-OUTREACH companies and contacts at a stage as they stood at the cut-off (midnight
+    UK at the end of the day reported), so Key numbers and the charts describe the same moment. The records at the
+    stage now, corrected with the Lead Status history of every record changed since the cut-off. A day not over yet
+    (a sample of today so far) is read as it stands now."""
+
+    PROPS = {"companies": ["name", "domain", "industry_type", "country"], "contacts": ["email"]}
+
+    def __init__(self, hs, statuses, cutoff, now=None):
+        self.hs, self.statuses, self.cutoff = hs, statuses, cutoff
+        self.live = cutoff >= (now or dt.datetime.now(dt.timezone.utc))
+        self._changed = {}
+
+    def changed(self, obj):
+        """{id: (properties, Lead Status history)} for the records changed since the cut-off."""
+        if self.live:
+            return {}
+        if obj not in self._changed:
+            ms = str(int(self.cutoff.timestamp() * 1000))
+            rows = self.hs.tagged_search(obj, [{"propertyName": "hs_lastmodifieddate", "operator": "GTE", "value": ms}],
+                                         ["name"], max_results=10000)
+            ids = [str(r["id"]) for r in rows]
+            self._changed[obj] = self.hs.history(obj, ids, LEAD_STATUS, self.PROPS[obj]) if ids else {}
+        return self._changed[obj]
+
+    def value(self, past, props):
+        """The stored Lead Status at the cut-off (None when the record did not have one yet)."""
+        from .flow_charts import end_value
+        if not past:  # no history to go by: as it is now
+            return props.get(LEAD_STATUS)
+        return end_value(past, self.cutoff)
+
+    def records(self, obj, stage):
+        """[{"id", "properties"}] at that stage at the cut-off."""
+        if not self.statuses.has(obj, stage):
+            return []
+        changed = self.changed(obj)
+        out = [r for r in self.hs.tagged_search(obj, [self.statuses.filter(obj, stage)], self.PROPS[obj], max_results=5000)
+               if str(r["id"]) not in changed]
+        for rid, (props, past) in changed.items():
+            value = self.value(past, props)
+            if value not in (None, "") and self.statuses.stage(obj, value) == stage:
+                out.append({"id": rid, "properties": dict(props)})
+        return out
+
+
 def nobody_found(hs, statuses, date):
     """The companies set to Missing Info with "No contact found anywhere" on that UK day, by name."""
     missing = _value(statuses, "companies", "missing_info")
@@ -225,62 +279,63 @@ def bounce_detail(hs, instantly, settings, contact_ids, date, emails_api=None):
             "companies": sorted(names.values(), key=lambda x: x[0].lower())}
 
 
-def unknown_channels(hs, statuses, notes=None):
-    """20 Nov 2026 (Ariel, HARD RULE): the open companies whose channel is not known, by name: nobody there is
-    emailed until it is set (outreach/channels.py)."""
+def unknown_channel_companies(hs, statuses, notes=None, at=None):
+    """{company id: name} for the open companies whose channel is not known, at the cut-off when `at` is given."""
     from . import channels
     from .common import load_company_notes
     notes = load_company_notes() if notes is None else notes
-    out = set()
+    at = at or AtCutoff(hs, statuses, dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=1))
+    out = {}
     for stage in ("approved", "located", "no_response"):
-        if not statuses.has("companies", stage):
-            continue
-        for c in hs.tagged_search("companies", [statuses.filter("companies", stage)],
-                                  ["name", "domain", "industry_type"], max_results=5000):
+        for c in at.records("companies", stage):
             if channels.verdict(c.get("properties") or {}, notes) is None:
-                out.add((c.get("properties") or {}).get("name") or "A company")
-    return sorted(out, key=str.lower)
+                out[str(c["id"])] = (c.get("properties") or {}).get("name") or "A company"
+    return out
 
 
-def initial_stages(hs, statuses, unknown_names):
-    """20 Nov 2026 (Ariel): the companies not yet emailed, right now, split by whether Ariel's input is needed.
-    {"input": [(label, count, [names])], "auto": [(label, count)]}."""
+def unknown_channels(hs, statuses, notes=None, at=None):
+    """20 Nov 2026 (Ariel, HARD RULE): the open companies whose channel is not known, by name: nobody there is
+    emailed until it is set (outreach/channels.py)."""
+    return sorted(set(unknown_channel_companies(hs, statuses, notes, at).values()), key=str.lower)
+
+
+def initial_stages(hs, statuses, unknown_names, at=None, unknown_ids=()):
+    """20 Nov 2026 (Ariel): the companies not yet emailed, at the cut-off (midnight UK; `at`), split by whether
+    Ariel's input is needed. {"input": [(label, count, [names])], "auto": [(label, count)], "ids": {company ids
+    under Your input needed}}."""
     from .countries import uniform
-
-    def companies(stage):
-        if not statuses.has("companies", stage):
-            return []
-        return hs.tagged_search("companies", [statuses.filter("companies", stage)], ["name"], max_results=5000)
-
-    def contacts(stage):
-        if not statuses.has("contacts", stage):
-            return []
-        return hs.tagged_search("contacts", [statuses.filter("contacts", stage)], ["email"], max_results=5000)
+    at = at or AtCutoff(hs, statuses, dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=1))
 
     def names(rows):
         return sorted(((r.get("properties") or {}).get("name") or "A company" for r in rows), key=str.lower)
-    new, exists = companies("found"), companies("contact_exists")
-    gate2 = contacts("copy_ready")
+    new, exists = at.records("companies", "found"), at.records("companies", "contact_exists")
+    gate2 = at.records("contacts", "copy_ready")
     owner_of, owners = tagged_company_of(hs, [str(c["id"]) for c in gate2], ["name", "country"]) if gate2 else ({}, {})
     gate2_names = sorted({f"{(owners[k].get('properties') or {}).get('name') or 'A company'} "
                           f"({uniform((owners[k].get('properties') or {}).get('country')) or 'country not known'})"
                           for k in set(owner_of.values()) if k in owners}, key=str.lower)
     unknown = set(unknown_names)
-    gate1 = [c for c in companies("approved") if ((c.get("properties") or {}).get("name") or "") not in unknown]
+    gate1 = [c for c in at.records("companies", "approved") if ((c.get("properties") or {}).get("name") or "") not in unknown]
+    ids = ({str(c["id"]) for c in new + exists} | {str(k) for k in owner_of.values()} | {str(i) for i in unknown_ids})
     return {"input": [("New companies waiting for your GATE1 approval", len(new), names(new)),
                       ("Introductions waiting for your GATE2 approval", len(gate2), gate2_names),
                       ("Contacts not yet tagged AUTO-OUTREACH", len(exists), names(exists)),
                       ("Companies whose channel is not known", len(unknown), sorted(unknown, key=str.lower))],
             "auto": [("Approved, Apollo search at the next button 3 run", len(gate1)),
-                     ("People found, introduction lines being written", len(contacts("found"))),
-                     ("Introductions approved, waiting their turn to send", len(contacts("approved")))]}
+                     ("People found, introduction lines being written", len(at.records("contacts", "found"))),
+                     ("Introductions approved, waiting their turn to send", len(at.records("contacts", "approved")))],
+            "ids": ids}
 
 
-def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=None, statuses=None, emails_api=None):
+def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=None, statuses=None, emails_api=None,
+                now=None):
     """Everything the "Key numbers" section shows (agreed 20 Nov 2026, Ariel), for the UK day `date`."""
     before = (dt.date.fromisoformat(date) - dt.timedelta(days=1)).isoformat()
     month_first = date[:8] + "01"
     statuses = statuses or LeadStatus(hs)
+    # 20 Nov 2026 (Ariel): one cut-off for the whole email, midnight UK at the end of the day reported
+    at = AtCutoff(hs, statuses, window(date)[1], now)
+    unknown = unknown_channel_companies(hs, statuses, at=at)
     data = daily_log.load() if log_data is None else log_data
     month_days = list(_days(month_first, date))
     sent = sending(instantly, settings, sorted(set(month_days) | {before}))
@@ -300,15 +355,14 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "auto": (len(today["auto"]), len(previous["auto"]), month["auto"]),
         "accounts": health(instantly, settings, accounts_api),
         "follow": follow, "negative": negative,
-        "gate1": hs.tagged_count("companies", [statuses.filter("companies", "found")])
-        if statuses.has("companies", "found") else 0,
-        "gate2": hs.tagged_count("contacts", [statuses.filter("contacts", "copy_ready")])
-        if statuses.has("contacts", "copy_ready") else 0,
+        "gate1": len(at.records("companies", "found")),
+        "gate2": len(at.records("contacts", "copy_ready")),
         "nowhere": nobody_found(hs, statuses, date),
         "bounces": bounce_detail(hs, instantly, settings, today["bounced"], date, emails_api),
-        "unknown_channel": unknown_channels(hs, statuses),
+        "unknown_channel": sorted(set(unknown.values()), key=str.lower),
+        "at_midnight": not at.live,
     }
-    out["initial"] = initial_stages(hs, statuses, out["unknown_channel"])
+    out["initial"] = initial_stages(hs, statuses, out["unknown_channel"], at, unknown)
     return out
 
 
@@ -442,16 +496,18 @@ def key_rows(k):
               ("Positive replies to follow up", names(k["follow"])),
               ("Negative replies to convert into possible leads", names(k["negative"])),
               ("Waiting for you", waiting)]
-    if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, right now
+    if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, at midnight UK
         need = sum(n for _, n, _ in k["initial"]["input"])
         auto = sum(n for _, n in k["initial"]["auto"])
-        rows = [("row", "Your input needed", _n(need), "", None, None, "")]
+        rows = [("line", k["check"], BAD)] if k.get("check") else []
+        rows.append(("row", "Your input needed", _n(need), "", None, None, ""))
         for label, n, who in k["initial"]["input"]:
             rows.append(("row", "  " + label, _n(n), "", None, None, ""))
             rows += [("name", w) for w in who]
         rows.append(("row", "No input needed (the automation is working on these)", _n(auto), "", None, None, ""))
         rows += [("row", "  " + label, _n(n), "", None, None, "") for label, n in k["initial"]["auto"]]
-        blocks.append(("Initial stages - your input needed or not (right now)", rows))
+        moment = "at midnight UK" if k.get("at_midnight", True) else "right now"
+        blocks.append((f"Initial stages - your input needed or not ({moment})", rows))
     return f"Key numbers - {_long_date(k['date'])}", blocks
 
 
@@ -614,6 +670,20 @@ def compose(date, charts, key, problem=None, key_problem=None):
     return subject, "\n".join(text).strip() + "\n", "".join(parts) + "</div>", images
 
 
+def sync_check(day_spec, key):
+    """20 Nov 2026 (Ariel): every company under "Your input needed" in the day chart must be listed under Your input
+    needed in Key numbers (both are at midnight UK). A line naming any that are not, or None when they match."""
+    ids = (key.get("initial") or {}).get("ids")
+    if ids is None:
+        return None
+    missing = {cid: name for cid, name in (day_spec.get("input") or {}).items() if str(cid) not in ids}
+    if not missing:
+        return None
+    n = len(missing)
+    return (f"Check: the day chart shows {n} {_plural(n, 'company', 'companies')} needing your input that this list "
+            f"does not: {', '.join(sorted(missing.values(), key=str.lower))}")
+
+
 def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=False, log=print, smtp=None,
         log_data=None, charts=True, draw=None, emails_api=None, to=None, subject_prefix=""):
     """to: other recipients (20 Nov 2026: the Sankey button's Sample box sends this email to Amodh only, with
@@ -639,6 +709,10 @@ def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=F
             except (HubSpotError, InstantlyError, KeyError, OSError) as err:
                 key_problem = str(err)[:200]
                 log(f"The key numbers could not be read: {err}")
+            if key and shown:
+                key["check"] = sync_check(shown[0][0], key)
+                if key["check"]:
+                    log(key["check"])
     subject, text, body, images = compose(date, shown, key, problem, key_problem)
     subject = subject_prefix + subject
     step_summary(f"## Daily summary email\n\n**Subject:** {subject}\n\n```\n{text}```\n")
