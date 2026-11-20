@@ -185,9 +185,12 @@ TARGETED_WORDS = ("distributor", "wholesaler", "importer", "supermarket")
 
 
 def targeted(props, notes=None, words=None):
-    """True when the company's channel (channel_of) is one we target. A company whose channel is not known is not."""
+    """True when the company's channel (channel_of) is one we target, False when it is another one, None when the
+    company's channel is not known (a person decides)."""
     channel = channel_of(props, notes).lower()
-    return bool(channel) and any(w in channel for w in (words or TARGETED_WORDS))
+    if not channel or channel in ("other", "grocery retail"):  # HubSpot's broad Industry Types say too little
+        return None
+    return any(w in channel for w in (words or TARGETED_WORDS))
 
 
 def market_matches(rule_market, market):

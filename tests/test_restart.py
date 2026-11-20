@@ -324,18 +324,28 @@ def test_a_company_with_every_round_used_is_never_restarted(switched_on):
     assert any("it has had all 3 rounds" in line for line in shown)
 
 
-@pytest.mark.parametrize("industry", ["Specialist retail", ""])
-def test_only_the_channels_we_target_are_restarted_automatically(switched_on, industry):
-    """20 Nov 2026 (Ariel): a company from a channel we no longer target (or whose channel is not known) is never
-    restarted; it is set to "Unqualified: Channel no longer targeted" instead."""
+def test_only_the_channels_we_target_are_restarted_automatically(switched_on):
+    """20 Nov 2026 (Ariel): a company from a channel we no longer target is never restarted; it is set to
+    "Unqualified: Channel no longer targeted" instead."""
     hs, apollo = crm(), apollo_with_three()
     shop, _ = waiting_company(hs, 10)
-    hs.records["companies"][shop]["industry_type"] = industry
+    hs.records["companies"][shop]["industry_type"] = "Specialist retail"
     shown = []
     find_contacts.run("test", settings(), hs, apollo, log=shown.append)
     assert hs.records["companies"][shop][LS] == "Unqualified: Channel no longer targeted"
     assert apollo.revealed == [] and by_email(hs, "p1@harris.example")[LS] != "APPROVED_TO_SEND"
     assert any("not one we target" in line for line in shown)
+
+
+@pytest.mark.parametrize("industry", ["", "Other", "Grocery Retail"])
+def test_a_company_whose_channel_is_not_known_waits_for_a_person(switched_on, industry):
+    hs, apollo = crm(), apollo_with_three()
+    cid, _ = waiting_company(hs, 10)
+    hs.records["companies"][cid]["industry_type"] = industry
+    shown = []
+    find_contacts.run("test", settings(), hs, apollo, log=shown.append)
+    assert hs.records["companies"][cid][LS] == RESTART_LABEL and apollo.revealed == []
+    assert any("channel is not known" in line and "Harris Farm" in line for line in shown)
 
 
 def test_the_targeted_channels():
@@ -345,8 +355,9 @@ def test_the_targeted_channels():
     assert targeted({"domain": "a.example"}, notes) and targeted({"domain": "c.example"}, notes)
     assert not targeted({"domain": "b.example"}, notes) and not targeted({"domain": "d.example"}, notes)
     assert targeted({"domain": "x.example", "industry_type": "Distributor Wholesaler"}, notes)
-    assert not targeted({"domain": "x.example", "industry_type": "Grocery Retail"}, notes)
-    assert not targeted({"domain": "x.example"}, notes)  # not known: not targeted
+    assert not targeted({"domain": "x.example", "industry_type": "Specialist retail"}, notes)
+    assert targeted({"domain": "x.example", "industry_type": "Grocery Retail"}, notes) is None  # not known
+    assert targeted({"domain": "x.example"}, notes) is None
 
 
 def test_a_company_where_someone_replied_is_not_restarted_automatically(switched_on):
