@@ -151,10 +151,16 @@
   "933351886022": {
    "company": "421737574618",
    "day": "2026-11-21",
-   "from": "918291613901"
+   "from": "918291613901",
+   "sent": "2026-11-21"
   }
  },
  "resumed": {
+  "421737574618": {
+   "at": "2026-11-20T22:35:21+00:00",
+   "day": "2026-11-21",
+   "why": "the person who replied is Rejected/Redirected and nobody else there is in conversation"
+  },
   "421748380859": {
    "day": "2026-11-14",
    "why": "the reply was an out-of-office after all"

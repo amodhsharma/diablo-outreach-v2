@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-20 19:41 UTC
+Written 2026-11-20 22:39 UTC
 
 ```
-996 leads in the Diablo campaigns in Instantly
+997 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -20,17 +20,14 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Wrote 2 notes on contacts' timelines (email sent, bounced or replied)
-Bounce notices read from the BOUNCED label: 59 for 47 address(es)
-The email to a Company inbox (from website) bounced for a temporary reason (451 4.4.4 Mail received as unauthenticated, incoming to a recipient domain configured in a hosted tenant which has no ma); they stay in the loop and their reminder is the retry
-Timstock Trading House: its company inbox bounced and nobody is left; the company is now "Unqualified: Company inbox bounced"
-Email threads: 4 emails since the last run
-Brentcorp Distributors: no reply to the introduction; the company is now "No response: can restart"
-Mcdonalds Wholesalers: no reply to the introduction; the company is now "No response: can restart"
-Mayers Fine Food: the introduction goes to Company inbox (from website)
-Ferndale Distributors: no reply to the introduction; the company is now "No response: can restart"
-Email threads: 23 companies read in full, 94 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 1 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 3 finished with no reply (now Unqualified: Contacted, but no response)
-J&K Vending: the company is Unqualified, so 1 contact(s) there are now "Unqualified company"
+Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
+Charmlaw Distributions: the person who replied is Rejected/Redirected and nobody else there is in conversation, so the company is back on Attempted to Contact
+Charmlaw Distributions: the Referred by colleague got their first email, a forward of the reply that named them, naming the colleague who replied
+Bounce notices read from the BOUNCED label: 60 for 48 address(es)
+Email threads: 3 emails since the last run
+Prime Products Wholesalers Pty. Ltd.: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+The Distributors Mackay: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Email threads: 17 companies read in full, 98 with no change since their last reading
+Loop: 0 forwards, 2 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
