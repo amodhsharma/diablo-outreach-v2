@@ -311,7 +311,10 @@ def test_a_chart_that_cannot_be_drawn_is_written_out_with_its_arrows(monkeypatch
     assert "Monday 26 October 2026: auto outreach companies assessed today" in lines
     assert "Companies assessed (all AUTO-OUTREACH): 4" in lines and "  By country: Australia 2, Other 2" in lines
     assert "    Unqualified: 2 (50%) ▲ was 0%" in lines and "      Nobody usable found: 1 (50%) ▲ was 0%" in lines
-    assert "    Initial stages, being prepared and/or might need human input: 2 (50%) ▼ was 100%" in lines  # the day chart
+    assert "    Initial stages: 2 (50%) ▼ was 100%" in lines  # the day chart
+    # Kadac is New (waits for GATE1 approval) and Approved Co has an introduction waiting for GATE2 approval
+    assert "      Your input needed: 2 (100%) ▲ was 0%" in lines
+    assert not any(line.startswith("No replies received") for line in lines[:12])  # FELFEL replied that day
     html_body = smtp.sent[0].get_body(("html",)).get_content()
     assert "#C0392B;font-weight:bold\">▲" in html_body  # more Unqualified: a red arrow, as on the chart
     assert "Key numbers - Monday 26 October 2026" in text
@@ -383,3 +386,20 @@ def test_companies_whose_channel_is_not_known_are_named_under_waiting_for_you():
     lines = [" ".join(line.split()) for line in text.splitlines()]
     at = next(i for i, line in enumerate(lines) if line.startswith("Companies whose channel is not known"))
     assert "Mystery Co" in lines[at + 1:]
+
+
+def test_initial_stages_section_says_what_needs_input_and_what_does_not():
+    """20 Nov 2026 (Ariel): under Key numbers, the companies not yet emailed, right now, by whether input is needed."""
+    hs, instantly, accounts, log = _world()
+    text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
+                            preview=True, log=quiet, log_data=log)["text"]
+    lines = [" ".join(line.split()) for line in text.splitlines()]
+    at = lines.index("Initial stages - your input needed or not (right now)")
+    block = lines[at + 1:]
+    assert block[0] == "Your input needed 5"  # 4 new companies and 1 introduction
+    assert "New companies waiting for your GATE1 approval 4" in block
+    assert "Introductions waiting for your GATE2 approval 1" in block
+    assert "Approved Co (Australia)" in block
+    assert "No input needed (the automation is working on these) 3" in block
+    assert "Approved, Apollo search at the next button 3 run 2" in block  # Approved Co and Inbox Co on GATE1
+    assert "People found, introduction lines being written 1" in block

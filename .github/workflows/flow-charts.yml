@@ -3,10 +3,11 @@ name: 'R Sankey Chart to Amodh'
 # Agreed 16 Nov 2026 (Ariel); Ariel's design of 20 Nov 2026. Three Sankey charts of how AUTO-OUTREACH companies
 # moved through their company Lead Statuses: that day, the week so far and the month so far, by country. A new email to ALERT_TO only (Amodh), from the
 # same mailbox as the daily summary, which is not changed. Nothing to press: cron-job.org starts it every
-# night at 23:59 India time (docs/outside_timer.md). Press it yourself to send the charts now: leave
+# night at 23:59 India time until 20 Nov 2026 (the charts now go in the 10 AM UK daily summary). Press it yourself to send the charts now: leave
 # "Day" empty for today, or type a date (YYYY-MM-DD) to chart that day and its month up to it. Tick
 # "Preview only" to draw the charts without sending them (they are saved on the run's page). Tick "Sample"
-# to send them at once with the data up to that moment, marked as a sample, to Amodh only (20 Nov 2026).
+# to send Amodh only the whole daily summary email (charts and Key numbers) for Day, a UK date (empty: today so far),
+# marked SAMPLE (20 Nov 2026).
 # HubSpot is only read; nothing is changed (outreach/flow_charts.py, drawn by outreach/charts/render2.js).
 on:
   workflow_dispatch:
@@ -20,7 +21,7 @@ on:
         type: boolean
         default: false
       sample:
-        description: "Sample: send the charts now with the latest data, to Amodh only (marked as a sample)"
+        description: "Sample: send the whole daily summary email (charts and Key numbers) for Day (UK date; empty = today so far) to Amodh only"
         type: boolean
         default: false
 
@@ -37,6 +38,9 @@ jobs:
       ALERT_TO: ${{ secrets.ALERT_TO }}
       DAILY_REPORT_TO: ${{ secrets.DAILY_REPORT_TO }}
       DAILY_REPORT_APP_PASSWORD: ${{ secrets.DAILY_REPORT_APP_PASSWORD }}
+      INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}  # 20 Nov 2026: the sample is the whole daily email
+      INSTANTLY_ACCOUNTS_KEY: ${{ secrets.INSTANTLY_ACCOUNTS_KEY }}
+      INSTANTLY_EMAILS_KEY: ${{ secrets.INSTANTLY_EMAILS_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6

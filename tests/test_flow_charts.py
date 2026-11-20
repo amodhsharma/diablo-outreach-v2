@@ -60,14 +60,14 @@ def test_each_company_is_counted_once_at_where_it_ended_the_day():
         g=("Chile", [("Located", old), ("Attempted", at(9, dt.date(2026, 11, 17)))]),  # tomorrow does not count
     )
     moved = fc.companies_in(statuses(), h, DAY, DAY)
-    assert paths(moved) == sorted([("Serbia", ("N", "n2")), ("Serbia", ("U", "r4")), ("Peru", ("I",)),
+    assert paths(moved) == sorted([("Serbia", ("N", "n2")), ("Serbia", ("U", "r4")), ("Peru", ("I", "i1")),
                                    ("Other", ("R", "y")), ("Chile", ("R", "y"))])
 
 
 @pytest.mark.parametrize("status, path", [
     ("Rejected", ("U", "r1")), ("Paused", ("U", "r6")), ("Missing", ("U", "r2")), ("Apollo", ("U", "r3")),
-    ("No response", ("U", "r4")), ("Said no", ("R", "g")), ("New", ("I",)), ("GATE1", ("I",)), ("Exists", ("I",)),
-    ("Located", ("I",)), ("Attempted", ("N", "n2")), ("In Progress", ("R", "y")), ("Sales", ("R", "y")),
+    ("No response", ("U", "r4")), ("Said no", ("R", "g")), ("New", ("I", "i1")), ("GATE1", ("I", "i2")), ("Exists", ("I", "i1")),
+    ("Located", ("I", "i2")), ("Attempted", ("N", "n2")), ("In Progress", ("R", "y")), ("Sales", ("R", "y")),
     ("Emailed", ("R", "y")),
 ])
 def test_every_end_status_is_placed_as_agreed(status, path):
@@ -220,7 +220,7 @@ def test_an_initial_stages_section_only_when_there_is_one():
     assert "I" not in month["nodes"]
     h = history(x=("Serbia", [("Attempted", at(10))]), y=("Serbia", [("GATE1", at(11))]))
     _, _, month = fc.specs(DAY, h, statuses())
-    assert month["nodes"]["I"][0] == "Initial stages, being prepared\nand/or might need human input" and ["c0", "I", 1] in month["links"]
+    assert month["nodes"]["I"][0] == "Initial stages" and ["c0", "I", 1] in month["links"]
 
 
 def test_the_same_days_last_month_stop_at_its_last_day():
@@ -313,3 +313,26 @@ def test_a_sample_goes_now_to_alert_to_only_marked_as_a_sample(monkeypatch, tmp_
     assert msg["To"] == "amodh@example.com"
     assert msg["Subject"] == "SAMPLE: Outreach flow charts - 16 November 2026"
     assert "data up to 15:00 India time on Monday 16 November 2026" in msg.get_body(("plain",)).get_content()
+
+
+def test_no_replies_line_on_each_chart_with_no_real_replies():
+    """20 Nov 2026 (Ariel): a line under the title when nobody really replied in that chart's period."""
+    h = history(x=("Serbia", [("Attempted", at(10))]))
+    day_, week, month = fc.specs(DAY, h, statuses(), {"log_data": {}})
+    assert day_["flag"] == "No replies received on Monday 16 November"
+    assert week["flag"].startswith("No replies received this week so far")
+    assert month["flag"] == "No replies received in November so far"
+    replied = {"days": {"2026-11-10": {"positive": ["1"]}}}  # earlier in the month, not today or this week
+    day_, week, month = fc.specs(DAY, h, statuses(), {"log_data": replied})
+    assert "flag" in day_ and "flag" not in month
+    auto_only = {"days": {DAY.isoformat(): {"auto": ["1"], "opted_out": ["2"]}}}  # not real replies
+    day_, _, _ = fc.specs(DAY, h, statuses(), {"log_data": auto_only})
+    assert day_["flag"] == "No replies received on Monday 16 November"
+
+
+def test_initial_stages_split_by_whether_input_is_needed_on_the_day_chart_too():
+    h = history(a=("Serbia", [("New", at(10))]), b=("Serbia", [("GATE1", at(11))]))
+    day_, _, _ = fc.specs(DAY, h, statuses(), {"input": {}})
+    links = {(s, t): n for s, t, n in day_["links"]}
+    assert links[("I", "i1")] == 1 and links[("I", "i2")] == 1
+    assert day_["nodes"]["i1"][0] == "Your input needed" and day_["nodes"]["i2"][0] == "No input needed"

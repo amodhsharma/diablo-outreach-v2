@@ -501,3 +501,61 @@ def test_a_restarted_person_is_not_closed_by_their_october_reminder(switched_on,
     restart.save({"companies": {}, "migrated": "2026-11-19"})  # without the round, the old reminder would close them
     sync.run("test", s, hs, instantly, log=quiet, emails_api=emails)
     assert hs.records["contacts"][p1][LS] != "ATTEMPTED_TO_CONTACT"
+
+
+# ---- 20 Nov 2026 (Ariel): a restart where nobody can be emailed is closed at once, never left on GATE1 -----------
+
+INBOX_ONLY = (("inbox", INBOX_TITLE, "UNQUALIFIED_INBOX_BOUNCED", 1),)
+
+
+@pytest.mark.parametrize("people, stage", [
+    ((("p1", "Owner", "UNQUALIFIED_BOUNCED_OTHER", 1), ("p2", "Buyer", "UNQUALIFIED_CONTACT_CORRUPT", 2)),
+     "bounced_other"),                                                               # 1. their mail system blocks us
+    (INBOX_ONLY, "invalid_inbox"),                                                    # 2. only an inbox, and it bounced
+    ((("p1", "Owner", "UNQUALIFIED_CONTACT_CORRUPT", 1), ("p2", "Buyer", "UNQUALIFIED_CONTACT_CORRUPT", 2)),
+     "personal_bounced"),                                                             # 3. every address bounced
+    ((("p1", "Owner", "UNQUALIFIED", 1), ("p2", "Buyer", "UNQUALIFIED", 2)),
+     "no_response"),                                                                  # 4. rejected at GATE2
+])
+def test_a_restart_with_nobody_to_email_is_closed_with_the_matching_status(switched_on, people, stage):
+    hs, apollo = crm(), FakeApollo({}, {})
+    cid, _ = closed_company(hs, 10, people=people)
+    shown = []
+    find_contacts.run("test", settings(), hs, apollo, log=shown.append)
+    company = hs.records["companies"][cid]
+    assert LeadStatus(hs).stage("companies", company[LS]) == stage
+    if stage == "no_response":
+        assert company[LS] == OLD_C  # the final status, never "can restart" again
+    assert company.get(ROUND) in (None, "", "1")  # no round was started
+    assert any("Harris Farm: not restarted" in line and "never emailed again" in line for line in shown)
+
+
+def test_apollo_finds_people_without_an_address_counts_as_nobody(switched_on):
+    hs = crm()
+    apollo = FakeApollo({"harris.example": [{"id": "n1", "title": "Managing Director", "seniority": "director",
+                                             "first_name": "N", "last_name": "New"}]}, {})  # no email for them
+    cid, _ = closed_company(hs, 10, people=(("p1", "Owner", "UNQUALIFIED_CONTACT_CORRUPT", 1),))
+    find_contacts.run("test", settings(), hs, apollo, log=quiet)
+    assert LeadStatus(hs).stage("companies", hs.records["companies"][cid][LS]) == "personal_bounced"
+
+
+def test_when_apollo_fails_the_company_waits_and_is_not_closed(switched_on):
+    hs, apollo = crm(), FakeApollo({}, {})
+
+    def down(*a, **k):
+        raise RuntimeError("Apollo is down")
+    apollo.search_people = down
+    cid, _ = closed_company(hs, 10, people=(("p1", "Owner", "UNQUALIFIED_BOUNCED_OTHER", 1),))
+    try:
+        find_contacts.run("test", settings(), hs, apollo, log=quiet)
+    except Exception:
+        pass
+    assert hs.records["companies"][cid][LS] == "GATE1: Approved for outreach"  # tried again at the next run
+
+
+def test_a_working_company_inbox_alone_still_restarts(switched_on):
+    hs, apollo = crm(), FakeApollo({}, {})
+    cid, ids = closed_company(hs, 10, people=(("inbox", INBOX_TITLE, NEW_P, 1),))
+    find_contacts.run("test", settings(), hs, apollo, log=quiet)
+    assert hs.records["companies"][cid][LS] == "Contact located. Queued for processing"
+    assert hs.records["contacts"][ids["inbox"]][LS] == "APPROVED_TO_SEND"

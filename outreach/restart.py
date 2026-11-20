@@ -25,6 +25,11 @@ config/settings.yaml). No new button: button 3, button 4 and the daily email do 
     Automatic    20 Nov 2026 (Ariel, restart.automatic): button 3 sets such a company to GATE1 by itself once its
                  wait is over (auto_queue) and starts it in the same run, exactly as above. Fresh companies go
                  first: in button 3 they get the Apollo credits first, in button 4 the day's room first.
+    Dead end     20 Nov 2026 (Ariel): a restart where nobody can be emailed and Apollo finds nobody new is closed at
+                 once, never left on GATE1: "Unqualified: Bounced, other reason" when their mail system blocks us,
+                 "Unqualified: Personal inbox bounced" when every address bounced, "Unqualified: Company inbox
+                 bounced" when only a dead company inbox is left, otherwise the final "Unqualified: Contacted, but no
+                 response". When Apollo cannot be reached, nothing is closed: it is tried again at the next run.
     Channels     20 Nov 2026 (Ariel): only companies from a channel we target (common.targeted: distributors,
                  wholesalers, importers, supermarket chains) are restarted automatically. Any other company on
                  "No response: can restart" is set to "Unqualified: Channel no longer targeted" instead, as on
@@ -319,6 +324,14 @@ def finish(hs, statuses, company, people, created_ids, log=print, now=None, data
         if LEAD_STATUS in change and change[LEAD_STATUS] == statuses.props("contacts", "approved")[LEAD_STATUS]:
             approved.append(str(c["id"]))
         updates.append((c["id"], change))
+    if not ordered:  # 20 Nov 2026 (Ariel): nobody there can be emailed and Apollo found nobody new: closed at once
+        stage, why = dead_end(statuses, people)
+        change = (statuses.props("companies", stage) if stage != "no_response" and statuses.has("companies", stage)
+                  else statuses.final("companies"))
+        hs.update_tagged("companies", [(company["id"], change)])
+        log(f'{name}: not restarted: {why} and Apollo found nobody new, so it is now "{change[LEAD_STATUS]}" '
+            "and is never emailed again")
+        return []
     new_round = round_of(props) + 1
     hs.update_tagged("contacts", updates)
     company_change = {ROUND: str(new_round)}
@@ -327,13 +340,27 @@ def finish(hs, statuses, company, people, created_ids, log=print, now=None, data
     hs.update_tagged("companies", [(company["id"], company_change)])
     data.setdefault("companies", {})[cid] = {"round": new_round, "started": now.isoformat(timespec="seconds"),
                                              "straight": writing}
-    if ordered:
-        log(f"{name}: restarted (round {new_round}): {len(new_people)} new people first, then {len(old_people)} "
-            f"earlier people" + (f" and {len(inboxes)} company inbox(es)" if inboxes else "")
-            + f"; {len(approved)} on GATE2: Approved to send")
-    else:
-        log(f"{name}: round {new_round} could not start: nobody there can be emailed and Apollo found nobody new")
+    log(f"{name}: restarted (round {new_round}): {len(new_people)} new people first, then {len(old_people)} "
+        f"earlier people" + (f" and {len(inboxes)} company inbox(es)" if inboxes else "")
+        + f"; {len(approved)} on GATE2: Approved to send")
     return approved
+
+
+def dead_end(statuses, people):
+    """20 Nov 2026 (Ariel): the company status for a restart where nobody can be emailed, from what happened to its
+    people: (stage, why). A block by their mail system wins, then dead personal addresses, then a dead company
+    inbox; anything else (rejected at GATE2, redirected, nobody at all) is the final no-response status."""
+    from .next_in_line import is_company_inbox
+    stages = [(statuses.of("contacts", c), is_company_inbox(c)) for c in people]
+    if any(s == "bounced_other" for s, _ in stages):
+        return "bounced_other", "their mail system blocks us"
+    named = [s for s, inbox in stages if not inbox]
+    inboxes = [s for s, inbox in stages if inbox]
+    if named and all(s == "corrupt" for s in named):
+        return "personal_bounced", "every address there bounced"
+    if not named and inboxes and all(s in ("inbox_bounced", "corrupt") for s in inboxes):
+        return "invalid_inbox", "its company inbox bounced"
+    return "no_response", "nobody is left to email"
 
 
 def straight_to_gate2(contact_id, data=None):

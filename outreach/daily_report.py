@@ -242,6 +242,40 @@ def unknown_channels(hs, statuses, notes=None):
     return sorted(out, key=str.lower)
 
 
+def initial_stages(hs, statuses, unknown_names):
+    """20 Nov 2026 (Ariel): the companies not yet emailed, right now, split by whether Ariel's input is needed.
+    {"input": [(label, count, [names])], "auto": [(label, count)]}."""
+    from .countries import uniform
+
+    def companies(stage):
+        if not statuses.has("companies", stage):
+            return []
+        return hs.tagged_search("companies", [statuses.filter("companies", stage)], ["name"], max_results=5000)
+
+    def contacts(stage):
+        if not statuses.has("contacts", stage):
+            return []
+        return hs.tagged_search("contacts", [statuses.filter("contacts", stage)], ["email"], max_results=5000)
+
+    def names(rows):
+        return sorted(((r.get("properties") or {}).get("name") or "A company" for r in rows), key=str.lower)
+    new, exists = companies("found"), companies("contact_exists")
+    gate2 = contacts("copy_ready")
+    owner_of, owners = tagged_company_of(hs, [str(c["id"]) for c in gate2], ["name", "country"]) if gate2 else ({}, {})
+    gate2_names = sorted({f"{(owners[k].get('properties') or {}).get('name') or 'A company'} "
+                          f"({uniform((owners[k].get('properties') or {}).get('country')) or 'country not known'})"
+                          for k in set(owner_of.values()) if k in owners}, key=str.lower)
+    unknown = set(unknown_names)
+    gate1 = [c for c in companies("approved") if ((c.get("properties") or {}).get("name") or "") not in unknown]
+    return {"input": [("New companies waiting for your GATE1 approval", len(new), names(new)),
+                      ("Introductions waiting for your GATE2 approval", len(gate2), gate2_names),
+                      ("Contacts not yet tagged AUTO-OUTREACH", len(exists), names(exists)),
+                      ("Companies whose channel is not known", len(unknown), sorted(unknown, key=str.lower))],
+            "auto": [("Approved, Apollo search at the next button 3 run", len(gate1)),
+                     ("People found, introduction lines being written", len(contacts("found"))),
+                     ("Introductions approved, waiting their turn to send", len(contacts("approved")))]}
+
+
 def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=None, statuses=None, emails_api=None):
     """Everything the "Key numbers" section shows (agreed 20 Nov 2026, Ariel), for the UK day `date`."""
     before = (dt.date.fromisoformat(date) - dt.timedelta(days=1)).isoformat()
@@ -254,7 +288,7 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
     today, previous = daily_log.day(data, date, uk=True), daily_log.day(data, before, uk=True)
     reminders_known = [sent[d]["reminders"] for d in month_days if sent[d]["reminders"] is not None]
     follow, negative = replies(hs, today, date)
-    return {
+    out = {
         "date": date, "before": before,
         "intros": (sent[date]["intros"], sent[before]["intros"], sum(sent[d]["intros"] for d in month_days)),
         "reminders": (sent[date]["reminders"], sent[before]["reminders"], sum(reminders_known) if reminders_known else None),
@@ -274,6 +308,8 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "bounces": bounce_detail(hs, instantly, settings, today["bounced"], date, emails_api),
         "unknown_channel": unknown_channels(hs, statuses),
     }
+    out["initial"] = initial_stages(hs, statuses, out["unknown_channel"])
+    return out
 
 
 def health(instantly, settings, accounts_api=None):
@@ -402,11 +438,21 @@ def key_rows(k):
     if k.get("unknown_channel"):  # 20 Nov 2026 (Ariel, HARD RULE): nobody there is emailed until it is set
         waiting += [("row", "Companies whose channel is not known (nobody is emailed until it is set)",
                      _n(len(k["unknown_channel"])), "", None, None, "")] + [("name", n) for n in k["unknown_channel"]]
-    return f"Key numbers - {_long_date(k['date'])}", [
-        ("Sending", sending_), ("Delivery", delivery), ("Sending accounts", accounts),
-        ("Positive replies to follow up", names(k["follow"])),
-        ("Negative replies to convert into possible leads", names(k["negative"])),
-        ("Waiting for you", waiting)]
+    blocks = [("Sending", sending_), ("Delivery", delivery), ("Sending accounts", accounts),
+              ("Positive replies to follow up", names(k["follow"])),
+              ("Negative replies to convert into possible leads", names(k["negative"])),
+              ("Waiting for you", waiting)]
+    if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, right now
+        need = sum(n for _, n, _ in k["initial"]["input"])
+        auto = sum(n for _, n in k["initial"]["auto"])
+        rows = [("row", "Your input needed", _n(need), "", None, None, "")]
+        for label, n, who in k["initial"]["input"]:
+            rows.append(("row", "  " + label, _n(n), "", None, None, ""))
+            rows += [("name", w) for w in who]
+        rows.append(("row", "No input needed (the automation is working on these)", _n(auto), "", None, None, ""))
+        rows += [("row", "  " + label, _n(n), "", None, None, "") for label, n in k["initial"]["auto"]]
+        blocks.append(("Initial stages - your input needed or not (right now)", rows))
+    return f"Key numbers - {_long_date(k['date'])}", blocks
 
 
 def key_text(k):
@@ -441,7 +487,8 @@ def key_html(k):
                 _, label, day, before, symbol, good, month = item
                 colour = SAME if good is None else (GOOD if good else BAD)
                 arrow = f' <span style="color:{colour};font-weight:bold">{symbol}</span>' if symbol else ""
-                parts.append(f'<tr><td style="padding:2px 10px 2px 14px">{e(label)}</td><td {cell}><b>{e(day)}</b></td>'
+                indent = 28 if label.startswith("  ") else 14
+                parts.append(f'<tr><td style="padding:2px 10px 2px {indent}px">{e(label.strip())}</td><td {cell}><b>{e(day)}</b></td>'
                              f"<td {cell}>{e(before)}{arrow}</td><td {cell}>{e(month)}</td></tr>")
             elif item[0] == "line":
                 dot = f'<span style="color:{item[2]}">&#9679;</span> ' if item[2] in (GOOD, BAD) else ""
@@ -457,7 +504,8 @@ def chart_html(spec):
     from .flow_charts import chart_lines
     e = html.escape
     parts = [f'<p style="margin:18px 0 2px"><b>{e(spec.get("title", ""))}</b><br>'
-             f'<span style="color:{SAME}">{e(spec.get("subtitle", ""))}</span></p><div>']
+             f'<span style="color:{SAME}">{e(spec.get("subtitle", ""))}</span>'
+             + (f'<br><span style="color:#854F0B">{e(spec["flag"])}</span>' if spec.get("flag") else "") + '</p><div>']
     for r in chart_lines(spec):
         pad = 18 * r["level"]
         text = e(r["label"])
@@ -501,7 +549,7 @@ def send_mail(subject, text, html_body, cfg, to, password, smtp=None, images=())
         smtp.send_message(msg)
 
 
-def charts_for(hs, settings, date, log=print, draw=None, out_dir="flow_charts"):
+def charts_for(hs, settings, date, log=print, draw=None, out_dir="flow_charts", log_data=None):
     """20 Nov 2026 (Ariel): the three Sankey charts (the UK day, the week so far, the month so far) for this email:
     [(spec, content id or None, png or None, state)], state "drawn", "empty" (no company changed status) or "text"
     (it could not be drawn, so the email writes it out). Raises when the figures cannot be read at all."""
@@ -516,7 +564,8 @@ def charts_for(hs, settings, date, log=print, draw=None, out_dir="flow_charts"):
         except Exception as err:  # never stops the email: the chart is written out instead
             failed.append(str(err)[:200])
             return None
-    drawn, specs = flow_charts.draw_all(hs, settings, dt.date.fromisoformat(date), out_dir, log, draw=safe, zone=DAY_ZONE)
+    drawn, specs = flow_charts.draw_all(hs, settings, dt.date.fromisoformat(date), out_dir, log, draw=safe, zone=DAY_ZONE,
+                                        log_data=log_data)
     if failed:
         log(f"The Sankey charts could not be drawn, so the email writes them out: {failed[0]}")
     out = []
@@ -566,7 +615,9 @@ def compose(date, charts, key, problem=None, key_problem=None):
 
 
 def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=False, log=print, smtp=None,
-        log_data=None, charts=True, draw=None, emails_api=None):
+        log_data=None, charts=True, draw=None, emails_api=None, to=None, subject_prefix=""):
+    """to: other recipients (20 Nov 2026: the Sankey button's Sample box sends this email to Amodh only, with
+    subject_prefix "SAMPLE: ")."""
     cfg = dict(DEFAULTS, **(settings.get("daily_report") or {}))
     date = date or yesterday()
     problem = key_problem = None
@@ -578,7 +629,7 @@ def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=F
     if problem is None:
         if charts:
             try:
-                shown = charts_for(hs, settings, date, log, draw)
+                shown = charts_for(hs, settings, date, log, draw, log_data=log_data)
             except Exception as err:
                 problem = f"the figures could not be read from HubSpot ({str(err)[:200]})"
                 log(f"The Sankey charts could not be produced: {err}")
@@ -589,12 +640,13 @@ def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=F
                 key_problem = str(err)[:200]
                 log(f"The key numbers could not be read: {err}")
     subject, text, body, images = compose(date, shown, key, problem, key_problem)
+    subject = subject_prefix + subject
     step_summary(f"## Daily summary email\n\n**Subject:** {subject}\n\n```\n{text}```\n")
     log(f"Subject: {subject}\n\n{text}")
     if preview:
         log("Preview only: nothing was sent.")
         return {"subject": subject, "text": text, "html": body, "sent": False}
-    to = recipients()
+    to = to if to is not None else recipients()
     password = os.environ.get("DAILY_REPORT_APP_PASSWORD", "")
     if not to or not password:
         raise PipelineError("The daily summary was not sent: add the GitHub secrets DAILY_REPORT_TO (the addresses) "

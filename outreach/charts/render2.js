@@ -1,11 +1,11 @@
-// Outcome-first Sankey (Ariel's design, 20 Nov 2026). Input: {title, subtitle, total, shareCol, pad, nodes:{id:[label,colour,col]}, links:[[s,t,v]], prev, notes}
+// Outcome-first Sankey (Ariel's design, 20 Nov 2026). Input: {title, subtitle, flag (20 Nov 2026), total, shareCol, pad, nodes:{id:[label,colour,col]}, links:[[s,t,v]], prev, notes}
 const fs=require('fs');const {sankey,sankeyLinkHorizontal}=require('d3-sankey');const {Resvg}=require('@resvg/resvg-js');
 const spec=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
 const nodes=Object.entries(spec.nodes).map(([id,[name,c,col]])=>({id,name,c,col}));
 const links=spec.links.map(([source,target,value])=>({source,target,value}));
 const perCol={};nodes.forEach(n=>perCol[n.col]=(perCol[n.col]||0)+1);
 const maxCol=Math.max(...Object.values(perCol)),nCols=Math.max(...nodes.map(n=>n.col))+1;
-const GAP=330,W=40+(nCols-1)*GAP+330,TOP=100,H=TOP+maxCol*(spec.pad?spec.pad+30:62)+40;
+const GAP=330,W=40+(nCols-1)*GAP+330,TOP=spec.flag?122:100,H=TOP+maxCol*(spec.pad?spec.pad+30:62)+40;
 const g=sankey().nodeId(d=>d.id).nodeAlign(n=>n.col).nodeWidth(12).nodePadding(spec.pad||44).nodeSort(null).iterations(0)
  .extent([[24,TOP],[W-330,H-30]])({nodes,links});
 function arrow(n,v){ const p=(spec.prev||{})[n.id]; if(v===null||p===undefined) return '';
@@ -16,7 +16,7 @@ function arrow(n,v){ const p=(spec.prev||{})[n.id]; if(v===null||p===undefined) 
 const esc=s=>String(s).replace(/&/g,'&amp;');
 let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect width="100%" height="100%" fill="#fff"/>
 <text x="24" y="38" font-family="DejaVu Sans" font-size="22" font-weight="bold" fill="#1a1a19">${esc(spec.title)}</text>
-<text x="24" y="66" font-family="DejaVu Sans" font-size="15" fill="#5F5E5A">${esc(spec.subtitle)}</text>\n`;
+<text x="24" y="66" font-family="DejaVu Sans" font-size="15" fill="#5F5E5A">${esc(spec.subtitle)}</text>\n`+(spec.flag?`<text x="24" y="92" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#854F0B">${esc(spec.flag)}</text>\n`:'');
 const p=sankeyLinkHorizontal();
 for(const l of g.links)svg+=`<path d="${p(l)}" fill="none" stroke="${l.target.c}" stroke-opacity="0.3" stroke-width="${Math.max(2,l.width)}"/>\n`;
 const halo='stroke="#fff" stroke-width="5" paint-order="stroke" stroke-linejoin="round"';

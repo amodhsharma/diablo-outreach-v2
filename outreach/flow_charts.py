@@ -3,8 +3,8 @@
 Every night at 23:59 India time (the button "R Sankey Chart to Amodh", started by cron-job.org), a new email
 to Amodh only (the GitHub secret ALERT_TO), from the same mailbox as the daily summary, with three Sankey
 charts as PNG images: the day, the week so far (Monday to that day) and the month so far. The daily summary
-email is not changed in any way. HubSpot is only read. The button's "Sample" box sends the same email at once
-with the data up to that moment, marked as a sample, to Amodh only.
+email is not changed in any way. HubSpot is only read. The button's "Sample" box (20 Nov 2026) sends Amodh only the
+whole 10 AM UK daily summary (charts and Key numbers) for the Day given (a UK date; empty: today so far), marked SAMPLE.
 
 Which companies: only AUTO-OUTREACH companies whose Lead Status changed at least once in the period (a company
 created in the period counts: its Lead Status was set), read from HubSpot's history of each company's Lead
@@ -70,17 +70,19 @@ TOP_COUNTRIES = 5
 
 RED, GREY, LIGHT_GREY, BLUE = "#D85A30", "#5F5E5A", "#888780", "#378ADD"
 GREEN, AMBER, PURPLE, STONE, GOLD = "#1D9E75", "#EF9F27", "#7F77DD", "#B4B2A9", "#BA7517"
+DARK_GOLD, LIGHT_GOLD = "#8A5208", "#E0B36A"  # 20 Nov 2026: your input needed / no input needed
 
 # Every node after the countries: id -> (label, colour, column), in the order they are drawn
 NODES = {
     "U": ("Unqualified", RED, 2), "N": ("Emails sent,\nno reply yet", LIGHT_GREY, 2),
-    "R": ("Responded\n(forwarded to sales)", BLUE, 2), "I": ("Initial stages, being prepared\nand/or might need human input", GOLD, 2),
+    "R": ("Responded\n(forwarded to sales)", BLUE, 2), "I": ("Initial stages", GOLD, 2),
     "r1": ("Rejected by you", RED, 3), "r2": ("Nobody usable found", RED, 3), "r3": ("Nobody found on Apollo", RED, 3),
     "r4": ("No reply in time", RED, 3), "r5": ("Emails bounced", RED, 3), "r6": ("Channel no longer targeted", RED, 3),
     "r7": ("Asked not to be emailed", RED, 3), "r8": ("Blocked by their\nemail system", RED, 3),
     "n1": ("Only the company\ninbox emailed", STONE, 3), "n2": ("1 person emailed", STONE, 3),
     "n3": ("2 people emailed", STONE, 3), "n4": ("3 or more\npeople emailed", STONE, 3),
     "p": ("Positive", GREEN, 3), "g": ("Negative", RED, 3), "y": ("Neutral", AMBER, 3),
+    "i1": ("Your input needed", DARK_GOLD, 3), "i2": ("No input needed", LIGHT_GOLD, 3),
 }
 # The company Lead Status stage -> (outcome, reason); None: worked out from the company (people emailed, reply tag)
 PATHS = {
@@ -89,7 +91,10 @@ PATHS = {
     "channel_paused": ("U", "r6"), "opted_out": ("U", "r7"), "bounced_other": ("U", "r8"),
     "in_outreach": ("N", None),
     "replied": ("R", None), "sales": ("R", None), "said_no": ("R", "g"), TEAM: ("R", None),
-    "found": ("I",), "approved": ("I",), "contact_exists": ("I",), "located": ("I",),
+    # 20 Nov 2026 (Ariel): Initial stages split by whether Ariel's input is needed. New (GATE1 approval) and contacts
+    # not yet AUTO-OUTREACH always need it; GATE1 and Contact located only when the channel is not known or an
+    # introduction waits for GATE2 approval (worked out from the company's contacts now, context()).
+    "found": ("I", "i1"), "approved": ("I", None), "contact_exists": ("I", "i1"), "located": ("I", None),
 }
 TAG_NODE = {"Positive": "p", "Negative": "g", "Neutral": "y", "Referral": "y"}
 SOON_DAYS = 3  # "will close for no reply within 3 days"
@@ -246,6 +251,8 @@ def companies_in(statuses, history, first, last, ctx=None):
             then = emailed_node(ctx.get("memory") or {}, cid, end, restart.round_of(props))
         elif outcome == "R" and then is None:
             then = TAG_NODE.get((ctx.get("tags") or {}).get(str(cid)), "y")
+        elif outcome == "I" and then is None:
+            then = (ctx.get("input") or {}).get(str(cid), "i2")
         path = (outcome,) + ((then,) if then else ())
         # 17 Nov 2026 (Ariel): "AU", "australia" and "Australia" are all "Australia"
         out.append((uniform(props.get("country")) or "Other", path, str(cid), value))
@@ -266,10 +273,11 @@ def shares(moved):
 
 
 def depth(moved, day_chart):
-    """The day chart splits only Responded (Ariel's sample of 20 Nov 2026)."""
+    """The day chart splits only Responded and Initial stages (Ariel's sample of 20 Nov 2026; Initial stages from
+    20 Nov 2026)."""
     if not day_chart:
         return moved
-    return [(c, p if p[0] == "R" else p[:1]) + tuple(rest) for c, p, *rest in moved]
+    return [(c, p if p[0] in ("R", "I") else p[:1]) + tuple(rest) for c, p, *rest in moved]
 
 
 def notes(moved, ctx, statuses):
@@ -294,7 +302,7 @@ def notes(moved, ctx, statuses):
     return out
 
 
-def build(moved, title, subtitle, compare, pad=None, note=None):
+def build(moved, title, subtitle, compare, pad=None, note=None, flag=None):
     """The renderer's input: all companies -> country (top 5 and Other) -> outcome -> the node after it."""
     nodes, links = {"all": ["Companies assessed\n(all AUTO-OUTREACH)", GREY, 0]}, Counter()
     ranked = [c for c, _ in Counter(m[0] for m in moved if m[0] != "Other").most_common(TOP_COUNTRIES)]
@@ -321,6 +329,8 @@ def build(moved, title, subtitle, compare, pad=None, note=None):
         spec["notes"] = {k: v for k, v in note.items() if k in ordered}
     if pad:
         spec["pad"] = pad
+    if flag:  # 20 Nov 2026 (Ariel): "No replies received ..." under the title
+        spec["flag"] = flag
     return spec
 
 
@@ -367,13 +377,28 @@ def specs(day, history, statuses, ctx=None):
         here = dict(ctx, now=ctx.get("now") if now_notes else None)
         return moved, here
 
+    def no_replies(first, last, text):
+        """20 Nov 2026 (Ariel): the line under the title when nobody really replied in the period (positive,
+        negative or neutral; automatic answers and opt-outs are not replies). None when the log was not read."""
+        data = ctx.get("log_data")
+        if data is None:
+            return None
+        from . import daily_log
+        n, d = 0, first
+        while d <= last:
+            entry = daily_log.day(data, d.isoformat(), uk=bool(ctx.get("uk")))
+            n += sum(len(entry.get(k) or []) for k in ("positive", "negative", "neutral"))
+            d += dt.timedelta(days=1)
+        return None if n else text
+
     today, here = period(day, day, False)
     before = day - dt.timedelta(days=1)
     yesterday, _ = period(before, before, False)
     a = build(depth(today, True), f"{_long(day)}: auto outreach companies assessed today",
               sep.join([head, f"{len(today)} companies",
                         f"arrows compare with {before.strftime('%A')} {before.day} {before.strftime('%B')}"]),
-              shares(depth(yesterday, True)), pad=40)
+              shares(depth(yesterday, True)), pad=40,
+              flag=no_replies(day, day, f"No replies received on {_long(day).rsplit(' ', 1)[0]}"))
 
     w_first, w_last = week_days(day)
     week, here = period(w_first, w_last, True)
@@ -382,7 +407,8 @@ def specs(day, history, statuses, ctx=None):
     b = build(week, f"Week so far ({_span(w_first, w_last)}): auto outreach companies assessed",
               sep.join([head, f"{len(week)} companies",
                         f"arrows compare with the same days last week ({_span(lw_first, lw_last, year=False)})"]),
-              shares(last_week), pad=48, note=notes(week, here, statuses))
+              shares(last_week), pad=48, note=notes(week, here, statuses),
+              flag=no_replies(w_first, w_last, f"No replies received this week so far ({_span(w_first, w_last, year=False)})"))
 
     month, here = period(day.replace(day=1), day, True)
     p_first, p_last = previous_month_days(day)
@@ -391,7 +417,8 @@ def specs(day, history, statuses, ctx=None):
     c = build(month, f"{name} so far (1 to {day.day} {name} {day.year}): auto outreach companies assessed",
               sep.join([head, f"{len(month)} companies",
                         f"arrows compare with the same days last month (1 to {p_last.day} {p_last.strftime('%B')})"]),
-              shares(last_month), pad=48, note=notes(month, here, statuses))
+              shares(last_month), pad=48, note=notes(month, here, statuses),
+              flag=no_replies(day.replace(day=1), day, f"No replies received in {name} so far"))
     return a, b, c
 
 
@@ -450,7 +477,7 @@ def chart_lines(spec):
 
 def chart_text(spec):
     """The chart written out as plain text lines (see chart_lines)."""
-    out = [spec.get("title", ""), spec.get("subtitle", "")]
+    out = [spec.get("title", ""), spec.get("subtitle", "")] + ([spec["flag"]] if spec.get("flag") else [])
     for r in chart_lines(spec):
         pad = "  " * r["level"]
         if r["value"] is None:
@@ -531,11 +558,40 @@ def context(hs, settings, history, statuses, day, end, now=None):
         tags = company_tags(hs, responded)
     except Exception:  # never stops the charts: no tag reads as Neutral
         tags = {}
+    try:  # never stops the charts: without it, Initial stages reads as "No input needed"
+        needs = input_needed(hs, statuses, history, end)
+    except Exception:
+        needs = {}
+    try:
+        from . import daily_log
+        log_data = daily_log.load()
+    except Exception:
+        log_data = None
     return {"memory": memory, "tags": tags, "now": min(now, end), "rules": chain.config(settings),
-            "restart": restart.config(settings)}
+            "restart": restart.config(settings), "input": needs, "log_data": log_data}
 
 
-def draw_all(hs, settings, day, out_dir=None, log=print, draw=render, now=None, zone=None):
+def input_needed(hs, statuses, history, end):
+    """20 Nov 2026 (Ariel): {company id: "i1" or "i2"} for the companies on GATE1 or Contact located at the end of
+    the period: "i1" (your input needed) when the company's channel is not known or someone there waits for GATE2
+    approval ("New, Personal line filled"), else "i2" (no input needed). Read from the company and its contacts now."""
+    from . import channels
+    from .common import load_company_notes
+    ids = [cid for cid, (_p, past) in history.items() if end_stage(statuses, past, end) in ("approved", "located")]
+    if not ids:
+        return {}
+    notes = load_company_notes()
+    records = {str(r["id"]): r for r in hs.tagged_read("companies", ids, ["name", "domain", "industry_type"])}
+    people = contacts_by_company(hs, ids)
+    out = {}
+    for cid in ids:
+        props = (records.get(str(cid)) or {}).get("properties") or {}
+        waiting = any(statuses.of("contacts", c) == "copy_ready" for c in people.get(cid) or people.get(str(cid)) or [])
+        out[str(cid)] = "i1" if waiting or channels.verdict(props, notes) is None else "i2"
+    return out
+
+
+def draw_all(hs, settings, day, out_dir=None, log=print, draw=render, now=None, zone=None, log_data=None):
     """The three charts for `day` (in India time, or in `zone`): ([(title, png path or None)], (day, week, month)).
     Used by the button "R Sankey Chart to Amodh" and, for UK days, by the daily summary email (20 Nov 2026)."""
     now = now or dt.datetime.now(dt.timezone.utc)
@@ -546,6 +602,9 @@ def draw_all(hs, settings, day, out_dir=None, log=print, draw=render, now=None, 
     history = read_history(hs, earliest, log)
     ctx = context(hs, settings, history, statuses, day, end, now)
     ctx["zone"] = zone
+    ctx["uk"] = zone is not None and zone != INDIA  # the daily summary's UK days
+    if log_data is not None:
+        ctx["log_data"] = log_data
     a, b, c = specs(day, history, statuses, ctx)
     out_dir = Path(out_dir or tempfile.mkdtemp())
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -580,15 +639,41 @@ def run(target, settings, hs, day=None, preview=False, out_dir=None, log=print, 
     return {"sent": True, "charts": charts}
 
 
+def sample_daily_email(target, day=None, preview=False, log=print):
+    """The 10 AM UK daily summary exactly as it would go (the three charts, Key numbers and the rest), for the UK
+    date `day` (default: today so far), to ALERT_TO only (Amodh), marked SAMPLE in the subject."""
+    from . import daily_report
+    from .instantly_client import Instantly, InstantlyError
+    from .hubspot_client import HubSpotError
+    date = (day or dt.datetime.now(daily_report.DAY_ZONE).date()).isoformat()
+    to = recipients(os.environ.get("ALERT_TO", ""))
+    if not to and not preview:
+        print("ERROR: the GitHub secret ALERT_TO (Amodh's address) is needed for a sample", file=sys.stderr)
+        return 1
+    try:
+        accounts_key, emails_key = os.environ.get("INSTANTLY_ACCOUNTS_KEY"), os.environ.get("INSTANTLY_EMAILS_KEY")
+        daily_report.run(target, load_settings(), HubSpot(), Instantly(),
+                         accounts_api=Instantly(api_key=accounts_key) if accounts_key else None,
+                         emails_api=Instantly(api_key=emails_key) if emails_key else None,
+                         date=date, preview=preview, log=log, to=to, subject_prefix="SAMPLE: ")
+    except (PipelineError, HubSpotError, InstantlyError, OSError) as err:
+        print(f"ERROR: {err}", file=sys.stderr)
+        return 1
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--target", required=True, choices=["test", "live"])
     ap.add_argument("--day", help="India date YYYY-MM-DD (default: the day this run was started for)")
     ap.add_argument("--preview", action="store_true")
-    ap.add_argument("--sample", action="store_true", help="today so far, marked as a sample, to Amodh only")
+    ap.add_argument("--sample", action="store_true",
+                    help="the whole daily summary email for --day (UK date; default today so far), to Amodh only")
     ap.add_argument("--out", default="flow_charts", help="folder for the PNG files")
     args = ap.parse_args(argv)
     day = dt.date.fromisoformat(args.day) if args.day else None
+    if args.sample:  # 20 Nov 2026 (Ariel): the sample is the whole daily summary email (charts and Key numbers)
+        return sample_daily_email(args.target, day, preview=args.preview)
     try:
         run(args.target, load_settings(), HubSpot(), day=day, preview=args.preview, out_dir=args.out,
             sample=args.sample)
