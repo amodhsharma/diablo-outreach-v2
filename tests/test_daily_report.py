@@ -53,10 +53,11 @@ def _details(instantly, connected=None):
     instantly.request = request
 
 
-def _month():
-    """This month's campaign label, as button 4 names the campaigns (e.g. NOV2026)."""
+def _month(day=None):
+    """The campaign label of the month of `day` (default today), as button 4 names the campaigns (e.g. NOV2026)."""
+    import datetime as dt
     from outreach.send import month_label
-    return month_label()
+    return month_label(dt.date.fromisoformat(day) if day else None)
 
 
 def _world():
@@ -91,8 +92,8 @@ def _world():
                    hs_lead_status="IN_PROGRESS")
     hs.links[happy] = [felfel]
     # Instantly: three introductions sent on 26 Oct (one to a company inbox), one on 25 Oct.
-    main = instantly.create_campaign({"name": f"Diablo | {_month()}", "email_list": ["sales@x.example"], "status": 1})["id"]
-    box = instantly.create_campaign({"name": f"Diablo | {_month()} | Company inboxes", "email_list": [], "status": 1})["id"]
+    main = instantly.create_campaign({"name": f"Diablo | {_month("2026-10-26")}", "email_list": ["sales@x.example"], "status": 1})["id"]
+    box = instantly.create_campaign({"name": f"Diablo | {_month("2026-10-26")} | Company inboxes", "email_list": [], "status": 1})["id"]
     instantly.leads[main] = [{"email": "a@felfel.example", "timestamp_last_contact": "2026-10-26T09:00:00Z"},
                              {"email": "b@x.example", "timestamp_last_contact": "2026-10-26T10:00:00Z"},
                              {"email": "c@x.example", "timestamp_last_contact": "2026-10-25T10:00:00Z"}]
@@ -122,8 +123,8 @@ def test_key_numbers_read_as_agreed():
     assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (25.0%)" in lines
     assert "Asked not to be emailed 0 0 = 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2" in lines
     # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
-    assert f"!! Diablo | {_month()} | Company inboxes: No sending account connected" in lines
-    assert f"OK Diablo | {_month()}: Running" in lines and "OK 1 of 1 healthy" in lines
+    assert f"!! Diablo | {_month("2026-10-26")} | Company inboxes: No sending account connected" in lines
+    assert f"OK Diablo | {_month("2026-10-26")}: Running" in lines and "OK 1 of 1 healthy" in lines
     assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines and "[Health] Sending accounts" in lines
     assert "[For sales team] Positive replies to follow up" in lines
     at = next(i for i, line in enumerate(lines) if "Positive replies to follow up" in line)
@@ -157,7 +158,7 @@ def test_it_is_sent_from_the_agreed_mailbox(monkeypatch):
 
 def test_a_quiet_day_and_all_healthy():
     hs, instantly = FakeCRM(), FakeInstantly()
-    instantly.create_campaign({"name": f"Diablo | {_month()}", "email_list": ["sales@x.example"], "status": 1})
+    instantly.create_campaign({"name": f"Diablo | {_month("2026-11-01")}", "email_list": ["sales@x.example"], "status": 1})
     _details(instantly)
     accounts = Accounts([{"email": "sales@x.example", "status": 1, "warmup_status": 1, "stat_warmup_score": 99}])
     result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False,
@@ -167,7 +168,7 @@ def test_a_quiet_day_and_all_healthy():
     # 21 Nov 2026: no positive or negative replies, no referral, nothing handled automatically, nothing waiting
     assert lines.count("None") == 5
     assert "[Need Amodh's input] Replies not AUTO-OUTREACH 0" in lines
-    assert "[Need Ariel's input] [Need Amodh's input] Waiting for you 0" in lines
+    assert "[Need Amodh's input] Waiting for you 0" in lines
     assert not any(line.startswith("Companies waiting for GATE1 approval") for line in lines)  # 0: left out
     assert "#0F6E56" in result["html"]  # the healthy line is green
 
@@ -192,6 +193,21 @@ def test_every_company_that_replied_is_named_neutral_and_referrals_marked():
     assert follow == [("Hamper Co", "United Kingdom", "referral"), ("Kadac", "Australia", None),
                       ("Swiss Snack Box", "Switzerland", "neutral")]
     assert negative == [("Mixed Co", "Germany", None), ("Nordic Sweets", "Norway", None)]
+
+
+def test_at_the_month_change_only_the_reported_month_shows():
+    """21 Nov 2026 (Ariel): the email sent just after midnight on 1 December reports 30 November, so Health shows
+    the November campaigns only, never December's (or October's)."""
+    hs, instantly = FakeCRM(), FakeInstantly()
+    for month in ("OCT2026", "NOV2026", "DEC2026"):
+        instantly.create_campaign({"name": f"Diablo | {month}", "email_list": ["sales@x.example"], "status": 1})
+    instantly.create_campaign({"name": "Diablo | NOV2026 | Company inboxes", "email_list": ["sales@x.example"], "status": 1})
+    _details(instantly)
+    accounts = Accounts([{"email": "sales@x.example", "status": 1, "warmup_status": 1, "stat_warmup_score": 99}])
+    h = daily_report.health(instantly, load_settings(), accounts, view={}, day="2026-11-30")
+    assert [name for _, name, *_ in h["campaigns"]] == ["Diablo | NOV2026", "Diablo | NOV2026 | Company inboxes"]
+    h = daily_report.health(instantly, load_settings(), accounts, view={}, day="2026-12-01")
+    assert [name for _, name, *_ in h["campaigns"]] == ["Diablo | DEC2026"]
 
 
 def test_a_mailbox_that_needs_attention_is_named():
@@ -372,7 +388,7 @@ def test_the_bounces_name_their_sending_account_and_company():
     gone = hs.add("contacts", email="old@kadac.example", jobtitle="Buyer", createdate="2026-10-20T00:00:00Z",
                   hs_lead_status="ATTEMPTED_TO_CONTACT")
     hs.links[gone] = [shop]
-    main = next(k for k, c in instantly.campaigns.items() if c["name"] == f"Diablo | {_month()}")
+    main = next(k for k, c in instantly.campaigns.items() if c["name"] == f"Diablo | {_month("2026-10-26")}")
     instantly.leads[main].append({"email": "old@kadac.example", "timestamp_last_contact": "2026-10-26T12:00:00Z",
                                   "last_step_from": "sales@x.example", "status": -1})
     for lead in instantly.leads[main]:

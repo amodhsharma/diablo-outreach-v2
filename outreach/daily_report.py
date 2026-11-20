@@ -393,7 +393,7 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "bounced": (len(today["bounced"]), len(previous["bounced"]), month["bounced"]),
         "opted_out": (len(today["opted_out"]), len(previous["opted_out"]), month["opted_out"]),
         "auto": (len(today["auto"]), len(previous["auto"]), month["auto"]),
-        "accounts": health(instantly, settings, accounts_api),
+        "accounts": health(instantly, settings, accounts_api, day=date),
         "follow": follow, "negative": negative,
         "gate1": len(at.records("companies", "found")),
         "gate2": len(at.records("contacts", "copy_ready")),
@@ -416,16 +416,18 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
     return out
 
 
-def health(instantly, settings, accounts_api=None, view=None):
+def health(instantly, settings, accounts_api=None, view=None, day=None):
     """21 Nov 2026 (Ariel): the Health section. {"campaigns": [(colour, full name, state, bounce rate text)],
     "accounts": {"healthy": n, "total": n, "problems": [(address, reason)]}}, or None when Instantly could not be
-    read. Only this month's Diablo campaigns and the sending accounts they use. Straight to the point."""
+    read. Only this month's Diablo campaigns and the sending accounts they use. Straight to the point.
+    21 Nov 2026 (Ariel): "this month" is the month of the UK day the email reports (`day`), so the email sent just
+    after midnight on the 1st still shows last month's campaigns, never the new month's."""
     from . import address_checks
     from .check_instantly import CAMPAIGN_STATUS, diablo_campaigns, mailbox_verdict
     from .send import month_label
     try:
         prefix = settings["sync"]["campaign_prefix"]
-        month = month_label()
+        month = month_label(dt.date.fromisoformat(day) if isinstance(day, str) else day)
         campaigns = [c for c in diablo_campaigns(instantly, prefix) if month in str(c.get("name") or "")]
         cfg = address_checks.settings_of(settings)
         rates = address_checks.campaign_rates(view if view is not None else instantly_view(instantly, prefix), cfg)
@@ -534,9 +536,9 @@ def bounce_lines(detail, bounced):
 
 # 21 Nov 2026 (Ariel): a coloured label before each heading says what kind of section it is.
 PARAMETER, HEALTH, SALES = "Parameter", "Health", "For sales team"
-AMODH, ARIEL, INFO = "Need Amodh's input", "Need Ariel's input", "For information"
+AMODH, INFO = "Need Amodh's input", "For information"
 TAGS = {PARAMETER: ("#E6F1FB", "#0C447C"), HEALTH: ("#EEEDFE", "#3C3489"), SALES: ("#EAF3DE", "#27500A"),
-        AMODH: ("#FAEEDA", "#854F0B"), INFO: ("#F1EFE8", "#444441"), ARIEL: ("#FAECE7", "#712B13")}
+        AMODH: ("#FAEEDA", "#854F0B"), INFO: ("#F1EFE8", "#444441")}
 
 
 def reply_blocks(k):
@@ -648,7 +650,7 @@ def key_rows(k):
               (("Positive replies to follow up", [SALES]), names(k["follow"])),
               (("Negative replies to convert into possible leads", [SALES]), names(k["negative"])),
               *reply_blocks(k),
-              (("Waiting for you", [ARIEL, AMODH], n_waiting), waiting or [("line", "None", SAME)])]
+              (("Waiting for you", [AMODH], n_waiting), waiting or [("line", "None", SAME)])]
     if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, at midnight UK
         need = sum(n for _, n, _ in k["initial"]["input"])
         auto = sum(n for _, n in k["initial"]["auto"])
@@ -661,7 +663,7 @@ def key_rows(k):
         rows.append(("row", "No input needed (the automation is working on these)", _n(auto), "", None, None, ""))
         rows += [("row", "  " + label, _n(n), "", None, None, "") for label, n in k["initial"]["auto"] if n]
         moment = "at midnight UK" if k.get("at_midnight", True) else "right now"
-        blocks.append(((f"Initial stages - your input needed or not ({moment})", [ARIEL, AMODH], need + auto), rows))
+        blocks.append(((f"Initial stages - your input needed or not ({moment})", [AMODH], need + auto), rows))
     return f"Key numbers - {_long_date(k['date'])}", blocks
 
 
