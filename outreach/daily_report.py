@@ -416,19 +416,22 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
     return out
 
 
-def health(instantly, settings, accounts_api=None):
-    """Plain sentences for anything about the sending accounts that needs attention ([] when all is
-    well), or None when Instantly could not be read."""
+def health(instantly, settings, accounts_api=None, view=None):
+    """21 Nov 2026 (Ariel): the Health section. {"campaigns": [(colour, full name, state, bounce rate text)],
+    "accounts": {"healthy": n, "total": n, "problems": [(address, reason)]}}, or None when Instantly could not be
+    read. Only this month's Diablo campaigns and the sending accounts they use. Straight to the point."""
+    from . import address_checks
     from .check_instantly import CAMPAIGN_STATUS, diablo_campaigns, mailbox_verdict
-    from .send import INBOX, campaign_name, kind_of_campaign
+    from .send import month_label
     try:
-        current = campaign_name(settings["sync"]["campaign_prefix"])
-        campaigns = [c for c in diablo_campaigns(instantly, settings["sync"]["campaign_prefix"])
-                     if str(c.get("name") or "").startswith(current)]
-        issues, used = [], set()
-        for camp in campaigns:
-            label = ("the campaign for general company inboxes"
-                     if kind_of_campaign(camp.get("name"), settings["send"]) == INBOX else "the campaign for named contacts")
+        prefix = settings["sync"]["campaign_prefix"]
+        month = month_label()
+        campaigns = [c for c in diablo_campaigns(instantly, prefix) if month in str(c.get("name") or "")]
+        cfg = address_checks.settings_of(settings)
+        rates = address_checks.campaign_rates(view if view is not None else instantly_view(instantly, prefix), cfg)
+        limit, least = float(cfg["brake"]["rate"]), int(cfg["brake"]["min_sent"])
+        rows, used = [], set()
+        for camp in sorted(campaigns, key=lambda c: str(c.get("name") or "")):
             mailboxes = [m.lower() for m in camp.get("email_list") or []]
             used.update(mailboxes)
             connected = None
@@ -437,21 +440,43 @@ def health(instantly, settings, accounts_api=None):
                 connected = (((status or {}).get("diagnostics") or {}).get("accounts_summary") or {}).get("total_connected")
             except (InstantlyError, AttributeError):
                 pass
+            code = camp.get("status")
+            waiting = sum(1 for lead in instantly.list_leads(camp["id"]) if not lead.get("timestamp_last_contact")) \
+                if code not in (1, None) else 0
+            bounced, emailed = rates.get(camp["id"], (0, 0))
+            rate = f"{bounced / emailed:.1%} bounced" if emailed else ""
+            braked = emailed >= least and bounced / emailed >= limit
+            wait = f", {waiting} introductions waiting" if waiting else ""
             if not mailboxes or connected == 0:
-                issues.append(f"{label} has no sending account connected; please assign one in Instantly")
-            elif camp.get("status") not in (1, None):
-                waiting = sum(1 for l in instantly.list_leads(camp["id"]) if not l.get("timestamp_last_contact"))
-                if waiting:
-                    state = CAMPAIGN_STATUS.get(camp.get("status"), "not running").lower()
-                    issues.append(f"{label} is {state}, with {waiting} introductions waiting; please start it in Instantly")
+                colour, state = BAD, "No sending account connected" + wait
+            elif code == -2:
+                colour, state = BAD, "Paused by Instantly (Bounce Protect)" + wait
+            elif code == -1:
+                colour, state = BAD, "Paused: a sending account has a problem" + wait
+            elif code == -99:
+                colour, state = BAD, "Suspended by Instantly" + wait
+            elif code == 2:
+                colour, state = BAD, "Paused" + wait
+            elif code == 0:
+                colour, state = WARN, "Not started (Draft)" + wait
+            elif braked:
+                colour, state = WARN, "Running; our 3% brake is on, new introductions wait"
+            elif code in (1, None, 4):
+                colour, state = GOOD, "Running"
+            else:
+                colour, state = SAME, CAMPAIGN_STATUS.get(code, "Unknown")
+            rows.append((colour, camp.get("name") or "A campaign", state, rate))
+        problems, total = [], 0
         for acc in (accounts_api or instantly).list_accounts():
             email = (acc.get("email") or "").lower()
-            if email in used:
-                verdict, reasons = mailbox_verdict(acc)
-                if verdict != "Ready":
-                    reason = (reasons[0] if reasons else verdict).split(":")[0].rstrip(".")
-                    issues.append(f"{email} needs attention ({reason.lower()})")
-        return issues
+            if email not in used:
+                continue
+            total += 1
+            verdict, reasons = mailbox_verdict(acc)
+            if verdict != "Ready":
+                problems.append((email, (reasons[0] if reasons else verdict).split(":")[0].rstrip(".")))
+        return {"campaigns": rows, "accounts": {"healthy": total - len(problems), "total": total,
+                                                "problems": sorted(problems)}}
     except (InstantlyError, AttributeError, KeyError):
         return None
 
@@ -466,6 +491,7 @@ def _plural(n, one, many=None):
 
 
 GOOD, BAD, SAME = "#0F6E56", "#C0392B", "#888780"
+WARN = "#BA7517"  # 21 Nov 2026: a campaign held by our own brake, or not started
 
 
 def _n(value):
@@ -506,8 +532,11 @@ def bounce_lines(detail, bounced):
     return out
 
 
-AMODH = "Need Amodh's input"  # 21 Nov 2026 (Ariel): highlighted after the heading
-TAG_BG, TAG_TEXT = "#FAEEDA", "#854F0B"
+# 21 Nov 2026 (Ariel): a coloured label before each heading says what kind of section it is.
+PARAMETER, HEALTH, SALES = "Parameter", "Health", "For sales team"
+AMODH, ARIEL, INFO = "Need Amodh's input", "Need Ariel's input", "For information"
+TAGS = {PARAMETER: ("#E6F1FB", "#0C447C"), HEALTH: ("#EEEDFE", "#3C3489"), SALES: ("#EAF3DE", "#27500A"),
+        AMODH: ("#FAEEDA", "#854F0B"), INFO: ("#F1EFE8", "#444441"), ARIEL: ("#FAECE7", "#712B13")}
 
 
 def reply_blocks(k):
@@ -542,19 +571,24 @@ def reply_blocks(k):
                              ("Stand-ins added from an out-of-office",
                               [f"{c}: {j} away, {n} added" for c, j, n in ref.get("added") or []]),
                              ("Back in the loop", [c for c, _ in ref.get("resumed") or []])):
-            auto.append(("row", "  " + label, _n(len(names)), "", None, None, ""))
-            auto += [("name", n) for n in names]
+            if names:  # 21 Nov 2026 (Ariel): a line with nothing in it is left out
+                auto.append(("row", "  " + label, _n(len(names)), "", None, None, ""))
+                auto += [("name", n) for n in names]
     else:
         auto = [("line", "Could not be read this time", SAME)]
     n_unsure = len((ref or {}).get("unsure") or [])
     n_auto = sum(len((ref or {}).get(x) or []) for x in ("switched", "added", "resumed"))
-    return [(("Referrals the automation wasn't sure about", AMODH, n_unsure), unsure),
-            (("Replies not AUTO-OUTREACH", AMODH, len(outside or [])), outs),
-            (("Referrals handled automatically", "no input needed", n_auto), auto)]
+    return [(("Referrals the automation wasn't sure about", [AMODH], n_unsure), unsure),
+            (("Replies not AUTO-OUTREACH", [AMODH], len(outside or [])), outs),
+            (("Referrals handled automatically", [INFO], n_auto), auto or [("line", "None", SAME)])]
 
 
 def _heading(h):
-    return h if isinstance(h, tuple) else (h, None, None)
+    """(text, [labels], count or None) for a heading written as text, (text, labels) or (text, labels, count)."""
+    if not isinstance(h, tuple):
+        return h, [], None
+    text, tags, count = (h + (None,))[:3]
+    return text, ([tags] if isinstance(tags, str) else list(tags or [])), count
 
 
 def key_rows(k):
@@ -578,12 +612,17 @@ def key_rows(k):
                 *bounce_lines(k.get("bounces"), k["bounced"][0]),
                 row("Asked not to be emailed", k["opted_out"], False),
                 row("Automatic replies (out of office)", k["auto"], None)]
-    if k["accounts"] is None:
-        accounts = [("line", "The sending accounts could not be checked this morning", SAME)]
-    elif not k["accounts"]:
-        accounts = [("line", "All sending accounts healthy", GOOD)]
+    h = k.get("accounts")
+    if h is None:
+        campaigns = accounts = [("line", "Instantly could not be read this time", SAME)]
     else:
-        accounts = [("line", issue[:1].upper() + issue[1:], BAD) for issue in k["accounts"]]
+        campaigns = [("health", colour, name, state, rate) for colour, name, state, rate in h["campaigns"]] or \
+            [("line", "No campaign this month yet", SAME)]
+        if any(rate for *_, rate in h["campaigns"]):
+            campaigns.append(("line", "% = bounces over each campaign's last 200 emails of the last 7 days", SAME))
+        a = h["accounts"]
+        accounts = [("health", GOOD if not a["problems"] else BAD, f"{a['healthy']} of {a['total']} healthy", "", "")]
+        accounts += [("health", BAD, email, reason, "") for email, reason in a["problems"]]
     when = dt.date.fromisoformat(k["date"])
     replied = f"replied {when.strftime('%a')} {when.day} {when.strftime('%b')}"
 
@@ -591,33 +630,38 @@ def key_rows(k):
         if not rows:
             return [("line", "None", SAME)]
         return [("name", f"{name} ({country}), {replied}" + (f" ({mark})" if mark else "")) for name, country, mark in rows]
-    waiting = [("row", "Companies waiting for GATE1 approval", _n(k["gate1"]), "", None, None, ""),
-               ("row", "Introductions waiting for GATE2 approval", _n(k["gate2"]), "", None, None, ""),
-               ("row", "Companies where nobody could be found (need sales people input)", _n(len(k["nowhere"])), "",
-                None, None, "")] + [("name", n) for n in k["nowhere"]]
+    # 21 Nov 2026 (Ariel): a line with 0 is left out; the heading always shows, with its total
+    waiting = ([("row", "Companies waiting for GATE1 approval", _n(k["gate1"]), "", None, None, "")] if k["gate1"] else [])
+    waiting += [("row", "Introductions waiting for GATE2 approval", _n(k["gate2"]), "", None, None, "")] if k["gate2"] else []
+    if k["nowhere"]:
+        waiting += [("row", "Companies where nobody could be found (need sales people input)", _n(len(k["nowhere"])),
+                     "", None, None, "")] + [("name", n) for n in k["nowhere"]]
     if k.get("held"):  # 20 Nov 2026 (Ariel): broken records are not sent until a person fixes them
         waiting += [("row", "Contacts held: broken record (fix it in HubSpot)", _n(len(k["held"])), "", None, None, "")] \
             + [("name", n) for n in k["held"]]
     if k.get("unknown_channel"):  # 20 Nov 2026 (Ariel, HARD RULE): nobody there is emailed until it is set
         waiting += [("row", "Companies whose channel is not known (nobody is emailed until it is set)",
                      _n(len(k["unknown_channel"])), "", None, None, "")] + [("name", n) for n in k["unknown_channel"]]
-    blocks = [("Sending", sending_), ("Delivery", delivery), ("Sending accounts", accounts),
-              ("Positive replies to follow up", names(k["follow"])),
-              ("Negative replies to convert into possible leads", names(k["negative"])),
+    n_waiting = k["gate1"] + k["gate2"] + len(k["nowhere"]) + len(k.get("held") or []) + len(k.get("unknown_channel") or [])
+    blocks = [(("Sending", [PARAMETER]), sending_), (("Delivery", [PARAMETER]), delivery),
+              (("Campaigns", [HEALTH]), campaigns), (("Sending accounts", [HEALTH]), accounts),
+              (("Positive replies to follow up", [SALES]), names(k["follow"])),
+              (("Negative replies to convert into possible leads", [SALES]), names(k["negative"])),
               *reply_blocks(k),
-              ("Waiting for you", waiting)]
+              (("Waiting for you", [ARIEL, AMODH], n_waiting), waiting or [("line", "None", SAME)])]
     if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, at midnight UK
         need = sum(n for _, n, _ in k["initial"]["input"])
         auto = sum(n for _, n in k["initial"]["auto"])
         rows = [("line", k["check"], BAD)] if k.get("check") else []
         rows.append(("row", "Your input needed", _n(need), "", None, None, ""))
         for label, n, who in k["initial"]["input"]:
-            rows.append(("row", "  " + label, _n(n), "", None, None, ""))
-            rows += [("name", w) for w in who]
+            if n:  # 21 Nov 2026 (Ariel): a line with 0 is left out
+                rows.append(("row", "  " + label, _n(n), "", None, None, ""))
+                rows += [("name", w) for w in who]
         rows.append(("row", "No input needed (the automation is working on these)", _n(auto), "", None, None, ""))
-        rows += [("row", "  " + label, _n(n), "", None, None, "") for label, n in k["initial"]["auto"]]
+        rows += [("row", "  " + label, _n(n), "", None, None, "") for label, n in k["initial"]["auto"] if n]
         moment = "at midnight UK" if k.get("at_midnight", True) else "right now"
-        blocks.append((f"Initial stages - your input needed or not ({moment})", rows))
+        blocks.append(((f"Initial stages - your input needed or not ({moment})", [ARIEL, AMODH], need + auto), rows))
     return f"Key numbers - {_long_date(k['date'])}", blocks
 
 
@@ -626,8 +670,8 @@ def key_text(k):
     width = max(len(i[1]) for _, items in blocks for i in items if i[0] == "row") + 4
     out = [title, f"{'':{width + 2}}{'Yesterday':<16}{'Day before':<16}Month so far"]
     for heading, items in blocks:
-        text, tag, count = _heading(heading)
-        label = text + (f" [{tag}]" if tag == AMODH else f" ({tag})" if tag else "")
+        text, tags, count = _heading(heading)
+        label = "".join(f"[{t}] " for t in tags) + text
         out.append(f"{label:<{width + 2}}{count}" if count is not None else label)
         for item in items:
             if item[0] == "row":
@@ -635,6 +679,10 @@ def key_text(k):
                 out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{month}".rstrip())
             elif item[0] == "line":
                 out.append(f"  {item[1]}")
+            elif item[0] == "health":
+                _, colour, name, state, rate = item
+                mark = {GOOD: "OK", BAD: "!!", WARN: "!"}.get(colour, "-")
+                out.append(f"  {mark:<3}{name}" + (f": {state}" if state else "") + (f" ({rate})" if rate else ""))
             elif item[0] == "table":
                 for row in item[2]:
                     cells = [c[0] if isinstance(c, tuple) else c for c in row]
@@ -653,20 +701,22 @@ def key_html(k):
              + "".join(f'<td {cell}><span style="color:{SAME}">{h}</span></td>'
                        for h in ("Yesterday", "Day before", "Month so far")) + "</tr>"]
     for heading, items in blocks:
-        text, tag, count = _heading(heading)
-        if tag == AMODH:
-            tag_html = (f' <span style="background:{TAG_BG};color:{TAG_TEXT};padding:1px 8px;border-radius:6px;'
-                        f'font-weight:normal;font-size:12px">{e(tag)}</span>')
-        elif tag:
-            tag_html = f' <span style="color:{SAME};font-weight:normal;font-size:12px">({e(tag)})</span>'
-        else:
-            tag_html = ""
+        text, tags, count = _heading(heading)
+        tag_html = "".join(f'<span style="background:{TAGS[t][0]};color:{TAGS[t][1]};padding:1px 8px;border-radius:6px;'
+                           f'font-weight:normal;font-size:12px;margin-right:6px">{e(t)}</span>' for t in tags)
         if count is None:
-            parts.append(f'<tr><td colspan="4" style="padding:10px 0 2px"><b>{e(text)}</b>{tag_html}</td></tr>')
+            parts.append(f'<tr><td colspan="4" style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td></tr>')
         else:
-            parts.append(f'<tr><td style="padding:10px 0 2px"><b>{e(text)}</b>{tag_html}</td>'
+            parts.append(f'<tr><td style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td>'
                          f'<td {cell}><b>{count}</b></td><td></td><td></td></tr>')
         for item in items:
+            if item[0] == "health":
+                _, colour, name, state, rate = item
+                parts.append(f'<tr><td colspan="4" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
+                             f'{e(name)}' + (f': <span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span>'
+                                             if state else "") + (f' <span style="color:{SAME}">({e(rate)})</span>'
+                                                                  if rate else "") + "</td></tr>")
+                continue
             if item[0] == "table":
                 parts.append(f'<tr><td colspan="4" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
                 continue

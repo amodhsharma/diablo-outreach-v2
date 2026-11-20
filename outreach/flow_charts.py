@@ -74,7 +74,7 @@ DARK_GOLD, LIGHT_GOLD = "#8A5208", "#E0B36A"  # 20 Nov 2026: your input needed /
 
 # Every node after the countries: id -> (label, colour, column), in the order they are drawn
 NODES = {
-    "U": ("Unqualified", RED, 2), "N": ("Emails sent,\nno reply yet", LIGHT_GREY, 2),
+    "U": ("Unqualified", RED, 2), "N": ("Emails sent, no reply yet", LIGHT_GREY, 2),  # 21 Nov 2026: one line, so its arrow is never hidden
     "R": ("Responded\n(forwarded to sales)", BLUE, 2), "I": ("Initial stages", GOLD, 2),
     "r1": ("Rejected by you", RED, 3), "r2": ("Nobody usable found", RED, 3), "r3": ("Nobody found on Apollo", RED, 3),
     "r4": ("No reply in time", RED, 3), "r5": ("Emails bounced", RED, 3), "r6": ("Channel no longer targeted", RED, 3),

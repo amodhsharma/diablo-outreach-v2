@@ -361,8 +361,9 @@ def test_a_held_broken_record_is_named_and_counted_as_needing_input():
     lines = [" ".join(line.split()) for line in text.splitlines()]
     assert "Contacts held: broken record (fix it in HubSpot) 1" in lines
     assert "Broken Co (its first name holds an email or web address)" in lines
-    block = lines[lines.index("Initial stages - your input needed or not (at midnight UK)") + 1:]
-    assert "Contacts held: broken record 1" in block and "Introductions approved, waiting their turn to send 0" in block
+    block = lines[next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line) + 1:]
+    assert "Contacts held: broken record 1" in block
+    assert not any(line.startswith("Introductions approved, waiting their turn to send") for line in block)  # 0
 
 
 # ---- 21 Nov 2026 (Ariel): replies from outside the automation, and the referrals, in the daily email --------
@@ -422,18 +423,17 @@ def test_the_daily_email_shows_both_need_input_sections_and_the_automatic_referr
     out = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=day,
                            preview=True, log=quiet, log_data=log, emails_api=emails)
     lines = [" ".join(line.split()) for line in out["text"].splitlines()]
-    assert "Referrals the automation wasn't sure about [Need Amodh's input] 1" in lines
-    assert "Replies not AUTO-OUTREACH [Need Amodh's input] 2" in lines
-    assert "Referrals handled automatically (no input needed) 1" in lines
+    assert "[Need Amodh's input] Referrals the automation wasn't sure about 1" in lines
+    assert "[Need Amodh's input] Replies not AUTO-OUTREACH 2" in lines
+    assert "[For information] Referrals handled automatically 1" in lines
     assert "Still waiting from earlier days: 1 (Food Works)" in lines
     assert any(line.startswith("- Taste Organic (Australia) | Owner |") for line in lines)
     assert any(line.startswith("- Vegan Grocery Store (Australia) | sales@diablosnosugar.com |") for line in lines)
     assert "Need Amodh&#x27;s input</span>" in out["html"] and "#FAEEDA" in out["html"]
     assert '<a href="https://app.hubspot.com/x">Taste Organic (Australia)</a>' in out["html"]
-    order = [i for i, line in enumerate(lines) if line.startswith(("Negative replies", "Referrals the automation",
-                                                                    "Replies not AUTO", "Referrals handled",
-                                                                    "Waiting for you"))]
-    assert [lines[i].split()[0] for i in order] == ["Negative", "Referrals", "Replies", "Referrals", "Waiting"]
+    heads = ("Negative replies", "Referrals the automation", "Replies not AUTO", "Referrals handled", "Waiting for you")
+    order = [next(i for i, line in enumerate(lines) if h in line and line.startswith("[")) for h in heads]
+    assert order == sorted(order)
 
 
 def test_the_separate_referral_email_to_amodh_is_gone():

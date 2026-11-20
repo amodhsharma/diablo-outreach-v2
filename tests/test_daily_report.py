@@ -121,11 +121,14 @@ def test_key_numbers_read_as_agreed():
     assert "Instantly uploads used: 4 of 25,000 (0%)" in lines
     assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (25.0%)" in lines
     assert "Asked not to be emailed 0 0 = 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2" in lines
-    assert ("The campaign for general company inboxes has no sending account connected; please assign one in Instantly"
-            in lines)
-    at = lines.index("Positive replies to follow up")
+    # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
+    assert f"!! Diablo | {_month()} | Company inboxes: No sending account connected" in lines
+    assert f"OK Diablo | {_month()}: Running" in lines and "OK 1 of 1 healthy" in lines
+    assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines and "[Health] Sending accounts" in lines
+    assert "[For sales team] Positive replies to follow up" in lines
+    at = next(i for i, line in enumerate(lines) if "Positive replies to follow up" in line)
     assert lines[at + 1] == "FELFEL (country not known), replied Mon 26 Oct"
-    at = lines.index("Negative replies to convert into possible leads")
+    at = next(i for i, line in enumerate(lines) if "Negative replies to convert into possible leads" in line)
     assert lines[at + 1] == "None"
     assert "Companies waiting for GATE1 approval 4" in lines and "Introductions waiting for GATE2 approval 1" in lines
     at = lines.index("Companies where nobody could be found (need sales people input) 1")
@@ -160,10 +163,12 @@ def test_a_quiet_day_and_all_healthy():
     result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False,
                               date="2026-11-01", preview=True, log=quiet, log_data={})
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
-    assert "Introductions sent 0 0 = 0" in lines and "All sending accounts healthy" in lines
-    # no positive or negative replies; 21 Nov 2026: no referral to look at either (no emails key: not read)
-    assert lines.count("None") == 3
-    assert "Replies not AUTO-OUTREACH [Need Amodh's input] 0" in lines
+    assert "Introductions sent 0 0 = 0" in lines and "OK 1 of 1 healthy" in lines
+    # 21 Nov 2026: no positive or negative replies, no referral, nothing handled automatically, nothing waiting
+    assert lines.count("None") == 5
+    assert "[Need Amodh's input] Replies not AUTO-OUTREACH 0" in lines
+    assert "[Need Ariel's input] [Need Amodh's input] Waiting for you 0" in lines
+    assert not any(line.startswith("Companies waiting for GATE1 approval") for line in lines)  # 0: left out
     assert "#0F6E56" in result["html"]  # the healthy line is green
 
 
@@ -194,7 +199,8 @@ def test_a_mailbox_that_needs_attention_is_named():
     instantly.create_campaign({"name": f"Diablo | {_month()}", "email_list": ["sales@x.example"], "status": 1})
     _details(instantly)
     accounts = Accounts([{"email": "sales@x.example", "status": -1, "warmup_status": 1, "stat_warmup_score": 100}])
-    assert daily_report.health(instantly, load_settings(), accounts) == ["sales@x.example needs attention (connection error)"]
+    h = daily_report.health(instantly, load_settings(), accounts)
+    assert h["accounts"] == {"healthy": 0, "total": 1, "problems": [("sales@x.example", "Connection error")]}
 
 
 def test_the_log_records_each_answer_once_by_india_day(tmp_path):
@@ -396,7 +402,7 @@ def test_initial_stages_section_says_what_needs_input_and_what_does_not():
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
-    at = lines.index("Initial stages - your input needed or not (at midnight UK)")
+    at = next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line)
     block = lines[at + 1:]
     assert block[0] == "Your input needed 5"  # 4 new companies and 1 introduction
     assert "New companies waiting for your GATE1 approval 4" in block
@@ -423,7 +429,7 @@ def test_waiting_and_initial_stages_are_as_they_stood_at_midnight_uk():
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
-    block = lines[lines.index("Initial stages - your input needed or not (at midnight UK)") + 1:]
+    block = lines[next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line) + 1:]
     assert "New companies waiting for your GATE1 approval 5" in block  # the 4 of the day and Late Co
     assert "Late Co" in block and "Tomorrow Co" not in block
     assert "Companies waiting for GATE1 approval 5" in lines  # Waiting for you says the same
