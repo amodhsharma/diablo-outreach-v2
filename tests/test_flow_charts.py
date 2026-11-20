@@ -220,7 +220,7 @@ def test_an_initial_stages_section_only_when_there_is_one():
     assert "I" not in month["nodes"]
     h = history(x=("Serbia", [("Attempted", at(10))]), y=("Serbia", [("GATE1", at(11))]))
     _, _, month = fc.specs(DAY, h, statuses())
-    assert month["nodes"]["I"][0] == "Initial stages,\nneed manual approval" and ["c0", "I", 1] in month["links"]
+    assert month["nodes"]["I"][0] == "Initial stages, being prepared\nand/or might need human input" and ["c0", "I", 1] in month["links"]
 
 
 def test_the_same_days_last_month_stop_at_its_last_day():

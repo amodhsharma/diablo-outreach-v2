@@ -23,7 +23,8 @@ Every chart: "Companies assessed (all AUTO-OUTREACH)" -> country (top 5 and "Oth
     Responded (forwarded to sales) (blue: In Progress, END: Forwarded to Sales Team, said no, or taken over by the
         team), split by the tag the reply was forwarded with: Positive, Negative or Neutral (said no is
         Negative; Positive wins over Negative, Negative over Neutral; no tag is Neutral)
-    Initial stages, need manual approval (New, GATE1, Contact exists, Contact located), only when there are any.
+    Initial stages, being prepared and/or might need human input (New, GATE1, Contact exists, Contact located;
+        renamed 20 Nov 2026, Ariel), only when there are any.
 The day chart splits only Responded (the depth of Ariel's sample). Restarts get no box of their own: a company
 in its next round is wherever it stands; a note under "No reply in time" says how many will restart by
 themselves (on "No response: can restart" with rounds left).
@@ -73,7 +74,7 @@ GREEN, AMBER, PURPLE, STONE, GOLD = "#1D9E75", "#EF9F27", "#7F77DD", "#B4B2A9", 
 # Every node after the countries: id -> (label, colour, column), in the order they are drawn
 NODES = {
     "U": ("Unqualified", RED, 2), "N": ("Emails sent,\nno reply yet", LIGHT_GREY, 2),
-    "R": ("Responded\n(forwarded to sales)", BLUE, 2), "I": ("Initial stages,\nneed manual approval", GOLD, 2),
+    "R": ("Responded\n(forwarded to sales)", BLUE, 2), "I": ("Initial stages, being prepared\nand/or might need human input", GOLD, 2),
     "r1": ("Rejected by you", RED, 3), "r2": ("Nobody usable found", RED, 3), "r3": ("Nobody found on Apollo", RED, 3),
     "r4": ("No reply in time", RED, 3), "r5": ("Emails bounced", RED, 3), "r6": ("Channel no longer targeted", RED, 3),
     "r7": ("Asked not to be emailed", RED, 3), "r8": ("Blocked by their\nemail system", RED, 3),

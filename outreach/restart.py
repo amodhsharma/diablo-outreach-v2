@@ -25,6 +25,10 @@ config/settings.yaml). No new button: button 3, button 4 and the daily email do 
     Automatic    20 Nov 2026 (Ariel, restart.automatic): button 3 sets such a company to GATE1 by itself once its
                  wait is over (auto_queue) and starts it in the same run, exactly as above. Fresh companies go
                  first: in button 3 they get the Apollo credits first, in button 4 the day's room first.
+    Channels     20 Nov 2026 (Ariel): only companies from a channel we target (common.targeted: distributors,
+                 wholesalers, importers, supermarket chains) are restarted automatically. Any other company on
+                 "No response: can restart" is set to "Unqualified: Channel no longer targeted" instead, as on
+                 11 Nov 2026 for every company found under a paused channel; one whose channel is not known too.
     The limit    At most restart.max_rounds rounds in total (3), the first outreach included. A company that ends
                  its last round with no reply gets "Unqualified: Contacted, but no response" (sync.py), its no-reply
                  contacts too, and is never emailed again; one set to GATE1 by mistake is put back on it (plan).
@@ -229,18 +233,28 @@ def auto_queue(hs, settings, statuses, props, log=print, now=None):
     alias = statuses.values("companies", "no_response")[0]
     now = now or now_utc()
     rows = hs.tagged_search("companies", [{"propertyName": LEAD_STATUS, "operator": "EQ", "value": alias}],
-                            list(dict.fromkeys(list(props) + ["name", LEAD_STATUS, LAST_CLOSED, ROUND])),
+                            list(dict.fromkeys(list(props) + ["name", "domain", "industry_type", LEAD_STATUS,
+                                                              LAST_CLOSED, ROUND])),
                             max_results=10000)
-    ready, later = [], 0
+    from .common import load_company_notes, targeted
+    notes = load_company_notes()
+    ready, later, other = [], 0, []
     for c in rows:
         p = c.get("properties") or {}
         last = _date(p.get(LAST_CLOSED))
         if last is None or finished(p, cfg):
             continue  # no date to count from, or every round used (sync.py ends those for good)
+        if not targeted(p, notes):  # 20 Nov 2026 (Ariel): only the channels we target are restarted
+            other.append(c)
+            continue
         if now.date() < last + dt.timedelta(days=cfg["wait_days"]):
             later += 1
             continue
         ready.append(c)
+    if other and statuses.has("companies", "channel_paused"):
+        hs.update_tagged("companies", [(c["id"], statuses.props("companies", "channel_paused")) for c in other])
+        log(f"Automatic restarts: {len(other)} companies not restarted: their channel is not one we target (or not "
+            'known), so they are set to "Unqualified: Channel no longer targeted"')
     if not ready:
         if later:
             log(f"Automatic restarts: none ready yet; {later} companies wait for their {cfg['wait_days']} days")

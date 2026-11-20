@@ -311,7 +311,7 @@ def test_a_chart_that_cannot_be_drawn_is_written_out_with_its_arrows(monkeypatch
     assert "Monday 26 October 2026: auto outreach companies assessed today" in lines
     assert "Companies assessed (all AUTO-OUTREACH): 4" in lines and "  By country: Australia 2, Other 2" in lines
     assert "    Unqualified: 2 (50%) ▲ was 0%" in lines and "      Nobody usable found: 1 (50%) ▲ was 0%" in lines
-    assert "    Initial stages, need manual approval: 2 (50%) ▼ was 100%" in lines  # the day chart
+    assert "    Initial stages, being prepared and/or might need human input: 2 (50%) ▼ was 100%" in lines  # the day chart
     html_body = smtp.sent[0].get_body(("html",)).get_content()
     assert "#C0392B;font-weight:bold\">▲" in html_body  # more Unqualified: a red arrow, as on the chart
     assert "Key numbers - Monday 26 October 2026" in text

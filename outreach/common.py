@@ -179,6 +179,17 @@ def channel_of(props, notes=None):
     return note.get("category") or props.get("industry_type") or ""
 
 
+# 20 Nov 2026 (Ariel): research looks only for big wholesalers, distributors, importers and supermarket chains (10 Nov
+# 2026, docs/paused_channels.md). Restarts, and any company put back in the queue, must be from these channels.
+TARGETED_WORDS = ("distributor", "wholesaler", "importer", "supermarket")
+
+
+def targeted(props, notes=None, words=None):
+    """True when the company's channel (channel_of) is one we target. A company whose channel is not known is not."""
+    channel = channel_of(props, notes).lower()
+    return bool(channel) and any(w in channel for w in (words or TARGETED_WORDS))
+
+
 def market_matches(rule_market, market):
     """True if a settings entry such as "India" or "Mumbai" applies to a market such as
     "Mumbai, India". Matches whole comma-separated parts, ignoring case."""
