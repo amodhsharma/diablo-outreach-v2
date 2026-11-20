@@ -304,11 +304,13 @@ def as_text(date, sections, sender_name):
     return "\n".join(lines + ["Kind regards,", sender_name, ""])
 
 
-def as_html(date, sections, sender_name, charts=()):
-    """charts: [(title, content id or None)] drawn at the top (20 Nov 2026, Ariel: the Sankey charts go to all three)."""
+def as_html(date, sections, sender_name, charts=(), charts_only=False):
+    """charts: [(title, content id or None)] drawn at the top (20 Nov 2026, Ariel: the Sankey charts go to all three).
+    charts_only: the three charts and nothing else (20 Nov 2026, Ariel)."""
     e = html.escape
-    parts = ['<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222">',
-             "<p>Good morning,</p>", f"<p>Here is the summary of partner outreach for {e(_long_date(date))}.</p>"]
+    parts = ['<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222">']
+    if not charts_only:
+        parts += ["<p>Good morning,</p>", f"<p>Here is the summary of partner outreach for {e(_long_date(date))}.</p>"]
     for title, cid in charts:
         if cid:
             parts.append(f'<p><img src="cid:{cid[1:-1]}" alt="{e(title)}" style="max-width:100%;height:auto"></p>')
@@ -320,6 +322,8 @@ def as_html(date, sections, sender_name, charts=()):
             sub = "".join(f"<li>{e(n)}</li>" for n in names)
             parts.append(f"<li>{e(line)}" + (f'<ul style="margin:0">{sub}</ul>' if sub else "") + "</li>")
         parts.append("</ul>")
+    if charts_only:
+        return "".join(parts) + "</div>"
     parts.append(f"<p>Kind regards,<br>{e(sender_name)}</p></div>")
     return "".join(parts)
 
@@ -384,10 +388,9 @@ def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=F
     subject, sections = compose(date, p, o, issues, month_first, cfg["sender_name"])
     text = as_text(date, sections, cfg["sender_name"])
     shown, images = charts_for(hs, settings, date, log, draw) if charts else ([], [])
-    if shown:  # in the plain text version, under the opening line
-        intro = f"Here is the summary of partner outreach for {_long_date(date)}.\n"
-        text = text.replace(intro, intro + "".join(f"\n{t} (chart in the HTML version of this email)"
-                                                   for t, cid in shown if cid) + "\n", 1)
+    # 20 Nov 2026 (Ariel): the email holds only the three Sankey charts. The written summary stays on the run's page
+    # (below), and goes in the email only when no chart could be drawn, so the email is never empty.
+    charts_only = bool(images)
     step_summary(f"## Daily summary email\n\n**Subject:** {subject}\n\n" + text.replace("\n- ", "\n- "))
     log(f"Subject: {subject}\n\n{text}")
     if preview:
@@ -398,7 +401,13 @@ def run(target, settings, hs, instantly, accounts_api=None, date=None, preview=F
     if not to or not password:
         raise PipelineError("The daily summary was not sent: add the GitHub secrets DAILY_REPORT_TO (the addresses) "
                             "and DAILY_REPORT_APP_PASSWORD (the Google app password of the sending mailbox).")
-    send_mail(subject, text, as_html(date, sections, cfg["sender_name"], shown), cfg, to, password, smtp, images)
+    if charts_only:
+        text = "\n".join(f"{t} (chart in the HTML version of this email)" if cid else
+                         f"{t}: no AUTO-OUTREACH company changed status." for t, cid in shown) + "\n"
+        body = as_html(date, [], cfg["sender_name"], shown, charts_only=True)
+    else:
+        body = as_html(date, sections, cfg["sender_name"], shown)
+    send_mail(subject, text, body, cfg, to, password, smtp, images)
     log(f"Sent to {len(to)} {_plural(len(to), 'recipient')} from {cfg['sender']}.")
     return {"subject": subject, "text": text, "sent": True}
 

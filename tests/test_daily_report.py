@@ -269,10 +269,13 @@ def test_the_sankey_charts_go_at_the_top_of_the_daily_email_to_everyone(monkeypa
     assert msg["To"] == "a@example.com, b@example.com, c@example.com"
     assert len([p for p in msg.walk() if p.get_content_type() == "image/png"]) == 3
     html_body = msg.get_body(("html",)).get_content()
-    assert html_body.index("<img") < html_body.index("<b>")  # the charts come before the sections
+    assert html_body.count("<img") == 3
+    for gone in ("<b>", "Good morning", "Prospecting", "Kind regards"):  # only the three charts (Ariel, 20 Nov 2026)
+        assert gone not in html_body
     assert drawn[0]["title"] == "Monday 26 October 2026: auto outreach companies assessed today"
     text = msg.get_body(("plain",)).get_content()
     assert "October so far (1 to 26 October 2026): auto outreach companies assessed (chart in the HTML" in text
+    assert "Good morning" not in text and "Prospecting" not in text
 
 
 def test_the_daily_email_still_goes_when_the_charts_cannot_be_drawn(monkeypatch, tmp_path):
@@ -289,3 +292,4 @@ def test_the_daily_email_still_goes_when_the_charts_cannot_be_drawn(monkeypatch,
                      smtp=smtp, log_data=log, draw=broken)
     assert smtp.sent and not [p for p in smtp.sent[0].walk() if p.get_content_type() == "image/png"]
     assert any("could not be drawn" in line for line in shown)
+    assert "Good morning" in smtp.sent[0].get_body(("plain",)).get_content()  # never an empty email

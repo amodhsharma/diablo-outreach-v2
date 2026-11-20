@@ -1,7 +1,7 @@
 name: 'R - Daily summary email'
 
 # Agreed 27 Oct 2026 (Ariel). The partner outreach summary of the day before (the UK day since 20 Nov 2026), with
-# the three Sankey charts at the top (20 Nov 2026), sent at
+# only the three Sankey charts (20 Nov 2026, Ariel; the written summary stays on the run's page), sent at
 # 10 AM UK time (from 20 Nov 2026, Ariel: the business team reading it is in the UK) to three colleagues from admin@diablosnosugar.com, through Google. Nothing to
 # press: cron-job.org starts it every morning (docs/outside_timer.md). Press it yourself with
 # "Preview only" ticked to see the email on this page without sending it.
