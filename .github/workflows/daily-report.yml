@@ -1,7 +1,7 @@
 name: 'R - Daily summary email'
 
-# Agreed 27 Oct 2026 (Ariel). The partner outreach summary of the day before (the UK day since 20 Nov 2026), with
-# only the three Sankey charts (20 Nov 2026, Ariel; the written summary stays on the run's page), sent at
+# Agreed 27 Oct 2026 (Ariel). The partner outreach summary of the day before (the UK day since 20 Nov 2026): the
+# three Sankey charts with "Key numbers" under them (20 Nov 2026, Ariel; the old written summary is gone), sent at
 # 10 AM UK time (from 20 Nov 2026, Ariel: the business team reading it is in the UK) to three colleagues from admin@diablosnosugar.com, through Google. Nothing to
 # press: cron-job.org starts it every morning (docs/outside_timer.md). Press it yourself with
 # "Preview only" ticked to see the email on this page without sending it.
@@ -58,7 +58,7 @@ jobs:
         with:
           node-version: "22"
       - name: "The chart drawing tools"
-        continue-on-error: true  # without them the email still goes, without the charts
+        continue-on-error: true  # without them the email still goes, with the charts written out
         run: |
           npm ci --prefix outreach/charts --no-audit --no-fund
           sudo apt-get install -y -qq fonts-dejavu-core > /dev/null || true

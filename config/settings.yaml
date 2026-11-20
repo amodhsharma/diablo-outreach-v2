@@ -368,6 +368,8 @@ daily_report:
   sender_name: Diablo Partner Outreach
   smtp_host: smtp.gmail.com
   smtp_port: 587
+  # 20 Nov 2026: the Instantly plan's allowance of uploaded contacts (Hyper Growth), shown under Key numbers
+  instantly_allowance: 25000
 # Restarting companies where nobody replied (agreed 19 Nov 2026, Ariel). Such a company ends on "No response: can
 # restart" (its emailed people too); when a person sets it back to GATE1, button 3 starts a new round: it finds
 # new_people more people (send order 1, 2, 3, the earlier people below them), and button 4 emails everyone again

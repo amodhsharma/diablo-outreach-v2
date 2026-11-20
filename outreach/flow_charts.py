@@ -394,6 +394,78 @@ def specs(day, history, statuses, ctx=None):
     return a, b, c
 
 
+BAD_COLOURS = (RED, "#E8826A")  # as the renderer: for these nodes a rise is bad
+
+
+def chart_lines(spec):
+    """The chart written out (20 Nov 2026, Ariel: when a chart cannot be drawn, the daily email holds it as text with
+    exactly the chart's words, numbers, % and arrows, notes and depth). [{"level", "label", "value", "pct", "arrow",
+    "was", "good", "note"}]: level 0 the companies, 1 the countries (one line), 2 an outcome, 3 the node after it.
+    arrow is "▲", "▼", "=" or None; good is True, False or None (no change)."""
+    nodes = spec.get("nodes") or {}
+    links = spec.get("links") or []
+    total = spec.get("total") or 0
+    into = Counter()
+    sources = {}
+    for a, b, n in links:
+        into[b] += n
+        sources.setdefault(b, set()).add(a)
+    prev = spec.get("prev") or {}
+    notes_ = spec.get("notes") or {}
+    share_col = spec.get("shareCol") or 1
+
+    def name(k):
+        return " ".join(str(nodes[k][0]).split())
+
+    def line(k, level, pct):
+        out = {"level": level, "label": name(k), "value": into[k], "pct": pct, "arrow": None, "was": None,
+               "good": None, "note": notes_.get(k)}
+        p = prev.get(k)
+        if pct is not None and p is not None:
+            out["was"] = p
+            if pct == p:
+                out["arrow"] = "="
+            else:
+                up = pct > p
+                out["arrow"] = "▲" if up else "▼"
+                out["good"] = (not up) if nodes[k][1] in BAD_COLOURS else up
+        return out
+
+    rows = [{"level": 0, "label": name("all") if "all" in nodes else "Companies assessed", "value": total,
+             "pct": None, "arrow": None, "was": None, "good": None, "note": None}]
+    countries = [k for k in nodes if nodes[k][2] == 1]
+    if countries:
+        rows.append({"level": 1, "label": "By country: " + ", ".join(f"{name(k)} {into[k]}" for k in countries),
+                     "value": None, "pct": None, "arrow": None, "was": None, "good": None, "note": None})
+    for k in nodes:
+        if nodes[k][2] != share_col:
+            continue
+        rows.append(line(k, 2, round(100 * into[k] / total) if total else 0))
+        for c in nodes:
+            if nodes[c][2] == share_col + 1 and sources.get(c) == {k}:
+                rows.append(line(c, 3, round(100 * into[c] / into[k]) if into[k] else 0))
+    return rows
+
+
+def chart_text(spec):
+    """The chart written out as plain text lines (see chart_lines)."""
+    out = [spec.get("title", ""), spec.get("subtitle", "")]
+    for r in chart_lines(spec):
+        pad = "  " * r["level"]
+        if r["value"] is None:
+            out.append(pad + r["label"])
+            continue
+        text = f"{pad}{r['label']}: {r['value']}" + (f" ({r['pct']}%)" if r["pct"] is not None else "")
+        if r["arrow"] == "=":
+            text += f" = {r['was']}%"
+        elif r["arrow"]:
+            text += f" {r['arrow']} was {r['was']}%"
+        out.append(text)
+        if r["note"]:
+            out.append(pad + "  " + r["note"])
+    return out
+
+
 def render(spec, out_png):
     with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
         json.dump(spec, f)

@@ -105,44 +105,31 @@ def _world():
     return hs, instantly, accounts, log
 
 
-def test_the_email_reads_as_agreed():
+def test_key_numbers_read_as_agreed():
+    """20 Nov 2026 (Ariel): the old written summary is gone; Key numbers sits under the three charts."""
     hs, instantly, accounts, log = _world()
     result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY, preview=True,
                               log=quiet, log_data=log)
     assert result["subject"] == "Partner outreach: daily summary, Monday 26 October 2026"
-    assert result["text"] == """Good morning,
-
-Here is the summary of partner outreach for Monday 26 October 2026.
-
-Prospecting
-- New prospective partners identified: 3 (Australia 2, South Africa 1)
-- Prospects approved for contact research: 1
-- Companies where named contacts were found: 1
-- Companies where only a general inbox was found (from their website): 1
-- Companies where no contact was found, sales team input required: 1
-  - Sport Benzin
-- New prospects awaiting approval for contact research: 4
-- Introductions written, awaiting approval to send: 1
-- Companies marked unqualified after no response within 7 days: 1
-
-Outreach
-- New first time introductory mails sent: 3 (2 to named contacts, 1 to company inboxes)
-- Responses received: 2 (1 positive, 1 negative, 0 neutral)
-- Positive responses requiring follow-up: 1
-  - FELFEL
-- Automatic replies, such as out of office: 2 (not counted as responses)
-- Undelivered emails: 1 (delivery failure rate 33.3%)
-- Opt-out requests: 0
-- Sending accounts: the campaign for general company inboxes has no sending account connected; please assign one in Instantly
-
-Month to date (1 to 26 October 2026)
-- Prospects identified: 9
-- Introductory emails sent: 4
-- Responses received: 6 (3 positive)
-
-Kind regards,
-Diablo Partner Outreach
-"""
+    text = result["text"]
+    for gone in ("Good morning", "Prospecting", "Month to date", "Kind regards", "240"):
+        assert gone not in text
+    lines = [" ".join(line.split()) for line in text.splitlines()]
+    assert lines[0] == "Key numbers - Monday 26 October 2026"
+    assert lines[1] == "Yesterday Day before Month so far"
+    assert "Introductions sent 3 1 ▲ 4" in lines
+    assert "Instantly uploads used: 4 of 25,000 (0%)" in lines
+    assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (25.0%)" in lines
+    assert "Asked not to be emailed 0 0 = 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2" in lines
+    assert ("The campaign for general company inboxes has no sending account connected; please assign one in Instantly"
+            in lines)
+    at = lines.index("Positive replies to follow up")
+    assert lines[at + 1] == "FELFEL (country not known), replied Mon 26 Oct"
+    at = lines.index("Negative replies to convert into possible leads")
+    assert lines[at + 1] == "None"
+    assert "Companies waiting for GATE1 approval 4" in lines and "Introductions waiting for GATE2 approval 1" in lines
+    at = lines.index("Companies where nobody could be found (need sales people input) 1")
+    assert lines[at + 1] == "Sport Benzin"
     assert result["sent"] is False
 
 
@@ -161,7 +148,8 @@ def test_it_is_sent_from_the_agreed_mailbox(monkeypatch):
     assert msg["From"] == "Diablo Partner Outreach <admin@diablosnosugar.com>"
     assert msg["To"] == "one@team.example, two@team.example, three@team.example"
     html = msg.get_body(("html",)).get_content()
-    assert "<b>Prospecting</b>" in html and "<li>FELFEL</li>" in html
+    assert "<b>Key numbers - Monday 26 October 2026</b>" in html and "FELFEL (country not known)" in html
+    assert "Prospecting" not in html and "Good morning" not in html
 
 
 def test_a_quiet_day_and_all_healthy():
@@ -169,11 +157,34 @@ def test_a_quiet_day_and_all_healthy():
     instantly.create_campaign({"name": f"Diablo | {_month()}", "email_list": ["sales@x.example"], "status": 1})
     _details(instantly)
     accounts = Accounts([{"email": "sales@x.example", "status": 1, "warmup_status": 1, "stat_warmup_score": 99}])
-    text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date="2026-11-01",
-                            preview=True, log=quiet, log_data={})["text"]
-    assert "- New prospective partners identified: 0\n" in text
-    assert "- New first time introductory mails sent: 0\n" in text and "- Responses received: 0\n" in text
-    assert "- Sending accounts: all healthy" in text and "Month to date (1 November 2026)" in text
+    result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False,
+                              date="2026-11-01", preview=True, log=quiet, log_data={})
+    lines = [" ".join(line.split()) for line in result["text"].splitlines()]
+    assert "Introductions sent 0 0 = 0" in lines and "All sending accounts healthy" in lines
+    assert lines.count("None") == 2  # no positive and no negative replies
+    assert "#0F6E56" in result["html"]  # the healthy line is green
+
+
+def test_every_company_that_replied_is_named_neutral_and_referrals_marked():
+    """20 Nov 2026 (Ariel): Positive, Neutral and Referral go under "Positive replies to follow up" (the last two
+    marked), Negative under "Negative replies to convert into possible leads"; a company counts once, by its strongest
+    tag as on the chart."""
+    hs = FakeCRM()
+    people = {}
+    for company, country in (("Kadac", "au"), ("Nordic Sweets", "Norway"), ("Swiss Snack Box", "Switzerland"),
+                             ("Hamper Co", "United Kingdom"), ("Mixed Co", "Germany")):
+        cid = hs.add("companies", name=company, country=country)
+        for i in range(2 if company == "Mixed Co" else 1):
+            person = hs.add("contacts", email=f"p{i}@{company[:3].lower()}.example")
+            hs.links[person] = [cid]
+            people.setdefault(company, []).append(person)
+    entry = {"positive": [people["Kadac"][0]], "negative": [people["Nordic Sweets"][0], people["Mixed Co"][0]],
+             "neutral": [people["Swiss Snack Box"][0], people["Hamper Co"][0], people["Mixed Co"][1]]}
+    forwarded = {people["Hamper Co"][0]: ["Referral"], people["Mixed Co"][1]: ["Neutral"]}
+    follow, negative = daily_report.replies(hs, entry, "2026-11-19", forwarded)
+    assert follow == [("Hamper Co", "United Kingdom", "referral"), ("Kadac", "Australia", None),
+                      ("Swiss Snack Box", "Switzerland", "neutral")]
+    assert negative == [("Mixed Co", "Germany", None), ("Nordic Sweets", "Norway", None)]
 
 
 def test_a_mailbox_that_needs_attention_is_named():
@@ -249,7 +260,7 @@ def _with_a_company_that_moved(hs, day):
 
 
 def test_the_sankey_charts_go_at_the_top_of_the_daily_email_to_everyone(monkeypatch, tmp_path):
-    """20 Nov 2026 (Ariel): the three Sankey charts for the UK day go in the daily summary to all three."""
+    """20 Nov 2026 (Ariel): the three Sankey charts for the UK day, then Key numbers, to all three."""
     from pathlib import Path
     monkeypatch.setenv("DAILY_REPORT_TO", "a@example.com, b@example.com, c@example.com")
     monkeypatch.setenv("DAILY_REPORT_APP_PASSWORD", "app-password")
@@ -270,15 +281,17 @@ def test_the_sankey_charts_go_at_the_top_of_the_daily_email_to_everyone(monkeypa
     assert len([p for p in msg.walk() if p.get_content_type() == "image/png"]) == 3
     html_body = msg.get_body(("html",)).get_content()
     assert html_body.count("<img") == 3
-    for gone in ("<b>", "Good morning", "Prospecting", "Kind regards"):  # only the three charts (Ariel, 20 Nov 2026)
+    assert html_body.index("<img") < html_body.index("Key numbers")  # the charts first
+    for gone in ("Good morning", "Prospecting", "Kind regards", "written out"):
         assert gone not in html_body
     assert drawn[0]["title"] == "Monday 26 October 2026: auto outreach companies assessed today"
     text = msg.get_body(("plain",)).get_content()
     assert "October so far (1 to 26 October 2026): auto outreach companies assessed (chart in the HTML" in text
-    assert "Good morning" not in text and "Prospecting" not in text
+    assert "Key numbers - Monday 26 October 2026" in text
 
 
-def test_the_daily_email_still_goes_when_the_charts_cannot_be_drawn(monkeypatch, tmp_path):
+def test_a_chart_that_cannot_be_drawn_is_written_out_with_its_arrows(monkeypatch, tmp_path):
+    """20 Nov 2026 (Ariel): the same three charts as text, with the same words, numbers, % and arrows."""
     monkeypatch.setenv("DAILY_REPORT_TO", "a@example.com")
     monkeypatch.setenv("DAILY_REPORT_APP_PASSWORD", "app-password")
     monkeypatch.chdir(tmp_path)
@@ -292,4 +305,48 @@ def test_the_daily_email_still_goes_when_the_charts_cannot_be_drawn(monkeypatch,
                      smtp=smtp, log_data=log, draw=broken)
     assert smtp.sent and not [p for p in smtp.sent[0].walk() if p.get_content_type() == "image/png"]
     assert any("could not be drawn" in line for line in shown)
-    assert "Good morning" in smtp.sent[0].get_body(("plain",)).get_content()  # never an empty email
+    text = smtp.sent[0].get_body(("plain",)).get_content()
+    lines = text.splitlines()
+    assert lines[0] == "The charts could not be drawn today, so they are written out below."
+    assert "Monday 26 October 2026: auto outreach companies assessed today" in lines
+    assert "Companies assessed (all AUTO-OUTREACH): 4" in lines and "  By country: Australia 2, Other 2" in lines
+    assert "    Unqualified: 2 (50%) ▲ was 0%" in lines and "      Nobody usable found: 1 (50%) ▲ was 0%" in lines
+    assert "    Initial stages, need manual approval: 2 (50%) ▼ was 100%" in lines  # the day chart
+    html_body = smtp.sent[0].get_body(("html",)).get_content()
+    assert "#C0392B;font-weight:bold\">▲" in html_body  # more Unqualified: a red arrow, as on the chart
+    assert "Key numbers - Monday 26 October 2026" in text
+
+
+def test_the_chart_text_matches_the_chart():
+    from outreach import flow_charts
+    spec = {"title": "T", "subtitle": "S", "total": 10, "shareCol": 2,
+            "nodes": {"all": ["Companies assessed\n(all AUTO-OUTREACH)", "#5F5E5A", 0], "c0": ["Australia", "#7F77DD", 1],
+                      "U": ["Unqualified", flow_charts.RED, 2], "N": ["Emails sent,\nno reply yet", "#888780", 2],
+                      "r4": ["No reply in time", flow_charts.RED, 3], "n2": ["1 person emailed", "#B4B2A9", 3]},
+            "links": [["all", "c0", 10], ["c0", "U", 4], ["c0", "N", 6], ["U", "r4", 4], ["N", "n2", 6]],
+            "prev": {"U": 20, "N": 60, "r4": 100, "n2": 50}, "notes": {"r4": "2 will restart automatically within 9 days"}}
+    assert flow_charts.chart_text(spec) == [
+        "T", "S", "Companies assessed (all AUTO-OUTREACH): 10", "  By country: Australia 10",
+        "    Unqualified: 4 (40%) ▲ was 20%", "      No reply in time: 4 (100%) = 100%",
+        "        2 will restart automatically within 9 days",
+        "    Emails sent, no reply yet: 6 (60%) = 60%", "      1 person emailed: 6 (100%) ▲ was 50%"]
+    rows = {r["label"]: r for r in flow_charts.chart_lines(spec)}
+    assert rows["Unqualified"]["good"] is False and rows["1 person emailed"]["good"] is True
+
+
+def test_one_line_when_hubspot_cannot_be_read(monkeypatch, tmp_path):
+    """20 Nov 2026 (Ariel): if HubSpot cannot be read at all, a one-line email says why."""
+    from outreach.hubspot_client import HubSpotError
+    monkeypatch.setenv("DAILY_REPORT_TO", "a@example.com")
+    monkeypatch.setenv("DAILY_REPORT_APP_PASSWORD", "app-password")
+    monkeypatch.chdir(tmp_path)
+    hs, instantly, accounts, log = _world()
+
+    def down():
+        raise HubSpotError("503 Service Unavailable")
+    hs.portal_id = down
+    smtp = FakeSMTP()
+    daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, date=DAY, log=quiet, smtp=smtp,
+                     log_data=log)
+    text = smtp.sent[0].get_body(("plain",)).get_content()
+    assert text == "Today's charts could not be produced: HubSpot could not be read (503 Service Unavailable).\n"
