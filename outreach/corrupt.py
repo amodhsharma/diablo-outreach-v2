@@ -510,14 +510,15 @@ def _same_domain(hs, statuses, dead, corrupt, log):
         log(f"{n} colleague(s) at a domain with no mail system will not be emailed (Contact corrupt)")
 
 
-def close_dead(hs, statuses, dead, leads=None, log=print, promoted_path=None):
-    """dead: {contact id: (record, why)}. Contact corrupt (Inbox Bounced for a company inbox), the next person moves
-    up, and the company stops when nobody is left (used by button 4's send step, 20 Nov 2026)."""
+def close_dead(hs, statuses, dead, leads=None, log=print, promoted_path=None, keep_corrupt=()):
+    """dead: {contact id: (record, why)}. Contact corrupt (Inbox Bounced for a company inbox, except the ids in
+    keep_corrupt: a broken record found before sending, 21 Nov 2026), the next person moves up, and the company
+    stops when nobody is left (used by button 4's send step, 20 Nov 2026)."""
     out = {"corrupt": 0, "rows": [], "to_check": []}
     if not dead:
         return out
     promoted = load_promoted(promoted_path)
-    _move_up(hs, statuses, dict(dead), leads or {}, promoted, out, log)
+    _move_up(hs, statuses, dict(dead), leads or {}, promoted, out, log, {str(i) for i in keep_corrupt})
     save_promoted(promoted, promoted_path)
     _summary(out)
     return out
@@ -554,13 +555,15 @@ def _close_blocked(hs, statuses, blocked, leads, out, log):
     hs.update_tagged("companies", updates)
 
 
-def _move_up(hs, statuses, corrupt, leads, promoted, out, log):
+def _move_up(hs, statuses, corrupt, leads, promoted, out, log, keep=frozenset()):
     from .sync import stop_reasons
     # 2 Nov 2026 (Ariel): a company inbox gets "Unqualified: Inbox Bounced", a person "Unqualified: Contact corrupt".
+    def bounced_inbox(cid, r):
+        return is_company_inbox(r) and str(cid) not in keep
     for cid, (r, why) in list(corrupt.items()):
-        if is_company_inbox(r):
+        if bounced_inbox(cid, r):
             corrupt[cid] = (r, why.replace("Contact corrupt:", "Inbox bounced:", 1))
-    hs.update_tagged("contacts", [(cid, {**statuses.props("contacts", "inbox_bounced" if is_company_inbox(r) else
+    hs.update_tagged("contacts", [(cid, {**statuses.props("contacts", "inbox_bounced" if bounced_inbox(cid, r) else
                                                           "corrupt"), ORDER: "0"}) for cid, (r, _) in corrupt.items()])
     stop_reasons(hs, "contacts", [(cid, why) for cid, (_, why) in corrupt.items()], log)
     out["corrupt"] += len(corrupt)

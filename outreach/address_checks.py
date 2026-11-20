@@ -3,8 +3,16 @@
 No paid address verification is used (the free Instantly credits expired on 15 Jun 2026). Instead, at button 4's
 send step (send.run), for the next person due at each company:
 
-  1. Broken records are held, not sent, and named under "Waiting for you" in the daily email: no valid email
-     address, or an email address (or a web address) typed into the first or last name. A person fixes the record.
+  1. Broken records are put right by the automation itself (21 Nov 2026, Ariel: no waiting for a person), for
+     every contact on GATE2: Approved to send at each run (repair):
+     - an address (or a web address) typed into a name: that name is cleared, when it is the contact's own address
+       or a web address. A person whose first name is then empty, or whose name holds another email address than
+       their own, becomes Contact corrupt;
+     - no valid email address, or a technical mailbox of their mail system (postmaster@, mailer-daemon@, abuse@,
+       no-reply@ and similar): Contact corrupt.
+     Contact corrupt means "Unqualified: Contact corrupt" (also for a company inbox), "Outreach stopped because"
+     saying why, and the next person at the company moves up (corrupt.close_dead). Only if HubSpot cannot be
+     changed is the contact held and named under "Waiting for you" in the daily email.
   2. A first email to an address whose domain cannot receive email (no mail server in DNS) is not sent: the
      contact becomes "Unqualified: Contact corrupt" (Inbox Bounced for a company inbox), with "Outreach stopped
      because" saying why, and the next person at the company moves up (corrupt.close_dead).
@@ -31,6 +39,10 @@ from .schema import CONTACT_SOURCE
 FILE = ROOT / "data" / "address_checks.json"
 VALID = re.compile(r"^[A-Za-z0-9._%+'-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$")
 URLISH = re.compile(r"(@|https?://|www\.)", re.I)
+EMAIL_IN = re.compile(r"[A-Za-z0-9._%+'-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}")
+# 21 Nov 2026 (Ariel): the mail system's own mailboxes; no buyer reads them
+TECHNICAL = ("postmaster", "mailer-daemon", "mailerdaemon", "hostmaster", "abuse", "webmaster", "noreply",
+             "no-reply", "no_reply", "donotreply", "do-not-reply", "bounce", "bounces")
 DEFAULTS = {"risky_per_day": 20, "brake": {"rate": 0.03, "last": 200, "days": 7, "min_sent": 50}}
 
 
@@ -66,6 +78,36 @@ def broken(contact):
         if URLISH.search(str(p.get(field) or "")):
             return f"its {label} holds an email or web address"
     return None
+
+
+def repair(contact, today):
+    """21 Nov 2026 (Ariel): put a broken record right without waiting for a person. Returns (fixes, why): fixes are
+    the HubSpot changes that make the record usable (names cleared), why is the "Outreach stopped because" text
+    when the contact is corrupt instead. (None, None) when nothing is wrong."""
+    from .next_in_line import is_company_inbox
+    record = contact if "properties" in contact else {"properties": contact}
+    p = record.get("properties") or {}
+    email = str(p.get("email") or "").strip()
+    end = f" (found before sending, {today}); never emailed"
+    if not VALID.match(email):
+        return None, "Contact corrupt: its email address is not a valid address" + end
+    local = email.split("@")[0].lower()
+    if local in TECHNICAL:
+        return None, f"Contact corrupt: {local}@ is a technical mailbox of their mail system, not a person or team" + end
+    fixes = {}
+    for field in ("firstname", "lastname"):
+        value = str(p.get(field) or "")
+        if not URLISH.search(value):
+            continue
+        if {a.lower() for a in EMAIL_IN.findall(value)} - {email.lower()}:
+            return None, ("Contact corrupt: its name holds another email address than its own, so neither can be "
+                          "trusted" + end)
+        fixes[field] = ""
+    if not fixes:
+        return None, None
+    if not is_company_inbox(record) and not str({**p, **fixes}.get("firstname") or "").strip():
+        return None, "Contact corrupt: no name to greet them by, only an address" + end
+    return fixes, None
 
 
 # ---- 2. The domain can receive email -----------------------------------------------------------

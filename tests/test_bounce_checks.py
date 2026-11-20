@@ -255,15 +255,67 @@ def test_the_older_wordings_are_rewritten_so_one_filter_finds_every_bounce(setti
 
 # ---- Free checks before a first email ----------------------------------------------------------------
 
-def test_a_broken_record_is_held_and_named_not_sent(settings):
+def test_a_name_holding_its_own_address_is_cleared_and_the_email_goes(settings):
+    """21 Nov 2026 (Ariel): put right by the automation, no waiting for a person (as admin@stalex.com.au)."""
+    from outreach.schema import INBOX_TITLE
     hs, instantly = FakeCRM(), FakeInstantly()
-    cid, (p1,) = company(hs, "Broken Co", "broken.example", ("Owner",))
-    rec(hs, p1)["firstname"] = "owner@broken.example"
+    cid, (p1,) = company(hs, "Name Co", "name.example", (INBOX_TITLE,))
+    rec(hs, p1).update(firstname="", lastname="p1@name.example")
     out = send.run("test", settings, hs, instantly, log=quiet)
-    assert out["held"] == 1 and out["queued"] == 0 and rec(hs, p1)[LS] == "APPROVED_TO_SEND"
-    assert address_checks.broken({"email": "no-at-sign", "firstname": "A"}) == "its email address is not a valid address"
+    assert out["repaired"] == 1 and out["queued"] == 1 and out["held"] == 0
+    assert rec(hs, p1)["lastname"] == "" and rec(hs, p1)[LS] == "ATTEMPTED_TO_CONTACT"
+    # a person keeps a real first name and only the address is cleared
+    hs, instantly = FakeCRM(), FakeInstantly()
+    cid, (p1,) = company(hs, "Anna Co", "anna.example", ("Owner",))
+    rec(hs, p1).update(firstname="Anna", lastname="www.anna.example")
+    out = send.run("test", settings, hs, instantly, log=quiet)
+    assert out["queued"] == 1 and rec(hs, p1)["firstname"] == "Anna" and rec(hs, p1)["lastname"] == ""
+
+
+@pytest.mark.parametrize("change, why", [
+    ({"email": "postmaster@bad.example"}, "postmaster@ is a technical mailbox"),
+    ({"email": "no-at-sign"}, "not a valid address"),
+    ({"lastname": "d20-aus@bad.example", "email": "d12-aus@bad.example"}, "another email address than its own"),
+    ({"firstname": "p1@bad.example", "lastname": ""}, "no name to greet them by"),
+])
+def test_a_contact_that_cannot_be_used_is_marked_corrupt_and_the_next_moves_up(settings, monkeypatch, change, why):
+    """21 Nov 2026 (Ariel): "if the contact is corrupt, mark it as such": no approval, no waiting."""
+    hs, instantly = FakeCRM(), FakeInstantly()
+    cid, (p1, p2) = company(hs, "Bad Co", "bad.example", ("Owner", "Buyer"))
+    rec(hs, p1).update(change)
+    monkeypatch.setenv("GITHUB_RUN_ID", "run1")
+    out = send.run("test", settings, hs, instantly, log=quiet)
+    assert out["corrupt_found"] == 1 and out["held"] == 0 and out["queued"] == 0
+    assert rec(hs, p1)[LS] == CORRUPT and why in rec(hs, p1)[REASON] and "found before sending" in rec(hs, p1)[REASON]
+    assert rec(hs, p1)[ORDER] == "0" and rec(hs, p2)[ORDER] == "1"
+    monkeypatch.setenv("GITHUB_RUN_ID", "run2")  # the next run: the colleague goes
+    out = send.run("test", settings, hs, instantly, log=quiet)
+    assert out["queued"] == 1 and rec(hs, p2)[LS] == "ATTEMPTED_TO_CONTACT"
+
+
+def test_a_corrupt_company_inbox_and_one_not_yet_due_are_marked_too(settings):
+    """A postmaster company inbox is Contact corrupt, not Inbox bounced; person 3, not yet due, is caught too."""
+    from outreach.schema import INBOX_TITLE
+    hs, instantly = FakeCRM(), FakeInstantly()
+    cid, (p1, p2, p3) = company(hs, "Ritchies Co", "ritchies.example", ("Owner", "Buyer", INBOX_TITLE))
+    rec(hs, p3)["email"] = "postmaster@ritchies.example"
+    out = send.run("test", settings, hs, instantly, log=quiet)
+    assert out["queued"] == 1 and rec(hs, p1)[LS] == "ATTEMPTED_TO_CONTACT"
+    assert rec(hs, p3)[LS] == CORRUPT and rec(hs, p3)[REASON].startswith("Contact corrupt: postmaster@")
+    assert rec(hs, p2)[LS] == "APPROVED_TO_SEND" and rec(hs, p2)[ORDER] == "2"
+
+
+def test_the_repair_rules():
+    today = "21 Nov 2026"
+    assert address_checks.repair({"email": "anna.berg@b.example", "firstname": "Anna", "lastname": "Berg"}, today) \
+        == (None, None)
+    assert address_checks.repair({"email": "ykim@b.example", "firstname": '"ykim@b.example"',
+                                  "lastname": "ykim@b.example", "jobtitle": "Company inbox (from website)"}, today) \
+        == ({"firstname": "", "lastname": ""}, None)
+    assert address_checks.repair({"email": "info@b.example", "firstname": "Anna"}, today) == (None, None)
+    assert "never emailed" in address_checks.repair({"email": "abuse@b.example", "firstname": "A"}, today)[1]
+    # the daily email still names a record that could not be put right
     assert address_checks.broken({"email": "a@b.example", "lastname": "www.b.example"}) is not None
-    assert address_checks.broken({"email": "anna.berg@b.example", "firstname": "Anna", "lastname": "Berg"}) is None
 
 
 @pytest.mark.address_checks

@@ -406,7 +406,10 @@ company. Each must be approved at gate 2. Then, with one email to the company ev
   bounce rate. A domain with no mail system stops everyone there. The daily email names each bounce's reason.
   No new Lead Statuses or fields.
 - **Free checks before a first email (20 Nov 2026, `outreach/address_checks.py`).** No paid verification. A
-  broken record (no valid address, or an email typed into a name) is held and named under "Waiting for you"; an
+  broken record is put right by button 4 itself (21 Nov 2026): a name holding the contact's own address or a web
+  address is cleared; no valid address, a technical mailbox (postmaster@, abuse@, no-reply@ and similar), a name
+  holding another address, or a person left with no first name becomes Contact corrupt and the next person moves
+  up (only if HubSpot cannot be changed is it held and named under "Waiting for you"); an
   address whose domain cannot receive email is never emailed (Contact corrupt, the next person moves up); old
   records and hand-added addresses (no Outreach contact source) get their first email at most 20 a UK day; and
   our own brake stops new introductions into a campaign whose last 200 emails of the last 7 days bounced 3% or

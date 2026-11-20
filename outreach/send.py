@@ -638,11 +638,39 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             key = (3 if new_round else 1 if inbox_only else 2, first.timestamp() if first else 0.0, str(company_id))
         plans.append((key, company_id, company, company_contacts))
     plans.sort(key=lambda x: x[0])
+    # 21 Nov 2026 (Ariel): broken records are put right here, not left for a person: a name holding the contact's
+    # own address is cleared, and a contact that cannot be used becomes Contact corrupt (the next person moves up)
+    repaired, broken_dead = [], {}
+    for _, company_id, company, company_contacts in plans:
+        name = (company.get("properties") or {}).get("name") or "a company"
+        for c in company_contacts:
+            if statuses.of("contacts", c) != "approved":
+                continue
+            fixes, why = address_checks.repair(c, corrupt.today())
+            if why:
+                broken_dead[str(c["id"])] = (c, why)
+                log(f"Not sent: contact {c['id']} ({mask(c['properties'].get('email'))}) at {name}: "
+                    f"{why.split(' (')[0]}; the next person moves up")
+            elif fixes:
+                c["properties"].update(fixes)
+                repaired.append((c["id"], fixes))
+                log(f"Put right: contact {c['id']} at {name}: an address in its name was cleared")
+    if repaired and not dry_run:
+        try:
+            hs.update_tagged("contacts", repaired)
+        except Exception as err:  # then they are held below, named in the daily email
+            log(f"Could not clear the names of {len(repaired)} contact(s) in HubSpot: {str(err)[:200]}")
+            for cid, fixes in repaired:
+                for _, _, _, company_contacts in plans:
+                    for c in company_contacts:
+                        if str(c["id"]) == str(cid):
+                            c["properties"].update({k: "@" for k in fixes})
+            repaired = []
     # 20 Nov 2026 (Ariel): free checks before a first email, old records at most 20 a day, and our 3% brake
     checks_cfg = address_checks.settings_of(settings)
     checks = address_checks.load()
     risky_left = address_checks.risky_room(checks, checks_cfg, now)
-    risky_ids, held, dead = set(), [], {}
+    risky_ids, held, dead = set(), [], dict(broken_dead)
     from . import alert
     brake = address_checks.braked(in_instantly, checks_cfg, checks, campaign_ids, now, log,
                                   None if dry_run else (lambda subject, text: alert.send(subject, text, log)))
@@ -678,8 +706,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             log(f"Skipped contact {c['id']} ({mask(p.get('email'))}) at {name}: {reason}")
             waiting += n_waiting - 1
             continue
+        if str(c["id"]) in broken_dead:  # 21 Nov 2026: Contact corrupt (above); the next person moves up
+            waiting += n_waiting - 1
+            continue
         why_broken = address_checks.broken(c)
-        if why_broken:  # 20 Nov 2026: held for a person, named under "Waiting for you" in the daily email
+        if why_broken:  # only when HubSpot could not be changed above: held, named under "Waiting for you"
             waiting += n_waiting
             held.append({"contact_id": c["id"], "company": name, "reason": why_broken})
             log(f"Held: contact {c['id']} at {name}: {why_broken}; fix the record in HubSpot")
@@ -815,7 +846,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     if not dry_run:
         address_checks.save(checks)
         if dead:  # 20 Nov 2026: a domain with no mail system is never emailed; the next person moves up
-            corrupt.close_dead(hs, statuses, dead, in_instantly, log)
+            corrupt.close_dead(hs, statuses, dead, in_instantly, log, keep_corrupt=broken_dead)
         if held:
             step_summary("## Held: broken records (fix them in HubSpot)\n\n| Company | Why |\n|---|---|\n"
                          + "\n".join(f"| {h['company']} | {h['reason']} |" for h in held))
@@ -836,7 +867,9 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                      "until Instantly allows more uploads (a higher plan, or the next billing month).")
     write_json(out_dir / "plan.json", {"dry_run": dry_run, "campaigns": plan, "skipped": skipped,
                                        "plan_full": bool(plan_full), "held": [h["contact_id"] for h in held],
-                                       "dead_domain": sorted(dead), "braked": sorted(brake)})
+                                       "dead_domain": sorted(set(dead) - set(broken_dead)),
+                                       "corrupt_found": sorted(broken_dead), "repaired": len(repaired),
+                                       "braked": sorted(brake)})
     if previews:
         (out_dir / "email_preview.txt").write_text("\n\n".join(previews), encoding="utf-8")
         log("\nEMAIL PREVIEW (also saved as email_preview.txt under Artifacts)\n")
@@ -846,7 +879,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         log(f"{'[dry run] ' if dry_run else ''}{row['campaign']}: {row['leads']} leads"
             + (" (new campaign, created paused)" if row["new_campaign"] else ""))
     return {"queued": len(contact_updates), "campaigns": plan, "skipped": len(skipped), "waiting": waiting,
-            "plan_full": bool(plan_full), "held": len(held), "dead_domain": len(dead), "braked": sorted(brake)}
+            "plan_full": bool(plan_full), "held": len(held), "dead_domain": len(set(dead) - set(broken_dead)),
+            "corrupt_found": len(broken_dead), "repaired": len(repaired), "braked": sorted(brake)}
 
 
 def main(argv=None):
