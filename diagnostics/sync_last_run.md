@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-20 10:38 UTC
+Written 2026-11-20 13:43 UTC
 
 ```
 986 leads in the Diablo campaigns in Instantly
@@ -20,20 +20,23 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Email threads: 2 emails since the last run
-Email threads: 5 companies read in full, 109 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
-snacks4you: the company is Unqualified, so 2 contact(s) there are now "Unqualified company"
-Jakob-Markt: the company is Unqualified, so 6 contact(s) there are now "Unqualified company"
-Puravita: the company is Unqualified, so 9 contact(s) there are now "Unqualified company"
-itema shop: the company is Unqualified, so 1 contact(s) there are now "Unqualified company"
-ARB Nutrition: the company is Unqualified, so 3 contact(s) there are now "Unqualified company"
-United Convenience Buyers PTY LTD: the company is Unqualified, so 4 contact(s) there are now "Unqualified company"
-apo24.ch: the company is Unqualified, so 1 contact(s) there are now "Unqualified company"
-landi: the company is Unqualified, so 1 contact(s) there are now "Unqualified company"
-ROLF HUGLI SA: the company is Unqualified, so 1 contact(s) there are now "Unqualified company"
-Anna Wine: the company is Unqualified, so 2 contact(s) there are now "Unqualified company"
-Corporate Vending: the company is Unqualified, so 1 contact(s) there are now "Unqualified company"
-The Vending Company: the company is Unqualified, so 2 contact(s) there are now "Unqualified company"
+Email threads: 3 emails since the last run
+The Distributors: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Millennium Distributions Pty Ltd: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Confectionery Warehouse: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Taste Food Distributors: the contact was sent their reminder, as a forward of their introduction
+Harcher: the Senior Business Development Manager was sent their reminder, as a forward of their introduction
+Opera Foods Pty Ltd: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Central Coast Confectionery: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Angeles Fine Foods Australia: the Sales Manager was sent their reminder, as a forward of their introduction
+Bensons Trading: the contact was sent their reminder, as a forward of their introduction
+Bensons Trading: the introduction goes to the next contact
+Intertrading Australia: the contact was sent their reminder, as a forward of their introduction
+Intertrading Australia: the introduction goes to the next contact
+Conga Food: the contact was sent their reminder, as a forward of their introduction
+Conga Food: the introduction goes to the next contact
+JB Metropolitan Distributor: the contact was sent their reminder, as a forward of their introduction
+Email threads: 28 companies read in full, 86 with no change since their last reading
+Loop: 0 forwards, 12 reminders, 3 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
