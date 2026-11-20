@@ -49,9 +49,11 @@ def test_an_unclear_reply_changes_nothing_and_is_listed_for_amodh(settings):
     assert rec(hs, p1)[LS] == "IN_PROGRESS" and hs.records["companies"][cid][LS] == "In Progress"
     entry = referrals.load()["handled"][p1]
     assert entry["outcome"] == "unsure" and entry["why"] == "no email address in the reply"
-    subject, text = referrals.report_text(hs, emails, LeadStatus(hs), entry["day"])
-    assert "Left for you: 1" in text and "Vague" in text and "come back to you" in text
-    assert "no email address in the reply" in text and subject.startswith("Partner outreach")
+    # 21 Nov 2026: in the daily summary email, under "Referrals the automation wasn't sure about"
+    data = referrals.report_data(hs, emails, LeadStatus(hs), referrals.entry_day(entry))
+    (case,) = data["unsure"]
+    assert case["company"] == "Vague" and "come back to you" in case["reply"]
+    assert case["why"] == "no email address in the reply" and case["link"].endswith(f"/record/0-2/{cid}")
 
 
 def test_not_sure_when_the_address_is_elsewhere_or_already_a_team_contact(settings):
@@ -102,7 +104,7 @@ def test_a_company_still_in_conversation_stays_paused():
 
 def test_no_email_when_nothing_happened(settings):
     hs = FakeCRM()
-    assert referrals.report_text(hs, None, LeadStatus(hs), "2026-11-03") == (None, None)
+    assert referrals.report_data(hs, None, LeadStatus(hs), "2026-11-03") is None
 
 
 def test_a_signature_address_or_a_public_mail_service_is_never_a_redirect():
@@ -155,7 +157,7 @@ def test_today_s_unsure_replies_are_not_counted_as_earlier_days(tmp_path):
     cid, (p1,) = company(hs, "Days", "days.example", ("Owner",))
     path = tmp_path / "r.json"
     referrals.save({"handled": {p1: {"day": "2026-11-04", "outcome": "unsure", "company": cid, "why": "x"}}}, path)
-    assert referrals.report_text(hs, None, LeadStatus(hs), "2026-11-03", path) == (None, None)
+    assert referrals.report_data(hs, None, LeadStatus(hs), "2026-11-03", path) is None
 
 
 # ---- The line copy at every open company -----------------------------------------------------------
@@ -311,9 +313,9 @@ def test_a_neutral_reply_nobody_acted_on_for_7_days_lets_the_company_go_on(setti
         sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert rec(hs, p1)[LS] == "IN_PROGRESS"
     assert not [r for r in emails.replies if "p1@slow.example" in str(r.get("address") or r.get("to"))]
-    today = referrals.today_india()
-    _, text = referrals.report_text(hs, None, LeadStatus(hs), today)
-    assert "BACK IN THE LOOP" in text and "waited 7 days" in text
+    from outreach import daily_log
+    data = referrals.report_data(hs, None, LeadStatus(hs), daily_log.uk_day())
+    assert any("waited 7 days" in why for _, why in data["resumed"])
 
 
 # ---- Review, 10 Nov 2026 -------------------------------------------------------------------------------

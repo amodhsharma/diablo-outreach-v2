@@ -388,7 +388,8 @@ def test_no_job_can_write_to_hubspot_without_the_guard():
         if path.name in ("hubspot_client.py", "setup_hubspot.py"):
             continue
         assert not raw_writes.search(text), f"{path.name} calls HubSpot directly"
-        if path.name not in ("import_research.py", "known_companies.py"):  # duplicate checks: read only
+        # duplicate checks, and (21 Nov 2026) replies from people who are not AUTO-OUTREACH: read only
+        if path.name not in ("import_research.py", "known_companies.py", "outside_replies.py"):
             assert not plain_search.search(text), f"{path.name} searches without the AUTO-OUTREACH filter"
         for name in ("batch_update(", "batch_create(", "associate_default("):
             assert f"hs.{name}" not in text, f"{path.name} uses hs.{name}"

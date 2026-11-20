@@ -8,6 +8,7 @@ import datetime as dt
 import pytest
 
 from outreach import address_checks, bounce_inbox, corrupt, daily_report, send, sync
+from outreach.common import load_settings
 from outreach.schema import CONTACT_SOURCE
 
 from .fakes import FakeCRM, FakeInstantly
@@ -362,3 +363,82 @@ def test_a_held_broken_record_is_named_and_counted_as_needing_input():
     assert "Broken Co (its first name holds an email or web address)" in lines
     block = lines[lines.index("Initial stages - your input needed or not (at midnight UK)") + 1:]
     assert "Contacts held: broken record 1" in block and "Introductions approved, waiting their turn to send 0" in block
+
+
+# ---- 21 Nov 2026 (Ariel): replies from outside the automation, and the referrals, in the daily email --------
+
+def _replies_world():
+    from .fakes import FakeEmails
+    from .test_daily_report import DAY, _world
+
+    class Emails(FakeEmails):  # Instantly's list of every email since a time, as the daily email reads it
+        def emails_since(self, min_created, max_pages=30):
+            from outreach.next_in_line import parse_time
+            since = parse_time(min_created)
+            return [e for e in self.emails if parse_time(e.get("timestamp_email")) >= since]
+    hs, instantly, accounts, log = _world()
+    emails = Emails()
+    at = f"{DAY}T11:00:00Z"
+    shop = hs.add("companies", tagged=False, name="Vegan Grocery Store", domain="vegan.example", country="AU",
+                  hubspot_owner_id="11")
+    known = hs.add("contacts", tagged=False, email="online@vegan.example", hubspot_owner_id="11")
+    hs.links[known] = [shop]
+    emails.received("online@vegan.example", at, text="Thanks for reaching out, please send this to jessica@vegan.example.")
+    emails.received("someone@unknown.example", at, text="Who are you? Send me your price list.")
+    emails.received("away@unknown.example", at, subject="Automatic reply: out of office", text="I am away until Monday.")
+    emails.received("stop@unknown.example", at, text="Please remove me from your list.")
+    emails.received("mailer-daemon@googlemail.com", at, subject="Delivery Status Notification (Failure)", text="x")
+    emails.received("a@felfel.example", at, text="Yes, send samples")  # an AUTO-OUTREACH contact: not here
+    emails.received("old@vegan.example", "2026-10-20T11:00:00Z", text="An older reply")  # another day
+    for e in emails.emails:
+        e["eaccount"] = "sales@diablosnosugar.com"
+    return hs, instantly, accounts, log, emails, DAY
+
+
+def test_replies_not_auto_outreach_are_listed_once_with_where_they_stand():
+    from outreach import outside_replies
+    hs, instantly, accounts, log, emails, day = _replies_world()
+    start, end = daily_report.window(day)
+    rows = outside_replies.read(hs, emails, start, end, log=quiet)
+    by = {r["company"]: r for r in rows}
+    assert sorted(by) == ["Vegan Grocery Store", "unknown.example"]
+    assert by["Vegan Grocery Store"]["country"] == "Australia"
+    assert by["Vegan Grocery Store"]["hubspot"].startswith("Yes, not AUTO-OUTREACH")
+    assert by["Vegan Grocery Store"]["mailbox"] == "sales@diablosnosugar.com"
+    assert "please send this to" in by["Vegan Grocery Store"]["reply"]
+    assert by["unknown.example"]["hubspot"] == "Not in HubSpot"
+    assert outside_replies.read(hs, None, start, end, log=quiet) is None
+
+
+def test_the_daily_email_shows_both_need_input_sections_and_the_automatic_referrals(monkeypatch):
+    from outreach import referrals
+    hs, instantly, accounts, log, emails, day = _replies_world()
+    data = {"seen": 2, "switched": [("Kadac (Australia)", "Buyer", "purchasing@kadac.example")], "added": [],
+            "resumed": [], "waiting": ["Food Works"],
+            "unsure": [{"company": "Taste Organic", "country": "Australia", "link": "https://app.hubspot.com/x",
+                        "job": "Owner", "why": "the address in the reply is not at the company's own domain",
+                        "reply": "Please contact our buyer"}]}
+    monkeypatch.setattr(referrals, "report_data", lambda *a, **k: data)
+    out = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=day,
+                           preview=True, log=quiet, log_data=log, emails_api=emails)
+    lines = [" ".join(line.split()) for line in out["text"].splitlines()]
+    assert "Referrals the automation wasn't sure about [Need Amodh's input] 1" in lines
+    assert "Replies not AUTO-OUTREACH [Need Amodh's input] 2" in lines
+    assert "Referrals handled automatically (no input needed) 1" in lines
+    assert "Still waiting from earlier days: 1 (Food Works)" in lines
+    assert any(line.startswith("- Taste Organic (Australia) | Owner |") for line in lines)
+    assert any(line.startswith("- Vegan Grocery Store (Australia) | sales@diablosnosugar.com |") for line in lines)
+    assert "Need Amodh&#x27;s input</span>" in out["html"] and "#FAEEDA" in out["html"]
+    assert '<a href="https://app.hubspot.com/x">Taste Organic (Australia)</a>' in out["html"]
+    order = [i for i, line in enumerate(lines) if line.startswith(("Negative replies", "Referrals the automation",
+                                                                    "Replies not AUTO", "Referrals handled",
+                                                                    "Waiting for you"))]
+    assert [lines[i].split()[0] for i in order] == ["Negative", "Referrals", "Replies", "Referrals", "Waiting"]
+
+
+def test_the_separate_referral_email_to_amodh_is_gone():
+    from pathlib import Path
+    from outreach import referrals
+    assert not hasattr(referrals, "main") and not hasattr(referrals, "report_text")
+    workflow = (Path(__file__).resolve().parent.parent / ".github" / "workflows" / "daily-report.yml").read_text()
+    assert "python -m outreach.referrals" not in workflow

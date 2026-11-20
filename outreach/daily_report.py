@@ -404,6 +404,15 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "at_midnight": not at.live,
     }
     out["initial"] = initial_stages(hs, statuses, out["unknown_channel"], at, unknown)
+    # 21 Nov 2026 (Ariel): the replies that named someone else (until then a separate email to Amodh) and the
+    # replies from people who are not AUTO-OUTREACH contacts, both for the UK day
+    from . import outside_replies, referrals
+    try:
+        out["referrals"] = referrals.report_data(hs, emails_api, statuses, date) or {}
+    except Exception:  # never stops the email: the section says it could not be read
+        out["referrals"] = None
+    start, end = window(date)
+    out["outside"] = outside_replies.read(hs, emails_api, start, end)
     return out
 
 
@@ -497,6 +506,57 @@ def bounce_lines(detail, bounced):
     return out
 
 
+AMODH = "Need Amodh's input"  # 21 Nov 2026 (Ariel): highlighted after the heading
+TAG_BG, TAG_TEXT = "#FAEEDA", "#854F0B"
+
+
+def reply_blocks(k):
+    """21 Nov 2026 (Ariel): three sections after the negative replies. Headings are (text, tag, count); a
+    ("table", headers or None, rows) item holds rows of cells, a cell being text or (text, link)."""
+    if "referrals" not in k and "outside" not in k:
+        return []
+    ref, outside = k.get("referrals"), k.get("outside")
+    unsure, auto = [], []
+    if ref is None:
+        unsure = [("line", "Could not be read this time", SAME)]
+    else:
+        rows = [((f"{u['company']}" + (f" ({u['country']})" if u.get("country") else ""), u["link"]), u["job"], u["why"],
+                 f'"{u["reply"]}"' if u.get("reply") else "") for u in ref.get("unsure") or []]
+        unsure = [("table", ["Company", "Who replied", "Why it wasn't sure", "Their reply"], rows)] if rows else \
+            [("line", "None", SAME)]
+        if ref.get("waiting"):
+            unsure.append(("line", f"Still waiting from earlier days: {len(ref['waiting'])} ("
+                           + ", ".join(ref["waiting"]) + ")", None))
+    if outside is None:
+        outs = [("line", "Could not be read this time (Instantly's emails)", SAME)]
+    elif outside:
+        outs = [("table", ["Company", "Arrived in", "In HubSpot", "Their reply"],
+                 [(o["company"] + (f" ({o['country']})" if o.get("country") else ""), o["mailbox"], o["hubspot"],
+                   f'"{o["reply"]}"' if o.get("reply") else "") for o in outside])]
+    else:
+        outs = [("line", "None", SAME)]
+    if ref is not None:  # one row each, its count under "Yesterday" like the rest, the companies under it
+        auto = []
+        for label, names in (("Switched to the new person",
+                              [f"{c}: {j} to {n}" for c, j, n in ref.get("switched") or []]),
+                             ("Stand-ins added from an out-of-office",
+                              [f"{c}: {j} away, {n} added" for c, j, n in ref.get("added") or []]),
+                             ("Back in the loop", [c for c, _ in ref.get("resumed") or []])):
+            auto.append(("row", "  " + label, _n(len(names)), "", None, None, ""))
+            auto += [("name", n) for n in names]
+    else:
+        auto = [("line", "Could not be read this time", SAME)]
+    n_unsure = len((ref or {}).get("unsure") or [])
+    n_auto = sum(len((ref or {}).get(x) or []) for x in ("switched", "added", "resumed"))
+    return [(("Referrals the automation wasn't sure about", AMODH, n_unsure), unsure),
+            (("Replies not AUTO-OUTREACH", AMODH, len(outside or [])), outs),
+            (("Referrals handled automatically", "no input needed", n_auto), auto)]
+
+
+def _heading(h):
+    return h if isinstance(h, tuple) else (h, None, None)
+
+
 def key_rows(k):
     """(title, [(heading, [item])]) for the "Key numbers" section. item: ("row", label, day, before, arrow, good,
     month), ("line", text, colour) or ("name", text)."""
@@ -544,6 +604,7 @@ def key_rows(k):
     blocks = [("Sending", sending_), ("Delivery", delivery), ("Sending accounts", accounts),
               ("Positive replies to follow up", names(k["follow"])),
               ("Negative replies to convert into possible leads", names(k["negative"])),
+              *reply_blocks(k),
               ("Waiting for you", waiting)]
     if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, at midnight UK
         need = sum(n for _, n, _ in k["initial"]["input"])
@@ -565,13 +626,19 @@ def key_text(k):
     width = max(len(i[1]) for _, items in blocks for i in items if i[0] == "row") + 4
     out = [title, f"{'':{width + 2}}{'Yesterday':<16}{'Day before':<16}Month so far"]
     for heading, items in blocks:
-        out.append(heading)
+        text, tag, count = _heading(heading)
+        label = text + (f" [{tag}]" if tag == AMODH else f" ({tag})" if tag else "")
+        out.append(f"{label:<{width + 2}}{count}" if count is not None else label)
         for item in items:
             if item[0] == "row":
                 _, label, day, before, symbol, _good, month = item
                 out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{month}".rstrip())
             elif item[0] == "line":
                 out.append(f"  {item[1]}")
+            elif item[0] == "table":
+                for row in item[2]:
+                    cells = [c[0] if isinstance(c, tuple) else c for c in row]
+                    out.append("  - " + " | ".join(c for c in cells if c))
             else:
                 out.append(f"    {item[1]}")
     return out
@@ -586,8 +653,23 @@ def key_html(k):
              + "".join(f'<td {cell}><span style="color:{SAME}">{h}</span></td>'
                        for h in ("Yesterday", "Day before", "Month so far")) + "</tr>"]
     for heading, items in blocks:
-        parts.append(f'<tr><td colspan="4" style="padding:10px 0 2px"><b>{e(heading)}</b></td></tr>')
+        text, tag, count = _heading(heading)
+        if tag == AMODH:
+            tag_html = (f' <span style="background:{TAG_BG};color:{TAG_TEXT};padding:1px 8px;border-radius:6px;'
+                        f'font-weight:normal;font-size:12px">{e(tag)}</span>')
+        elif tag:
+            tag_html = f' <span style="color:{SAME};font-weight:normal;font-size:12px">({e(tag)})</span>'
+        else:
+            tag_html = ""
+        if count is None:
+            parts.append(f'<tr><td colspan="4" style="padding:10px 0 2px"><b>{e(text)}</b>{tag_html}</td></tr>')
+        else:
+            parts.append(f'<tr><td style="padding:10px 0 2px"><b>{e(text)}</b>{tag_html}</td>'
+                         f'<td {cell}><b>{count}</b></td><td></td><td></td></tr>')
         for item in items:
+            if item[0] == "table":
+                parts.append(f'<tr><td colspan="4" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
+                continue
             if item[0] == "row":
                 _, label, day, before, symbol, good, month = item
                 colour = SAME if good is None else (GOOD if good else BAD)
@@ -602,6 +684,21 @@ def key_html(k):
             else:
                 parts.append(f'<tr><td colspan="4" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
     return "".join(parts) + "</table>"
+
+
+def _table_html(headers, rows):
+    """A small table inside a Key numbers section (21 Nov 2026)."""
+    e = html.escape
+    td = 'style="padding:4px 8px 4px 0;vertical-align:top;border-top:1px solid #e5e5e5"'
+
+    def cell(c):
+        if isinstance(c, tuple):
+            return f'<a href="{e(c[1])}">{e(c[0])}</a>'
+        return e(c)
+    head = ("<tr>" + "".join(f'<td style="padding:2px 8px 2px 0;color:{SAME};font-size:12px">{e(h)}</td>'
+                             for h in headers) + "</tr>") if headers else ""
+    body = "".join("<tr>" + "".join(f"<td {td}>{cell(c)}</td>" for c in row) + "</tr>" for row in rows)
+    return f'<table style="border-collapse:collapse;font-size:13px;width:100%">{head}{body}</table>'
 
 
 def chart_html(spec):

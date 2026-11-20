@@ -156,10 +156,13 @@ out-of-office that says the person has left) for 1 to 3 new addresses at the sam
 "please contact". When it is sure, it adds them as contacts (AUTO-OUTREACH, job title "Referred by
 colleague", legal basis "Legitimate interest - prospect/lead", linked to the company), sets the person
 who replied to "Unqualified: Rejected/Redirected by company owner" and puts the company back on
-Attempted to Contact (20 replies a run). When it is not sure, it changes nothing. Each morning with the daily summary, an
-email goes to ALERT_TO only: how many such replies were seen, switched and left, the details of the ones
-left (company, job title, why, part of the reply and the HubSpot link) and how many are still waiting
-from earlier days. A company on In Progress whose replier is now Rejected/Redirected, with nobody else
+Attempted to Contact (20 replies a run). When it is not sure, it changes nothing. The daily summary email
+(21 Nov 2026, Ariel; before that a separate email to ALERT_TO) shows them under Key numbers: "Referrals the
+automation wasn't sure about (Need Amodh's input)" (company with its HubSpot link, who replied, why, part of the
+reply; and how many are still waiting from earlier days) and "Referrals handled automatically" (switched,
+stand-ins added, back in the loop). A third section, "Replies not AUTO-OUTREACH (Need Amodh's input)", lists
+once each real reply in our sending mailboxes from someone who is not an AUTO-OUTREACH contact, with where it
+arrived, how it sits in HubSpot and part of the reply (`outreach/outside_replies.py`, read only). A company on In Progress whose replier is now Rejected/Redirected, with nobody else
 there in conversation, carries on.
 
 **Referrals come before Instantly's label (12 Nov 2026, Ariel, after Taste Organic).** Every real reply is
@@ -472,7 +475,7 @@ Settings > Secrets and variables > Actions > New repository secret.
 | `INSTANTLY_EMAILS_KEY` | A third Instantly key with the scope `emails:all`, used only by button 4 to send the forwards and person 1's reminder |
 | `INSTANTLY_ACCOUNTS_KEY` | A second, read-only Instantly key with the scope `accounts:read`, used only by button 4's health check to read the mailboxes (`docs/instantly_accounts_key.md`) |
 | `REPLY_FORWARD_TO` | Amodh's and Ariel's addresses only (4 Nov 2026), separated by a comma: clear yes or no replies are forwarded here |
-| `ALERT_TO` | Amodh's address only: failure emails, every other reply and the daily list of replies that named someone else |
+| `ALERT_TO` | Amodh's address only: failure emails and every other reply (the daily list of replies that named someone else is in the daily summary since 21 Nov 2026) |
 | `HUBSPOT_TOKEN_LIVE` | Only when testing is finished: the same kind of private app, made in the live account, with the same scopes |
 
 To use the live HubSpot account for the automatic jobs, add a repository variable

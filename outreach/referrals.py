@@ -18,8 +18,10 @@ Button 3 then makes the new contact number 1 (redirect.py), button 4 copies the 
 sends the introduction.
 
 When it is not sure it changes nothing: the company stays paused on In Progress for a person to handle.
-Either way the case goes into the email to ALERT_TO (Amodh only) at the time of the daily summary:
-how many such replies came in, how many were switched, and the details of those left for a person.
+Either way the case goes into the daily summary email (21 Nov 2026, Ariel; until then a separate email to
+ALERT_TO, Amodh only, which is gone): "Referrals the automation wasn't sure about (Need Amodh's input)" with the
+details of those left for a person and those still waiting from earlier days, and "Referrals handled
+automatically" (switched, stand-ins added, back in the loop). See report_data and daily_report.key_rows.
 
 A company paused on In Progress goes back into the loop by itself (release, 10 Nov 2026, Ariel) when:
   - the person who replied is now Rejected/Redirected and nobody else there is really in conversation
@@ -43,9 +45,7 @@ names, addresses or text).
 
 import datetime as dt
 import json
-import os
 import re
-import sys
 
 from .common import ROOT, from_us
 from .schema import LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD, ORDER as ORDER_FIELD, TAG, TAG_PROPERTY
@@ -324,7 +324,7 @@ def add_to_sales(hs, statuses, record, company_id, company, addresses, log=print
     if target_id != str(company_id) and target is not None and moves_on(statuses.of("companies", target), "sales"):
         hs.update_tagged("companies", [(target_id, statuses.props("companies", "sales"))])
     handled[cid] = {"day": today_india(now), "outcome": "mixed", "company": str(company_id),
-                    "new": new_ids + ids, "rules": RULES}
+                    "new": new_ids + ids, "rules": RULES, "at": _now_iso()}
     save(state, path)
     log(f"{(company or {}).get('properties', {}).get('name') or 'A company'}: the reply named "
         f"{len(new_ids + ids)} colleague(s) and also asked for something; they were added to HubSpot on END with "
@@ -379,10 +379,26 @@ def process(hs, emails_api, statuses, seen, log=print, path=None, now=None, forc
     return out
 
 
+def _now_iso():
+    return dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+
+
+def entry_day(entry):
+    """The UK day a case belongs to in the daily email (21 Nov 2026): from its time when known, otherwise the
+    India date it was recorded with (cases before 21 Nov 2026)."""
+    from .daily_log import uk_day
+    return uk_day(entry["at"]) if entry.get("at") else (entry.get("day") or "")
+
+
 def _record(handled, cid, entry):
     """Write the outcome; a reply read again keeps its first day (the 7 days count from it)."""
     prev = handled.get(cid) or {}
     entry = dict(entry, rules=RULES)
+    entry.setdefault("at", _now_iso())
+    if prev.get("day") and entry.get("outcome") == "unsure" and prev.get("at"):
+        entry["at"] = prev["at"]
+    elif prev.get("day") and entry.get("outcome") == "unsure":
+        entry.pop("at")  # its first day is only known as a date
     for keep in ("parked", "replies"):  # a parked reply read again stays parked
         if prev.get(keep) and entry.get("outcome") in ("unsure", "none"):
             entry[keep] = prev[keep]
@@ -654,7 +670,7 @@ def release(hs, statuses, log=print, leads=None, seen=None, path=None, now=None,
             contacts.append((c["id"], statuses.props("contacts", stage)))
             if own == "replied" and (handled.get(cid) or {}).get("outcome") == "unsure":
                 handled.pop(cid)  # read again next run, as what it really was (an out-of-office)
-        state.setdefault("resumed", {})[str(company["id"])] = {"day": day, "why": why}
+        state.setdefault("resumed", {})[str(company["id"])] = {"day": day, "why": why, "at": _now_iso()}
         log(f"{name}: {why}, so the company is back on Attempted to Contact")
     hs.update_tagged("companies", back)
     hs.update_tagged("contacts", contacts)
@@ -665,113 +681,73 @@ def release(hs, statuses, log=print, leads=None, seen=None, path=None, now=None,
     return len(back)
 
 
-# ---- The daily email to ALERT_TO --------------------------------------------------------------------
+# ---- In the daily summary email (21 Nov 2026, Ariel) ---------------------------------------------------
 
-def report_text(hs, emails_api, statuses, day, path=None):
-    """(subject, text) of the email about the replies read on `day` (an India date), or (None, None)."""
+def report_data(hs, emails_api, statuses, day, path=None):
+    """What the daily email shows about the replies of the UK day `day` that only named someone else, or None
+    when there is nothing to show. {"seen", "switched": [(company, job, new addresses)], "added": [...],
+    "resumed": [(company, why)], "unsure": [{"company", "country", "link", "job", "why", "reply"}],
+    "waiting": [company names]}."""
     from .common import PRODUCTION_PORTAL_ID
+    from .countries import uniform
     state = load(path)
     handled = state.get("handled") or {}
     cases = {cid: e for cid, e in handled.items() if e.get("outcome") in ("switched", "unsure", "added")}
-    todays = {cid: e for cid, e in cases.items() if e.get("day") == day}
-    waiting = {cid: e for cid, e in cases.items() if e.get("outcome") == "unsure" and (e.get("day") or "") < day}
+    todays = {cid: e for cid, e in cases.items() if entry_day(e) == day}
+    waiting = {cid: e for cid, e in cases.items() if e.get("outcome") == "unsure" and entry_day(e) < day}
     ids = sorted(set(todays) | set(waiting) | {n for e in todays.values() for n in e.get("new") or []})
     people = {str(r["id"]): r for r in hs.tagged_read("contacts", ids, ["email", "jobtitle", LEAD_STATUS])} if ids else {}
-    resumed = {c: e for c, e in (state.get("resumed") or {}).items() if e.get("day") == day}
+    resumed = {c: e for c, e in (state.get("resumed") or {}).items() if entry_day(e) == day}
     company_ids = sorted({e.get("company") for e in list(todays.values()) + list(waiting.values()) if e.get("company")}
                          | set(resumed))
-    companies = {str(c["id"]): c for c in hs.tagged_read("companies", company_ids, ["name", LEAD_STATUS])} if company_ids else {}
+    companies = ({str(c["id"]): c for c in hs.tagged_read("companies", company_ids, ["name", "country", LEAD_STATUS])}
+                 if company_ids else {})
     try:
         portal = hs.portal_id()
     except Exception:
         portal = PRODUCTION_PORTAL_ID
 
-    def company(e):
-        return ((companies.get(e.get("company")) or {}).get("properties") or {}).get("name") or "a company"
+    def props(company_id):
+        return (companies.get(company_id) or {}).get("properties") or {}
+
+    def company(company_id):
+        p = props(company_id)
+        country = uniform(p.get("country"))
+        return (p.get("name") or "A company") + (f" ({country})" if country else "")
 
     def job(cid):
         return ((people.get(cid) or {}).get("properties") or {}).get("jobtitle") or "contact"
+
+    def new(e):
+        return ", ".join(((people.get(n) or {}).get("properties") or {}).get("email") or "new contact"
+                         for n in e.get("new") or [])
 
     def still_paused(e):
         c = companies.get(e.get("company"))
         return bool(c) and statuses.of("companies", c) == "replied"
 
-    switched = [(cid, e) for cid, e in todays.items() if e["outcome"] == "switched"]
-    added = [(cid, e) for cid, e in todays.items() if e["outcome"] == "added"]
-    unsure = [(cid, e) for cid, e in todays.items() if e["outcome"] == "unsure"]
-    old = [(cid, e) for cid, e in waiting.items() if still_paused(e)]
-    long_day = dt.date.fromisoformat(day)
-    lines = [f"Replies read on {long_day.strftime('%A')} {long_day.day} {long_day.strftime('%B %Y')} that only named "
-             "someone else (no clear yes or no), or automatic replies saying the person has left.", "",
-             f"Seen: {len(todays)}", f"Switched automatically: {len(switched)}", f"Left for you: {len(unsure)}"]
-    if switched:
-        lines += ["", "SWITCHED AUTOMATICALLY (the old contact is now Rejected/Redirected; the new one is emailed "
-                      "after the next runs of buttons 3 and 4):"]
-        for cid, e in switched:
-            new = ", ".join(((people.get(n) or {}).get("properties") or {}).get("email") or "new contact"
-                            for n in e.get("new") or [])
-            lines.append(f"- {company(e)}: {job(cid)} -> {new}")
-    if added:
-        lines += ["", "STAND-INS ADDED FROM AN OUT-OF-OFFICE (the person away stays as they are; the stand-in gets "
-                      "their own introduction after the next runs of buttons 3 and 4):"]
-        for cid, e in added:
-            new = ", ".join(((people.get(n) or {}).get("properties") or {}).get("email") or "new contact"
-                            for n in e.get("new") or [])
-            lines.append(f"- {company(e)}: {job(cid)} is away -> {new}")
-    if resumed:
-        lines += ["", "BACK IN THE LOOP (the company is on Attempted to Contact again):"]
-        for company_id, e in sorted(resumed.items()):
-            lines.append(f"- {company({'company': company_id})}: {e.get('why')}")
-    if unsure:
-        lines += ["", f"LEFT FOR YOU (nothing was changed for the reply; a company with a reply waits on In "
-                      f"Progress for up to {STALE_DAYS} days, then goes on by itself, and an automatic \"has left\" "
-                      "reply still marks that address Contact corrupt):"]
-        for cid, e in unsure:
-            address = ((people.get(cid) or {}).get("properties") or {}).get("email") or ""
-            excerpt = ""
-            if emails_api is not None and address:
-                try:
-                    texts = _reply_texts(emails_api, address, bool(e.get("automatic")))
-                    excerpt = " ".join(" ".join(texts).split())[:400]
-                except Exception:
-                    excerpt = ""
-            lines += [f"- {company(e)} (https://app.hubspot.com/contacts/{portal}/record/0-2/{e.get('company')})",
-                      f"  Who replied: {job(cid)}", f"  Why it was not sure: {e.get('why')}"]
-            if excerpt:
-                lines.append(f'  Their reply: "{excerpt}"')
-    if old:
-        lines += ["", f"Still waiting for you from earlier days: {len(old)} ("
-                      + ", ".join(sorted({company(e) for _, e in old})) + ")"]
-    if not todays and not old and not resumed:
-        return None, None
-    lines += ["", "Kind regards,", "Diablo outreach"]
-    return f"Partner outreach: replies naming someone else ({long_day.day} {long_day.strftime('%b %Y')})", "\n".join(lines)
-
-
-def main(argv=None):
-    import argparse
-    from .common import check_target
-    from .hubspot_client import HubSpot
-    from .instantly_client import Instantly
-    from .stages import LeadStatus
-    from . import alert
-    p = argparse.ArgumentParser(description="Email ALERT_TO about yesterday's replies that named someone else")
-    p.add_argument("--target", default="test", choices=["test", "live"])
-    p.add_argument("--preview", action="store_true", help="show the email, send nothing")
-    args = p.parse_args(argv)
-    hs = HubSpot()
-    check_target(hs, args.target)
-    key = os.environ.get("INSTANTLY_EMAILS_KEY")
-    yesterday = (dt.datetime.now(INDIA).date() - dt.timedelta(days=1)).isoformat()
-    subject, text = report_text(hs, Instantly(api_key=key) if key else None, LeadStatus(hs), yesterday)
-    if not subject:
-        print("No reply named someone else yesterday, and none is waiting: nothing to send.")
-        return 0
-    print(subject + "\n\n" + text)
-    if not args.preview:
-        alert.send(subject, text)
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    out = {"seen": len(todays),
+           "switched": [(company(e.get("company")), job(cid), new(e)) for cid, e in todays.items()
+                        if e["outcome"] == "switched"],
+           "added": [(company(e.get("company")), job(cid), new(e)) for cid, e in todays.items()
+                     if e["outcome"] == "added"],
+           "resumed": [(company(c), e.get("why") or "") for c, e in sorted(resumed.items())],
+           "unsure": [], "waiting": sorted({props(e.get("company")).get("name") or "A company"
+                                           for _, e in waiting.items() if still_paused(e)}, key=str.lower)}
+    for cid, e in todays.items():
+        if e["outcome"] != "unsure":
+            continue
+        address = ((people.get(cid) or {}).get("properties") or {}).get("email") or ""
+        reply = ""
+        if emails_api is not None and address:
+            try:
+                reply = " ".join(" ".join(_reply_texts(emails_api, address, bool(e.get("automatic")))).split())
+            except Exception:
+                reply = ""
+        p = props(e.get("company"))
+        out["unsure"].append({"company": p.get("name") or "A company", "country": uniform(p.get("country")) or "",
+                              "link": f"https://app.hubspot.com/contacts/{portal}/record/0-2/{e.get('company')}",
+                              "job": job(cid), "why": e.get("why") or "", "reply": reply[:200]})
+    if not (out["seen"] or out["waiting"] or out["resumed"]):
+        return None
+    return out

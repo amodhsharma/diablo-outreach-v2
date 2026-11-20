@@ -161,7 +161,9 @@ def test_a_quiet_day_and_all_healthy():
                               date="2026-11-01", preview=True, log=quiet, log_data={})
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert "Introductions sent 0 0 = 0" in lines and "All sending accounts healthy" in lines
-    assert lines.count("None") == 2  # no positive and no negative replies
+    # no positive or negative replies; 21 Nov 2026: no referral to look at either (no emails key: not read)
+    assert lines.count("None") == 3
+    assert "Replies not AUTO-OUTREACH [Need Amodh's input] 0" in lines
     assert "#0F6E56" in result["html"]  # the healthy line is green
 
 
