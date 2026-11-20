@@ -282,6 +282,9 @@ def run_backlog(hs, instantly, settings, log=print, now=None, state_path=None, e
     companies = [c for c in companies if str(c["id"]) not in reopened and str(c["id"]) not in closed_after
                  and not str(c["properties"].get(STOP_REASON) or "").startswith(REOPENED)
                  and (c["properties"].get("country") or "").strip()]
+    from . import channels  # 20 Nov 2026 (Ariel, HARD RULE): the channel first, no matter what
+    allowed = channels.screen(hs, statuses, companies, log, close=False)
+    companies = [c for c in companies if str(c["id"]) in allowed]
     if not companies:
         save_state(state, state_path)
         return out

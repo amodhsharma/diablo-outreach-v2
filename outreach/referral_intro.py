@@ -129,6 +129,14 @@ def send(hs, emails_api, statuses, settings, log=print, leads=None, blocked=None
         if cstage in COMPANY_STOPPED or cstage not in OPEN:
             drop(cid, f"its company's Lead Status is {cp.get(LEAD_STATUS)}")
             continue
+        from .channels import verdict  # 20 Nov 2026 (Ariel, HARD RULE): the channel first, no matter what
+        channel_ok = verdict(cp, notes)
+        if channel_ok is False:
+            drop(cid, "its company is not from a channel we target")
+            continue
+        if channel_ok is None:
+            log(f"{cp.get('name')}: the referral email waits: the company's channel is not known")
+            continue
         if not (cp.get("country") or "").strip():
             log(f"{cp.get('name')}: the referral email waits: fill in the company's Country")
             continue

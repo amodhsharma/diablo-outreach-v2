@@ -10,6 +10,14 @@ run. The personal opening line for each contact is written by Claude through the
 
 Version 1 (amodhsharma/diablo-outreach) is kept as it is, for reference only.
 
+**The channel check comes first, for every company (HARD RULE, Ariel, 20 Nov 2026).** Before any company is
+selected, restarted or emailed, its channel is checked: only distributors, wholesalers, importers and supermarket
+chains go ahead. Button 3 checks the approved companies before Apollo and the companies ready to restart; button 4
+checks every company before an introduction, a referral email or a backlog reopening. A company from another channel
+is set to "Unqualified: Channel no longer targeted"; one whose channel is not known waits (named in the run's log
+and in the daily email) until it is added to `config/company_channels.json`, which also corrects a channel research
+named wrongly (`outreach/channels.py`).
+
 ## How a Location gets researched
 
 1. Press **2 - Research** and choose "Add a market": type the Location, the Channels (separated by

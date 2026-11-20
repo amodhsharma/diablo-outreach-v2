@@ -171,11 +171,39 @@ def industry_type(channel):
     return "Other"
 
 
+CHANNELS_FILE = ROOT / "config" / "company_channels.json"
+_CHANNELS = {}
+
+
+def set_channels():
+    """{domain or "name:<company name>": channel} from config/company_channels.json (20 Nov 2026), read once."""
+    if "map" not in _CHANNELS:
+        try:
+            data = json.loads(Path(CHANNELS_FILE).read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            data = {}
+        _CHANNELS["map"] = {str(k).lower(): v for k, v in (data.get("companies") or {}).items()}
+    return _CHANNELS["map"]
+
+
+def _domain(value):
+    d = str(value or "").strip().lower()
+    for prefix in ("https://", "http://", "www."):
+        d = d[len(prefix):] if d.startswith(prefix) else d
+    return d.split("/")[0]
+
+
 def channel_of(props, notes=None):
-    """The research Channel of a company (from data/company_notes.json), else its Industry Type."""
+    """A company's channel: set by hand in config/company_channels.json (20 Nov 2026), else its research Channel
+    (data/company_notes.json), else its Industry Type."""
     props = props.get("properties", props)
     notes = load_company_notes() if notes is None else notes
-    note = notes.get((props.get("domain") or "").lower()) or {}
+    domain = _domain(props.get("domain"))
+    chosen = set_channels()
+    by_hand = chosen.get(domain) or chosen.get("name:" + str(props.get("name") or "").strip().lower())
+    if by_hand:
+        return by_hand
+    note = notes.get(domain) or notes.get((props.get("domain") or "").lower()) or {}
     return note.get("category") or props.get("industry_type") or ""
 
 

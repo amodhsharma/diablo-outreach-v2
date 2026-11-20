@@ -494,6 +494,10 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
                          if str(c["id"]) not in seen]
         except Exception as err:
             log(f"Could not set the companies ready to restart to GATE1: {str(err)[:200]}")
+    # 20 Nov 2026 (Ariel, HARD RULE): the channel is the first filter for every company, no matter what
+    from . import channels
+    allowed = channels.screen(hs, statuses, approved, log)
+    approved = [c for c in approved if str(c["id"]) in allowed]
     restarts = {"start": [], "wait": [], "refused": [], "skip": set()}
     if restart_cfg:
         try:

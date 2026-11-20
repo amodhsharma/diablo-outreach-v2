@@ -600,6 +600,13 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             continue
         approved_at[company_id].append(c["id"])
 
+    # 20 Nov 2026 (Ariel, HARD RULE): the channel is the first filter for every company, no matter what
+    from . import channels
+    allowed = channels.screen(hs, statuses, {cid: companies[cid] for cid in approved_at if cid in companies}, log,
+                              close=not dry_run)
+    for cid in [c for c in approved_at if c not in allowed]:
+        approved_at.pop(cid)
+
     # One next person per company, companies in this order (17 Nov 2026, Ariel): companies already started, the
     # oldest first; then new companies with only a company inbox; then the other new companies, in the order
     # they were approved; then restarted companies whose new round has not started yet (20 Nov 2026).

@@ -350,3 +350,36 @@ def test_one_line_when_hubspot_cannot_be_read(monkeypatch, tmp_path):
                      log_data=log)
     text = smtp.sent[0].get_body(("plain",)).get_content()
     assert text == "Today's charts could not be produced: HubSpot could not be read (503 Service Unavailable).\n"
+
+
+def test_the_bounces_name_their_sending_account_and_company():
+    """20 Nov 2026 (Ariel): under Undelivered, which sending account each bounce came from (with its share of that
+    account's emails that day) and at which company."""
+    hs, instantly, accounts, log = _world()
+    shop = hs.add("companies", name="Kadac", country="au", createdate="2026-10-20T00:00:00Z",
+                  hs_lead_status="Attempted to Contact")
+    gone = hs.add("contacts", email="old@kadac.example", jobtitle="Buyer", createdate="2026-10-20T00:00:00Z",
+                  hs_lead_status="ATTEMPTED_TO_CONTACT")
+    hs.links[gone] = [shop]
+    main = next(k for k, c in instantly.campaigns.items() if c["name"] == f"Diablo | {_month()}")
+    instantly.leads[main].append({"email": "old@kadac.example", "timestamp_last_contact": "2026-10-26T12:00:00Z",
+                                  "last_step_from": "sales@x.example", "status": -1})
+    for lead in instantly.leads[main]:
+        lead.setdefault("last_step_from", "sales@x.example")
+    log["days"][DAY]["bounced"] = [gone]
+    text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
+                            preview=True, log=quiet, log_data=log)["text"]
+    lines = [" ".join(line.split()) for line in text.splitlines()]
+    assert "By sending account: sales@x.example 1 (33% of its 3 emails)" in lines
+    assert "At: Kadac (Australia)" in lines
+
+
+@pytest.mark.channels
+def test_companies_whose_channel_is_not_known_are_named_under_waiting_for_you():
+    hs, instantly, accounts, log = _world()
+    hs.add("companies", name="Mystery Co", domain="mystery.example", hs_lead_status="GATE1: Approved for outreach")
+    text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
+                            preview=True, log=quiet, log_data=log)["text"]
+    lines = [" ".join(line.split()) for line in text.splitlines()]
+    at = next(i for i, line in enumerate(lines) if line.startswith("Companies whose channel is not known"))
+    assert "Mystery Co" in lines[at + 1:]

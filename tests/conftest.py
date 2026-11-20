@@ -11,6 +11,7 @@ _PRETEND = None
 
 def pytest_configure(config):
     global _PRETEND
+    config.addinivalue_line("markers", "channels: run the real channel check (20 Nov 2026)")
     when = os.environ.get("CHECK_DATE", "").strip()
     if when:
         from freezegun import freeze_time
@@ -179,3 +180,15 @@ def restarts_off_unless_a_test_says_so(monkeypatch):
     for mod in list(sys.modules.values()):
         if getattr(mod, "load_settings", None) is real:
             monkeypatch.setattr(mod, "load_settings", load_settings)
+
+
+@pytest.fixture(autouse=True)
+def every_channel_goes_ahead_unless_a_test_says_so(tmp_path, monkeypatch, request):
+    """20 Nov 2026 (Ariel, HARD RULE): the channel is the first filter for every company. Most tests' made-up
+    companies have no channel, so the check lets them through; a test marked @pytest.mark.channels runs the real
+    check. No test reads the real config/company_channels.json."""
+    from outreach import channels, common
+    monkeypatch.setattr(common, "CHANNELS_FILE", tmp_path / "company_channels.json")
+    monkeypatch.setattr(common, "_CHANNELS", {})
+    if request.node.get_closest_marker("channels") is None:
+        monkeypatch.setattr(channels, "verdict", lambda props, notes=None: True)

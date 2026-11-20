@@ -242,7 +242,7 @@ def _reply_parts(emails_api, address, kind):
     return texts, emails
 
 
-COMPANY_FIELDS = ["name", "domain", "country", "city", "hubspot_owner_id", LEAD_STATUS]
+COMPANY_FIELDS = ["name", "domain", "country", "city", "hubspot_owner_id", LEAD_STATUS, "industry_type"]
 
 
 def domain_company(hs, addresses, prefer=None):

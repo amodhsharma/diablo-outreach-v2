@@ -12,13 +12,15 @@ The email (20 Nov 2026, Ariel):
   2. "Key numbers", in three columns (Yesterday, Day before with an arrow as on the day chart, Month so far):
        Sending: introductions sent, reminders sent (button 4's memory), Instantly uploads used of the plan's
          allowance (daily_report.instantly_allowance in settings). The aim of 240 introductions a day is not shown.
-       Delivery: undelivered (with the bounce rate; Instantly pauses at 5%), asked not to be emailed, automatic
-         replies (data/daily_log.json, written by button 4)
+       Delivery: undelivered (with the bounce rate; Instantly pauses at 5%; under it, which sending account each
+         bounce came from and at which company), asked not to be emailed, automatic replies (data/daily_log.json,
+         written by button 4)
        Sending accounts: one green line when all are healthy, a red line naming each problem
        Positive replies to follow up: every company that replied that day tagged Positive, plus Neutral and
          Referral replies marked as such; Negative replies to convert into possible leads: the rest. No cap.
        Waiting for you: companies waiting for GATE1 approval, introductions waiting for GATE2 approval, and
-         Companies where nobody could be found (need sales people input), with their names.
+         Companies where nobody could be found (need sales people input), with their names; and, when there are
+         any, the companies whose channel is not known (nobody is emailed until it is set; outreach/channels.py).
 
 The recipients and the mailbox's Google app password (DAILY_REPORT_APP_PASSWORD) are never written in the
 repository.
@@ -34,6 +36,7 @@ import re
 import smtplib
 import ssl
 import sys
+from collections import Counter
 from email.message import EmailMessage
 
 from . import daily_log
@@ -172,6 +175,54 @@ def replies(hs, day_entry, date, forwarded=None):
     return sorted(follow, key=lambda r: r[0].lower()), sorted(negative, key=lambda r: r[0].lower())
 
 
+def bounce_detail(hs, instantly, settings, contact_ids, date):
+    """20 Nov 2026 (Ariel): where the day's bounces came from. {"accounts": [(sending account, bounced, sent that
+    day)], "companies": [(company, country)]}, or None when it could not be read."""
+    from .countries import uniform
+    if not contact_ids:
+        return {"accounts": [], "companies": []}
+    try:
+        records = hs.tagged_read("contacts", [str(c) for c in contact_ids], ["email"])
+        view = instantly_view(instantly, settings["sync"]["campaign_prefix"])
+        owner_of, companies = tagged_company_of(hs, [str(c) for c in contact_ids], ["name", "country"])
+    except (HubSpotError, InstantlyError, KeyError, AttributeError):
+        return None
+
+    def mailbox(lead):
+        return str((lead or {}).get("last_step_from") or (lead or {}).get("eaccount") or "").lower() or None
+    bounced = Counter()
+    for r in records:
+        box = mailbox(view.get(str((r.get("properties") or {}).get("email") or "").lower()))
+        bounced[box or "sending account not known"] += 1
+    sent = Counter(mailbox(lead) for lead in view.values()
+                   if lead.get("timestamp_last_contact") and daily_log.uk_day(lead["timestamp_last_contact"]) == date)
+    names = {}
+    for cid in contact_ids:
+        company = companies.get(owner_of.get(str(cid)))
+        if company:
+            p = company.get("properties") or {}
+            names[str(company["id"])] = (p.get("name") or "A company", uniform(p.get("country")) or "country not known")
+    return {"accounts": sorted(((box, n, sent.get(box, 0)) for box, n in bounced.items()), key=lambda x: (-x[1], x[0])),
+            "companies": sorted(names.values(), key=lambda x: x[0].lower())}
+
+
+def unknown_channels(hs, statuses, notes=None):
+    """20 Nov 2026 (Ariel, HARD RULE): the open companies whose channel is not known, by name: nobody there is
+    emailed until it is set (outreach/channels.py)."""
+    from . import channels
+    from .common import load_company_notes
+    notes = load_company_notes() if notes is None else notes
+    out = set()
+    for stage in ("approved", "located", "no_response"):
+        if not statuses.has("companies", stage):
+            continue
+        for c in hs.tagged_search("companies", [statuses.filter("companies", stage)],
+                                  ["name", "domain", "industry_type"], max_results=5000):
+            if channels.verdict(c.get("properties") or {}, notes) is None:
+                out.add((c.get("properties") or {}).get("name") or "A company")
+    return sorted(out, key=str.lower)
+
+
 def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=None, statuses=None):
     """Everything the "Key numbers" section shows (agreed 20 Nov 2026, Ariel), for the UK day `date`."""
     before = (dt.date.fromisoformat(date) - dt.timedelta(days=1)).isoformat()
@@ -201,6 +252,8 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "gate2": hs.tagged_count("contacts", [statuses.filter("contacts", "copy_ready")])
         if statuses.has("contacts", "copy_ready") else 0,
         "nowhere": nobody_found(hs, statuses, date),
+        "bounces": bounce_detail(hs, instantly, settings, today["bounced"], date),
+        "unknown_channel": unknown_channels(hs, statuses),
     }
 
 
@@ -274,6 +327,21 @@ def _rate(n, sent):
     return f"{_n(n)} ({n / sent:.1%})" if sent and n else _n(n)
 
 
+def bounce_lines(detail, bounced):
+    """20 Nov 2026 (Ariel): under "Undelivered", which sending accounts the day's bounces came from and at which
+    companies."""
+    if not bounced:
+        return []
+    if detail is None:
+        return [("line", "Where they came from could not be read this morning", SAME)]
+    parts = [f"{box} {n}" + (f" ({n / sent:.0%} of its {sent} emails)" if sent else "")
+             for box, n, sent in detail["accounts"]]
+    out = [("line", "By sending account: " + ", ".join(parts), None)] if parts else []
+    if detail["companies"]:
+        out.append(("line", "At: " + ", ".join(f"{name} ({country})" for name, country in detail["companies"]), None))
+    return out
+
+
 def key_rows(k):
     """(title, [(heading, [item])]) for the "Key numbers" section. item: ("row", label, day, before, arrow, good,
     month), ("line", text, colour) or ("name", text)."""
@@ -292,6 +360,7 @@ def key_rows(k):
     day_sent, month_sent = k["sent_total"]
     delivery = [row("Undelivered (bounced; Instantly pauses at 5%)", k["bounced"], False,
                     _rate(k["bounced"][0], day_sent), _rate(k["bounced"][2], month_sent)),
+                *bounce_lines(k.get("bounces"), k["bounced"][0]),
                 row("Asked not to be emailed", k["opted_out"], False),
                 row("Automatic replies (out of office)", k["auto"], None)]
     if k["accounts"] is None:
@@ -311,6 +380,9 @@ def key_rows(k):
                ("row", "Introductions waiting for GATE2 approval", _n(k["gate2"]), "", None, None, ""),
                ("row", "Companies where nobody could be found (need sales people input)", _n(len(k["nowhere"])), "",
                 None, None, "")] + [("name", n) for n in k["nowhere"]]
+    if k.get("unknown_channel"):  # 20 Nov 2026 (Ariel, HARD RULE): nobody there is emailed until it is set
+        waiting += [("row", "Companies whose channel is not known (nobody is emailed until it is set)",
+                     _n(len(k["unknown_channel"])), "", None, None, "")] + [("name", n) for n in k["unknown_channel"]]
     return f"Key numbers - {_long_date(k['date'])}", [
         ("Sending", sending_), ("Delivery", delivery), ("Sending accounts", accounts),
         ("Positive replies to follow up", names(k["follow"])),
