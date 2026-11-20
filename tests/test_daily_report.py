@@ -117,11 +117,11 @@ def test_key_numbers_read_as_agreed():
         assert gone not in text
     lines = [" ".join(line.split()) for line in text.splitlines()]
     assert lines[0] == "Key numbers - Monday 26 October 2026"
-    assert lines[1] == "Yesterday Day before Month so far"
-    assert "Introductions sent 3 1 ▲ 4" in lines
+    assert lines[1] == "Yesterday Day before Week so far Month so far"  # 21 Nov 2026 (Ariel): Week so far added
+    assert "Introductions sent 3 1 ▲ 3 4" in lines  # 26 Oct 2026 is a Monday: the week so far is that day
     assert "Instantly uploads used: 4 of 25,000 (0%)" in lines
-    assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (25.0%)" in lines
-    assert "Asked not to be emailed 0 0 = 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2" in lines
+    assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (33.3%) 1 (25.0%)" in lines
+    assert "Asked not to be emailed 0 0 = 0 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2 2" in lines
     # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
     assert f"!! Diablo | {_month("2026-10-26")} | Company inboxes: No sending account connected" in lines
     assert f"OK Diablo | {_month("2026-10-26")}: Running" in lines and "OK 1 of 1 healthy" in lines
@@ -166,7 +166,8 @@ def test_a_quiet_day_and_all_healthy():
     result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False,
                               date="2026-11-01", preview=True, log=quiet, log_data={})
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
-    assert "Introductions sent 0 0 = 0" in lines and "OK 1 of 1 healthy" in lines
+    assert "Introductions sent 0 0 = 0 0" in lines and "OK 1 of 1 healthy" in lines
+    assert "Week so far" in result["html"]
     # 21 Nov 2026: no positive or negative replies, no referral, no reply from outside; nothing waiting, and
     # "Waiting for you" is now part of Initial stages; "Referrals handled automatically" only when there are some
     assert lines.count("None") == 3
@@ -472,3 +473,15 @@ def test_the_check_names_chart_companies_missing_from_key_numbers():
     line = daily_report.sync_check({"input": {"1": "Alpha", "2": "Beta"}}, key)
     assert line == "Check: the day chart shows 1 company needing your input that this list does not: Beta"
     assert daily_report.sync_check({"input": {"2": "Beta"}}, {}) is None  # Key numbers could not be read
+
+
+def test_the_week_so_far_runs_from_monday_and_leaves_out_the_months_earlier_totals():
+    """21 Nov 2026 (Ariel): Week so far, Monday to the day reported; it may start in the month before."""
+    data = {"uk_days": {"2026-10-31": {"bounced": ["a"]}, "2026-11-03": {"bounced": ["b"], "auto": ["c"]},
+                        "2026-11-05": {"bounced": ["d"]}},
+            "uk_since": "2026-10-01T00:00:00+00:00", "before": {"2026-11": {"bounced": 7}}}
+    from outreach import daily_log
+    week = daily_log.month_counts(data, "2026-11-02", "2026-11-04", uk=True, before=False)
+    month = daily_log.month_counts(data, "2026-11-01", "2026-11-04", uk=True)
+    assert week["bounced"] == 1 and week["auto"] == 1
+    assert month["bounced"] == 8  # the 7 from before the log count for the month only

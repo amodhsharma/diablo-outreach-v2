@@ -138,9 +138,9 @@ def day(data, date, uk=False):
     return {k: list(entry.get(k) or []) for k in KINDS}
 
 
-def month_counts(data, first, last, uk=False):
-    """{kind: n} from first to last (inclusive), with what came before the log. uk=True: UK dates where the UK record
-    covers them, India dates before that."""
+def month_counts(data, first, last, uk=False, before=True):
+    """{kind: n} from first to last (inclusive), with what came before the log (before=False: without it, as for a
+    week). uk=True: UK dates where the UK record covers them, India dates before that."""
     out = {k: 0 for k in KINDS}
     for date, entry in (data.get("days") or {}).items():
         if first <= date <= last and not (uk and uk_covers(data, date)):
@@ -150,7 +150,7 @@ def month_counts(data, first, last, uk=False):
         if first <= date <= last and uk_covers(data, date):
             for k in KINDS:
                 out[k] += len(entry.get(k) or [])
-    for k, n in ((data.get("before") or {}).get(first[:7]) or {}).items():
+    for k, n in (((data.get("before") or {}).get(first[:7]) or {}) if before else {}).items():
         if k in out:
             out[k] += int(n)
     return out

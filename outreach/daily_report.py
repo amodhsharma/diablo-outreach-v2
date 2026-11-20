@@ -16,7 +16,8 @@ The email (20 Nov 2026, Ariel):
   1. The three Sankey charts (flow_charts.py): the UK day, the week so far and the month so far. A chart that
      cannot be drawn is written out instead, with exactly its words, numbers, %, arrows and notes. When HubSpot
      cannot be read at all, one line says the charts could not be produced, and why.
-  2. "Key numbers", in three columns (Yesterday, Day before with an arrow as on the day chart, Month so far):
+  2. "Key numbers", in four columns (Yesterday, Day before with an arrow as on the day chart, Week so far from
+     Monday, added 21 Nov 2026, and Month so far):
        Sending: introductions sent, reminders sent (button 4's memory), Instantly uploads used of the plan's
          allowance (daily_report.instantly_allowance in settings). The aim of 240 introductions a day is not shown.
        Delivery: undelivered (with the bounce rate; Instantly pauses at 5%; under it, which sending account each
@@ -380,10 +381,15 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
     unknown = unknown_channel_companies(hs, statuses, at=at)
     data = daily_log.load() if log_data is None else log_data
     month_days = list(_days(month_first, date))
-    sent = sending(instantly, settings, sorted(set(month_days) | {before}))
+    # 21 Nov 2026 (Ariel): a "Week so far" column too, Monday to the day reported, as on the week chart
+    monday = (dt.date.fromisoformat(date) - dt.timedelta(days=dt.date.fromisoformat(date).weekday())).isoformat()
+    week_days = list(_days(monday, date))
+    sent = sending(instantly, settings, sorted(set(month_days) | set(week_days) | {before}))
     month = daily_log.month_counts(data, month_first, date, uk=True)
     today, previous = daily_log.day(data, date, uk=True), daily_log.day(data, before, uk=True)
     reminders_known = [sent[d]["reminders"] for d in month_days if sent[d]["reminders"] is not None]
+    week = daily_log.month_counts(data, monday, date, uk=True, before=False)
+    week_reminders = [sent[d]["reminders"] for d in week_days if sent[d]["reminders"] is not None]
     follow, negative = replies(hs, today, date)
     out = {
         "date": date, "before": before,
@@ -395,6 +401,10 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "bounced": (len(today["bounced"]), len(previous["bounced"]), month["bounced"]),
         "opted_out": (len(today["opted_out"]), len(previous["opted_out"]), month["opted_out"]),
         "auto": (len(today["auto"]), len(previous["auto"]), month["auto"]),
+        "week": {"intros": sum(sent[d]["intros"] for d in week_days),
+                 "reminders": sum(week_reminders) if week_reminders else None,
+                 "sent": sum(sent[d]["intros"] + (sent[d]["reminders"] or 0) for d in week_days),
+                 "bounced": week["bounced"], "opted_out": week["opted_out"], "auto": week["auto"]},
         "accounts": health(instantly, settings, accounts_api, day=date),
         "follow": follow, "negative": negative,
         "gate1": len(at.records("companies", "found")),
@@ -600,12 +610,16 @@ def _heading(h):
 def key_rows(k):
     """(title, [(heading, [item])]) for the "Key numbers" section. item: ("row", label, day, before, arrow, good,
     month), ("line", text, colour) or ("name", text)."""
-    def row(label, values, rise_is_good, day_text=None, month_text=None):
+    weekly = k.get("week") or {}
+
+    def row(label, values, rise_is_good, day_text=None, month_text=None, key=None, week_text=None):
         day, before, month = values
         symbol, good = _arrow(day, before, rise_is_good)
-        return ("row", label, day_text or _n(day), _n(before), symbol, good, month_text or _n(month))
+        week = week_text or (_n(weekly.get(key)) if key in weekly else "")  # 21 Nov 2026: Week so far
+        return ("row", label, day_text or _n(day), _n(before), symbol, good, month_text or _n(month), None, week)
 
-    sending_ = [row("Introductions sent", k["intros"], True), row("Reminders sent", k["reminders"], True)]
+    sending_ = [row("Introductions sent", k["intros"], True, key="intros"),
+                row("Reminders sent", k["reminders"], True, key="reminders")]
     if k["uploads"]:
         used, allowed = k["uploads"]
         sending_.append(("line", f"Instantly uploads used: {used:,} of {allowed:,} ({used / allowed:.0%})",
@@ -614,10 +628,11 @@ def key_rows(k):
         sending_.append(("line", "Instantly uploads used: Instantly could not be read this morning", SAME))
     day_sent, month_sent = k["sent_total"]
     delivery = [row("Undelivered (bounced; Instantly pauses at 5%)", k["bounced"], False,
-                    _rate(k["bounced"][0], day_sent), _rate(k["bounced"][2], month_sent)),
+                    _rate(k["bounced"][0], day_sent), _rate(k["bounced"][2], month_sent), key="bounced",
+                    week_text=_rate(weekly["bounced"], weekly.get("sent")) if "bounced" in weekly else None),
                 *bounce_lines(k.get("bounces"), k["bounced"][0]),
-                row("Asked not to be emailed", k["opted_out"], False),
-                row("Automatic replies (out of office)", k["auto"], None)]
+                row("Asked not to be emailed", k["opted_out"], False, key="opted_out"),
+                row("Automatic replies (out of office)", k["auto"], None, key="auto")]
     h = k.get("accounts")
     if h is None:
         campaigns = accounts = [("line", "Instantly could not be read this time", SAME)]
@@ -680,7 +695,7 @@ def key_rows(k):
 def key_text(k):
     title, blocks = key_rows(k)
     width = max(len(i[1]) for _, items in blocks for i in items if i[0] == "row") + 4
-    out = [title, f"{'':{width + 2}}{'Yesterday':<16}{'Day before':<16}Month so far"]
+    out = [title, f"{'':{width + 2}}{'Yesterday':<16}{'Day before':<16}{'Week so far':<16}Month so far"]
     for heading, items in blocks:
         text, tags, count = _heading(heading)
         label = "".join(f"[{t}] " for t in tags) + text
@@ -688,7 +703,9 @@ def key_text(k):
         for item in items:
             if item[0] == "row":
                 _, label, day, before, symbol, _good, month = item[:7]
-                out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{month}".rstrip())
+                week = item[8] if len(item) > 8 else ""
+                out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{week:<16}{month}"
+                           .rstrip())
             elif item[0] == "line":
                 out.append(f"  {item[1]}")
             elif item[0] == "health":
@@ -711,42 +728,43 @@ def key_html(k):
     parts = [f'<p style="margin:24px 0 6px;font-size:16px"><b>{e(title)}</b></p>',
              '<table style="border-collapse:collapse;font-size:14px"><tr><td></td>'
              + "".join(f'<td {cell}><span style="color:{SAME}">{h}</span></td>'
-                       for h in ("Yesterday", "Day before", "Month so far")) + "</tr>"]
+                       for h in ("Yesterday", "Day before", "Week so far", "Month so far")) + "</tr>"]
     for heading, items in blocks:
         text, tags, count = _heading(heading)
         tag_html = "".join(f'<span style="background:{TAGS[t][0]};color:{TAGS[t][1]};padding:1px 8px;border-radius:6px;'
                            f'font-weight:normal;font-size:12px;margin-right:6px">{e(t)}</span>' for t in tags)
         if count is None:
-            parts.append(f'<tr><td colspan="4" style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td></tr>')
+            parts.append(f'<tr><td colspan="5" style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td></tr>')
         else:
             parts.append(f'<tr><td style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td>'
-                         f'<td {cell}><b>{count}</b></td><td></td><td></td></tr>')
+                         f'<td {cell}><b>{count}</b></td><td></td><td></td><td></td></tr>')
         for item in items:
             if item[0] == "health":
                 _, colour, name, state, rate = item
-                parts.append(f'<tr><td colspan="4" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
+                parts.append(f'<tr><td colspan="5" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
                              f'{e(name)}' + (f': <span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span>'
                                              if state else "") + (f' <span style="color:{SAME}">({e(rate)})</span>'
                                                                   if rate else "") + "</td></tr>")
                 continue
             if item[0] == "table":
-                parts.append(f'<tr><td colspan="4" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
+                parts.append(f'<tr><td colspan="5" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
                 continue
             if item[0] == "row":
                 _, label, day, before, symbol, good, month = item[:7]
                 colour = SAME if good is None else (GOOD if good else BAD)
                 arrow = f' <span style="color:{colour};font-weight:bold">{symbol}</span>' if symbol else ""
                 indent = 28 if label.startswith("  ") else 14
-                tint = f"color:{item[7]};" if len(item) > 7 else ""  # 21 Nov 2026: a row in its own colour
+                tint = f"color:{item[7]};" if len(item) > 7 and item[7] else ""  # 21 Nov 2026: own colour
+                week = item[8] if len(item) > 8 else ""
                 parts.append(f'<tr><td style="padding:2px 10px 2px {indent}px;{tint}">{e(label.strip())}</td>'
                              f'<td {cell}><b style="{tint}">{e(day)}</b></td>'
-                             f"<td {cell}>{e(before)}{arrow}</td><td {cell}>{e(month)}</td></tr>")
+                             f"<td {cell}>{e(before)}{arrow}</td><td {cell}>{e(week)}</td><td {cell}>{e(month)}</td></tr>")
             elif item[0] == "line":
                 dot = f'<span style="color:{item[2]}">&#9679;</span> ' if item[2] in (GOOD, BAD) else ""
                 style = f"color:{item[2]};" if item[2] else ""
-                parts.append(f'<tr><td colspan="4" style="padding:2px 10px 2px 14px;{style}">{dot}{e(item[1])}</td></tr>')
+                parts.append(f'<tr><td colspan="5" style="padding:2px 10px 2px 14px;{style}">{dot}{e(item[1])}</td></tr>')
             else:
-                parts.append(f'<tr><td colspan="4" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
+                parts.append(f'<tr><td colspan="5" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
     return "".join(parts) + "</table>"
 
 
