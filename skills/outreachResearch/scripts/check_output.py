@@ -329,7 +329,8 @@ CHAIN_WORDS = re.compile(r"supermarket|hypermarket|chain|\bstores?\b|\bshops?\b"
 def check_big(errors, companies, channel):
     """Prompt version 6 (10 Nov 2026, big partners only): tier 1 or 2, a "Scale: " line (HARD RULE 12) and,
     except for supermarket chains, a "Storage: " line showing the storage seen (HARD RULE 4)."""
-    chain = bool(CHAIN_WORDS.search(str(channel or "")))
+    # 21 Nov 2026: a pharmacy or drugstore chain must show the central warehouse it buys into
+    chain = bool(CHAIN_WORDS.search(str(channel or ""))) and not re.search(r"pharmac|drugstore|chemist", str(channel or ""), re.I)
     for c in companies:
         if not isinstance(c, dict) or not isinstance(c.get("name"), str):
             continue

@@ -209,7 +209,8 @@ def channel_of(props, notes=None):
 
 # 20 Nov 2026 (Ariel): research looks only for big wholesalers, distributors, importers and supermarket chains (10 Nov
 # 2026, docs/paused_channels.md). Restarts, and any company put back in the queue, must be from these channels.
-TARGETED_WORDS = ("distributor", "wholesaler", "importer", "supermarket")
+# 21 Nov 2026 (Ariel): big pharmacy and drugstore chains too; pharmacy and field sales distributors are distributors.
+TARGETED_WORDS = ("distributor", "wholesaler", "importer", "supermarket", "drugstore chain", "pharmacy chain")
 
 
 def targeted(props, notes=None, words=None):

@@ -39,8 +39,11 @@ NOTHING_TO_DO = 3
 # Which template a typed Channel uses: the first whose "matches:" words appear in it. The five
 # specialist rule sheets (22 Oct 2026, prompt version 5 only) come first, so "kosher food distributors"
 # uses the kosher sheet rather than the distributor one; a prompt version without them skips them.
-TEMPLATE_ORDER = ("kosher_shop", "kosher_distributor", "halal_distributor", "petrol_convenience", "hospital_shop",
-                  "marketplace_seller", "wholesaler", "distributor", "retailer")
+# 21 Nov 2026 (prompt version 7): the pharmacy and drugstore chains, pharmacy distributors and field sales
+# distributors sheets come before the general distributor and retailer ones.
+TEMPLATE_ORDER = ("kosher_shop", "kosher_distributor", "halal_distributor", "pharmacy_chain", "pharmacy_distributor",
+                  "field_sales_distributor", "petrol_convenience", "hospital_shop", "marketplace_seller", "wholesaler",
+                  "distributor", "retailer")
 LOCATION_SEARCHES = 20  # searches for the manager's market structure and barriers
 
 # 22 Oct 2026 ("Add a market" covers the whole market): the job that lists the country's other main

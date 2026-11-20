@@ -1,5 +1,5 @@
 {
-  "about": "How 'Add a market' (button 2) covers a whole market (agreed 22 Oct 2026; big partners only from 10 Nov 2026, Ariel: big wholesalers, distributors, importers and supermarket chains, not small retailers). Edit on GitHub with the pencil icon: keep the quotes and commas. What you type in button 2 is searched harder and first: each typed channel is split into the narrower searches below, gets a bigger search budget and a follow-up search when it fills all its places. Everything else is searched too, lighter and after: every country_channel across the whole country, then the country's main business cities and regional capitals (research lists them, one per region in a large country) with the city_channels only, so the strong regional distributors are found.",
+  "about": "How 'Add a market' (button 2) covers a whole market (agreed 22 Oct 2026; big partners only from 10 Nov 2026, Ariel: big wholesalers, distributors, importers and supermarket chains, not small retailers). Edit on GitHub with the pencil icon: keep the quotes and commas. What you type in button 2 is searched harder and first: each typed channel is split into the narrower searches below, gets a bigger search budget and a follow-up search when it fills all its places. Everything else is searched too, lighter and after: every country_channel across the whole country, then the country's main business cities and regional capitals (research lists them, one per region in a large country) with the city_channels only, so the strong regional distributors are found. 21 Nov 2026 (Ariel): pharmacy distributors, field sales distributors (also searched city by city) and big pharmacy and drugstore chains added.",
   "country_channels": [
     "distributors",
     "FMCG distributors",
@@ -7,18 +7,60 @@
     "kiosk and convenience wholesalers",
     "halal food distributors",
     "kosher food distributors",
-    "supermarket chains"
+    "supermarket chains",
+    "pharmacy distributors",
+    "field sales distributors",
+    "pharmacy and drugstore chains"
   ],
   "city_channels": [
     "distributors",
     "FMCG distributors",
-    "wholesalers"
+    "wholesalers",
+    "field sales distributors"
   ],
   "typed_city_extra_channels": [],
   "narrower_searches": {
-    "distributors": ["distributors", "confectionery importers", "snack distributors", "health food distributors", "British food importers", "distributors of international confectionery brands"],
-    "FMCG distributors": ["FMCG distributors", "consumer goods distributors", "mass consumption distributors", "sales and distribution companies"],
-    "wholesalers": ["wholesalers", "confectionery wholesalers", "cash and carry wholesalers"],
-    "supermarket chains": ["supermarket chains", "hypermarket chains"]
+    "distributors": [
+      "distributors",
+      "confectionery importers",
+      "snack distributors",
+      "health food distributors",
+      "British food importers",
+      "distributors of international confectionery brands"
+    ],
+    "FMCG distributors": [
+      "FMCG distributors",
+      "consumer goods distributors",
+      "mass consumption distributors",
+      "sales and distribution companies"
+    ],
+    "wholesalers": [
+      "wholesalers",
+      "confectionery wholesalers",
+      "cash and carry wholesalers"
+    ],
+    "supermarket chains": [
+      "supermarket chains",
+      "hypermarket chains"
+    ],
+    "pharmacy distributors": [
+      "pharmacy distributors",
+      "OTC and consumer health distributors",
+      "parapharmacy distributors",
+      "pharmacy wholesalers with a consumer range",
+      "health and beauty distributors to pharmacies"
+    ],
+    "field sales distributors": [
+      "field sales distributors",
+      "van sales distributors",
+      "direct store delivery distributors",
+      "confectionery and tobacco distributors",
+      "traditional trade distributors"
+    ],
+    "pharmacy and drugstore chains": [
+      "pharmacy and drugstore chains",
+      "pharmacy chains",
+      "drugstore chains"
+    ]
   }
 }

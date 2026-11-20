@@ -441,12 +441,12 @@ def test_prompt_versions_side_by_side(repo):
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
     six = (repo / "work" / "channel_1_prompt.md").read_text()
-    assert plan["prompt_version"] == 6 and "HARD RULE" in six and "too small" in six and "Scale: " in six
+    assert plan["prompt_version"] == 7 and "HARD RULE" in six and "too small" in six and "Scale: " in six  # 21 Nov 2026
     assert "SEARCH THROUGH THE BRANDS FIRST" in six and "Muller & Phipps" in six and "atacadista" in six
     assert "--big" in six and "Tier 3 is not used" in six and "Stern Market" not in six
     assert plan["channels"][0]["companies_wanted"] == 8  # typed in the queue
     settings = repo / "skills" / "outreachResearch" / "settings.yaml"
-    settings.write_text(settings.read_text().replace("prompt_version: 6", "prompt_version: 5"))
+    settings.write_text(settings.read_text().replace("prompt_version: 7", "prompt_version: 5"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
     five = (repo / "work" / "channel_1_prompt.md").read_text()
@@ -944,9 +944,9 @@ def test_version_6_big_partners_only(tmp_path):
     """10 Nov 2026 (Ariel): big wholesalers, distributors and supermarket chains; a size line and storage."""
     import prepare_run
     cov = rq.load_coverage()
-    assert cov["country_channels"] == ["distributors", "FMCG distributors", "wholesalers",
-                                       "kiosk and convenience wholesalers", "halal food distributors",
-                                       "kosher food distributors", "supermarket chains"]
+    assert cov["country_channels"][:7] == ["distributors", "FMCG distributors", "wholesalers",
+                                           "kiosk and convenience wholesalers", "halal food distributors",
+                                           "kosher food distributors", "supermarket chains"]
     assert "sports shops and sports nutrition shops" not in cov["city_channels"] + cov["country_channels"]
     assert {prepare_run.choose_template(c, "_6") for c in ("FMCG distributors", "supermarket chains",
             "kiosk and convenience wholesalers", "halal food distributors", "kosher food distributors",
@@ -973,3 +973,48 @@ def test_version_6_channel_names_read_well_in_the_email():
     assert partner_type("sales and distribution companies") == "distributor"
     assert partner_type("British food importers") == "importer of British food"
     assert partner_type("supermarket chains") == "supermarket chain"
+
+
+def test_version_7_adds_pharmacy_and_field_sales_channels(tmp_path):
+    """21 Nov 2026 (Ariel): pharmacy distributors and field sales distributors (size scaled down, one solid piece of
+    evidence enough) and big pharmacy and drugstore chains (central warehouse), country-wide; field sales
+    distributors city by city too."""
+    import prepare_run
+    from outreach.common import targeted
+    cov = rq.load_coverage()
+    new = ["pharmacy distributors", "field sales distributors", "pharmacy and drugstore chains"]
+    assert cov["country_channels"][7:] == new and "field sales distributors" in cov["city_channels"]
+    assert [prepare_run.choose_template(c, "_7") for c in new] == [
+        "pharmacy_distributor", "field_sales_distributor", "pharmacy_chain"]
+    for name in ("parapharmacy distributors", "OTC and consumer health distributors"):
+        assert prepare_run.choose_template(name, "_7") == "pharmacy_distributor"
+    for name in ("van sales distributors", "confectionery and tobacco distributors", "traditional trade distributors"):
+        assert prepare_run.choose_template(name, "_7") == "field_sales_distributor"
+    # the earlier channels keep their sheets
+    assert [prepare_run.choose_template(c, "_7") for c in ("distributors", "supermarket chains", "wholesalers",
+            "kiosk and convenience wholesalers", "halal food distributors")] == [
+        "distributor", "retailer", "wholesaler", "wholesaler", "halal_distributor"]
+    prompts = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "prompts"
+    for name in ("distributor", "general", "halal_distributor", "kosher_distributor", "retailer", "wholesaler"):
+        assert (prompts / "channels" / f"{name}_7.md").read_text() == (prompts / "channels" / f"{name}_6.md").read_text()
+    sheet = (prompts / "channels" / "field_sales_distributor_7.md").read_text()
+    assert "about 200 or more shops" in sheet and "about 7 vans" in sheet and "ONE solid piece of evidence" in sheet
+    assert "Its own word alone is never enough" in sheet
+    chain = (prompts / "channels" / "pharmacy_chain_7.md").read_text()
+    assert "about 100 stores or more" in chain and "no central warehouse is out" in chain
+    # the channel check: the three go ahead, single pharmacies stay stopped
+    for channel, verdict in (("Pharmacy distributors", True), ("Field sales distributors", True),
+                             ("Pharmacy and drugstore chains", True), ("Pharmacies", False), ("Specialist retail", False)):
+        assert targeted({"domain": "x.example", "industry_type": channel}, {}) is verdict
+    # a pharmacy or drugstore chain must show the warehouse it buys into; a supermarket chain need not
+    good = {"name": "Chain", "tier": 1, "fit_rationale": "Sells Haribo. Scale: 600 stores."}
+    errors = []
+    check_output.check_big(errors, [good], "pharmacy and drugstore chains")
+    assert len(errors) == 1 and "Storage" in errors[0]
+    errors = []
+    check_output.check_big(errors, [good], "supermarket chains")
+    assert errors == []
+    f = tmp_path / "s.yaml"
+    f.write_text("prompt_version: 7\ndefault_companies_2: 50\nmin_floor_2: 25\ndefault_companies_7: 30\nmin_floor_7: 10\n")
+    s = rq.load_research_settings(f)
+    assert (s["default_companies"], s["min_floor"], rq.prompt_suffix(s)) == (30, 10, "_7")

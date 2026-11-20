@@ -136,9 +136,17 @@ If the first Step 2 said `NOTHING TO DO`, the summary is one line: "Nothing wait
 
 ## What the files are
 
-- Six versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
+- Seven versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
   `settings.yaml` picks one, and prepare_run.py writes the chosen version into `work/`:
-  - version 6 (in use from 10 Nov 2026, Ariel): `prompts/channel_prompt_6.md` and
+  - version 7 (in use from 21 Nov 2026, Ariel): version 6 plus three channels, `prompts/channel_prompt_7.md`
+    and `prompts/channels/*_7.md` (the other sheets are version 6's, unchanged): pharmacy distributors
+    (`pharmacy_distributor_7.md`) and field sales distributors (`field_sales_distributor_7.md`), whose size rule
+    is version 6's scaled down to about 70% (about 200 outlets, 700 m2, 7 vans, 7 reps) and read with
+    judgement: a company that calls itself a distributor or wholesaler passes on one solid piece of evidence
+    (a brand list, a depot address, a fleet, a trade portal, named customers, a trade association), never on
+    its own word alone; and big pharmacy and drugstore chains (`pharmacy_chain_7.md`: about 100 stores or
+    national, buying centrally into their own warehouse, with a "Storage: " line). The check adds `--big`;
+  - version 6 (used from 10 Nov 2026 to 21 Nov 2026, Ariel): `prompts/channel_prompt_6.md` and
     `prompts/channels/*_6.md`. Big partners only: distributors and importers (FMCG and consumer goods
     distributors too), wholesalers and cash and carry, kiosk and convenience wholesalers, halal and kosher
     food distributors, and supermarket chains; not small retailers. HARD RULE 12 (size: about 200 shops

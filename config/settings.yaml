@@ -97,6 +97,28 @@ contacts:
       - OTC Manager
       - Business Development Manager
       - Managing Director
+    # 21 Nov 2026 (Ariel): the three channels research looks for from prompt version 7
+    Pharmacy distributors:
+      - Category Manager
+      - OTC Manager
+      - Purchasing Manager
+      - Procurement Manager
+      - Business Development Manager
+      - Managing Director
+    Field sales distributors:
+      - Purchasing Manager
+      - Category Manager
+      - Sales Director
+      - Trade Marketing Manager
+      - Business Development Manager
+      - Managing Director
+    Pharmacy and drugstore chains:
+      - Buyer
+      - Category Manager
+      - Purchasing Manager
+      - Procurement Manager
+      - Buying Director
+      - Commercial Director
 
 assignment:
   # Gives each approved company a salesperson (its HubSpot company owner) when

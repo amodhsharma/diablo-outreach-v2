@@ -29,6 +29,13 @@ named wrongly (`outreach/channels.py`).
 3. **2 - Research** starts by itself, checks the file again (and each company's website and Apollo) and adds the
    companies to HubSpot with Lead Status *New*. The queue line is marked Done.
 
+**Pharmacies and corner shops too (21 Nov 2026, prompt version 7).** Three more channels are searched in every
+market: pharmacy distributors, field sales distributors (the route to corner shops, kiosks and the traditional
+trade, also searched city by city) and big pharmacy and drugstore chains. The two distributor channels use a size
+rule scaled down to about 70% and read with judgement (one solid piece of evidence is enough for a company that
+calls itself a distributor or wholesaler); the chains must be big (about 100 stores or national) and buy
+centrally into their own warehouse. See skills/outreachResearch/SKILL.md.
+
 **Big partners only (10 Nov 2026, prompt version 6).** Research looks only for big wholesalers,
 distributors, importers and supermarket chains, not small retailers. A market added with button 2 is
 searched for: distributors (confectionery importers, snack, health food and British food importers,
