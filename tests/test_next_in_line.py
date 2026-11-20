@@ -133,7 +133,8 @@ def test_the_one_loop_from_introduction_to_unqualified(settings):
     assert "Hi P1 L1,\n\nI imagine your inbox is about as full as a regular chocolate bar is of sugar." in rem["text"]
     assert "I hope that bad joke buys me another email :)" in rem["text"]
     assert "Would this week work, or would next week suit better?" in rem["text"]
-    assert "Book a quick meeting with us: " in rem["text"] and "Best regards,\n| Joshua\n| International Account Executive\n| Diablo Sugar Free" in rem["text"]
+    assert "Book a quick meeting with us: " in rem["text"] and ("Best regards,\n| Joshua\n| International Account Executive, India\n"
+            "| Diablo Sugar Free [https://www.diablosugarfree.com]") in rem["text"]
     assert "colleague" not in rem["text"] and "{{" not in rem["text"] and "privacy" not in rem["text"].lower()
 
     # Persons 2 and 3 never get a second email; 3 days after the reminder the company is Unqualified.
@@ -348,7 +349,7 @@ def test_info_mailbox_is_a_sending_account():
 
 def test_the_forward_waits_for_the_company_note_and_the_old_template_still_works(settings):
     """forward_2.json needs the Outreach company note; forward.json (kept unchanged) the personal line."""
-    assert settings["send"]["templates"]["forward"] == "templates/forward_3.json"
+    assert settings["send"]["templates"]["forward"] == "templates/forward_4.json"
     assert sync.forward_field(settings) == ("diablo_company_note", "Outreach company note")
     settings["send"]["templates"]["forward"] = "templates/forward.json"
     assert sync.forward_field(settings) == ("diablo_personal_line", "Outreach personal line")

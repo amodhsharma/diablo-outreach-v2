@@ -95,8 +95,8 @@ def test_the_two_campaigns_have_room_for_the_paragraph():
 
 
 def _with_paragraph(s):
-    s["send"]["templates"] = dict(s["send"]["templates"], first_email="templates/template_6.json",
-                                  first_email_company_inbox="templates/template_no_info_apollo_5.json")
+    s["send"]["templates"] = dict(s["send"]["templates"], first_email="templates/template_7.json",
+                                  first_email_company_inbox="templates/template_no_info_apollo_6.json")
     return s
 
 

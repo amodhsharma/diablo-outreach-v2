@@ -285,10 +285,19 @@ def sequence_steps(s, kind=PERSON):
     return [first, second]
 
 
+def without_unknown_country(text, values):
+    """21 Nov 2026 (Ariel): the signature reads "International Account Executive, <country>"; with no country
+    known it reads "International Account Executive" (a campaign email never goes without a Country)."""
+    if str(values.get("country_name") or "").strip() in ("", "Unknown"):
+        text = text.replace(", {{country_name}}", "")
+    return text
+
+
 def render(text, lead):
     """Fill a template the way Instantly will, for the preview."""
     values = {"firstName": lead.get("first_name") or "", "lastName": lead.get("last_name") or "",
               "companyName": lead.get("company_name") or "", **lead.get("custom_variables", {})}
+    text = without_unknown_country(text, values)
     for key, value in values.items():
         text = text.replace("{{" + key + "}}", str(value))
     # 2 Nov 2026: Instantly fills in the sending mailbox's own first name (Dana, Elize or Joshua).

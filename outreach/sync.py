@@ -821,7 +821,7 @@ def _fill(path, person, company, settings, notes, extra=None, mailbox=None):
     lead = lead_for(person, company, notes)
     values = {"firstName": lead.get("first_name") or "", "lastName": lead.get("last_name") or "",
               "companyName": lead.get("company_name") or "", **lead["custom_variables"], **(extra or {})}
-    html = send.html_paragraphs(body)
+    html = send.without_unknown_country(send.html_paragraphs(body), values)
     for key, value in values.items():
         html = html.replace("{{" + key + "}}", html_lib.escape(str(value)))
     return html, send.render(html, {})

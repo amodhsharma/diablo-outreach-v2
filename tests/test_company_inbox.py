@@ -213,8 +213,8 @@ def test_company_inbox_reminder_uses_its_own_template():
                             "diablo_company_note": "imports sweets"}}
     person = {"properties": {"email": "anna@beta.example", "firstname": "Anna", "jobtitle": "Buyer"}}
     company = {"name": "Alpha Foods GmbH", "domain": "alpha.example", "country": "Germany"}
-    assert sync.reminder_path(s, inbox) == "templates/follow_up_no_info_apollo_3.json"
-    assert sync.reminder_path(s, person) == "templates/follow_up_3.json"
+    assert sync.reminder_path(s, inbox) == "templates/follow_up_no_info_apollo_4.json"
+    assert sync.reminder_path(s, person) == "templates/follow_up_4.json"
     assert sync.reminder_subject(s, inbox) == "Bad Jokes + Europe's largest Brand"
     html, text = sync.reminder_email(inbox, company, s)
     assert text.startswith("Hello to the team at Alpha Foods,")

@@ -354,3 +354,18 @@ follow_up_no_info_apollo_3.json (reminder). The only change is the greeting:
 
 instead of "Hello {{companyName}} team,". {{companyName}} is the short company name (without
 "GmbH", "AG" and the like), e.g. "Hello to the team at Fortura,".
+
+## Signature with the buyer's country (in use from 21 Nov 2026, Ariel)
+
+New files, the earlier ones kept unchanged: template_7.json, template_no_info_apollo_6.json, forward_4.json,
+follow_up_4.json, follow_up_no_info_apollo_4.json and referral_2.json. The only change is the signature, still in
+its block with the grey line on the left:
+
+> Best regards,
+> | Dana
+> | International Account Executive, Australia
+> | [Diablo Sugar Free](https://www.diablosugarfree.com)
+
+The name is the sending mailbox's (Dana, Elize or Joshua), the country is the buyer's market ({{country_name}}),
+and "Diablo Sugar Free" links to the website. With no country known the line reads "International Account
+Executive". The grey footer with the opt-out sentence is unchanged.

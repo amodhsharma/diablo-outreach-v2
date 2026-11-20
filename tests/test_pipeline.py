@@ -140,7 +140,8 @@ def test_send_and_sync(settings):
     assert "Hi Firstp2" in shown and "as we noticed " in shown and (" runs a health food aisle. We are a UK brand "
            "without a direct partner in India yet, and given your reach, we believe we could grow well together.") in shown
     assert "XXXXXX" not in shown and ("Book a quick meeting with us: book.example/diablo [https://book.example/diablo]\n\n"
-                                      "Best regards,\n| Joshua\n| International Account Executive\n| Diablo Sugar Free") in shown
+                                      "Best regards,\n| Joshua\n| International Account Executive, India\n"
+                                      "| Diablo Sugar Free [https://www.diablosugarfree.com]") in shown
     assert "looking for a partner in" not in shown
     assert "office of the Strategy Director" in shown and "By way of introduction" in shown
     assert "{{" not in shown and "<br/>" not in shown
@@ -155,7 +156,7 @@ def test_send_and_sync(settings):
     email = body["sequences"][0]["steps"][0]["variants"][0]["body"]
     assert "Best regards," in email and "{{privacy_url}}" not in email and "Privacy notice" not in email
     assert "<b>we are Europe's largest sugar-free confectionery company</b>" in email and "{{company_note}}" in email
-    assert "Joshua<br/>International Account Executive<br/>Diablo Sugar Free</div>" in email
+    assert 'Joshua<br/>International Account Executive, {{country_name}}<br/><a href="https://www.diablosugarfree.com">Diablo Sugar Free</a></div>' in email
     assert "{{catalogue_link}}" not in email and "{{sender_phone}}" not in email
     assert "117 products across 11 categories" in email and "<div><ul>" not in email
     lead = instantly.leads[camp_id][0]
@@ -306,7 +307,8 @@ def test_email_body_in_paragraphs_and_old_campaigns_refreshed(settings):
     assert "<br/><br/>" not in body
     assert ('<div>Book a quick meeting with us: <a href="https://book.example/diablo">book.example/diablo</a></div>'
             f'{gap}<div>Best regards,<div style="border-left:3px solid #cccccc;padding-left:10px;margin:4px 0 0 2px">'
-            'Joshua<br/>International Account Executive<br/>Diablo Sugar Free</div></div>') in body
+            'Joshua<br/>International Account Executive, {{country_name}}<br/><a href="https://www.diablosugarfree.com">Diablo Sugar Free</a></div></div>') in body
+    assert "| International Account Executive\n| Diablo Sugar Free" in send.render(body, {"first_name": "Ann"})  # no country known
     shown = send.render(body, {"first_name": "Ann"})
     assert "\n\nWould this week work, or would next week be better suited?\n\nBook a quick meeting" in shown
     instantly = FakeInstantly()

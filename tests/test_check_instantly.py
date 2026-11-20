@@ -154,7 +154,7 @@ def test_template_1_is_used_and_filled():
     s = load_settings()["send"]
     s["signature"]["name_from_mailbox"] = False  # this test checks the fixed-name layout
     # template 4 (template 3 with the 19 Oct 2026 fixes), with room for the bond paragraph since 26 Oct 2026
-    assert s["templates"]["first_email"] == "templates/template_6.json"
+    assert s["templates"]["first_email"] == "templates/template_7.json"  # 21 Nov 2026: the new signature
     steps = send.sequence_steps(s)
     body, subject = steps[0]["variants"][0]["body"], steps[0]["variants"][0]["subject"]
     assert subject == "A sugar-free brand with no {{country_name}} partner yet"
@@ -162,7 +162,9 @@ def test_template_1_is_used_and_filled():
     assert "a direct partner in {{market_country}} yet" in body and "We supply more than 126 countries" in body
     assert '<a href="https://www.diablosugarfree.com/pages/catalogue-2026">diablosugarfree.com/pages/catalogue-2026</a>' in body
     assert 'Book a quick meeting with us: <a href="https://calendly.com/outreach-diablo/intro">calendly.com/outreach-diablo/intro</a>' in body
-    assert "Joshua<br/>International Account Executive<br/>Diablo Sugar Free</div>" in body and "<hr " in body
+    assert 'Joshua<br/>International Account Executive, {{country_name}}<br/><a href="https://www.diablosugarfree.com">Diablo Sugar Free</a></div>' in body and "<hr " in body
+    old6 = json.loads(open("templates/template_6.json").read())["body"]
+    assert "International Account Executive<br/>Diablo Sugar Free</div>" in old6  # template 6 is kept unchanged
     assert "privacy" not in body.lower() and "{{personal_line}}" not in body
     assert "together.</div><div><br></div><div>{{bond_paragraph}}By way of introduction" in body
     old = json.loads(open("templates/template_2.json").read())["body"]
@@ -172,3 +174,25 @@ def test_template_1_is_used_and_filled():
     assert market_country("Amsterdam, Netherlands") == "the Netherlands"
     assert market_country("Dublin, Ireland") == "Ireland"
     assert market_country("Plymouth, United Kingdom") == "the United Kingdom"
+
+
+def test_every_email_in_use_signs_with_the_buyers_country_and_a_linked_company_name():
+    """21 Nov 2026 (Ariel): "International Account Executive, <country>" and "Diablo Sugar Free" linked to the
+    website, in the grey-barred block, on every email the automation sends; the earlier files are kept."""
+    import json
+    from outreach import send
+    from outreach.common import load_settings
+    s = load_settings()["send"]["templates"]
+    block = ('<div style="border-left:3px solid #cccccc;padding-left:10px;margin:4px 0 0 2px">{{sender_name}}<br/>'
+             'International Account Executive, {{country_name}}<br/>'
+             '<a href="https://www.diablosugarfree.com">Diablo Sugar Free</a></div>')
+    for key in ("first_email", "forward", "referral", "reminder", "first_email_company_inbox", "reminder_company_inbox"):
+        body = json.loads(open(s[key]).read())["body"]
+        assert block in body, key
+        assert 'We found your business details in public and commercial sources.' in body  # the grey footer stays
+    for old in ("template_6", "forward_3", "referral", "follow_up_3", "template_no_info_apollo_5",
+                "follow_up_no_info_apollo_3"):
+        assert "International Account Executive<br/>Diablo Sugar Free</div>" in open(f"templates/{old}.json").read()
+    text = "Joshua<br/>International Account Executive, {{country_name}}<br/>"
+    assert send.without_unknown_country(text, {"country_name": "Unknown"}) == "Joshua<br/>International Account Executive<br/>"
+    assert send.without_unknown_country(text, {"country_name": "Kenya"}) == text

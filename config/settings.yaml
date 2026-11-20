@@ -242,24 +242,27 @@ send:
     # "Why we think our bond would be strong" with the personal line, empty for the usual channels).
     # Switched on 26 Oct 2026 after Ariel checked the preview campaign in Instantly (to go back, put
     # templates/template_4.json and templates/template_no_info_apollo_3.json here again).
-    first_email: templates/template_6.json
+    # 21 Nov 2026 (Ariel): the _7, forward_4, referral_2, follow_up_4, apollo_6 and follow_up_no_info_apollo_4
+    # files sign "International Account Executive, <the buyer's country>" with "Diablo Sugar Free" linked to
+    # the website, in the same grey-barred block. The earlier files are kept unchanged (put them back to undo).
+    first_email: templates/template_7.json
     # Persons 2 to 4: forward_2.json from 19 Oct 2026 (Ariel): a short note giving the company note as the
     # reason, then "we believe your company would be the right fit for us". forward.json is kept unchanged.
-    forward: templates/forward_3.json
+    forward: templates/forward_4.json
     # 12 Nov 2026 (Ariel): someone a reply pointed us to gets a forward of that reply as their first email,
     # with this note on top naming the colleague (outreach/referral_intro.py).
-    referral: templates/referral.json
+    referral: templates/referral_2.json
     # Person 1's one reminder: follow_up_2.json from 15 Oct 2026 (Ariel's "Bad Jokes" email, sent as
     # its own email with its own subject). follow_up.json is kept unchanged; put it back here to undo.
-    reminder: templates/follow_up_3.json
+    reminder: templates/follow_up_4.json
     follow_up: templates/follow_up.json
     # Company inboxes (19 Oct 2026): when Apollo holds nobody, the contact address on the company's
     # website is emailed instead, greeting "Hello <company> team" and asking them to pass it on.
     # Its own first email (own campaign each month, see company_inbox below) and its own reminder.
     # The _3 files (20 Oct 2026, Ariel) greet "Hello to the team at <company>," instead of
     # "Hello <company> team,"; the _2 files are kept unchanged.
-    first_email_company_inbox: templates/template_no_info_apollo_5.json
-    reminder_company_inbox: templates/follow_up_no_info_apollo_3.json
+    first_email_company_inbox: templates/template_no_info_apollo_6.json
+    reminder_company_inbox: templates/follow_up_no_info_apollo_4.json
     # Channels outside our usual ones (23 Oct 2026, the list is in config/bond_channels.json): as
     # template_4 and template_no_info_apollo_3, plus the bold heading "Why we think our bond would be
     # strong" with the personal line under it (the buyer's reason). Used only by the October 2026
