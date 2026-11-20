@@ -290,7 +290,8 @@ send:
   # book a time directly here: <link>" only when a link is set.
   # Changed on 15 Oct 2026 to the short Calendly link. Template 3 shows it in the signature as
   # "Book a quick meeting with us:", written short (no https:// or www.) but clickable.
-  booking_link: "https://calendly.com/outreach-diablo/intro"
+  # 21 Nov 2026 (Ariel): Ariel's own Calendly page from now on; emails already sent keep the old link.
+  booking_link: "https://calendly.com/diablosugarfree/introductory-call"
   # Signature on every email: the name, the title, then "Diablo Sugar Free" (linked to the website)
   # "(B Healthy Ltd, London)" (agreed 14 Oct 2026). No phone number and no separate website line:
   # the templates no longer show either, so website and phone are not used.

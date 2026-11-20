@@ -161,7 +161,7 @@ def test_template_1_is_used_and_filled():
     assert "office of the Strategy Director" in body and "as we noticed {{companyName}} {{company_note}}." in body
     assert "a direct partner in {{market_country}} yet" in body and "We supply more than 126 countries" in body
     assert '<a href="https://www.diablosugarfree.com/pages/catalogue-2026">diablosugarfree.com/pages/catalogue-2026</a>' in body
-    assert 'Book a quick meeting with us: <a href="https://calendly.com/outreach-diablo/intro">calendly.com/outreach-diablo/intro</a>' in body
+    assert 'Book a quick meeting with us: <a href="https://calendly.com/diablosugarfree/introductory-call">calendly.com/diablosugarfree/introductory-call</a>' in body
     assert 'Joshua<br/>International Account Executive, {{country_name}}<br/><a href="https://www.diablosugarfree.com">Diablo Sugar Free</a></div>' in body and "<hr " in body
     old6 = json.loads(open("templates/template_6.json").read())["body"]
     assert "International Account Executive<br/>Diablo Sugar Free</div>" in old6  # template 6 is kept unchanged

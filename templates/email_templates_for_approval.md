@@ -369,3 +369,9 @@ its block with the grey line on the left:
 The name is the sending mailbox's (Dana, Elize or Joshua), the country is the buyer's market ({{country_name}}),
 and "Diablo Sugar Free" links to the website. With no country known the line reads "International Account
 Executive". The grey footer with the opt-out sentence is unchanged.
+
+## Booking link (from 21 Nov 2026, Ariel)
+
+Every email from now on links to Ariel's Calendly page: "Book a quick meeting with us:
+[calendly.com/diablosugarfree/introductory-call](https://calendly.com/diablosugarfree/introductory-call)" (send.booking_link).
+Emails sent before keep the old link (calendly.com/outreach-diablo/intro).
