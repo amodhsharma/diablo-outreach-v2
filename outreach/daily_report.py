@@ -7,7 +7,7 @@ midnight to midnight UK time. HubSpot and Instantly are only read; nothing is ch
 summary is gone (20 Nov 2026, Ariel).
 
 One cut-off for everything (20 Nov 2026, Ariel): the charts and every part of Key numbers describe the same
-moment, midnight UK at the end of the day reported. "Waiting for you" and "Initial stages" are worked out as they
+moment, midnight UK at the end of the day reported. "Initial stages" (and every list in it) is worked out as it
 stood at that midnight (AtCutoff), not read when the email goes, so a change made at 00:02 never shows in one
 place and not the other. Before sending, the companies under "Your input needed" in the day chart are checked
 against Key numbers; any the Key numbers do not list are named in one red line.
@@ -26,11 +26,11 @@ The email (20 Nov 2026, Ariel):
        Sending accounts: one green line when all are healthy, a red line naming each problem
        Positive replies to follow up: every company that replied that day tagged Positive, plus Neutral and
          Referral replies marked as such; Negative replies to convert into possible leads: the rest. No cap.
-       Waiting for you: companies waiting for GATE1 approval, introductions waiting for GATE2 approval, and
-         Companies where nobody could be found (need sales people input), with their names; and, when there are
-         any, contacts held because their record is broken (20 Nov 2026, outreach/address_checks.py) and the
-         companies whose channel is not known (nobody is emailed until it is set; outreach/channels.py).
-       Initial stages - your input needed or not (at midnight UK): what the chart's Initial stages box holds.
+       Initial stages - your input needed or not (at midnight UK): what the chart's Initial stages box holds,
+         with the names of everything waiting for a person (GATE1 and GATE2 approval, contacts not yet tagged,
+         contacts held because their record could not be put right, companies whose channel is not known). The
+         separate "Waiting for you" section was merged into it on 21 Nov 2026 (Ariel).
+       Companies where nobody could be found (need sales people input): only on days there are some.
 
 The recipients and the mailbox's Google app password (DAILY_REPORT_APP_PASSWORD) are never written in the
 repository.
@@ -633,37 +633,43 @@ def key_rows(k):
             return [("line", "None", SAME)]
         return [("name", f"{name} ({country}), {replied}" + (f" ({mark})" if mark else "")) for name, country, mark in rows]
     # 21 Nov 2026 (Ariel): a line with 0 is left out; the heading always shows, with its total
-    waiting = ([("row", "Companies waiting for GATE1 approval", _n(k["gate1"]), "", None, None, "")] if k["gate1"] else [])
-    waiting += [("row", "Introductions waiting for GATE2 approval", _n(k["gate2"]), "", None, None, "")] if k["gate2"] else []
-    if k["nowhere"]:
-        waiting += [("row", "Companies where nobody could be found (need sales people input)", _n(len(k["nowhere"])),
-                     "", None, None, "")] + [("name", n) for n in k["nowhere"]]
-    if k.get("held"):  # 20 Nov 2026 (Ariel): broken records are not sent until a person fixes them
-        waiting += [("row", "Contacts held: broken record (fix it in HubSpot)", _n(len(k["held"])), "", None, None, "")] \
-            + [("name", n) for n in k["held"]]
-    if k.get("unknown_channel"):  # 20 Nov 2026 (Ariel, HARD RULE): nobody there is emailed until it is set
-        waiting += [("row", "Companies whose channel is not known (nobody is emailed until it is set)",
-                     _n(len(k["unknown_channel"])), "", None, None, "")] + [("name", n) for n in k["unknown_channel"]]
-    n_waiting = k["gate1"] + k["gate2"] + len(k["nowhere"]) + len(k.get("held") or []) + len(k.get("unknown_channel") or [])
     blocks = [(("Sending", [PARAMETER]), sending_), (("Delivery", [PARAMETER]), delivery),
               (("Campaigns", [HEALTH]), campaigns), (("Sending accounts", [HEALTH]), accounts),
               (("Positive replies to follow up", [SALES]), names(k["follow"])),
               (("Negative replies to convert into possible leads", [SALES]), names(k["negative"])),
-              *reply_blocks(k),
-              (("Waiting for you", [AMODH], n_waiting), waiting or [("line", "None", SAME)])]
+              *reply_blocks(k)]
     if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, at midnight UK
+        # 21 Nov 2026 (Ariel): "Waiting for you" is merged in here; it named the same companies twice
+        shown = {"Contacts held: broken record": ("Contacts held: broken record", k.get("held")),
+                 "Companies whose channel is not known": ("Companies whose channel is not known (nobody is emailed "
+                                                          "until it is set)", None)}
         need = sum(n for _, n, _ in k["initial"]["input"])
         auto = sum(n for _, n in k["initial"]["auto"])
         rows = [("line", k["check"], BAD)] if k.get("check") else []
         rows.append(("row", "Your input needed", _n(need), "", None, None, ""))
         for label, n, who in k["initial"]["input"]:
             if n:  # 21 Nov 2026 (Ariel): a line with 0 is left out
-                rows.append(("row", "  " + label, _n(n), "", None, None, ""))
-                rows += [("name", w) for w in who]
+                text, detail = shown.get(label, (label, None))
+                rows.append(("row", "  " + text, _n(n), "", None, None, ""))
+                rows += [("name", w) for w in (detail or who)]
         rows.append(("row", "No input needed (the automation is working on these)", _n(auto), "", None, None, ""))
         rows += [("row", "  " + label, _n(n), "", None, None, "") for label, n in k["initial"]["auto"] if n]
         moment = "at midnight UK" if k.get("at_midnight", True) else "right now"
         blocks.append(((f"Initial stages - your input needed or not ({moment})", [AMODH], need + auto), rows))
+    else:  # Initial stages could not be worked out: the same things, the short way
+        waiting = [("row", label, _n(n), "", None, None, "") for label, n in
+                   (("Companies waiting for GATE1 approval", k["gate1"]),
+                    ("Introductions waiting for GATE2 approval", k["gate2"])) if n]
+        for label, who in (("Contacts held: broken record", k.get("held") or []),
+                           ("Companies whose channel is not known (nobody is emailed until it is set)",
+                            k.get("unknown_channel") or [])):
+            if who:
+                waiting += [("row", label, _n(len(who)), "", None, None, "")] + [("name", w) for w in who]
+        n_waiting = k["gate1"] + k["gate2"] + len(k.get("held") or []) + len(k.get("unknown_channel") or [])
+        blocks.append((("Your input needed", [AMODH], n_waiting), waiting or [("line", "None", SAME)]))
+    if k["nowhere"]:  # 21 Nov 2026 (Ariel): past the initial stages (Unqualified on the charts), so on its own
+        blocks.append((("Companies where nobody could be found (need sales people input)", [AMODH],
+                        len(k["nowhere"])), [("name", n) for n in k["nowhere"]]))
     return f"Key numbers - {_long_date(k['date'])}", blocks
 
 
@@ -674,7 +680,7 @@ def key_text(k):
     for heading, items in blocks:
         text, tags, count = _heading(heading)
         label = "".join(f"[{t}] " for t in tags) + text
-        out.append(f"{label:<{width + 2}}{count}" if count is not None else label)
+        out.append(f"{label:<{width + 1}} {count}" if count is not None else label)
         for item in items:
             if item[0] == "row":
                 _, label, day, before, symbol, _good, month = item

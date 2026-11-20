@@ -131,8 +131,10 @@ def test_key_numbers_read_as_agreed():
     assert lines[at + 1] == "FELFEL (country not known), replied Mon 26 Oct"
     at = next(i for i, line in enumerate(lines) if "Negative replies to convert into possible leads" in line)
     assert lines[at + 1] == "None"
-    assert "Companies waiting for GATE1 approval 4" in lines and "Introductions waiting for GATE2 approval 1" in lines
-    at = lines.index("Companies where nobody could be found (need sales people input) 1")
+    # 21 Nov 2026 (Ariel): "Waiting for you" is merged into Initial stages; nobody found has its own section
+    assert not any("Waiting for you" in line for line in lines)
+    assert "New companies waiting for your GATE1 approval 4" in lines and "Introductions waiting for your GATE2 approval 1" in lines
+    at = lines.index("[Need Amodh's input] Companies where nobody could be found (need sales people input) 1")
     assert lines[at + 1] == "Sport Benzin"
     assert result["sent"] is False
 
@@ -165,10 +167,12 @@ def test_a_quiet_day_and_all_healthy():
                               date="2026-11-01", preview=True, log=quiet, log_data={})
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert "Introductions sent 0 0 = 0" in lines and "OK 1 of 1 healthy" in lines
-    # 21 Nov 2026: no positive or negative replies, no referral, nothing handled automatically, nothing waiting
-    assert lines.count("None") == 5
+    # 21 Nov 2026: no positive or negative replies, no referral, nothing handled automatically; nothing waiting,
+    # and "Waiting for you" is now part of Initial stages
+    assert lines.count("None") == 4
     assert "[Need Amodh's input] Replies not AUTO-OUTREACH 0" in lines
-    assert "[Need Amodh's input] Waiting for you 0" in lines
+    assert "Your input needed 0" in lines and not any("Waiting for you" in line for line in lines)
+    assert not any("nobody could be found" in line for line in lines)  # its own section only on days with some
     assert not any(line.startswith("Companies waiting for GATE1 approval") for line in lines)  # 0: left out
     assert "#0F6E56" in result["html"]  # the healthy line is green
 
@@ -448,7 +452,7 @@ def test_waiting_and_initial_stages_are_as_they_stood_at_midnight_uk():
     block = lines[next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line) + 1:]
     assert "New companies waiting for your GATE1 approval 5" in block  # the 4 of the day and Late Co
     assert "Late Co" in block and "Tomorrow Co" not in block
-    assert "Companies waiting for GATE1 approval 5" in lines  # Waiting for you says the same
+    assert not any(line.startswith("Companies waiting for GATE1 approval") for line in lines)  # merged, once only
 
 
 def test_a_day_not_over_yet_is_read_as_it_stands_now():

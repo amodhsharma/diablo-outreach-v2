@@ -16,7 +16,7 @@ described, decided 20 Nov 2026), its research note in data/company_notes.json, t
     not targeted   it stops for good: the company is set to "Unqualified: Channel no longer targeted" (its contacts
                    follow at button 4's next run) and nobody there is emailed
     not known      it waits: nobody there is emailed, it is named in the run's log and in the daily email's
-                   "Waiting for you", until its channel is added to config/company_channels.json
+                   Initial stages (your input needed), until its channel is added to config/company_channels.json
 """
 
 from .common import load_company_notes, targeted

@@ -12,7 +12,7 @@ send step (send.run), for the next person due at each company:
        no-reply@ and similar): Contact corrupt.
      Contact corrupt means "Unqualified: Contact corrupt" (also for a company inbox), "Outreach stopped because"
      saying why, and the next person at the company moves up (corrupt.close_dead). Only if HubSpot cannot be
-     changed is the contact held and named under "Waiting for you" in the daily email.
+     changed is the contact held and named under Initial stages in the daily email.
   2. A first email to an address whose domain cannot receive email (no mail server in DNS) is not sent: the
      contact becomes "Unqualified: Contact corrupt" (Inbox Bounced for a company inbox), with "Outreach stopped
      because" saying why, and the next person at the company moves up (corrupt.close_dead).

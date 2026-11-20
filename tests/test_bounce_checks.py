@@ -411,10 +411,10 @@ def test_a_held_broken_record_is_named_and_counted_as_needing_input():
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
-    assert "Contacts held: broken record (fix it in HubSpot) 1" in lines
-    assert "Broken Co (its first name holds an email or web address)" in lines
     block = lines[next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line) + 1:]
-    assert "Contacts held: broken record 1" in block
+    # 21 Nov 2026 (Ariel): named once, in Initial stages, with why
+    assert "Contacts held: broken record 1" in block and lines.count("Contacts held: broken record 1") == 1
+    assert "Broken Co (its first name holds an email or web address)" in block
     assert not any(line.startswith("Introductions approved, waiting their turn to send") for line in block)  # 0
 
 
@@ -483,7 +483,7 @@ def test_the_daily_email_shows_both_need_input_sections_and_the_automatic_referr
     assert any(line.startswith("- Vegan Grocery Store (Australia) | sales@diablosnosugar.com |") for line in lines)
     assert "Need Amodh&#x27;s input</span>" in out["html"] and "#FAEEDA" in out["html"]
     assert '<a href="https://app.hubspot.com/x">Taste Organic (Australia)</a>' in out["html"]
-    heads = ("Negative replies", "Referrals the automation", "Replies not AUTO", "Referrals handled", "Waiting for you")
+    heads = ("Negative replies", "Referrals the automation", "Replies not AUTO", "Referrals handled", "Initial stages")
     order = [next(i for i, line in enumerate(lines) if h in line and line.startswith("[")) for h in heads]
     assert order == sorted(order)
 

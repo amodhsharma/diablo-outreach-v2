@@ -710,7 +710,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             waiting += n_waiting - 1
             continue
         why_broken = address_checks.broken(c)
-        if why_broken:  # only when HubSpot could not be changed above: held, named under "Waiting for you"
+        if why_broken:  # only when HubSpot could not be changed above: held, named under Initial stages in the daily email
             waiting += n_waiting
             held.append({"contact_id": c["id"], "company": name, "reason": why_broken})
             log(f"Held: contact {c['id']} at {name}: {why_broken}; fix the record in HubSpot")
