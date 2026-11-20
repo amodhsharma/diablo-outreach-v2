@@ -12,6 +12,7 @@ _PRETEND = None
 def pytest_configure(config):
     global _PRETEND
     config.addinivalue_line("markers", "channels: run the real channel check (20 Nov 2026)")
+    config.addinivalue_line("markers", "address_checks: run the real free address checks (20 Nov 2026)")
     when = os.environ.get("CHECK_DATE", "").strip()
     if when:
         from freezegun import freeze_time
@@ -192,3 +193,17 @@ def every_channel_goes_ahead_unless_a_test_says_so(tmp_path, monkeypatch, reques
     monkeypatch.setattr(common, "_CHANNELS", {})
     if request.node.get_closest_marker("channels") is None:
         monkeypatch.setattr(channels, "verdict", lambda props, notes=None: True)
+
+
+@pytest.fixture(autouse=True)
+def no_real_address_checks(tmp_path, monkeypatch, request):
+    """20 Nov 2026: no test asks real DNS whether a domain takes email, or reads or writes the real counters of
+    data/address_checks.json; the made-up domains of the tests take email unless a test says otherwise. Old and
+    hand-added addresses are not held back to 20 a day unless the test has @pytest.mark.address_checks."""
+    from outreach import address_checks
+    monkeypatch.setattr(address_checks, "FILE", tmp_path / "address_checks.json")
+    address_checks._MAIL.clear()
+    if "address_checks" not in request.keywords:
+        monkeypatch.setattr(address_checks, "domain_ok", lambda email, check=None: True)
+        real = address_checks.settings_of
+        monkeypatch.setattr(address_checks, "settings_of", lambda settings: dict(real(settings), risky_per_day=10 ** 6))

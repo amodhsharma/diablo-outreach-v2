@@ -91,6 +91,9 @@ class FakeCRM(TagGuard):
             return val is not None and int(val) >= int(f["value"])
         if op == "IN":
             return val is not None and str(val).lower() in {v.lower() for v in f["values"]}
+        if op == "CONTAINS_TOKEN":  # 20 Nov 2026: a word in a text field, as HubSpot's search does
+            import re
+            return str(f["value"]).lower() in re.findall(r"[\w']+", str(val or "").lower())
         raise AssertionError(op)
 
     def search(self, object_type, filters, properties, limit=100, max_results=1000, sorts=None):

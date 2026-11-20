@@ -21,7 +21,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import bond, chain, corrupt, redirect, referral_intro, restart, send_memory, timeline
+from . import address_checks, bond, chain, corrupt, redirect, referral_intro, restart, send_memory, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -638,6 +638,14 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             key = (3 if new_round else 1 if inbox_only else 2, first.timestamp() if first else 0.0, str(company_id))
         plans.append((key, company_id, company, company_contacts))
     plans.sort(key=lambda x: x[0])
+    # 20 Nov 2026 (Ariel): free checks before a first email, old records at most 20 a day, and our 3% brake
+    checks_cfg = address_checks.settings_of(settings)
+    checks = address_checks.load()
+    risky_left = address_checks.risky_room(checks, checks_cfg, now)
+    risky_ids, held, dead = set(), [], {}
+    from . import alert
+    brake = address_checks.braked(in_instantly, checks_cfg, checks, campaign_ids, now, log,
+                                  None if dry_run else (lambda subject, text: alert.send(subject, text, log)))
     room = None
     if not dry_run and chain_cfg:  # new companies only in the room left today; companies already started always
         room = chain.room_today(in_instantly, daily_limit_for(settings["send"]))
@@ -669,6 +677,27 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             skipped.append({"contact_id": c["id"], "email": mask(p.get("email")), "reason": reason})
             log(f"Skipped contact {c['id']} ({mask(p.get('email'))}) at {name}: {reason}")
             waiting += n_waiting - 1
+            continue
+        why_broken = address_checks.broken(c)
+        if why_broken:  # 20 Nov 2026: held for a person, named under "Waiting for you" in the daily email
+            waiting += n_waiting
+            held.append({"contact_id": c["id"], "company": name, "reason": why_broken})
+            log(f"Held: contact {c['id']} at {name}: {why_broken}; fix the record in HubSpot")
+            continue
+        email_now = (p.get("email") or "").lower()
+        emailed_before = bool(send_memory.entry(memory, c["id"]).get("past")
+                              or (in_instantly.get(email_now) or {}).get("timestamp_last_contact"))
+        if not emailed_before and not address_checks.domain_ok(email_now):
+            waiting += n_waiting - 1
+            dead[str(c["id"])] = (c, address_checks.dead_domain_reason(corrupt.today()))
+            log(f"Not sent: contact {c['id']} ({mask(p.get('email'))}) at {name}: its email domain has no mail "
+                "system; Contact corrupt, and the next person moves up")
+            continue
+        is_risky = address_checks.risky(c, emailed_before)
+        if is_risky and risky_left <= 0:
+            waiting += n_waiting
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: an old or hand-added address; at "
+                f"most {checks_cfg['risky_per_day']} of those get their first email a day; it goes on a later day")
             continue
         if corrupt.held_now(c["id"]):
             waiting += n_waiting  # 28 Oct 2026: moved up after a dead address in this run; goes at the next run
@@ -703,6 +732,9 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                 log(f"Waiting: {name}: today's room for new introductions is used up; it goes first tomorrow")
                 continue
             room -= 1
+        if is_risky:
+            risky_left -= 1
+            risky_ids.add(str(c["id"]))
         if earlier and is_other_campaign(next((n for n, i in campaign_ids.items() if i == earlier), "")):
             earlier = None  # never added to an October "Other channels" campaign again
         if chain_cfg:  # 2 Nov 2026 (Ariel): every email goes into the campaign of the month it is sent in
@@ -729,6 +761,10 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         plan.append({"campaign": name, "leads": len(leads), "new_campaign": not campaign_id and key[0] != "campaign"})
         previews.append(preview(name, leads, settings, kind))
         body = campaign_body(name, "", settings, kind) if not campaign_id else None  # a dry run checks it too
+        if campaign_id and campaign_id in brake:  # 20 Nov 2026: our 3% brake is on for this campaign
+            log(f"Not added to {name}: its bounce rate is over our 3% brake; {len(leads)} wait on GATE2: Approved to "
+                "send until it is back under 3%")
+            continue
         if dry_run:
             continue
         if plan_full:
@@ -768,12 +804,21 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                 continue
             contact_updates.append((c["id"], statuses.props("contacts", "in_outreach")))
             send_memory.queued(memory, c, company_id)
+            if str(c["id"]) in risky_ids:
+                address_checks.count_risky(checks, 1, now)
             intros.append(f"| {(companies.get(company_id) or {}).get('properties', {}).get('name') or 'a company'} | "
                           f"{c['properties'].get('jobtitle') or 'person 1'} | Introduction added to the campaign "
                           "(Lead Status: Attempted to Contact) |")
             if forward(company_stage, "in_outreach"):
                 company_updates[company_id] = statuses.props("companies", "in_outreach")
 
+    if not dry_run:
+        address_checks.save(checks)
+        if dead:  # 20 Nov 2026: a domain with no mail system is never emailed; the next person moves up
+            corrupt.close_dead(hs, statuses, dead, in_instantly, log)
+        if held:
+            step_summary("## Held: broken records (fix them in HubSpot)\n\n| Company | Why |\n|---|---|\n"
+                         + "\n".join(f"| {h['company']} | {h['reason']} |" for h in held))
     if not dry_run:
         send_memory.save(memory)  # first, so nobody is introduced twice even if HubSpot fails below
         hs.update_tagged("contacts", contact_updates)
@@ -790,7 +835,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         step_summary("## Instantly's plan has no uploads left\n\nNew introductions wait on GATE2: Approved to send "
                      "until Instantly allows more uploads (a higher plan, or the next billing month).")
     write_json(out_dir / "plan.json", {"dry_run": dry_run, "campaigns": plan, "skipped": skipped,
-                                       "plan_full": bool(plan_full)})
+                                       "plan_full": bool(plan_full), "held": [h["contact_id"] for h in held],
+                                       "dead_domain": sorted(dead), "braked": sorted(brake)})
     if previews:
         (out_dir / "email_preview.txt").write_text("\n\n".join(previews), encoding="utf-8")
         log("\nEMAIL PREVIEW (also saved as email_preview.txt under Artifacts)\n")
@@ -800,7 +846,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         log(f"{'[dry run] ' if dry_run else ''}{row['campaign']}: {row['leads']} leads"
             + (" (new campaign, created paused)" if row["new_campaign"] else ""))
     return {"queued": len(contact_updates), "campaigns": plan, "skipped": len(skipped), "waiting": waiting,
-            "plan_full": bool(plan_full)}
+            "plan_full": bool(plan_full), "held": len(held), "dead_domain": len(dead), "braked": sorted(brake)}
 
 
 def main(argv=None):

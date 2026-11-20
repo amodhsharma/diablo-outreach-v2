@@ -394,6 +394,20 @@ company. Each must be approved at gate 2. Then, with one email to the company ev
   Contact: Contact corrupt" with Outreach order 0, everyone below moves up one, and the new number 1
   becomes GATE2 (now, or as soon as its personal line arrives) and gets the introduction at the next
   run of button 4.
+- **Bounces (20 Nov 2026, Ariel).** All eight sending mailboxes forward their bounce notices to
+  admin@diablosnosugar.com, where a Gmail filter files them under the label BOUNCED; button 4 reads that label
+  (read only, with admin@'s app password `DAILY_REPORT_APP_PASSWORD`; `outreach/bounce_inbox.py`). Every bounced
+  contact's "Outreach stopped because" starts with "Bounced:" and the reason (address does not exist, domain has
+  no mail system, inbox full, blocked by their mail system, temporary problem, other reason, reason could not be
+  read), so the HubSpot filter "Outreach stopped because contains Bounced:" finds every contact that added to the
+  bounce rate. A domain with no mail system stops everyone there. The daily email names each bounce's reason.
+  No new Lead Statuses or fields.
+- **Free checks before a first email (20 Nov 2026, `outreach/address_checks.py`).** No paid verification. A
+  broken record (no valid address, or an email typed into a name) is held and named under "Waiting for you"; an
+  address whose domain cannot receive email is never emailed (Contact corrupt, the next person moves up); old
+  records and hand-added addresses (no Outreach contact source) get their first email at most 20 a UK day; and
+  our own brake stops new introductions into a campaign whose last 200 emails of the last 7 days bounced 3% or
+  more, lifting by itself once it is back under 3% (Amodh is told both times). Settings: `send.address_checks`.
 - Everything stays in the one monthly campaign and mailbox: only person 1 is a campaign lead, the
   others are reached by forwarding person 1's thread. Who was emailed and when is read from
   Instantly itself, so HubSpot needs no extra fields for it.

@@ -30,6 +30,24 @@ A company inbox (info@, sales@) with a dead address gets "Unqualified: Inbox Bou
     right the same way.
 A dead contact stays in HubSpot, so button 3 never adds the same address again. Only AUTO-OUTREACH
 records are touched, and a Lead Status a person set by hand is never changed.
+
+Where the reason comes from (20 Nov 2026, Ariel): the bounce notices in admin@'s label BOUNCED (bounce_inbox.py)
+first, then Instantly's own emails. Every contact whose email bounced gets "Outreach stopped because" starting
+with "Bounced:" and the reason, so a HubSpot filter on that field finds every contact that added to the bounce
+rate (temporary ones included, which stay in the loop):
+
+    Bounced: address does not exist             Contact corrupt (Inbox Bounced for a company inbox); next moves up
+    Bounced: domain has no mail system          the same, and nobody else at that domain is emailed: colleagues
+                                                  not yet emailed there become Contact corrupt too
+    Bounced: blocked by their mail system       Bounced, other reason; the company stops (as before)
+    Bounced: inbox full                         Bounced, other reason
+    Bounced: temporary problem                  stays in the loop (as before)
+    Bounced: other reason                       Bounced, other reason
+    Bounced: reason could not be read, check    Bounced, other reason (it used to say "not a dead address", which
+      by hand                                     was wrong). Read again when a notice for it arrives in BOUNCED
+Without any notice, Instantly's "no mail system found" for the address's domain counts as "domain has no mail
+system". The older wordings ("Contact corrupt: email bounced ...", "Email bounced (...): ...") are rewritten to
+these at each run, so the filter finds them too.
 """
 
 import datetime as dt
@@ -46,7 +64,11 @@ from .stages import EMAILED
 PROMOTED_FILE = ROOT / "data" / "promoted.json"
 TEMPORARY_FILE = ROOT / "data" / "temporary_bounces.json"  # contact id: {day, notices}; IDs and dates only
 HOLD_MINUTES = 60  # without a GitHub run number, someone approved this recently waits for the next run
-DONE_PREFIXES = ("contact corrupt", "email bounced", "inbox bounced")  # "Outreach stopped because": checked
+DONE_PREFIXES = ("contact corrupt", "email bounced", "inbox bounced", "bounced:")  # "Outreach stopped because"
+BOUNCED = "Bounced:"  # 20 Nov 2026 (Ariel): every bounced contact's "Outreach stopped because" starts with this
+LABELS = {"dead": "address does not exist", "no_mail": "domain has no mail system", "full": "inbox full",
+          "policy": "blocked by their mail system", "temporary": "temporary problem", "other": "other reason",
+          "unreadable": "reason could not be read, check by hand"}
 # 3 Nov 2026: never plain Unqualified (only a person sets it, and a person's choice is never changed).
 BOUNCE_STAGES = EMAILED + ("bounced_other",)
 MESSAGE = "Bounce message:"  # in "Outreach stopped because" since 3 Nov 2026
@@ -81,6 +103,14 @@ PERMANENT = re.compile(r"((?<![\d.])5\.\d{1,3}\.\d{1,3}\b|(?<![\d.])5\d\d[ -])")
 # A full mailbox is about the person, not an outage: it stays "Bounced, other reason" (2 Nov 2026).
 FULL = re.compile(r"(mailbox (is )?full|over (the )?quota|quota exceeded|\b4\.2\.2\b|insufficient storage|"
                   r"postfach (ist )?voll|bo[iî]te (aux lettres )?pleine)", re.I)
+# 20 Nov 2026: the receiving domain has no working mail system (no MX record, a DNS failure, an unknown host).
+NO_MAIL = re.compile(
+    r"(servfail|dns (type '?mx'? )?(lookup|error)|mx (record|lookup)|no mx\b|nxdomain|"
+    r"domain (name )?(not found|does not exist|couldn'?t be found)|host (not found|unknown)|"
+    r"unrouteable (address|domain)|name or service not known|no route to host)", re.I)
+FULL_MORE = re.compile(r"(inbox (is )?(full|out of storage)|out of storage|storage (space )?(is )?full|\b5\.2\.2\b|"
+                       r"recipient inbox full)", re.I)
+NO_MAIL_SYSTEM = 1000  # Instantly's lead.esp_code: no mail system found for the domain
 TEMPORARY_LIMIT = 2  # the second temporary bounce for the same person counts as "Bounced, other reason"
 # The words of a bounce worth showing in HubSpot: the diagnostic line, or an SMTP code with what follows.
 DIAGNOSTIC = re.compile(r"(diagnostic[- ]message[:\s]*|diagnostic[- ]code[:\s]*)?(\b[45]\d\d\b[\s-]*)?"
@@ -206,6 +236,74 @@ def kind_of_bounce(text):
     return "temporary" if temporary else "other"
 
 
+def classify(notice_text, lead=None):
+    """20 Nov 2026: one of LABELS for a bounce. notice_text: the bounce notices' words (BOUNCED label and
+    Instantly's emails). Without any notice, Instantly's "no mail system found" means no_mail; anything else
+    Instantly holds about the lead is used only when it clearly says dead or blocked, otherwise "unreadable"."""
+    text = notice_text or ""
+    if text.strip():
+        if NO_MAIL.search(text):
+            return "no_mail"
+        kind = kind_of_bounce(text)
+        if kind == "other" and (FULL.search(text) or FULL_MORE.search(text)):
+            return "full"
+        return kind
+    try:
+        esp = int((lead or {}).get("esp_code"))
+    except (TypeError, ValueError):
+        esp = None
+    if esp == NO_MAIL_SYSTEM:
+        return "no_mail"
+    lead_text = " ".join(str(v) for k, v in (lead or {}).items()
+                         if v and any(w in k.lower() for w in ("bounce", "error", "reason")))
+    kind = kind_of_bounce(lead_text) if lead_text.strip() else "unreadable"
+    return kind if kind in ("dead", "policy") else "unreadable"
+
+
+def bounced_reason(kind, text, extra=""):
+    """ "Bounced: <reason> (<date>). Bounce message: ..." for "Outreach stopped because" (20 Nov 2026)."""
+    said = bounce_message(text) if (text or "").strip() else "(none could be read)"
+    return f"{BOUNCED} {LABELS.get(kind, LABELS['other'])} ({today()}){extra}. {MESSAGE} {said}"
+
+
+# The older wordings, rewritten so a filter on "Bounced:" finds every bounce (20 Nov 2026).
+OLD_WORDINGS = (
+    (re.compile(r"^(?:Contact corrupt|Inbox bounced): email bounced, the address does not exist or is no longer used",
+                re.I), f"{BOUNCED} {LABELS['dead']}"),
+    (re.compile(r"^Email bounced (\([^)]*\)): not a dead address \(for example a full mailbox\)[^.]*\.?", re.I),
+     f"{BOUNCED} {LABELS['unreadable']} \\1."),
+    (re.compile(r"^Email bounced (\([^)]*\)): their mail system blocks our emails; the company stops\.?", re.I),
+     f"{BOUNCED} {LABELS['policy']} \\1; the company stops."),
+    (re.compile(r"^Email bounced (\([^)]*\)): the reason could not be read, check by hand\.?", re.I),
+     f"{BOUNCED} {LABELS['unreadable']} \\1."),
+)
+
+
+def new_wording(reason):
+    """The reason in the "Bounced:" wording, or None when it is not one of the older bounce wordings."""
+    for pattern, repl in OLD_WORDINGS:
+        if pattern.search(reason or ""):
+            return pattern.sub(repl, reason, count=1)[:250]
+    return None
+
+
+def rename_old(hs, log=print):
+    """Rewrite the older bounce wordings on AUTO-OUTREACH contacts (each run; nothing to do once done)."""
+    from .sync import stop_reasons
+    try:
+        rows = hs.tagged_search("contacts", [{"propertyName": STOP_REASON, "operator": "CONTAINS_TOKEN",
+                                              "value": "bounced"}], [STOP_REASON], max_results=5000)
+    except Exception as err:
+        log(f"Could not read the older bounce wordings: {str(err)[:150]}")
+        return 0
+    items = [(r["id"], new) for r in rows
+             if (new := new_wording(str((r.get("properties") or {}).get(STOP_REASON) or "")))]
+    if items:
+        stop_reasons(hs, "contacts", items, log)
+        log(f'{len(items)} older bounce reason(s) now start with "{BOUNCED}"')
+    return len(items)
+
+
 _TEMPORARY = {"key": None, "ids": frozenset()}
 
 
@@ -262,82 +360,104 @@ def has_left(thread):
 REREAD_PER_RUN = 15
 
 
-def _done(contact):
+def _done(contact, inbox=None):
     """Checked already. A bounce noted before 3 Nov 2026 (without its message) is read once more, so the new
-    rules (Microsoft's 5.4.1, policy blocks) and the message reach it too."""
+    rules (Microsoft's 5.4.1, policy blocks) and the message reach it too. 20 Nov 2026: a temporary bounce is
+    always looked at again (its second one counts), and a bounce whose reason could not be read is read again
+    once a notice for its address is in the BOUNCED label."""
     reason = str((contact.get("properties") or {}).get(STOP_REASON) or "").strip()
     low = reason.lower()
+    email = str((contact.get("properties") or {}).get("email") or "").lower()
+    has_notice = bool(email and (inbox or {}).get(email))
+    if low.startswith(f"{BOUNCED} {LABELS['temporary']}".lower()):
+        return False
+    if low.startswith(f"{BOUNCED} {LABELS['unreadable']}".lower()) or "not a dead address" in low:
+        return MESSAGE.lower() in low and not has_notice  # never read with today's rules: read once more
     if low.startswith("email bounced"):
-        return MESSAGE.lower() in low
+        return MESSAGE.lower() in low and not has_notice
     return low.startswith(DONE_PREFIXES)
 
 
-def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=None):
-    """Find dead addresses and move each company on. Returns {"corrupt": n, "rows": [...], "to_check": [...]}."""
+def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=None, inbox=None):
+    """Find dead addresses and move each company on. inbox: {address: [notice text]} from admin@'s BOUNCED label
+    (bounce_inbox.read_for_run; 20 Nov 2026). Returns {"corrupt": n, "rows": [...], "to_check": [...]}."""
     from .sync import stop_reasons  # sync imports this module
     out = {"corrupt": 0, "rows": [], "to_check": []}
+    inbox = inbox or {}
     if not statuses.has("contacts", "corrupt"):
         log('The contact Lead Status choice "Unqualified: Contact corrupt" is missing; run button 1 to add '
             "it. Dead addresses were not checked this run.")
         return out
     promoted = load_promoted(promoted_path)
     _approve_waiting(hs, statuses, promoted, log)
-    if emails_api is None:
+    rename_old(hs, log)  # 20 Nov 2026: every bounce reason starts with "Bounced:"
+    if emails_api is None and not inbox:
         log("Dead addresses were not checked: the GitHub secret INSTANTLY_EMAILS_KEY is needed to read the bounces")
         save_promoted(promoted, promoted_path)
         return out
     bounced = {e: l for e, l in (leads or {}).items() if l.get("status") == -1}
+    # 20 Nov 2026: a notice in BOUNCED counts even when Instantly has not marked the lead (or the lead is gone)
+    for address in inbox:
+        bounced.setdefault(address, (leads or {}).get(address) or {})
     rows = hs.tagged_read("contacts", list(bounced), CONTACT_PROPS, id_property="email") if bounced else []
-    reasons, corrupt, other, blocked = [], {}, [], []  # corrupt: {contact id: (record, why)}
+    reasons, corrupt, other, blocked, no_mail = [], {}, [], [], []  # corrupt: {contact id: (record, why)}
     temporary, back = load_temporary(), []  # 16 Nov 2026: temporary bounces stay in the loop
     again = 0
     for r in rows:
-        if statuses.of("contacts", r) not in BOUNCE_STAGES or _done(r):
+        if statuses.of("contacts", r) not in BOUNCE_STAGES or _done(r, inbox):
             continue
-        known = temporary.get(str(r["id"]))
-        if str(r["properties"].get(STOP_REASON) or "").strip().lower().startswith("email bounced"):
-            # 3 Nov 2026: an older bounce read once more; a few each run, as Instantly's emails are slow to read
-            again += 1
-            if again > REREAD_PER_RUN:
-                continue
         email = (r["properties"].get("email") or "").lower()
-        try:
-            thread = emails_api.thread_emails(email)
-        except Exception as err:  # read again next run
-            log(f"The bounce of a {r['properties'].get('jobtitle') or 'contact'} could not be read "
-                f"({str(err)[:150]}); tried again next run")
-            continue
-        count = len(notices(thread))
+        known = temporary.get(str(r["id"]))
+        from_label = inbox.get(email) or []
+        title = r["properties"].get("jobtitle") or "contact"
+        if from_label:  # the notices are in admin@'s BOUNCED label: Instantly's emails need not be read
+            thread, count, notice = [], len(from_label), " ".join(from_label)
+        else:
+            if emails_api is None:
+                continue
+            if str(r["properties"].get(STOP_REASON) or "").strip().lower().startswith(("email bounced", "bounced:")):
+                # an older bounce read once more; a few each run, as Instantly's emails are slow to read
+                again += 1
+                if again > REREAD_PER_RUN:
+                    continue
+            try:
+                thread = emails_api.thread_emails(email)
+            except Exception as err:  # read again next run
+                log(f"The bounce of a {title} could not be read ({str(err)[:150]}); tried again next run")
+                continue
+            count = len(notices(thread))
+            notice = bounce_text({}, thread, emails_api)
         if known and not known.get("gave_up") and count <= known.get("notices", 0):
             continue  # the same temporary bounce as before: nothing new to read
-        text = bounce_text(bounced.get(email), thread, emails_api)
-        kind = kind_of_bounce(text)
-        said = f" {MESSAGE} {bounce_message(text)}" if text.strip() else f" {MESSAGE} (none could be read)"
+        lead = bounced.get(email) or {}
+        kind = classify(notice, lead)
+        text = notice if notice.strip() else ("Instantly found no mail system for this domain" if kind == "no_mail" else "")
         if kind == "temporary" and count < TEMPORARY_LIMIT and not (known or {}).get("gave_up"):
             temporary[str(r["id"])] = {"day": (known or {}).get("day") or today(), "notices": max(count, 1)}
             if statuses.of("contacts", r) == "bounced_other":
                 back.append((r["id"], statuses.props("contacts", "in_outreach")))
-            log(f"The email to a {r['properties'].get('jobtitle') or 'contact'} bounced for a temporary reason "
-                f"({bounce_message(text)[:120]}); they stay in the loop and their reminder is the retry")
+            reasons.append((r["id"], bounced_reason("temporary", text, "; still in the loop, the reminder is the retry")))
+            log(f"The email to a {title} bounced for a temporary reason ({bounce_message(text)[:120]}); they stay in "
+                "the loop and their reminder is the retry")
             continue
         if kind == "temporary":  # the second one: counted as any other bounce from now on
             temporary[str(r["id"])] = dict(known or {}, notices=count, gave_up=today())
             kind = "other"
-        if kind == "dead":
-            corrupt[str(r["id"])] = (r, f"Contact corrupt: email bounced, the address does not exist or is no "
-                                        f"longer used ({today()}).{said}")
-        else:
-            why = {"other": "not a dead address (for example a full mailbox)",
-                   "policy": "their mail system blocks our emails; the company stops",
-                   "unreadable": "the reason could not be read, check by hand"}[kind]
-            reasons.append((r["id"], f"Email bounced ({today()}): {why}.{said}"))
-            out["to_check"].append((r, why))
-            if statuses.of("contacts", r) != "bounced_other" and statuses.has("contacts", "bounced_other"):
-                other.append((r["id"], statuses.props("contacts", "bounced_other")))
-            if kind == "policy":
-                blocked.append(r)
+        if kind in ("dead", "no_mail"):
+            corrupt[str(r["id"])] = (r, bounced_reason(kind, text))
+            if kind == "no_mail":
+                no_mail.append(r)
+            continue
+        reasons.append((r["id"], bounced_reason(kind, text, "; the company stops" if kind == "policy" else "")))
+        out["to_check"].append((r, LABELS[kind]))
+        if statuses.of("contacts", r) != "bounced_other" and statuses.has("contacts", "bounced_other"):
+            other.append((r["id"], statuses.props("contacts", "bounced_other")))
+        if kind == "policy":
+            blocked.append(r)
+    if no_mail:  # 20 Nov 2026: nobody else at a dead domain is emailed
+        _same_domain(hs, statuses, no_mail, corrupt, log)
     for r, _lead, event in seen or ():
-        if event != "out of office" or str(r["id"]) in corrupt or _done(r):
+        if event != "out of office" or str(r["id"]) in corrupt or _done(r) or emails_api is None:
             continue
         if statuses.of("contacts", r) not in BOUNCE_STAGES:
             continue
@@ -358,6 +478,46 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
         _close_blocked(hs, statuses, blocked, leads, out, log)
     if corrupt:
         _move_up(hs, statuses, corrupt, leads, promoted, out, log)
+    save_promoted(promoted, promoted_path)
+    _summary(out)
+    return out
+
+
+NOT_YET_EMAILED = ("found", "copy_ready", "approved")
+
+
+def _same_domain(hs, statuses, dead, corrupt, log):
+    """Colleagues at the same company with an address at the dead domain, not emailed yet, become Contact
+    corrupt as well (20 Nov 2026, Ariel): their email could never arrive."""
+    owner_of, _ = tagged_company_of(hs, [r["id"] for r in dead], ["name"])
+    domains = {}
+    for r in dead:
+        company = owner_of.get(str(r["id"]))
+        domain = str(r["properties"].get("email") or "").lower().split("@")[-1]
+        if company and domain:
+            domains.setdefault(company, set()).add(domain)
+    everyone = contacts_by_company(hs, list(domains)) if domains else {}
+    n = 0
+    for company, ds in domains.items():
+        for c in everyone.get(company) or []:
+            domain = str(c["properties"].get("email") or "").lower().split("@")[-1]
+            if str(c["id"]) in corrupt or domain not in ds or statuses.of("contacts", c) not in NOT_YET_EMAILED:
+                continue
+            corrupt[str(c["id"])] = (c, f"Contact corrupt: its email domain has no mail system (a colleague's email "
+                                        f"bounced, {today()}); never emailed")
+            n += 1
+    if n:
+        log(f"{n} colleague(s) at a domain with no mail system will not be emailed (Contact corrupt)")
+
+
+def close_dead(hs, statuses, dead, leads=None, log=print, promoted_path=None):
+    """dead: {contact id: (record, why)}. Contact corrupt (Inbox Bounced for a company inbox), the next person moves
+    up, and the company stops when nobody is left (used by button 4's send step, 20 Nov 2026)."""
+    out = {"corrupt": 0, "rows": [], "to_check": []}
+    if not dead:
+        return out
+    promoted = load_promoted(promoted_path)
+    _move_up(hs, statuses, dict(dead), leads or {}, promoted, out, log)
     save_promoted(promoted, promoted_path)
     _summary(out)
     return out

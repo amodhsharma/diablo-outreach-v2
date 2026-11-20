@@ -22,11 +22,11 @@ import datetime as dt
 import re
 
 from .common import INDUSTRY_PARTNER
-from .schema import COMPANY_NOTE, INBOX_TITLE, LEAD_STATUS, ORDER, PERSONAL_LINE, ROUND, STOP_REASON
+from .schema import CONTACT_SOURCE, COMPANY_NOTE, INBOX_TITLE, LEAD_STATUS, ORDER, PERSONAL_LINE, ROUND, STOP_REASON
 from .stages import COMPANY_STOPPED, EMAILED, LEFT_OUT
 
 CONTACT_PROPS = ["email", "firstname", "lastname", "jobtitle", PERSONAL_LINE, COMPANY_NOTE, LEAD_STATUS, ORDER,
-                 STOP_REASON]
+                 STOP_REASON, CONTACT_SOURCE]  # CONTACT_SOURCE: 20 Nov 2026, old records go at most 20 a day
 COMPANY_PROPS = ["name", "domain", "city", "country", "industry_type", LEAD_STATUS, ROUND]  # ROUND: 19 Nov 2026
 
 # Each contact's state, worked out from its Lead Status and what Instantly holds (instantly_view):

@@ -577,7 +577,8 @@ def context(hs, settings, history, statuses, day, end, now=None):
 def input_needed(hs, statuses, history, end):
     """20 Nov 2026 (Ariel): {company id: "i1" or "i2"} for the companies on GATE1 or Contact located at the end of
     the period: "i1" (your input needed) when the company's channel is not known or someone there waits for GATE2
-    approval ("New, Personal line filled"), else "i2" (no input needed). The contacts' Lead Status is the one they had
+    approval ("New, Personal line filled") or is held because its record is broken (20 Nov 2026), else "i2" (no
+    input needed). The contacts' Lead Status is the one they had
     at the end of the period (from their history; 20 Nov 2026, Ariel: the charts and Key numbers describe the same
     moment); the channel is read from the company now."""
     from . import channels
@@ -598,7 +599,9 @@ def input_needed(hs, statuses, history, end):
     out = {}
     for cid in ids:
         props = (records.get(str(cid)) or {}).get("properties") or {}
-        waiting = any(stage_then(c) == "copy_ready" for c in people.get(cid) or people.get(str(cid)) or [])
+        from . import address_checks  # 20 Nov 2026: a broken record waits for a person too
+        waiting = any(stage_then(c) == "copy_ready" or (stage_then(c) == "approved" and address_checks.broken(c))
+                      for c in people.get(cid) or people.get(str(cid)) or [])
         out[str(cid)] = "i1" if waiting or channels.verdict(props, notes) is None else "i2"
     return out
 

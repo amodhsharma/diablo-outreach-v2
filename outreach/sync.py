@@ -450,7 +450,9 @@ def close_company_contacts(hs, statuses, log=print, leads=None, blocked=None):
             if new[LEAD_STATUS] == (c.get("properties") or {}).get(LEAD_STATUS):
                 continue
             updates.append((c["id"], new))
-            reasons.append((c["id"], text))
+            own_why = str((c.get("properties") or {}).get(STOP_REASON) or "")
+            # 20 Nov 2026: a bounce reason stays first, so the "Bounced:" filter still finds the contact
+            reasons.append((c["id"], f"{own_why} | {text}" if own_why.startswith("Bounced:") else text))
             changed += 1
         if changed:
             label = statuses.label("contacts", statuses.props("contacts", stage)[LEAD_STATUS])
@@ -709,8 +711,10 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
     except Exception as err:
         log(f"Could not copy the lines to new contacts: {str(err)[:200]}")
     try:  # 28 Oct 2026 (Ariel): dead addresses are "Contact corrupt" and the next person moves up
+        from . import bounce_inbox  # 20 Nov 2026: the bounce notices forwarded to admin@'s label BOUNCED
+        inbox = bounce_inbox.read_for_run(settings, log)
         dead = corrupt.check(hs, emails_api, leads, statuses,
-                             [x for x in seen if str(x[0]["id"]) not in found.get("ids", set())], log)
+                             [x for x in seen if str(x[0]["id"]) not in found.get("ids", set())], log, inbox=inbox)
     except Exception as err:  # never stops the run; tried again next run
         dead = {"corrupt": 0}
         log(f"Could not check the dead addresses: {str(err)[:200]}")

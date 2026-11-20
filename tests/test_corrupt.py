@@ -92,7 +92,7 @@ def test_a_dead_address_moves_everyone_up_and_the_new_number_1_goes_at_the_next_
     monkeypatch.setenv("GITHUB_RUN_ID", "run1")
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert rec(hs, p1)[LS] == CORRUPT and rec(hs, p1)[ORDER] == "0"
-    assert rec(hs, p1)[REASON].startswith("Contact corrupt: email bounced")
+    assert rec(hs, p1)[REASON].startswith("Bounced: address does not exist")  # 20 Nov 2026 wording
     assert rec(hs, p2)[ORDER] == "1" and rec(hs, p3)[ORDER] == "2"
     assert rec(hs, p2)[LS] == "APPROVED_TO_SEND"
     assert moved["contacts_corrupt"] == 1 and moved["next_contacts_added"] == 0  # not in the same run
@@ -170,7 +170,7 @@ def test_a_dead_company_inbox_with_nobody_left_needs_input(settings):
     bounce(instantly, emails, "p1@inbox.example")
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert rec(hs, inbox)[LS] == "UNQUALIFIED_INBOX_BOUNCED" and rec(hs, inbox)[ORDER] == "0"
-    assert rec(hs, inbox)[REASON].startswith("Inbox bounced")
+    assert rec(hs, inbox)[REASON].startswith("Bounced: address does not exist")  # 20 Nov 2026 wording
     # The renamed choice keeps its value, so the record holds the old value under the new label.
     assert hs.records["companies"][cid][LS] == "Invalid inbox: Mail bounced, need input"
     assert hs.records["companies"][cid][REASON].startswith("Company inbox bounced")
@@ -191,7 +191,7 @@ def test_other_and_unreadable_bounces_stay_as_today_and_are_checked_once(setting
     hs, instantly, emails, cid, (p1, p2) = started(settings, "full.example", ("Owner", "Buyer"))
     bounce(instantly, emails, "p1@full.example", text="452 4.2.2 The recipient's mailbox is full, try again later")
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert rec(hs, p1)[LS] == "UNQUALIFIED_BOUNCED_OTHER" and rec(hs, p1)[REASON].startswith("Email bounced")
+    assert rec(hs, p1)[LS] == "UNQUALIFIED_BOUNCED_OTHER" and rec(hs, p1)[REASON].startswith("Bounced: inbox full")
     assert rec(hs, p2)[ORDER] == "2"  # nobody moved up
     hs2, instantly2, emails2, _, (q1, _) = started(settings, "blank.example", ("Owner", "Buyer"))
     bounce(instantly2, emails2, "p1@blank.example", text=None)  # no bounce message to read

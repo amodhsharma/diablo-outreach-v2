@@ -144,6 +144,11 @@ send:
   # automatically after this many hours, once its mailboxes are healthy and bounces are normal; Amodh is told
   # (outreach/campaign_guard.py). Bounce Protect, a person's pause and a suspension are never resumed.
   campaign_guard: {resume_after_hours: 6, bounce_limit: 5, repause_hours: 24}
+  # 20 Nov 2026 (Ariel): free checks before a first email (outreach/address_checks.py). Old records and hand-added
+  # addresses (no Outreach contact source) get their first email at most risky_per_day a UK day. Our own bounce
+  # brake: at `rate` or more over a campaign's `last` leads emailed in the last `days` days (with at least min_sent
+  # of them), no new introductions go into it; it lifts by itself once the rate is back under it.
+  address_checks: {risky_per_day: 20, brake: {rate: 0.03, last: 200, days: 7, min_sent: 50}}
   # 12 Nov 2026 (Ariel): Diablo's own domains. An email from any of them in a prospect's thread (someone at
   # Diablo writing in) is never counted as the prospect's reply and never changes the company's loop, whatever
   # Instantly labels it. Every sending mailbox's domain counts as well, so a new mailbox domain needs no entry.

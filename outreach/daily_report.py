@@ -20,14 +20,16 @@ The email (20 Nov 2026, Ariel):
        Sending: introductions sent, reminders sent (button 4's memory), Instantly uploads used of the plan's
          allowance (daily_report.instantly_allowance in settings). The aim of 240 introductions a day is not shown.
        Delivery: undelivered (with the bounce rate; Instantly pauses at 5%; under it, which sending account each
-         bounce came from and at which company), asked not to be emailed, automatic replies (data/daily_log.json,
-         written by button 4)
+         bounce came from and at which company, with the reason written on the contact, for example "address does
+         not exist"; 20 Nov 2026), asked not to be emailed, automatic replies (data/daily_log.json, written by
+         button 4)
        Sending accounts: one green line when all are healthy, a red line naming each problem
        Positive replies to follow up: every company that replied that day tagged Positive, plus Neutral and
          Referral replies marked as such; Negative replies to convert into possible leads: the rest. No cap.
        Waiting for you: companies waiting for GATE1 approval, introductions waiting for GATE2 approval, and
          Companies where nobody could be found (need sales people input), with their names; and, when there are
-         any, the companies whose channel is not known (nobody is emailed until it is set; outreach/channels.py).
+         any, contacts held because their record is broken (20 Nov 2026, outreach/address_checks.py) and the
+         companies whose channel is not known (nobody is emailed until it is set; outreach/channels.py).
        Initial stages - your input needed or not (at midnight UK): what the chart's Initial stages box holds.
 
 The recipients and the mailbox's Google app password (DAILY_REPORT_APP_PASSWORD) are never written in the
@@ -143,7 +145,7 @@ class AtCutoff:
     stage now, corrected with the Lead Status history of every record changed since the cut-off. A day not over yet
     (a sample of today so far) is read as it stands now."""
 
-    PROPS = {"companies": ["name", "domain", "industry_type", "country"], "contacts": ["email"]}
+    PROPS = {"companies": ["name", "domain", "industry_type", "country"], "contacts": ["email", "firstname", "lastname"]}
 
     def __init__(self, hs, statuses, cutoff, now=None):
         self.hs, self.statuses, self.cutoff = hs, statuses, cutoff
@@ -231,12 +233,13 @@ def replies(hs, day_entry, date, forwarded=None):
 
 def bounce_detail(hs, instantly, settings, contact_ids, date, emails_api=None):
     """20 Nov 2026 (Ariel): where the day's bounces came from. {"accounts": [(sending account, bounced, sent that
-    day)], "companies": [(company, country)]}, or None when it could not be read."""
+    day)], "companies": [(company, country, [reasons])]}, or None when it could not be read. The reason is the
+    one written on the contact ("Bounced: address does not exist ...", 20 Nov 2026), when there is one."""
     from .countries import uniform
     if not contact_ids:
         return {"accounts": [], "companies": []}
     try:
-        records = hs.tagged_read("contacts", [str(c) for c in contact_ids], ["email"])
+        records = hs.tagged_read("contacts", [str(c) for c in contact_ids], ["email", STOP_REASON])
         view = instantly_view(instantly, settings["sync"]["campaign_prefix"])
         owner_of, companies = tagged_company_of(hs, [str(c) for c in contact_ids], ["name", "country"])
     except (HubSpotError, InstantlyError, KeyError, AttributeError):
@@ -269,14 +272,43 @@ def bounce_detail(hs, instantly, settings, contact_ids, date, emails_api=None):
     else:
         sent = Counter(mailbox(lead) for lead in view.values() if lead.get("timestamp_last_contact")
                        and daily_log.uk_day(lead["timestamp_last_contact"]) == date)
+    why = {str(r["id"]): _bounce_label((r.get("properties") or {}).get(STOP_REASON)) for r in records}
     names = {}
     for cid in contact_ids:
         company = companies.get(owner_of.get(str(cid)))
         if company:
             p = company.get("properties") or {}
-            names[str(company["id"])] = (p.get("name") or "A company", uniform(p.get("country")) or "country not known")
+            name, country, reasons = names.get(str(company["id"])) or (
+                p.get("name") or "A company", uniform(p.get("country")) or "country not known", [])
+            if why.get(str(cid)) and why[str(cid)] not in reasons:
+                reasons.append(why[str(cid)])
+            names[str(company["id"])] = (name, country, reasons)
     return {"accounts": sorted(((box, n, sent.get(box, 0)) for box, n in bounced.items()), key=lambda x: (-x[1], x[0])),
             "companies": sorted(names.values(), key=lambda x: x[0].lower())}
+
+
+BOUNCE_LABEL = re.compile(r"^Bounced:\s*(.+?)\s*\(")
+
+
+def _bounce_label(reason):
+    """ "address does not exist" from "Bounced: address does not exist (20 Nov 2026). ...", or None."""
+    m = BOUNCE_LABEL.match(str(reason or ""))
+    return m.group(1) if m else None
+
+
+def held_records(hs, statuses, at):
+    """20 Nov 2026 (Ariel): the approved contacts held because their record is broken, as "Company (why)"."""
+    from . import address_checks
+    held = [(c, address_checks.broken(c)) for c in at.records("contacts", "approved")]
+    held = [(c, why) for c, why in held if why]
+    if not held:
+        return []
+    owner_of, companies = tagged_company_of(hs, [str(c["id"]) for c, _ in held], ["name"])
+    out = []
+    for c, why in held:
+        company = companies.get(owner_of.get(str(c["id"]))) or {}
+        out.append(f"{(company.get('properties') or {}).get('name') or 'A company'} ({why})")
+    return sorted(out, key=str.lower)
 
 
 def unknown_channel_companies(hs, statuses, notes=None, at=None):
@@ -316,14 +348,22 @@ def initial_stages(hs, statuses, unknown_names, at=None, unknown_ids=()):
                           for k in set(owner_of.values()) if k in owners}, key=str.lower)
     unknown = set(unknown_names)
     gate1 = [c for c in at.records("companies", "approved") if ((c.get("properties") or {}).get("name") or "") not in unknown]
-    ids = ({str(c["id"]) for c in new + exists} | {str(k) for k in owner_of.values()} | {str(i) for i in unknown_ids})
+    from . import address_checks  # 20 Nov 2026: a broken record is held until a person fixes it
+    approved = at.records("contacts", "approved")
+    held = [c for c in approved if address_checks.broken(c)]
+    held_of, held_cos = tagged_company_of(hs, [str(c["id"]) for c in held], ["name"]) if held else ({}, {})
+    held_names = sorted({(held_cos.get(k, {}).get("properties") or {}).get("name") or "A company"
+                         for k in held_of.values()}, key=str.lower)
+    ids = ({str(c["id"]) for c in new + exists} | {str(k) for k in owner_of.values()} | {str(i) for i in unknown_ids}
+           | {str(k) for k in held_of.values()})
     return {"input": [("New companies waiting for your GATE1 approval", len(new), names(new)),
                       ("Introductions waiting for your GATE2 approval", len(gate2), gate2_names),
                       ("Contacts not yet tagged AUTO-OUTREACH", len(exists), names(exists)),
-                      ("Companies whose channel is not known", len(unknown), sorted(unknown, key=str.lower))],
+                      ("Companies whose channel is not known", len(unknown), sorted(unknown, key=str.lower))]
+            + ([("Contacts held: broken record", len(held), held_names)] if held else []),
             "auto": [("Approved, Apollo search at the next button 3 run", len(gate1)),
                      ("People found, introduction lines being written", len(at.records("contacts", "found"))),
-                     ("Introductions approved, waiting their turn to send", len(at.records("contacts", "approved")))],
+                     ("Introductions approved, waiting their turn to send", len(approved) - len(held))],
             "ids": ids}
 
 
@@ -360,6 +400,7 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "nowhere": nobody_found(hs, statuses, date),
         "bounces": bounce_detail(hs, instantly, settings, today["bounced"], date, emails_api),
         "unknown_channel": sorted(set(unknown.values()), key=str.lower),
+        "held": held_records(hs, statuses, at),  # 20 Nov 2026: broken records, not sent
         "at_midnight": not at.live,
     }
     out["initial"] = initial_stages(hs, statuses, out["unknown_channel"], at, unknown)
@@ -436,6 +477,11 @@ def _rate(n, sent):
     return f"{_n(n)} ({n / sent:.1%})" if sent and n else _n(n)
 
 
+def _at(name, country, reasons=()):
+    """ "Kadac (Australia: address does not exist)": the company and, since 20 Nov 2026, why it bounced."""
+    return f"{name} ({country}" + (f": {'; '.join(reasons)}" if reasons else "") + ")"
+
+
 def bounce_lines(detail, bounced):
     """20 Nov 2026 (Ariel): under "Undelivered", which sending accounts the day's bounces came from and at which
     companies."""
@@ -447,7 +493,7 @@ def bounce_lines(detail, bounced):
              for box, n, sent in detail["accounts"]]
     out = [("line", "By sending account: " + ", ".join(parts), None)] if parts else []
     if detail["companies"]:
-        out.append(("line", "At: " + ", ".join(f"{name} ({country})" for name, country in detail["companies"]), None))
+        out.append(("line", "At: " + ", ".join(_at(*c) for c in detail["companies"]), None))
     return out
 
 
@@ -489,6 +535,9 @@ def key_rows(k):
                ("row", "Introductions waiting for GATE2 approval", _n(k["gate2"]), "", None, None, ""),
                ("row", "Companies where nobody could be found (need sales people input)", _n(len(k["nowhere"])), "",
                 None, None, "")] + [("name", n) for n in k["nowhere"]]
+    if k.get("held"):  # 20 Nov 2026 (Ariel): broken records are not sent until a person fixes them
+        waiting += [("row", "Contacts held: broken record (fix it in HubSpot)", _n(len(k["held"])), "", None, None, "")] \
+            + [("name", n) for n in k["held"]]
     if k.get("unknown_channel"):  # 20 Nov 2026 (Ariel, HARD RULE): nobody there is emailed until it is set
         waiting += [("row", "Companies whose channel is not known (nobody is emailed until it is set)",
                      _n(len(k["unknown_channel"])), "", None, None, "")] + [("name", n) for n in k["unknown_channel"]]
