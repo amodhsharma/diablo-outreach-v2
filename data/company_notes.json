@@ -16811,6 +16811,25 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-27/J0080_2026-10-27_melbourne-australia_seasonal-and-gift-shops.json"
   },
+  "springbok-companies.com": {
+    "name": "The Springbok Group of Companies",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "Johannesburg, South Africa",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A Johannesburg-headquartered independent FMCG distributor that buys from local and international suppliers and sells to chains, independents and spaza shops, with chocolate, chips and biscuits as a named portfolio line. Scale: deliveries to more than 12,500 unique locations nationwide and across SADC, with an export division into eight African markets. Storage: warehousing in South Africa and its own fleet of trailers and straight trucks.",
+    "what_they_do_well": [
+      "Delivers to more than 12,500 unique outlets nationwide, from large retailers to spaza shops and cafes."
+    ],
+    "distributes": "Chocolate, chips and biscuits (Bakers Biscuits shown in its portfolio) from local and imported North American and European suppliers, plus dairy, health and beauty and pet food.",
+    "channels_supplied": "Large retail chains, independent traders, spaza shops, cafes, convenience stores, forecourts and pharmacies across South Africa and SADC export markets.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0134_2026-11-21_johannesburg-south-africa_distributors-fmcg-distributors-wholesalers-field-sales-distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "springinternational.com.au": {
     "name": "Spring International",
     "based_out_of": "Sydney, Australia",
