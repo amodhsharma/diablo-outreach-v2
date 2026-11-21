@@ -1,0 +1,89 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0097",
+  "location": "Switzerland",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 70
+    },
+    {
+      "channel": "supermarket chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 10
+    },
+    {
+      "channel": "pharmacy distributors",
+      "template": "pharmacy_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 30
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 38
+    }
+  ],
+  "companies": [],
+  "main_cities": [
+    {
+      "city": "Zurich",
+      "language": "German"
+    },
+    {
+      "city": "Geneva",
+      "language": "French"
+    },
+    {
+      "city": "Basel",
+      "language": "German"
+    },
+    {
+      "city": "Lausanne",
+      "language": "French"
+    },
+    {
+      "city": "Bern",
+      "language": "German"
+    },
+    {
+      "city": "Lucerne",
+      "language": "German"
+    },
+    {
+      "city": "St. Gallen",
+      "language": "German"
+    },
+    {
+      "city": "Lugano",
+      "language": "Italian"
+    },
+    {
+      "city": "Winterthur",
+      "language": "German"
+    },
+    {
+      "city": "Fribourg",
+      "language": "French"
+    }
+  ]
+}
