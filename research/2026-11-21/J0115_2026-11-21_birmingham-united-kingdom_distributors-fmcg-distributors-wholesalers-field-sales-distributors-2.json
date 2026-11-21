@@ -4,43 +4,45 @@
   "location": "Birmingham, United Kingdom",
   "run_date": "2026-11-21",
   "run_type": "scheduled",
-  "replaces": [],
+  "replaces": [
+    "research/2026-11-21/J0115_2026-11-21_birmingham-united-kingdom_distributors-fmcg-distributors-wholesalers-field-sales-distributors.json"
+  ],
   "channels": [
     {
       "channel": "distributors",
       "template": "distributor",
-      "status": "failed",
-      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "status": "done",
+      "reason": "",
       "companies_wanted": 30,
       "companies_found": 0,
-      "searches_used": 0
+      "searches_used": 41
     },
     {
       "channel": "FMCG distributors",
       "template": "distributor",
-      "status": "failed",
-      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "status": "done",
+      "reason": "",
       "companies_wanted": 30,
       "companies_found": 0,
-      "searches_used": 0
+      "searches_used": 38
     },
     {
       "channel": "wholesalers",
       "template": "wholesaler",
-      "status": "failed",
-      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "status": "done",
+      "reason": "",
       "companies_wanted": 30,
       "companies_found": 0,
-      "searches_used": 0
+      "searches_used": 33
     },
     {
       "channel": "field sales distributors",
       "template": "field_sales_distributor",
-      "status": "failed",
-      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "status": "done",
+      "reason": "",
       "companies_wanted": 30,
       "companies_found": 0,
-      "searches_used": 0
+      "searches_used": 43
     }
   ],
   "companies": []
