@@ -279,11 +279,11 @@ J0097,Switzerland,FMCG distributors,,30,amodhsharma,2026-11-20,"Done, fewer than
 J0097,Switzerland,supermarket chains,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0097_2026-11-21_switzerland_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json,,country,yes
 J0097,Switzerland,pharmacy distributors,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0097_2026-11-21_switzerland_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json,,country,yes
 J0097,Switzerland,field sales distributors,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0097_2026-11-21_switzerland_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json,,country,yes
-J0098,United Kingdom,distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
-J0098,United Kingdom,FMCG distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
-J0098,United Kingdom,wholesalers,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
-J0098,United Kingdom,kiosk and convenience wholesalers,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
-J0098,United Kingdom,halal food distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
+J0098,United Kingdom,distributors,,30,amodhsharma,2026-11-20,Waiting,"Failed once (The helper did not save its file (it may have stopped early, e.g. a usage limit)); it runs again by itself at the next run",,2026-11-21,research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal.json,1,country,yes
+J0098,United Kingdom,FMCG distributors,,30,amodhsharma,2026-11-20,Waiting,"Failed once (The helper did not save its file (it may have stopped early, e.g. a usage limit)); it runs again by itself at the next run",,2026-11-21,research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal.json,1,country,yes
+J0098,United Kingdom,wholesalers,,30,amodhsharma,2026-11-20,Waiting,"Failed once (The helper did not save its file (it may have stopped early, e.g. a usage limit)); it runs again by itself at the next run",,2026-11-21,research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal.json,1,country,yes
+J0098,United Kingdom,kiosk and convenience wholesalers,,30,amodhsharma,2026-11-20,Waiting,"Failed once (The helper did not save its file (it may have stopped early, e.g. a usage limit)); it runs again by itself at the next run",,2026-11-21,research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal.json,1,country,yes
+J0098,United Kingdom,halal food distributors,,30,amodhsharma,2026-11-20,Waiting,"Failed once (The helper did not save its file (it may have stopped early, e.g. a usage limit)); it runs again by itself at the next run",,2026-11-21,research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal.json,1,country,yes
 J0099,United Kingdom,kosher food distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,
 J0099,United Kingdom,supermarket chains,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,
 J0099,United Kingdom,pharmacy distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,
@@ -331,3 +331,43 @@ J0112,"Winterthur, Switzerland",field sales distributors,German,30,automatic cit
 J0113,"Fribourg, Switzerland",FMCG distributors,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
 J0113,"Fribourg, Switzerland",wholesalers,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
 J0113,"Fribourg, Switzerland",field sales distributors,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0114,"London, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0114,"London, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0114,"London, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0114,"London, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0115,"Birmingham, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0115,"Birmingham, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0115,"Birmingham, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0115,"Birmingham, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0116,"Manchester, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0116,"Manchester, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0116,"Manchester, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0116,"Manchester, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0117,"Glasgow, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0117,"Glasgow, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0117,"Glasgow, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0117,"Glasgow, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0118,"Leeds, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0118,"Leeds, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0118,"Leeds, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0118,"Leeds, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0119,"Bristol, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0119,"Bristol, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0119,"Bristol, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0119,"Bristol, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0120,"Belfast, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0120,"Belfast, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0120,"Belfast, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0120,"Belfast, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0121,"Cardiff, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0121,"Cardiff, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0121,"Cardiff, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0121,"Cardiff, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0122,"Leicester, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0122,"Leicester, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0122,"Leicester, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0122,"Leicester, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0123,"Newcastle upon Tyne, United Kingdom",distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0123,"Newcastle upon Tyne, United Kingdom",FMCG distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0123,"Newcastle upon Tyne, United Kingdom",wholesalers,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
+J0123,"Newcastle upon Tyne, United Kingdom",field sales distributors,English,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0098",,,,,city,
