@@ -275,10 +275,10 @@ J0095,Australia,hypermarket chains,,30,amodhsharma,2026-11-11,"Done, fewer than 
 J0096,Switzerland,pharmacy and drugstore chains,,30,amodhsharma,2026-11-20,Cancelled,Cancelled by a person,,,,,deep,
 J0096,Switzerland,pharmacy chains,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0096_2026-11-21_switzerland_pharmacy-chains-drugstore-chains.json,,deep,
 J0096,Switzerland,drugstore chains,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0096_2026-11-21_switzerland_pharmacy-chains-drugstore-chains.json,,deep,
-J0097,Switzerland,FMCG distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
-J0097,Switzerland,supermarket chains,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
-J0097,Switzerland,pharmacy distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
-J0097,Switzerland,field sales distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
+J0097,Switzerland,FMCG distributors,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0097_2026-11-21_switzerland_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json,,country,yes
+J0097,Switzerland,supermarket chains,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0097_2026-11-21_switzerland_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json,,country,yes
+J0097,Switzerland,pharmacy distributors,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0097_2026-11-21_switzerland_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json,,country,yes
+J0097,Switzerland,field sales distributors,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0097_2026-11-21_switzerland_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json,,country,yes
 J0098,United Kingdom,distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
 J0098,United Kingdom,FMCG distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
 J0098,United Kingdom,wholesalers,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
@@ -301,3 +301,33 @@ J0103,South Africa,FMCG distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,cou
 J0103,South Africa,supermarket chains,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
 J0103,South Africa,pharmacy distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
 J0103,South Africa,field sales distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
+J0104,"Zurich, Switzerland",FMCG distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0104,"Zurich, Switzerland",wholesalers,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0104,"Zurich, Switzerland",field sales distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0105,"Geneva, Switzerland",FMCG distributors,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0105,"Geneva, Switzerland",wholesalers,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0105,"Geneva, Switzerland",field sales distributors,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0106,"Basel, Switzerland",FMCG distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0106,"Basel, Switzerland",wholesalers,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0106,"Basel, Switzerland",field sales distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0107,"Lausanne, Switzerland",FMCG distributors,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0107,"Lausanne, Switzerland",wholesalers,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0107,"Lausanne, Switzerland",field sales distributors,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0108,"Bern, Switzerland",FMCG distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0108,"Bern, Switzerland",wholesalers,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0108,"Bern, Switzerland",field sales distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0109,"Lucerne, Switzerland",FMCG distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0109,"Lucerne, Switzerland",wholesalers,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0109,"Lucerne, Switzerland",field sales distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0110,"St. Gallen, Switzerland",FMCG distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0110,"St. Gallen, Switzerland",wholesalers,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0110,"St. Gallen, Switzerland",field sales distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0111,"Lugano, Switzerland",FMCG distributors,Italian,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0111,"Lugano, Switzerland",wholesalers,Italian,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0111,"Lugano, Switzerland",field sales distributors,Italian,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0112,"Winterthur, Switzerland",FMCG distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0112,"Winterthur, Switzerland",wholesalers,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0112,"Winterthur, Switzerland",field sales distributors,German,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0113,"Fribourg, Switzerland",FMCG distributors,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0113,"Fribourg, Switzerland",wholesalers,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
+J0113,"Fribourg, Switzerland",field sales distributors,French,30,automatic city list,2026-11-21,Waiting,"Other main city, listed by J0097",,,,,city,
