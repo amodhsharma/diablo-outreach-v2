@@ -8711,6 +8711,26 @@
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0072_2026-10-26_australia_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json"
   },
+  "heatdoward.com.au": {
+    "name": "Heat Doward",
+    "based_out_of": "",
+    "market": "Australia",
+    "category": "Pharmacy distributors",
+    "channels": [
+      "pharmacy distributors"
+    ],
+    "fit_rationale": "Heat Doward calls itself a partner in pharmacy and is the exclusive Australian distributor for Simpkins Drops and Buderim Ginger, so packaged sweets are already a line it sells to pharmacies. Diablo's sugar-free sweets, chocolate and bars suit its pharmacy confectionery offer and its rep-led service. Scale: more than 500 pharmacies across Australia (Pharmacy Daily) and Doward alone had over 6,000 trade clients, about 80% of them pharmacies (SmartCompany). Storage: exclusive Australian distributor that buys the brands and wholesales them to its trade clients; a warehouse address was not seen on the pages read.",
+    "what_they_do_well": [
+      "Pharmacy retail managers rated its sales reps, head office support, brand range and margins above 4 out of 5 in a customer survey.",
+      "Doward, now part of Heat Doward, traded for 96 years with about 80% of sales in pharmacy."
+    ],
+    "distributes": "Pharmacy health, beauty and accessories with a confectionery line: hard sweets and fruit drops (Simpkins Drops) and ginger confectionery (Buderim Ginger) as exclusive Australian distributor; Pharmacy Daily also reported Kelly Candy Co, Vivil, Go Natural, Dollar Sweets and Munch sweets and snacks in its pharmacy range.",
+    "channels_supplied": "Community pharmacies across Australia, plus supermarkets and chain stores.",
+    "sf_brands_carried": "Vivil (sugar-free sweets) as reported by Pharmacy Daily; no direct Diablo competitor seen on its brands page.",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0101_2026-11-21_australia_pharmacy-distributors-field-sales-distributors.json",
+    "import_check": "the website address no longer exists"
+  },
   "heimatwerk.ch": {
     "name": "Schweizer Heimatwerk",
     "based_out_of": "Zurich, Switzerland",
