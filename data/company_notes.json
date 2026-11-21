@@ -347,6 +347,25 @@
     "research_file": "research/2026-10-19/J0004_2026-10-19_berlin-germany_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "albatrossfood.co.za": {
+    "name": "Albatross Food",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Field sales distributors",
+    "channels": [
+      "field sales distributors"
+    ],
+    "fit_rationale": "A Western Cape FMCG field distributor that already takes branded sweets and biscuits to thousands of spaza shops, tuck shops, superettes and forecourts, with its own sales, promotion and merchandising team. Diablo's sugar-free sweets and biscuits would sit next to the Trade Kings, Broadway and National Brands lines it already sells into that trade. Scale: 4,550+ customers across the Western Cape, from Cape Town to Vredendal, George and Beaufort West. Storage: delivers to its customers on a 48-hour cycle from its Montague Gardens base in Cape Town, with minimum orders for Cape Town and up-country deliveries.",
+    "what_they_do_well": [
+      "Reaches 4,100+ chain stores, tuck shops, superettes, spaza shops and forecourts across the Western Cape.",
+      "Supplies chain stores such as Pick n Pay Family, Spar Family and OK Mini Markets with a 48-hour delivery cycle."
+    ],
+    "distributes": "Sweets (Broadway Sweets; Trade Kings Super Sweets, Amazon Chews, Soccer Chews and Monsta Pops lollipops; Toros sweets), biscuits and snacks (National Brands), plus cereals (Kellogg's), noodles, canned foods and drinks from Tiger Brands, Galaxy Foods, Brand Club and others",
+    "channels_supplied": "4,550+ Western Cape customers: 450+ distributors, wholesalers and cash and carries, and 4,100+ chain stores, tuck shops, superettes, spaza shops and forecourts, including Pick n Pay Family, Spar Family and OK Mini Markets stores",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0103_2026-11-21_south-africa_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json"
+  },
   "albisperu.com": {
     "name": "Albis Perú",
     "based_out_of": "Lima, Peru",
@@ -15450,6 +15469,26 @@
     "sf_brands_carried": "Healthy vending range with muesli and protein bars; no sugar-free brand named",
     "added": "2026-10-26",
     "research_file": "research/2026-10-27/J0077_2026-10-27_sydney-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json"
+  },
+  "rtmscape.co.za": {
+    "name": "Route To Market Solutions (RTMS)",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "Field sales distributors",
+    "channels": [
+      "field sales distributors"
+    ],
+    "fit_rationale": "A convenience channel distributor that handles sales, warehousing and delivery to forecourts, school tuck shops, stores and pharmacies, already carrying Cadbury, Nestle and Perfetti Van Melle confectionery. Diablo's sugar-free chocolate, sweets and bars suit its forecourt and school customers, and its NDS partners give a path to other provinces. Scale: 1,000 customers, 130 staff, 2,876 products from 92 suppliers, mainly across the Western Cape. Storage: a 6,000 m2 warehouse and 20 delivery vehicles, with an online trade ordering portal.",
+    "what_they_do_well": [
+      "Runs a 6,000 m2 warehouse and 20 delivery vehicles serving over 1,000 convenience outlets.",
+      "Cape Town member of the NDS alliance of 10 distributors serving about 7,800 forecourt and general trade customers."
+    ],
+    "distributes": "Chocolate (Cadbury, Nestle, Bar One), sweets and gum (Perfetti Van Melle, Mister Sweet), crisps, snacks and treats, energy bars, rusks, fruit and nuts and drinks from 92 suppliers including Tiger Brands, Kellogg's, Pioneer Foods, RCL Foods and Red Bull",
+    "channels_supplied": "Over 1,000 convenience outlets: forecourts, stores, schools and pharmacies, mainly in the Western Cape, with partner distributors in the NDS alliance for national reach",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0103_2026-11-21_south-africa_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "rufenberg.swiss": {
     "name": "Rufenberg Trading GmbH",
