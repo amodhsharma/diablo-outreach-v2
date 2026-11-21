@@ -108,6 +108,26 @@
     "added": "2026-10-12",
     "research_file": "research/2026-10-12/J0003_2026-10-12_plymouth-united-kingdom_distributors-wholesalers-retailers.json"
   },
+  "aandjwilliams.co.uk": {
+    "name": "A & J Williams (Yorkshire)",
+    "based_out_of": "Bradford, United Kingdom",
+    "market": "United Kingdom",
+    "category": "Pharmacy distributors",
+    "channels": [
+      "pharmacy distributors"
+    ],
+    "fit_rationale": "A family-run independent wholesaler whose business is supplying independent pharmacies with counter lines, and it already runs both a confectionery and a sugar free category, so Diablo's sugar free sweets, chocolate and bars would sit in an existing pharmacy shelf range. Scale: supplies independent pharmacies throughout the UK with over 1,200 branded lines, a salesforce, a trade-only B2B website and app, and exhibits at The Pharmacy Show. Storage: trade ordering from stock in case quantities through its registered-account B2B shop, with carriage free delivery to pharmacies.",
+    "what_they_do_well": [
+      "Family owned and run independent pharmacy wholesaler trading since 1989.",
+      "Reaches pharmacies through its own salesforce, a trade website and a mobile ordering app."
+    ],
+    "distributes": "Chemist confectionery and sugar free sweets (Cavendish & Harvey travel tins, Jakemans, Halls, Lockets, Melody Pops) next to over 1,200 OTC, toiletry, first aid, household and personal care lines sold in case quantities.",
+    "channels_supplied": "Independent pharmacies throughout the UK, plus other retailers buying fast moving everyday lines; ordering by sales force, trade website and mobile app.",
+    "sf_brands_carried": "Has a dedicated Sugar Free category, including Cavendish & Harvey sugar free drops.",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0099_2026-11-21_united-kingdom_kosher-food-distributors-supermarket-chains-pharmacy-distributors-field-sales-di.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "absolutevending.co.za": {
     "name": "Absolute Vending",
     "based_out_of": "Cape Town, South Africa",
