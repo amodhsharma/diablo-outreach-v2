@@ -1,0 +1,175 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0098",
+  "location": "United Kingdom",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [
+    "research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal.json"
+  ],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 45
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 42
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 58
+    },
+    {
+      "channel": "kiosk and convenience wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 2,
+      "searches_used": 35
+    },
+    {
+      "channel": "halal food distributors",
+      "template": "halal_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 61
+    }
+  ],
+  "companies": [
+    {
+      "name": "Supplyer Ltd",
+      "based_out_of": "Kingswinford, United Kingdom",
+      "domain": "supplyer.co.uk",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded FMCG: confectionery, chocolate, sugar sweets, biscuits and snacks (Cadbury, Trebor, Halls, Fox's, Gullón) alongside household and personal care brands such as Persil, Fairy, Dettol and Dove.",
+      "channels_supplied": "Small independent retailers across the UK, plus food-to-go and catering formats; some direct-to-consumer sales.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Supplyer buys branded goods outright and resells them to independent shops nationwide, with confectionery, chocolate and biscuits named as a core area next to household lines. It is a young and compact business, so it suits a first listing of Diablo's core chocolate, sweets and biscuits. Scale: delivers next day to independent retailers across the UK, 138 brand partners and about 1,500 SKUs, trading since 2020. Storage: 8,000 sq ft warehouse in the West Midlands run in-house with date coding and FEFO rotation.",
+      "what_they_do_well": [
+        "Takes title to stock and runs its own 8,000 sq ft warehouse, giving brands one trade account and shops one delivery."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supplyer.co.uk/"
+      ]
+    },
+    {
+      "name": "United Wholesale (Scotland)",
+      "based_out_of": "Glasgow, United Kingdom",
+      "domain": "uniteduk.co.uk",
+      "channel_category": [
+        "kiosk and convenience wholesalers",
+        "FMCG distributors",
+        "wholesalers"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Confectionery, biscuits, crisps and snacks alongside grocery, impulse, household, chilled and licensed ranges, sold in trade cases and multipacks from branded suppliers.",
+      "channels_supplied": "Independent convenience stores, its Day-Today, Day-Today Express, Day-Today Elite and USave symbol stores (over 500 in Scotland), plus pubs, clubs and caterers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Scottish cash and carry and delivered wholesaler that runs the Day-Today and USave symbol groups, so one listing reaches hundreds of independent shops across central Scotland. Its promotion leaflets carry confectionery, biscuits and crisps and snacks sections. Scale: over 500 symbol stores in Scotland and three depots covering Glasgow, Stirlingshire, Fife and the Lothians. Storage: three cash and carry depots, including a 170,000 sq ft site at Queenslie, plus a delivered service since 2003.",
+      "what_they_do_well": [
+        "Built the Day-Today symbol group from a 30-store launch in 2005 to over 500 Day-Today and USave stores in Scotland."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://uniteduk.co.uk/about",
+        "https://uniteduk.co.uk/wp-content/uploads/2020/04/P6-queenslie-2020.pdf",
+        "https://forecourttrader.co.uk/franchise-and-fascia-report-2026-the-numbers-behind-the-storefronts/718009.article",
+        "https://uniteduk.co.uk/?p=533",
+        "https://www.foodmanufacture.co.uk/Article/2025/05/12/english-wholesaler-acquired-by-united-wholesale-scotland",
+        "https://cashandcarrymanagement.co.uk/united-wholesale-scotland-opens-rainham-depot-and-claims-new-standard-for-wholesale/"
+      ]
+    },
+    {
+      "name": "Appleton & Sons",
+      "based_out_of": "London, United Kingdom",
+      "domain": "appletonsweets.co.uk",
+      "channel_category": [
+        "kiosk and convenience wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Wholesale sweets, chocolate, fudge, gummies, countlines and USA candy from Haribo, Cadbury, Swizzels Matlow, Barnetts, Bassetts, Millions, Wonka, Pez, Vidal, Jelly Belly and Joseph Dobson, plus soft drinks and shop supplies.",
+      "channels_supplied": "Trade-only cash and carry and delivered service for independent retailers and trade businesses across mainland UK.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A trade-only confectionery cash and carry and Unitas member that stocks over 3,000 branded lines from the leading confectionery makers for independent shops. Its depot and free delivery across mainland UK make it a direct route into corner shops and kiosks. Scale: delivery to most mainland UK postcodes, over 3,000 products and a 25,000 sq ft depot. Storage: 25,000 sq ft cash and carry depot at Towcester Road, Bow, with click and collect.",
+      "what_they_do_well": [
+        "Trading as a family confectionery cash and carry since 1945, now run by the third generation of Appletons."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.appletonsweets.co.uk/pages/about",
+        "https://unitaswholesale.co.uk/retailer/wholesaler-search-2/page/5/"
+      ]
+    }
+  ],
+  "main_cities": [
+    {
+      "city": "London",
+      "language": "English"
+    },
+    {
+      "city": "Birmingham",
+      "language": "English"
+    },
+    {
+      "city": "Manchester",
+      "language": "English"
+    },
+    {
+      "city": "Glasgow",
+      "language": "English"
+    },
+    {
+      "city": "Leeds",
+      "language": "English"
+    },
+    {
+      "city": "Bristol",
+      "language": "English"
+    },
+    {
+      "city": "Belfast",
+      "language": "English"
+    },
+    {
+      "city": "Cardiff",
+      "language": "English"
+    },
+    {
+      "city": "Leicester",
+      "language": "English"
+    },
+    {
+      "city": "Newcastle upon Tyne",
+      "language": "English"
+    }
+  ]
+}
