@@ -16445,6 +16445,25 @@
     "research_file": "research/2026-10-27/J0083_2026-10-27_perth-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "smoothwholesales.com.au": {
+    "name": "Smooth Wholesales",
+    "based_out_of": "Melbourne, Australia",
+    "market": "Melbourne, Australia",
+    "category": "Field sales distributors",
+    "channels": [
+      "field sales distributors"
+    ],
+    "fit_rationale": "Moorabbin wholesaler built for the impulse trade, already selling branded sweets and snacks to petrol, convenience and newsagency counters where Diablo's bars, gummies and chocolate fit directly. Its trade portal and existing imported confectionery range make adding a European sugar-free range simple. Scale: more than 2,500 retailers supplied across Australia, about 1,000 to 2,000 wholesale lines. Storage: showroom and dispatch from 29 Levanswell Road, Moorabbin, with stocked lines shipped to stores through an ABN trade account portal.",
+    "what_they_do_well": [
+      "Supplies more than 2,500 independent retailers across Australia from one Melbourne site.",
+      "Brings viral imported USA snacks and confectionery such as Takis and Warheads to petrol and convenience counters."
+    ],
+    "distributes": "Branded confectionery (gummies, sour candy, chocolate and counter lines such as Nerds, Trolli, Warheads, Sour Patch, Chupa Chups, Zappo), imported USA snacks (Takis, Cheetos, Herr's) and drinks (Monster, Dr Pepper, Arizona), plus impulse non-food lines.",
+    "channels_supplied": "Petrol and convenience stores, newsagencies and post offices, tobacconists, independent grocers and Foodworks stores, and pharmacies across Australia.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0125_2026-11-21_melbourne-australia_distributors-fmcg-distributors-wholesalers-field-sales-distributors.json"
+  },
   "smyrliadis.com": {
     "name": "Smyrliadis SA",
     "based_out_of": "Oron-la-Ville, Switzerland",
