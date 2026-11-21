@@ -3003,6 +3003,26 @@
     "research_file": "research/2026-10-26/J0049_2026-10-26_south-africa_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "caledoniansupply.com": {
+    "name": "Caledonian Supply Co (Mehadrin Wholesale Ltd)",
+    "based_out_of": "Wembley, London, United Kingdom",
+    "market": "London, United Kingdom",
+    "category": "FMCG distributors",
+    "channels": [
+      "FMCG distributors"
+    ],
+    "fit_rationale": "A kosher wholesaler trading since 1962 that sells branded packaged snacks, confectionery and grocery to shops, supermarkets and retail chains. Many Diablo products are kosher, so its range and customers suit them. Scale: delivers across the UK to supermarkets, retail chains, independent retailers and other wholesalers, and is a member of the Unitas buying group. Storage: large warehousing in Wembley and its own temperature-controlled delivery fleet.",
+    "what_they_do_well": [
+      "Has supplied kosher food to UK shops and supermarkets since 1962.",
+      "Delivers food and non-food together on its own temperature-controlled fleet from Wembley."
+    ],
+    "distributes": "Kosher packaged food and household goods, over 2,000 lines: confectionery and snacks (Cofresh, Pita Bites, Made Good bars), cereals (Kellogg's), spreads, drinks and groceries from Europe, Israel and the USA.",
+    "channels_supplied": "Shops, supermarkets, retail chains, independent retailers, kosher shops and other wholesalers across the UK, plus caterers and schools.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0114_2026-11-21_london-united-kingdom_distributors-fmcg-distributors-wholesalers-field-sales-distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "campograndeperu.com": {
     "name": "Campo Grande Perú",
     "based_out_of": "Lima, Peru",
@@ -3037,6 +3057,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0061_2026-10-26_pretoria-south-africa_seasonal-and-gift-shops.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "candytheatre.com": {
+    "name": "Candy Theatre (3 Aces London Ltd)",
+    "based_out_of": "Southall, London, United Kingdom",
+    "market": "London, United Kingdom",
+    "category": "FMCG distributors",
+    "channels": [
+      "FMCG distributors"
+    ],
+    "fit_rationale": "A London wholesaler and distributor of international confectionery that sells branded chocolate, sweets and snacks to convenience stores across the UK. Diablo's sugar-free chocolate, gummies and biscuits would sit next to the American and European brands its trade customers already buy. Scale: over 5,000 trade customers and more than 1,200 convenience stores nationwide, with 2 to 3 day delivery across the UK. Storage: a B2B web shop with stock and trade prices, dispatched within 24 hours from its unit at Harlequin Industrial Park, Southall.",
+    "what_they_do_well": [
+      "Supplies over 1,200 convenience stores nationwide with international confectionery and drinks since 2019.",
+      "Exhibits at IFE London as a wholesaler and distributor of international confectionery and beverages."
+    ],
+    "distributes": "International confectionery, chocolate, sweets, snacks and drinks, over 2,000 lines: Hershey's, Reese's, M&M's, Haribo, Oreo, Warheads, Sour Patch Kids, Nerds and Airheads.",
+    "channels_supplied": "Convenience stores and independent retailers nationwide; over 1,200 convenience stores and 5,000+ trade customers on trade accounts.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0114_2026-11-21_london-united-kingdom_distributors-fmcg-distributors-wholesalers-field-sales-distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "canecoastvending.com.au": {
