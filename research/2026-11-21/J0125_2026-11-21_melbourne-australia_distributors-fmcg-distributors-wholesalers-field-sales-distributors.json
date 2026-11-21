@@ -1,0 +1,73 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0125",
+  "location": "Melbourne, Australia",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 50
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 66
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 44
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 82
+    }
+  ],
+  "companies": [
+    {
+      "name": "Smooth Wholesales",
+      "based_out_of": "Melbourne, Australia",
+      "domain": "smoothwholesales.com.au",
+      "channel_category": [
+        "field sales distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded confectionery (gummies, sour candy, chocolate and counter lines such as Nerds, Trolli, Warheads, Sour Patch, Chupa Chups, Zappo), imported USA snacks (Takis, Cheetos, Herr's) and drinks (Monster, Dr Pepper, Arizona), plus impulse non-food lines.",
+      "channels_supplied": "Petrol and convenience stores, newsagencies and post offices, tobacconists, independent grocers and Foodworks stores, and pharmacies across Australia.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Moorabbin wholesaler built for the impulse trade, already selling branded sweets and snacks to petrol, convenience and newsagency counters where Diablo's bars, gummies and chocolate fit directly. Its trade portal and existing imported confectionery range make adding a European sugar-free range simple. Scale: more than 2,500 retailers supplied across Australia, about 1,000 to 2,000 wholesale lines. Storage: showroom and dispatch from 29 Levanswell Road, Moorabbin, with stocked lines shipped to stores through an ABN trade account portal.",
+      "what_they_do_well": [
+        "Supplies more than 2,500 independent retailers across Australia from one Melbourne site.",
+        "Brings viral imported USA snacks and confectionery such as Takis and Warheads to petrol and convenience counters."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://smoothwholesales.com.au/",
+        "https://smoothwholesales.com.au/petrol-convenience-wholesale-supplier/",
+        "https://c-store.com.au/?p=52374"
+      ]
+    }
+  ]
+}
