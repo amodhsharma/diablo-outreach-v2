@@ -1,0 +1,105 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0099",
+  "location": "United Kingdom",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "kosher food distributors",
+      "template": "kosher_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 32
+    },
+    {
+      "channel": "supermarket chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 9
+    },
+    {
+      "channel": "pharmacy distributors",
+      "template": "pharmacy_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 66
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 47
+    },
+    {
+      "channel": "pharmacy and drugstore chains",
+      "template": "pharmacy_chain",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 8
+    }
+  ],
+  "companies": [
+    {
+      "name": "Sova Foods Ltd",
+      "based_out_of": "London, United Kingdom",
+      "domain": "sovafoods.co.uk",
+      "channel_category": [
+        "kosher food distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Imports and builds packaged food brands: kosher grocery imported for UK shops, with snacks, baking, pasta, sauces and grocery categories and well known brands found in Jewish households.",
+      "channels_supplied": "National supermarket chains and wholesale buyers; its lines are sold across the UK wherever kosher goods are stocked.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Sova Foods calls itself the leading UK importer and distributor of kosher food since 1989 and already places imported kosher brands with national supermarket chains and kosher retailers, the exact route Diablo's kosher certified lines need. Its snacks category gives Diablo's chocolate, biscuits and sweets a natural place in the range. Scale: supplies national supermarket chains and wholesale buyers across the UK. Storage: purpose built warehouse of about 20,000 sq ft in Edmonton, north London.",
+      "what_they_do_well": [
+        "Has imported and distributed kosher food in the UK since 1989.",
+        "Supplies national supermarket chains from a purpose built 20,000 sq ft Edmonton warehouse."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://sovafoods.co.uk/about-us"
+      ]
+    },
+    {
+      "name": "A & J Williams (Yorkshire)",
+      "based_out_of": "Bradford, United Kingdom",
+      "domain": "aandjwilliams.co.uk",
+      "channel_category": [
+        "pharmacy distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chemist confectionery and sugar free sweets (Cavendish & Harvey travel tins, Jakemans, Halls, Lockets, Melody Pops) next to over 1,200 OTC, toiletry, first aid, household and personal care lines sold in case quantities.",
+      "channels_supplied": "Independent pharmacies throughout the UK, plus other retailers buying fast moving everyday lines; ordering by sales force, trade website and mobile app.",
+      "sf_brands_carried": "Has a dedicated Sugar Free category, including Cavendish & Harvey sugar free drops.",
+      "competing_brand_flag": true,
+      "fit_rationale": "A family-run independent wholesaler whose business is supplying independent pharmacies with counter lines, and it already runs both a confectionery and a sugar free category, so Diablo's sugar free sweets, chocolate and bars would sit in an existing pharmacy shelf range. Scale: supplies independent pharmacies throughout the UK with over 1,200 branded lines, a salesforce, a trade-only B2B website and app, and exhibits at The Pharmacy Show. Storage: trade ordering from stock in case quantities through its registered-account B2B shop, with carriage free delivery to pharmacies.",
+      "what_they_do_well": [
+        "Family owned and run independent pharmacy wholesaler trading since 1989.",
+        "Reaches pharmacies through its own salesforce, a trade website and a mobile ordering app."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://aandjwilliams.co.uk/",
+        "https://aandjwilliams.co.uk/pages/about-us",
+        "https://www.thepharmacyshow.co.uk/exhibitors/aj-williams"
+      ]
+    }
+  ]
+}
