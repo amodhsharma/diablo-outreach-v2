@@ -494,3 +494,12 @@ def test_the_separate_referral_email_to_amodh_is_gone():
     assert not hasattr(referrals, "main") and not hasattr(referrals, "report_text")
     workflow = (Path(__file__).resolve().parent.parent / ".github" / "workflows" / "daily-report.yml").read_text()
     assert "python -m outreach.referrals" not in workflow
+
+
+def test_a_microsoft_tenant_with_no_mailboxes_is_a_domain_with_no_mail_system():
+    """21 Nov 2026 (J&K Vending): a 4.4.4 that reads like a temporary problem but means no mailbox exists."""
+    from outreach import corrupt
+    text = ("451 4.4.4 Mail received as unauthenticated, incoming to a recipient domain configured in a hosted "
+            "tenant which has no mail-enabled subscriptions.")
+    assert corrupt.classify(text) == "no_mail"
+    assert corrupt.classify("451 4.4.1 Try again later") == "temporary"  # a real temporary one stays temporary

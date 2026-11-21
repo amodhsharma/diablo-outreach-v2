@@ -103,11 +103,15 @@ PERMANENT = re.compile(r"((?<![\d.])5\.\d{1,3}\.\d{1,3}\b|(?<![\d.])5\d\d[ -])")
 # A full mailbox is about the person, not an outage: it stays "Bounced, other reason" (2 Nov 2026).
 FULL = re.compile(r"(mailbox (is )?full|over (the )?quota|quota exceeded|\b4\.2\.2\b|insufficient storage|"
                   r"postfach (ist )?voll|bo[iî]te (aux lettres )?pleine)", re.I)
-# 20 Nov 2026: the receiving domain has no working mail system (no MX record, a DNS failure, an unknown host).
+# 20 Nov 2026: the receiving domain has no working mail system (no MX record, a DNS failure, an unknown host,
+# or a Microsoft tenant with no mailboxes).
 NO_MAIL = re.compile(
     r"(servfail|dns (type '?mx'? )?(lookup|error)|mx (record|lookup)|no mx\b|nxdomain|"
     r"domain (name )?(not found|does not exist|couldn'?t be found)|host (not found|unknown)|"
-    r"unrouteable (address|domain)|name or service not known|no route to host)", re.I)
+    r"unrouteable (address|domain)|name or service not known|no route to host|"
+    # 21 Nov 2026 (J&K Vending): Microsoft's "4.4.4 ... hosted tenant which has no mail-enabled subscriptions"
+    # looks temporary but means the domain's mail tenant holds no mailboxes at all
+    r"no mail-enabled subscriptions)", re.I)
 FULL_MORE = re.compile(r"(inbox (is )?(full|out of storage)|out of storage|storage (space )?(is )?full|\b5\.2\.2\b|"
                        r"recipient inbox full)", re.I)
 NO_MAIL_SYSTEM = 1000  # Instantly's lead.esp_code: no mail system found for the domain
