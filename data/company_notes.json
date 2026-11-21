@@ -17229,6 +17229,24 @@
     "research_file": "research/2026-10-27/J0077_2026-10-27_sydney-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "supersavesdistributors.co.za": {
+    "name": "Supersaves Distributors",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "Cape Town, South Africa",
+    "category": "Field sales distributors",
+    "channels": [
+      "field sales distributors"
+    ],
+    "fit_rationale": "A Cape Town distributor of branded sweets, biscuits, wafers and chips for shops, already selling value confectionery and biscuit brands into the Western Cape trade. Diablo's sweets, biscuits and wafers would sit next to its existing lines. Scale: products distributed across the Western Cape region, with a trade account application for new business customers; trading since 1992 under Supersave's Food & Meat Market and independent since 2019. Storage: trading premises at 131 Cradock Road, Steenberg, Cape Town, from which it delivers to client stores.",
+    "what_they_do_well": [
+      "Has grown from a small client network into distribution across the Western Cape since separating from Supersave's Food & Meat Market in 2019."
+    ],
+    "distributes": "Sweets and gummies (Tasty Treats, Jolly Smax), biscuits and wafers (Tasty Treats Wafers, Choc Double Velvet, Ginger Biscuits, Choco Rings, Cookies), chips and savoury snacks (Pico, KRIT, Saltee, Cheezy Bites, Chipniks) and cold drinks (Score, Frooty Boost), all from other companies' brands.",
+    "channels_supplied": "Trade customers across the Western Cape that open a business account; individual store names are not published.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0135_2026-11-21_cape-town-south-africa_distributors-fmcg-distributors-wholesalers-field-sales-distributors.json"
+  },
   "suppkings.com.au": {
     "name": "SuppKings Nutrition",
     "based_out_of": "Maroochydore, Australia",
