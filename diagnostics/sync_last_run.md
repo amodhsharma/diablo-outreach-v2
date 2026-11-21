@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-21 19:39 UTC
+Written 2026-11-21 22:38 UTC
 
 ```
 1045 leads in the Diablo campaigns in Instantly
@@ -20,10 +20,11 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 62 for 49 address(es)
-Email threads: 1 emails since the last run
-Email threads: 14 companies read in full, 105 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 0 emails since the last run
+Migros Ticino: the introduction goes to Social Media Manager
+F. Uhlmann-Eyraud SA: the introduction goes to Internal Sales Clerk
+Email threads: 10 companies read in full, 109 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 2 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
