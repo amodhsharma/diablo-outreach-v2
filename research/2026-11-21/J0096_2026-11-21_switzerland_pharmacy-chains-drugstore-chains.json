@@ -1,0 +1,29 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0096",
+  "location": "Switzerland",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "pharmacy chains",
+      "template": "pharmacy_chain",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 7
+    },
+    {
+      "channel": "drugstore chains",
+      "template": "pharmacy_chain",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 10
+    }
+  ],
+  "companies": []
+}
