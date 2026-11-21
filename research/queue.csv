@@ -295,8 +295,8 @@ J0100,Australia,drugstore chains,,30,amodhsharma,2026-11-20,"Done, fewer than wa
 J0101,Australia,pharmacy distributors,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","1 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0101_2026-11-21_australia_pharmacy-distributors-field-sales-distributors.json,,country,yes
 J0101,Australia,field sales distributors,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0101_2026-11-21_australia_pharmacy-distributors-field-sales-distributors.json,,country,yes
 J0102,South Africa,pharmacy and drugstore chains,,30,amodhsharma,2026-11-20,Cancelled,Cancelled by a person,,,,,deep,
-J0102,South Africa,pharmacy chains,,30,amodhsharma,2026-11-20,Waiting,,,,,,deep,
-J0102,South Africa,drugstore chains,,30,amodhsharma,2026-11-20,Waiting,,,,,,deep,
+J0102,South Africa,pharmacy chains,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0102_2026-11-21_south-africa_pharmacy-chains-drugstore-chains.json,,deep,
+J0102,South Africa,drugstore chains,,30,amodhsharma,2026-11-20,"Done, fewer than wanted","0 found, floor 10; see the report",,2026-11-21,research/2026-11-21/J0102_2026-11-21_south-africa_pharmacy-chains-drugstore-chains.json,,deep,
 J0103,South Africa,FMCG distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
 J0103,South Africa,supermarket chains,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
 J0103,South Africa,pharmacy distributors,,30,amodhsharma,2026-11-20,Waiting,,,,,,country,yes
