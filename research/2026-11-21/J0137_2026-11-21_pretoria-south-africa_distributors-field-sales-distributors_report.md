@@ -14,7 +14,8 @@ Job J0137 | Scheduled run | 2026-11-21
 
 ## Market structure
 
-Not available for this run: the market structure was not written.
+Packaged confectionery in South Africa reaches shelf through two systems. Formal retail is concentrated in a few national groups (Shoprite and Checkers, Pick n Pay, SPAR, Woolworths and Clicks and Dis-Chem for health ranges) that buy centrally into their own distribution centres, so the national buying office, not the Pretoria store, is the gatekeeper. Alongside this sits a large independent and informal trade (spaza shops, general dealers, tuck shops and independent supermarkets) served by wholesalers and cash and carry groups and their buying associations, and by van sales and field sales distributors who sell into thousands of small outlets. Pretoria sits in Gauteng, the country's largest consumer market and main inland distribution hub; most national importers and distributors serve Pretoria from warehouses in the wider Gauteng area (Johannesburg, Midrand and Centurion), with imports usually arriving through Durban port. Imported specialist and health snacks typically enter through an importer or appointed distributor who handles clearing, relabelling where needed, listings and merchandising; we could not confirm a single dominant specialist channel for sugar free confectionery in Pretoria, so this is unverified.
+Sources: [BCG: routes to growth in South Africa through traditional trade](https://www.bcg.com/en-us/publications/2019/routes-growth-south-africa-through-traditional-trade), [The complexities of SA FMCG wholesale](https://tradeintelligence.co.za/News/Read/759/fmcg-wholesale-is-not-a-sexy-business), [A look at SA's independent grocery trade](https://www.bizcommunity.com/article/a-look-at-sas-independent-grocery-trade-257527a), [Wesgro South Africa Confectionery Fact Sheet](https://www.wesgro.co.za/uploads/files/Wesgro-Research_South-Africa-Confectionary-Fact-Sheet_2022.10.pdf)
 
 ## Companies by Channel
 
@@ -43,4 +44,13 @@ No companies were found for Pretoria in this job: the large Pretoria and Gauteng
 
 ## Barriers to entry
 
-Not available for this run: the barriers were not written.
+- Retail concentration: national chains list centrally and typically expect listing fees, promotional support and rebates; exact fee levels are not published (unverified).
+- Distributor terms: importers usually ask for exclusivity for South Africa or the wider SACU region and a margin covering clearing, warehousing and merchandising; typical figures could not be verified in this run.
+- Credit: wholesalers and chains commonly work on extended payment terms (often 30 to 60 days or more), which falls on the distributor (unverified, general trade practice).
+- Sweeteners: permitted sweeteners and their maximum levels by food category are set by the Sweeteners in Foodstuffs regulations (R733 of 2012); steviol glycosides and polyols must be checked product by product against these lists.
+- Labelling and claims: R146 of 2010 governs labelling and nutrition claims, including conditions for "sugar free" and "no added sugar"; new draft labelling regulations (R3337 of 2023) were published but whether they are in force was not confirmed in this run. Foods with significant polyol content need an excessive consumption laxative warning (confirm wording against the current text).
+- Import labelling: labels must be in English with South African importer details; stickering of imported packs is common practice.
+- Shelf life: importers and chains generally want a long remaining shelf life on arrival; no fixed legal minimum was found.
+- Duty and trade agreement: the SACUM UK Economic Partnership Agreement gives preferential access for UK origin goods into SACU, but confectionery may carry reduced rather than zero duty and rules of origin apply; check the tariff line in the SACUM preferential tariff document.
+Sources: [Sweeteners in Foodstuffs R733 of 2012](https://www.health.gov.za/wp-content/uploads/2024/10/Sweeteners-in-Foodstuffs-R-733-of-2012.pdf), [R146 claims](https://www.acts.co.za/foodstuffs-/r146_51__-_53__claims), [Draft labelling regulations 2023](https://www.gov.za/sites/default/files/gcis_document/202304/48445rg11574gon3320.pdf), [Summary of the SACUM UK EPA](https://www.gov.uk/guidance/summary-of-the-sacum-uk-economic-partnership-agreement-epa), [SARS SACUM UK EPA](https://www.sars.gov.za/legal-counsel/international-treaties-agreements/trade-agreements/sacum-uk-epa/)
+
