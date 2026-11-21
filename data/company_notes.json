@@ -884,6 +884,24 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "appletonsweets.co.uk": {
+    "name": "Appleton & Sons",
+    "based_out_of": "London, United Kingdom",
+    "market": "United Kingdom",
+    "category": "Kiosk and convenience wholesalers",
+    "channels": [
+      "kiosk and convenience wholesalers"
+    ],
+    "fit_rationale": "A trade-only confectionery cash and carry and Unitas member that stocks over 3,000 branded lines from the leading confectionery makers for independent shops. Its depot and free delivery across mainland UK make it a direct route into corner shops and kiosks. Scale: delivery to most mainland UK postcodes, over 3,000 products and a 25,000 sq ft depot. Storage: 25,000 sq ft cash and carry depot at Towcester Road, Bow, with click and collect.",
+    "what_they_do_well": [
+      "Trading as a family confectionery cash and carry since 1945, now run by the third generation of Appletons."
+    ],
+    "distributes": "Wholesale sweets, chocolate, fudge, gummies, countlines and USA candy from Haribo, Cadbury, Swizzels Matlow, Barnetts, Bassetts, Millions, Wonka, Pez, Vidal, Jelly Belly and Joseph Dobson, plus soft drinks and shop supplies.",
+    "channels_supplied": "Trade-only cash and carry and delivered service for independent retailers and trade businesses across mainland UK.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal-2.json"
+  },
   "argo-distribution.ge": {
     "name": "Argo Distribution",
     "based_out_of": "Tbilisi, Georgia",
@@ -17193,6 +17211,25 @@
     "research_file": "research/2026-10-26/J0073_2026-10-26_australia_petrol-station-and-convenience-chains-travel-retail-sports-shops-and-sports-nutr.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "supplyer.co.uk": {
+    "name": "Supplyer Ltd",
+    "based_out_of": "Kingswinford, United Kingdom",
+    "market": "United Kingdom",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "Supplyer buys branded goods outright and resells them to independent shops nationwide, with confectionery, chocolate and biscuits named as a core area next to household lines. It is a young and compact business, so it suits a first listing of Diablo's core chocolate, sweets and biscuits. Scale: delivers next day to independent retailers across the UK, 138 brand partners and about 1,500 SKUs, trading since 2020. Storage: 8,000 sq ft warehouse in the West Midlands run in-house with date coding and FEFO rotation.",
+    "what_they_do_well": [
+      "Takes title to stock and runs its own 8,000 sq ft warehouse, giving brands one trade account and shops one delivery."
+    ],
+    "distributes": "Branded FMCG: confectionery, chocolate, sugar sweets, biscuits and snacks (Cadbury, Trebor, Halls, Fox's, Gullón) alongside household and personal care brands such as Persil, Fairy, Dettol and Dove.",
+    "channels_supplied": "Small independent retailers across the UK, plus food-to-go and catering formats; some direct-to-consumer sales.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal-2.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "suppsrus.com.au": {
     "name": "Supps R Us",
     "based_out_of": "",
@@ -18990,6 +19027,26 @@
     "sf_brands_carried": "",
     "added": "2026-10-26",
     "research_file": "research/2026-10-26/J0072_2026-10-26_australia_kiosk-and-convenience-wholesalers-retailers-pharmacy-and-drugstore-chains-health.json"
+  },
+  "uniteduk.co.uk": {
+    "name": "United Wholesale (Scotland)",
+    "based_out_of": "Glasgow, United Kingdom",
+    "market": "United Kingdom",
+    "category": "Kiosk and convenience wholesalers",
+    "channels": [
+      "kiosk and convenience wholesalers",
+      "FMCG distributors",
+      "wholesalers"
+    ],
+    "fit_rationale": "A Scottish cash and carry and delivered wholesaler that runs the Day-Today and USave symbol groups, so one listing reaches hundreds of independent shops across central Scotland. Its promotion leaflets carry confectionery, biscuits and crisps and snacks sections. Scale: over 500 symbol stores in Scotland and three depots covering Glasgow, Stirlingshire, Fife and the Lothians. Storage: three cash and carry depots, including a 170,000 sq ft site at Queenslie, plus a delivered service since 2003.",
+    "what_they_do_well": [
+      "Built the Day-Today symbol group from a 30-store launch in 2005 to over 500 Day-Today and USave stores in Scotland."
+    ],
+    "distributes": "Confectionery, biscuits, crisps and snacks alongside grocery, impulse, household, chilled and licensed ranges, sold in trade cases and multipacks from branded suppliers.",
+    "channels_supplied": "Independent convenience stores, its Day-Today, Day-Today Express, Day-Today Elite and USave symbol stores (over 500 in Scotland), plus pubs, clubs and caterers.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal-2.json"
   },
   "unveilingsa.com.au": {
     "name": "Unveiling SA",
