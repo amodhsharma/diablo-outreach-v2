@@ -1,0 +1,72 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0135",
+  "location": "Cape Town, South Africa",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 45
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 48
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 72
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 68
+    }
+  ],
+  "companies": [
+    {
+      "name": "Supersaves Distributors",
+      "based_out_of": "Cape Town, South Africa",
+      "domain": "supersavesdistributors.co.za",
+      "channel_category": [
+        "field sales distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sweets and gummies (Tasty Treats, Jolly Smax), biscuits and wafers (Tasty Treats Wafers, Choc Double Velvet, Ginger Biscuits, Choco Rings, Cookies), chips and savoury snacks (Pico, KRIT, Saltee, Cheezy Bites, Chipniks) and cold drinks (Score, Frooty Boost), all from other companies' brands.",
+      "channels_supplied": "Trade customers across the Western Cape that open a business account; individual store names are not published.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Cape Town distributor of branded sweets, biscuits, wafers and chips for shops, already selling value confectionery and biscuit brands into the Western Cape trade. Diablo's sweets, biscuits and wafers would sit next to its existing lines. Scale: products distributed across the Western Cape region, with a trade account application for new business customers; trading since 1992 under Supersave's Food & Meat Market and independent since 2019. Storage: trading premises at 131 Cradock Road, Steenberg, Cape Town, from which it delivers to client stores.",
+      "what_they_do_well": [
+        "Has grown from a small client network into distribution across the Western Cape since separating from Supersave's Food & Meat Market in 2019."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://supersavesdistributors.co.za/",
+        "https://supersavesdistributors.co.za/products/",
+        "https://supersavesdistributors.co.za/welcome/"
+      ]
+    }
+  ]
+}
