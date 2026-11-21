@@ -1,0 +1,73 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0124",
+  "location": "Sydney, Australia",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 50
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 51
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 48
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 64
+    }
+  ],
+  "companies": [
+    {
+      "name": "Spring International",
+      "based_out_of": "Sydney, Australia",
+      "domain": "springinternational.com.au",
+      "channel_category": [
+        "wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Confectionery (gummies and jelly sweets, chocolate bars, wafers), biscuits and snacks, plus drinks, foodstuffs and household items. Brands include Trolli, Fini, Wrigley's, Oreo, KitKat, Kinder Bueno, Warheads, Zappo, Nongshim, Lipton and Red Bull; its confectionery collection lists 147 products.",
+      "channels_supplied": "Convenience stores, newsagents and supermarkets throughout metropolitan Sydney.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "An importer and wholesaler trading since 1997 that sells branded confectionery, biscuits and snacks to convenience stores, newsagents and supermarkets, which is exactly the impulse channel for Diablo's gummies, chocolate bars and biscuits. Its trade web shop with a loyalty programme for retailers gives a ready route to list a mixed Diablo range. Scale: a network of convenience stores and supermarkets across metropolitan Sydney, 147 confectionery lines and over 25 years of trading; the exact number of customers is not published. Storage: B2B web shop with stock and trade prices for retailers.",
+      "what_they_do_well": [
+        "Has supplied Sydney convenience stores, newsagents and supermarkets since 1997 as an importer, wholesaler and distributor.",
+        "Runs a trade web shop with a 147-product confectionery range including Trolli, Fini, Kinder Bueno and KitKat."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://springinternational.com.au/",
+        "https://springinternational.com.au/collections/confectionery",
+        "https://springinternational.com.au/pages/about"
+      ]
+    }
+  ]
+}
