@@ -1,0 +1,98 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0098",
+  "location": "United Kingdom",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "kiosk and convenience wholesalers",
+      "template": "wholesaler",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "halal food distributors",
+      "template": "halal_distributor",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 0
+    }
+  ],
+  "companies": [],
+  "main_cities": [
+    {
+      "city": "London",
+      "language": "English"
+    },
+    {
+      "city": "Birmingham",
+      "language": "English"
+    },
+    {
+      "city": "Manchester",
+      "language": "English"
+    },
+    {
+      "city": "Glasgow",
+      "language": "English"
+    },
+    {
+      "city": "Leeds",
+      "language": "English"
+    },
+    {
+      "city": "Bristol",
+      "language": "English"
+    },
+    {
+      "city": "Belfast",
+      "language": "English"
+    },
+    {
+      "city": "Cardiff",
+      "language": "English"
+    },
+    {
+      "city": "Leicester",
+      "language": "English"
+    },
+    {
+      "city": "Newcastle upon Tyne",
+      "language": "English"
+    }
+  ]
+}
