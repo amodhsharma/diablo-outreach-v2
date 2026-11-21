@@ -1,0 +1,100 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0114",
+  "location": "London, United Kingdom",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 37
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 2,
+      "searches_used": 84
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 24
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 51
+    }
+  ],
+  "companies": [
+    {
+      "name": "Candy Theatre (3 Aces London Ltd)",
+      "based_out_of": "Southall, London, United Kingdom",
+      "domain": "candytheatre.com",
+      "channel_category": [
+        "FMCG distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "International confectionery, chocolate, sweets, snacks and drinks, over 2,000 lines: Hershey's, Reese's, M&M's, Haribo, Oreo, Warheads, Sour Patch Kids, Nerds and Airheads.",
+      "channels_supplied": "Convenience stores and independent retailers nationwide; over 1,200 convenience stores and 5,000+ trade customers on trade accounts.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A London wholesaler and distributor of international confectionery that sells branded chocolate, sweets and snacks to convenience stores across the UK. Diablo's sugar-free chocolate, gummies and biscuits would sit next to the American and European brands its trade customers already buy. Scale: over 5,000 trade customers and more than 1,200 convenience stores nationwide, with 2 to 3 day delivery across the UK. Storage: a B2B web shop with stock and trade prices, dispatched within 24 hours from its unit at Harlequin Industrial Park, Southall.",
+      "what_they_do_well": [
+        "Supplies over 1,200 convenience stores nationwide with international confectionery and drinks since 2019.",
+        "Exhibits at IFE London as a wholesaler and distributor of international confectionery and beverages."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.candytheatre.com/pages/wholesale",
+        "https://www.candytheatre.com/collections/hersheys",
+        "https://www.ife.co.uk/exhibitors/3-aces-london-1"
+      ]
+    },
+    {
+      "name": "Caledonian Supply Co (Mehadrin Wholesale Ltd)",
+      "based_out_of": "Wembley, London, United Kingdom",
+      "domain": "caledoniansupply.com",
+      "channel_category": [
+        "FMCG distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Kosher packaged food and household goods, over 2,000 lines: confectionery and snacks (Cofresh, Pita Bites, Made Good bars), cereals (Kellogg's), spreads, drinks and groceries from Europe, Israel and the USA.",
+      "channels_supplied": "Shops, supermarkets, retail chains, independent retailers, kosher shops and other wholesalers across the UK, plus caterers and schools.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A kosher wholesaler trading since 1962 that sells branded packaged snacks, confectionery and grocery to shops, supermarkets and retail chains. Many Diablo products are kosher, so its range and customers suit them. Scale: delivers across the UK to supermarkets, retail chains, independent retailers and other wholesalers, and is a member of the Unitas buying group. Storage: large warehousing in Wembley and its own temperature-controlled delivery fleet.",
+      "what_they_do_well": [
+        "Has supplied kosher food to UK shops and supermarkets since 1962.",
+        "Delivers food and non-food together on its own temperature-controlled fleet from Wembley."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.caledoniansupply.com/about-us",
+        "https://www.caledoniansupply.com/our-brands",
+        "http://www.caledoniansupply.com/products/CONFECTIONARY/COFRESH-QUINOA-SNDRD-TMTO--GRLIC-12-X-30-GR.html",
+        "https://bestfoodimporters.com/company/mehadrin-wholesale-ltd/",
+        "https://unitaswholesale.co.uk/retailer/wholesaler-search-2/page/13/"
+      ]
+    }
+  ]
+}
