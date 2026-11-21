@@ -1,0 +1,73 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0134",
+  "location": "Johannesburg, South Africa",
+  "run_date": "2026-11-21",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 45
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 37
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 22
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 19
+    }
+  ],
+  "companies": [
+    {
+      "name": "The Springbok Group of Companies",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "springbok-companies.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 1,
+      "tier_rank": 1,
+      "distributes": "Chocolate, chips and biscuits (Bakers Biscuits shown in its portfolio) from local and imported North American and European suppliers, plus dairy, health and beauty and pet food.",
+      "channels_supplied": "Large retail chains, independent traders, spaza shops, cafes, convenience stores, forecourts and pharmacies across South Africa and SADC export markets.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Johannesburg-headquartered independent FMCG distributor that buys from local and international suppliers and sells to chains, independents and spaza shops, with chocolate, chips and biscuits as a named portfolio line. Scale: deliveries to more than 12,500 unique locations nationwide and across SADC, with an export division into eight African markets. Storage: warehousing in South Africa and its own fleet of trailers and straight trucks.",
+      "what_they_do_well": [
+        "Delivers to more than 12,500 unique outlets nationwide, from large retailers to spaza shops and cafes."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.springbok-companies.com/",
+        "https://www.springbok-companies.com/brands",
+        "https://www.springbok-companies.com/distribution-network",
+        "https://www.springbok-companies.com/retail-channels"
+      ]
+    }
+  ]
+}
