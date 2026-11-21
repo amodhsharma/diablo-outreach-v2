@@ -19206,6 +19206,25 @@
     "added": "2026-11-21",
     "research_file": "research/2026-11-21/J0098_2026-11-21_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal-2.json"
   },
+  "universalau.com.au": {
+    "name": "Universal AU",
+    "based_out_of": "Sydney, Australia",
+    "market": "Brisbane, Australia",
+    "category": "Wholesalers",
+    "channels": [
+      "wholesalers"
+    ],
+    "fit_rationale": "National importer and distributor founded in 1983 that brings international confectionery brands into every major Australian chain and the independent wholesaler network that serves Brisbane's convenience, grocery and petrol station shops. Its reach into both national chains and wholesalers makes it a strong route for Diablo's sweets, chocolate and gifting range. Scale: over 40,000 retail outlets reached through 148 wholesalers, more than 200 million dollars in retail sales value and over 1,500 containers imported a year. Storage: more than 15,000 m2 of warehouse space.",
+    "what_they_do_well": [
+      "Claims over 80% of Australia's novelty confectionery market, supplying Woolworths, Coles, IGA and 148 wholesalers.",
+      "Imports more than 1,500 containers a year and has traded since 1983."
+    ],
+    "distributes": "Sweets, gummies and novelty confectionery and chocolate from international brands, including Warheads, Trolli, Pez, Topps, Pop Rocks, Zed Candy, Anthon Berg, Walkers Chocolates and Belfine, plus gourmet, seasonal and beverage lines.",
+    "channels_supplied": "148 confectionery wholesalers supplying over 40,000 retailers (including The Distributors Brisbane and Accredited Distributors), plus Woolworths, Coles, Coles Express, IGA, SPAR, FoodWorks, Costco, Aldi, BIG W, Kmart, Target, The Reject Shop, 7-Eleven, Ampol, BP, EG Group, Chemist Warehouse and cinemas.",
+    "sf_brands_carried": "",
+    "added": "2026-11-21",
+    "research_file": "research/2026-11-21/J0126_2026-11-21_brisbane-australia_wholesalers-field-sales-distributors.json"
+  },
   "unveilingsa.com.au": {
     "name": "Unveiling SA",
     "based_out_of": "",
