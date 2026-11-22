@@ -19928,6 +19928,25 @@
     "research_file": "research/2026-10-26/J0075_2026-10-26_australia_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "vendingwarehouse.co.uk": {
+    "name": "Vending Warehouse Ltd",
+    "based_out_of": "",
+    "market": "United Kingdom",
+    "category": "Kiosk and convenience wholesalers",
+    "channels": [
+      "kiosk and convenience wholesalers"
+    ],
+    "fit_rationale": "Supplies vending operators and micro markets nationwide with branded chocolate and sweets in trade packs, a route for Diablo bars and chocolate into many machines. Scale: not shown on its website; nationwide delivery in 1 to 2 working days; trading online since 2003; also open to retail buyers. Storage: B2B web shop listing stock in trade multipacks with nationwide dispatch.",
+    "what_they_do_well": [
+      "Has supplied UK vending operators online since 2003, with nationwide delivery typically within one to two working days."
+    ],
+    "distributes": "Branded chocolate, sweets, crisps and snacks and soft drinks in trade multipacks: Mars, Snickers, Twix, Bounty, Kit Kat, Kinder Bueno, Terry's, Maynards Bassetts, Rowntree's, McCoy's, Golden Wonder, Burts and Coca-Cola.",
+    "channels_supplied": "UK vending machine operators, micro markets, tuck shops, hospitality venues, events and gyms.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0147_2026-11-22_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "vendingxpress.com.au": {
     "name": "Vending Xpress",
     "based_out_of": "Brisbane, Australia",
@@ -20624,6 +20643,25 @@
     "sf_brands_carried": "Booja Booja, Deliciously Ella, Biona, Love Corn, Rude Health. Its site also lists 'Lillys', described as sugar-free confectionery; identity not verified.",
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
+  },
+  "wholesalersmanchester.co.uk": {
+    "name": "Wholesalers Manchester",
+    "based_out_of": "Greater Manchester, United Kingdom",
+    "market": "United Kingdom",
+    "category": "FMCG distributors",
+    "channels": [
+      "FMCG distributors"
+    ],
+    "fit_rationale": "A trade sweets wholesaler whose own web shop lists bulk branded confectionery from around 60 brands at ex VAT trade prices for shops, so Diablo's sugar-free sweets and chocolate sit beside the brands it already sells. Scale: not shown on its website; one Greater Manchester site with click and collect and UK delivery in two days. Storage: B2B web shop with stock and trade prices, click and collect from its own site.",
+    "what_they_do_well": [
+      "Carries around 60 confectionery brands, from Haribo and Trolli to Swizzels and Vidal, for trade buyers."
+    ],
+    "distributes": "Branded sweets, chocolate, gummies, jelly sweets and snacks in bulk, from about 60 brands including Haribo, Trolli, Swizzels, Vidal, Bazooka, Anthon Berg, Lion, Millions, Sweetzone, Stockleys, Pells, Candycrave and Bebeto.",
+    "channels_supplied": "Shops, sweet shops, hamper makers, online retailers, mobile sellers, event organisers and schools, with trade prices shown ex VAT.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0147_2026-11-22_united-kingdom_distributors-fmcg-distributors-wholesalers-kiosk-and-convenience-wholesalers-hal.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "wholesalesweets.co.uk": {
     "name": "UK Sweets",
