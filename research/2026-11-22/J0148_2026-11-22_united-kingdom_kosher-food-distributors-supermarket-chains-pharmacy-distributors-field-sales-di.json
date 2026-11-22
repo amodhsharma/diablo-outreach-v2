@@ -1,0 +1,150 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0148",
+  "location": "United Kingdom",
+  "run_date": "2026-11-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "kosher food distributors",
+      "template": "kosher_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 56
+    },
+    {
+      "channel": "supermarket chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 21
+    },
+    {
+      "channel": "pharmacy distributors",
+      "template": "pharmacy_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 34
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 4,
+      "searches_used": 99
+    },
+    {
+      "channel": "pharmacy and drugstore chains",
+      "template": "pharmacy_chain",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 11
+    }
+  ],
+  "companies": [
+    {
+      "name": "NF Plus (Northern Foods Plus Ltd)",
+      "based_out_of": "Nottingham, United Kingdom",
+      "domain": "nfplus.co",
+      "channel_category": [
+        "field sales distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Sweets, biscuits and chocolate, snacks and drinks, plus household, toiletries and toys; brands include McVitie's, Milka, Ulker and Balconi cakes.",
+      "channels_supplied": "Independent shops, kiosks, convenience stores and non-chain retailers in Nottinghamshire and the wider East Midlands, ordering through its trade app and dealer portal.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A B2B wholesaler that delivers branded sweets, biscuits and chocolate next day to independent shops and kiosks, the exact corner shop route Diablo wants in the East Midlands. Its range already mixes UK and European biscuit and chocolate brands, so Diablo's biscuits, wafers and chocolate would sit beside them. Scale: 5,000+ product lines and next-day delivery across Nottinghamshire and the East Midlands; customer numbers and fleet size not shown, one depot only. Storage: warehouse at Unit 7d Blenheim Court, Bulwell, Nottingham, with free delivery over 250 pounds and a dealer login for trade ordering.",
+      "what_they_do_well": [
+        "Grew since 2014 from a small Nottingham warehouse to more than 5,000 lines with 24/7 app ordering for independent shops."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://nfplus.co/about",
+        "https://nfplus.co/"
+      ]
+    },
+    {
+      "name": "Lancashire Suppliers Ltd",
+      "based_out_of": "Blackburn, United Kingdom",
+      "domain": "lancashiresuppliers.co.uk",
+      "channel_category": [
+        "field sales distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 2,
+      "distributes": "Chocolate bars, chocolate multipacks and kids chocolate; sweets and candy (gummies, chewy sweets, lollipops, chewing gum); drinks, household goods and disposables. Brands include Cadbury, Swizzels, Millions, Wrigley's and Sweetzone.",
+      "channels_supplied": "Retailers, convenience stores and supermarkets, by local van delivery across Lancashire, Yorkshire, Greater Manchester and Merseyside and by courier UK-wide; trade counter in Blackburn.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A trade wholesaler with its own local van deliveries to convenience stores across the North West and Yorkshire and a deep branded chocolate and sweets range, including halal sweets, which suits Diablo's halal certified chocolate and gummies. Scale: van delivery across Lancashire, Yorkshire, Greater Manchester and Merseyside plus UK-wide courier delivery; size not shown on its website, one site only and its cash and carry is also open to the public. Storage: cash and carry and stock at Unit 1d, Peter Street, Blackburn, with local van deliveries and a trade account web shop.",
+      "what_they_do_well": [
+        "Combines local van deliveries across the North West and Yorkshire with UK-wide delivery and no minimum order for trade accounts."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://lancashiresuppliers.co.uk/",
+        "https://lancashiresuppliers.co.uk/about-us/"
+      ]
+    },
+    {
+      "name": "M1 Confectioners Ltd",
+      "based_out_of": "Belfast, United Kingdom",
+      "domain": "m1confectionersltd.co.uk",
+      "channel_category": [
+        "field sales distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Branded confectionery, sweets, snacks, crisps, soft drinks and water, with Cadbury and Coca-Cola among the brands shown; kids sweets and promotional brochures.",
+      "channels_supplied": "Independent retailers, vending operators and foodservice businesses (cafes, offices, hospitals) across Belfast, County Antrim, County Down and Lisburn, plus public bulk buyers.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Northern Ireland confectionery and snacks wholesaler with scheduled delivery runs to independent retailers and vending operators, giving Diablo a route into shops in the province. Scale: TUCO profile states it serves the whole province from a local warehouse with nine staff and about 2 million pounds turnover; negative marks for small size and a public bulk buying side. Storage: local warehouse in Belfast with scheduled deliveries and bulk pallet rates for trade accounts.",
+      "what_they_do_well": [
+        "Family business trading since 2005, supplying confectionery, crisps and drinks across Northern Ireland from its own local warehouse."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://m1confectionersltd.co.uk/",
+        "https://m1confectionersltd.co.uk/about-us/",
+        "https://www.tuco.ac.uk/procurement/our-suppliers/m1-confectioners-ltd"
+      ]
+    },
+    {
+      "name": "Mr Crisp Ltd",
+      "based_out_of": "Worthing, United Kingdom",
+      "domain": "mrcrispltd.co.uk",
+      "channel_category": [
+        "field sales distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 2,
+      "distributes": "Confectionery, crisps and snacks, soft drinks, alcoholic drinks, vapes, cleaning products and disposables; brand names not listed on its public pages.",
+      "channels_supplied": "Trade customers in the South of England through its delivered service and B2B online ordering portal; customer types are not named on its website.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A long-established delivered wholesaler of confectionery, crisps and drinks in the South of England, the impulse range that Diablo's sweets and chocolate fit into. Scale: not shown on its website; one depot in Worthing delivering across the South, with a trade B2B ordering portal as the solid evidence of trade. Storage: depot at Units G-H, Northbrook Trading Estate, Worthing, with deliveries and online trade ordering from stock.",
+      "what_they_do_well": [
+        "More than 30 years as a delivered wholesaler in the South, with online trade ordering through its B2B portal."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.mrcrispltd.co.uk/",
+        "https://www.mrcrispltd.co.uk/about-us/"
+      ]
+    }
+  ]
+}
