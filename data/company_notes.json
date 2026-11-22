@@ -961,6 +961,24 @@
     "research_file": "research/2026-10-14/J0006_2026-10-14_tbilisi-georgia_distributors-wholesalers-retailers.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "arrowcc.co.za": {
+    "name": "Arrow Cash and Carry",
+    "based_out_of": "Durban, South Africa",
+    "market": "South Africa",
+    "category": "FMCG distributors",
+    "channels": [
+      "FMCG distributors"
+    ],
+    "fit_rationale": "A Durban cash and carry trading since 2001 that sells confectionery to spaza shops, convenience stores and other retailers, giving Diablo a route into the KwaZulu-Natal traditional trade. Scale: not shown on its website; one site on Umgeni Road, Durban, serving the trade. Storage: cash and carry premises at 201 Umgeni Road, Durban.",
+    "what_they_do_well": [
+      "Trading as a Durban cash and carry since 2001, supplying wholesalers, retailers, spaza shops and convenience stores."
+    ],
+    "distributes": "Groceries with a dedicated confectionery department alongside cigarettes and general FMCG; brands not named on its website.",
+    "channels_supplied": "Wholesalers, retailers, spaza shops and convenience stores in KwaZulu-Natal, plus export clients.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0152_2026-11-22_south-africa_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut-2.json"
+  },
   "arslan.ch": {
     "name": "Arslan GmbH",
     "based_out_of": "Pratteln, Switzerland",
@@ -10864,6 +10882,24 @@
     "research_file": "research/2026-10-14/J0007_2026-10-14_lima-peru_distributors-wholesalers-retailers.json",
     "import_check": "the website address no longer exists"
   },
+  "limpopocc.co.za": {
+    "name": "Limpopo Cash and Carry",
+    "based_out_of": "Polokwane, South Africa",
+    "market": "South Africa",
+    "category": "FMCG distributors",
+    "channels": [
+      "FMCG distributors"
+    ],
+    "fit_rationale": "A Polokwane wholesaler trading since 1998 whose web shop lists hundreds of sweets, chocolate, biscuit and snack lines for retailers, a strong route into Limpopo's independent and township trade. Scale: clients across Limpopo, the rest of South Africa and most SADC countries; branch count and warehouse size not shown. Storage: cash and carry warehouse in Polokwane with a B2B web shop showing stock and order-for-collection.",
+    "what_they_do_well": [
+      "Trading since 1998, supplying retailers across Limpopo, South Africa and most SADC countries."
+    ],
+    "distributes": "Wholesale FMCG with large confectionery and biscuit, sweets and chocolate, and snacks categories (Cadbury chocolate, Chappies sweets, Lotus biscuits), plus groceries and household goods.",
+    "channels_supplied": "Retailers of all sizes in Limpopo, across South Africa and in most SADC countries, with B2B accounts and order-and-collect.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0152_2026-11-22_south-africa_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut-2.json"
+  },
   "littlegiftbox.com.au": {
     "name": "Little Gift Box",
     "based_out_of": "Perth, Australia",
@@ -12490,6 +12526,23 @@
     "sf_brands_carried": "",
     "added": "2026-10-20",
     "research_file": "research/2026-10-21/J0007_2026-10-21_lausanne-switzerland_distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
+  "musafir.co.za": {
+    "name": "Musafir Cash & Carry",
+    "based_out_of": "Cape Town, South Africa",
+    "market": "South Africa",
+    "category": "FMCG distributors",
+    "channels": [
+      "FMCG distributors"
+    ],
+    "fit_rationale": "An Athlone wholesaler that sells branded chocolate, sweets and biscuits by the case, with an online catalogue of 1,705 lines that shows stock and prices. Scale: not shown on its website; one site in Athlone, Cape Town, and a large online shop with home delivery next to its wholesale trade. Storage: cash and carry at 4 Luxmi Street, Athlone, and a B2B web shop with stock and prices.",
+    "what_they_do_well": [],
+    "distributes": "Wholesale groceries and household goods with a snacks and confectionery collection: chocolates, sweets, biscuits, cookies and cakes in trade cases (Nestle Aero, Kit Kat and Lion bars, My-Chew sweets, Casa-Mia biscuits).",
+    "channels_supplied": "Wholesale buyers from its Athlone cash and carry and its online store with delivery in Cape Town.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0152_2026-11-22_south-africa_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut-2.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
   "musclemeccasa.co.za": {
@@ -15839,6 +15892,25 @@
     "added": "2026-10-20",
     "research_file": "research/2026-10-20/J0001_2026-10-20_zurich-switzerland_distributors.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "salsabilcashandcarry.co.za": {
+    "name": "Salsabil Cash and Carry",
+    "based_out_of": "Germiston, South Africa",
+    "market": "South Africa",
+    "category": "FMCG distributors",
+    "channels": [
+      "FMCG distributors"
+    ],
+    "fit_rationale": "A Germiston wholesaler whose sweets and snacks category supplies spaza shops, independent supermarkets and resellers, a direct route to the Gauteng township trade. Scale: not shown on its website (its counters are unfilled); one site in Germiston selling only to the trade. Storage: cash and carry warehouse at 130 High Street, Germiston, selling in bulk.",
+    "what_they_do_well": [
+      "Supplies spaza shops, independent supermarkets and reseller distribution partners from one Germiston wholesale site."
+    ],
+    "distributes": "Bulk FMCG with a sweets and snacks category (Chappies confectionery, Truda, Spookies and Stylos snacks), plus beverages, bakery staples and household goods.",
+    "channels_supplied": "Spaza and township shops, independent retailers and supermarkets, reseller distribution partners and general wholesale traders in Gauteng.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0152_2026-11-22_south-africa_fmcg-distributors-supermarket-chains-pharmacy-distributors-field-sales-distribut-2.json",
+    "import_check": "Apollo holds nobody with an email at this website"
   },
   "samaranatura.ch": {
     "name": "SamaraNatura (BioSamara GmbH)",
