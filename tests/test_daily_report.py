@@ -123,11 +123,12 @@ def test_key_numbers_read_as_agreed():
     assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (33.3%) 1 (25.0%)" in lines
     assert "Asked not to be emailed 0 0 = 0 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2 2" in lines
     # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
-    # 22 Nov 2026 (Ariel): Campaign | Status | Bounce rate | Your input, then the four columns
-    assert "Campaign | Status | Bounce rate (3%) | Your input" in lines
-    assert f"Diablo | {_month("2026-10-26")} | Company inboxes | !! No sending account | - | Connect a sending account" in lines
+    # 22 Nov 2026 (Ariel): Campaign | Status | Bounce rate | Replies (positive) | Your input, then the four columns
+    assert "Campaign | Status | Bounce rate (3%) | Replies (positive) | Your input" in lines
+    assert f"Diablo | {_month("2026-10-26")} | Company inboxes | !! No sending account | - | 0 | Connect a sending account" in lines
     assert "Emails sent 0 0 = 0 0" in lines  # 22 Nov 2026 (Ariel): each campaign's emails, in the four columns
-    assert f"Diablo | {_month("2026-10-26")} | OK Running | - | None" in lines and "OK 1 of 1 healthy" in lines
+    assert f"Diablo | {_month("2026-10-26")} | OK Running | - | 1 | None" in lines and "OK 1 of 1 healthy" in lines
+    # 22 Nov 2026 (Ariel): the positive reply counts for the campaign its contact's lead is in
     assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines and "[Health] Sending accounts" in lines
     assert "[For sales team] Positive replies to follow up" in lines
     at = next(i for i, line in enumerate(lines) if "Positive replies to follow up" in line)
@@ -432,7 +433,9 @@ def test_initial_stages_section_says_what_needs_input_and_what_does_not():
     lines = [" ".join(line.split()) for line in text.splitlines()]
     at = next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line)
     block = lines[at + 1:]
-    assert block[0] == "Your input needed 5"  # 4 new companies and 1 introduction
+    assert block[0].startswith("Research jobs lined up: ")  # 22 Nov 2026 (Ariel): research first
+    assert block[1].startswith("Research: ")
+    assert block[2] == "Your input needed 5"  # 4 new companies and 1 introduction
     assert "New companies waiting for your GATE1 approval 4 (Alpha, Beta, Gamma, Old)" in block
     assert "Introductions waiting for your GATE2 approval 1 (Approved Co (Australia))" in block
     # 21 Nov 2026 (Ariel): one green line, without the breakdown
@@ -568,13 +571,17 @@ def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate
               ("Resume now", daily_report.GOOD), "c2", daily_report.WARN)],
              "accounts": {"healthy": 1, "total": 1, "problems": []}},
          "initial": {"input": [], "auto": []},
-         "campaign_sent": {"c1": (0, 4, 181, 461), "c2": (19, 10, 134, 284)}}
+         "campaign_sent": {"c1": (0, 4, 181, 461), "c2": (19, 10, 134, 284)},
+         "campaign_positive": {"c1": 3, "c2": 0}}
     lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
-    assert "Diablo | NOV2026 | ! Running, brake on | 8.5% | None: new introductions start again by themselves under 3%" in lines
-    assert "Diablo | NOV2026 | Company inboxes | !! Paused: Bounce Protect | 4.5% | Resume now" in lines
+    assert ("Diablo | NOV2026 | ! Running, brake on | 8.5% | 3 (0.7%) | None: new introductions start again by "
+            "themselves under 3%") in lines  # 22 Nov 2026 (Ariel): positive replies this month, share of 461 sent
+    assert "Diablo | NOV2026 | Company inboxes | !! Paused: Bounce Protect | 4.5% | 0 | Resume now" in lines
     assert "Emails sent 19 10 ▲ 134 284" in lines
     html = daily_report.key_html(k)
     assert ">Campaign</th>" in html and ">Bounce rate (3%)</th>" in html and ">Your input</th>" in html
+    assert html.index(">Bounce rate (3%)</th>") < html.index(">Replies (positive)</th>") < html.index(">Your input</th>")
+    assert ">3 (0.7%)</td>" in html
     assert "border:1px solid #d9d9d9" in html  # 22 Nov 2026 (Ariel): lines between rows and columns
     assert ">Diablo | NOV2026</td>" in html  # 22 Nov 2026 (Ariel): no dot before the name; it goes with the status
     assert '&#9679;</span> <span style="color:#BA7517">Running, brake on</span>' in html
@@ -596,3 +603,51 @@ def test_sending_delivery_and_campaigns_each_have_their_own_table():
     assert "Instantly uploads used: 4 of 25,000 (0%)</td>" in tables[0]  # a row, in the first column
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert lines.count("Yesterday Day before Week so far Month so far") == 3
+
+
+# ---- 22 Nov 2026 (Ariel): research rows in Initial stages and positive replies per campaign ---------------------
+
+def _queue(tmp_path, lines):
+    path = tmp_path / "queue.csv"
+    head = "job_id,location,channel,status,ran_on\n"
+    path.write_text(head + "".join(f"{l}\n" for l in lines), encoding="utf-8")
+    return path
+
+
+def test_research_rows_say_what_is_lined_up_and_what_ran(tmp_path):
+    hs = FakeCRM()
+    hs.add("companies", name="Found A", diablo_job_number="J0200")
+    hs.add("companies", name="Found B", diablo_job_number="J0200")
+    hs.add("companies", name="Tagged by hand")  # no job number: not found by research
+    path = _queue(tmp_path, [
+        'J0199,"Leeds, UK",distributors,Done,2026-11-20',
+        'J0200,"Sydney, Australia",distributors,"Done, fewer than wanted",2026-11-21',
+        'J0200,"Sydney, Australia",wholesalers,Failed,2026-11-21',
+        'J0201,"Perth, Australia",distributors,Waiting,',
+        'J0201,"Perth, Australia",wholesalers,Waiting,',
+        'J0202,"Durban, South Africa",distributors,Waiting,',
+        'J0203,"Brisbane, Australia",distributors,Waiting,',
+        'J0204,"Hull, UK",distributors,Cancelled,'])
+    r = daily_report.research_status(hs, "2026-11-21", queue_file=path)
+    assert r["lined_up"] == 3 and r["countries"] == ["Australia", "South Africa"] and r["last"] == "2026-11-21"
+    assert r["ran"] == 1  # one job, however many channels
+    rows = [i[1] for i in daily_report.research_rows(dict(r, new=2))]
+    assert rows == ["Research jobs lined up: 3, last job ran on 21/11/2026",
+                    "Research: 1 job ran, 2 new companies found, 3 jobs left (Australia, South Africa)"]
+    empty = daily_report.research_rows({"lined_up": 0, "countries": [], "last": "2026-11-21", "ran": 0, "new": 0})
+    assert [i[1] for i in empty] == ["Research jobs lined up: none, last job ran on 21/11/2026",
+                                     "Research: 0 jobs ran, 0 new companies found, 0 jobs left"]
+    assert daily_report.research_status(hs, "2026-11-21", queue_file=tmp_path / "missing.csv") is None
+
+
+def test_positive_replies_count_for_the_campaign_the_lead_is_in():
+    hs = FakeCRM()
+    a = hs.add("contacts", email="a@x.example")
+    b = hs.add("contacts", email="b@y.example")
+    view = {"a@x.example": {"_campaign_id": "c1"}, "b@y.example": {"_campaign_id": "c2"}}
+    data = {"days": {"2026-11-03": {"positive": [a]}, "2026-11-04": {"positive": [b]},
+                     "2026-10-30": {"positive": [b]}}}
+    days = [f"2026-11-{d:02d}" for d in range(1, 22)]
+    assert daily_report.campaign_positives(hs, view, data, days, ["c1", "c2", "c3"]) == {"c1": 1, "c2": 1, "c3": 0}
+    assert daily_report.campaign_positives(hs, None, data, days, ["c1"]) is None
+    assert daily_report.campaign_positives(hs, None, {}, days, ["c1"]) == {"c1": 0}
