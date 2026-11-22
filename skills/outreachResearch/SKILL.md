@@ -136,9 +136,15 @@ If the first Step 2 said `NOTHING TO DO`, the summary is one line: "Nothing wait
 
 ## What the files are
 
-- Seven versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
+- Eight versions of the prompts sit side by side (agreed 14 Oct 2026). `prompt_version` in
   `settings.yaml` picks one, and prepare_run.py writes the chosen version into `work/`:
-  - version 7 (in use from 21 Nov 2026, Ariel): version 6 plus three channels, `prompts/channel_prompt_7.md`
+  - version 8 (in use from 22 Nov 2026, Ariel): version 7 with size as a score, not a gate (HARD RULE 12),
+    `prompts/channel_prompt_8.md` and `prompts/channels/*_8.md`. Only evidence that a company cannot take Diablo
+    to many shops rejects it as "too small" (it sells only to consumers, or says it supplies only a few customers
+    and names no chains). A size not shown, one site only, near misses, local reach only or a big consumer web
+    shop next to the trade business are negative marks: the company is listed lower, at tier 3 when nothing
+    proves its size, with the mark in its "Scale: " line. The check adds `--big --tier3`;
+  - version 7 (used from 21 Nov 2026 to 22 Nov 2026, Ariel): version 6 plus three channels, `prompts/channel_prompt_7.md`
     and `prompts/channels/*_7.md` (the other sheets are version 6's, unchanged): pharmacy distributors
     (`pharmacy_distributor_7.md`) and field sales distributors (`field_sales_distributor_7.md`), whose size rule
     is version 6's scaled down to about 70% (about 200 outlets, 700 m2, 7 vans, 7 reps) and read with

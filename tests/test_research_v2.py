@@ -441,12 +441,13 @@ def test_prompt_versions_side_by_side(repo):
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
     six = (repo / "work" / "channel_1_prompt.md").read_text()
-    assert plan["prompt_version"] == 7 and "HARD RULE" in six and "too small" in six and "Scale: " in six  # 21 Nov 2026
+    assert plan["prompt_version"] == 8 and "HARD RULE" in six and "too small" in six and "Scale: " in six  # 22 Nov 2026
     assert "SEARCH THROUGH THE BRANDS FIRST" in six and "Muller & Phipps" in six and "atacadista" in six
-    assert "--big" in six and "Tier 3 is not used" in six and "Stern Market" not in six
+    assert "--big --tier3" in six and "Tier 3 is not used" not in six and "Stern Market" not in six
+    assert "Size is a score, not a gate" in six and "Tier 3 (from 22 Nov 2026)" in six
     assert plan["channels"][0]["companies_wanted"] == 8  # typed in the queue
     settings = repo / "skills" / "outreachResearch" / "settings.yaml"
-    settings.write_text(settings.read_text().replace("prompt_version: 7", "prompt_version: 5"))
+    settings.write_text(settings.read_text().replace("prompt_version: 8", "prompt_version: 5"))
     assert run_script(repo, "prepare_run.py").returncode == 0
     plan = json.loads((repo / "work" / "plan.json").read_text())
     five = (repo / "work" / "channel_1_prompt.md").read_text()
@@ -1018,3 +1019,37 @@ def test_version_7_adds_pharmacy_and_field_sales_channels(tmp_path):
     f.write_text("prompt_version: 7\ndefault_companies_2: 50\nmin_floor_2: 25\ndefault_companies_7: 30\nmin_floor_7: 10\n")
     s = rq.load_research_settings(f)
     assert (s["default_companies"], s["min_floor"], rq.prompt_suffix(s)) == (30, 10, "_7")
+
+
+def test_version_8_size_is_a_score_not_a_gate(tmp_path):
+    """22 Nov 2026 (Ariel): only evidence that a company cannot take Diablo to many shops rejects it as too small; a
+    size not shown is a negative mark and the company is listed at tier 3."""
+    prompts = Path(__file__).resolve().parents[1] / "skills" / "outreachResearch" / "prompts"
+    for name in ("distributor", "field_sales_distributor", "general", "halal_distributor", "kosher_distributor",
+                 "pharmacy_chain", "pharmacy_distributor", "retailer", "wholesaler"):
+        assert (prompts / "channels" / f"{name}_8.md").exists()  # every sheet of version 7 has a version 8
+    main = (prompts / "channel_prompt_8.md").read_text()
+    assert "Size is a score, not a gate" in main and "sells only to consumers" in main
+    assert "its size is not shown on its website" in main and "Tier 3 (from 22 Nov 2026)" in main
+    assert "tier is 1, 2 or 3" in main and "Tier 3 is not used" not in main
+    assert "The company must be big enough" not in main
+    for name in ("field_sales_distributor", "pharmacy_distributor"):
+        sheet = (prompts / "channels" / f"{name}_8.md").read_text()
+        assert "a score, not a gate" in sheet and "at tier 3" in sheet and "Its own word alone is never enough" in sheet
+    chain = (prompts / "channels" / "pharmacy_chain_8.md").read_text()
+    assert "smaller chain that buys centrally into its own warehouse is listed at tier 3" in chain
+    assert "chains of fewer than about 100 stores" not in chain and "no central warehouse is out" in chain
+    f = tmp_path / "s.yaml"
+    f.write_text("prompt_version: 8\ndefault_companies_2: 50\nmin_floor_2: 25\ndefault_companies_8: 30\nmin_floor_8: 10\n")
+    s = rq.load_research_settings(f)
+    assert (s["default_companies"], s["min_floor"], rq.prompt_suffix(s)) == (30, 10, "_8")
+    unproven = {"name": "Appleton", "tier": 3,
+                "fit_rationale": "Sells Haribo to the trade. Scale: not shown on its website; one depot. Storage: depot."}
+    errors = []
+    check_output.check_big(errors, [unproven], "wholesalers", tier3=True)
+    assert errors == []  # version 8: tier 3 is used
+    check_output.check_big(errors, [unproven], "wholesalers")
+    assert len(errors) == 1 and "tier 3" in errors[0]  # version 6 and 7: still refused
+    errors = []
+    check_output.check_big(errors, [dict(unproven, fit_rationale="Storage: depot.")], "wholesalers", tier3=True)
+    assert len(errors) == 1 and "Scale" in errors[0]  # the Scale line is still required

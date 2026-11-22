@@ -2,7 +2,15 @@
 # Edit on GitHub with the pencil icon. One "name: number" per line.
 
 # Which research prompts are used (agreed 14 Oct 2026):
-#   7 = in use from 21 Nov 2026 (Ariel): version 6 plus three channels, prompts/channel_prompt_7.md and
+#   8 = in use from 22 Nov 2026 (Ariel): version 7 with size as a score, not a gate (HARD RULE 12), in
+#       prompts/channel_prompt_8.md and prompts/channels/*_8.md. A company is rejected as "too small" only on
+#       evidence that it cannot take Diablo to many shops (it sells only to consumers, or its own website says it
+#       supplies only a few customers and names no chains). A size that is not shown, one site only, near misses
+#       (600 m2, 6 vans, 150 customers), local reach only or a big consumer web shop next to the trade business
+#       are negative marks: the company is listed lower, at tier 3 when nothing proves its size, with the mark in
+#       its "Scale: " line. Chains: about 10 stores (supermarkets) or 100 (pharmacies) are strong signals, a
+#       smaller chain buying centrally is tier 3. The check adds --tier3.
+#   7 = used from 21 Nov 2026 to 22 Nov 2026 (Ariel): version 6 plus three channels, prompts/channel_prompt_7.md and
 #       prompts/channels/*_7.md: pharmacy distributors and field sales distributors (their size rule scaled
 #       down to about 70% and read with judgement: one solid piece of evidence is enough for a company that
 #       calls itself a distributor or wholesaler), and big pharmacy and drugstore chains (about 100 stores or
@@ -29,8 +37,8 @@
 #       default_companies_2 and min_floor_2 below
 #   1 = the original prompts (prompts/channel_prompt.md and prompts/channels/*.md), with
 #       default_companies and min_floor
-# To go back, change 7 to 6, 5, 4, 3, 2 or 1. Every set is kept unchanged side by side.
-prompt_version: 7
+# To go back, change 8 to 7, 6, 5, 4, 3, 2 or 1. Every set is kept unchanged side by side.
+prompt_version: 8
 
 # Companies wanted per Channel when the "Companies wanted" box is left empty.
 default_companies: 60
@@ -51,6 +59,9 @@ min_floor_6: 10
 # Version 7 (21 Nov 2026) keeps version 6's numbers.
 default_companies_7: 30
 min_floor_7: 10
+# Version 8 (22 Nov 2026) keeps them too: more companies may now pass, and 30 stays the most per Channel.
+default_companies_8: 30
+min_floor_8: 10
 
 # Most web searches each helper may run for one Channel (60 before 20 Oct 2026: a deeper search of
 # each city; a research run takes longer).

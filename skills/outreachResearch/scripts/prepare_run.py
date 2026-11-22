@@ -263,6 +263,8 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
                 check += " --catalogue"  # 21 Oct 2026: each company must sell something from our catalogue
             if rq.prompt_version(settings) >= 6:
                 check += " --big"  # 10 Nov 2026: big partners only, with Scale and Storage lines
+            if rq.prompt_version(settings) >= 8:
+                check += " --tier3"  # 22 Nov 2026 (Ariel): size is a score, not a gate; tier 3 is used
             harder = line.get("depth") in (rq.DEEP, rq.FOLLOW_UP)  # typed in button 2: searched harder
             channel_exclude = exclude_text
             if line.get("depth") == rq.FOLLOW_UP:

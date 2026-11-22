@@ -326,16 +326,17 @@ def check_own_website(errors, companies, channel):
 CHAIN_WORDS = re.compile(r"supermarket|hypermarket|chain|\bstores?\b|\bshops?\b", re.I)  # sells from its own stores
 
 
-def check_big(errors, companies, channel):
+def check_big(errors, companies, channel, tier3=False):
     """Prompt version 6 (10 Nov 2026, big partners only): tier 1 or 2, a "Scale: " line (HARD RULE 12) and,
-    except for supermarket chains, a "Storage: " line showing the storage seen (HARD RULE 4)."""
+    except for supermarket chains, a "Storage: " line showing the storage seen (HARD RULE 4). tier3 (prompt
+    version 8, 22 Nov 2026: size is a score, not a gate): tier 3 is used for a company whose size is not proven."""
     # 21 Nov 2026: a pharmacy or drugstore chain must show the central warehouse it buys into
     chain = bool(CHAIN_WORDS.search(str(channel or ""))) and not re.search(r"pharmac|drugstore|chemist", str(channel or ""), re.I)
     for c in companies:
         if not isinstance(c, dict) or not isinstance(c.get("name"), str):
             continue
         name, why = c["name"].strip(), str(c.get("fit_rationale") or "")
-        if c.get("tier") == 3:
+        if c.get("tier") == 3 and not tier3:
             errors.append(f'Company "{name}": tier 3 is not used; a company too small for tier 2 is left out with '
                           'the reason "too small" (HARD RULE 12)')
         if "scale:" not in why.lower():
@@ -350,7 +351,7 @@ def check_big(errors, companies, channel):
                           '(HARD RULE 4)')
 
 
-def check_part(data, exclusions=(set(), set()), catalogue=False, big=False):
+def check_part(data, exclusions=(set(), set()), catalogue=False, big=False, tier3=False):
     errors = []
     if not _keys(errors, "The file", data, PART_KEYS):
         return errors
@@ -380,7 +381,7 @@ def check_part(data, exclusions=(set(), set()), catalogue=False, big=False):
         check_weak_fit(errors, companies)
         check_own_website(errors, companies, data.get("channel"))
     if big:  # research prompt version 6
-        check_big(errors, companies, data.get("channel"))
+        check_big(errors, companies, data.get("channel"), tier3=tier3)
     return errors
 
 
@@ -486,6 +487,9 @@ def main(argv=None):
                         "medium or high confidence, with no hedged fit")
     p.add_argument("--big", action="store_true",
                    help="prompt version 6: big partners only, tier 1 or 2 with Scale and Storage lines")
+    p.add_argument("--tier3", action="store_true",
+                   help="prompt version 8: size is a score, not a gate; tier 3 is used for a company whose size is "
+                        "not proven")
     args = p.parse_args(argv)
     try:
         data = json.loads(Path(args.file).read_text(encoding="utf-8"))
@@ -494,7 +498,7 @@ def main(argv=None):
         return 1
     exclusions = load_exclusions(args.exclusions)
     if args.kind == "part":
-        errors = check_part(data, exclusions, catalogue=args.catalogue, big=args.big)
+        errors = check_part(data, exclusions, catalogue=args.catalogue, big=args.big, tier3=args.tier3)
     else:
         report = Path(args.report).read_text(encoding="utf-8") if args.report else None
         errors = check_final(data, report, exclusions)
