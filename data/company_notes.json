@@ -10580,6 +10580,25 @@
     "research_file": "research/2026-10-26/J0052_2026-10-26_south-africa_office-snack-and-pantry-suppliers-snack-vending-operators-hospital-and-care-home.json",
     "import_check": "Apollo holds nobody with an email at this website"
   },
+  "lancashiresuppliers.co.uk": {
+    "name": "Lancashire Suppliers Ltd",
+    "based_out_of": "Blackburn, United Kingdom",
+    "market": "United Kingdom",
+    "category": "Field sales distributors",
+    "channels": [
+      "field sales distributors"
+    ],
+    "fit_rationale": "A trade wholesaler with its own local van deliveries to convenience stores across the North West and Yorkshire and a deep branded chocolate and sweets range, including halal sweets, which suits Diablo's halal certified chocolate and gummies. Scale: van delivery across Lancashire, Yorkshire, Greater Manchester and Merseyside plus UK-wide courier delivery; size not shown on its website, one site only and its cash and carry is also open to the public. Storage: cash and carry and stock at Unit 1d, Peter Street, Blackburn, with local van deliveries and a trade account web shop.",
+    "what_they_do_well": [
+      "Combines local van deliveries across the North West and Yorkshire with UK-wide delivery and no minimum order for trade accounts."
+    ],
+    "distributes": "Chocolate bars, chocolate multipacks and kids chocolate; sweets and candy (gummies, chewy sweets, lollipops, chewing gum); drinks, household goods and disposables. Brands include Cadbury, Swizzels, Millions, Wrigley's and Sweetzone.",
+    "channels_supplied": "Retailers, convenience stores and supermarkets, by local van delivery across Lancashire, Yorkshire, Greater Manchester and Merseyside and by courier UK-wide; trade counter in Blackburn.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0148_2026-11-22_united-kingdom_kosher-food-distributors-supermarket-chains-pharmacy-distributors-field-sales-di.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "lapa.ch": {
     "name": "LAPA - finest italian food GmbH",
     "based_out_of": "Embrach, Switzerland",
@@ -12363,6 +12382,25 @@
     "added": "2026-10-07",
     "research_file": "research/2026-10-07/J0001_2026-10-07_dublin-ireland_distributors-wholesalers-retailers.json"
   },
+  "mrcrispltd.co.uk": {
+    "name": "Mr Crisp Ltd",
+    "based_out_of": "Worthing, United Kingdom",
+    "market": "United Kingdom",
+    "category": "Field sales distributors",
+    "channels": [
+      "field sales distributors"
+    ],
+    "fit_rationale": "A long-established delivered wholesaler of confectionery, crisps and drinks in the South of England, the impulse range that Diablo's sweets and chocolate fit into. Scale: not shown on its website; one depot in Worthing delivering across the South, with a trade B2B ordering portal as the solid evidence of trade. Storage: depot at Units G-H, Northbrook Trading Estate, Worthing, with deliveries and online trade ordering from stock.",
+    "what_they_do_well": [
+      "More than 30 years as a delivered wholesaler in the South, with online trade ordering through its B2B portal."
+    ],
+    "distributes": "Confectionery, crisps and snacks, soft drinks, alcoholic drinks, vapes, cleaning products and disposables; brand names not listed on its public pages.",
+    "channels_supplied": "Trade customers in the South of England through its delivered service and B2B online ordering portal; customer types are not named on its website.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0148_2026-11-22_united-kingdom_kosher-food-distributors-supermarket-chains-pharmacy-distributors-field-sales-di.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
   "mrprice.ie": {
     "name": "Mr Price Branded Bargains",
     "based_out_of": "Dublin, Ireland",
@@ -12772,6 +12810,25 @@
     "sf_brands_carried": "",
     "added": "2026-10-27",
     "research_file": "research/2026-10-27/J0091_2026-10-27_newcastle-australia_retailers-sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppli.json",
+    "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
+  },
+  "nfplus.co": {
+    "name": "NF Plus (Northern Foods Plus Ltd)",
+    "based_out_of": "Nottingham, United Kingdom",
+    "market": "United Kingdom",
+    "category": "Field sales distributors",
+    "channels": [
+      "field sales distributors"
+    ],
+    "fit_rationale": "A B2B wholesaler that delivers branded sweets, biscuits and chocolate next day to independent shops and kiosks, the exact corner shop route Diablo wants in the East Midlands. Its range already mixes UK and European biscuit and chocolate brands, so Diablo's biscuits, wafers and chocolate would sit beside them. Scale: 5,000+ product lines and next-day delivery across Nottinghamshire and the East Midlands; customer numbers and fleet size not shown, one depot only. Storage: warehouse at Unit 7d Blenheim Court, Bulwell, Nottingham, with free delivery over 250 pounds and a dealer login for trade ordering.",
+    "what_they_do_well": [
+      "Grew since 2014 from a small Nottingham warehouse to more than 5,000 lines with 24/7 app ordering for independent shops."
+    ],
+    "distributes": "Sweets, biscuits and chocolate, snacks and drinks, plus household, toiletries and toys; brands include McVitie's, Milka, Ulker and Balconi cakes.",
+    "channels_supplied": "Independent shops, kiosks, convenience stores and non-chain retailers in Nottinghamshire and the wider East Midlands, ordering through its trade app and dealer portal.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-22/J0148_2026-11-22_united-kingdom_kosher-food-distributors-supermarket-chains-pharmacy-distributors-field-sales-di.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
   "nicandali.ie": {
