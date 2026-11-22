@@ -119,9 +119,10 @@ def test_key_numbers_read_as_agreed():
     assert lines[0] == "Key numbers - Monday 26 October 2026"
     assert lines[1] == "Yesterday Day before Week so far Month so far"  # 21 Nov 2026 (Ariel): Week so far added
     assert "Introductions sent 3 1 ▲ 3 4" in lines  # 26 Oct 2026 is a Monday: the week so far is that day
-    assert "Instantly uploads used: 4 of 25,000 (0%)" in lines
+    assert "Instantly uploads used: 4 of 25,000 (0%)" in lines  # 22 Nov 2026: under Sending accounts and Instantly
     assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (33.3%) 1 (25.0%)" in lines
-    assert "Asked not to be emailed 0 0 = 0 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2 2" in lines
+    assert "Asked not to be emailed 0 0 = 0 0" in lines
+    assert not any("Automatic replies" in line for line in lines)  # 22 Nov 2026 (Ariel): no longer shown
     # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
     # 22 Nov 2026 (Ariel): Campaign | Status | Bounce rate | Replies (positive) | Your input, then the four columns
     assert "Campaign | Status | Bounce rate (3%) | Replies (positive) | Your input" in lines
@@ -129,17 +130,19 @@ def test_key_numbers_read_as_agreed():
     assert "Emails sent 0 0 = 0 0" in lines  # 22 Nov 2026 (Ariel): each campaign's emails, in the four columns
     assert f"Diablo | {_month("2026-10-26")} | OK Running | - | 1 | None" in lines and "OK 1 of 1 healthy" in lines
     # 22 Nov 2026 (Ariel): the positive reply counts for the campaign its contact's lead is in
-    assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines and "[Health] Sending accounts" in lines
-    assert "[For sales team] Positive replies to follow up" in lines
-    at = next(i for i, line in enumerate(lines) if "Positive replies to follow up" in line)
-    assert lines[at + 1] == "FELFEL (country not known), replied Mon 26 Oct"
-    at = next(i for i, line in enumerate(lines) if "Negative replies to convert into possible leads" in line)
-    assert lines[at + 1] == "None"
+    assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines
+    at = lines.index("[Health] Sending accounts and Instantly")  # 22 Nov 2026 (Ariel): the uploads under the health
+    assert lines[at + 1:at + 3] == ["OK 1 of 1 healthy", "Instantly uploads used: 4 of 25,000 (0%)"]
+    # 22 Nov 2026 (Ariel): one section for the sales team, the count and the companies in round brackets
+    at = lines.index("[For sales team] Outreach mails sent to Ariel and Amodh (for the day of 26 October 2026), Need "
+                     "sales people input:")
+    assert lines[at + 1:at + 3] == ["• Positive replies to follow up (1) (FELFEL)",
+                                    "• Negative replies to convert into possible leads (0)"]
     # 21 Nov 2026 (Ariel): "Waiting for you" is merged into Initial stages; nobody found has its own section
     assert not any("Waiting for you" in line for line in lines)
-    # 22 Nov 2026 (Ariel): the companies in round brackets in the same row
-    assert "New companies waiting for your GATE1 approval 4 (Alpha, Beta, Gamma, Old)" in lines
-    assert "Introductions waiting for your GATE2 approval 1 (Approved Co (Australia))" in lines
+    # 22 Nov 2026 (Ariel): bullets, the companies after a dash
+    assert "• New companies waiting for your GATE1 approval - Alpha, Beta, Gamma, Old" in lines
+    assert "• Introductions waiting for your GATE2 approval - Approved Co (Australia)" in lines
     at = lines.index("[Need Amodh's input] Companies where nobody could be found (need sales people input) 1")
     assert lines[at + 1] == "Sport Benzin"
     assert result["sent"] is False
@@ -160,7 +163,7 @@ def test_it_is_sent_from_the_agreed_mailbox(monkeypatch):
     assert msg["From"] == "Diablo Partner Outreach <admin@diablosnosugar.com>"
     assert msg["To"] == "one@team.example, two@team.example, three@team.example"
     html = msg.get_body(("html",)).get_content()
-    assert "<b>Key numbers - Monday 26 October 2026</b>" in html and "FELFEL (country not known)" in html
+    assert "<b>Key numbers - Monday 26 October 2026</b>" in html and "Positive replies to follow up (1) (FELFEL)" in html
     assert "Prospecting" not in html and "Good morning" not in html
 
 
@@ -176,14 +179,17 @@ def test_a_quiet_day_and_all_healthy():
     assert "Week so far" in result["html"]
     # 21 Nov 2026: no positive or negative replies, no referral, no reply from outside; nothing waiting, and
     # "Waiting for you" is now part of Initial stages; "Referrals handled automatically" only when there are some
-    assert lines.count("None") == 3
+    assert lines.count("None") == 1  # 22 Nov 2026: the replies are bullets with (0)
+    assert "• Positive replies to follow up (0)" in lines and "• Negative replies to convert into possible leads (0)" in lines
     assert not any("Referrals handled automatically" in line for line in lines)
     assert "[Need Amodh's input] Replies not AUTO-OUTREACH 0" in lines
-    assert "Your input needed 0" in lines and not any("Waiting for you" in line for line in lines)
+    assert not any(line.startswith("Your input needed") for line in lines)  # 22 Nov 2026 (Ariel): line removed
+    assert "• New companies waiting for your GATE1 approval - none" in lines
+    assert not any("Waiting for you" in line for line in lines)
     assert not any("nobody could be found" in line for line in lines)  # its own section only on days with some
     assert not any(line.startswith("Companies waiting for GATE1 approval") for line in lines)  # 0: left out
     assert "#0F6E56" in result["html"]  # the healthy line is green
-    assert 'color:#0F6E56;">No input needed (automatic)</td>' in result["html"]  # 21 Nov 2026: in green
+    assert '<li><span style="color:#0F6E56">No input needed (automatic) - none</span></li>' in result["html"]  # green
 
 
 def test_every_company_that_replied_is_named_neutral_and_referrals_marked():
@@ -421,7 +427,7 @@ def test_companies_whose_channel_is_not_known_are_named_under_waiting_for_you():
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
-    line = next(line for line in lines if line.startswith("Companies whose channel is not known"))
+    line = next(line for line in lines if line.startswith("• Companies whose channel is not known"))
     assert "Mystery Co" in line  # 22 Nov 2026: named in round brackets in the same row
 
 
@@ -433,14 +439,13 @@ def test_initial_stages_section_says_what_needs_input_and_what_does_not():
     lines = [" ".join(line.split()) for line in text.splitlines()]
     at = next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line)
     block = lines[at + 1:]
-    assert block[0].startswith("Research jobs lined up: ")  # 22 Nov 2026 (Ariel): research first
-    assert block[1].startswith("Research: ")
-    assert block[2] == "Your input needed 5"  # 4 new companies and 1 introduction
-    assert "New companies waiting for your GATE1 approval 4 (Alpha, Beta, Gamma, Old)" in block
-    assert "Introductions waiting for your GATE2 approval 1 (Approved Co (Australia))" in block
-    # 21 Nov 2026 (Ariel): one green line, without the breakdown
-    assert "No input needed (automatic) 3" in block
-    assert not any(line.startswith(("Approved, Apollo search", "People found, introduction")) for line in block)
+    # 22 Nov 2026 (Ariel): bullets, research first, no "Your input needed" line
+    assert block[0].startswith("• Research jobs lined up: ") and block[1].startswith("• Last job on ")
+    assert "• New companies waiting for your GATE1 approval - Alpha, Beta, Gamma, Old" in block
+    assert "• Introductions waiting for your GATE2 approval - Approved Co (Australia)" in block
+    assert not any(line.startswith("Your input needed") for line in block)
+    # 22 Nov 2026 (Ariel): what needs no input, as the steps in words
+    assert next(line for line in block if "No input needed (automatic)" in line).startswith("• No input needed (automatic) - ")
 
 
 # ---- 20 Nov 2026 (Ariel): one cut-off for the whole email, midnight UK at the end of the day reported ----------
@@ -460,8 +465,8 @@ def test_waiting_and_initial_stages_are_as_they_stood_at_midnight_uk():
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
     block = lines[next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line) + 1:]
-    gate1 = next(line for line in block if line.startswith("New companies waiting for your GATE1 approval"))
-    assert gate1 == "New companies waiting for your GATE1 approval 5 (Alpha, Beta, Gamma, Late Co, Old)"
+    gate1 = next(line for line in block if line.startswith("• New companies waiting for your GATE1 approval"))
+    assert gate1 == "• New companies waiting for your GATE1 approval - Alpha, Beta, Gamma, Late Co, Old"
     assert "Tomorrow Co" not in " ".join(block)
     assert not any(line.startswith("Companies waiting for GATE1 approval") for line in lines)  # merged, once only
 
@@ -555,10 +560,11 @@ def test_the_companies_made_auto_outreach_show_as_one_number_in_initial_stages()
     lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
     at = next(i for i, line in enumerate(lines) if "Initial stages" in line)
     assert lines[at].endswith(" 3")  # 2 waiting and 1 automatic: the tagged companies are not added again
-    assert lines[at + 1] == "Companies now AUTO-OUTREACH (from Apollo or no Lead Source) 2 (Kitwave, Rialto)"
-    assert lines[at + 3] == "New companies waiting for your GATE1 approval 2 (Alpha, Beta)"
+    assert lines[at + 1] == "• Companies now AUTO-OUTREACH (from Apollo or no Lead Source) (2) - Kitwave, Rialto"
+    assert lines[at + 2] == "• New companies waiting for your GATE1 approval - Alpha, Beta"
+    assert lines[at + 3] == "• No input needed (automatic) - 1 waiting for Apollo"
     html = daily_report.key_html(k)
-    assert "Companies now AUTO-OUTREACH (from Apollo or no Lead Source) <span" in html and "(Kitwave, Rialto)</span>" in html
+    assert "<li>Companies now AUTO-OUTREACH (from Apollo or no Lead Source) (2) - Kitwave, Rialto</li>" in html
 
 
 def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate():
@@ -600,7 +606,7 @@ def test_sending_delivery_and_campaigns_each_have_their_own_table():
     assert "Introductions sent" in tables[0] and "Undelivered" not in tables[0]
     assert "Undelivered" in tables[1] and "Campaign</td>" not in tables[1]
     assert "Bounce rate (3%)" in tables[2] and "Sending accounts" not in tables[2]
-    assert "Instantly uploads used: 4 of 25,000 (0%)</td>" in tables[0]  # a row, in the first column
+    assert "Instantly uploads used" not in tables[0]  # 22 Nov 2026 (Ariel): moved under Sending accounts and Instantly
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert lines.count("Yesterday Day before Week so far Month so far") == 3
 
@@ -629,14 +635,20 @@ def test_research_rows_say_what_is_lined_up_and_what_ran(tmp_path):
         'J0203,"Brisbane, Australia",distributors,Waiting,',
         'J0204,"Hull, UK",distributors,Cancelled,'])
     r = daily_report.research_status(hs, "2026-11-21", queue_file=path)
-    assert r["lined_up"] == 3 and r["countries"] == ["Australia", "South Africa"] and r["last"] == "2026-11-21"
+    assert r["lined_up"] == ["J0201", "J0202", "J0203"] and r["last"] == "2026-11-21"
     assert r["ran"] == 1  # one job, however many channels
-    rows = [i[1] for i in daily_report.research_rows(dict(r, new=2))]
-    assert rows == ["Research jobs lined up: 3, last job ran on 21/11/2026",
-                    "Research: 1 job ran, 2 new companies found, 3 jobs left (Australia, South Africa)"]
-    empty = daily_report.research_rows({"lined_up": 0, "countries": [], "last": "2026-11-21", "ran": 0, "new": 0})
-    assert [i[1] for i in empty] == ["Research jobs lined up: none, last job ran on 21/11/2026",
-                                     "Research: 0 jobs ran, 0 new companies found, 0 jobs left"]
+    assert daily_report.research_status(hs, "2026-11-20", queue_file=path)["last"] == "2026-11-20"  # never later
+    rows = [daily_report._bullet_words(i) for i in daily_report.research_rows(dict(r, new=2))]
+    assert rows == ["Research jobs lined up: 3 (J0201 to J0203), last job ran on 21 November 2026",
+                    "Last job on 21 November 2026 ran 1 job and 2 new companies found"]
+    lined = daily_report.research_rows(dict(r, new=2))[0][1][1]
+    assert lined == ("3 (J0201 to J0203)", daily_report.GOOD)  # green when jobs are lined up
+    empty = daily_report.research_rows({"lined_up": [], "last": "2026-11-21", "ran": 22, "new": 14})
+    assert [daily_report._bullet_words(i) for i in empty] == [
+        "Research jobs lined up: none, last job ran on 21 November 2026",
+        "Last job on 21 November 2026 ran 22 jobs and 14 new companies found"]
+    assert empty[0][1][1] == ("none", daily_report.BAD)  # red when nothing is lined up
+    assert 'background:#FCEBEB;color:#A32D2D' in daily_report._bullet_html(empty[0])
     assert daily_report.research_status(hs, "2026-11-21", queue_file=tmp_path / "missing.csv") is None
 
 

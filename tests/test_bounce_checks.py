@@ -413,8 +413,8 @@ def test_a_held_broken_record_is_named_and_counted_as_needing_input():
     lines = [" ".join(line.split()) for line in text.splitlines()]
     block = lines[next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line) + 1:]
     # 21 Nov 2026 (Ariel): named once, in Initial stages, with why
-    held = "Contacts held: broken record 1 (Broken Co: its first name holds an email or web address)"
-    assert held in block and lines.count(held) == 1  # 22 Nov 2026: in round brackets in the same row
+    held = "• Contacts held: broken record - Broken Co: its first name holds an email or web address"
+    assert held in block and lines.count(held) == 1  # 22 Nov 2026: a bullet, the company after a dash
     assert not any(line.startswith("Introductions approved, waiting their turn to send") for line in block)  # 0
 
 
@@ -483,7 +483,7 @@ def test_the_daily_email_shows_both_need_input_sections_and_the_automatic_referr
     assert any(line.startswith("- Vegan Grocery Store (Australia) | sales@diablosnosugar.com |") for line in lines)
     assert "Need Amodh&#x27;s input</span>" in out["html"] and "#FAEEDA" in out["html"]
     assert '<a href="https://app.hubspot.com/x">Taste Organic (Australia)</a>' in out["html"]
-    heads = ("Negative replies", "Referrals the automation", "Replies not AUTO", "Referrals handled", "Initial stages")
+    heads = ("Need sales people input", "Referrals the automation", "Replies not AUTO", "Referrals handled", "Initial stages")
     order = [next(i for i, line in enumerate(lines) if h in line and line.startswith("[")) for h in heads]
     assert order == sorted(order)
 

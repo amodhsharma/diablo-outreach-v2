@@ -18,11 +18,11 @@ The email (20 Nov 2026, Ariel):
      cannot be read at all, one line says the charts could not be produced, and why.
   2. "Key numbers", in four columns (Yesterday, Day before with an arrow as on the day chart, Week so far from
      Monday, added 21 Nov 2026, and Month so far):
-       Sending: introductions sent, reminders sent (button 4's memory), Instantly uploads used of the plan's
-         allowance (daily_report.instantly_allowance in settings). The aim of 240 introductions a day is not shown.
+       Sending: introductions sent, reminders sent (button 4's memory). The aim of 240 introductions a day is not
+         shown.
        Delivery: undelivered (with the bounce rate; Instantly pauses at 5%; the "By sending account" and "At" lines
-         under it were dropped on 22 Nov 2026, Ariel), asked not to be emailed, automatic replies
-         (data/daily_log.json, written by button 4)
+         under it were dropped on 22 Nov 2026, Ariel), asked not to be emailed (data/daily_log.json, written by
+         button 4). The automatic replies (out of office) row was dropped on 22 Nov 2026 (Ariel).
        Sending, Delivery and Campaigns are each a proper table with lines between rows and columns (22 Nov 2026)
        Campaigns: a table of this month's campaigns, laid out for a desktop screen (22 Nov 2026, Ariel): Campaign,
          Status with its coloured dot (short: Running, Running brake on, Paused: Bounce Protect, ...), Bounce rate
@@ -31,20 +31,24 @@ The email (20 Nov 2026, Ariel):
          sent (22 Nov 2026, Ariel), Your input (green "Resume now", amber "Wait until ...", red "Resume when ready",
          "Connect a sending account" or "Contact Instantly support"; grey "None" when nothing is needed), then the
          emails it sent in the same four columns
-       Sending accounts: one green line when all are healthy, a red line naming each problem
-       Positive replies to follow up: every company that replied that day tagged Positive, plus Neutral and
-         Referral replies marked as such; Negative replies to convert into possible leads: the rest. No cap.
+       Sending accounts and Instantly (renamed 22 Nov 2026, Ariel): one green line when all are healthy, a red line
+         naming each problem, then Instantly uploads used of the plan's allowance (daily_report.instantly_allowance)
+       "Outreach mails sent to Ariel and Amodh (for the day of 21 November 2026), Need sales people input:" (22 Nov
+         2026, Ariel; until then two sections): a bullet "Positive replies to follow up (n) (companies)", every
+         company that replied that day tagged Positive, plus Neutral and Referral replies marked as such, and a
+         bullet "Negative replies to convert into possible leads (n) (companies)": the rest. No cap.
        Referrals handled automatically: only on days the automation handled some (21 Nov 2026, Ariel).
-       Initial stages - your input needed or not (at midnight UK): what the chart's Initial stages box holds,
-         with the names of everything waiting for a person (GATE1 and GATE2 approval, contacts not yet tagged,
-         contacts held because their record could not be put right, companies whose channel is not known). The
-         separate "Waiting for you" section was merged into it on 21 Nov 2026 (Ariel). What needs no input is one
-         green line, "No input needed (automatic)", without a breakdown (21 Nov 2026, Ariel). From 22 Nov 2026
-         (Ariel) the companies stand in round brackets in the same row, and the first row is the companies made
-         AUTO-OUTREACH that day from Apollo or no Lead Source (one number, not added to the section's total).
-         Then two research rows (22 Nov 2026, Ariel): "Research jobs lined up: none, last job ran on 21/11/2026" and
-         "Research: 6 jobs ran, 3 new companies found, 112 jobs left (UK, Australia, South Africa)" for the UK day
-         (research/queue.csv; new companies are those research added to HubSpot that day).
+       Initial stages - your input needed or not (at midnight UK): what the chart's Initial stages box holds, as
+         bullets (22 Nov 2026, Ariel): "Research jobs lined up: none" (a red label; green with the job numbers,
+         first to last, when jobs are lined up), with the date the last job ran; "Last job on 21 November 2026 ran
+         22 jobs and 14 new companies found" (research/queue.csv; new companies are those research added to
+         HubSpot that day); the companies made AUTO-OUTREACH that day from Apollo or no Lead Source (only when
+         there are some; not added to the heading's total); "New companies waiting for your GATE1 approval" and
+         "Introductions waiting for your GATE2 approval" (always shown, the companies after a dash or "none");
+         contacts not yet tagged, contacts held because their record could not be put right and companies whose
+         channel is not known (only when there are some); and, in green, "No input needed (automatic)" with its
+         steps in words (waiting for Apollo, being written, introductions waiting their turn). There is no "Your
+         input needed" line any more. The separate "Waiting for you" section was merged into it on 21 Nov 2026.
        Companies where nobody could be found (need sales people input): only on days there are some.
 
 The recipients and the mailbox's Google app password (DAILY_REPORT_APP_PASSWORD) are never written in the
@@ -614,11 +618,11 @@ def newly_tagged(hs, date):
 
 
 def research_status(hs, date, queue_file=None):
-    """22 Nov 2026 (Ariel): the research line in Initial stages, from research/queue.csv (one line per Location and
-    Channel; a job counts once however many channels it has) and HubSpot. {"lined_up": jobs waiting to run,
-    "countries": their countries (most jobs first), "last": the latest date a job ran, "ran": jobs that ran on the
-    UK day, "new": companies research added to HubSpot that UK day (None when HubSpot cannot be read)}, or None
-    when the queue cannot be read."""
+    """22 Nov 2026 (Ariel): the research bullets in Initial stages, from research/queue.csv (one line per Location and
+    Channel; a job counts once however many channels it has) and HubSpot. {"lined_up": [job IDs waiting to run, in
+    order], "last": the latest date a job ran, "ran": jobs that ran on that date, "new": companies research added to
+    HubSpot on that date, UK time (None when HubSpot cannot be read)}, or None when the queue cannot be read.
+    `date` (the UK day reported) is the latest date counted."""
     import csv
     from . import research_queue as rq
     from .schema import JOB_NUMBER
@@ -627,36 +631,45 @@ def research_status(hs, date, queue_file=None):
             rows = list(csv.DictReader(f))
     except OSError:
         return None
-    waiting = {}
+    waiting = []
     for r in rows:
-        if r.get("status") == rq.WAITING:
-            waiting.setdefault(r["job_id"], (r.get("location") or "").split(",")[-1].strip())
-    countries = Counter(c for c in waiting.values() if c)
-    ran_dates = [r["ran_on"] for r in rows if r.get("ran_on")]
-    start, end = window(date)
-    try:
-        new = hs.tagged_count("companies", _between("createdate", start, end)
-                              + [{"propertyName": JOB_NUMBER, "operator": "HAS_PROPERTY"}])
-    except Exception:
-        new = None
-    return {"lined_up": len(waiting), "countries": sorted(countries, key=lambda c: (-countries[c], c)),
-            "last": max(ran_dates) if ran_dates else None,
-            "ran": len({r["job_id"] for r in rows if r.get("ran_on") == date}), "new": new}
+        if r.get("status") == rq.WAITING and r["job_id"] not in waiting:
+            waiting.append(r["job_id"])
+    ran_dates = [r["ran_on"] for r in rows if r.get("ran_on") and r["ran_on"] <= date]
+    last = max(ran_dates) if ran_dates else None
+    new = None
+    if last:
+        start, end = window(last)
+        try:
+            new = hs.tagged_count("companies", _between("createdate", start, end)
+                                  + [{"propertyName": JOB_NUMBER, "operator": "HAS_PROPERTY"}])
+        except Exception:
+            new = None
+    return {"lined_up": sorted(waiting), "last": last,
+            "ran": len({r["job_id"] for r in rows if last and r.get("ran_on") == last}), "new": new}
+
+
+def _day_month_year(date):
+    """ "21 November 2026" (22 Nov 2026, Ariel: the date style of the email's new lines)."""
+    d = dt.date.fromisoformat(date)
+    return f"{d.day} {d.strftime('%B %Y')}"
 
 
 def research_rows(r):
-    """22 Nov 2026 (Ariel): two rows: what is lined up and when a job last ran, then the day's research."""
+    """22 Nov 2026 (Ariel): two bullets: what is lined up (a red "none" or the green job numbers, first to last) and
+    when a job last ran, then what that last day of research did."""
     if r is None:
-        return [("row", "Research: the research queue could not be read", "", "", None, None, "", SAME, "")]
-    last = dt.date.fromisoformat(r["last"]).strftime("%d/%m/%Y") if r["last"] else "never"
-    lined = _n(r["lined_up"]) if r["lined_up"] else "none"
-    left = f"{_n(r['lined_up'])} {_plural(r['lined_up'], 'job')} left" + (
-        f" ({', '.join(r['countries'])})" if r["countries"] else "")
+        return [("bullet", ["Research: the research queue could not be read"], "", SAME)]
+    ids = r["lined_up"]
+    lined = (("none", BAD) if not ids else
+             (f"{len(ids)} ({ids[0]})" if len(ids) == 1 else f"{len(ids)} ({ids[0]} to {ids[-1]})", GOOD))
+    if not r["last"]:
+        return [("bullet", ["Research jobs lined up: ", lined, ", no job has run yet"], "", None)]
+    when = _day_month_year(r["last"])
     new = "new companies could not be read" if r["new"] is None else \
         f"{_n(r['new'])} new {_plural(r['new'], 'company', 'companies')} found"
-    return [("row", f"Research jobs lined up: {lined}, last job ran on {last}", "", "", None, None, "", None, ""),
-            ("row", f"Research: {_n(r['ran'])} {_plural(r['ran'], 'job')} ran, {new}, {left}", "", "", None, None, "",
-             None, "")]
+    return [("bullet", ["Research jobs lined up: ", lined, f", last job ran on {when}"], "", None),
+            ("bullet", [f"Last job on {when} ran {_n(r['ran'])} {_plural(r['ran'], 'job')} and {new}"], "", None)]
 
 
 def campaign_positives(hs, view, data, days, campaign_ids):
@@ -811,22 +824,15 @@ def key_rows(k):
 
     sending_ = [row("Introductions sent", k["intros"], True, key="intros"),
                 row("Reminders sent", k["reminders"], True, key="reminders")]
-    if k["uploads"]:
-        used, allowed = k["uploads"]
-        # 22 Nov 2026 (Ariel): a row of the Sending table, its words in the first column
-        sending_.append(("row", f"Instantly uploads used: {used:,} of {allowed:,} ({used / allowed:.0%})", "", "",
-                         None, None, "", BAD if used >= 0.9 * allowed else None, ""))
-    else:
-        sending_.append(("row", "Instantly uploads used: Instantly could not be read this morning", "", "", None, None,
-                         "", SAME, ""))
+    # 22 Nov 2026 (Ariel): Instantly uploads used moved to "Sending accounts and Instantly"
     day_sent, month_sent = k["sent_total"]
     delivery = [row("Undelivered (bounced; Instantly pauses at 5%)", k["bounced"], False,
                     _rate(k["bounced"][0], day_sent), _rate(k["bounced"][2], month_sent), key="bounced",
                     week_text=_rate(weekly["bounced"], weekly.get("sent")) if "bounced" in weekly else None),
                 # 22 Nov 2026 (Ariel): the "By sending account" and "At" lines are no longer shown (bounces are
                 # forwarded and handled; asked about in the chat when needed)
-                row("Asked not to be emailed", k["opted_out"], False, key="opted_out"),
-                row("Automatic replies (out of office)", k["auto"], None, key="auto")]
+                row("Asked not to be emailed", k["opted_out"], False, key="opted_out")]
+    # 22 Nov 2026 (Ariel): the "Automatic replies (out of office)" row is no longer shown
     h = k.get("accounts")
     if h is None:
         campaigns = accounts = [("line", "Instantly could not be read this time", SAME)]
@@ -868,18 +874,25 @@ def key_rows(k):
         a = h["accounts"]
         accounts = [("health", GOOD if not a["problems"] else BAD, f"{a['healthy']} of {a['total']} healthy", "", "")]
         accounts += [("health", BAD, email, reason, "") for email, reason in a["problems"]]
-    when = dt.date.fromisoformat(k["date"])
-    replied = f"replied {when.strftime('%a')} {when.day} {when.strftime('%b')}"
-
-    def names(rows):
-        if not rows:
-            return [("line", "None", SAME)]
-        return [("name", f"{name} ({country}), {replied}" + (f" ({mark})" if mark else "")) for name, country, mark in rows]
+    # 22 Nov 2026 (Ariel): under the mailboxes' health, Instantly's uploads used
+    if k.get("uploads"):
+        used, allowed = k["uploads"]
+        accounts.append(("line", f"Instantly uploads used: {used:,} of {allowed:,} ({used / allowed:.0%})",
+                         BAD if used >= 0.9 * allowed else None))
+    else:
+        accounts.append(("line", "Instantly uploads used: Instantly could not be read this morning", SAME))
+    def companies(rows):
+        return ", ".join(name + (f" ({mark})" if mark else "") for name, _country, mark in rows)
+    # 22 Nov 2026 (Ariel): the positive and negative replies are one section for the sales team, a bullet each with
+    # the count and the companies in round brackets
+    sales = [("bullet", [f"{label} ({len(rows)})"], companies(rows), None, "brackets")
+             for label, rows in (("Positive replies to follow up", k["follow"]),
+                                 ("Negative replies to convert into possible leads", k["negative"]))]
     # 21 Nov 2026 (Ariel): a line with 0 is left out; the heading always shows, with its total
     blocks = [(("Sending", [PARAMETER]), sending_), (("Delivery", [PARAMETER]), delivery),
-              (("Campaigns", [HEALTH]), campaigns), (("Sending accounts", [HEALTH]), accounts),
-              (("Positive replies to follow up", [SALES]), names(k["follow"])),
-              (("Negative replies to convert into possible leads", [SALES]), names(k["negative"])),
+              (("Campaigns", [HEALTH]), campaigns), (("Sending accounts and Instantly", [HEALTH]), accounts),
+              ((f"Outreach mails sent to Ariel and Amodh (for the day of {_day_month_year(k['date'])}), Need sales "
+                "people input:", [SALES]), sales),
               *reply_blocks(k)]
     if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, at midnight UK
         # 21 Nov 2026 (Ariel): "Waiting for you" is merged in here; it named the same companies twice
@@ -889,19 +902,22 @@ def key_rows(k):
         need = sum(n for _, n, _ in k["initial"]["input"])
         auto = sum(n for _, n in k["initial"]["auto"])
         rows = [("line", k["check"], BAD)] if k.get("check") else []
-        if k.get("tagged"):  # 22 Nov 2026 (Ariel): one number and the names; not added to the heading's total
-            rows.append(("row", "Companies now AUTO-OUTREACH (from Apollo or no Lead Source)", _n(len(k["tagged"])),
-                         "", None, None, "", None, "", ", ".join(k["tagged"])))
-        if "research" in k:  # 22 Nov 2026 (Ariel): what research has lined up and what it did that day
+        # 22 Nov 2026 (Ariel): bullets: research first, then each list with its companies after a dash; no "Your
+        # input needed" line; GATE1 and GATE2 always show, the other lists only when they hold something
+        if "research" in k:
             rows += research_rows(k["research"])
-        rows.append(("row", "Your input needed", _n(need), "", None, None, ""))
+        if k.get("tagged"):  # one number and the names; not added to the heading's total
+            rows.append(("bullet", [f"Companies now AUTO-OUTREACH (from Apollo or no Lead Source) ({len(k['tagged'])})"],
+                         ", ".join(k["tagged"]), None))
+        always = ("New companies waiting for your GATE1 approval", "Introductions waiting for your GATE2 approval")
         for label, n, who in k["initial"]["input"]:
-            if n:  # 21 Nov 2026 (Ariel): a line with 0 is left out
+            if n or label in always:
                 text, detail = shown.get(label, (label, None))
-                # 22 Nov 2026 (Ariel): the companies in round brackets, comma separated, in the same row
-                rows.append(("row", "  " + text, _n(n), "", None, None, "", None, "", ", ".join(detail or who)))
-        # 21 Nov 2026 (Ariel): one green line, without the breakdown
-        rows.append(("row", "No input needed (automatic)", _n(auto), "", None, None, "", GOOD))
+                rows.append(("bullet", [text], ", ".join(detail or who) or "none", None))
+        steps = [f"{n:,} {words}" for n, words in zip((n for _, n in k["initial"]["auto"]),
+                                                       ("waiting for Apollo", "being written",
+                                                        "introductions waiting their turn")) if n]
+        rows.append(("bullet", ["No input needed (automatic)"], ", ".join(steps) or "none", GOOD))
         moment = "at midnight UK" if k.get("at_midnight", True) else "right now"
         blocks.append(((f"Initial stages - your input needed or not ({moment})", [AMODH], need + auto), rows))
     else:  # Initial stages could not be worked out: the same things, the short way
@@ -957,6 +973,8 @@ def key_text(k):
                                f"{week:<16}{month}".rstrip())
             elif item[0] == "line":
                 out.append(f"  {item[1]}")
+            elif item[0] == "bullet":
+                out.append("  • " + _bullet_words(item))
             elif item[0] == "health":
                 _, colour, name, state, rate = item
                 mark = {GOOD: "OK", BAD: "!!", WARN: "!"}.get(colour, "-")
@@ -1019,6 +1037,10 @@ def key_html(k):
             if item[0] == "table":
                 parts.append(f'<tr><td colspan="{full}" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
                 continue
+            if item[0] == "bullet":  # 22 Nov 2026 (Ariel): a real bullet, with a coloured label where one is given
+                parts.append(f'<tr><td colspan="{full}" style="padding:1px 10px 1px 14px">'
+                             f'<ul style="margin:0;padding-left:18px"><li>{_bullet_html(item)}</li></ul></td></tr>')
+                continue
             if item[0] == "row":
                 _, label, day, before, symbol, good, month = item[:7]
                 indent = 28 if label.startswith("  ") else 14
@@ -1035,6 +1057,39 @@ def key_html(k):
             else:
                 parts.append(f'<tr><td colspan="{full}" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
     return "".join(parts) + ("</table>" if current else "")
+
+
+def _bullet_parts(item):
+    """(segments, names, colour, style) of a ("bullet", segments, names, colour[, style]) item (22 Nov 2026)."""
+    _, segments, names, colour, *rest = item
+    return segments, names, colour, (rest[0] if rest else "dash")
+
+
+def _bullet_words(item):
+    segments, names, _colour, style = _bullet_parts(item)
+    words = "".join(s if isinstance(s, str) else s[0] for s in segments)
+    if names:
+        words += f" ({names})" if style == "brackets" else f" - {names}"
+    return words
+
+
+def _bullet_html(item):
+    """A bullet's words: plain text, a (text, colour) part as a coloured label (red "none", green job numbers), and
+    the companies after a dash or in round brackets."""
+    e = html.escape
+    segments, names, colour, style = _bullet_parts(item)
+    out = []
+    for s in segments:
+        if isinstance(s, str):
+            out.append(e(s))
+        else:
+            bg, fg = PILLS.get(s[1], PILLS[SAME])
+            out.append(f'<span style="background:{bg};color:{fg};padding:1px 8px;border-radius:6px;font-size:12px;'
+                       f'font-weight:bold">{e(s[0])}</span>')
+    if names:
+        out.append(e(f" ({names})" if style == "brackets" else f" - {names}"))
+    body = "".join(out)
+    return f'<span style="color:{colour}">{body}</span>' if colour else body
 
 
 def _own_table(text, tag_html, count, items):
