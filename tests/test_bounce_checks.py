@@ -503,3 +503,24 @@ def test_a_microsoft_tenant_with_no_mailboxes_is_a_domain_with_no_mail_system():
             "tenant which has no mail-enabled subscriptions.")
     assert corrupt.classify(text) == "no_mail"
     assert corrupt.classify("451 4.4.1 Try again later") == "temporary"  # a real temporary one stays temporary
+
+
+def test_a_block_from_another_domains_mail_system_never_stops_the_company(settings, label):
+    """22 Nov 2026 (Ariel, MES Group): the contact's groupon.com address was blocked by Groupon, not by MES Group,
+    so the company carries on with its next person."""
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "groupon.example", ("Sales Agent", "Buyer"))
+    hs.records["companies"][cid]["domain"] = "mesco.example"  # the company's own domain is a different one
+    bounce(instantly, emails, "p1@groupon.example", text=None)
+    label["p1@groupon.example"] = ["550 5.7.1 The organization has a policy that prohibited the mail"]
+    sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert rec(hs, p1)[LS] == "UNQUALIFIED_BOUNCED_OTHER"
+    assert rec(hs, p1)[REASON].startswith("Bounced: blocked by their mail system")
+    assert "carries on with the next person" in rec(hs, p1)[REASON] and "company stops" not in rec(hs, p1)[REASON]
+    assert hs.records["companies"][cid][LS] != "Unqualified: Bounced, other reason"
+
+
+def test_same_domain():
+    from outreach.corrupt import same_domain
+    assert same_domain("a@mesgroup.ch", "mesgroup.ch") and same_domain("a@uk.acme.com", "https://www.acme.com/")
+    assert not same_domain("a@groupon.com", "mesgroup.ch")
+    assert same_domain("a@x.com", "")  # nothing to compare with: treated as the company's own

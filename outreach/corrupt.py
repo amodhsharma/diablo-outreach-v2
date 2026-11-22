@@ -435,6 +435,8 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
             continue  # the same temporary bounce as before: nothing new to read
         lead = bounced.get(email) or {}
         kind = classify(notice, lead)
+        if kind == "policy":
+            r["_own_domain"] = _own_domain(hs, r)
         text = notice if notice.strip() else ("Instantly found no mail system for this domain" if kind == "no_mail" else "")
         if kind == "temporary" and count < TEMPORARY_LIMIT and not (known or {}).get("gave_up"):
             temporary[str(r["id"])] = {"day": (known or {}).get("day") or today(), "notices": max(count, 1)}
@@ -452,11 +454,14 @@ def check(hs, emails_api, leads, statuses, seen=(), log=print, promoted_path=Non
             if kind == "no_mail":
                 no_mail.append(r)
             continue
-        reasons.append((r["id"], bounced_reason(kind, text, "; the company stops" if kind == "policy" else "")))
+        extra = ""
+        if kind == "policy":  # 22 Nov 2026 (Ariel): a block from another domain's mail system: the next person goes
+            extra = "; the company stops" if r.get("_own_domain", True) else OTHER_DOMAIN_NOTE
+        reasons.append((r["id"], bounced_reason(kind, text, extra)))
         out["to_check"].append((r, LABELS[kind]))
         if statuses.of("contacts", r) != "bounced_other" and statuses.has("contacts", "bounced_other"):
             other.append((r["id"], statuses.props("contacts", "bounced_other")))
-        if kind == "policy":
+        if kind == "policy" and r.get("_own_domain", True):
             blocked.append(r)
     if no_mail:  # 20 Nov 2026: nobody else at a dead domain is emailed
         _same_domain(hs, statuses, no_mail, corrupt, log)
@@ -526,6 +531,37 @@ def close_dead(hs, statuses, dead, leads=None, log=print, promoted_path=None, ke
     save_promoted(promoted, promoted_path)
     _summary(out)
     return out
+
+
+OTHER_DOMAIN_NOTE = ("; the block came from another domain's mail system, not the company's own, so the company "
+                     "carries on with the next person")
+
+
+def same_domain(email, company_domain):
+    """True when the address belongs to the company's own domain (or one of its sub-domains)."""
+    d = str(email or "").lower().rsplit("@", 1)[-1].strip()
+    c = str(company_domain or "").lower().strip()
+    for prefix in ("https://", "http://"):
+        c = c[len(prefix):] if c.startswith(prefix) else c
+    c = c.split("/")[0]
+    c = c[4:] if c.startswith("www.") else c
+    if not d or not c:
+        return True  # without a domain on both sides we cannot tell: treated as the company's own (it stops)
+    return d == c or d.endswith("." + c) or c.endswith("." + d)
+
+
+def _own_domain(hs, contact):
+    """22 Nov 2026 (Ariel, MES Group: a groupon.com address blocked by Groupon): whether the blocked address is at
+    the company's own domain. Only then does a block stop the company; otherwise the next person is emailed."""
+    try:
+        _, companies = tagged_company_of(hs, [contact["id"]], ["domain", "website"])
+    except Exception:
+        return True
+    email = (contact.get("properties") or {}).get("email")
+    for company in companies.values():
+        p = company.get("properties") or {}
+        return same_domain(email, p.get("domain") or p.get("website"))
+    return True
 
 
 def _close_blocked(hs, statuses, blocked, leads, out, log):
