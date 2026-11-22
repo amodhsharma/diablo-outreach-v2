@@ -20,10 +20,10 @@ The email (20 Nov 2026, Ariel):
      Monday, added 21 Nov 2026, and Month so far):
        Sending: introductions sent, reminders sent (button 4's memory), Instantly uploads used of the plan's
          allowance (daily_report.instantly_allowance in settings). The aim of 240 introductions a day is not shown.
-       Delivery: undelivered (with the bounce rate; Instantly pauses at 5%; under it, which sending account each
-         bounce came from and at which company, with the reason written on the contact, for example "address does
-         not exist"; 20 Nov 2026), asked not to be emailed, automatic replies (data/daily_log.json, written by
-         button 4)
+       Delivery: undelivered (with the bounce rate; Instantly pauses at 5%; the "By sending account" and "At" lines
+         under it were dropped on 22 Nov 2026, Ariel), asked not to be emailed, automatic replies
+         (data/daily_log.json, written by button 4)
+       Sending, Delivery and Campaigns are each a proper table with lines between rows and columns (22 Nov 2026)
        Campaigns: a table of this month's campaigns, laid out for a desktop screen (22 Nov 2026, Ariel): Campaign,
          Status with its coloured dot (short: Running, Running brake on, Paused: Bounce Protect, ...), Bounce rate
          (3%), the benchmark in the heading (green under 3%, amber
@@ -419,7 +419,6 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "gate1": len(at.records("companies", "found")),
         "gate2": len(at.records("contacts", "copy_ready")),
         "nowhere": nobody_found(hs, statuses, date),
-        "bounces": bounce_detail(hs, instantly, settings, today["bounced"], date, emails_api),
         "unknown_channel": sorted(set(unknown.values()), key=str.lower),
         "held": held_records(hs, statuses, at),  # 20 Nov 2026: broken records, not sent
         "at_midnight": not at.live,
@@ -734,15 +733,18 @@ def key_rows(k):
                 row("Reminders sent", k["reminders"], True, key="reminders")]
     if k["uploads"]:
         used, allowed = k["uploads"]
-        sending_.append(("line", f"Instantly uploads used: {used:,} of {allowed:,} ({used / allowed:.0%})",
-                         BAD if used >= 0.9 * allowed else None))
+        # 22 Nov 2026 (Ariel): a row of the Sending table, its words in the first column
+        sending_.append(("row", f"Instantly uploads used: {used:,} of {allowed:,} ({used / allowed:.0%})", "", "",
+                         None, None, "", BAD if used >= 0.9 * allowed else None, ""))
     else:
-        sending_.append(("line", "Instantly uploads used: Instantly could not be read this morning", SAME))
+        sending_.append(("row", "Instantly uploads used: Instantly could not be read this morning", "", "", None, None,
+                         "", SAME, ""))
     day_sent, month_sent = k["sent_total"]
     delivery = [row("Undelivered (bounced; Instantly pauses at 5%)", k["bounced"], False,
                     _rate(k["bounced"][0], day_sent), _rate(k["bounced"][2], month_sent), key="bounced",
                     week_text=_rate(weekly["bounced"], weekly.get("sent")) if "bounced" in weekly else None),
-                *bounce_lines(k.get("bounces"), k["bounced"][0]),
+                # 22 Nov 2026 (Ariel): the "By sending account" and "At" lines are no longer shown (bounces are
+                # forwarded and handled; asked about in the chat when needed)
                 row("Asked not to be emailed", k["opted_out"], False, key="opted_out"),
                 row("Automatic replies (out of office)", k["auto"], None, key="auto")]
     h = k.get("accounts")
@@ -869,9 +871,8 @@ def key_text(k):
 
 
 def key_html(k):
-    """22 Nov 2026 (Ariel): laid out for a desktop screen. Sending, Delivery and Campaigns each have a table of their
-    own with its own Yesterday, Day before, Week so far and Month so far headings; the Campaigns table has four
-    columns of its own first (Campaign, Status, Bounce rate (3%), Your input). The other sections share one table."""
+    """22 Nov 2026 (Ariel): laid out for a desktop screen. Sending, Delivery and Campaigns are each a proper table of
+    their own (_own_table); the other sections share one table, as before."""
     e = html.escape
     title, blocks = key_rows(k)
     cell = 'style="padding:2px 10px;text-align:right;white-space:nowrap"'
@@ -891,44 +892,23 @@ def key_html(k):
                 f"<td {cell}>{e(week)}</td><td {cell}>{e(month)}</td>")
     for heading, items in blocks:
         text, tags, count = _heading(heading)
+        tag_html = "".join(f'<span style="background:{TAGS[t][0]};color:{TAGS[t][1]};padding:1px 8px;border-radius:6px;'
+                           f'font-weight:normal;font-size:12px;margin-right:6px">{e(t)}</span>' for t in tags)
         group = text if text in OWN_TABLES else "rest"
-        left = 4 if text == "Campaigns" else 1
-        wide, full = (f'colspan="{left}"' if left > 1 else ""), left + 4
+        if group in OWN_TABLES:  # 22 Nov 2026 (Ariel): a proper table, with lines between rows and columns
+            parts.append(("</table>" if current else "") + _own_table(text, tag_html, count, items))
+            current = None
+            continue
+        left, wide, full = 1, "", 5
         if group != current:
             parts.append(("</table>" if current else "") + open_table(left))
             current = group
-        tag_html = "".join(f'<span style="background:{TAGS[t][0]};color:{TAGS[t][1]};padding:1px 8px;border-radius:6px;'
-                           f'font-weight:normal;font-size:12px;margin-right:6px">{e(t)}</span>' for t in tags)
         if count is None:
             parts.append(f'<tr><td colspan="{full}" style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td></tr>')
         else:
             parts.append(f'<tr><td {wide} style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td>'
                          f'<td {cell}><b>{count}</b></td><td></td><td></td><td></td></tr>')
         for item in items:
-            if item[0] == "campaign_head":
-                head = 'style="padding:2px 10px 2px 14px;color:#888780;font-size:12px;white-space:nowrap"'
-                parts.append("<tr>" + "".join(f"<td {head}>{h}</td>" for h in
-                                              ("Campaign", "Status", "Bounce rate (3%)", "Your input")) + "<td></td>" * 4 + "</tr>")
-                continue
-            if item[0] == "campaign":  # 22 Nov 2026 (Ariel): one row per campaign, in four columns of its own
-                _, colour, name, state, rate, rate_colour, advice, numbers = item
-                td = 'style="padding:3px 10px 3px 14px;vertical-align:top;border-top:1px solid #eeeeee"'
-                input_html = ""
-                if advice and advice[1] != SAME:
-                    bg, fg = PILLS.get(advice[1], PILLS[SAME])
-                    input_html = (f'<span style="background:{bg};color:{fg};padding:1px 8px;border-radius:6px;'
-                                  f'font-size:12px;font-weight:bold;white-space:nowrap">{e(advice[0])}</span>')
-                elif advice:
-                    input_html = f'<span style="color:{SAME}">{e(advice[0])}</span>'
-                status_colour = colour if colour != GOOD else "inherit"
-                # 22 Nov 2026 (Ariel): the coloured dot goes with the status, not the campaign's name
-                row = (f'<tr><td {td}>{e(name)}</td>'
-                       f'<td {td}><span style="color:{colour}">&#9679;</span> '
-                       f'<span style="color:{status_colour};white-space:nowrap">{e(state)}</span></td>'
-                       f'<td {td}><span style="color:{rate_colour or "inherit"};font-weight:bold">{e(rate or "-")}</span></td>'
-                       f"<td {td}>{input_html}</td>")
-                parts.append(row + (numbers_html(*numbers) if numbers else "<td></td>" * 4) + "</tr>")
-                continue
             if item[0] == "health":
                 _, colour, name, state, rate = item
                 parts.append(f'<tr><td colspan="{full}" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
@@ -955,6 +935,53 @@ def key_html(k):
             else:
                 parts.append(f'<tr><td colspan="{full}" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
     return "".join(parts) + ("</table>" if current else "")
+
+
+def _own_table(text, tag_html, count, items):
+    """22 Nov 2026 (Ariel): Sending, Delivery or Campaigns as a proper table: the heading above it, a grey header row
+    (Campaigns: Campaign, Status, Bounce rate (3%), Your input; the others: the row's topic), then Yesterday, Day
+    before, Week so far and Month so far, with lines between every row and column. Notes go under the table."""
+    e = html.escape
+    line = "border:1px solid #d9d9d9;padding:4px 10px"
+    words, num = f'style="{line};vertical-align:top"', f'style="{line};text-align:right;white-space:nowrap;vertical-align:top"'
+    head = f'style="{line};background:#f5f5f5;color:#5f5e5a;font-size:12px;white-space:nowrap;text-align:left"'
+    campaigns = text == "Campaigns"
+    firsts = ("Campaign", "Status", "Bounce rate (3%)", "Your input") if campaigns else ("",)
+    total = f' <b>{count}</b>' if count is not None else ""
+    out = [f'<p style="margin:16px 0 4px">{tag_html}<b>{e(text)}</b>{total}</p>',
+           '<table style="border-collapse:collapse;font-size:14px;margin:0 0 4px">',
+           "<tr>" + "".join(f"<th {head}>{h}</th>" for h in firsts)
+           + "".join(f"<th {head}>{h}</th>" for h in ("Yesterday", "Day before", "Week so far", "Month so far")) + "</tr>"]
+    notes = []
+
+    def numbers(day, before, symbol, good, week, month, tint=""):
+        tone = SAME if good is None else (GOOD if good else BAD)
+        arrow = f' <span style="color:{tone};font-weight:bold">{symbol}</span>' if symbol else ""
+        return (f'<td {num}><b style="{tint}">{e(day)}</b></td><td {num}>{e(before)}{arrow}</td>'
+                f"<td {num}>{e(week)}</td><td {num}>{e(month)}</td>")
+    for item in items:
+        if item[0] == "campaign":
+            _, colour, name, state, rate, rate_colour, advice, nums = item
+            if advice and advice[1] != SAME:
+                bg, fg = PILLS.get(advice[1], PILLS[SAME])
+                said = (f'<span style="background:{bg};color:{fg};padding:1px 8px;border-radius:6px;font-size:12px;'
+                        f'font-weight:bold;white-space:nowrap">{e(advice[0])}</span>')
+            else:
+                said = f'<span style="color:{SAME}">{e(advice[0])}</span>' if advice else ""
+            status = (f'<span style="color:{colour}">&#9679;</span> <span style="color:{colour if colour != GOOD else "inherit"};'
+                      f'white-space:nowrap">{e(state)}</span>')
+            out.append(f"<tr><td {words}>{e(name)}</td><td {words}>{status}</td>"
+                       f'<td {words}><span style="color:{rate_colour or "inherit"};font-weight:bold">{e(rate or "-")}</span></td>'
+                       f"<td {words}>{said}</td>" + (numbers(*nums) if nums else f"<td {num}></td>" * 4) + "</tr>")
+        elif item[0] == "row":
+            _, label, day, before, symbol, good, month = item[:7]
+            tint = f"color:{item[7]};" if len(item) > 7 and item[7] else ""
+            week = item[8] if len(item) > 8 else ""
+            out.append(f'<tr><td {words[:-1]};min-width:360px;{tint}">{e(label.strip())}</td>'
+                       + numbers(day, before, symbol, good, week, month, tint) + "</tr>")
+        elif item[0] == "line":
+            notes.append(f'<p style="margin:0 0 2px;font-size:12px;color:{item[2] or SAME}">{e(item[1])}</p>')
+    return "".join(out) + "</table>" + "".join(notes)
 
 
 def _table_html(headers, rows):

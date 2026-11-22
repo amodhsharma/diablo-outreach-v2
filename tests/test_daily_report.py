@@ -391,9 +391,9 @@ def test_one_line_when_hubspot_cannot_be_read(monkeypatch, tmp_path):
     assert text == "Today's charts could not be produced: HubSpot could not be read (503 Service Unavailable).\n"
 
 
-def test_the_bounces_name_their_sending_account_and_company():
-    """20 Nov 2026 (Ariel): under Undelivered, which sending account each bounce came from (with its share of that
-    account's emails that day) and at which company."""
+def test_the_bounces_are_counted_without_the_account_and_company_lines():
+    """22 Nov 2026 (Ariel): the "By sending account" and "At" lines under Undelivered are no longer shown; the bounces
+    are forwarded and handled, and asked about in the chat when needed."""
     hs, instantly, accounts, log = _world()
     shop = hs.add("companies", name="Kadac", country="au", createdate="2026-10-20T00:00:00Z",
                   hs_lead_status="Attempted to Contact")
@@ -409,8 +409,8 @@ def test_the_bounces_name_their_sending_account_and_company():
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
-    assert "By sending account: sales@x.example 1 (33% of its 3 emails)" in lines
-    assert "At: Kadac (Australia)" in lines
+    assert not any(line.startswith(("By sending account", "At: ")) for line in lines)
+    assert any(line.startswith("Undelivered (bounced; Instantly pauses at 5%) 1") for line in lines)
 
 
 @pytest.mark.channels
@@ -574,7 +574,8 @@ def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate
     assert "Diablo | NOV2026 | Company inboxes | !! Paused: Bounce Protect | 4.5% | Resume now" in lines
     assert "Emails sent 19 10 ▲ 134 284" in lines
     html = daily_report.key_html(k)
-    assert ">Campaign</td>" in html and ">Bounce rate (3%)</td>" in html and ">Your input</td>" in html
+    assert ">Campaign</th>" in html and ">Bounce rate (3%)</th>" in html and ">Your input</th>" in html
+    assert "border:1px solid #d9d9d9" in html  # 22 Nov 2026 (Ariel): lines between rows and columns
     assert ">Diablo | NOV2026</td>" in html  # 22 Nov 2026 (Ariel): no dot before the name; it goes with the status
     assert '&#9679;</span> <span style="color:#BA7517;white-space:nowrap">Running, brake on</span>' in html
     assert 'color:#C0392B;font-weight:bold">8.5%</span>' in html  # over 5%: red
@@ -587,10 +588,11 @@ def test_sending_delivery_and_campaigns_each_have_their_own_table():
     result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                               preview=True, log=quiet, log_data=log)
     html = result["html"]
-    assert html.count(">Yesterday</span>") == 4  # Sending, Delivery, Campaigns and the rest
+    assert html.count(">Yesterday</th>") == 3 and html.count(">Yesterday</span>") == 1  # 3 own tables, the rest
     tables = html.split("<table")[1:]
     assert "Introductions sent" in tables[0] and "Undelivered" not in tables[0]
     assert "Undelivered" in tables[1] and "Campaign</td>" not in tables[1]
     assert "Bounce rate (3%)" in tables[2] and "Sending accounts" not in tables[2]
+    assert "Instantly uploads used: 4 of 25,000 (0%)</td>" in tables[0]  # a row, in the first column
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert lines.count("Yesterday Day before Week so far Month so far") == 4
