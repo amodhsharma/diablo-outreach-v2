@@ -656,6 +656,7 @@ def bounce_lines(detail, bounced):
 # 21 Nov 2026 (Ariel): a coloured label before each heading says what kind of section it is.
 PARAMETER, HEALTH, SALES = "Parameter", "Health", "For sales team"
 AMODH, INFO = "Need Amodh's input", "For information"
+OWN_TABLES = ("Sending", "Delivery", "Campaigns")  # 22 Nov 2026 (Ariel): each its own table in the email
 # 22 Nov 2026 (Ariel): the label saying when to unpause a campaign: green resume now, amber wait, grey nothing to
 # do, red needs a person
 PILLS = {"#0F6E56": ("#EAF3DE", "#27500A"), "#BA7517": ("#FAEEDA", "#854F0B"), "#888780": ("#F1EFE8", "#444441"),
@@ -825,9 +826,14 @@ def key_rows(k):
 def key_text(k):
     title, blocks = key_rows(k)
     width = max(len(i[1]) for _, items in blocks for i in items if i[0] == "row") + 4
-    out = [title, f"{'':{width + 2}}{'Yesterday':<16}{'Day before':<16}{'Week so far':<16}Month so far"]
+    columns = f"{'':{width + 2}}{'Yesterday':<16}{'Day before':<16}{'Week so far':<16}Month so far"
+    out, current = [title], None
     for heading, items in blocks:
         text, tags, count = _heading(heading)
+        group = text if text in OWN_TABLES else "rest"  # 22 Nov 2026 (Ariel): their own headings, as in the HTML
+        if group != current:
+            out.append(columns)
+            current = group
         label = "".join(f"[{t}] " for t in tags) + text
         out.append(f"{label:<{width + 1}} {count}" if count is not None else label)
         for item in items:
@@ -863,16 +869,20 @@ def key_text(k):
 
 
 def key_html(k):
-    """22 Nov 2026 (Ariel): eight columns, laid out for a desktop screen: the Campaigns table uses the first four
-    (Campaign, Status, Bounce rate, Your input); every other line spans them as one."""
+    """22 Nov 2026 (Ariel): laid out for a desktop screen. Sending, Delivery and Campaigns each have a table of their
+    own with its own Yesterday, Day before, Week so far and Month so far headings; the Campaigns table has four
+    columns of its own first (Campaign, Status, Bounce rate (3%), Your input). The other sections share one table."""
     e = html.escape
     title, blocks = key_rows(k)
     cell = 'style="padding:2px 10px;text-align:right;white-space:nowrap"'
-    wide = 'colspan="4"'
-    parts = [f'<p style="margin:24px 0 6px;font-size:16px"><b>{e(title)}</b></p>',
-             f'<table style="border-collapse:collapse;font-size:14px"><tr><td {wide}></td>'
-             + "".join(f'<td {cell}><span style="color:{SAME}">{h}</span></td>'
-                       for h in ("Yesterday", "Day before", "Week so far", "Month so far")) + "</tr>"]
+    parts = [f'<p style="margin:24px 0 6px;font-size:16px"><b>{e(title)}</b></p>']
+
+    def open_table(left):
+        first = f'<td colspan="{left}"></td>' if left > 1 else '<td style="min-width:380px"></td>'
+        return ('<table style="border-collapse:collapse;font-size:14px;margin:0 0 6px"><tr>' + first
+                + "".join(f'<td {cell}><span style="color:{SAME}">{h}</span></td>'
+                          for h in ("Yesterday", "Day before", "Week so far", "Month so far")) + "</tr>")
+    current = None
 
     def numbers_html(day, before, symbol, good, week, month, tint=""):
         tone = SAME if good is None else (GOOD if good else BAD)
@@ -881,10 +891,16 @@ def key_html(k):
                 f"<td {cell}>{e(week)}</td><td {cell}>{e(month)}</td>")
     for heading, items in blocks:
         text, tags, count = _heading(heading)
+        group = text if text in OWN_TABLES else "rest"
+        left = 4 if text == "Campaigns" else 1
+        wide, full = (f'colspan="{left}"' if left > 1 else ""), left + 4
+        if group != current:
+            parts.append(("</table>" if current else "") + open_table(left))
+            current = group
         tag_html = "".join(f'<span style="background:{TAGS[t][0]};color:{TAGS[t][1]};padding:1px 8px;border-radius:6px;'
                            f'font-weight:normal;font-size:12px;margin-right:6px">{e(t)}</span>' for t in tags)
         if count is None:
-            parts.append(f'<tr><td colspan="8" style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td></tr>')
+            parts.append(f'<tr><td colspan="{full}" style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td></tr>')
         else:
             parts.append(f'<tr><td {wide} style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td>'
                          f'<td {cell}><b>{count}</b></td><td></td><td></td><td></td></tr>')
@@ -915,13 +931,13 @@ def key_html(k):
                 continue
             if item[0] == "health":
                 _, colour, name, state, rate = item
-                parts.append(f'<tr><td colspan="8" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
+                parts.append(f'<tr><td colspan="{full}" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
                              f'{e(name)}' + (f': <span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span>'
                                              if state else "") + (f' <span style="color:{SAME}">({e(rate)})</span>'
                                                                   if rate else "") + "</td></tr>")
                 continue
             if item[0] == "table":
-                parts.append(f'<tr><td colspan="8" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
+                parts.append(f'<tr><td colspan="{full}" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
                 continue
             if item[0] == "row":
                 _, label, day, before, symbol, good, month = item[:7]
@@ -935,10 +951,10 @@ def key_html(k):
             elif item[0] == "line":
                 dot = f'<span style="color:{item[2]}">&#9679;</span> ' if item[2] in (GOOD, BAD) else ""
                 style = f"color:{item[2]};" if item[2] else ""
-                parts.append(f'<tr><td colspan="8" style="padding:2px 10px 2px 14px;{style}">{dot}{e(item[1])}</td></tr>')
+                parts.append(f'<tr><td colspan="{full}" style="padding:2px 10px 2px 14px;{style}">{dot}{e(item[1])}</td></tr>')
             else:
-                parts.append(f'<tr><td colspan="8" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
-    return "".join(parts) + "</table>"
+                parts.append(f'<tr><td colspan="{full}" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
+    return "".join(parts) + ("</table>" if current else "")
 
 
 def _table_html(headers, rows):

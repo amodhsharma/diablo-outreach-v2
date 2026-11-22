@@ -579,3 +579,18 @@ def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate
     assert '&#9679;</span> <span style="color:#BA7517;white-space:nowrap">Running, brake on</span>' in html
     assert 'color:#C0392B;font-weight:bold">8.5%</span>' in html  # over 5%: red
     assert "Resume now</span>" in html and "#EAF3DE" in html  # a green label
+
+
+def test_sending_delivery_and_campaigns_each_have_their_own_table():
+    """22 Nov 2026 (Ariel): each with its own Yesterday, Day before, Week so far and Month so far headings."""
+    hs, instantly, accounts, log = _world()
+    result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
+                              preview=True, log=quiet, log_data=log)
+    html = result["html"]
+    assert html.count(">Yesterday</span>") == 4  # Sending, Delivery, Campaigns and the rest
+    tables = html.split("<table")[1:]
+    assert "Introductions sent" in tables[0] and "Undelivered" not in tables[0]
+    assert "Undelivered" in tables[1] and "Campaign</td>" not in tables[1]
+    assert "Bounce rate (3%)" in tables[2] and "Sending accounts" not in tables[2]
+    lines = [" ".join(line.split()) for line in result["text"].splitlines()]
+    assert lines.count("Yesterday Day before Week so far Month so far") == 4
