@@ -24,9 +24,11 @@ The email (20 Nov 2026, Ariel):
          bounce came from and at which company, with the reason written on the contact, for example "address does
          not exist"; 20 Nov 2026), asked not to be emailed, automatic replies (data/daily_log.json, written by
          button 4)
-       Campaigns: this month's campaigns, each with its state, a coloured label saying when to unpause it (green
-         "Resume now", amber "Wait until ..." with the bounce rate now, grey "Resumes by itself", red "Needs you: ...")
-         and the emails it sent in the same four columns (22 Nov 2026, Ariel)
+       Campaigns: a table of this month's campaigns, laid out for a desktop screen (22 Nov 2026, Ariel): Campaign,
+         Status (short: Running, Running brake on, Paused: Bounce Protect, ...), Bounce rate (green under 3%, amber
+         3% to 5%, red over 5%), Your input (green "Resume now", amber "Wait until ...", red "Resume when ready",
+         "Connect a sending account" or "Contact Instantly support"; grey "None" when nothing is needed), then the
+         emails it sent in the same four columns
        Sending accounts: one green line when all are healthy, a red line naming each problem
        Positive replies to follow up: every company that replied that day tagged Positive, plus Neutral and
          Referral replies marked as such; Negative replies to convert into possible leads: the rest. No cap.
@@ -470,39 +472,34 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
             except (InstantlyError, AttributeError):
                 pass
             code = camp.get("status")
-            waiting = sum(1 for lead in instantly.list_leads(camp["id"]) if not lead.get("timestamp_last_contact")) \
-                if code not in (1, None) else 0
             bounced, emailed = rates.get(camp["id"], (0, 0))
-            rate = f"{bounced / emailed:.1%} bounced" if emailed else ""
+            rate = f"{bounced / emailed:.1%}" if emailed else ""
             braked = emailed >= least and bounced / emailed >= limit
-            wait = f", {waiting} introductions waiting" if waiting else ""
-            # 22 Nov 2026 (Ariel): next to each paused campaign, when to unpause it, as a coloured label
-            advice = None
+            # 22 Nov 2026 (Ariel): a short status, and in "Your input" what a person must do, if anything
             if not mailboxes or connected == 0:
-                colour, state = BAD, "No sending account connected" + wait
-                advice = ("Needs you: connect a sending account", BAD)
+                colour, state, advice = BAD, "No sending account", ("Connect a sending account", BAD)
             elif code == -2:
-                colour, state = BAD, "Paused by Instantly (Bounce Protect)" + wait
+                colour, state = BAD, "Paused: Bounce Protect"
                 advice = resume_advice(view, cfg, camp["id"], bounced, emailed)
             elif code == -1:
-                colour, state = BAD, "Paused: a sending account has a problem" + wait
-                advice = ("Resumes by itself once its mailboxes are healthy", SAME)
+                colour, state = BAD, "Paused: sending account problem"
+                advice = ("None: resumes by itself once the mailboxes are healthy", SAME)
             elif code == -99:
-                colour, state = BAD, "Suspended by Instantly" + wait
-                advice = ("Needs you: contact Instantly support", BAD)
+                colour, state, advice = BAD, "Suspended", ("Contact Instantly support", BAD)
             elif code == 2:
-                colour, state = BAD, "Paused" + wait
-                advice = ("Needs you: paused by hand, resume when ready", BAD)
+                colour, state, advice = BAD, "Paused by hand", ("Resume when ready", BAD)
             elif code == 0:
-                colour, state = WARN, "Not started (Draft)" + wait
+                colour, state, advice = WARN, "Not started", ("None", SAME)
             elif braked:
-                colour, state = WARN, "Running; our 3% brake is on, new introductions wait"
-                advice = ("Resumes by itself under 3%", SAME)
+                colour, state = WARN, "Running, brake on"
+                advice = ("None: new introductions start again by themselves under 3%", SAME)
             elif code in (1, None, 4):
-                colour, state = GOOD, "Running"
+                colour, state, advice = GOOD, "Running", ("None", SAME)
             else:
-                colour, state = SAME, CAMPAIGN_STATUS.get(code, "Unknown")
-            rows.append((colour, camp.get("name") or "A campaign", state, rate, advice, camp["id"]))
+                colour, state, advice = SAME, CAMPAIGN_STATUS.get(code, "Unknown"), ("None", SAME)
+            share = bounced / emailed if emailed else None
+            rate_colour = None if share is None else (GOOD if share < limit else WARN if share <= INSTANTLY_PAUSE_RATE else BAD)
+            rows.append((colour, camp.get("name") or "A campaign", state, rate, advice, camp["id"], rate_colour))
         problems, total = [], 0
         for acc in (accounts_api or instantly).list_accounts():
             email = (acc.get("email") or "").lower()
@@ -523,18 +520,17 @@ INSTANTLY_PAUSE_RATE = 0.05  # Instantly's Bounce Protect pauses a campaign abov
 
 def resume_advice(view, cfg, campaign_id, bounced, emailed, now=None):
     """22 Nov 2026 (Ariel): for a campaign paused by Bounce Protect, ("Resume now", green) once its bounce rate is back
-    under Instantly's 5% (every bounced person is already stopped), else ("Wait until Tue 24 Nov, 14:00 UK (6.1%
-    bounced now)", amber): the moment enough old emails leave the 7-day count, if nothing more is sent."""
+    under Instantly's 5% (every bounced person is already stopped), else ("Wait until Tue 24 Nov, 14:00 UK", amber):
+    the moment enough old emails leave the 7-day count, if nothing more is sent."""
     from . import address_checks
     now = now or dt.datetime.now(dt.timezone.utc)
     when = address_checks.clears_at(view, cfg, campaign_id, INSTANTLY_PAUSE_RATE, now)
     if when is not None and when <= now:
         return "Resume now", GOOD
-    rate = f"{bounced / emailed:.1%} bounced now" if emailed else "bounced too often"
     if when is None:
-        return f"Wait ({rate})", WARN
-    uk = when.astimezone(DAY_ZONE)
-    return f"Wait until {uk.strftime('%a')} {uk.day} {uk.strftime('%b')}, {uk.strftime('%H:00')} UK ({rate})", WARN
+        return "Wait", WARN
+    uk = when.astimezone(DAY_ZONE)  # 22 Nov 2026: the rate itself is in the Bounce rate column
+    return f"Wait until {uk.strftime('%a')} {uk.day} {uk.strftime('%b')}, {uk.strftime('%H:00')} UK", WARN
 
 
 def campaign_sends(instantly, emails_api, campaign_ids, dates):
@@ -752,9 +748,10 @@ def key_rows(k):
         campaigns = accounts = [("line", "Instantly could not be read this time", SAME)]
     else:
         sent = k.get("campaign_sent")
-        campaigns = []
+        # 22 Nov 2026 (Ariel): a table: Campaign | Status | Bounce rate | Your input | the four columns
+        campaigns = [("campaign_head",)] if h["campaigns"] else []
         for colour, name, state, rate, *more in h["campaigns"]:
-            advice, cid = (more + [None, None])[:2]
+            advice, cid, rate_colour = (more + [None, None, None])[:3]
             if "campaign_sent" not in k:
                 numbers = None
             elif sent is None:
@@ -762,12 +759,14 @@ def key_rows(k):
             else:
                 day, before, week, month = sent.get(str(cid)) or (0, 0, 0, 0)
                 numbers = (_n(day), _n(before), *_arrow(day, before, True), _n(week), _n(month))
-            campaigns.append(("campaign", colour, name, state, rate, advice, numbers))
+            campaigns.append(("campaign", colour, name, state, rate, rate_colour, advice, numbers))
         campaigns = campaigns or [("line", "No campaign this month yet", SAME)]
         if "campaign_sent" in k and sent is None:
             campaigns.append(("line", "Emails sent per campaign: Instantly could not be read this time", SAME))
         if any(c[4] for c in campaigns if c[0] == "campaign"):
-            campaigns.append(("line", "% = bounces over each campaign's last 200 emails of the last 7 days", SAME))
+            campaigns.append(("line", "Bounce rate = bounces over each campaign's last 200 emails of the last 7 days "
+                                      "(green under 3%; amber 3% to 5%, our brake is on; red over 5%, Instantly pauses)",
+                              SAME))
         a = h["accounts"]
         accounts = [("health", GOOD if not a["problems"] else BAD, f"{a['healthy']} of {a['total']} healthy", "", "")]
         accounts += [("health", BAD, email, reason, "") for email, reason in a["problems"]]
@@ -837,11 +836,12 @@ def key_text(k):
                 names = f"  ({item[9]})" if len(item) > 9 and item[9] else ""
                 out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{week:<16}{month}"
                            .rstrip() + names)
+            elif item[0] == "campaign_head":
+                out.append("  Campaign | Status | Bounce rate | Your input")
             elif item[0] == "campaign":
-                _, colour, name, state, rate, advice, numbers = item
+                _, colour, name, state, rate, _rate_colour, advice, numbers = item
                 mark = {GOOD: "OK", BAD: "!!", WARN: "!"}.get(colour, "-")
-                out.append(f"  {mark:<3}{name}" + (f": {state}" if state else "") + (f" [{advice[0]}]" if advice else "")
-                           + (f" ({rate})" if rate else ""))
+                out.append(f"  {mark:<3}{name} | {state} | {rate or '-'} | {advice[0] if advice else 'None'}")
                 if numbers:
                     day, before, symbol, _good, week, month = numbers
                     out.append(f"  {'     Emails sent':<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}"
@@ -862,70 +862,79 @@ def key_text(k):
 
 
 def key_html(k):
+    """22 Nov 2026 (Ariel): eight columns, laid out for a desktop screen: the Campaigns table uses the first four
+    (Campaign, Status, Bounce rate, Your input); every other line spans them as one."""
     e = html.escape
     title, blocks = key_rows(k)
     cell = 'style="padding:2px 10px;text-align:right;white-space:nowrap"'
+    wide = 'colspan="4"'
     parts = [f'<p style="margin:24px 0 6px;font-size:16px"><b>{e(title)}</b></p>',
-             '<table style="border-collapse:collapse;font-size:14px"><tr><td></td>'
+             f'<table style="border-collapse:collapse;font-size:14px"><tr><td {wide}></td>'
              + "".join(f'<td {cell}><span style="color:{SAME}">{h}</span></td>'
                        for h in ("Yesterday", "Day before", "Week so far", "Month so far")) + "</tr>"]
+
+    def numbers_html(day, before, symbol, good, week, month, tint=""):
+        tone = SAME if good is None else (GOOD if good else BAD)
+        arrow = f' <span style="color:{tone};font-weight:bold">{symbol}</span>' if symbol else ""
+        return (f'<td {cell}><b style="{tint}">{e(day)}</b></td><td {cell}>{e(before)}{arrow}</td>'
+                f"<td {cell}>{e(week)}</td><td {cell}>{e(month)}</td>")
     for heading, items in blocks:
         text, tags, count = _heading(heading)
         tag_html = "".join(f'<span style="background:{TAGS[t][0]};color:{TAGS[t][1]};padding:1px 8px;border-radius:6px;'
                            f'font-weight:normal;font-size:12px;margin-right:6px">{e(t)}</span>' for t in tags)
         if count is None:
-            parts.append(f'<tr><td colspan="5" style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td></tr>')
+            parts.append(f'<tr><td colspan="8" style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td></tr>')
         else:
-            parts.append(f'<tr><td style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td>'
+            parts.append(f'<tr><td {wide} style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td>'
                          f'<td {cell}><b>{count}</b></td><td></td><td></td><td></td></tr>')
         for item in items:
-            if item[0] == "campaign":  # 22 Nov 2026 (Ariel): status, when to unpause, and the emails it sent
-                _, colour, name, state, rate, advice, numbers = item
-                pill = ""
-                if advice:
+            if item[0] == "campaign_head":
+                head = 'style="padding:2px 10px 2px 14px;color:#888780;font-size:12px;white-space:nowrap"'
+                parts.append("<tr>" + "".join(f"<td {head}>{h}</td>" for h in
+                                              ("Campaign", "Status", "Bounce rate", "Your input")) + "<td></td>" * 4 + "</tr>")
+                continue
+            if item[0] == "campaign":  # 22 Nov 2026 (Ariel): one row per campaign, in four columns of its own
+                _, colour, name, state, rate, rate_colour, advice, numbers = item
+                td = 'style="padding:3px 10px 3px 14px;vertical-align:top;border-top:1px solid #eeeeee"'
+                input_html = ""
+                if advice and advice[1] != SAME:
                     bg, fg = PILLS.get(advice[1], PILLS[SAME])
-                    pill = (f' <span style="background:{bg};color:{fg};padding:1px 8px;border-radius:6px;font-size:12px;'
-                            f'font-weight:bold;white-space:nowrap">{e(advice[0])}</span>')
-                label = (f'<span style="color:{colour}">&#9679;</span> {e(name)}'
-                         + (f': <span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span>' if state else "")
-                         + pill + (f' <span style="color:{SAME}">({e(rate)})</span>' if rate else ""))
-                if numbers:
-                    day, before, symbol, good, week, month = numbers
-                    tone = SAME if good is None else (GOOD if good else BAD)
-                    arrow = f' <span style="color:{tone};font-weight:bold">{symbol}</span>' if symbol else ""
-                    parts.append(f'<tr><td style="padding:2px 10px 2px 14px">{label}</td><td {cell}><b>{e(day)}</b></td>'
-                                 f"<td {cell}>{e(before)}{arrow}</td><td {cell}>{e(week)}</td><td {cell}>{e(month)}</td></tr>")
-                else:
-                    parts.append(f'<tr><td colspan="5" style="padding:2px 10px 2px 14px">{label}</td></tr>')
+                    input_html = (f'<span style="background:{bg};color:{fg};padding:1px 8px;border-radius:6px;'
+                                  f'font-size:12px;font-weight:bold;white-space:nowrap">{e(advice[0])}</span>')
+                elif advice:
+                    input_html = f'<span style="color:{SAME}">{e(advice[0])}</span>'
+                status_colour = colour if colour != GOOD else "inherit"
+                row = (f'<tr><td {td}><span style="color:{colour}">&#9679;</span> {e(name)}</td>'
+                       f'<td {td}><span style="color:{status_colour};white-space:nowrap">{e(state)}</span></td>'
+                       f'<td {td}><span style="color:{rate_colour or "inherit"};font-weight:bold">{e(rate or "-")}</span></td>'
+                       f"<td {td}>{input_html}</td>")
+                parts.append(row + (numbers_html(*numbers) if numbers else "<td></td>" * 4) + "</tr>")
                 continue
             if item[0] == "health":
                 _, colour, name, state, rate = item
-                parts.append(f'<tr><td colspan="5" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
+                parts.append(f'<tr><td colspan="8" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
                              f'{e(name)}' + (f': <span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span>'
                                              if state else "") + (f' <span style="color:{SAME}">({e(rate)})</span>'
                                                                   if rate else "") + "</td></tr>")
                 continue
             if item[0] == "table":
-                parts.append(f'<tr><td colspan="5" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
+                parts.append(f'<tr><td colspan="8" style="padding:2px 10px 6px 14px">{_table_html(item[1], item[2])}</td></tr>')
                 continue
             if item[0] == "row":
                 _, label, day, before, symbol, good, month = item[:7]
-                colour = SAME if good is None else (GOOD if good else BAD)
-                arrow = f' <span style="color:{colour};font-weight:bold">{symbol}</span>' if symbol else ""
                 indent = 28 if label.startswith("  ") else 14
                 tint = f"color:{item[7]};" if len(item) > 7 and item[7] else ""  # 21 Nov 2026: own colour
                 week = item[8] if len(item) > 8 else ""
                 names = (f' <span style="color:{SAME};font-size:12px;font-weight:normal">({e(item[9])})</span>'
                          if len(item) > 9 and item[9] else "")  # 22 Nov 2026 (Ariel): the companies, same row
-                parts.append(f'<tr><td style="padding:2px 10px 2px {indent}px;{tint}">{e(label.strip())}{names}</td>'
-                             f'<td {cell}><b style="{tint}">{e(day)}</b></td>'
-                             f"<td {cell}>{e(before)}{arrow}</td><td {cell}>{e(week)}</td><td {cell}>{e(month)}</td></tr>")
+                parts.append(f'<tr><td {wide} style="padding:2px 10px 2px {indent}px;{tint}">{e(label.strip())}{names}</td>'
+                             + numbers_html(day, before, symbol, good, week, month, tint) + "</tr>")
             elif item[0] == "line":
                 dot = f'<span style="color:{item[2]}">&#9679;</span> ' if item[2] in (GOOD, BAD) else ""
                 style = f"color:{item[2]};" if item[2] else ""
-                parts.append(f'<tr><td colspan="5" style="padding:2px 10px 2px 14px;{style}">{dot}{e(item[1])}</td></tr>')
+                parts.append(f'<tr><td colspan="8" style="padding:2px 10px 2px 14px;{style}">{dot}{e(item[1])}</td></tr>')
             else:
-                parts.append(f'<tr><td colspan="5" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
+                parts.append(f'<tr><td colspan="8" style="padding:1px 10px 1px 28px">{e(item[1])}</td></tr>')
     return "".join(parts) + "</table>"
 
 

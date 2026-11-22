@@ -123,10 +123,11 @@ def test_key_numbers_read_as_agreed():
     assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (33.3%) 1 (25.0%)" in lines
     assert "Asked not to be emailed 0 0 = 0 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2 2" in lines
     # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
-    assert (f"!! Diablo | {_month("2026-10-26")} | Company inboxes: No sending account connected "
-            "[Needs you: connect a sending account]") in lines  # 22 Nov 2026: when to unpause, as a label
+    # 22 Nov 2026 (Ariel): Campaign | Status | Bounce rate | Your input, then the four columns
+    assert "Campaign | Status | Bounce rate | Your input" in lines
+    assert f"!! Diablo | {_month("2026-10-26")} | Company inboxes | No sending account | - | Connect a sending account" in lines
     assert "Emails sent 0 0 = 0 0" in lines  # 22 Nov 2026 (Ariel): each campaign's emails, in the four columns
-    assert f"OK Diablo | {_month("2026-10-26")}: Running" in lines and "OK 1 of 1 healthy" in lines
+    assert f"OK Diablo | {_month("2026-10-26")} | Running | - | None" in lines and "OK 1 of 1 healthy" in lines
     assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines and "[Health] Sending accounts" in lines
     assert "[For sales team] Positive replies to follow up" in lines
     at = next(i for i, line in enumerate(lines) if "Positive replies to follow up" in line)
@@ -509,7 +510,7 @@ def test_a_bounce_protect_pause_says_resume_now_or_when():
     assert daily_report.resume_advice(view, cfg, "ok", 4, 100, now) == ("Resume now", daily_report.GOOD)
     text, colour = daily_report.resume_advice(view, cfg, "bad", 8, 100, now)
     # the 6-day-old bounces leave the 7-day count a day later, at 12:00 UTC (12:00 UK in winter)
-    assert (text, colour) == ("Wait until Mon 23 Nov, 12:00 UK (8.0% bounced now)", daily_report.WARN)
+    assert (text, colour) == ("Wait until Mon 23 Nov, 12:00 UK", daily_report.WARN)  # the rate has its own column
 
 
 def test_each_campaign_shows_its_emails_sent_by_uk_day():
@@ -555,3 +556,24 @@ def test_the_companies_made_auto_outreach_show_as_one_number_in_initial_stages()
     assert lines[at + 3] == "New companies waiting for your GATE1 approval 2 (Alpha, Beta)"
     html = daily_report.key_html(k)
     assert "Companies now AUTO-OUTREACH (from Apollo or no Lead Source) <span" in html and "(Kitwave, Rialto)</span>" in html
+
+
+def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate():
+    k = {"date": "2026-11-21", "intros": (0, 0, 0), "reminders": (0, 0, 0), "sent_total": (0, 0), "uploads": None,
+         "bounced": (0, 0, 0), "opted_out": (0, 0, 0), "auto": (0, 0, 0), "follow": [], "negative": [], "nowhere": [],
+         "accounts": {"campaigns": [
+             (daily_report.WARN, "Diablo | NOV2026", "Running, brake on", "8.5%",
+              ("None: new introductions start again by themselves under 3%", daily_report.SAME), "c1", daily_report.BAD),
+             (daily_report.BAD, "Diablo | NOV2026 | Company inboxes", "Paused: Bounce Protect", "4.5%",
+              ("Resume now", daily_report.GOOD), "c2", daily_report.WARN)],
+             "accounts": {"healthy": 1, "total": 1, "problems": []}},
+         "initial": {"input": [], "auto": []},
+         "campaign_sent": {"c1": (0, 4, 181, 461), "c2": (19, 10, 134, 284)}}
+    lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
+    assert "! Diablo | NOV2026 | Running, brake on | 8.5% | None: new introductions start again by themselves under 3%" in lines
+    assert "!! Diablo | NOV2026 | Company inboxes | Paused: Bounce Protect | 4.5% | Resume now" in lines
+    assert "Emails sent 19 10 ▲ 134 284" in lines
+    html = daily_report.key_html(k)
+    assert ">Campaign</td>" in html and ">Your input</td>" in html
+    assert 'color:#C0392B;font-weight:bold">8.5%</span>' in html  # over 5%: red
+    assert "Resume now</span>" in html and "#EAF3DE" in html  # a green label
