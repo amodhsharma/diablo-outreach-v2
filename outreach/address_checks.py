@@ -175,6 +175,27 @@ def campaign_rates(view, cfg, now=None):
     return out
 
 
+def clears_at(view, cfg, campaign_id, limit, now=None):
+    """22 Nov 2026 (Ariel): when a paused campaign's bounce rate (as campaign_rates counts it) is back under `limit`,
+    if it sends nothing more: `now` when it already is, else the moment enough old emails leave the count."""
+    from .next_in_line import parse_time
+    now = now or dt.datetime.now(dt.timezone.utc)
+
+    def under(when):
+        bounced, emailed = campaign_rates(view, cfg, when).get(campaign_id, (0, 0))
+        return not emailed or bounced / emailed < limit
+    if under(now):
+        return now
+    keep = dt.timedelta(days=float(cfg["brake"]["days"]))
+    leaving = sorted({when + keep for lead in (view or {}).values() if lead.get("_campaign_id") == campaign_id
+                      for when in [parse_time(lead.get("timestamp_last_contact"))] if when and now - keep <= when <= now})
+    for moment in leaving:
+        later = moment + dt.timedelta(seconds=1)
+        if under(later):
+            return later
+    return None
+
+
 def braked(view, cfg, data, campaign_names, now=None, log=print, alert=None):
     """The campaign IDs whose brake is on. Updates data["brake"] and emails Amodh when a brake comes on or lifts."""
     rates = campaign_rates(view, cfg, now)

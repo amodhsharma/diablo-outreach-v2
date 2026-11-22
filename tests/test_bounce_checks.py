@@ -413,8 +413,8 @@ def test_a_held_broken_record_is_named_and_counted_as_needing_input():
     lines = [" ".join(line.split()) for line in text.splitlines()]
     block = lines[next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line) + 1:]
     # 21 Nov 2026 (Ariel): named once, in Initial stages, with why
-    assert "Contacts held: broken record 1" in block and lines.count("Contacts held: broken record 1") == 1
-    assert "Broken Co (its first name holds an email or web address)" in block
+    held = "Contacts held: broken record 1 (Broken Co: its first name holds an email or web address)"
+    assert held in block and lines.count(held) == 1  # 22 Nov 2026: in round brackets in the same row
     assert not any(line.startswith("Introductions approved, waiting their turn to send") for line in block)  # 0
 
 

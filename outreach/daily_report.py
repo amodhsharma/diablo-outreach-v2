@@ -24,6 +24,9 @@ The email (20 Nov 2026, Ariel):
          bounce came from and at which company, with the reason written on the contact, for example "address does
          not exist"; 20 Nov 2026), asked not to be emailed, automatic replies (data/daily_log.json, written by
          button 4)
+       Campaigns: this month's campaigns, each with its state, a coloured label saying when to unpause it (green
+         "Resume now", amber "Wait until ..." with the bounce rate now, grey "Resumes by itself", red "Needs you: ...")
+         and the emails it sent in the same four columns (22 Nov 2026, Ariel)
        Sending accounts: one green line when all are healthy, a red line naming each problem
        Positive replies to follow up: every company that replied that day tagged Positive, plus Neutral and
          Referral replies marked as such; Negative replies to convert into possible leads: the rest. No cap.
@@ -32,7 +35,9 @@ The email (20 Nov 2026, Ariel):
          with the names of everything waiting for a person (GATE1 and GATE2 approval, contacts not yet tagged,
          contacts held because their record could not be put right, companies whose channel is not known). The
          separate "Waiting for you" section was merged into it on 21 Nov 2026 (Ariel). What needs no input is one
-         green line, "No input needed (automatic)", without a breakdown (21 Nov 2026, Ariel).
+         green line, "No input needed (automatic)", without a breakdown (21 Nov 2026, Ariel). From 22 Nov 2026
+         (Ariel) the companies stand in round brackets in the same row, and the first row is the companies made
+         AUTO-OUTREACH that day from Apollo or no Lead Source (one number, not added to the section's total).
        Companies where nobody could be found (need sales people input): only on days there are some.
 
 The recipients and the mailbox's Google app password (DAILY_REPORT_APP_PASSWORD) are never written in the
@@ -300,7 +305,7 @@ def _bounce_label(reason):
 
 
 def held_records(hs, statuses, at):
-    """20 Nov 2026 (Ariel): the approved contacts held because their record is broken, as "Company (why)"."""
+    """20 Nov 2026 (Ariel): the approved contacts held because their record is broken, as "Company: why"."""
     from . import address_checks
     held = [(c, address_checks.broken(c)) for c in at.records("contacts", "approved")]
     held = [(c, why) for c, why in held if why]
@@ -310,7 +315,8 @@ def held_records(hs, statuses, at):
     out = []
     for c, why in held:
         company = companies.get(owner_of.get(str(c["id"]))) or {}
-        out.append(f"{(company.get('properties') or {}).get('name') or 'A company'} ({why})")
+        # 22 Nov 2026: "Company: why", as it now stands inside round brackets with the other companies
+        out.append(f"{(company.get('properties') or {}).get('name') or 'A company'}: {why}")
     return sorted(out, key=str.lower)
 
 
@@ -416,6 +422,14 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "at_midnight": not at.live,
     }
     out["initial"] = initial_stages(hs, statuses, out["unknown_channel"], at, unknown)
+    out["tagged"] = newly_tagged(hs, date)  # 22 Nov 2026 (Ariel): companies made AUTO-OUTREACH that day
+    # 22 Nov 2026 (Ariel): each campaign's emails sent, in the same four columns as Sending
+    if out["accounts"]:
+        days = sorted(set(month_days) | set(week_days) | {date, before})
+        sends = campaign_sends(instantly, emails_api, [r[5] for r in out["accounts"]["campaigns"]], days)
+        out["campaign_sent"] = None if sends is None else {
+            cid: (per.get(date, 0), per.get(before, 0), sum(per.get(d, 0) for d in week_days),
+                  sum(per.get(d, 0) for d in month_days)) for cid, per in sends.items()}
     # 21 Nov 2026 (Ariel): the replies that named someone else (until then a separate email to Amodh) and the
     # replies from people who are not AUTO-OUTREACH contacts, both for the UK day
     from . import outside_replies, referrals
@@ -442,7 +456,8 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
         month = month_label(dt.date.fromisoformat(day) if isinstance(day, str) else day)
         campaigns = [c for c in diablo_campaigns(instantly, prefix) if month in str(c.get("name") or "")]
         cfg = address_checks.settings_of(settings)
-        rates = address_checks.campaign_rates(view if view is not None else instantly_view(instantly, prefix), cfg)
+        view = view if view is not None else instantly_view(instantly, prefix)
+        rates = address_checks.campaign_rates(view, cfg)
         limit, least = float(cfg["brake"]["rate"]), int(cfg["brake"]["min_sent"])
         rows, used = [], set()
         for camp in sorted(campaigns, key=lambda c: str(c.get("name") or "")):
@@ -461,25 +476,33 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
             rate = f"{bounced / emailed:.1%} bounced" if emailed else ""
             braked = emailed >= least and bounced / emailed >= limit
             wait = f", {waiting} introductions waiting" if waiting else ""
+            # 22 Nov 2026 (Ariel): next to each paused campaign, when to unpause it, as a coloured label
+            advice = None
             if not mailboxes or connected == 0:
                 colour, state = BAD, "No sending account connected" + wait
+                advice = ("Needs you: connect a sending account", BAD)
             elif code == -2:
                 colour, state = BAD, "Paused by Instantly (Bounce Protect)" + wait
+                advice = resume_advice(view, cfg, camp["id"], bounced, emailed)
             elif code == -1:
                 colour, state = BAD, "Paused: a sending account has a problem" + wait
+                advice = ("Resumes by itself once its mailboxes are healthy", SAME)
             elif code == -99:
                 colour, state = BAD, "Suspended by Instantly" + wait
+                advice = ("Needs you: contact Instantly support", BAD)
             elif code == 2:
                 colour, state = BAD, "Paused" + wait
+                advice = ("Needs you: paused by hand, resume when ready", BAD)
             elif code == 0:
                 colour, state = WARN, "Not started (Draft)" + wait
             elif braked:
                 colour, state = WARN, "Running; our 3% brake is on, new introductions wait"
+                advice = ("Resumes by itself under 3%", SAME)
             elif code in (1, None, 4):
                 colour, state = GOOD, "Running"
             else:
                 colour, state = SAME, CAMPAIGN_STATUS.get(code, "Unknown")
-            rows.append((colour, camp.get("name") or "A campaign", state, rate))
+            rows.append((colour, camp.get("name") or "A campaign", state, rate, advice, camp["id"]))
         problems, total = [], 0
         for acc in (accounts_api or instantly).list_accounts():
             email = (acc.get("email") or "").lower()
@@ -493,6 +516,93 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
                                                 "problems": sorted(problems)}}
     except (InstantlyError, AttributeError, KeyError):
         return None
+
+
+INSTANTLY_PAUSE_RATE = 0.05  # Instantly's Bounce Protect pauses a campaign above 5%
+
+
+def resume_advice(view, cfg, campaign_id, bounced, emailed, now=None):
+    """22 Nov 2026 (Ariel): for a campaign paused by Bounce Protect, ("Resume now", green) once its bounce rate is back
+    under Instantly's 5% (every bounced person is already stopped), else ("Wait until Tue 24 Nov, 14:00 UK (6.1%
+    bounced now)", amber): the moment enough old emails leave the 7-day count, if nothing more is sent."""
+    from . import address_checks
+    now = now or dt.datetime.now(dt.timezone.utc)
+    when = address_checks.clears_at(view, cfg, campaign_id, INSTANTLY_PAUSE_RATE, now)
+    if when is not None and when <= now:
+        return "Resume now", GOOD
+    rate = f"{bounced / emailed:.1%} bounced now" if emailed else "bounced too often"
+    if when is None:
+        return f"Wait ({rate})", WARN
+    uk = when.astimezone(DAY_ZONE)
+    return f"Wait until {uk.strftime('%a')} {uk.day} {uk.strftime('%b')}, {uk.strftime('%H:00')} UK ({rate})", WARN
+
+
+def campaign_sends(instantly, emails_api, campaign_ids, dates):
+    """22 Nov 2026 (Ariel): {campaign id: {UK date: emails sent}} (introductions and reminders together) for the
+    dates given, from Instantly's list of sent emails (each has its campaign and time, so the days run midnight to
+    midnight UK); Instantly's daily totals per campaign when that list cannot be read; None when neither can."""
+    if not campaign_ids or not dates:
+        return {}
+    ids, dates = {str(c) for c in campaign_ids}, set(dates)
+    out = {cid: {} for cid in ids}
+    emails = None
+    if emails_api is not None:
+        try:
+            emails = emails_api.emails_since(window(min(dates))[0].isoformat(), max_pages=300)
+        except Exception:
+            emails = None
+    if emails is not None:
+        for mail in emails:
+            cid = str(mail.get("campaign_id") or "")
+            when = mail.get("timestamp_email") or mail.get("timestamp_created")
+            if mail.get("ue_type") != 1 or cid not in ids or not when:
+                continue
+            day = daily_log.uk_day(when)
+            if day in dates:
+                out[cid][day] = out[cid].get(day, 0) + 1
+        return out
+    try:  # Instantly's own daily totals (UTC days: the same as UK days in winter, an hour off in summer)
+        for cid in ids:
+            data = instantly.request("GET", "/campaigns/analytics/daily",
+                                     params={"campaign_id": cid, "start_date": min(dates), "end_date": max(dates)})
+            rows = data if isinstance(data, list) else (data or {}).get("items") or (data or {}).get("data") or []
+            for row in rows:
+                day = str(row.get("date") or "")[:10]
+                if day in dates:
+                    out[cid][day] = out[cid].get(day, 0) + int(row.get("sent") or 0)
+        return out
+    except Exception:
+        return None
+
+
+def newly_tagged(hs, date):
+    """22 Nov 2026 (Ariel): the companies whose Lead Source became AUTO-OUTREACH on that UK day, from Apollo or from
+    no value at all, by name; companies research creates (AUTO-OUTREACH from the start) do not count. None when
+    HubSpot's history cannot be read."""
+    from .next_in_line import parse_time
+    from .schema import TAG, TAG_PROPERTY
+    start, end = window(date)
+    try:
+        rows = hs.tagged_search("companies", _between("hs_lastmodifieddate", start, end)[:1], ["name"],
+                                max_results=10000)
+        past = hs.history("companies", [r["id"] for r in rows], TAG_PROPERTY, ["name", "createdate"]) if rows else {}
+    except Exception:
+        return None
+    names = []
+    for props, history in past.values():
+        for i, (value, stamp) in enumerate(history):
+            when = parse_time(stamp)
+            if value != TAG or not when or not start <= when < end:
+                continue
+            before = history[i + 1][0] if i + 1 < len(history) else None
+            if str(before or "").strip().lower() not in ("", "apollo"):
+                break
+            created = parse_time(props.get("createdate"))
+            if before is None and (not created or when - created < dt.timedelta(minutes=10)):
+                break  # created as AUTO-OUTREACH (research), not tagged later
+            names.append(props.get("name") or "A company")
+            break
+    return sorted(names, key=str.lower)
 
 
 def _long_date(date):
@@ -549,6 +659,10 @@ def bounce_lines(detail, bounced):
 # 21 Nov 2026 (Ariel): a coloured label before each heading says what kind of section it is.
 PARAMETER, HEALTH, SALES = "Parameter", "Health", "For sales team"
 AMODH, INFO = "Need Amodh's input", "For information"
+# 22 Nov 2026 (Ariel): the label saying when to unpause a campaign: green resume now, amber wait, grey nothing to
+# do, red needs a person
+PILLS = {"#0F6E56": ("#EAF3DE", "#27500A"), "#BA7517": ("#FAEEDA", "#854F0B"), "#888780": ("#F1EFE8", "#444441"),
+         "#C0392B": ("#FCEBEB", "#A32D2D")}
 TAGS = {PARAMETER: ("#E6F1FB", "#0C447C"), HEALTH: ("#EEEDFE", "#3C3489"), SALES: ("#EAF3DE", "#27500A"),
         AMODH: ("#FAEEDA", "#854F0B"), INFO: ("#F1EFE8", "#444441")}
 
@@ -637,9 +751,22 @@ def key_rows(k):
     if h is None:
         campaigns = accounts = [("line", "Instantly could not be read this time", SAME)]
     else:
-        campaigns = [("health", colour, name, state, rate) for colour, name, state, rate in h["campaigns"]] or \
-            [("line", "No campaign this month yet", SAME)]
-        if any(rate for *_, rate in h["campaigns"]):
+        sent = k.get("campaign_sent")
+        campaigns = []
+        for colour, name, state, rate, *more in h["campaigns"]:
+            advice, cid = (more + [None, None])[:2]
+            if "campaign_sent" not in k:
+                numbers = None
+            elif sent is None:
+                numbers = ("-", "-", None, None, "-", "-")
+            else:
+                day, before, week, month = sent.get(str(cid)) or (0, 0, 0, 0)
+                numbers = (_n(day), _n(before), *_arrow(day, before, True), _n(week), _n(month))
+            campaigns.append(("campaign", colour, name, state, rate, advice, numbers))
+        campaigns = campaigns or [("line", "No campaign this month yet", SAME)]
+        if "campaign_sent" in k and sent is None:
+            campaigns.append(("line", "Emails sent per campaign: Instantly could not be read this time", SAME))
+        if any(c[4] for c in campaigns if c[0] == "campaign"):
             campaigns.append(("line", "% = bounces over each campaign's last 200 emails of the last 7 days", SAME))
         a = h["accounts"]
         accounts = [("health", GOOD if not a["problems"] else BAD, f"{a['healthy']} of {a['total']} healthy", "", "")]
@@ -665,12 +792,15 @@ def key_rows(k):
         need = sum(n for _, n, _ in k["initial"]["input"])
         auto = sum(n for _, n in k["initial"]["auto"])
         rows = [("line", k["check"], BAD)] if k.get("check") else []
+        if k.get("tagged"):  # 22 Nov 2026 (Ariel): one number and the names; not added to the heading's total
+            rows.append(("row", "Companies now AUTO-OUTREACH (from Apollo or no Lead Source)", _n(len(k["tagged"])),
+                         "", None, None, "", None, "", ", ".join(k["tagged"])))
         rows.append(("row", "Your input needed", _n(need), "", None, None, ""))
         for label, n, who in k["initial"]["input"]:
             if n:  # 21 Nov 2026 (Ariel): a line with 0 is left out
                 text, detail = shown.get(label, (label, None))
-                rows.append(("row", "  " + text, _n(n), "", None, None, ""))
-                rows += [("name", w) for w in (detail or who)]
+                # 22 Nov 2026 (Ariel): the companies in round brackets, comma separated, in the same row
+                rows.append(("row", "  " + text, _n(n), "", None, None, "", None, "", ", ".join(detail or who)))
         # 21 Nov 2026 (Ariel): one green line, without the breakdown
         rows.append(("row", "No input needed (automatic)", _n(auto), "", None, None, "", GOOD))
         moment = "at midnight UK" if k.get("at_midnight", True) else "right now"
@@ -704,8 +834,18 @@ def key_text(k):
             if item[0] == "row":
                 _, label, day, before, symbol, _good, month = item[:7]
                 week = item[8] if len(item) > 8 else ""
+                names = f"  ({item[9]})" if len(item) > 9 and item[9] else ""
                 out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{week:<16}{month}"
-                           .rstrip())
+                           .rstrip() + names)
+            elif item[0] == "campaign":
+                _, colour, name, state, rate, advice, numbers = item
+                mark = {GOOD: "OK", BAD: "!!", WARN: "!"}.get(colour, "-")
+                out.append(f"  {mark:<3}{name}" + (f": {state}" if state else "") + (f" [{advice[0]}]" if advice else "")
+                           + (f" ({rate})" if rate else ""))
+                if numbers:
+                    day, before, symbol, _good, week, month = numbers
+                    out.append(f"  {'     Emails sent':<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}"
+                               f"{week:<16}{month}".rstrip())
             elif item[0] == "line":
                 out.append(f"  {item[1]}")
             elif item[0] == "health":
@@ -739,6 +879,25 @@ def key_html(k):
             parts.append(f'<tr><td style="padding:10px 0 2px">{tag_html}<b>{e(text)}</b></td>'
                          f'<td {cell}><b>{count}</b></td><td></td><td></td><td></td></tr>')
         for item in items:
+            if item[0] == "campaign":  # 22 Nov 2026 (Ariel): status, when to unpause, and the emails it sent
+                _, colour, name, state, rate, advice, numbers = item
+                pill = ""
+                if advice:
+                    bg, fg = PILLS.get(advice[1], PILLS[SAME])
+                    pill = (f' <span style="background:{bg};color:{fg};padding:1px 8px;border-radius:6px;font-size:12px;'
+                            f'font-weight:bold;white-space:nowrap">{e(advice[0])}</span>')
+                label = (f'<span style="color:{colour}">&#9679;</span> {e(name)}'
+                         + (f': <span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span>' if state else "")
+                         + pill + (f' <span style="color:{SAME}">({e(rate)})</span>' if rate else ""))
+                if numbers:
+                    day, before, symbol, good, week, month = numbers
+                    tone = SAME if good is None else (GOOD if good else BAD)
+                    arrow = f' <span style="color:{tone};font-weight:bold">{symbol}</span>' if symbol else ""
+                    parts.append(f'<tr><td style="padding:2px 10px 2px 14px">{label}</td><td {cell}><b>{e(day)}</b></td>'
+                                 f"<td {cell}>{e(before)}{arrow}</td><td {cell}>{e(week)}</td><td {cell}>{e(month)}</td></tr>")
+                else:
+                    parts.append(f'<tr><td colspan="5" style="padding:2px 10px 2px 14px">{label}</td></tr>')
+                continue
             if item[0] == "health":
                 _, colour, name, state, rate = item
                 parts.append(f'<tr><td colspan="5" style="padding:2px 10px 2px 14px"><span style="color:{colour}">&#9679;</span> '
@@ -756,7 +915,9 @@ def key_html(k):
                 indent = 28 if label.startswith("  ") else 14
                 tint = f"color:{item[7]};" if len(item) > 7 and item[7] else ""  # 21 Nov 2026: own colour
                 week = item[8] if len(item) > 8 else ""
-                parts.append(f'<tr><td style="padding:2px 10px 2px {indent}px;{tint}">{e(label.strip())}</td>'
+                names = (f' <span style="color:{SAME};font-size:12px;font-weight:normal">({e(item[9])})</span>'
+                         if len(item) > 9 and item[9] else "")  # 22 Nov 2026 (Ariel): the companies, same row
+                parts.append(f'<tr><td style="padding:2px 10px 2px {indent}px;{tint}">{e(label.strip())}{names}</td>'
                              f'<td {cell}><b style="{tint}">{e(day)}</b></td>'
                              f"<td {cell}>{e(before)}{arrow}</td><td {cell}>{e(week)}</td><td {cell}>{e(month)}</td></tr>")
             elif item[0] == "line":

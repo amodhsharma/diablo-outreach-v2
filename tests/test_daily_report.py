@@ -123,7 +123,9 @@ def test_key_numbers_read_as_agreed():
     assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (33.3%) 1 (25.0%)" in lines
     assert "Asked not to be emailed 0 0 = 0 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2 2" in lines
     # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
-    assert f"!! Diablo | {_month("2026-10-26")} | Company inboxes: No sending account connected" in lines
+    assert (f"!! Diablo | {_month("2026-10-26")} | Company inboxes: No sending account connected "
+            "[Needs you: connect a sending account]") in lines  # 22 Nov 2026: when to unpause, as a label
+    assert "Emails sent 0 0 = 0 0" in lines  # 22 Nov 2026 (Ariel): each campaign's emails, in the four columns
     assert f"OK Diablo | {_month("2026-10-26")}: Running" in lines and "OK 1 of 1 healthy" in lines
     assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines and "[Health] Sending accounts" in lines
     assert "[For sales team] Positive replies to follow up" in lines
@@ -133,7 +135,9 @@ def test_key_numbers_read_as_agreed():
     assert lines[at + 1] == "None"
     # 21 Nov 2026 (Ariel): "Waiting for you" is merged into Initial stages; nobody found has its own section
     assert not any("Waiting for you" in line for line in lines)
-    assert "New companies waiting for your GATE1 approval 4" in lines and "Introductions waiting for your GATE2 approval 1" in lines
+    # 22 Nov 2026 (Ariel): the companies in round brackets in the same row
+    assert "New companies waiting for your GATE1 approval 4 (Alpha, Beta, Gamma, Old)" in lines
+    assert "Introductions waiting for your GATE2 approval 1 (Approved Co (Australia))" in lines
     at = lines.index("[Need Amodh's input] Companies where nobody could be found (need sales people input) 1")
     assert lines[at + 1] == "Sport Benzin"
     assert result["sent"] is False
@@ -415,8 +419,8 @@ def test_companies_whose_channel_is_not_known_are_named_under_waiting_for_you():
     text = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
-    at = next(i for i, line in enumerate(lines) if line.startswith("Companies whose channel is not known"))
-    assert "Mystery Co" in lines[at + 1:]
+    line = next(line for line in lines if line.startswith("Companies whose channel is not known"))
+    assert "Mystery Co" in line  # 22 Nov 2026: named in round brackets in the same row
 
 
 def test_initial_stages_section_says_what_needs_input_and_what_does_not():
@@ -428,9 +432,8 @@ def test_initial_stages_section_says_what_needs_input_and_what_does_not():
     at = next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line)
     block = lines[at + 1:]
     assert block[0] == "Your input needed 5"  # 4 new companies and 1 introduction
-    assert "New companies waiting for your GATE1 approval 4" in block
-    assert "Introductions waiting for your GATE2 approval 1" in block
-    assert "Approved Co (Australia)" in block
+    assert "New companies waiting for your GATE1 approval 4 (Alpha, Beta, Gamma, Old)" in block
+    assert "Introductions waiting for your GATE2 approval 1 (Approved Co (Australia))" in block
     # 21 Nov 2026 (Ariel): one green line, without the breakdown
     assert "No input needed (automatic) 3" in block
     assert not any(line.startswith(("Approved, Apollo search", "People found, introduction")) for line in block)
@@ -453,8 +456,9 @@ def test_waiting_and_initial_stages_are_as_they_stood_at_midnight_uk():
                             preview=True, log=quiet, log_data=log)["text"]
     lines = [" ".join(line.split()) for line in text.splitlines()]
     block = lines[next(i for i, line in enumerate(lines) if "Initial stages - your input needed or not (at midnight UK)" in line) + 1:]
-    assert "New companies waiting for your GATE1 approval 5" in block  # the 4 of the day and Late Co
-    assert "Late Co" in block and "Tomorrow Co" not in block
+    gate1 = next(line for line in block if line.startswith("New companies waiting for your GATE1 approval"))
+    assert gate1 == "New companies waiting for your GATE1 approval 5 (Alpha, Beta, Gamma, Late Co, Old)"
+    assert "Tomorrow Co" not in " ".join(block)
     assert not any(line.startswith("Companies waiting for GATE1 approval") for line in lines)  # merged, once only
 
 
@@ -485,3 +489,69 @@ def test_the_week_so_far_runs_from_monday_and_leaves_out_the_months_earlier_tota
     month = daily_log.month_counts(data, "2026-11-01", "2026-11-04", uk=True)
     assert week["bounced"] == 1 and week["auto"] == 1
     assert month["bounced"] == 8  # the 7 from before the log count for the month only
+
+
+# ---- 22 Nov 2026 (Ariel): when to unpause, each campaign's emails, the companies made AUTO-OUTREACH ----------
+
+def test_a_bounce_protect_pause_says_resume_now_or_when():
+    from outreach import address_checks
+    cfg = address_checks.settings_of(load_settings())
+    now = dt.datetime(2026, 11, 22, 12, 0, tzinfo=dt.timezone.utc)
+
+    def lead(cid, hours_ago, bounced=False):
+        return {"_campaign_id": cid, "status": -1 if bounced else 1,
+                "timestamp_last_contact": (now - dt.timedelta(hours=hours_ago)).isoformat()}
+    view = {}
+    for i in range(100):  # 4 bounces in 100: under Instantly's 5%
+        view[f"ok{i}"] = lead("ok", 10, bounced=i < 4)
+    for i in range(100):  # 8 bounces, all 6 days ago, among 100 emails: 8%
+        view[f"bad{i}"] = lead("bad", 6 * 24 if i < 8 else 10, bounced=i < 8)
+    assert daily_report.resume_advice(view, cfg, "ok", 4, 100, now) == ("Resume now", daily_report.GOOD)
+    text, colour = daily_report.resume_advice(view, cfg, "bad", 8, 100, now)
+    # the 6-day-old bounces leave the 7-day count a day later, at 12:00 UTC (12:00 UK in winter)
+    assert (text, colour) == ("Wait until Mon 23 Nov, 12:00 UK (8.0% bounced now)", daily_report.WARN)
+
+
+def test_each_campaign_shows_its_emails_sent_by_uk_day():
+    class Emails:
+        def emails_since(self, start, max_pages=30):
+            assert start == "2026-11-16T00:00:00+00:00"
+            return [{"campaign_id": "c1", "ue_type": 1, "timestamp_email": "2026-11-21T09:00:00Z"},
+                    {"campaign_id": "c1", "ue_type": 1, "timestamp_email": "2026-11-21T23:30:00Z"},  # 23:30 UTC is still 21 Nov in UK winter time
+                    {"campaign_id": "c1", "ue_type": 2, "timestamp_email": "2026-11-21T10:00:00Z"},  # a reply: not sent
+                    {"campaign_id": "c2", "ue_type": 1, "timestamp_email": "2026-11-20T10:00:00Z"},
+                    {"campaign_id": "other", "ue_type": 1, "timestamp_email": "2026-11-21T10:00:00Z"}]
+    days = ["2026-11-16", "2026-11-20", "2026-11-21"]
+    assert daily_report.campaign_sends(None, Emails(), ["c1", "c2"], days) == {
+        "c1": {"2026-11-21": 2}, "c2": {"2026-11-20": 1}}
+
+
+def test_companies_made_auto_outreach_by_hand_are_counted_research_ones_are_not():
+    hs = FakeCRM()
+    made = lambda name, **p: hs.add("companies", name=name, lead_source="AUTO-OUTREACH", hs_lastmodifieddate="2026-11-21T10:00:00Z", **p)
+    empty = made("Kitwave", createdate="2026-01-29T08:00:00Z")
+    apollo = made("Rialto", createdate="2026-01-29T08:00:00Z")
+    other = made("From A Form", createdate="2026-01-29T08:00:00Z")
+    research = made("Found By Research", createdate="2026-11-21T09:00:00Z")
+    earlier = made("Tagged Last Week", createdate="2026-01-29T08:00:00Z")
+    hs.past = {("companies", empty, "lead_source"): [("AUTO-OUTREACH", "2026-11-21T09:30:00Z")],
+               ("companies", apollo, "lead_source"): [("AUTO-OUTREACH", "2026-11-21T09:31:00Z"), ("Apollo", "2026-04-13T13:00:00Z")],
+               ("companies", other, "lead_source"): [("AUTO-OUTREACH", "2026-11-21T09:32:00Z"), ("Web form", "2026-03-01T10:00:00Z")],
+               ("companies", research, "lead_source"): [("AUTO-OUTREACH", "2026-11-21T09:00:01Z")],
+               ("companies", earlier, "lead_source"): [("AUTO-OUTREACH", "2026-11-14T09:00:00Z")]}
+    assert daily_report.newly_tagged(hs, "2026-11-21") == ["Kitwave", "Rialto"]
+
+
+def test_the_companies_made_auto_outreach_show_as_one_number_in_initial_stages():
+    k = {"date": "2026-11-21", "intros": (0, 0, 0), "reminders": (0, 0, 0), "sent_total": (0, 0), "uploads": None,
+         "bounced": (0, 0, 0), "opted_out": (0, 0, 0), "auto": (0, 0, 0), "accounts": None, "follow": [], "negative": [],
+         "nowhere": [], "initial": {"input": [("New companies waiting for your GATE1 approval", 2, ["Alpha", "Beta"])],
+                                    "auto": [("Approved", 1)]},
+         "tagged": ["Kitwave", "Rialto"]}
+    lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
+    at = next(i for i, line in enumerate(lines) if "Initial stages" in line)
+    assert lines[at].endswith(" 3")  # 2 waiting and 1 automatic: the tagged companies are not added again
+    assert lines[at + 1] == "Companies now AUTO-OUTREACH (from Apollo or no Lead Source) 2 (Kitwave, Rialto)"
+    assert lines[at + 3] == "New companies waiting for your GATE1 approval 2 (Alpha, Beta)"
+    html = daily_report.key_html(k)
+    assert "Companies now AUTO-OUTREACH (from Apollo or no Lead Source) <span" in html and "(Kitwave, Rialto)</span>" in html
