@@ -179,7 +179,11 @@ class AtCutoff:
             return {}
         if obj not in self._changed:
             ms = str(int(self.cutoff.timestamp() * 1000))
-            rows = self.hs.tagged_search(obj, [{"propertyName": "hs_lastmodifieddate", "operator": "GTE", "value": ms}],
+            # 22 Nov 2026: HubSpot names the field "lastmodifieddate" on contacts and "hs_lastmodifieddate" on companies;
+            # with the companies' name, no contact was ever found changed, so contacts were read as they stand now
+            # and a company could show under GATE1 and GATE2 at once
+            field = "lastmodifieddate" if obj == "contacts" else "hs_lastmodifieddate"
+            rows = self.hs.tagged_search(obj, [{"propertyName": field, "operator": "GTE", "value": ms}],
                                          ["name"], max_results=10000)
             ids = [str(r["id"]) for r in rows]
             self._changed[obj] = self.hs.history(obj, ids, LEAD_STATUS, self.PROPS[obj]) if ids else {}

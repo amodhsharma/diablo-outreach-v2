@@ -81,7 +81,7 @@ class FakeCRM(TagGuard):
             return val in (None, "")
         if op == "EQ":
             return str(val).lower() == str(f["value"]).lower()
-        if op in ("GTE", "LT") and f["propertyName"] in ("createdate", "hs_lastmodifieddate"):
+        if op in ("GTE", "LT") and f["propertyName"] in ("createdate", "hs_lastmodifieddate", "lastmodifieddate"):
             from outreach.next_in_line import parse_time
             when, limit = parse_time(val), parse_time(f["value"])
             if when is None:

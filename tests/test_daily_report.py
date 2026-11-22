@@ -680,3 +680,19 @@ def test_the_two_amodh_sections_show_only_when_they_hold_something():
     assert heads(unread) == ["Referrals the automation wasn't sure about", "Replies not AUTO-OUTREACH"]
     outside = {"referrals": {}, "outside": [{"company": "CSA", "mailbox": "dana@x", "hubspot": "Yes", "reply": "Hi"}]}
     assert heads(outside) == ["Replies not AUTO-OUTREACH"]
+
+
+def test_contacts_made_after_midnight_are_never_counted_at_midnight():
+    """22 Nov 2026 (Ariel): a company showed under GATE1 and GATE2 at once in a sample read hours after midnight: the
+    contacts were read as they stood then, because contacts' last change is "lastmodifieddate" in HubSpot."""
+    from outreach.stages import LeadStatus
+    hs = FakeCRM()
+    cutoff = daily_report.window("2026-11-21")[1]
+    old = hs.add("contacts", email="old@x.example", hs_lead_status="NEW_PERSONAL_LINE_FILLED",
+                 lastmodifieddate="2026-11-21T10:00:00Z")
+    new = hs.add("contacts", email="new@x.example", hs_lead_status="NEW_PERSONAL_LINE_FILLED",
+                 lastmodifieddate="2026-11-22T10:00:00Z")
+    hs.past = {("contacts", new): [("NEW_PERSONAL_LINE_FILLED", "2026-11-22T09:31:00Z")],
+               ("contacts", old): [("NEW_PERSONAL_LINE_FILLED", "2026-11-21T09:00:00Z")]}
+    at = daily_report.AtCutoff(hs, LeadStatus(hs), cutoff, now=cutoff + dt.timedelta(hours=16))
+    assert [r["id"] for r in at.records("contacts", "copy_ready")] == [old]
