@@ -38,6 +38,8 @@ The email (20 Nov 2026, Ariel):
          company that replied that day tagged Positive, plus Neutral and Referral replies marked as such, and a
          bullet "Negative replies to convert into possible leads (n) (companies)": the rest. No cap.
        Referrals handled automatically: only on days the automation handled some (21 Nov 2026, Ariel).
+       Referrals the automation wasn't sure about, and Replies not AUTO-OUTREACH: only when they hold something
+         (22 Nov 2026, Ariel), counting a case still waiting from earlier days or a line saying it could not be read.
        Initial stages - your input needed or not (at midnight UK): what the chart's Initial stages box holds, as
          bullets (22 Nov 2026, Ariel): "Research jobs lined up: none" (a red label; green with the job numbers,
          first to last, when jobs are lined up), with the date the last job ran; "Last job on 21 November 2026 ran
@@ -796,8 +798,13 @@ def reply_blocks(k):
         auto = [("line", "Could not be read this time", SAME)]
     n_unsure = len((ref or {}).get("unsure") or [])
     n_auto = sum(len((ref or {}).get(x) or []) for x in ("switched", "added", "resumed"))
-    blocks = [(("Referrals the automation wasn't sure about", [AMODH], n_unsure), unsure),
-              (("Replies not AUTO-OUTREACH", [AMODH], len(outside or [])), outs)]
+    # 22 Nov 2026 (Ariel): each of these two only when it holds something (a case, one still waiting from earlier
+    # days, or a line saying it could not be read)
+    blocks = []
+    if n_unsure or ref is None or (ref or {}).get("waiting"):
+        blocks.append((("Referrals the automation wasn't sure about", [AMODH], n_unsure), unsure))
+    if outside is None or outside:
+        blocks.append((("Replies not AUTO-OUTREACH", [AMODH], len(outside or [])), outs))
     if n_auto:  # 21 Nov 2026 (Ariel): shown only when referrals were handled automatically, with the companies
         blocks.append((("Referrals handled automatically", [INFO], n_auto), auto))
     return blocks

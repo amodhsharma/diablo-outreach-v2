@@ -179,10 +179,13 @@ def test_a_quiet_day_and_all_healthy():
     assert "Week so far" in result["html"]
     # 21 Nov 2026: no positive or negative replies, no referral, no reply from outside; nothing waiting, and
     # "Waiting for you" is now part of Initial stages; "Referrals handled automatically" only when there are some
-    assert lines.count("None") == 1  # 22 Nov 2026: the replies are bullets with (0)
+    assert "None" not in lines  # 22 Nov 2026: the replies are bullets with (0); empty sections are left out
     assert "• Positive replies to follow up (0)" in lines and "• Negative replies to convert into possible leads (0)" in lines
     assert not any("Referrals handled automatically" in line for line in lines)
-    assert "[Need Amodh's input] Replies not AUTO-OUTREACH 0" in lines
+    # 22 Nov 2026 (Ariel): with nothing in them, these two sections are left out
+    assert not any("Referrals the automation" in line for line in lines)
+    at = lines.index("[Need Amodh's input] Replies not AUTO-OUTREACH 0")  # no emails reader here: said, not hidden
+    assert lines[at + 1] == "Could not be read this time (Instantly's emails)"
     assert not any(line.startswith("Your input needed") for line in lines)  # 22 Nov 2026 (Ariel): line removed
     assert "• New companies waiting for your GATE1 approval - none" in lines
     assert not any("Waiting for you" in line for line in lines)
@@ -663,3 +666,17 @@ def test_positive_replies_count_for_the_campaign_the_lead_is_in():
     assert daily_report.campaign_positives(hs, view, data, days, ["c1", "c2", "c3"]) == {"c1": 1, "c2": 1, "c3": 0}
     assert daily_report.campaign_positives(hs, None, data, days, ["c1"]) is None
     assert daily_report.campaign_positives(hs, None, {}, days, ["c1"]) == {"c1": 0}
+
+
+def test_the_two_amodh_sections_show_only_when_they_hold_something():
+    """22 Nov 2026 (Ariel): Referrals the automation wasn't sure about, and Replies not AUTO-OUTREACH."""
+    def heads(k):
+        return [daily_report._heading(h)[0] for h, _ in daily_report.reply_blocks(k)]
+    empty = {"referrals": {"unsure": [], "waiting": []}, "outside": []}
+    assert heads(empty) == []
+    waiting = {"referrals": {"unsure": [], "waiting": ["Kit Kat Group"]}, "outside": []}
+    assert heads(waiting) == ["Referrals the automation wasn't sure about"]
+    unread = {"referrals": None, "outside": None}  # could not be read: said, never hidden
+    assert heads(unread) == ["Referrals the automation wasn't sure about", "Replies not AUTO-OUTREACH"]
+    outside = {"referrals": {}, "outside": [{"company": "CSA", "mailbox": "dana@x", "hubspot": "Yes", "reply": "Hi"}]}
+    assert heads(outside) == ["Replies not AUTO-OUTREACH"]
