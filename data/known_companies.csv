@@ -9341,7 +9341,7 @@ id,name,domain,country,why
 421797982421,CARVRAC,carvrac.com,France,other
 421723261145,Carys3 Supermarket,,India,other
 382747577538,CAS,cas.com.ar,,other
-421734087898,Cas Holdings,casholdings.co.za,South Africa,other
+421734087898,Cas Holdings,casholdings.co.za,South Africa,auto-outreach
 421746662621,Cas Interglobal,casinterg.com,USA,other
 381243376879,Casa Alegria,casaalegria.com.br,,other
 421761031408,Casa Angola Internacional,cai-sa.pt,,other
@@ -22216,7 +22216,7 @@ id,name,domain,country,why
 421748374774,I Love Zero Ltd.,ilovezero.co.uk,England,other
 426293039326,I mieli di Mario Bianco,mariobianco.com,Italy,other
 421730364653,I Poci Di Marangoni Silvia,ipoci.it,Italy,other
-421750309101,I R Jones,rijones.co.uk,United Kingdom,other
+421750309101,I R Jones,rijones.co.uk,United Kingdom,auto-outreach
 457506635995,i Select Vending,iselectvending.com.au,Australia,auto-outreach
 381286275290,I Shop Indian,,,other
 381243369661,I Sifol Llc,isifol.com,,other
@@ -23594,6 +23594,7 @@ id,name,domain,country,why
 421761206458,Jempsons,jempsons.com,United Kingdom,other
 381170434288,Jenbray Foods,,,other
 381156215995,Jenbray Foods P/l,jenbrayfoods.com,Australia,other
+472720699580,Jenbray Foods P/l,jenbrayfoods.com,Australia,auto-outreach
 421732268276,Jendol Super Stores,jendolstores.com,,other
 425124843757,JENKI,jenki.co.uk,United Kingdom,other
 426299911410,"Jenmax Foods, LLC",jenmaxfoods.com,United States,other
@@ -24801,7 +24802,7 @@ id,name,domain,country,why
 426294383808,Kite Hill,kite-hill.com,United States,other
 421761039546,Kitsilano Natural Foods,,,other
 426291383482,Kitsuco,kitsuco.com,United States,other
-421771843799,Kitwave,kitwave.co.uk,United Kingdom,other
+421771843799,Kitwave,kitwave.co.uk,United Kingdom,auto-outreach
 387222287584,Kivotos Mykonos,kivotosmykonos.com,,other
 426224063733,KIVU Speciality Coffee,kivu.com.cy,Cyprus,other
 381384648913,Kiwi,kiwi.no,,other
@@ -30996,7 +30997,7 @@ id,name,domain,country,why
 426205908165,Nicelife Cocktails,nicelife.ca,Canada,other
 425206870230,niceshops GmbH,piccantino.co.uk,United Kingdom,other
 421770041568,nicetocu,mycu.my,Malaysia,other
-421737585869,Niche Distributors,nichedistributors.co.za,South Africa,other
+421737585869,Niche Distributors,nichedistributors.co.za,South Africa,auto-outreach
 381332817119,Niche Gourmet,nichegourmet.com,,other
 421768238324,Nichifitsu Boeki,nbkk.co.jp,Japan,other
 421734041838,Nichiga,garlic.co.jp,Japan,other
@@ -34353,7 +34354,7 @@ id,name,domain,country,why
 421797806302,Pricecheck,pricecheck.uk.com,United Kingdom,other
 425216369906,PriceCo Foods,sbcglobal.net,,other
 421725058246,Priceless Discounts,pricelessdiscountsonline.com,United Kingdom,other
-421728840906,Priceline Pharmacy,priceline.com.au,Australia,other
+421728840906,Priceline Pharmacy,priceline.com.au,Australia,auto-outreach
 421759157491,Pricer.lt,pricer.lt,Lithuania,other
 425255357669,pricerelevance.se,pricerelevance.se,Sweden,other
 381159641306,Pricerite,pricerite.com.hk,,other
@@ -35231,7 +35232,7 @@ id,name,domain,country,why
 381314820303,qwintry store,qwintry.com,,other
 381115413715,R A Distributing Ltd,mymts.net,,other
 421715482861,R A Trading Ltd,ratrading.co.uk,England,other
-421766528224,R and I Jones Limited,,UK,other
+421766528224,R and I Jones Limited,,UK,auto-outreach
 421752034526,R D Johns Foodservice,rdjohns.co.uk,England,other
 426291340535,R Dalton Coffee Co,rdaltoncoffee.com,Guatemala,other
 426224047294,R O WATER SDN BHD,rowater.com.my,Malaysia,other
@@ -35983,7 +35984,7 @@ id,name,domain,country,why
 421732268236,Rhyl Deal Ltd,,Wales,other
 425206870202,Rhythm 108,rhythm108.com,Switzerland,auto-outreach
 381315043552,Ri Wing Toys & Foods Co,gamil.com,,other
-421752034532,rialtofoods,rialtofoods.co.za,South Africa,other
+421752034532,rialtofoods,rialtofoods.co.za,South Africa,auto-outreach
 421790619896,Riana Group Int,rianagroup-int.com,England,other
 421739476167,riba smith,rimith.com,,other
 421732378828,Riba Smith Supermercados,ribasmith.com,Panama,other
@@ -36447,7 +36448,7 @@ id,name,domain,country,why
 426294567157,Rowdy Mermaid,rowdymermaid.com,United States,other
 426224046318,Rowhani Saffron Co.,rowhanisaffron.com,Iran,other
 425068093633,Rowing Ireland,rowingireland.ie,Ireland,other
-421796008133,Rowlands Pharmacy,rowlandspharmacy.co.uk,England,other
+421796008133,Rowlands Pharmacy,rowlandspharmacy.co.uk,England,auto-outreach
 421746794682,Rox,rox.hr,Croatia,other
 386179912953,ROX Srbija,rox-bg.rs,,other
 426224069832,Roxane Purified Water,pureroxane.com,United States,other
@@ -41807,7 +41808,7 @@ id,name,domain,country,why
 421735816393,Terrigal Lollie House,lolliehouseonline.com.au,Australia,other
 426293039315,Terroir Sud Ouest,vins-tso.com,France,other
 421726846178,Terry White Chemmart pharmacy,twcmhealth.com.au,Australia,other
-421803402455,TerryWhite Chemmart,terrywhitechemmart.com.au,Australia,other
+421803402455,TerryWhite Chemmart,terrywhitechemmart.com.au,Australia,auto-outreach
 421739465914,Terveyskioski,terveyskioski.fi,Finland,other
 421759243496,TERVIS,tervis.co.jp,Japan,other
 381323749603,Tervise pÃ¤ike,tervisepaike.ee,,other
