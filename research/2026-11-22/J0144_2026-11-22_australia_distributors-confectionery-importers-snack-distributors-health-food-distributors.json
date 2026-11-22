@@ -1,0 +1,56 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0144",
+  "location": "Australia",
+  "run_date": "2026-11-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 35
+    },
+    {
+      "channel": "confectionery importers",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 46
+    },
+    {
+      "channel": "snack distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 38
+    },
+    {
+      "channel": "health food distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 46
+    },
+    {
+      "channel": "British food importers",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 41
+    }
+  ],
+  "companies": []
+}
