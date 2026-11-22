@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-22 01:38 UTC
+Written 2026-11-22 04:37 UTC
 
 ```
-1047 leads in the Diablo campaigns in Instantly
+1054 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -20,9 +20,11 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Bounce notices read from the BOUNCED label: 62 for 49 address(es)
-Email threads: 0 emails since the last run
-Email threads: 13 companies read in full, 106 with no change since their last reading
+Wrote 8 notes on contacts' timelines (email sent, bounced or replied)
+Bounce notices read from the BOUNCED label: 63 for 50 address(es)
+Aligro: a dead address; Head of Customer Service is now number 1
+Email threads: 8 emails since the last run
+Email threads: 9 companies read in full, 117 with no change since their last reading
 Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 0 contacts and 0 companies in HubSpot
+Updated 1 contacts and 0 companies in HubSpot
 ```
