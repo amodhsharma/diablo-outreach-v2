@@ -1,0 +1,83 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0145",
+  "location": "Australia",
+  "run_date": "2026-11-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors of international confectionery brands",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 34
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 33
+    },
+    {
+      "channel": "consumer goods distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 35
+    },
+    {
+      "channel": "mass consumption distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 35
+    },
+    {
+      "channel": "sales and distribution companies",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 32
+    }
+  ],
+  "companies": [
+    {
+      "name": "Rosco Fine Foods",
+      "based_out_of": "Campsie, Sydney, Australia",
+      "domain": "roscofinefoods.com.au",
+      "channel_category": [
+        "FMCG distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate, pralines and confectionery, seasonal chocolate and biscuits, plus gourmet grocery such as mustards and jams; exclusive importer of Ritter Sport, Anthon Berg, Goldkenn, Storz, Summerdown, Holdsworth and Reber, and handles Lindt, Ferrero, Toblerone, Whittakers and Pez on an agency basis.",
+      "channels_supplied": "Department stores, supermarkets, fresh food retailers, grocery stores, specialist confectioners, delicatessens and convenience outlets across Australia; named customers include Harris Farm and Supabarn.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A family importer since 1980 whose core business is bringing European and UK chocolate and confectionery brands into Australian shops on an exclusive basis, which is the role Diablo needs. It already places imported branded chocolate in supermarkets and fresh food chains nationally, so a no-added-sugar chocolate and biscuit range sits naturally next to Ritter Sport and Anthon Berg. Scale: about 40 brands and more than 1,000 items sold Australia wide through state distribution partners, with named chain customers; no outlet count or staff figures shown on its website. Storage: exclusive importer that buys and holds the stock of its brands, with temperature-controlled delivery from its Campsie, Sydney base; the warehouse itself is not described on its website.",
+      "what_they_do_well": [
+        "Exclusive Australian importer of Ritter Sport, Anthon Berg and Goldkenn, trading continuously since 1980.",
+        "Supplies supermarkets and fresh food retailers such as Harris Farm and Supabarn across most Australian regions."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.roscofinefoods.com.au/",
+        "https://www.roscofinefoods.com.au/our-story",
+        "https://www.roscofinefoods.com.au/confectionery",
+        "https://bestfoodimporters.com/company/rosco-fine-foods/"
+      ]
+    }
+  ]
+}
