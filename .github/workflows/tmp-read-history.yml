@@ -1,0 +1,29 @@
+name: 'tmp - read status history (read only, deleted after use)'
+on:
+  push:
+    branches: [tmp-read-history]
+jobs:
+  read:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    env:
+      HUBSPOT_TOKEN: ${{ vars.PIPELINE_TARGET == 'live' && secrets.HUBSPOT_TOKEN_LIVE || secrets.HUBSPOT_TOKEN_TEST }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Read Lead Status and stop reason history (IDs, values and times only)
+        run: |
+          python - <<'PY'
+          from outreach.hubspot_client import HubSpot
+          hs = HubSpot()
+          for obj, ids in (("companies", ["421728840906", "421803402455"]),
+                           ("contacts", ["672312809709", "671787625701", "672320120041", "671881677042", "672293715149",
+                                         "672338000072", "672293715141", "671763503336", "672230409403"])):
+              for prop in ("hs_lead_status", "diablo_stop_reason"):
+                  for rid, (_p, past) in hs.history(obj, ids, prop).items():
+                      print(obj, rid, prop, past[:4])
+          PY
