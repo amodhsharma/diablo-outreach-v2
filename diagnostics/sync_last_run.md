@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-22 16:45 UTC
+Written 2026-11-22 19:43 UTC
 
 ```
-1063 leads in the Diablo campaigns in Instantly
+1066 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -20,35 +20,14 @@ Leiterin Personal Schweiz sent only an automatic answer (the subject says "Autom
 Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
-Bounce notices read from the BOUNCED label: 73 for 60 address(es)
-Email threads: 2 emails since the last run
-The Distributors: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Millennium Distributions Pty Ltd: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Millennium Distributions Pty Ltd: the Company inbox (from website) was sent their reminder, as a forward of their introduction
-Confectionery Warehouse: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Confectionery Warehouse: the Company inbox (from website) was sent their reminder, as a forward of their introduction
-Taste Food Distributors: the contact did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Taste Food Distributors: the Company inbox (from website) was sent their reminder, as a forward of their introduction
-Harcher: the Senior Business Development Manager did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Harcher: the contact was sent their reminder, as a forward of their introduction
-Opera Foods Pty Ltd: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Central Coast Confectionery: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Angeles Fine Foods Australia: the Sales Manager did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Angeles Fine Foods Australia: the contact was sent their reminder, as a forward of their introduction
-Bensons Trading: the contact did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Bensons Trading: the contact was sent their reminder, as a forward of their introduction
-Bensons Trading: the introduction goes to the next contact
-Intertrading Australia: the contact did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Intertrading Australia: the contact was sent their reminder, as a forward of their introduction
-Conga Food: the contact did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Conga Food: the contact was sent their reminder, as a forward of their introduction
+Wrote 4 notes on contacts' timelines (email sent, bounced or replied)
+Bounce notices read from the BOUNCED label: 74 for 61 address(es)
+Email threads: 11 emails since the last run
+Confectionery Warehouse: the introduction goes to Company inbox (from website)
 Conga Food: the introduction goes to Company inbox (from website)
 Kloseâ€™s: Instantly refused the introduction (POST /leads/add failed with 400: {"statusCode":400,"error":"Bad Request","message":"No valid leads found"}); it is tried again next run
-JB Metropolitan Distributor: the contact did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Mayers Fine Food: the Head of Supply Chain did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Artistic Visual Agency: the introduction goes to Company inbox (from website)
-Email threads: 29 companies read in full, 98 with no change since their last reading
-Loop: 0 forwards, 8 reminders, 3 introductions added, 13 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 0 contacts and 0 companies in HubSpot
+Mayers Fine Food: the Managing Director was sent their reminder, as a forward of their introduction
+Email threads: 27 companies read in full, 100 with no change since their last reading
+Loop: 0 forwards, 1 reminders, 2 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Updated 1 contacts and 0 companies in HubSpot
 ```
