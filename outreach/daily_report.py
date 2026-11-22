@@ -25,7 +25,8 @@ The email (20 Nov 2026, Ariel):
          not exist"; 20 Nov 2026), asked not to be emailed, automatic replies (data/daily_log.json, written by
          button 4)
        Campaigns: a table of this month's campaigns, laid out for a desktop screen (22 Nov 2026, Ariel): Campaign,
-         Status (short: Running, Running brake on, Paused: Bounce Protect, ...), Bounce rate (green under 3%, amber
+         Status with its coloured dot (short: Running, Running brake on, Paused: Bounce Protect, ...), Bounce rate
+         (3%), the benchmark in the heading (green under 3%, amber
          3% to 5%, red over 5%), Your input (green "Resume now", amber "Wait until ...", red "Resume when ready",
          "Connect a sending account" or "Contact Instantly support"; grey "None" when nothing is needed), then the
          emails it sent in the same four columns
@@ -748,7 +749,7 @@ def key_rows(k):
         campaigns = accounts = [("line", "Instantly could not be read this time", SAME)]
     else:
         sent = k.get("campaign_sent")
-        # 22 Nov 2026 (Ariel): a table: Campaign | Status | Bounce rate | Your input | the four columns
+        # 22 Nov 2026 (Ariel): a table: Campaign | Status | Bounce rate (3%) | Your input | the four columns
         campaigns = [("campaign_head",)] if h["campaigns"] else []
         for colour, name, state, rate, *more in h["campaigns"]:
             advice, cid, rate_colour = (more + [None, None, None])[:3]
@@ -837,11 +838,11 @@ def key_text(k):
                 out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{week:<16}{month}"
                            .rstrip() + names)
             elif item[0] == "campaign_head":
-                out.append("  Campaign | Status | Bounce rate | Your input")
+                out.append("  Campaign | Status | Bounce rate (3%) | Your input")
             elif item[0] == "campaign":
                 _, colour, name, state, rate, _rate_colour, advice, numbers = item
                 mark = {GOOD: "OK", BAD: "!!", WARN: "!"}.get(colour, "-")
-                out.append(f"  {mark:<3}{name} | {state} | {rate or '-'} | {advice[0] if advice else 'None'}")
+                out.append(f"  {name} | {mark} {state} | {rate or '-'} | {advice[0] if advice else 'None'}")
                 if numbers:
                     day, before, symbol, _good, week, month = numbers
                     out.append(f"  {'     Emails sent':<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}"
@@ -891,7 +892,7 @@ def key_html(k):
             if item[0] == "campaign_head":
                 head = 'style="padding:2px 10px 2px 14px;color:#888780;font-size:12px;white-space:nowrap"'
                 parts.append("<tr>" + "".join(f"<td {head}>{h}</td>" for h in
-                                              ("Campaign", "Status", "Bounce rate", "Your input")) + "<td></td>" * 4 + "</tr>")
+                                              ("Campaign", "Status", "Bounce rate (3%)", "Your input")) + "<td></td>" * 4 + "</tr>")
                 continue
             if item[0] == "campaign":  # 22 Nov 2026 (Ariel): one row per campaign, in four columns of its own
                 _, colour, name, state, rate, rate_colour, advice, numbers = item
@@ -904,8 +905,10 @@ def key_html(k):
                 elif advice:
                     input_html = f'<span style="color:{SAME}">{e(advice[0])}</span>'
                 status_colour = colour if colour != GOOD else "inherit"
-                row = (f'<tr><td {td}><span style="color:{colour}">&#9679;</span> {e(name)}</td>'
-                       f'<td {td}><span style="color:{status_colour};white-space:nowrap">{e(state)}</span></td>'
+                # 22 Nov 2026 (Ariel): the coloured dot goes with the status, not the campaign's name
+                row = (f'<tr><td {td}>{e(name)}</td>'
+                       f'<td {td}><span style="color:{colour}">&#9679;</span> '
+                       f'<span style="color:{status_colour};white-space:nowrap">{e(state)}</span></td>'
                        f'<td {td}><span style="color:{rate_colour or "inherit"};font-weight:bold">{e(rate or "-")}</span></td>'
                        f"<td {td}>{input_html}</td>")
                 parts.append(row + (numbers_html(*numbers) if numbers else "<td></td>" * 4) + "</tr>")

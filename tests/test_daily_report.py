@@ -124,10 +124,10 @@ def test_key_numbers_read_as_agreed():
     assert "Asked not to be emailed 0 0 = 0 0" in lines and "Automatic replies (out of office) 2 0 ▲ 2 2" in lines
     # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
     # 22 Nov 2026 (Ariel): Campaign | Status | Bounce rate | Your input, then the four columns
-    assert "Campaign | Status | Bounce rate | Your input" in lines
-    assert f"!! Diablo | {_month("2026-10-26")} | Company inboxes | No sending account | - | Connect a sending account" in lines
+    assert "Campaign | Status | Bounce rate (3%) | Your input" in lines
+    assert f"Diablo | {_month("2026-10-26")} | Company inboxes | !! No sending account | - | Connect a sending account" in lines
     assert "Emails sent 0 0 = 0 0" in lines  # 22 Nov 2026 (Ariel): each campaign's emails, in the four columns
-    assert f"OK Diablo | {_month("2026-10-26")} | Running | - | None" in lines and "OK 1 of 1 healthy" in lines
+    assert f"Diablo | {_month("2026-10-26")} | OK Running | - | None" in lines and "OK 1 of 1 healthy" in lines
     assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines and "[Health] Sending accounts" in lines
     assert "[For sales team] Positive replies to follow up" in lines
     at = next(i for i, line in enumerate(lines) if "Positive replies to follow up" in line)
@@ -570,10 +570,12 @@ def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate
          "initial": {"input": [], "auto": []},
          "campaign_sent": {"c1": (0, 4, 181, 461), "c2": (19, 10, 134, 284)}}
     lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
-    assert "! Diablo | NOV2026 | Running, brake on | 8.5% | None: new introductions start again by themselves under 3%" in lines
-    assert "!! Diablo | NOV2026 | Company inboxes | Paused: Bounce Protect | 4.5% | Resume now" in lines
+    assert "Diablo | NOV2026 | ! Running, brake on | 8.5% | None: new introductions start again by themselves under 3%" in lines
+    assert "Diablo | NOV2026 | Company inboxes | !! Paused: Bounce Protect | 4.5% | Resume now" in lines
     assert "Emails sent 19 10 ▲ 134 284" in lines
     html = daily_report.key_html(k)
-    assert ">Campaign</td>" in html and ">Your input</td>" in html
+    assert ">Campaign</td>" in html and ">Bounce rate (3%)</td>" in html and ">Your input</td>" in html
+    assert ">Diablo | NOV2026</td>" in html  # 22 Nov 2026 (Ariel): no dot before the name; it goes with the status
+    assert '&#9679;</span> <span style="color:#BA7517;white-space:nowrap">Running, brake on</span>' in html
     assert 'color:#C0392B;font-weight:bold">8.5%</span>' in html  # over 5%: red
     assert "Resume now</span>" in html and "#EAF3DE" in html  # a green label
