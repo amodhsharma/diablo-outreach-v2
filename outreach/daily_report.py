@@ -16,8 +16,9 @@ The email (20 Nov 2026, Ariel):
   1. The three Sankey charts (flow_charts.py): the UK day, the week so far and the month so far. A chart that
      cannot be drawn is written out instead, with exactly its words, numbers, %, arrows and notes. When HubSpot
      cannot be read at all, one line says the charts could not be produced, and why.
-  2. "Key numbers", in four columns (Yesterday, Day before with an arrow as on the day chart, Week so far from
-     Monday, added 21 Nov 2026, and Month so far):
+  2. "Key numbers", in four columns, headed by their dates since 23 Nov 2026 (Ariel), e.g. "Sun 22 Nov" (the day
+     reported), "Sat 21 Nov" (the day before, with an arrow as on the day chart), "Week (16 to 22 Nov)" (Monday to
+     the day reported, added 21 Nov 2026) and "Month (1 to 22 Nov)"; a sample of a day not over says "(so far)":
        Sending: introductions sent, reminders sent (button 4's memory). The aim of 240 introductions a day is not
          shown.
        Delivery: undelivered (with the bounce rate; Instantly pauses at 5%; the "By sending account" and "At" lines
@@ -361,6 +362,7 @@ def initial_stages(hs, statuses, unknown_names, at=None, unknown_ids=()):
     """20 Nov 2026 (Ariel): the companies not yet emailed, at the cut-off (midnight UK; `at`), split by whether
     Ariel's input is needed. {"input": [(label, count, [names])], "auto": [(label, count)], "ids": {company ids
     under Your input needed}}."""
+    from .common import targeted
     from .countries import uniform
     at = at or AtCutoff(hs, statuses, dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=1))
 
@@ -384,7 +386,9 @@ def initial_stages(hs, statuses, unknown_names, at=None, unknown_ids=()):
            | {str(k) for k in held_of.values()})
     return {"input": [("New companies waiting for your GATE1 approval", len(new), names(new)),
                       ("Introductions waiting for your GATE2 approval", len(gate2), gate2_names),
-                      ("Contacts not yet tagged AUTO-OUTREACH", len(exists), names(exists)),
+                      # 23 Nov 2026 (Ariel): shown as a suggestion, so only the companies from a channel we target
+                      ("Contacts not yet tagged AUTO-OUTREACH", len(exists),
+                       names([c for c in exists if targeted(c.get("properties") or {}) is True])),
                       ("Companies whose channel is not known", len(unknown), sorted(unknown, key=str.lower))]
             + ([("Contacts held: broken record", len(held), held_names)] if held else []),
             "auto": [("Approved, Apollo search at the next button 3 run", len(gate1)),
@@ -442,7 +446,7 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
         "at_midnight": not at.live,
     }
     out["initial"] = initial_stages(hs, statuses, out["unknown_channel"], at, unknown)
-    out["tagged"] = newly_tagged(hs, date)  # 22 Nov 2026 (Ariel): companies made AUTO-OUTREACH that day
+    out["recent_tagged"] = recently_tagged(hs, date)  # 23 Nov 2026 (Ariel): the last five made AUTO-OUTREACH
     # 22 Nov 2026 (Ariel): each campaign's emails sent, in the same four columns as Sending
     if out["accounts"]:
         days = sorted(set(month_days) | set(week_days) | {date, before})
@@ -593,20 +597,19 @@ def campaign_sends(instantly, emails_api, campaign_ids, dates):
         return None
 
 
-def newly_tagged(hs, date):
-    """22 Nov 2026 (Ariel): the companies whose Lead Source became AUTO-OUTREACH on that UK day, from Apollo or from
-    no value at all, by name; companies research creates (AUTO-OUTREACH from the start) do not count. None when
-    HubSpot's history cannot be read."""
+def _tag_moments(hs, start, end):
+    """[(when, name)] for every company whose Lead Source became AUTO-OUTREACH between start and end, from Apollo or
+    from no value at all; companies research creates (AUTO-OUTREACH from the start) do not count. None when HubSpot's
+    history cannot be read. extra: more search filters."""
     from .next_in_line import parse_time
     from .schema import TAG, TAG_PROPERTY
-    start, end = window(date)
     try:
         rows = hs.tagged_search("companies", _between("hs_lastmodifieddate", start, end)[:1], ["name"],
                                 max_results=10000)
         past = hs.history("companies", [r["id"] for r in rows], TAG_PROPERTY, ["name", "createdate"]) if rows else {}
     except Exception:
         return None
-    names = []
+    out = []
     for props, history in past.values():
         for i, (value, stamp) in enumerate(history):
             when = parse_time(stamp)
@@ -618,9 +621,30 @@ def newly_tagged(hs, date):
             created = parse_time(props.get("createdate"))
             if before is None and (not created or when - created < dt.timedelta(minutes=10)):
                 break  # created as AUTO-OUTREACH (research), not tagged later
-            names.append(props.get("name") or "A company")
+            out.append((when, props.get("name") or "A company"))
             break
-    return sorted(names, key=str.lower)
+    return out
+
+
+def newly_tagged(hs, date):
+    """22 Nov 2026 (Ariel): the companies whose Lead Source became AUTO-OUTREACH on that UK day, by name."""
+    start, end = window(date)
+    moments = _tag_moments(hs, start, end)
+    return None if moments is None else sorted((name for _, name in moments), key=str.lower)
+
+
+RECENT_TAGGED = 5  # 23 Nov 2026 (Ariel): the last five companies made AUTO-OUTREACH
+RECENT_DAYS = 30
+
+
+def recently_tagged(hs, date, limit=RECENT_TAGGED):
+    """23 Nov 2026 (Ariel): the last `limit` companies made AUTO-OUTREACH by hand (from Apollo or no Lead Source) up to
+    the end of the UK day reported, newest first, looking back RECENT_DAYS days. None when HubSpot cannot be read."""
+    end = window(date)[1]
+    moments = _tag_moments(hs, end - dt.timedelta(days=RECENT_DAYS), end)
+    if moments is None:
+        return None
+    return [name for _, name in sorted(moments, key=lambda m: m[0], reverse=True)[:limit]]
 
 
 def research_status(hs, date, queue_file=None):
@@ -913,6 +937,9 @@ def key_rows(k):
     if k.get("initial"):  # 20 Nov 2026 (Ariel): what the chart's Initial stages box holds, at midnight UK
         # 21 Nov 2026 (Ariel): "Waiting for you" is merged in here; it named the same companies twice
         shown = {"Contacts held: broken record": ("Contacts held: broken record", k.get("held")),
+                 # 23 Nov 2026 (Ariel): companies research found whose people are already in HubSpot, not tagged
+                 "Contacts not yet tagged AUTO-OUTREACH": ("Suggest making them AUTO-OUTREACH, match our targeted "
+                                                           "channels", None),
                  "Companies whose channel is not known": ("Companies whose channel is not known (nobody is emailed "
                                                           "until it is set)", None)}
         need = sum(n for _, n, _ in k["initial"]["input"])
@@ -922,13 +949,17 @@ def key_rows(k):
         # input needed" line; GATE1 and GATE2 always show, the other lists only when they hold something
         if "research" in k:
             rows += research_rows(k["research"])
-        if k.get("tagged"):  # one number and the names; not added to the heading's total
-            rows.append(("bullet", [f"Companies now AUTO-OUTREACH (from Apollo or no Lead Source) ({len(k['tagged'])})"],
-                         ", ".join(k["tagged"]), None))
+        if k.get("recent_tagged"):  # 23 Nov 2026 (Ariel): the last five, newest first; not added to the total
+            rows.append(("bullet", ["Companies that recently became AUTO-OUTREACH"], ", ".join(k["recent_tagged"]),
+                         None, "colon"))
         always = ("New companies waiting for your GATE1 approval", "Introductions waiting for your GATE2 approval")
         for label, n, who in k["initial"]["input"]:
             if n or label in always:
                 text, detail = shown.get(label, (label, None))
+                if label == "Contacts not yet tagged AUTO-OUTREACH":
+                    if who:  # only the companies from a channel we target are suggested
+                        rows.append(("bullet", [text], ", ".join(who), None, "colon"))
+                    continue
                 rows.append(("bullet", [text], ", ".join(detail or who) or "none", None))
         steps = [f"{n:,} {words}" for n, words in zip((n for _, n in k["initial"]["auto"]),
                                                        ("waiting for Apollo", "being written",
@@ -955,10 +986,25 @@ def key_rows(k):
     return f"Key numbers - {_long_date(k['date'])}", blocks
 
 
+def column_labels(k):
+    """23 Nov 2026 (Ariel): the four column headings as dates, e.g. "Sun 22 Nov", "Sat 21 Nov", "Week (16 to 22 Nov)",
+    "Month (1 to 22 Nov)"; a day not over yet (a sample of today so far) says "(so far)"."""
+    d = dt.date.fromisoformat(k["date"])
+    before, monday = d - dt.timedelta(days=1), d - dt.timedelta(days=d.weekday())
+
+    def day(x):
+        return f"{x.strftime('%a')} {x.day} {x.strftime('%b')}"
+    week_from = f"{monday.day}" if monday.month == d.month else f"{monday.day} {monday.strftime('%b')}"
+    so_far = "" if k.get("at_midnight", True) else " (so far)"
+    return (day(d) + so_far, day(before), f"Week ({week_from} to {d.day} {d.strftime('%b')})",
+            f"Month (1 to {d.day} {d.strftime('%b')})")
+
+
 def key_text(k):
     title, blocks = key_rows(k)
     width = max(len(i[1]) for _, items in blocks for i in items if i[0] == "row") + 4
-    columns = f"{'':{width + 2}}{'Yesterday':<16}{'Day before':<16}{'Week so far':<16}Month so far"
+    first, second, third, fourth = column_labels(k)  # 23 Nov 2026 (Ariel): dates, not "Yesterday"
+    columns = f"{'':{width + 2}}{first:<22}{second:<22}{third:<22}{fourth}"
     out, current = [title], None
     for heading, items in blocks:
         text, tags, count = _heading(heading)
@@ -974,7 +1020,7 @@ def key_text(k):
                 _, label, day, before, symbol, _good, month = item[:7]
                 week = item[8] if len(item) > 8 else ""
                 names = f"  ({item[9]})" if len(item) > 9 and item[9] else ""
-                out.append(f"  {label:<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}{week:<16}{month}"
+                out.append(f"  {label:<{width}}{day:<22}{(before + (' ' + symbol if symbol else '')):<22}{week:<22}{month}"
                            .rstrip() + names)
             elif item[0] == "campaign_head":
                 out.append("  Campaign | Status | Bounce rate (3%) | Replies (positive) | Your input")
@@ -985,8 +1031,8 @@ def key_text(k):
                 out.append(f"  {name} | {mark} {state} | {rate or '-'} | {replied} | {advice[0] if advice else 'None'}")
                 if numbers:
                     day, before, symbol, _good, week, month = numbers
-                    out.append(f"  {'     Emails sent':<{width}}{day:<16}{(before + (' ' + symbol if symbol else '')):<16}"
-                               f"{week:<16}{month}".rstrip())
+                    out.append(f"  {'     Emails sent':<{width}}{day:<22}{(before + (' ' + symbol if symbol else '')):<22}"
+                               f"{week:<22}{month}".rstrip())
             elif item[0] == "line":
                 out.append(f"  {item[1]}")
             elif item[0] == "bullet":
@@ -1030,7 +1076,7 @@ def key_html(k):
                            f'font-weight:normal;font-size:12px;margin-right:6px">{e(t)}</span>' for t in tags)
         group = text if text in OWN_TABLES else "rest"
         if group in OWN_TABLES:  # 22 Nov 2026 (Ariel): a proper table, with lines between rows and columns
-            parts.append(("</table>" if current else "") + _own_table(text, tag_html, count, items))
+            parts.append(("</table>" if current else "") + _own_table(text, tag_html, count, items, column_labels(k)))
             current = None
             continue
         left, wide, full = 1, "", 5
@@ -1085,7 +1131,7 @@ def _bullet_words(item):
     segments, names, _colour, style = _bullet_parts(item)
     words = "".join(s if isinstance(s, str) else s[0] for s in segments)
     if names:
-        words += f" ({names})" if style == "brackets" else f" - {names}"
+        words += {"brackets": f" ({names})", "colon": f": {names}"}.get(style, f" - {names}")
     return words
 
 
@@ -1103,12 +1149,12 @@ def _bullet_html(item):
             out.append(f'<span style="background:{bg};color:{fg};padding:1px 8px;border-radius:6px;font-size:12px;'
                        f'font-weight:bold">{e(s[0])}</span>')
     if names:
-        out.append(e(f" ({names})" if style == "brackets" else f" - {names}"))
+        out.append(e({"brackets": f" ({names})", "colon": f": {names}"}.get(style, f" - {names}")))
     body = "".join(out)
     return f'<span style="color:{colour}">{body}</span>' if colour else body
 
 
-def _own_table(text, tag_html, count, items):
+def _own_table(text, tag_html, count, items, labels=("Yesterday", "Day before", "Week so far", "Month so far")):
     """22 Nov 2026 (Ariel): Sending, Delivery or Campaigns as a proper table: the heading above it, a grey header row
     (Campaigns: Campaign, Status, Bounce rate (3%), Replies (positive), Your input; the others: the row's topic), then Yesterday, Day
     before, Week so far and Month so far, with lines between every row and column. Notes go under the table."""
@@ -1122,7 +1168,7 @@ def _own_table(text, tag_html, count, items):
     out = [f'<p style="margin:16px 0 4px">{tag_html}<b>{e(text)}</b>{total}</p>',
            '<table style="border-collapse:collapse;font-size:14px;margin:0 0 4px">',
            "<tr>" + "".join(f"<th {head}>{h}</th>" for h in firsts)
-           + "".join(f"<th {head}>{h}</th>" for h in ("Yesterday", "Day before", "Week so far", "Month so far")) + "</tr>"]
+           + "".join(f"<th {head}>{e(h)}</th>" for h in labels) + "</tr>"]
     notes = []
 
     def numbers(day, before, symbol, good, week, month, tint=""):

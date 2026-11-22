@@ -117,7 +117,8 @@ def test_key_numbers_read_as_agreed():
         assert gone not in text
     lines = [" ".join(line.split()) for line in text.splitlines()]
     assert lines[0] == "Key numbers - Monday 26 October 2026"
-    assert lines[1] == "Yesterday Day before Week so far Month so far"  # 21 Nov 2026 (Ariel): Week so far added
+    # 23 Nov 2026 (Ariel): the columns are headed by their dates (26 Oct 2026 is a Monday: a one-day week)
+    assert lines[1] == "Mon 26 Oct Sun 25 Oct Week (26 to 26 Oct) Month (1 to 26 Oct)"
     assert "Introductions sent 3 1 ▲ 3 4" in lines  # 26 Oct 2026 is a Monday: the week so far is that day
     assert "Instantly uploads used: 4 of 25,000 (0%)" in lines  # 22 Nov 2026: under Sending accounts and Instantly
     assert "Undelivered (bounced; Instantly pauses at 5%) 1 (33.3%) 0 ▲ 1 (33.3%) 1 (25.0%)" in lines
@@ -176,7 +177,7 @@ def test_a_quiet_day_and_all_healthy():
                               date="2026-11-01", preview=True, log=quiet, log_data={})
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert "Introductions sent 0 0 = 0 0" in lines and "OK 1 of 1 healthy" in lines
-    assert "Week so far" in result["html"]
+    assert "Week (26 Oct to 1 Nov)" in result["html"] and "Month (1 to 1 Nov)" in result["html"]
     # 21 Nov 2026: no positive or negative replies, no referral, no reply from outside; nothing waiting, and
     # "Waiting for you" is now part of Initial stages; "Referrals handled automatically" only when there are some
     assert "None" not in lines  # 22 Nov 2026: the replies are bullets with (0); empty sections are left out
@@ -560,15 +561,16 @@ def test_the_companies_made_auto_outreach_show_as_one_number_in_initial_stages()
          "bounced": (0, 0, 0), "opted_out": (0, 0, 0), "auto": (0, 0, 0), "accounts": None, "follow": [], "negative": [],
          "nowhere": [], "initial": {"input": [("New companies waiting for your GATE1 approval", 2, ["Alpha", "Beta"])],
                                     "auto": [("Approved", 1)]},
-         "tagged": ["Kitwave", "Rialto"]}
+         "recent_tagged": ["Rialto", "Kitwave"]}
     lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
     at = next(i for i, line in enumerate(lines) if "Initial stages" in line)
     assert lines[at].endswith(" 3")  # 2 waiting and 1 automatic: the tagged companies are not added again
-    assert lines[at + 1] == "• Companies now AUTO-OUTREACH (from Apollo or no Lead Source) (2) - Kitwave, Rialto"
+    # 23 Nov 2026 (Ariel): the last five made AUTO-OUTREACH, newest first
+    assert lines[at + 1] == "• Companies that recently became AUTO-OUTREACH: Rialto, Kitwave"
     assert lines[at + 2] == "• New companies waiting for your GATE1 approval - Alpha, Beta"
     assert lines[at + 3] == "• No input needed (automatic) - 1 waiting for Apollo"
     html = daily_report.key_html(k)
-    assert "<li>Companies now AUTO-OUTREACH (from Apollo or no Lead Source) (2) - Kitwave, Rialto</li>" in html
+    assert "<li>Companies that recently became AUTO-OUTREACH: Rialto, Kitwave</li>" in html
 
 
 def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate():
@@ -605,14 +607,14 @@ def test_sending_delivery_and_campaigns_each_have_their_own_table():
     result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                               preview=True, log=quiet, log_data=log)
     html = result["html"]
-    assert html.count(">Yesterday</th>") == 3 and ">Yesterday</span>" not in html  # 22 Nov 2026: own tables only
+    assert html.count(">Mon 26 Oct</th>") == 3 and "Yesterday" not in html  # own tables only; dates (23 Nov 2026)
     tables = html.split("<table")[1:]
     assert "Introductions sent" in tables[0] and "Undelivered" not in tables[0]
     assert "Undelivered" in tables[1] and "Campaign</td>" not in tables[1]
     assert "Bounce rate (3%)" in tables[2] and "Sending accounts" not in tables[2]
     assert "Instantly uploads used" not in tables[0]  # 22 Nov 2026 (Ariel): moved under Sending accounts and Instantly
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
-    assert lines.count("Yesterday Day before Week so far Month so far") == 3
+    assert lines.count("Mon 26 Oct Sun 25 Oct Week (26 to 26 Oct) Month (1 to 26 Oct)") == 3
 
 
 # ---- 22 Nov 2026 (Ariel): research rows in Initial stages and positive replies per campaign ---------------------
@@ -710,3 +712,43 @@ def test_neutral_and_referral_replies_have_their_own_bullet():
     assert "• Positive replies to follow up (1) (Gnibl)" in lines
     assert "• Negative replies to follow up (1) (Pistor AG)" in lines
     assert "• Neutral replies (2) (Kit Kat Group, Charmlaw (referral))" in lines
+
+
+def test_column_headings_are_dates():
+    """23 Nov 2026 (Ariel): never "Yesterday": the day reported, the day before, the week and the month by date."""
+    base = {"date": "2026-11-22"}
+    assert daily_report.column_labels(base) == ("Sun 22 Nov", "Sat 21 Nov", "Week (16 to 22 Nov)", "Month (1 to 22 Nov)")
+    assert daily_report.column_labels({"date": "2026-12-02"}) == (
+        "Wed 2 Dec", "Tue 1 Dec", "Week (30 Nov to 2 Dec)", "Month (1 to 2 Dec)")  # a week begun in November
+    assert daily_report.column_labels({"date": "2026-11-23", "at_midnight": False})[0] == "Mon 23 Nov (so far)"
+
+
+def test_the_last_five_companies_made_auto_outreach():
+    """23 Nov 2026 (Ariel): newest first, up to the end of the day reported, research-made companies left out."""
+    hs = FakeCRM()
+    names = {}
+    for i, (name, when) in enumerate((("Old Co", "2026-11-01T09:00:00Z"), ("A", "2026-11-18T09:00:00Z"),
+                                      ("B", "2026-11-19T09:00:00Z"), ("C", "2026-11-20T09:00:00Z"),
+                                      ("D", "2026-11-21T09:00:00Z"), ("E", "2026-11-22T08:00:00Z"),
+                                      ("F", "2026-11-22T09:00:00Z"), ("Tomorrow", "2026-11-23T09:00:00Z"))):
+        cid = hs.add("companies", name=name, createdate="2026-01-29T08:00:00Z", hs_lastmodifieddate=when)
+        names[cid] = (when, name)
+    research = hs.add("companies", name="Research Co", createdate="2026-11-22T10:00:00Z",
+                      hs_lastmodifieddate="2026-11-22T10:00:00Z")
+    hs.past = {("companies", cid, "lead_source"): [("AUTO-OUTREACH", when), ("Apollo", "2026-04-13T13:00:00Z")]
+               for cid, (when, _) in names.items()}
+    hs.past[("companies", research, "lead_source")] = [("AUTO-OUTREACH", "2026-11-22T10:00:01Z")]
+    assert daily_report.recently_tagged(hs, "2026-11-22") == ["F", "E", "D", "C", "B"]
+
+
+def test_companies_with_people_not_tagged_are_suggested_only_from_our_channels():
+    """23 Nov 2026 (Ariel): "Suggest making them AUTO-OUTREACH, match our targeted channels: ..."."""
+    k = {"date": "2026-11-22", "intros": (0, 0, 0), "reminders": (0, 0, 0), "sent_total": (0, 0), "uploads": None,
+         "bounced": (0, 0, 0), "opted_out": (0, 0, 0), "auto": (0, 0, 0), "accounts": None, "follow": [], "negative": [],
+         "nowhere": [], "initial": {"input": [("Contacts not yet tagged AUTO-OUTREACH", 2, ["Appleton & Sons"])],
+                                    "auto": []}}
+    lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
+    assert "• Suggest making them AUTO-OUTREACH, match our targeted channels: Appleton & Sons" in lines
+    k["initial"]["input"] = [("Contacts not yet tagged AUTO-OUTREACH", 1, [])]  # none from a channel we target
+    lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
+    assert not any("Suggest making them" in line for line in lines)
