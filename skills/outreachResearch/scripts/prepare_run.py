@@ -73,12 +73,14 @@ them again.
 """
 
 
-def ist_today():
+def uk_today():
+    """The UK date (23 Nov 2026, Ariel: research runs are dated in UK time, like the daily summary email's days; until
+    then India time, so a job finished after 18:30 UK carried the next day's date)."""
     try:
         from zoneinfo import ZoneInfo
-        return dt.datetime.now(ZoneInfo("Asia/Kolkata")).date().isoformat()
-    except Exception:  # no time zone data: fall back to UTC + 5:30
-        return (dt.datetime.utcnow() + dt.timedelta(hours=5, minutes=30)).date().isoformat()
+        return dt.datetime.now(ZoneInfo("Europe/London")).date().isoformat()
+    except Exception:  # no time zone data: UTC is UK time in winter, an hour behind in summer
+        return dt.datetime.utcnow().date().isoformat()
 
 
 def slug(text, limit=60):
@@ -226,7 +228,7 @@ def build(job_id=None, location=None, manual=False, work=None, today=None, skip=
         if old.is_file():
             old.unlink()
 
-    run_date = today or ist_today()
+    run_date = today or uk_today()
     job_location = lines[0]["location"]
     country = country_of(job_location)
     languages = lines[0]["languages"] or "the main local languages"

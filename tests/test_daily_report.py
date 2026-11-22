@@ -561,7 +561,7 @@ def test_the_companies_made_auto_outreach_show_as_one_number_in_initial_stages()
          "bounced": (0, 0, 0), "opted_out": (0, 0, 0), "auto": (0, 0, 0), "accounts": None, "follow": [], "negative": [],
          "nowhere": [], "initial": {"input": [("New companies waiting for your GATE1 approval", 2, ["Alpha", "Beta"])],
                                     "auto": [("Approved", 1)]},
-         "recent_tagged": ["Rialto", "Kitwave"]}
+         "recent_tagged": (["Rialto", "Kitwave"], False)}
     lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
     at = next(i for i, line in enumerate(lines) if "Initial stages" in line)
     assert lines[at].endswith(" 3")  # 2 waiting and 1 automatic: the tagged companies are not added again
@@ -738,7 +738,12 @@ def test_the_last_five_companies_made_auto_outreach():
     hs.past = {("companies", cid, "lead_source"): [("AUTO-OUTREACH", when), ("Apollo", "2026-04-13T13:00:00Z")]
                for cid, (when, _) in names.items()}
     hs.past[("companies", research, "lead_source")] = [("AUTO-OUTREACH", "2026-11-22T10:00:01Z")]
-    assert daily_report.recently_tagged(hs, "2026-11-22") == ["F", "E", "D", "C", "B"]
+    assert daily_report.recently_tagged(hs, "2026-11-22") == (["F", "E", "D", "C", "B"], True)  # A and Old Co too
+    k = {"date": "2026-11-22", "intros": (0, 0, 0), "reminders": (0, 0, 0), "sent_total": (0, 0), "uploads": None,
+         "bounced": (0, 0, 0), "opted_out": (0, 0, 0), "auto": (0, 0, 0), "accounts": None, "follow": [], "negative": [],
+         "nowhere": [], "initial": {"input": [], "auto": []}, "recent_tagged": (["F", "E", "D", "C", "B"], True)}
+    lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
+    assert "• Companies that recently became AUTO-OUTREACH: F, E, D, C, B etc (Ask which ones in Claude)" in lines
 
 
 def test_companies_with_people_not_tagged_are_suggested_only_from_our_channels():

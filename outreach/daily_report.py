@@ -639,12 +639,14 @@ RECENT_DAYS = 30
 
 def recently_tagged(hs, date, limit=RECENT_TAGGED):
     """23 Nov 2026 (Ariel): the last `limit` companies made AUTO-OUTREACH by hand (from Apollo or no Lead Source) up to
-    the end of the UK day reported, newest first, looking back RECENT_DAYS days. None when HubSpot cannot be read."""
+    the end of the UK day reported, newest first, looking back RECENT_DAYS days, and whether there were more. ([names],
+    more), or None when HubSpot cannot be read."""
     end = window(date)[1]
     moments = _tag_moments(hs, end - dt.timedelta(days=RECENT_DAYS), end)
     if moments is None:
         return None
-    return [name for _, name in sorted(moments, key=lambda m: m[0], reverse=True)[:limit]]
+    newest = [name for _, name in sorted(moments, key=lambda m: m[0], reverse=True)]
+    return newest[:limit], len(newest) > limit
 
 
 def research_status(hs, date, queue_file=None):
@@ -949,9 +951,10 @@ def key_rows(k):
         # input needed" line; GATE1 and GATE2 always show, the other lists only when they hold something
         if "research" in k:
             rows += research_rows(k["research"])
-        if k.get("recent_tagged"):  # 23 Nov 2026 (Ariel): the last five, newest first; not added to the total
-            rows.append(("bullet", ["Companies that recently became AUTO-OUTREACH"], ", ".join(k["recent_tagged"]),
-                         None, "colon"))
+        if k.get("recent_tagged") and k["recent_tagged"][0]:  # 23 Nov 2026 (Ariel): the last five, newest first
+            recent, more = k["recent_tagged"]  # not added to the heading's total
+            rows.append(("bullet", ["Companies that recently became AUTO-OUTREACH"],
+                         ", ".join(recent) + (" etc (Ask which ones in Claude)" if more else ""), None, "colon"))
         always = ("New companies waiting for your GATE1 approval", "Introductions waiting for your GATE2 approval")
         for label, n, who in k["initial"]["input"]:
             if n or label in always:
