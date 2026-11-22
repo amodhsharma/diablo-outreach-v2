@@ -577,7 +577,7 @@ def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate
     assert ">Campaign</th>" in html and ">Bounce rate (3%)</th>" in html and ">Your input</th>" in html
     assert "border:1px solid #d9d9d9" in html  # 22 Nov 2026 (Ariel): lines between rows and columns
     assert ">Diablo | NOV2026</td>" in html  # 22 Nov 2026 (Ariel): no dot before the name; it goes with the status
-    assert '&#9679;</span> <span style="color:#BA7517;white-space:nowrap">Running, brake on</span>' in html
+    assert '&#9679;</span> <span style="color:#BA7517">Running, brake on</span>' in html
     assert 'color:#C0392B;font-weight:bold">8.5%</span>' in html  # over 5%: red
     assert "Resume now</span>" in html and "#EAF3DE" in html  # a green label
 
@@ -588,11 +588,11 @@ def test_sending_delivery_and_campaigns_each_have_their_own_table():
     result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                               preview=True, log=quiet, log_data=log)
     html = result["html"]
-    assert html.count(">Yesterday</th>") == 3 and html.count(">Yesterday</span>") == 1  # 3 own tables, the rest
+    assert html.count(">Yesterday</th>") == 3 and ">Yesterday</span>" not in html  # 22 Nov 2026: own tables only
     tables = html.split("<table")[1:]
     assert "Introductions sent" in tables[0] and "Undelivered" not in tables[0]
     assert "Undelivered" in tables[1] and "Campaign</td>" not in tables[1]
     assert "Bounce rate (3%)" in tables[2] and "Sending accounts" not in tables[2]
     assert "Instantly uploads used: 4 of 25,000 (0%)</td>" in tables[0]  # a row, in the first column
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
-    assert lines.count("Yesterday Day before Week so far Month so far") == 4
+    assert lines.count("Yesterday Day before Week so far Month so far") == 3

@@ -834,7 +834,8 @@ def key_text(k):
         text, tags, count = _heading(heading)
         group = text if text in OWN_TABLES else "rest"  # 22 Nov 2026 (Ariel): their own headings, as in the HTML
         if group != current:
-            out.append(columns)
+            if group in OWN_TABLES:  # 22 Nov 2026 (Ariel): the column headings over the three tables only
+                out.append(columns)
             current = group
         label = "".join(f"[{t}] " for t in tags) + text
         out.append(f"{label:<{width + 1}} {count}" if count is not None else label)
@@ -879,10 +880,10 @@ def key_html(k):
     parts = [f'<p style="margin:24px 0 6px;font-size:16px"><b>{e(title)}</b></p>']
 
     def open_table(left):
+        # 22 Nov 2026 (Ariel): no Yesterday, Day before, Week so far, Month so far headings over the other sections
         first = f'<td colspan="{left}"></td>' if left > 1 else '<td style="min-width:380px"></td>'
         return ('<table style="border-collapse:collapse;font-size:14px;margin:0 0 6px"><tr>' + first
-                + "".join(f'<td {cell}><span style="color:{SAME}">{h}</span></td>'
-                          for h in ("Yesterday", "Day before", "Week so far", "Month so far")) + "</tr>")
+                + f"<td {cell}></td>" * 4 + "</tr>")
     current = None
 
     def numbers_html(day, before, symbol, good, week, month, tint=""):
@@ -968,8 +969,8 @@ def _own_table(text, tag_html, count, items):
                         f'font-weight:bold;white-space:nowrap">{e(advice[0])}</span>')
             else:
                 said = f'<span style="color:{SAME}">{e(advice[0])}</span>' if advice else ""
-            status = (f'<span style="color:{colour}">&#9679;</span> <span style="color:{colour if colour != GOOD else "inherit"};'
-                      f'white-space:nowrap">{e(state)}</span>')
+            status = (f'<span style="white-space:nowrap"><span style="color:{colour}">&#9679;</span> '
+                      f'<span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span></span>')
             out.append(f"<tr><td {words}>{e(name)}</td><td {words}>{status}</td>"
                        f'<td {words}><span style="color:{rate_colour or "inherit"};font-weight:bold">{e(rate or "-")}</span></td>'
                        f"<td {words}>{said}</td>" + (numbers(*nums) if nums else f"<td {num}></td>" * 4) + "</tr>")
