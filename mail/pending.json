@@ -1,26 +1,5 @@
 {
-  "generated_at": "2026-11-22T12:31:54+00:00",
+  "generated_at": "2026-11-22T12:59:47+00:00",
   "target": "live",
-  "contacts": [
-    {
-      "contact_id": "935112297681",
-      "job_title": "Finance Director",
-      "seniority": "Directors",
-      "rank": 2,
-      "company": {
-        "name": "United Wholesale (Scotland)",
-        "domain": "uniteduk.co.uk",
-        "location": "United Kingdom",
-        "channel": "Kiosk and convenience wholesalers",
-        "based_out_of": "Glasgow, United Kingdom",
-        "distributes": "Confectionery, biscuits, crisps and snacks alongside grocery, impulse, household, chilled and licensed ranges, sold in trade cases and multipacks from branded suppliers.",
-        "channels_supplied": "Independent convenience stores, its Day-Today, Day-Today Express, Day-Today Elite and USave symbol stores (over 500 in Scotland), plus pubs, clubs and caterers.",
-        "sf_brands_carried": "",
-        "what_they_do_well": [
-          "Built the Day-Today symbol group from a 30-store launch in 2005 to over 500 Day-Today and USave stores in Scotland."
-        ],
-        "fit_rationale": "A Scottish cash and carry and delivered wholesaler that runs the Day-Today and USave symbol groups, so one listing reaches hundreds of independent shops across central Scotland. Its promotion leaflets carry confectionery, biscuits and crisps and snacks sections. Scale: over 500 symbol stores in Scotland and three depots covering Glasgow, Stirlingshire, Fife and the Lothians. Storage: three cash and carry depots, including a 170,000 sq ft site at Queenslie, plus a delivered service since 2003."
-      }
-    }
-  ]
+  "contacts": []
 }
