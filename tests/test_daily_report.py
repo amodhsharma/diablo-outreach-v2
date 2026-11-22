@@ -136,8 +136,8 @@ def test_key_numbers_read_as_agreed():
     # 22 Nov 2026 (Ariel): one section for the sales team, the count and the companies in round brackets
     at = lines.index("[For sales team] Outreach mails sent to Ariel and Amodh (for the day of 26 October 2026), Need "
                      "sales people input:")
-    assert lines[at + 1:at + 3] == ["• Positive replies to follow up (1) (FELFEL)",
-                                    "• Negative replies to convert into possible leads (0)"]
+    assert lines[at + 1:at + 4] == ["• Positive replies to follow up (1) (FELFEL)",
+                                    "• Negative replies to follow up (0)", "• Neutral replies (0)"]
     # 21 Nov 2026 (Ariel): "Waiting for you" is merged into Initial stages; nobody found has its own section
     assert not any("Waiting for you" in line for line in lines)
     # 22 Nov 2026 (Ariel): bullets, the companies after a dash
@@ -180,7 +180,8 @@ def test_a_quiet_day_and_all_healthy():
     # 21 Nov 2026: no positive or negative replies, no referral, no reply from outside; nothing waiting, and
     # "Waiting for you" is now part of Initial stages; "Referrals handled automatically" only when there are some
     assert "None" not in lines  # 22 Nov 2026: the replies are bullets with (0); empty sections are left out
-    assert "• Positive replies to follow up (0)" in lines and "• Negative replies to convert into possible leads (0)" in lines
+    assert "• Positive replies to follow up (0)" in lines and "• Negative replies to follow up (0)" in lines
+    assert "• Neutral replies (0)" in lines
     assert not any("Referrals handled automatically" in line for line in lines)
     # 22 Nov 2026 (Ariel): with nothing in them, these two sections are left out
     assert not any("Referrals the automation" in line for line in lines)
@@ -696,3 +697,16 @@ def test_contacts_made_after_midnight_are_never_counted_at_midnight():
                ("contacts", old): [("NEW_PERSONAL_LINE_FILLED", "2026-11-21T09:00:00Z")]}
     at = daily_report.AtCutoff(hs, LeadStatus(hs), cutoff, now=cutoff + dt.timedelta(hours=16))
     assert [r["id"] for r in at.records("contacts", "copy_ready")] == [old]
+
+
+def test_neutral_and_referral_replies_have_their_own_bullet():
+    """22 Nov 2026 (Ariel): Positive, Negative and Neutral replies, each with its count and companies."""
+    k = {"date": "2026-11-21", "intros": (0, 0, 0), "reminders": (0, 0, 0), "sent_total": (0, 0), "uploads": None,
+         "bounced": (0, 0, 0), "opted_out": (0, 0, 0), "auto": (0, 0, 0), "accounts": None, "nowhere": [],
+         "follow": [("Gnibl", "Australia", None), ("Kit Kat Group", "South Africa", "neutral"),
+                    ("Charmlaw", "Australia", "referral")],
+         "negative": [("Pistor AG", "Switzerland", None)], "initial": {"input": [], "auto": []}}
+    lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
+    assert "• Positive replies to follow up (1) (Gnibl)" in lines
+    assert "• Negative replies to follow up (1) (Pistor AG)" in lines
+    assert "• Neutral replies (2) (Kit Kat Group, Charmlaw (referral))" in lines

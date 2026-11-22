@@ -34,9 +34,9 @@ The email (20 Nov 2026, Ariel):
        Sending accounts and Instantly (renamed 22 Nov 2026, Ariel): one green line when all are healthy, a red line
          naming each problem, then Instantly uploads used of the plan's allowance (daily_report.instantly_allowance)
        "Outreach mails sent to Ariel and Amodh (for the day of 21 November 2026), Need sales people input:" (22 Nov
-         2026, Ariel; until then two sections): a bullet "Positive replies to follow up (n) (companies)", every
-         company that replied that day tagged Positive, plus Neutral and Referral replies marked as such, and a
-         bullet "Negative replies to convert into possible leads (n) (companies)": the rest. No cap.
+         2026, Ariel; until then two sections): bullets "Positive replies to follow up (n) (companies)", "Negative
+         replies to follow up (n) (companies)" and "Neutral replies (n) (companies)" (a referral counts as neutral,
+         marked "(referral)"), each company that replied that day once, by its strongest tag. No cap.
        Referrals handled automatically: only on days the automation handled some (21 Nov 2026, Ariel).
        Referrals the automation wasn't sure about, and Replies not AUTO-OUTREACH: only when they hold something
          (22 Nov 2026, Ariel), counting a case still waiting from earlier days or a line saying it could not be read.
@@ -896,9 +896,14 @@ def key_rows(k):
         return ", ".join(name + (f" ({mark})" if mark else "") for name, _country, mark in rows)
     # 22 Nov 2026 (Ariel): the positive and negative replies are one section for the sales team, a bullet each with
     # the count and the companies in round brackets
+    # 22 Nov 2026 (Ariel): three bullets: positive, negative and neutral (a referral counts as neutral, as on the
+    # charts, and keeps its mark)
+    positive = [r for r in k["follow"] if not r[2]]
+    neutral = [(name, country, None if mark == "neutral" else mark) for name, country, mark in k["follow"] if mark]
     sales = [("bullet", [f"{label} ({len(rows)})"], companies(rows), None, "brackets")
-             for label, rows in (("Positive replies to follow up", k["follow"]),
-                                 ("Negative replies to convert into possible leads", k["negative"]))]
+             for label, rows in (("Positive replies to follow up", positive),
+                                 ("Negative replies to follow up", k["negative"]),
+                                 ("Neutral replies", neutral))]
     # 21 Nov 2026 (Ariel): a line with 0 is left out; the heading always shows, with its total
     blocks = [(("Sending", [PARAMETER]), sending_), (("Delivery", [PARAMETER]), delivery),
               (("Campaigns", [HEALTH]), campaigns), (("Sending accounts and Instantly", [HEALTH]), accounts),
