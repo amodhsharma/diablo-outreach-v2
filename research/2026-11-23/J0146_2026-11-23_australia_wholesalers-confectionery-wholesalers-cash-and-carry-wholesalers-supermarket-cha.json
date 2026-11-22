@@ -1,0 +1,81 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0146",
+  "location": "Australia",
+  "run_date": "2026-11-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 34
+    },
+    {
+      "channel": "confectionery wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 53
+    },
+    {
+      "channel": "cash and carry wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 53
+    },
+    {
+      "channel": "supermarket chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 37
+    },
+    {
+      "channel": "hypermarket chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 23
+    }
+  ],
+  "companies": [
+    {
+      "name": "Panetta Mercato",
+      "based_out_of": "Sydney, Australia",
+      "domain": "panettamercato.com.au",
+      "channel_category": [
+        "supermarket chains"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Full grocery shelf with sweet biscuits, savoury biscuits, chips and snack food, desserts and chocolates from other brands (for example Snackachangi chips and Mutti tomato products), plus fresh food.",
+      "channels_supplied": "Its own fresh food market supermarkets in Sydney shopping centres (Marrickville Metro, Macquarie Centre, South Village Kirrawee, Bay Central Woolooware and others) and its own online shop with home delivery or pickup.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A multi store Sydney grocery chain whose own online shop has sweet biscuits, snack food and desserts and chocolates aisles stocked with other companies' brands, so Diablo's biscuits, chocolate and snacks fit its existing shelf. It buys for all its stores from one head office and also sells online. Scale: about 6 to 7 stores across Sydney plus an online shop with delivery; a smaller chain, so tier 3.",
+      "what_they_do_well": [
+        "Its Kirrawee store won a fresh food category award for the third time, as reported by the St George and Sutherland Shire Leader."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.panettamercato.com.au",
+        "https://www.theleader.com.au/story/9312130/panetta-mercato-kirrawee-wins-third-fresh-food-category-award/",
+        "https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_Oceania"
+      ]
+    }
+  ]
+}
