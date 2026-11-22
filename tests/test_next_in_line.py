@@ -375,7 +375,8 @@ def test_a_yes_after_an_earlier_neutral_reply_still_takes_the_colleagues_to_end(
     lead(instantly, "p1@noble.in").update(email_reply_count=1)
     emails.received("p1@noble.in", "2026-11-03T10:00:00Z", text="Thanks, we will look at it.")
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert status_of(hs, p2) == "COLLEAGUE_REPLIED"
+    # 22 Nov 2026 (Ariel): a neutral reply that hands us to nobody already goes to the sales team
+    assert status_of(hs, p2) == "END_FORWARDED_TO_SALES_TEAM"
     lead(instantly, "p1@noble.in").update(lt_interest_status=1)
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert hs.records["companies"][cid][LS] == "END: Forwarded to Sales Team"
@@ -507,8 +508,10 @@ def test_a_real_reply_still_stops_the_company(settings):
     emails.received("p1@noble.in", ago(1), text="Interesting, please send your price list.\n\nOn Mon, J wrote:\n"
                                               "> Unsubscribe here if you prefer")  # the quote is ignored
     moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
-    assert status_of(hs, p1) == "IN_PROGRESS" and moved["forwards_sent"] == 0
-    assert status_of(hs, p2) == "COLLEAGUE_REPLIED"
+    # 22 Nov 2026 (Ariel): a real reply with no yes or no that hands us to nobody goes to the sales team
+    assert status_of(hs, p1) == "END_FORWARDED_TO_SALES_TEAM" and moved["forwards_sent"] == 0
+    assert status_of(hs, p2) == "END_FORWARDED_TO_SALES_TEAM"
+    assert hs.records["companies"][cid][LS] == "END: Forwarded to Sales Team"
 
 
 def test_a_reply_asking_to_stop_is_an_opt_out(settings):

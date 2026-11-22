@@ -9,7 +9,12 @@ Instantly lead whose HubSpot contact lacks the tag is ignored. Statuses only mov
     marked interested or not           END: Forwarded to Sales       END: Forwarded to Sales Team (and every
       interested (3 Nov 2026: a clear    Team                          colleague); the reply goes to the sales
       yes or no)                                                       team, the automation stops there
-    replied, with no yes or no         In Progress                   In Progress (paused; see referrals.py)
+    replied, with no yes or no, and    END: Forwarded to Sales       END: Forwarded to Sales Team (22 Nov 2026,
+      it hands us to nobody (a           Team                          Ariel: a potential customer; forwarded as
+      question, a concern, a soft no)                                  Neutral; never restarts by itself)
+    replied, handing us to someone     In Progress                   In Progress (paused; see referrals.py)
+      else, or the reply could not
+      be read
     unsubscribed (opted out)           Unqualified: Opted-out/       Unqualified: Employee Opted-out/
     on Instantly's blocklist             Blocklist                     Blocklist (nobody else is emailed)
     a reply asking us to stop
@@ -65,7 +70,8 @@ from .stages import (COLLEAGUE_STAGES, COMPANY_CLOSED, CONTACT_CLOSED, EMAILED, 
 
 
 def referral_check(hs, emails_api, record, log=print):
-    """referrals.precheck for one contact's reply: ("switch" | "mixed" | None, addresses). Never stops the run."""
+    """referrals.precheck for one contact's reply: ("switch" | "mixed" | None, addresses), or ("error", []) when the
+    reply could not be read (read again next run). Never stops the run."""
     try:
         owner_of, companies = tagged_company_of(hs, [record["id"]], ["name", "domain"])
         company = companies.get(owner_of.get(str(record["id"])))
@@ -74,7 +80,7 @@ def referral_check(hs, emails_api, record, log=print):
         return referrals.precheck(hs, emails_api, record, company)
     except Exception as err:  # read as before (Instantly's label decides); tried again next run
         log(f"Could not read a reply for a referral ({str(err)[:150]})")
-        return None, []
+        return "error", []
 
 
 def lead_result(lead):
@@ -586,11 +592,21 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
                                 "hands us to someone else, so it is read as a referral, not sent to the sales team")
                     elif ref == "mixed" and labelled:
                         mixed.append((r, named))
+                    elif not labelled and ref != "error":
+                        # 22 Nov 2026 (Ariel, Kit Kat Group): a real reply that hands us to nobody (a question, a
+                        # concern, a soft no) is a potential customer: forwarded as Neutral and handed to the sales
+                        # team like a yes or no, so the company never restarts by itself.
+                        new, company_stage = "sales", "sales"
+                        if ref == "mixed":  # it names a colleague too: they go to the sales team with them
+                            mixed.append((r, named))
+                        log(f"{p.get('jobtitle') or 'A contact'} replied with no yes or no and hands us to nobody; "
+                            "it goes to the sales team")
         if is_blocked(p.get("email"), blocked) and new not in ("replied", "sales") + CONTACT_CLOSED:
             # Blocklisted in Instantly counts as an opt-out (19 Oct 2026): the company stops.
             new, company_stage, event = "opted_out", "opted_out", "blocklisted"
         if new == "sales" and not statuses.has("contacts", "sales"):  # until button 1 adds the choice
-            new, company_stage = ("replied", "replied") if event == "marked interested" else ("said_no", "said_no")
+            new, company_stage = (("replied", "replied") if event in ("marked interested", "replied")
+                                  else ("said_no", "said_no"))
         seen.append((r, lead, event))  # 26 Oct 2026: for the notes on the contact's timeline
         old = statuses.of("contacts", r)
         # 2 Nov 2026: an answer after the company closed as "no response" still counts (a reply, a yes or no, or

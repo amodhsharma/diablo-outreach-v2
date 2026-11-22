@@ -17,6 +17,8 @@ colleague", legal basis "Legitimate interest - Lead"), marks the person who repl
 Button 3 then makes the new contact number 1 (redirect.py), button 4 copies the line, approves it and
 sends the introduction.
 
+From 22 Nov 2026 (Ariel, Kit Kat Group) a neutral reply that hands us to nobody (a question, a concern, a soft no) is
+not a referral at all: sync.run sends it to the sales team (END: Forwarded to Sales Team) before it is read here.
 When it is not sure it changes nothing: the company stays paused on In Progress for a person to handle.
 Either way the case goes into the daily summary email (21 Nov 2026, Ariel; until then a separate email to
 ALERT_TO, Amodh only, which is gone): "Referrals the automation wasn't sure about (Need Amodh's input)" with the

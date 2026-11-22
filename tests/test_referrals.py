@@ -42,14 +42,35 @@ def test_a_reply_giving_a_new_address_is_switched_by_itself(settings):
     assert hs.records["companies"][cid][LS] == "Attempted to Contact"
 
 
-def test_an_unclear_reply_changes_nothing_and_is_listed_for_amodh(settings):
+def test_a_reply_that_hands_us_to_nobody_goes_to_the_sales_team(settings):
+    """22 Nov 2026 (Ariel, Kit Kat Group): a question, a concern or a soft no is a potential customer, never an unsure
+    referral: the person, their colleagues and the company become END: Forwarded to Sales Team."""
+    for domain, text in (("vague.example", "Thank you, we will look at it and come back to you."),
+                         ("price.example", "Products look good. Pricing will be an issue for this market."),
+                         ("later.example", "Not for now, maybe next year.")):
+        hs, instantly, emails, cid, (p1, p2) = started(settings, domain, ("Owner", "Buyer"))
+        neutral(instantly, emails, f"p1@{domain}", text)
+        sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+        assert rec(hs, p1)[LS] == rec(hs, p2)[LS] == "END_FORWARDED_TO_SALES_TEAM", text
+        assert hs.records["companies"][cid][LS] == "END: Forwarded to Sales Team", text
+        assert p1 not in (referrals.load().get("handled") or {}), text  # not listed as an unsure referral
+
+
+def _paused_by_older_rules(cid, p1):
+    """A neutral reply left paused before 22 Nov 2026 (an unsure referral): the old rules still apply to it."""
+    state = referrals.load()
+    state.setdefault("handled", {})[p1] = {"day": referrals.today_india(), "outcome": "unsure", "company": str(cid),
+                                           "why": "no email address in the reply", "rules": referrals.RULES}
+    referrals.save(state)
+
+
+def test_an_unsure_referral_from_before_is_listed_for_amodh(settings):
     hs, instantly, emails, cid, (p1, p2) = started(settings, "vague.example", ("Owner", "Buyer"))
     neutral(instantly, emails, "p1@vague.example", "Thank you, we will look at it and come back to you.")
+    _paused_by_older_rules(cid, p1)
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert rec(hs, p1)[LS] == "IN_PROGRESS" and hs.records["companies"][cid][LS] == "In Progress"
     entry = referrals.load()["handled"][p1]
-    assert entry["outcome"] == "unsure" and entry["why"] == "no email address in the reply"
-    # 21 Nov 2026: in the daily summary email, under "Referrals the automation wasn't sure about"
     data = referrals.report_data(hs, emails, LeadStatus(hs), referrals.entry_day(entry))
     (case,) = data["unsure"]
     assert case["company"] == "Vague" and "come back to you" in case["reply"]
@@ -286,6 +307,7 @@ def test_old_in_progress_colleagues_do_not_hold_a_redirected_company_back(settin
 def test_someone_really_in_conversation_still_holds_the_company(settings):
     hs, instantly, emails, cid, (p1, p2) = started(settings, "talk.example", ("Owner", "Buyer"))
     neutral(instantly, emails, "p1@talk.example", "Thanks, we will look at it and come back to you.")
+    _paused_by_older_rules(cid, p1)
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     rec(hs, p2)[LS] = REDIRECTED  # someone else there redirected: the real reply still holds the company
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
@@ -295,6 +317,7 @@ def test_someone_really_in_conversation_still_holds_the_company(settings):
 def test_a_neutral_reply_nobody_acted_on_for_7_days_lets_the_company_go_on(settings, monkeypatch):
     hs, instantly, emails, cid, (p1, p2) = started(settings, "slow.example", ("Owner", "Buyer"))
     neutral(instantly, emails, "p1@slow.example", "Thanks, I will come back to you in a few days.")
+    _paused_by_older_rules(cid, p1)
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     assert rec(hs, p2)[LS] == "COLLEAGUE_REPLIED" and hs.records["companies"][cid][LS] == "In Progress"
     state = referrals.load()
@@ -338,6 +361,7 @@ def test_ordinary_questions_with_a_signature_address_are_never_a_redirect():
 def _parked_company(settings, domain):
     hs, instantly, emails, cid, (p1, p2) = started(settings, domain, ("Owner", "Buyer"))
     neutral(instantly, emails, f"p1@{domain}", "Thanks, I will come back to you in a few days.")
+    _paused_by_older_rules(cid, p1)
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
     state = referrals.load()
     state["handled"][p1]["day"] = "2026-01-01"
@@ -387,3 +411,11 @@ def test_a_buyer_copying_a_colleague_while_asking_for_prices_is_not_redirected()
     for real in ("Merci, je serai de retour au bureau lundi et je vous appelle.",
                  "Grazie, sarò di ritorno in ufficio lunedì e la chiamo."):
         assert not sync.auto_reply_reason({"subject": "Re: hello", "body": {"text": real}}), real
+
+
+def test_a_reply_that_cannot_be_read_is_never_sent_to_sales_by_mistake():
+    """22 Nov 2026: when the reply cannot be read, nothing decides it; it is read again next run."""
+    class Broken:
+        def tagged_read(self, *a, **k):
+            raise RuntimeError("HubSpot is down")
+    assert sync.referral_check(Broken(), None, {"id": "1", "properties": {}}, log=quiet) == ("error", [])
