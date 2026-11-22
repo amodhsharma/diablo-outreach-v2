@@ -13795,6 +13795,24 @@
     "research_file": "research/2026-10-26/J0074_2026-10-26_australia_vegan-and-vegetarian-shops-halal-food-distributors-kosher-food-distributors-kosh.json",
     "import_check": "No people in Apollo: the contact address on the company's website will be emailed (greeting the team and asking them to pass it on)"
   },
+  "panettamercato.com.au": {
+    "name": "Panetta Mercato",
+    "based_out_of": "Sydney, Australia",
+    "market": "Australia",
+    "category": "Supermarket chains",
+    "channels": [
+      "supermarket chains"
+    ],
+    "fit_rationale": "A multi store Sydney grocery chain whose own online shop has sweet biscuits, snack food and desserts and chocolates aisles stocked with other companies' brands, so Diablo's biscuits, chocolate and snacks fit its existing shelf. It buys for all its stores from one head office and also sells online. Scale: about 6 to 7 stores across Sydney plus an online shop with delivery; a smaller chain, so tier 3.",
+    "what_they_do_well": [
+      "Its Kirrawee store won a fresh food category award for the third time, as reported by the St George and Sutherland Shire Leader."
+    ],
+    "distributes": "Full grocery shelf with sweet biscuits, savoury biscuits, chips and snack food, desserts and chocolates from other brands (for example Snackachangi chips and Mutti tomato products), plus fresh food.",
+    "channels_supplied": "Its own fresh food market supermarkets in Sydney shopping centres (Marrickville Metro, Macquarie Centre, South Village Kirrawee, Bay Central Woolooware and others) and its own online shop with home delivery or pickup.",
+    "sf_brands_carried": "",
+    "added": "2026-11-22",
+    "research_file": "research/2026-11-23/J0146_2026-11-23_australia_wholesalers-confectionery-wholesalers-cash-and-carry-wholesalers-supermarket-cha.json"
+  },
   "parcelle.com.au": {
     "name": "Parcelle",
     "based_out_of": "Sydney, Australia",
