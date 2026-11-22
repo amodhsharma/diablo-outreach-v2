@@ -10,7 +10,8 @@ Instantly. The subject starts with "[Outreach reply: Positive]", "[Outreach repl
     Instantly                                   Forwarded as    To (3 Nov 2026, Ariel)
     marked interested                           Positive        REPLY_FORWARD_TO (the sales team)
     marked not interested                       Negative        REPLY_FORWARD_TO (the sales team)
-    a real reply with no mark                   Neutral         ALERT_TO only (handled by Amodh)
+    a real reply with no mark                   Neutral         REPLY_FORWARD_TO (22 Nov 2026, Ariel; until then
+                                                                ALERT_TO only, Amodh)
     a reply asking not to be emailed again      not forwarded (an opt-out, not a sales lead)
     a reply handing us to someone else          Referral        REPLY_FORWARD_TO (12 Nov 2026, Ariel), whatever
                                                                 Instantly's label; the automation emails the new
@@ -35,8 +36,9 @@ from .next_in_line import parse_time, tagged_company_of
 
 FILE = ROOT / "data" / "forwarded_replies.json"
 KIND = {"marked interested": "Positive", "marked not interested": "Negative", "replied": "Neutral"}
-# Who gets each kind (3 Nov 2026, Ariel): a clear yes or no goes to the sales team, the rest only to Amodh.
-SECRET = {"Positive": "REPLY_FORWARD_TO", "Negative": "REPLY_FORWARD_TO", "Neutral": "ALERT_TO",
+# Who gets each kind: every real reply goes to Ariel (REPLY_FORWARD_TO), Neutral too since 22 Nov 2026 (Ariel; from
+# 3 Nov 2026 a Neutral reply went only to Amodh, so warm replies with a question were missed).
+SECRET = {"Positive": "REPLY_FORWARD_TO", "Negative": "REPLY_FORWARD_TO", "Neutral": "REPLY_FORWARD_TO",
           "Referral": "REPLY_FORWARD_TO"}
 INDIA = dt.timezone(dt.timedelta(hours=5, minutes=30))
 

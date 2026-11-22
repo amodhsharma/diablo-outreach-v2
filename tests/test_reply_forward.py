@@ -57,7 +57,7 @@ def test_neutral_then_marked_goes_again_once_and_automatic_answers_never_go(monk
     assert reply_forward.forward_replies(hs, emails, [(_record(hs, pid), {}, "replied")], load_settings(), quiet,
                                          smtp=smtp) == 1
     assert smtp.sent[-1]["Subject"].startswith("[Outreach reply: Neutral] Re: hello")
-    assert smtp.sent[-1]["To"] == "amodh@team.example"  # 3 Nov 2026: a neutral reply only to Amodh
+    assert smtp.sent[-1]["To"] == "owner@team.example"  # 22 Nov 2026 (Ariel): a neutral reply goes to Ariel too
     assert reply_forward.forward_replies(hs, emails, [(_record(hs, pid), {}, "marked not interested")],
                                          load_settings(), quiet, smtp=smtp) == 1
     assert smtp.sent[-1]["Subject"].startswith("[Outreach reply: Negative]")
