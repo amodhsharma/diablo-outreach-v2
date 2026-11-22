@@ -1,0 +1,125 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0147",
+  "location": "United Kingdom",
+  "run_date": "2026-11-22",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 36
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 26
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 50
+    },
+    {
+      "channel": "kiosk and convenience wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 2,
+      "searches_used": 47
+    },
+    {
+      "channel": "halal food distributors",
+      "template": "halal_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 52
+    }
+  ],
+  "companies": [
+    {
+      "name": "Wholesalers Manchester",
+      "based_out_of": "Greater Manchester, United Kingdom",
+      "domain": "wholesalersmanchester.co.uk",
+      "channel_category": [
+        "FMCG distributors"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Branded sweets, chocolate, gummies, jelly sweets and snacks in bulk, from about 60 brands including Haribo, Trolli, Swizzels, Vidal, Bazooka, Anthon Berg, Lion, Millions, Sweetzone, Stockleys, Pells, Candycrave and Bebeto.",
+      "channels_supplied": "Shops, sweet shops, hamper makers, online retailers, mobile sellers, event organisers and schools, with trade prices shown ex VAT.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A trade sweets wholesaler whose own web shop lists bulk branded confectionery from around 60 brands at ex VAT trade prices for shops, so Diablo's sugar-free sweets and chocolate sit beside the brands it already sells. Scale: not shown on its website; one Greater Manchester site with click and collect and UK delivery in two days. Storage: B2B web shop with stock and trade prices, click and collect from its own site.",
+      "what_they_do_well": [
+        "Carries around 60 confectionery brands, from Haribo and Trolli to Swizzels and Vidal, for trade buyers."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://wholesalersmanchester.co.uk/collections/wholesalers-manchester"
+      ]
+    },
+    {
+      "name": "M1 Confectioners Ltd",
+      "based_out_of": "Belfast, United Kingdom",
+      "domain": "m1confectionersltd.co.uk",
+      "channel_category": [
+        "kiosk and convenience wholesalers"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Branded confectionery, chocolate, crisps and snacks, soft drinks and vending essentials, with Cadbury and Coca-Cola featured.",
+      "channels_supplied": "Independent retailers, vending operators, cafes, offices, hospitals and caterers across Belfast, Antrim, Down and the rest of Northern Ireland.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Northern Ireland's confectionery and beverage wholesaler, selling leading confectionery brands on to independent retailers and vending operators, which gives Diablo a route into NI corner shops. Scale: covers all of Northern Ireland (Bangor, Newry, Ballymena, Coleraine, Larne and more); nine staff and about 2 million pounds turnover; one site; also sells to the public. Storage: its own local warehouse with delivery to trade customers.",
+      "what_they_do_well": [
+        "Family business trading since 2005, supplying confectionery, crisps and drinks across all of Northern Ireland."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://m1confectionersltd.co.uk/",
+        "https://www.tuco.ac.uk/procurement/our-suppliers/m1-confectioners-ltd"
+      ]
+    },
+    {
+      "name": "Vending Warehouse Ltd",
+      "based_out_of": null,
+      "domain": "vendingwarehouse.co.uk",
+      "channel_category": [
+        "kiosk and convenience wholesalers"
+      ],
+      "tier": 3,
+      "tier_rank": 1,
+      "distributes": "Branded chocolate, sweets, crisps and snacks and soft drinks in trade multipacks: Mars, Snickers, Twix, Bounty, Kit Kat, Kinder Bueno, Terry's, Maynards Bassetts, Rowntree's, McCoy's, Golden Wonder, Burts and Coca-Cola.",
+      "channels_supplied": "UK vending machine operators, micro markets, tuck shops, hospitality venues, events and gyms.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "Supplies vending operators and micro markets nationwide with branded chocolate and sweets in trade packs, a route for Diablo bars and chocolate into many machines. Scale: not shown on its website; nationwide delivery in 1 to 2 working days; trading online since 2003; also open to retail buyers. Storage: B2B web shop listing stock in trade multipacks with nationwide dispatch.",
+      "what_they_do_well": [
+        "Has supplied UK vending operators online since 2003, with nationwide delivery typically within one to two working days."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.vendingwarehouse.co.uk/snacks-crisps-sweets-soft-drinks",
+        "https://www.vendingwarehouse.co.uk/"
+      ]
+    }
+  ]
+}
