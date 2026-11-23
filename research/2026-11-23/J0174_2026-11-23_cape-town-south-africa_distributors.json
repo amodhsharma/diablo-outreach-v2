@@ -1,0 +1,48 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0174",
+  "location": "Cape Town, South Africa",
+  "run_date": "2026-11-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 80
+    }
+  ],
+  "companies": [
+    {
+      "name": "Stafford Bros & Draeger",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "staffordbros.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Biscuits (Walkers Scottish Shortbread), jams and preserves (Mackays marmalades and curds), snacks and dips (Bandito's), Ryvita crispbread, Twinings tea and Ovaltine; its portfolio covers dry groceries, confectionery, biscuits and hot and cold beverages.",
+      "channels_supplied": "All major South African supermarket chains, independent retailers, cash and carries, wholesalers and food service across Southern Africa.",
+      "sf_brands_carried": "Ryvita crispbread (better-for-you); no sugar-free confectionery seen",
+      "competing_brand_flag": false,
+      "fit_rationale": "A full-service importer and distributor of British branded packaged foods such as Walkers, Mackays, Twinings and Ryvita, selling them to the major chains, wholesalers and independents nationwide, which matches Diablo as a British brand of biscuits, spreads and sweets. Its regional and field sales managers already sell premium imported biscuits and preserves into the supermarket shelf. Scale: national distribution across South Africa including Cape Town and into neighbouring countries, supplying all major supermarket chains; trading since 1921; warehouse size, fleet and outlet count not shown on its website. Storage: products warehoused in Johannesburg and delivered nationwide through a warehousing and logistics partner.",
+      "what_they_do_well": [
+        "Trading since 1921 and long-time Southern African distributor of Twinings, Ovaltine and Walkers Scottish Shortbread.",
+        "Supplies all major South African supermarket chains plus independents, cash and carries and wholesalers nationally."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.staffordbros.com/",
+        "https://www.staffordbros.com/our-brands/",
+        "https://www.staffordbros.com/our-history/",
+        "https://www.staffordbros.com/services-offered/",
+        "https://fastmoving.co.za/logistics/distribution-109/stafford-bros-draeger-90"
+      ]
+    }
+  ]
+}
