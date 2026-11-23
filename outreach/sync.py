@@ -282,6 +282,14 @@ def auto_reply_reason(email):
     m = AUTO_PHRASE.search(text) if text else None
     if m and (len(text) < SHORT_ANSWER or RETURN_WORDS.search(text)):
         return f'the text says "{m.group(0)}"'
+    # 23 Nov 2026 (Ariel, Supersaves Distributors: "This Mailbox is no longer monitored"): an answer saying the
+    # mailbox is no longer read or the person has left is a dead contact, never a reply: it is not forwarded, the
+    # contact becomes Contact corrupt (corrupt.py) and the next person moves up; one that names someone new still
+    # goes to the referral automation.
+    from .corrupt import LEFT
+    m = LEFT.search(email.get("subject") or "") or (LEFT.search(text) if text and len(text) < SHORT_ANSWER else None)
+    if m:
+        return f'it says "{m.group(0)}"'
     return ""
 
 

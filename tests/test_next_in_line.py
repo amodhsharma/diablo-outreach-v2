@@ -514,6 +514,21 @@ def test_a_real_reply_still_stops_the_company(settings):
     assert hs.records["companies"][cid][LS] == "END: Forwarded to Sales Team"
 
 
+def test_a_mailbox_no_longer_monitored_is_a_dead_contact_not_a_reply(settings):
+    """23 Nov 2026 (Ariel, Supersaves Distributors): "This Mailbox is no longer monitored" is never forwarded and
+    never goes to the sales team: the person is a dead contact and the company carries on with the next one."""
+    hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
+    lead(instantly, "p1@noble.in").update(email_reply_count=1)
+    emails.received("p1@noble.in", ago(1), subject="This Mailbox is no longer monitored",
+                    text="This Mailbox is no longer monitored.")
+    moved = sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
+    assert moved["replied"] == 0
+    assert status_of(hs, p1) != "END_FORWARDED_TO_SALES_TEAM" and status_of(hs, p2) != "END_FORWARDED_TO_SALES_TEAM"
+    assert hs.records["companies"][cid][LS] != "END: Forwarded to Sales Team"
+    assert sync.auto_reply_reason({"subject": "Re: Partnering", "body": {"text": "This mailbox is no longer in use."}})
+    assert sync.auto_reply_reason({"subject": "Re: Partnering", "body": {"text": "Allie has left the company."}})
+
+
 def test_a_reply_asking_to_stop_is_an_opt_out(settings):
     hs, instantly, emails, cid, (p1, p2, p3) = started(settings, days=3.1)
     lead(instantly, "p1@noble.in").update(email_reply_count=1)
