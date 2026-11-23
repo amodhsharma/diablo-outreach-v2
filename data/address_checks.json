@@ -1,18 +1,6 @@
 {
- "brake": {
-  "dd236b1d-d354-4585-babd-e5b32150ba10": {
-   "bounced": 13,
-   "emailed": 159,
-   "rate": 0.0818,
-   "since": "2026-11-20"
-  },
-  "fcf44d9b-1b77-47fd-90c6-f822154499ce": {
-   "bounced": 18,
-   "emailed": 200,
-   "rate": 0.09,
-   "since": "2026-11-20"
-  }
- },
- "risky_day": "2026-11-22",
- "risky_sent": 7
+ "brake": {},
+ "old_brake": {},
+ "risky_day": "2026-11-23",
+ "risky_sent": 8
 }
