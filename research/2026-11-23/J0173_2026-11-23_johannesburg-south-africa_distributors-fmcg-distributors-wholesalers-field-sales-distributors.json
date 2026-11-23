@@ -1,0 +1,74 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0173",
+  "location": "Johannesburg, South Africa",
+  "run_date": "2026-11-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 74
+    },
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 30
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 51
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 57
+    }
+  ],
+  "companies": [
+    {
+      "name": "Stafford Bros & Draeger",
+      "based_out_of": "Johannesburg, South Africa",
+      "domain": "staffordbros.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Imported and local specialty foods for international brand owners: biscuits (Walkers Scottish Shortbread), jams and marmalades (Mackays), crispbreads (Ryvita), teas and malt drinks (Twinings, Ovaltine), Mexican snacks and sauces (Banditos), plus Simply Delish, Thistlewood, Tipiak and Mazetti.",
+      "channels_supplied": "All major supermarket chains, cash and carry outlets, wholesalers, independent retailers and food service across Southern Africa.",
+      "sf_brands_carried": "Simply Delish (sugar-free jelly and dessert mixes); not a direct competitor in Diablo's snack categories.",
+      "competing_brand_flag": false,
+      "fit_rationale": "A full-service distributor that has built UK and European branded packaged food in South African supermarkets for decades, with category manager relationships at the major chains, which suits a British brand like Diablo. It already sells biscuits and jams from other brands and a sugar-free dessert line. Scale: national coverage across Southern Africa with Regional and Field Sales Managers calling on all major supermarket chains, cash and carries and wholesalers; outlet and fleet numbers are not shown on its website. Storage: products warehoused in Johannesburg and delivered nationwide through a warehousing and logistics partner.",
+      "what_they_do_well": [
+        "Trading since 1921 and incorporated in 1951, distributing international brands such as Twinings, Ovaltine and Walkers shortbread in Southern Africa.",
+        "Own sales and merchandising teams, led by Regional and Field Sales Managers, cover all major supermarket chains, cash and carries and wholesalers."
+      ],
+      "confidence": "high",
+      "source_urls": [
+        "https://www.staffordbros.com/",
+        "https://www.staffordbros.com/brands-v2/",
+        "https://www.staffordbros.com/services-offered/",
+        "https://fastmoving.co.za/logistics/distribution-109/stafford-bros-draeger-90"
+      ]
+    }
+  ]
+}
