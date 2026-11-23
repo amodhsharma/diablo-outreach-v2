@@ -586,7 +586,7 @@ J0177,"Gqeberha, South Africa",distributors,English,30,ariel,2026-11-22,"Done, f
 J0177,"Gqeberha, South Africa",FMCG distributors,English,30,ariel,2026-11-22,Cancelled,Stopped by itself: two cities in a row found nothing for this channel (J0173 and J0174),ariel,,,,city,
 J0177,"Gqeberha, South Africa",wholesalers,English,30,ariel,2026-11-22,Cancelled,Stopped by itself: two cities in a row found nothing for this channel (J0173 and J0174),ariel,,,,city,
 J0177,"Gqeberha, South Africa",field sales distributors,English,30,ariel,2026-11-22,Cancelled,Stopped by itself: two cities in a row found nothing for this channel (J0173 and J0174),ariel,,,,city,
-J0178,"Bloemfontein, South Africa",distributors,English,30,ariel,2026-11-22,Waiting,"Re-run of J0139 under research prompt version 8 (size is a score, not a gate)",ariel,,,,city,
+J0178,"Bloemfontein, South Africa",distributors,English,30,ariel,2026-11-22,"Done, fewer than wanted","0 found, floor 10; see the report",ariel,2026-11-23,research/2026-11-23/J0178_2026-11-23_bloemfontein-south-africa_distributors.json,,city,
 J0178,"Bloemfontein, South Africa",FMCG distributors,English,30,ariel,2026-11-22,Cancelled,Stopped by itself: two cities in a row found nothing for this channel (J0173 and J0174),ariel,,,,city,
 J0178,"Bloemfontein, South Africa",wholesalers,English,30,ariel,2026-11-22,Cancelled,Stopped by itself: two cities in a row found nothing for this channel (J0173 and J0174),ariel,,,,city,
 J0178,"Bloemfontein, South Africa",field sales distributors,English,30,ariel,2026-11-22,Cancelled,Stopped by itself: two cities in a row found nothing for this channel (J0173 and J0174),ariel,,,,city,
