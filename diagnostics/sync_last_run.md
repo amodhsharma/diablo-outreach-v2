@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-23 01:37 UTC
+Written 2026-11-23 04:37 UTC
 
 ```
 1069 leads in the Diablo campaigns in Instantly
@@ -20,13 +20,10 @@ Leiterin Personal Schweiz sent only an automatic answer (the subject says "Autom
 Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 75 for 62 address(es)
 Email threads: 1 emails since the last run
-Prime Products Wholesalers Pty. Ltd.: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
 Kloseâ€™s: Instantly refused the introduction (POST /leads/add failed with 400: {"statusCode":400,"error":"Bad Request","message":"No valid leads found"}); it is tried again next run
-The Distributors Mackay: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Email threads: 10 companies read in full, 117 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 0 introductions added, 2 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 7 companies read in full, 121 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
