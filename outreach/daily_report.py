@@ -26,9 +26,10 @@ The email (20 Nov 2026, Ariel):
          button 4). The automatic replies (out of office) row was dropped on 22 Nov 2026 (Ariel).
        Sending, Delivery and Campaigns are each a proper table with lines between rows and columns (22 Nov 2026)
        Campaigns: a table of this month's campaigns, laid out for a desktop screen (22 Nov 2026, Ariel): Campaign,
-         Status with its coloured dot (short: Running, Running brake on, Paused: Bounce Protect, ...), Bounce rate
-         (3%), the benchmark in the heading (green under 3%, amber
-         3% to 5%, red over 5%), Replies (positive) this month so far with their share of the month's emails
+         Status with its coloured dot (short: Running, Running brake on, Paused: Bounce Protect, ...), two bounce
+         columns (23 Nov 2026, Ariel: the numbers each brake uses, since the clean start): Bounce: Found by automation
+         (3%) (contacts added from October 2026; green under 3%, amber 3% to 5%, red over 5%) and Bounce: Older
+         records (5%) (added before; red from 5%), each "too few yet" until 50 have gone, Replies (positive) this month so far with their share of the month's emails
          sent (22 Nov 2026, Ariel), Your input (green "Resume now", amber "Wait until ...", red "Resume when ready",
          "Connect a sending account" or "Contact Instantly support"; grey "None" when nothing is needed), then the
          emails it sent in the same four columns
@@ -436,7 +437,7 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
                  "reminders": sum(week_reminders) if week_reminders else None,
                  "sent": sum(sent[d]["intros"] + (sent[d]["reminders"] or 0) for d in week_days),
                  "bounced": week["bounced"], "opted_out": week["opted_out"], "auto": week["auto"]},
-        "accounts": health(instantly, settings, accounts_api, view=view, day=date),
+        "accounts": health(instantly, settings, accounts_api, view=view, day=date, hs=hs),
         "follow": follow, "negative": negative,
         "gate1": len(at.records("companies", "found")),
         "gate2": len(at.records("contacts", "copy_ready")),
@@ -470,7 +471,7 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
     return out
 
 
-def health(instantly, settings, accounts_api=None, view=None, day=None):
+def health(instantly, settings, accounts_api=None, view=None, day=None, hs=None):
     """21 Nov 2026 (Ariel): the Health section. {"campaigns": [(colour, full name, state, bounce rate text)],
     "accounts": {"healthy": n, "total": n, "problems": [(address, reason)]}}, or None when Instantly could not be
     read. Only this month's Diablo campaigns and the sending accounts they use. Straight to the point.
@@ -485,11 +486,22 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
         campaigns = [c for c in diablo_campaigns(instantly, prefix) if month in str(c.get("name") or "")]
         cfg = address_checks.settings_of(settings)
         view = view if view is not None else instantly_view(instantly, prefix)
-        rates = address_checks.campaign_rates(view, cfg)
+        rates = address_checks.campaign_rates(view, cfg)  # everyone: what Instantly's own 5% pause looks at
         limit, least = float(cfg["brake"]["rate"]), int(cfg["brake"]["min_sent"])
-        # 23 Nov 2026: the brake counts only our own contacts since the clean start, so its state is the one button 4
-        # keeps, not the campaign's overall rate shown in the Bounce rate column
-        brakes_on = set((address_checks.load().get("brake") or {}))
+        # 23 Nov 2026 (Ariel): two bounce columns, the numbers each brake uses: contacts found by automation (added
+        # from October 2026, 3% a campaign) and older records (added before, 5% over every campaign), since the
+        # clean start; the brakes' state is the one button 4 keeps
+        kinds = None
+        if hs is not None:
+            try:
+                kinds = address_checks.lead_groups(hs, view, cfg)
+            except Exception:
+                kinds = None
+        found = address_checks.campaign_rates(view, cfg, groups=kinds, group="own", clean_start=True) if kinds is not None else None
+        older = address_checks.campaign_rates(view, cfg, groups=kinds, group="old", clean_start=True) if kinds is not None else None
+        kept = address_checks.load()
+        brakes_on, old_on = set(kept.get("brake") or {}), bool(kept.get("old_brake"))
+        old_limit, old_least = float(cfg["old_brake"]["rate"]), int(cfg["old_brake"]["min_sent"])
         rows, used = [], set()
         for camp in sorted(campaigns, key=lambda c: str(c.get("name") or "")):
             mailboxes = [m.lower() for m in camp.get("email_list") or []]
@@ -519,16 +531,32 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
                 colour, state, advice = BAD, "Paused by hand", ("Resume when ready", BAD)
             elif code == 0:
                 colour, state, advice = WARN, "Not started", ("None", SAME)
+            elif braked and old_on:
+                colour, state = WARN, "Running, both brakes on"
+                advice = ("None: new introductions start again by themselves under 3%", SAME)
             elif braked:
                 colour, state = WARN, "Running, brake on"
                 advice = ("None: new introductions start again by themselves under 3%", SAME)
+            elif old_on and code in (1, None, 4):
+                colour, state = WARN, "Running, older records' brake on"
+                advice = ("None: older records get first emails again by themselves under 5%", SAME)
             elif code in (1, None, 4):
                 colour, state, advice = GOOD, "Running", ("None", SAME)
             else:
                 colour, state, advice = SAME, CAMPAIGN_STATUS.get(code, "Unknown"), ("None", SAME)
-            share = bounced / emailed if emailed else None
-            rate_colour = None if share is None else (GOOD if share < limit else WARN if share <= INSTANTLY_PAUSE_RATE else BAD)
-            rows.append((colour, camp.get("name") or "A campaign", state, rate, advice, camp["id"], rate_colour))
+            if found is None:
+                rate, rate_colour, old_rate, old_colour = "-", None, "-", None
+            else:
+                b, n = found.get(camp["id"], (0, 0))
+                rate, rate_colour = _brake_rate(b, n, least)
+                if rate_colour is GOOD and b / n >= limit:
+                    rate_colour = WARN if b / n <= INSTANTLY_PAUSE_RATE else BAD
+                b, n = older.get(camp["id"], (0, 0))
+                old_rate, old_colour = _brake_rate(b, n, old_least)
+                if old_colour is GOOD and b / n >= old_limit:
+                    old_colour = BAD
+            rows.append((colour, camp.get("name") or "A campaign", state, rate, advice, camp["id"], rate_colour,
+                         old_rate, old_colour))
         problems, total = [], 0
         for acc in (accounts_api or instantly).list_accounts():
             email = (acc.get("email") or "").lower()
@@ -539,12 +567,21 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
             if verdict != "Ready":
                 problems.append((email, (reasons[0] if reasons else verdict).split(":")[0].rstrip(".")))
         return {"campaigns": rows, "accounts": {"healthy": total - len(problems), "total": total,
-                                                "problems": sorted(problems)}}
+                                                "problems": sorted(problems)},
+                "brake_since": cfg["brake"].get("since") or ""}
     except (InstantlyError, AttributeError, KeyError):
         return None
 
 
 INSTANTLY_PAUSE_RATE = 0.05  # Instantly's Bounce Protect pauses a campaign above 5%
+
+
+def _brake_rate(bounced, emailed, least):
+    """23 Nov 2026 (Ariel): a bounce column's text and colour: "1.8% (3 of 167)" in green, or "too few yet (12 sent)"
+    in grey until the brake's minimum has been emailed (the caller turns green amber or red over the limit)."""
+    if emailed < least:
+        return f"too few yet ({emailed:,} sent)", SAME
+    return f"{bounced / emailed:.1%} ({bounced:,} of {emailed:,})", GOOD
 
 
 def resume_advice(view, cfg, campaign_id, bounced, emailed, now=None):
@@ -883,7 +920,7 @@ def key_rows(k):
         # columns
         campaigns = [("campaign_head",)] if h["campaigns"] else []
         for colour, name, state, rate, *more in h["campaigns"]:
-            advice, cid, rate_colour = (more + [None, None, None])[:3]
+            advice, cid, rate_colour, old_rate, old_colour = (more + [None] * 5)[:5]
             if "campaign_sent" not in k:
                 numbers = None
             elif sent is None:
@@ -900,7 +937,8 @@ def key_rows(k):
                 n = positive.get(str(cid), 0)
                 month_sent = (sent or {}).get(str(cid), (0, 0, 0, 0))[3]
                 replied = f"{n:,} ({n / month_sent:.1%})" if n and month_sent else _n(n)
-            campaigns.append(("campaign", colour, name, state, rate, rate_colour, advice, numbers, replied))
+            campaigns.append(("campaign", colour, name, state, rate, rate_colour, advice, numbers, replied, old_rate,
+                              old_colour))
         campaigns = campaigns or [("line", "No campaign this month yet", SAME)]
         if "campaign_sent" in k and sent is None:
             campaigns.append(("line", "Emails sent per campaign: Instantly could not be read this time", SAME))
@@ -908,9 +946,14 @@ def key_rows(k):
             campaigns.append(("line", "Replies (positive) = replies marked interested this month so far (in brackets: "
                                       "their share of the campaign's emails sent this month)", SAME))
         if any(c[4] for c in campaigns if c[0] == "campaign"):
-            campaigns.append(("line", "Bounce rate = bounces over each campaign's last 200 emails of the last 7 days "
-                                      "(green under 3%; amber 3% to 5%, our brake is on; red over 5%, Instantly pauses)",
-                              SAME))
+            since = h.get("brake_since")
+            start = f"since {_day_month_year(since)}, " if since else ""
+            campaigns.append(("line", f"Bounces = each campaign's last 200 emails of the last 7 days ({start}temporary "
+                                      "bounces such as a full inbox left out), each brake once 50 have gone. Found by "
+                                      "automation = contacts added from October 2026: brake at 3% a campaign (amber "
+                                      "from 3%, red over 5%, where Instantly pauses). Older records = contacts added "
+                                      "before October 2026: brake at 5% over all campaigns, stopping only their first "
+                                      "emails (red from 5%)", SAME))
         a = h["accounts"]
         accounts = [("health", GOOD if not a["problems"] else BAD, f"{a['healthy']} of {a['total']} healthy", "", "")]
         accounts += [("health", BAD, email, reason, "") for email, reason in a["problems"]]
@@ -1029,12 +1072,15 @@ def key_text(k):
                 out.append(f"  {label:<{width}}{day:<22}{(before + (' ' + symbol if symbol else '')):<22}{week:<22}{month}"
                            .rstrip() + names)
             elif item[0] == "campaign_head":
-                out.append("  Campaign | Status | Bounce rate (3%) | Replies (positive) | Your input")
+                out.append("  Campaign | Status | Bounce: Found by automation (3%) | Bounce: Older records (5%) | "
+                           "Replies (positive) | Your input")
             elif item[0] == "campaign":
                 _, colour, name, state, rate, _rate_colour, advice, numbers = item[:8]
                 replied = item[8] if len(item) > 8 and item[8] is not None else "-"
+                old_rate = item[9] if len(item) > 9 and item[9] else "-"
                 mark = {GOOD: "OK", BAD: "!!", WARN: "!"}.get(colour, "-")
-                out.append(f"  {name} | {mark} {state} | {rate or '-'} | {replied} | {advice[0] if advice else 'None'}")
+                out.append(f"  {name} | {mark} {state} | {rate or '-'} | {old_rate} | {replied} | "
+                           f"{advice[0] if advice else 'None'}")
                 if numbers:
                     day, before, symbol, _good, week, month = numbers
                     out.append(f"  {'     Emails sent':<{width}}{day:<22}{(before + (' ' + symbol if symbol else '')):<22}"
@@ -1162,14 +1208,16 @@ def _bullet_html(item):
 
 def _own_table(text, tag_html, count, items, labels=("Yesterday", "Day before", "Week so far", "Month so far")):
     """22 Nov 2026 (Ariel): Sending, Delivery or Campaigns as a proper table: the heading above it, a grey header row
-    (Campaigns: Campaign, Status, Bounce rate (3%), Replies (positive), Your input; the others: the row's topic), then Yesterday, Day
+    (Campaigns: Campaign, Status, Bounce: Found by automation (3%), Bounce: Older records (5%), Replies (positive), Your
+    input; the others: the row's topic), then Yesterday, Day
     before, Week so far and Month so far, with lines between every row and column. Notes go under the table."""
     e = html.escape
     line = "border:1px solid #d9d9d9;padding:4px 10px"
     words, num = f'style="{line};vertical-align:top"', f'style="{line};text-align:right;white-space:nowrap;vertical-align:top"'
     head = f'style="{line};background:#f5f5f5;color:#5f5e5a;font-size:12px;white-space:nowrap;text-align:left"'
     campaigns = text == "Campaigns"
-    firsts = ("Campaign", "Status", "Bounce rate (3%)", "Replies (positive)", "Your input") if campaigns else ("",)
+    firsts = ("Campaign", "Status", "Bounce: Found by automation (3%)", "Bounce: Older records (5%)", "Replies (positive)",
+              "Your input") if campaigns else ("",)
     total = f' <b>{count}</b>' if count is not None else ""
     out = [f'<p style="margin:16px 0 4px">{tag_html}<b>{e(text)}</b>{total}</p>',
            '<table style="border-collapse:collapse;font-size:14px;margin:0 0 4px">',
@@ -1186,6 +1234,8 @@ def _own_table(text, tag_html, count, items, labels=("Yesterday", "Day before", 
         if item[0] == "campaign":
             _, colour, name, state, rate, rate_colour, advice, nums = item[:8]
             replied = item[8] if len(item) > 8 and item[8] is not None else "-"
+            old_rate = item[9] if len(item) > 9 and item[9] else "-"
+            old_colour = item[10] if len(item) > 10 else None
             if advice and advice[1] != SAME:
                 bg, fg = PILLS.get(advice[1], PILLS[SAME])
                 said = (f'<span style="background:{bg};color:{fg};padding:1px 8px;border-radius:6px;font-size:12px;'
@@ -1196,6 +1246,7 @@ def _own_table(text, tag_html, count, items, labels=("Yesterday", "Day before", 
                       f'<span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span></span>')
             out.append(f"<tr><td {words}>{e(name)}</td><td {words}>{status}</td>"
                        f'<td {words}><span style="color:{rate_colour or "inherit"};font-weight:bold">{e(rate or "-")}</span></td>'
+                       f'<td {words}><span style="color:{old_colour or "inherit"};font-weight:bold">{e(old_rate)}</span></td>'
                        f'<td {num}>{e(replied)}</td>'
                        f"<td {words}>{said}</td>" + (numbers(*nums) if nums else f"<td {num}></td>" * 4) + "</tr>")
         elif item[0] == "row":

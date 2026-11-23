@@ -126,10 +126,13 @@ def test_key_numbers_read_as_agreed():
     assert not any("Automatic replies" in line for line in lines)  # 22 Nov 2026 (Ariel): no longer shown
     # 21 Nov 2026 (Ariel): Health, each campaign by its full name, straight to the point
     # 22 Nov 2026 (Ariel): Campaign | Status | Bounce rate | Replies (positive) | Your input, then the four columns
-    assert "Campaign | Status | Bounce rate (3%) | Replies (positive) | Your input" in lines
-    assert f"Diablo | {_month("2026-10-26")} | Company inboxes | !! No sending account | - | 0 | Connect a sending account" in lines
+    assert ("Campaign | Status | Bounce: Found by automation (3%) | Bounce: Older records (5%) | Replies (positive) | "
+            "Your input") in lines  # 23 Nov 2026 (Ariel): two bounce columns
+    assert (f"Diablo | {_month("2026-10-26")} | Company inboxes | !! No sending account | too few yet (0 sent) | "
+            "too few yet (0 sent) | 0 | Connect a sending account") in lines
     assert "Emails sent 0 0 = 0 0" in lines  # 22 Nov 2026 (Ariel): each campaign's emails, in the four columns
-    assert f"Diablo | {_month("2026-10-26")} | OK Running | - | 1 | None" in lines and "OK 1 of 1 healthy" in lines
+    assert (f"Diablo | {_month("2026-10-26")} | OK Running | too few yet (0 sent) | too few yet (0 sent) | 1 | None"
+            in lines and "OK 1 of 1 healthy" in lines)
     # 22 Nov 2026 (Ariel): the positive reply counts for the campaign its contact's lead is in
     assert "[Parameter] Sending" in lines and "[Health] Campaigns" in lines
     at = lines.index("[Health] Sending accounts and Instantly")  # 22 Nov 2026 (Ariel): the uploads under the health
@@ -578,21 +581,25 @@ def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate
          "bounced": (0, 0, 0), "opted_out": (0, 0, 0), "auto": (0, 0, 0), "follow": [], "negative": [], "nowhere": [],
          "accounts": {"campaigns": [
              (daily_report.WARN, "Diablo | NOV2026", "Running, brake on", "8.5%",
-              ("None: new introductions start again by themselves under 3%", daily_report.SAME), "c1", daily_report.BAD),
+              ("None: new introductions start again by themselves under 3%", daily_report.SAME), "c1", daily_report.BAD,
+              "12.0% (6 of 50)", daily_report.BAD),
              (daily_report.BAD, "Diablo | NOV2026 | Company inboxes", "Paused: Bounce Protect", "4.5%",
-              ("Resume now", daily_report.GOOD), "c2", daily_report.WARN)],
+              ("Resume now", daily_report.GOOD), "c2", daily_report.WARN, "too few yet (3 sent)", daily_report.SAME)],
              "accounts": {"healthy": 1, "total": 1, "problems": []}},
          "initial": {"input": [], "auto": []},
          "campaign_sent": {"c1": (0, 4, 181, 461), "c2": (19, 10, 134, 284)},
          "campaign_positive": {"c1": 3, "c2": 0}}
     lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
-    assert ("Diablo | NOV2026 | ! Running, brake on | 8.5% | 3 (0.7%) | None: new introductions start again by "
-            "themselves under 3%") in lines  # 22 Nov 2026 (Ariel): positive replies this month, share of 461 sent
-    assert "Diablo | NOV2026 | Company inboxes | !! Paused: Bounce Protect | 4.5% | 0 | Resume now" in lines
+    assert ("Diablo | NOV2026 | ! Running, brake on | 8.5% | 12.0% (6 of 50) | 3 (0.7%) | None: new introductions "
+            "start again by themselves under 3%") in lines  # 22 Nov 2026 (Ariel): positive replies this month, share of 461 sent
+    assert ("Diablo | NOV2026 | Company inboxes | !! Paused: Bounce Protect | 4.5% | too few yet (3 sent) | 0 | "
+            "Resume now") in lines
     assert "Emails sent 19 10 ▲ 134 284" in lines
     html = daily_report.key_html(k)
-    assert ">Campaign</th>" in html and ">Bounce rate (3%)</th>" in html and ">Your input</th>" in html
-    assert html.index(">Bounce rate (3%)</th>") < html.index(">Replies (positive)</th>") < html.index(">Your input</th>")
+    assert ">Campaign</th>" in html and ">Bounce: Found by automation (3%)</th>" in html and ">Your input</th>" in html
+    assert (html.index(">Bounce: Found by automation (3%)</th>") < html.index(">Bounce: Older records (5%)</th>")
+            < html.index(">Replies (positive)</th>") < html.index(">Your input</th>"))
+    assert 'color:#C0392B;font-weight:bold">12.0% (6 of 50)</span>' in html
     assert ">3 (0.7%)</td>" in html
     assert "border:1px solid #d9d9d9" in html  # 22 Nov 2026 (Ariel): lines between rows and columns
     assert ">Diablo | NOV2026</td>" in html  # 22 Nov 2026 (Ariel): no dot before the name; it goes with the status
@@ -611,7 +618,7 @@ def test_sending_delivery_and_campaigns_each_have_their_own_table():
     tables = html.split("<table")[1:]
     assert "Introductions sent" in tables[0] and "Undelivered" not in tables[0]
     assert "Undelivered" in tables[1] and "Campaign</td>" not in tables[1]
-    assert "Bounce rate (3%)" in tables[2] and "Sending accounts" not in tables[2]
+    assert "Bounce: Found by automation (3%)" in tables[2] and "Sending accounts" not in tables[2]
     assert "Instantly uploads used" not in tables[0]  # 22 Nov 2026 (Ariel): moved under Sending accounts and Instantly
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert lines.count("Mon 26 Oct Sun 25 Oct Week (26 to 26 Oct) Month (1 to 26 Oct)") == 3
@@ -757,3 +764,9 @@ def test_companies_with_people_not_tagged_are_suggested_only_from_our_channels()
     k["initial"]["input"] = [("Contacts not yet tagged AUTO-OUTREACH", 1, [])]  # none from a channel we target
     lines = [" ".join(line.split()) for line in daily_report.key_text(k)]
     assert not any("Suggest making them" in line for line in lines)
+
+
+def test_each_bounce_column_shows_the_number_its_brake_uses():
+    """23 Nov 2026 (Ariel): "too few yet" until the brake's 50, then the rate with its counts."""
+    assert daily_report._brake_rate(0, 12, 50) == ("too few yet (12 sent)", daily_report.SAME)
+    assert daily_report._brake_rate(3, 167, 50) == ("1.8% (3 of 167)", daily_report.GOOD)
