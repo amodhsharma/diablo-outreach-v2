@@ -17053,6 +17053,26 @@
     "added": "2026-10-23",
     "research_file": "research/2026-10-23/J0041_2026-10-23_basel-switzerland_sports-shops-and-sports-nutrition-shops-office-snack-and-pantry-suppliers-snack.json"
   },
+  "staffordbros.com": {
+    "name": "Stafford Bros & Draeger",
+    "based_out_of": "Johannesburg, South Africa",
+    "market": "Johannesburg, South Africa",
+    "category": "Distributors",
+    "channels": [
+      "distributors"
+    ],
+    "fit_rationale": "A full-service distributor that has built UK and European branded packaged food in South African supermarkets for decades, with category manager relationships at the major chains, which suits a British brand like Diablo. It already sells biscuits and jams from other brands and a sugar-free dessert line. Scale: national coverage across Southern Africa with Regional and Field Sales Managers calling on all major supermarket chains, cash and carries and wholesalers; outlet and fleet numbers are not shown on its website. Storage: products warehoused in Johannesburg and delivered nationwide through a warehousing and logistics partner.",
+    "what_they_do_well": [
+      "Trading since 1921 and incorporated in 1951, distributing international brands such as Twinings, Ovaltine and Walkers shortbread in Southern Africa.",
+      "Own sales and merchandising teams, led by Regional and Field Sales Managers, cover all major supermarket chains, cash and carries and wholesalers."
+    ],
+    "distributes": "Imported and local specialty foods for international brand owners: biscuits (Walkers Scottish Shortbread), jams and marmalades (Mackays), crispbreads (Ryvita), teas and malt drinks (Twinings, Ovaltine), Mexican snacks and sauces (Banditos), plus Simply Delish, Thistlewood, Tipiak and Mazetti.",
+    "channels_supplied": "All major supermarket chains, cash and carry outlets, wholesalers, independent retailers and food service across Southern Africa.",
+    "sf_brands_carried": "Simply Delish (sugar-free jelly and dessert mixes); not a direct competitor in Diablo's snack categories.",
+    "added": "2026-11-23",
+    "research_file": "research/2026-11-23/J0173_2026-11-23_johannesburg-south-africa_distributors-fmcg-distributors-wholesalers-field-sales-distributors.json",
+    "import_check": "Apollo holds nobody with an email at this website"
+  },
   "staffordlynch.ie": {
     "name": "Stafford Lynch",
     "based_out_of": "Dublin, Ireland",
