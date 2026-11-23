@@ -1,0 +1,47 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0184",
+  "location": "Switzerland",
+  "run_date": "2026-11-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 33
+    },
+    {
+      "channel": "supermarket chains",
+      "template": "retailer",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 11
+    },
+    {
+      "channel": "pharmacy distributors",
+      "template": "pharmacy_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 50
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 47
+    }
+  ],
+  "companies": []
+}
