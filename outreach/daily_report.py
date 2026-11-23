@@ -1214,15 +1214,16 @@ def _own_table(text, tag_html, count, items, labels=("Yesterday", "Day before", 
     e = html.escape
     line = "border:1px solid #d9d9d9;padding:4px 10px"
     words, num = f'style="{line};vertical-align:top"', f'style="{line};text-align:right;white-space:nowrap;vertical-align:top"'
-    head = f'style="{line};background:#f5f5f5;color:#5f5e5a;font-size:12px;white-space:nowrap;text-align:left"'
+    head = f'style="{line};background:#f5f5f5;color:#5f5e5a;font-size:12px;text-align:left;vertical-align:top"'
     campaigns = text == "Campaigns"
+    # 23 Nov 2026 (Ariel): the narrow columns' headings and numbers on two lines, so the Campaign column gets the room
     firsts = ("Campaign", "Status", "Bounce: Found by automation (3%)", "Bounce: Older records (5%)", "Replies (positive)",
               "Your input") if campaigns else ("",)
     total = f' <b>{count}</b>' if count is not None else ""
     out = [f'<p style="margin:16px 0 4px">{tag_html}<b>{e(text)}</b>{total}</p>',
            '<table style="border-collapse:collapse;font-size:14px;margin:0 0 4px">',
-           "<tr>" + "".join(f"<th {head}>{h}</th>" for h in firsts)
-           + "".join(f"<th {head}>{e(h)}</th>" for h in labels) + "</tr>"]
+           "<tr>" + "".join(f"<th {head}>{_two_lines(h)}</th>" for h in firsts)
+           + "".join(f"<th {head}>{_two_lines(h)}</th>" for h in labels) + "</tr>"]
     notes = []
 
     def numbers(day, before, symbol, good, week, month, tint=""):
@@ -1244,10 +1245,10 @@ def _own_table(text, tag_html, count, items, labels=("Yesterday", "Day before", 
                 said = f'<span style="color:{SAME}">{e(advice[0])}</span>' if advice else ""
             status = (f'<span style="white-space:nowrap"><span style="color:{colour}">&#9679;</span> '
                       f'<span style="color:{colour if colour != GOOD else "inherit"}">{e(state)}</span></span>')
-            out.append(f"<tr><td {words}>{e(name)}</td><td {words}>{status}</td>"
-                       f'<td {words}><span style="color:{rate_colour or "inherit"};font-weight:bold">{e(rate or "-")}</span></td>'
-                       f'<td {words}><span style="color:{old_colour or "inherit"};font-weight:bold">{e(old_rate)}</span></td>'
-                       f'<td {num}>{e(replied)}</td>'
+            out.append(f'<tr><td {words[:-1]};white-space:nowrap;min-width:260px">{e(name)}</td><td {words}>{status}</td>'
+                       f'<td {words}><span style="color:{rate_colour or "inherit"};font-weight:bold">{_two_lines(rate or "-")}</span></td>'
+                       f'<td {words}><span style="color:{old_colour or "inherit"};font-weight:bold">{_two_lines(old_rate)}</span></td>'
+                       f'<td {num}>{_two_lines(replied)}</td>'
                        f"<td {words}>{said}</td>" + (numbers(*nums) if nums else f"<td {num}></td>" * 4) + "</tr>")
         elif item[0] == "row":
             _, label, day, before, symbol, good, month = item[:7]
@@ -1258,6 +1259,23 @@ def _own_table(text, tag_html, count, items, labels=("Yesterday", "Day before", 
         elif item[0] == "line":
             notes.append(f'<p style="margin:0 0 2px;font-size:12px;color:{item[2] or SAME}">{e(item[1])}</p>')
     return "".join(out) + "</table>" + "".join(notes)
+
+
+def _two_lines(text):
+    """23 Nov 2026 (Ariel): a heading or number on two lines, so its column stays narrow: "Bounce: Found by automation
+    (3%)" becomes "Bounce" over "Found by automation (3%)", "Mon 23 Nov (so far)" becomes "Mon 23 Nov" over "(so far)",
+    "1.8% (3 of 167)" becomes "1.8%" over "(3 of 167)". Escaped for HTML."""
+    text = str(text)
+    if ": " in text:
+        first, rest = text.split(": ", 1)
+    elif " (" in text:
+        first, rest = text.split(" (", 1)
+        rest = "(" + rest
+    else:
+        return f'<span style="white-space:nowrap">{html.escape(text)}</span>'
+    keep = len(rest) <= 18  # a short second line ("(1 to 26 Oct)") stays whole; a long one may wrap
+    second = f'<span style="white-space:nowrap">{html.escape(rest)}</span>' if keep else html.escape(rest)
+    return f'<span style="white-space:nowrap">{html.escape(first)}</span><br>{second}'
 
 
 def _table_html(headers, rows):

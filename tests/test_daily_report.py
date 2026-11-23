@@ -180,7 +180,8 @@ def test_a_quiet_day_and_all_healthy():
                               date="2026-11-01", preview=True, log=quiet, log_data={})
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert "Introductions sent 0 0 = 0 0" in lines and "OK 1 of 1 healthy" in lines
-    assert "Week (26 Oct to 1 Nov)" in result["html"] and "Month (1 to 1 Nov)" in result["html"]
+    assert ('<span style="white-space:nowrap">Week</span><br><span style="white-space:nowrap">(26 Oct to 1 Nov)</span>' in result["html"]  # 23 Nov 2026: on two lines
+            and '<span style="white-space:nowrap">Month</span><br><span style="white-space:nowrap">(1 to 1 Nov)</span>' in result["html"])
     # 21 Nov 2026: no positive or negative replies, no referral, no reply from outside; nothing waiting, and
     # "Waiting for you" is now part of Initial stages; "Referrals handled automatically" only when there are some
     assert "None" not in lines  # 22 Nov 2026: the replies are bullets with (0); empty sections are left out
@@ -596,15 +597,18 @@ def test_the_campaigns_table_has_its_own_four_columns_and_a_coloured_bounce_rate
             "Resume now") in lines
     assert "Emails sent 19 10 ▲ 134 284" in lines
     html = daily_report.key_html(k)
-    assert ">Campaign</th>" in html and ">Bounce: Found by automation (3%)</th>" in html and ">Your input</th>" in html
-    assert (html.index(">Bounce: Found by automation (3%)</th>") < html.index(">Bounce: Older records (5%)</th>")
-            < html.index(">Replies (positive)</th>") < html.index(">Your input</th>"))
-    assert 'color:#C0392B;font-weight:bold">12.0% (6 of 50)</span>' in html
-    assert ">3 (0.7%)</td>" in html
+    # 23 Nov 2026 (Ariel): the narrow columns on two lines, so the Campaign column gets the room
+    found, older = "Bounce</span><br>Found by automation (3%)</th>", 'Bounce</span><br><span style="white-space:nowrap">Older records (5%)</span></th>'
+    assert ">Campaign</span></th>" in html and found in html and ">Your input</span></th>" in html
+    assert (html.index(found) < html.index(older) < html.index('Replies</span><br><span style="white-space:nowrap">(positive)</span></th>')
+            < html.index(">Your input</span></th>"))
+    assert 'color:#C0392B;font-weight:bold"><span style="white-space:nowrap">12.0%</span><br><span style="white-space:nowrap">(6 of 50)</span></span>' in html
+    assert '><span style="white-space:nowrap">3</span><br><span style="white-space:nowrap">(0.7%)</span></td>' in html
+    assert 'white-space:nowrap;min-width:260px">Diablo | NOV2026 | Company inboxes</td>' in html
     assert "border:1px solid #d9d9d9" in html  # 22 Nov 2026 (Ariel): lines between rows and columns
     assert ">Diablo | NOV2026</td>" in html  # 22 Nov 2026 (Ariel): no dot before the name; it goes with the status
     assert '&#9679;</span> <span style="color:#BA7517">Running, brake on</span>' in html
-    assert 'color:#C0392B;font-weight:bold">8.5%</span>' in html  # over 5%: red
+    assert 'color:#C0392B;font-weight:bold"><span style="white-space:nowrap">8.5%</span></span>' in html  # over 5%: red
     assert "Resume now</span>" in html and "#EAF3DE" in html  # a green label
 
 
@@ -614,11 +618,11 @@ def test_sending_delivery_and_campaigns_each_have_their_own_table():
     result = daily_report.run("test", load_settings(), hs, instantly, accounts_api=accounts, charts=False, date=DAY,
                               preview=True, log=quiet, log_data=log)
     html = result["html"]
-    assert html.count(">Mon 26 Oct</th>") == 3 and "Yesterday" not in html  # own tables only; dates (23 Nov 2026)
+    assert html.count(">Mon 26 Oct</span></th>") == 3 and "Yesterday" not in html  # own tables only; dates (23 Nov 2026)
     tables = html.split("<table")[1:]
     assert "Introductions sent" in tables[0] and "Undelivered" not in tables[0]
     assert "Undelivered" in tables[1] and "Campaign</td>" not in tables[1]
-    assert "Bounce: Found by automation (3%)" in tables[2] and "Sending accounts" not in tables[2]
+    assert "Found by automation (3%)" in tables[2] and "Sending accounts" not in tables[2]
     assert "Instantly uploads used" not in tables[0]  # 22 Nov 2026 (Ariel): moved under Sending accounts and Instantly
     lines = [" ".join(line.split()) for line in result["text"].splitlines()]
     assert lines.count("Mon 26 Oct Sun 25 Oct Week (26 to 26 Oct) Month (1 to 26 Oct)") == 3
