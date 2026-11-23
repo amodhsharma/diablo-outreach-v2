@@ -681,8 +681,17 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     risky_left = address_checks.risky_room(checks, checks_cfg, now)
     risky_ids, held, dead = set(), [], dict(broken_dead)
     from . import alert
-    brake = address_checks.braked(in_instantly, checks_cfg, checks, campaign_ids, now, log,
-                                  None if dry_run else (lambda subject, text: alert.send(subject, text, log)))
+    warn = None if dry_run else (lambda subject, text: alert.send(subject, text, log))
+    try:  # 23 Nov 2026 (Ariel): the brakes count our own contacts and old records apart, from HubSpot
+        lead_kinds = address_checks.lead_groups(hs, in_instantly, checks_cfg, now)
+    except Exception as err:
+        lead_kinds = None
+        log(f"Could not read which emailed contacts are old records ({str(err)[:200]}); every contact counts in the "
+            "brake this run")
+    brake = address_checks.braked(in_instantly, checks_cfg, checks, campaign_ids, now, log, warn, groups=lead_kinds)
+    old_brake = address_checks.old_braked(in_instantly, checks_cfg, checks, lead_kinds, now, log, warn)
+    if old_brake:
+        risky_left = 0
     room = None
     if not dry_run and chain_cfg:  # new companies only in the room left today; companies already started always
         room = chain.room_today(in_instantly, daily_limit_for(settings["send"]))
@@ -733,11 +742,16 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             log(f"Not sent: contact {c['id']} ({mask(p.get('email'))}) at {name}: its email domain has no mail "
                 "system; Contact corrupt, and the next person moves up")
             continue
-        is_risky = address_checks.risky(c, emailed_before)
+        is_risky = address_checks.risky(c, emailed_before, checks_cfg)
         if is_risky and risky_left <= 0:
             waiting += n_waiting
-            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: an old or hand-added address; at "
-                f"most {checks_cfg['risky_per_day']} of those get their first email a day; it goes on a later day")
+            if old_brake:
+                log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: an old record (created before "
+                    f"October 2026); the old records' own {checks_cfg['old_brake']['rate']:.0%} bounce brake is on")
+            else:
+                log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: an old record (created before "
+                    f"October 2026); at most {checks_cfg['risky_per_day']} of those get their first email a day; it "
+                    "goes on a later day")
             continue
         if corrupt.held_now(c["id"]):
             waiting += n_waiting  # 28 Oct 2026: moved up after a dead address in this run; goes at the next run
@@ -802,8 +816,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         previews.append(preview(name, leads, settings, kind))
         body = campaign_body(name, "", settings, kind) if not campaign_id else None  # a dry run checks it too
         if campaign_id and campaign_id in brake:  # 20 Nov 2026: our 3% brake is on for this campaign
-            log(f"Not added to {name}: its bounce rate is over our 3% brake; {len(leads)} wait on GATE2: Approved to "
-                "send until it is back under 3%")
+            log(f"Not added to {name}: its bounce rate for our own contacts is over our 3% brake; {len(leads)} wait "
+                "on GATE2: Approved to send until it is back under 3%")
             continue
         if dry_run:
             continue
@@ -878,7 +892,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                                        "plan_full": bool(plan_full), "held": [h["contact_id"] for h in held],
                                        "dead_domain": sorted(set(dead) - set(broken_dead)),
                                        "corrupt_found": sorted(broken_dead), "repaired": len(repaired),
-                                       "braked": sorted(brake)})
+                                       "braked": sorted(brake), "old_braked": old_brake})
     if previews:
         (out_dir / "email_preview.txt").write_text("\n\n".join(previews), encoding="utf-8")
         log("\nEMAIL PREVIEW (also saved as email_preview.txt under Artifacts)\n")
@@ -889,7 +903,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
             + (" (new campaign, created paused)" if row["new_campaign"] else ""))
     return {"queued": len(contact_updates), "campaigns": plan, "skipped": len(skipped), "waiting": waiting,
             "plan_full": bool(plan_full), "held": len(held), "dead_domain": len(set(dead) - set(broken_dead)),
-            "corrupt_found": len(broken_dead), "repaired": len(repaired), "braked": sorted(brake)}
+            "corrupt_found": len(broken_dead), "repaired": len(repaired), "braked": sorted(brake),
+            "old_braked": old_brake}
 
 
 def main(argv=None):

@@ -548,7 +548,9 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
     credits, log_rows = 0, []
     # "Outreach contact source" exists only once button 1 has run after 19 Oct 2026; until then the
     # contacts are created without it (company inboxes are still recognised by their job title).
-    cfg = dict(cfg, _source_field=bool(companies) and _has_field(hs, CONTACT_SOURCE))
+    # 23 Nov 2026: checked for restarted companies too, whose new people were created without it on days with no
+    # other company to process.
+    cfg = dict(cfg, _source_field=bool(companies or restarts["start"]) and _has_field(hs, CONTACT_SOURCE))
     cfg = dict(cfg, _topped=topped, _month=month)
     try:
         credits = _process(companies, hs, apollo, cfg, statuses, assigner, notes, skipped, kept, log_rows, log)

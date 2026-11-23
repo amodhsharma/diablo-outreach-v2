@@ -487,6 +487,9 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
         view = view if view is not None else instantly_view(instantly, prefix)
         rates = address_checks.campaign_rates(view, cfg)
         limit, least = float(cfg["brake"]["rate"]), int(cfg["brake"]["min_sent"])
+        # 23 Nov 2026: the brake counts only our own contacts since the clean start, so its state is the one button 4
+        # keeps, not the campaign's overall rate shown in the Bounce rate column
+        brakes_on = set((address_checks.load().get("brake") or {}))
         rows, used = [], set()
         for camp in sorted(campaigns, key=lambda c: str(c.get("name") or "")):
             mailboxes = [m.lower() for m in camp.get("email_list") or []]
@@ -500,7 +503,7 @@ def health(instantly, settings, accounts_api=None, view=None, day=None):
             code = camp.get("status")
             bounced, emailed = rates.get(camp["id"], (0, 0))
             rate = f"{bounced / emailed:.1%}" if emailed else ""
-            braked = emailed >= least and bounced / emailed >= limit
+            braked = camp["id"] in brakes_on
             # 22 Nov 2026 (Ariel): a short status, and in "Your input" what a person must do, if anything
             if not mailboxes or connected == 0:
                 colour, state, advice = BAD, "No sending account", ("Connect a sending account", BAD)

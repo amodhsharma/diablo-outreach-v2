@@ -381,12 +381,81 @@ def test_the_brake_comes_on_at_3_percent_and_lifts_by_itself():
 
 
 def test_no_new_introductions_go_into_a_braked_campaign(settings, monkeypatch):
+    settings["send"]["address_checks"]["brake"]["since"] = ""  # no clean start in this test
     hs, instantly = FakeCRM(), FakeInstantly()
     camp = instantly.create_campaign({"name": send.campaign_name(settings["sync"]["campaign_prefix"])})["id"]
     instantly.leads[camp] = list(dict(v, email=k) for k, v in _view(camp, 100, 5).items())
     cid, (p1,) = company(hs, "Waits", "waits.example", ("Owner",))
     out = send.run("test", settings, hs, instantly, log=quiet)
     assert out["braked"] == [camp] and out["queued"] == 0 and rec(hs, p1)[LS] == "APPROVED_TO_SEND"
+
+
+# ---- 23 Nov 2026: our own contacts and old records apart ---------------------------------------------
+
+def test_an_old_record_is_told_by_its_creation_date():
+    cfg = address_checks.settings_of({})
+    assert address_checks.is_old({"createdate": "2026-02-02T08:47:46Z", CONTACT_SOURCE: "Apollo"}, cfg)
+    assert not address_checks.is_old({"createdate": "2026-11-22T00:31:45Z"}, cfg)  # a restart's new person
+    assert address_checks.is_old({}, cfg) and not address_checks.is_old({CONTACT_SOURCE: "Apollo"}, cfg)
+    assert not address_checks.risky({"createdate": "2026-02-02T08:47:46Z"}, True, cfg)  # emailed before
+
+
+def test_the_brake_counts_only_our_own_contacts_and_no_temporary_bounces():
+    cfg = address_checks.settings_of({})
+    view = _view("c1", 100, 10)
+    kinds = {e: {"old": i < 8, "temporary": i in (8, 9)} for i, e in enumerate(view)}
+    assert address_checks.campaign_rates(view, cfg, groups=kinds, group="own")["c1"] == (0, 92)
+    assert address_checks.campaign_rates(view, cfg, groups=kinds, group="old")["c1"] == (8, 8)
+    assert address_checks.braked(view, cfg, {}, {}, log=quiet, groups=kinds) == set()
+    assert address_checks.braked(view, cfg, {}, {}, log=quiet) == {"c1"}  # everyone counted: 10%
+
+
+def test_the_clean_start_leaves_out_the_sends_before_it():
+    cfg = address_checks.settings_of({"send": {"address_checks": {"brake": {"since": "2026-11-23"}}}})
+    now = dt.datetime(2026, 11, 24, 12, tzinfo=dt.timezone.utc)
+    before = {f"a{i}@x.example": {"_campaign_id": "c1", "timestamp_last_contact": "2026-11-22T10:00:00+00:00",
+                                  "status": -1} for i in range(60)}
+    after = {f"b{i}@x.example": {"_campaign_id": "c1", "timestamp_last_contact": "2026-11-23T10:00:00+00:00",
+                                 "status": 1} for i in range(60)}
+    view = {**before, **after}
+    assert address_checks.campaign_rates(view, cfg, now)["c1"] == (60, 120)  # the Bounce rate column: everything
+    assert address_checks.campaign_rates(view, cfg, now, clean_start=True)["c1"] == (0, 60)
+    assert address_checks.braked(view, cfg, {"brake": {"c1": {"since": "2026-11-20"}}}, {}, now, log=quiet) == set()
+
+
+def test_old_records_have_their_own_5_percent_brake():
+    cfg = address_checks.settings_of({})
+    view = _view("c1", 60, 3)  # 5% of 60
+    kinds = {e: {"old": True} for e in view}
+    data, alerts = {}, []
+    alert = lambda subject, text: alerts.append(subject)  # noqa: E731
+    assert address_checks.old_braked(view, cfg, data, kinds, log=quiet, alert=alert) is True
+    assert alerts == ["Partner outreach: old records' bounce brake on"] and data["old_brake"]["bounced"] == 3
+    assert address_checks.old_braked(view, cfg, data, None, log=quiet) is True  # HubSpot not read: keeps its state
+    assert address_checks.old_braked(_view("c1", 60, 2), cfg, data, kinds, log=quiet, alert=alert) is False
+    assert alerts[-1] == "Partner outreach: old records' bounce brake lifted" and data["old_brake"] == {}
+    own = {e: {"old": False} for e in view}
+    assert address_checks.old_braked(view, cfg, {}, own, log=quiet) is False  # our own contacts never count here
+
+
+def test_the_leads_are_sorted_into_old_records_and_temporary_bounces_from_hubspot():
+    hs = FakeCRM()
+    old = hs.add("contacts", email="old@x.example", createdate="2026-02-02T08:47:46Z")
+    hs.add("contacts", email="new@x.example", createdate="2026-11-22T00:31:45Z", **{CONTACT_SOURCE: "Apollo"})
+    hs.add("contacts", email="full@x.example", createdate="2026-11-10T00:00:00Z",
+           **{REASON: "Bounced: inbox full (20 Nov 2026). Bounce message: 452 4.2.2 Mailbox full"})
+    hs.add("contacts", email="slow@x.example", createdate="2026-11-10T00:00:00Z",
+           **{REASON: "Bounced: other reason (20 Nov 2026). Bounce message: 4.4.1 server did not accept"})
+    hs.add("contacts", email="dead@x.example", createdate="2026-11-10T00:00:00Z",
+           **{REASON: "Bounced: address does not exist (20 Nov 2026). Bounce message: 550 5.1.1"})
+    cfg = address_checks.settings_of({})
+    view = {e: {"_campaign_id": "c1", "timestamp_last_contact": dt.datetime.now(dt.timezone.utc).isoformat(),
+                "status": -1} for e in ("old@x.example", "new@x.example", "full@x.example", "slow@x.example",
+                                        "dead@x.example")}
+    kinds = address_checks.lead_groups(hs, view, cfg)
+    assert kinds["old@x.example"]["old"] and not kinds["new@x.example"]["old"] and old
+    assert kinds["full@x.example"]["temporary"] and kinds["slow@x.example"]["temporary"]
+    assert not kinds["dead@x.example"]["temporary"] and not kinds["new@x.example"]["temporary"]
 
 
 # ---- The daily email ------------------------------------------------------------------------------
