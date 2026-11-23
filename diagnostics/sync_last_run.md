@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-23 19:41 UTC
+Written 2026-11-23 22:40 UTC
 
 ```
 1102 leads in the Diablo campaigns in Instantly
@@ -21,11 +21,14 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Wrote 2 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 77 for 64 address(es)
-Email threads: 4 emails since the last run
+Email threads: 0 emails since the last run
+Prime Products Wholesalers Pty. Ltd.: no reply to the introduction; the company is now "No response: can restart"
+Migros Ticino: the Category Manager Prodotto was sent their reminder, as a forward of their introduction
 Kloseâ€™s: Instantly refused the introduction (POST /leads/add failed with 400: {"statusCode":400,"error":"Bad Request","message":"No valid leads found"}); it is tried again next run
-Email threads: 16 companies read in full, 129 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+The Distributors Mackay: no reply to the introduction; the company is now "No response: can restart"
+F. Uhlmann-Eyraud SA: the Junior KAM / Verkaufsinnendienst was sent their reminder, as a forward of their introduction
+Email threads: 12 companies read in full, 133 with no change since their last reading
+Loop: 0 forwards, 2 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 2 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
