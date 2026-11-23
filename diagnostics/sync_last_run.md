@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-23 16:47 UTC
+Written 2026-11-23 19:41 UTC
 
 ```
-1100 leads in the Diablo campaigns in Instantly
+1102 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -21,21 +21,11 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
-Wrote 4 notes on contacts' timelines (email sent, bounced or replied)
+Wrote 2 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 77 for 64 address(es)
-Email threads: 19 emails since the last run
-The Distributors: no reply to the introduction; the company is now "No response: can restart"
-the-distributor: the introduction goes to the next contact
-Oborne Health Supplies: the introduction goes to Company inbox (from website)
-Bonfect Snackfood Services: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Email threads: 4 emails since the last run
 Kloseâ€™s: Instantly refused the introduction (POST /leads/add failed with 400: {"statusCode":400,"error":"Bad Request","message":"No valid leads found"}); it is tried again next run
-Stuart Alexander: the Chairman did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Stuart Alexander: the Executive Assistant to CEO - Garry Browne was sent their reminder, as a forward of their introduction
-Foodland Supermarkets Australia: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-JB Metropolitan Distributor: the State Manager SA / NT did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-JB Metropolitan Distributor: the contact was sent their reminder, as a forward of their introduction
-ferndaleconfectionery: the Chief Executive Officer did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Email threads: 33 companies read in full, 113 with no change since their last reading
-Loop: 0 forwards, 2 reminders, 2 introductions added, 5 contacts closed 48 hours after their reminder, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 16 companies read in full, 129 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
