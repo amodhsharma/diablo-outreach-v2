@@ -1,0 +1,43 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0177",
+  "location": "Gqeberha, South Africa",
+  "run_date": "2026-11-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "distributors",
+      "template": "distributor",
+      "status": "done",
+      "reason": "",
+      "companies_wanted": 30,
+      "companies_found": 1,
+      "searches_used": 24
+    }
+  ],
+  "companies": [
+    {
+      "name": "AH Importers",
+      "based_out_of": "Gqeberha, South Africa",
+      "domain": "ahimporters.com",
+      "channel_category": [
+        "distributors"
+      ],
+      "tier": 2,
+      "tier_rank": 1,
+      "distributes": "Chocolate, biscuits, wafers, sweets and candies (Roshen, Elvan, Dolcebon, Tiffany), plus rice, pasta and juice.",
+      "channels_supplied": "Retailers, wholesalers, supermarkets, spaza and tuck shops and resellers across South Africa, with trade pricing and mixed orders.",
+      "sf_brands_carried": null,
+      "competing_brand_flag": false,
+      "fit_rationale": "A Gqeberha importer that is the official South African distributor for Roshen and also carries Elvan and Tiffany chocolate, wafers and biscuits, selling to wholesalers, supermarkets and spaza shops. It already handles imported European style confectionery and mixed trade orders, so Diablo's chocolate, biscuits and sweets sit next to its current range. Scale: size not shown on its website; one Gqeberha base distributing across South Africa. Storage: its own warehouse, shown on its website.",
+      "what_they_do_well": [
+        "Official Roshen distributor in South Africa, supplying wholesalers, retailers and spaza shops nationwide."
+      ],
+      "confidence": "medium",
+      "source_urls": [
+        "https://ahimporters.com/"
+      ]
+    }
+  ]
+}
