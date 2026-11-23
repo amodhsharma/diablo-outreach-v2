@@ -222,3 +222,76 @@ def main(argv=None):
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# ---- 23 Nov 2026 (Ariel): a Completed campaign with introductions waiting is switched back on ----------------
+
+COMPLETED, ACTIVE = 3, 1
+LEAD_DONE = (-1, -2, -3, 3)  # a lead that bounced, unsubscribed, was skipped or finished: nothing left to send
+
+
+def unsent_by_campaign(view):
+    """{campaign id: n} of leads Instantly has not emailed yet (never contacted, still active)."""
+    out = {}
+    for lead in (view or {}).values():
+        cid = lead.get("_campaign_id")
+        if cid and not lead.get("timestamp_last_contact") and lead.get("status") not in LEAD_DONE:
+            out[str(cid)] = out.get(str(cid), 0) + 1
+    return out
+
+
+def reopen_completed(instantly, campaigns, added, view, settings, log=print, alert=None, now=None, path=None):
+    """23 Nov 2026 (Ariel): Instantly marks a campaign Completed once it has sent every introduction in it, and a
+    Completed campaign does not send the ones button 4 adds later until someone presses Resume. So, at each run,
+    every Diablo campaign that Instantly shows as Completed and that has introductions waiting (added in this run,
+    `added` {campaign id: n}, or added earlier and never sent, read from `view`) is switched back on. Only Completed
+    is touched: a campaign paused by a person, by Bounce Protect, for a mailbox problem or suspended follows the
+    rules at the top, and a new campaign (Not started) is left for a person. Amodh is emailed if Instantly refuses.
+    The times are kept in data/campaign_guard.json ("reopened") for the daily email. Returns the names switched
+    back on."""
+    prefix = settings["sync"]["campaign_prefix"]
+    now = now or dt.datetime.now(dt.timezone.utc)
+    unsent = unsent_by_campaign(view)
+    state, done = load(path), []
+    for camp in campaigns or []:
+        cid, name = str(camp.get("id")), str(camp.get("name") or "")
+        if not name.startswith(prefix) or camp.get("status") != COMPLETED:
+            continue
+        waiting = max(int((added or {}).get(cid) or 0), unsent.get(cid, 0))
+        if not waiting:
+            continue
+        try:
+            instantly.activate_campaign(cid)
+        except Exception as err:
+            log(f"{name}: Instantly marked it Completed and refused to switch it back on ({str(err)[:200]}); "
+                f"{waiting} introduction(s) wait in it; tried again next run")
+            if alert:
+                alert(f"Partner outreach: campaign could not be switched back on ({name})",
+                      f"Instantly marked the campaign \"{name}\" Completed and refused to switch it back on, so the "
+                      f"{waiting} introduction(s) waiting in it are not sent yet. Button 4 tries again at its next "
+                      "run; pressing Resume on the campaign in Instantly sends them straight away.\n\nKind "
+                      "regards,\nDiablo Partner Outreach")
+            continue
+        camp["status"] = ACTIVE
+        entry = state.setdefault(cid, {"name": name, "resumed": []})
+        entry["name"] = name
+        entry["reopened"] = [x for x in entry.get("reopened") or [] if _parse(x) and now - _parse(x) <
+                             dt.timedelta(days=7)] + [_iso(now)]
+        done.append(name)
+        log(f"{name}: Instantly had marked it Completed; switched back on for the {waiting} introduction(s) "
+            "waiting in it")
+    if done:
+        save(state, path)
+    return done
+
+
+def reopened_on(day, path=None, tz=None):
+    """{campaign id: n} of automatic switches back on during a UK day (YYYY-MM-DD), for the daily email."""
+    from .daily_log import UK
+    out = {}
+    for cid, entry in load(path).items():
+        n = sum(1 for x in entry.get("reopened") or [] if _parse(x) and
+                _parse(x).astimezone(tz or UK).strftime("%Y-%m-%d") == day)
+        if n:
+            out[cid] = n
+    return out

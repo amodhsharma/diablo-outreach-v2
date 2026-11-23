@@ -21,7 +21,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import address_checks, bond, chain, corrupt, redirect, referral_intro, restart, send_memory, timeline
+from . import address_checks, campaign_guard, bond, chain, corrupt, redirect, referral_intro, restart, send_memory, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -596,7 +596,9 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     needs_note = first_email_uses(settings, "company_note")
     referral_waiting = referral_intro.waiting_ids()
     bond_config = bond.load()
-    campaign_ids = {} if dry_run else {x["name"]: x["id"] for x in instantly.list_campaigns()}
+    listed = [] if dry_run else instantly.list_campaigns()
+    campaign_ids = {x["name"]: x["id"] for x in listed}
+    added_to = {}  # 23 Nov 2026: {campaign id: introductions added this run}, to switch a Completed one back on
     approved_at = defaultdict(list)
     for c in contacts:
         company_id = owner_of.get(str(c["id"]))
@@ -846,6 +848,8 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
         log(f"Instantly: {uploaded} leads added, {skipped_n} skipped (already in your Instantly "
             f"workspace), {invalid} invalid")
         created = created_emails(results, leads)
+        if uploaded:
+            added_to[str(campaign_id)] = added_to.get(str(campaign_id), 0) + uploaded
         try:  # 26 Oct 2026 (Ariel): the introduction is in Instantly, written on the contact's timeline
             timeline.queued(hs, [c["id"] for c, _, _, _ in members
                                  if c["properties"]["email"].lower() in created], name, log)
@@ -867,6 +871,10 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                 company_updates[company_id] = statuses.props("companies", "in_outreach")
 
     if not dry_run:
+        try:  # 23 Nov 2026 (Ariel): a Completed campaign does not send what is added to it until it is switched on
+            campaign_guard.reopen_completed(instantly, listed, added_to, in_instantly, settings, log, warn)
+        except Exception as err:
+            log(f"Could not check for Completed campaigns ({str(err)[:200]}); checked again next run")
         address_checks.save(checks)
         if dead:  # 20 Nov 2026: a domain with no mail system is never emailed; the next person moves up
             corrupt.close_dead(hs, statuses, dead, in_instantly, log, keep_corrupt=broken_dead)

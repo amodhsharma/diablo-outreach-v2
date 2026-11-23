@@ -500,6 +500,8 @@ def health(instantly, settings, accounts_api=None, view=None, day=None, hs=None)
         found = address_checks.campaign_rates(view, cfg, groups=kinds, group="own", clean_start=True) if kinds is not None else None
         older = address_checks.campaign_rates(view, cfg, groups=kinds, group="old", clean_start=True) if kinds is not None else None
         kept = address_checks.load()
+        from . import campaign_guard
+        reopened = campaign_guard.reopened_on(day) if day else {}  # 23 Nov 2026 (Ariel)
         brakes_on, old_on = set(kept.get("brake") or {}), bool(kept.get("old_brake"))
         old_limit, old_least = float(cfg["old_brake"]["rate"]), int(cfg["old_brake"]["min_sent"])
         rows, used = [], set()
@@ -542,8 +544,15 @@ def health(instantly, settings, accounts_api=None, view=None, day=None, hs=None)
                 advice = ("None: older records get first emails again by themselves under 5%", SAME)
             elif code in (1, None, 4):
                 colour, state, advice = GOOD, "Running", ("None", SAME)
+            elif code == 3:  # 23 Nov 2026 (Ariel): button 4 switches it back on when introductions are added
+                colour, state = SAME, "Completed"
+                advice = ("None: switched back on by itself when new introductions are added", SAME)
             else:
                 colour, state, advice = SAME, CAMPAIGN_STATUS.get(code, "Unknown"), ("None", SAME)
+            times = reopened.get(str(camp["id"]))
+            if times and advice[0].startswith("None"):
+                advice = (f"None: switched back on by itself {times} time{'s' if times > 1 else ''} this day, "
+                          "after Instantly marked it Completed", SAME)
             if found is None:
                 rate, rate_colour, old_rate, old_colour = "-", None, "-", None
             else:

@@ -229,7 +229,17 @@ class FakeInstantly:
 
     def list_campaigns(self):
         return [{"id": cid, "name": c["name"], "sequences": c.get("sequences"), "daily_limit": c.get("daily_limit"),
-                 "campaign_schedule": c.get("campaign_schedule")} for cid, c in self.campaigns.items()]
+                 "campaign_schedule": c.get("campaign_schedule"), "status": c.get("status")}
+                for cid, c in self.campaigns.items()]
+
+    def activate_campaign(self, campaign_id):
+        """23 Nov 2026: switching a campaign on; refuse_activate makes Instantly refuse it once."""
+        if getattr(self, "refuse_activate", False):
+            self.refuse_activate = False
+            raise RuntimeError("Instantly API POST /campaigns/x/activate failed (500)")
+        self.activated = getattr(self, "activated", []) + [campaign_id]
+        self.campaigns[campaign_id]["status"] = 1
+        return {"id": campaign_id}
 
     def update_campaign(self, campaign_id, body):
         self.campaigns[campaign_id].update(body)
