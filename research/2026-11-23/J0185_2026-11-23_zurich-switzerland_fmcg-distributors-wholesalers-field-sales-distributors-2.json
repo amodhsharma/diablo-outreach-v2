@@ -4,34 +4,36 @@
   "location": "Zurich, Switzerland",
   "run_date": "2026-11-23",
   "run_type": "scheduled",
-  "replaces": [],
+  "replaces": [
+    "research/2026-11-23/J0185_2026-11-23_zurich-switzerland_fmcg-distributors-wholesalers-field-sales-distributors.json"
+  ],
   "channels": [
     {
       "channel": "FMCG distributors",
       "template": "distributor",
-      "status": "failed",
-      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "status": "done",
+      "reason": "",
       "companies_wanted": 30,
       "companies_found": 0,
-      "searches_used": 0
+      "searches_used": 64
     },
     {
       "channel": "wholesalers",
       "template": "wholesaler",
-      "status": "failed",
-      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "status": "done",
+      "reason": "",
       "companies_wanted": 30,
       "companies_found": 0,
-      "searches_used": 0
+      "searches_used": 64
     },
     {
       "channel": "field sales distributors",
       "template": "field_sales_distributor",
-      "status": "failed",
-      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "status": "done",
+      "reason": "",
       "companies_wanted": 30,
       "companies_found": 0,
-      "searches_used": 0
+      "searches_used": 57
     }
   ],
   "companies": []
