@@ -1,0 +1,38 @@
+{
+  "format": "outreachResearch v1",
+  "job_id": "J0175",
+  "location": "Durban, South Africa",
+  "run_date": "2026-11-23",
+  "run_type": "scheduled",
+  "replaces": [],
+  "channels": [
+    {
+      "channel": "FMCG distributors",
+      "template": "distributor",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "wholesalers",
+      "template": "wholesaler",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 0
+    },
+    {
+      "channel": "field sales distributors",
+      "template": "field_sales_distributor",
+      "status": "failed",
+      "reason": "The helper did not save its file (it may have stopped early, e.g. a usage limit)",
+      "companies_wanted": 30,
+      "companies_found": 0,
+      "searches_used": 0
+    }
+  ],
+  "companies": []
+}
