@@ -1,5 +1,166 @@
 {
-  "generated_at": "2026-11-23T03:31:25+00:00",
+  "generated_at": "2026-11-23T06:32:10+00:00",
   "target": "live",
-  "contacts": []
+  "contacts": [
+    {
+      "contact_id": "935659854024",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "AH Importers",
+        "domain": "ahimporters.com",
+        "location": "Gqeberha, South Africa",
+        "channel": "Distributors",
+        "based_out_of": "Gqeberha, South Africa",
+        "distributes": "Chocolate, biscuits, wafers, sweets and candies (Roshen, Elvan, Dolcebon, Tiffany), plus rice, pasta and juice.",
+        "channels_supplied": "Retailers, wholesalers, supermarkets, spaza and tuck shops and resellers across South Africa, with trade pricing and mixed orders.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Official Roshen distributor in South Africa, supplying wholesalers, retailers and spaza shops nationwide."
+        ],
+        "fit_rationale": "A Gqeberha importer that is the official South African distributor for Roshen and also carries Elvan and Tiffany chocolate, wafers and biscuits, selling to wholesalers, supermarkets and spaza shops. It already handles imported European style confectionery and mixed trade orders, so Diablo's chocolate, biscuits and sweets sit next to its current range. Scale: size not shown on its website; one Gqeberha base distributing across South Africa. Storage: its own warehouse, shown on its website."
+      }
+    },
+    {
+      "contact_id": "935593017564",
+      "job_title": "Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Arrow Cash and Carry",
+        "domain": "arrowcc.co.za",
+        "location": "South Africa",
+        "channel": "FMCG distributors",
+        "based_out_of": "Durban, South Africa",
+        "distributes": "Groceries with a dedicated confectionery department alongside cigarettes and general FMCG; brands not named on its website.",
+        "channels_supplied": "Wholesalers, retailers, spaza shops and convenience stores in KwaZulu-Natal, plus export clients.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Trading as a Durban cash and carry since 2001, supplying wholesalers, retailers, spaza shops and convenience stores."
+        ],
+        "fit_rationale": "A Durban cash and carry trading since 2001 that sells confectionery to spaza shops, convenience stores and other retailers, giving Diablo a route into the KwaZulu-Natal traditional trade. Scale: not shown on its website; one site on Umgeni Road, Durban, serving the trade. Storage: cash and carry premises at 201 Umgeni Road, Durban."
+      }
+    },
+    {
+      "contact_id": "935610601666",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Lancashire Suppliers Ltd",
+        "domain": "lancashiresuppliers.co.uk",
+        "location": "United Kingdom",
+        "channel": "Field sales distributors",
+        "based_out_of": "Blackburn, United Kingdom",
+        "distributes": "Chocolate bars, chocolate multipacks and kids chocolate; sweets and candy (gummies, chewy sweets, lollipops, chewing gum); drinks, household goods and disposables. Brands include Cadbury, Swizzels, Millions, Wrigley's and Sweetzone.",
+        "channels_supplied": "Retailers, convenience stores and supermarkets, by local van delivery across Lancashire, Yorkshire, Greater Manchester and Merseyside and by courier UK-wide; trade counter in Blackburn.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Combines local van deliveries across the North West and Yorkshire with UK-wide delivery and no minimum order for trade accounts."
+        ],
+        "fit_rationale": "A trade wholesaler with its own local van deliveries to convenience stores across the North West and Yorkshire and a deep branded chocolate and sweets range, including halal sweets, which suits Diablo's halal certified chocolate and gummies. Scale: van delivery across Lancashire, Yorkshire, Greater Manchester and Merseyside plus UK-wide courier delivery; size not shown on its website, one site only and its cash and carry is also open to the public. Storage: cash and carry and stock at Unit 1d, Peter Street, Blackburn, with local van deliveries and a trade account web shop."
+      }
+    },
+    {
+      "contact_id": "935613680858",
+      "job_title": "Executive Assistant",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Limpopo Cash and Carry",
+        "domain": "limpopocc.co.za",
+        "location": "South Africa",
+        "channel": "FMCG distributors",
+        "based_out_of": "Polokwane, South Africa",
+        "distributes": "Wholesale FMCG with large confectionery and biscuit, sweets and chocolate, and snacks categories (Cadbury chocolate, Chappies sweets, Lotus biscuits), plus groceries and household goods.",
+        "channels_supplied": "Retailers of all sizes in Limpopo, across South Africa and in most SADC countries, with B2B accounts and order-and-collect.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Trading since 1998, supplying retailers across Limpopo, South Africa and most SADC countries."
+        ],
+        "fit_rationale": "A Polokwane wholesaler trading since 1998 whose web shop lists hundreds of sweets, chocolate, biscuit and snack lines for retailers, a strong route into Limpopo's independent and township trade. Scale: clients across Limpopo, the rest of South Africa and most SADC countries; branch count and warehouse size not shown. Storage: cash and carry warehouse in Polokwane with a B2B web shop showing stock and order-for-collection."
+      }
+    },
+    {
+      "contact_id": "935555198178",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "Mr Crisp Ltd",
+        "domain": "mrcrispltd.co.uk",
+        "location": "United Kingdom",
+        "channel": "Field sales distributors",
+        "based_out_of": "Worthing, United Kingdom",
+        "distributes": "Confectionery, crisps and snacks, soft drinks, alcoholic drinks, vapes, cleaning products and disposables; brand names not listed on its public pages.",
+        "channels_supplied": "Trade customers in the South of England through its delivered service and B2B online ordering portal; customer types are not named on its website.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "More than 30 years as a delivered wholesaler in the South, with online trade ordering through its B2B portal."
+        ],
+        "fit_rationale": "A long-established delivered wholesaler of confectionery, crisps and drinks in the South of England, the impulse range that Diablo's sweets and chocolate fit into. Scale: not shown on its website; one depot in Worthing delivering across the South, with a trade B2B ordering portal as the solid evidence of trade. Storage: depot at Units G-H, Northbrook Trading Estate, Worthing, with deliveries and online trade ordering from stock."
+      }
+    },
+    {
+      "contact_id": "935613586641",
+      "job_title": "Company inbox (from website)",
+      "seniority": "Everyone else",
+      "rank": 1,
+      "company": {
+        "name": "NF Plus (Northern Foods Plus Ltd)",
+        "domain": "nfplus.co",
+        "location": "United Kingdom",
+        "channel": "Field sales distributors",
+        "based_out_of": "Nottingham, United Kingdom",
+        "distributes": "Sweets, biscuits and chocolate, snacks and drinks, plus household, toiletries and toys; brands include McVitie's, Milka, Ulker and Balconi cakes.",
+        "channels_supplied": "Independent shops, kiosks, convenience stores and non-chain retailers in Nottinghamshire and the wider East Midlands, ordering through its trade app and dealer portal.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Grew since 2014 from a small Nottingham warehouse to more than 5,000 lines with 24/7 app ordering for independent shops."
+        ],
+        "fit_rationale": "A B2B wholesaler that delivers branded sweets, biscuits and chocolate next day to independent shops and kiosks, the exact corner shop route Diablo wants in the East Midlands. Its range already mixes UK and European biscuit and chocolate brands, so Diablo's biscuits, wafers and chocolate would sit beside them. Scale: 5,000+ product lines and next-day delivery across Nottinghamshire and the East Midlands; customer numbers and fleet size not shown, one depot only. Storage: warehouse at Unit 7d Blenheim Court, Bulwell, Nottingham, with free delivery over 250 pounds and a dealer login for trade ordering."
+      }
+    },
+    {
+      "contact_id": "935659932908",
+      "job_title": "Owner / Director",
+      "seniority": "Directors",
+      "rank": 1,
+      "company": {
+        "name": "Panetta Mercato",
+        "domain": "panettamercato.com.au",
+        "location": "Australia",
+        "channel": "Supermarket chains",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Full grocery shelf with sweet biscuits, savoury biscuits, chips and snack food, desserts and chocolates from other brands (for example Snackachangi chips and Mutti tomato products), plus fresh food.",
+        "channels_supplied": "Its own fresh food market supermarkets in Sydney shopping centres (Marrickville Metro, Macquarie Centre, South Village Kirrawee, Bay Central Woolooware and others) and its own online shop with home delivery or pickup.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Its Kirrawee store won a fresh food category award for the third time, as reported by the St George and Sutherland Shire Leader."
+        ],
+        "fit_rationale": "A multi store Sydney grocery chain whose own online shop has sweet biscuits, snack food and desserts and chocolates aisles stocked with other companies' brands, so Diablo's biscuits, chocolate and snacks fit its existing shelf. It buys for all its stores from one head office and also sells online. Scale: about 6 to 7 stores across Sydney plus an online shop with delivery; a smaller chain, so tier 3."
+      }
+    },
+    {
+      "contact_id": "935659932907",
+      "job_title": "Director, Accounts Manager/Payroll",
+      "seniority": "Directors",
+      "rank": 2,
+      "company": {
+        "name": "Panetta Mercato",
+        "domain": "panettamercato.com.au",
+        "location": "Australia",
+        "channel": "Supermarket chains",
+        "based_out_of": "Sydney, Australia",
+        "distributes": "Full grocery shelf with sweet biscuits, savoury biscuits, chips and snack food, desserts and chocolates from other brands (for example Snackachangi chips and Mutti tomato products), plus fresh food.",
+        "channels_supplied": "Its own fresh food market supermarkets in Sydney shopping centres (Marrickville Metro, Macquarie Centre, South Village Kirrawee, Bay Central Woolooware and others) and its own online shop with home delivery or pickup.",
+        "sf_brands_carried": "",
+        "what_they_do_well": [
+          "Its Kirrawee store won a fresh food category award for the third time, as reported by the St George and Sutherland Shire Leader."
+        ],
+        "fit_rationale": "A multi store Sydney grocery chain whose own online shop has sweet biscuits, snack food and desserts and chocolates aisles stocked with other companies' brands, so Diablo's biscuits, chocolate and snacks fit its existing shelf. It buys for all its stores from one head office and also sells online. Scale: about 6 to 7 stores across Sydney plus an online shop with delivery; a smaller chain, so tier 3."
+      }
+    }
+  ]
 }
