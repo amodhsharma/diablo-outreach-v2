@@ -614,7 +614,10 @@ def queue_cities(rows, job_id, cities, settings=None, coverage=None, on=None):
 def stop_empty_channels(rows, job_id):
     """After a city job is imported: when the last two cities searched for a channel in a country
     (the lighter city searches) both found nothing, the rest of that channel's waiting city searches
-    in that country are cancelled. Returns the cancelled lines."""
+    in that country are cancelled. Returns the cancelled lines.
+    23 Nov 2026: only results from on or after the day a waiting search was queued count, so a search
+    queued again (such as the re-runs under research prompt version 8) is never stopped by the results
+    it was queued to replace."""
     cancelled = []
     for r in [r for r in rows if r["job_id"] == job_id and r.get("depth") == CITY]:
         country = tidy(r["location"]).split(", ")[-1].lower()
@@ -622,17 +625,18 @@ def stop_empty_channels(rows, job_id):
         def same(o):
             return (o.get("depth") == CITY and norm_channel(o["channel"]) == norm_channel(r["channel"])
                     and tidy(o["location"]).split(", ")[-1].lower() == country)
-        finished = [o for o in rows if same(o) and o["status"] in (DONE, DONE_FEWER)]
-        finished.sort(key=lambda o: (o["ran_on"], o["job_id"]))
-        last = finished[-2:]
-        if len(last) < 2 or any(_found(o) != 0 for o in last):
-            continue
+        finished = sorted((o for o in rows if same(o) and o["status"] in (DONE, DONE_FEWER)),
+                          key=lambda o: (o["ran_on"], o["job_id"]))
         for o in rows:
-            if same(o) and o["status"] == WAITING:
-                o["status"] = CANCELLED
-                o["reason"] = (f"Stopped by itself: two cities in a row found nothing for this channel "
-                               f"({last[0]['job_id']} and {last[1]['job_id']})")
-                cancelled.append(o)
+            if not (same(o) and o["status"] == WAITING):
+                continue
+            last = [f for f in finished if f["ran_on"] >= (o.get("added_on") or "")][-2:]
+            if len(last) < 2 or any(_found(f) != 0 for f in last):
+                continue
+            o["status"] = CANCELLED
+            o["reason"] = (f"Stopped by itself: two cities in a row found nothing for this channel "
+                           f"({last[0]['job_id']} and {last[1]['job_id']})")
+            cancelled.append(o)
     return cancelled
 
 

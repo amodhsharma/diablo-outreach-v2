@@ -833,7 +833,7 @@ def test_a_channel_stops_after_two_empty_cities():
         for r in rows:
             if r["job_id"] == job_id:
                 r["status"], r["reason"], r["ran_on"] = rq.DONE_FEWER, (
-                    "0 found, floor 25" if r["channel"] == "retailers" else "3 found, floor 25"), "2026-10-24"
+                    "0 found, floor 25" if r["channel"] == "retailers" else "3 found, floor 25"), r["added_on"]
     stopped = rq.stop_empty_channels(rows, new[1])
     assert {(r["location"], r["channel"]) for r in stopped} == {("Leipzig, Germany", "retailers"),
                                                                ("Bremen, Germany", "retailers")}
@@ -1053,3 +1053,20 @@ def test_version_8_size_is_a_score_not_a_gate(tmp_path):
     errors = []
     check_output.check_big(errors, [dict(unproven, fit_rationale="Storage: depot.")], "wholesalers", tier3=True)
     assert len(errors) == 1 and "Scale" in errors[0]  # the Scale line is still required
+
+
+def test_a_search_queued_again_is_never_stopped_by_the_results_it_replaces():
+    """23 Nov 2026: the UK, Australia and South Africa city searches queued again under prompt version 8 were
+    cancelled before they ran, because the two empty cities counted were the old searches from 21 Nov 2026."""
+    def line(job, city, status, ran, added, reason=""):
+        return {"job_id": job, "location": f"{city}, United Kingdom", "channel": "wholesalers", "status": status,
+                "ran_on": ran, "added_on": added, "reason": reason, "depth": rq.CITY}
+    rows = [line("J0114", "London", rq.DONE_FEWER, "2026-11-21", "2026-11-20", "0 found, floor 10"),
+            line("J0115", "Birmingham", rq.DONE_FEWER, "2026-11-21", "2026-11-20", "0 found, floor 10"),
+            line("J0153", "London", rq.DONE_FEWER, "2026-11-22", "2026-11-22", "0 found, floor 10"),
+            line("J0154", "Birmingham", rq.WAITING, "", "2026-11-22"),
+            line("J0155", "Manchester", rq.WAITING, "", "2026-11-22")]
+    assert rq.stop_empty_channels(rows, "J0153") == []  # only one empty city since they were queued
+    rows[3].update(status=rq.DONE_FEWER, ran_on="2026-11-23", reason="0 found, floor 10")
+    stopped = rq.stop_empty_channels(rows, "J0154")  # two empty cities of the re-run: the rule applies again
+    assert [r["job_id"] for r in stopped] == ["J0155"] and "(J0153 and J0154)" in stopped[0]["reason"]
