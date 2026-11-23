@@ -1,0 +1,64 @@
+{
+  "format": "outreachMailWriting v1",
+  "run_date": "2026-11-23",
+  "run_type": "scheduled",
+  "generated_from": "2026-11-23T06:32:10+00:00",
+  "lines": [
+    {
+      "contact_id": "935659854024",
+      "company_name": "AH Importers",
+      "personal_line": "Your team's work in becoming the official Roshen distributor in South Africa speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "imports chocolate and sweets for supermarkets and spaza shops",
+      "style": "B"
+    },
+    {
+      "contact_id": "935593017564",
+      "company_name": "Arrow Cash and Carry",
+      "personal_line": "Your range, from a dedicated confectionery department to general FMCG, reflects a careful choice of products for spaza shops and convenience stores in KwaZulu-Natal. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "supplies confectionery to spaza shops and convenience stores",
+      "style": "C"
+    },
+    {
+      "contact_id": "935610601666",
+      "company_name": "Lancashire Suppliers Ltd",
+      "personal_line": "Your range, from Cadbury chocolate to Swizzels sweets, reflects a careful choice of brands for convenience stores across the North West and Yorkshire. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "supplies chocolate and sweets to convenience stores and supermarkets",
+      "style": "C"
+    },
+    {
+      "contact_id": "935613680858",
+      "company_name": "Limpopo Cash and Carry",
+      "personal_line": "We hold your team in high regard for building a trade that supplies retailers across Limpopo, South Africa and most SADC countries. We would be grateful for the opportunity to discuss whether our sugar free range could be a worthwhile addition to your business.",
+      "company_note": "supplies sweets and chocolate to retailers of all sizes",
+      "style": "D"
+    },
+    {
+      "contact_id": "935555198178",
+      "company_name": "Mr Crisp Ltd",
+      "personal_line": "Your team's work in building a delivered wholesale service across the South over more than thirty years speaks for itself. We would value the opportunity to present our sugar free range and to hear whether you feel it could sit alongside the brands you already represent.",
+      "company_note": "supplies confectionery and snacks",
+      "style": "B"
+    },
+    {
+      "contact_id": "935613586641",
+      "company_name": "NF Plus (Northern Foods Plus Ltd)",
+      "personal_line": "We have great respect for the way your team has grown into a dependable supplier for independent shops and kiosks. With such established reach across convenience stores and non-chain retailers in the East Midlands, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "supplies sweets and chocolate to independent shops and kiosks",
+      "style": "A"
+    },
+    {
+      "contact_id": "935659932908",
+      "company_name": "Panetta Mercato",
+      "personal_line": "Your range, from sweet biscuits to desserts and chocolates, reflects a careful choice of brands for shoppers across your Sydney stores and online shop. We would welcome the chance to present our sugar free range for your consideration, should you see a place for it.",
+      "company_note": "sells biscuits and chocolates in its supermarkets and online",
+      "style": "C"
+    },
+    {
+      "contact_id": "935659932907",
+      "company_name": "Panetta Mercato",
+      "personal_line": "We have great respect for the way your team serves Sydney shoppers in its stores and online. With such established reach across your supermarkets in Sydney shopping centres and your online shop, we would be honoured if you would consider whether a sugar free range could have a place in your portfolio.",
+      "company_note": "sells biscuits and chocolates in its supermarkets and online",
+      "style": "A"
+    }
+  ]
+}
