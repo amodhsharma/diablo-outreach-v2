@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-23 22:40 UTC
+Written 2026-11-24 01:41 UTC
 
 ```
 1102 leads in the Diablo campaigns in Instantly
@@ -22,13 +22,26 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Bounce notices read from the BOUNCED label: 77 for 64 address(es)
-Email threads: 0 emails since the last run
-Prime Products Wholesalers Pty. Ltd.: no reply to the introduction; the company is now "No response: can restart"
-Migros Ticino: the Category Manager Prodotto was sent their reminder, as a forward of their introduction
+Email threads: 2 emails since the last run
+Mago: the Company inbox (from website) was sent their reminder, as a forward of their introduction
 Kloseâ€™s: Instantly refused the introduction (POST /leads/add failed with 400: {"statusCode":400,"error":"Bad Request","message":"No valid leads found"}); it is tried again next run
-The Distributors Mackay: no reply to the introduction; the company is now "No response: can restart"
-F. Uhlmann-Eyraud SA: the Junior KAM / Verkaufsinnendienst was sent their reminder, as a forward of their introduction
-Email threads: 12 companies read in full, 133 with no change since their last reading
-Loop: 0 forwards, 2 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 2 finished with no reply (now Unqualified: Contacted, but no response)
+Rufenberg Trading GmbH: the Founder Rufenberg Trading GmbH was sent their reminder, as a forward of their introduction
+Biofair-Naturapart GmbH: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+AM Food GmbH: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+honeydew GmbH: the Chief Kindness Catalyst | Head Bulls*** Detector was sent their reminder, as a forward of their introduction
+Swiss Deli Distribution SA (Authentic Food Solutions): the Directeur et Fondateur de Authentic Food Solutions (Swiss Deli Distribution SA) was sent their reminder, as a forward of their introduction
+easytrade distribution AG: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Provianda GmbH: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+1001 Distributions (Mangenot O.S. Déstockage): the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Pemco Agencies: the Marketing Coordinator was sent their reminder, as a forward of their introduction
+Lolly Direct: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+BJP International: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Fresh Food Enterprises: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Nutrition Systems: the introduction goes to National Sales Manager
+Perth Health: b***@phfwa.com is already in Instantly; not added again
+The Market Grocer: the introduction goes to Senior Territory Sales Manager
+Horse Torque & Lollies: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Email threads: 25 companies read in full, 118 with no change since their last reading
+Loop: 0 forwards, 14 reminders, 2 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
