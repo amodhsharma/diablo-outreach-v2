@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-25 16:44 UTC
+Written 2026-11-25 19:38 UTC
 
 ```
 1149 leads in the Diablo campaigns in Instantly
@@ -21,19 +21,11 @@ CEO sent only an automatic answer (the text says "Automatisch generiert"); Insta
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 82 for 69 address(es)
-Email threads: 9 emails since the last run
-Millennium Distributions Pty Ltd: no reply to the introduction; the company is now "No response: can restart"
-Taste Food Distributors: no reply to the introduction; the company is now "No response: can restart"
-Oborne Health Supplies: the Company inbox (from website) was sent their reminder, as a forward of their introduction
-Kiss Distribution: the Company inbox (from website) was sent their reminder, as a forward of their introduction
-Stuart Alexander: the Executive Assistant to CEO - Garry Browne did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-JB Metropolitan Distributor: the contact did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Socrates Distributors: the Company inbox (from website) was sent their reminder, as a forward of their introduction
-Nievole Distributors Pty Ltd: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Email threads: 4 emails since the last run
+ferndaleconfectionery: the Company inbox (from website) was sent their reminder, as a forward of their introduction
 F. Uhlmann-Eyraud SA: c***@uhlmann.ch is already in Instantly; not added again
-Email threads: 20 companies read in full, 106 with no change since their last reading
-Loop: 0 forwards, 4 reminders, 0 introductions added, 2 contacts closed 48 hours after their reminder, 0 companies replied, 2 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 9 companies read in full, 115 with no change since their last reading
+Loop: 0 forwards, 1 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
