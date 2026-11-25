@@ -122,6 +122,7 @@ LIVE_NEW_CHOICES = {"companies": {"GATE1: Approved for outreach",
                                  "Unqualified: Bounced, other reason",
                                  "Unqualified: Colleague Contacted, but no response",
                                  "Unqualified: Inbox Bounced",
+                                 "Unqualified: Contact possibly corrupt",  # 25 Nov 2026
                                  "Unqualified: Rejected/Redirected by company owner",
                                  "END: Forwarded to Sales Team",  # 3 Nov 2026
                                  RESTART_LABEL}}  # 19 Nov 2026

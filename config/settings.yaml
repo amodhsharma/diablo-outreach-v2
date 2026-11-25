@@ -22,6 +22,10 @@ contacts:
   max_credits_per_run: 150
   # Only these Apollo email statuses are kept.
   keep_email_statuses: [verified]
+  # 25 Nov 2026 (Ariel): old records (created before send.address_checks.old_before) are checked with Apollo
+  # by their email address before their first email, at most per_run at each run of button 3 (about 1
+  # credit for each address Apollo holds); see outreach/old_records.py.
+  old_records: {enabled: true, per_run: 200}
   # Seniority order, most senior level first. Each person is placed in the level whose
   # words best match their job title (the longest matching words win, so "Assistant
   # Director" goes to level 4, not level 3). Move words between levels, or add new

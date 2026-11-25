@@ -52,3 +52,20 @@ class Apollo:
         params = {"reveal_personal_emails": "false", "reveal_phone_number": "false"}
         data = self._post("/people/bulk_match", params=params, body=body)
         return [m for m in data.get("matches", []) if m]
+
+    def match_emails(self, emails):
+        """25 Nov 2026 (old_records.py): paid, about 1 credit for each address Apollo holds. Looks up to 10 people
+        by their email address. Returns one item per address, in order: Apollo's person (with its own "email" and
+        "email_status") or None. Apollo answers in the order asked, with null for no match; if it does not, the
+        people are matched back by their address."""
+        if not emails:
+            return []
+        if len(emails) > 10:
+            raise ApolloError("match_emails takes at most 10 addresses per call")
+        body = {"details": [{"email": e} for e in emails]}
+        params = {"reveal_personal_emails": "false", "reveal_phone_number": "false"}
+        matches = self._post("/people/bulk_match", params=params, body=body).get("matches") or []
+        if len(matches) == len(emails):
+            return list(matches)
+        by_email = {str((m or {}).get("email") or "").lower(): m for m in matches if m}
+        return [by_email.get(str(e).lower()) for e in emails]

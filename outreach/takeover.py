@@ -26,7 +26,7 @@ from .schema import LEAD_STATUS, LEGAL_BASIS, LEGAL_BASIS_LEAD
 COMPANY_STAGES = ("approved", "located", "contact_exists")
 # Contact stages that mean "never write to this person again".
 OPTED_OUT = ("opted_out", "colleague_opted_out")
-DEAD = ("corrupt", "inbox_bounced")
+DEAD = ("corrupt", "inbox_bounced", "possibly_corrupt")
 WON = "won"
 CONTACT_PROPS = ["email", "firstname", "lastname", LEAD_STATUS, LEGAL_BASIS, "hs_email_optout",
                  "hs_email_hard_bounce_reason_enum", "lead_source"]

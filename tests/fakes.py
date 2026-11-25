@@ -41,6 +41,7 @@ LIVE_CONTACT_STATUS = {"NEW": "New", "MISSING INFO": "Missing Info", "Emailed": 
                        "UNQUALIFIED_BOUNCED_OTHER": "Unqualified: Bounced, other reason",
                        "COLLEAGUE_CONTACTED_NO_RESPONSE": "Unqualified: Colleague Contacted, but no response",
                        "UNQUALIFIED_INBOX_BOUNCED": "Unqualified: Inbox Bounced",
+                       "UNQUALIFIED_CONTACT_POSSIBLY_CORRUPT": "Unqualified: Contact possibly corrupt",
                        "UNQUALIFIED_REDIRECTED": "Unqualified: Rejected/Redirected by company owner",
                        "END_FORWARDED_TO_SALES_TEAM": "END: Forwarded to Sales Team"}
 
@@ -215,6 +216,13 @@ class FakeApollo:
                             person["title"] = known["title"]
                 out.append(person)
         return out
+
+    def match_emails(self, emails):
+        """25 Nov 2026: Apollo's answer by address. by_email: address -> (Apollo's address, its status)."""
+        assert len(emails) <= 10
+        self.matched = getattr(self, "matched", []) + list(emails)
+        known = getattr(self, "by_email", {})
+        return [{"email": known[e][0], "email_status": known[e][1]} if e in known else None for e in emails]
 
 
 class FakeInstantly:

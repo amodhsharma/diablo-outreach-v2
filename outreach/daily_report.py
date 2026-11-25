@@ -448,6 +448,11 @@ def key_numbers(hs, instantly, settings, date, cfg, accounts_api=None, log_data=
     }
     out["initial"] = initial_stages(hs, statuses, out["unknown_channel"], at, unknown)
     out["recent_tagged"] = recently_tagged(hs, date)  # 23 Nov 2026 (Ariel): the last five made AUTO-OUTREACH
+    try:  # 25 Nov 2026 (Ariel): the old records button 3 checked with Apollo that day
+        from . import old_records
+        out["old_checked"] = old_records.on_day(date)
+    except Exception:
+        out["old_checked"] = None
     # 22 Nov 2026 (Ariel): each campaign's emails sent, in the same four columns as Sending
     if out["accounts"]:
         days = sorted(set(month_days) | set(week_days) | {date, before})
@@ -1010,6 +1015,11 @@ def key_rows(k):
             recent, more = k["recent_tagged"]  # not added to the heading's total
             rows.append(("bullet", ["Companies that recently became AUTO-OUTREACH"],
                          ", ".join(recent) + (" etc (Ask which ones in Claude)" if more else ""), None, "colon"))
+        checked = k.get("old_checked") or {}
+        if any(checked.values()):  # 25 Nov 2026 (Ariel): only on a day button 3 checked some
+            rows.append(("bullet", ["Older records checked with Apollo"],
+                         f"{checked.get('kept', 0)} kept, {checked.get('switched', 0)} switched to Apollo's verified "
+                         f"address, {checked.get('closed', 0)} closed as possibly corrupt", None, "colon"))
         always = ("New companies waiting for your GATE1 approval", "Introductions waiting for your GATE2 approval")
         for label, n, who in k["initial"]["input"]:
             if n or label in always:

@@ -100,7 +100,7 @@ def test_live_gets_exactly_four_fields_and_five_choices():
     # Every pipeline choice, under its 2 Nov 2026 label: 13 for companies (10 Nov 2026: Contact located; 11 Nov
     # 2026: Channel no longer targeted), 18 for contacts (3 Nov 2026); (19 Nov 2026) "No response: can restart"
     # for both, 14 and 19.
-    assert summary["updated"] == 33
+    assert summary["updated"] == 34  # 25 Nov 2026: "Unqualified: Contact possibly corrupt"
     assert set(hs.props["contacts"]) == {"hs_lead_status", "lead_source", PERSONAL_LINE, COMPANY_NOTE, ORDER,
                                          CONTACT_SOURCE, STOP_REASON, "diablo_times_introduced",
                                          "diablo_times_reminded"}
@@ -108,7 +108,7 @@ def test_live_gets_exactly_four_fields_and_five_choices():
                                           "diablo_job_number", "diablo_outreach_round", "diablo_introductions_sent",
                                           "diablo_reminders_sent", "diablo_last_closed_on"}
     assert sorted(labels(hs, "companies")[-14:]) == sorted(LIVE_NEW_CHOICES["companies"])
-    assert sorted(labels(hs, "contacts")[-19:]) == sorted(LIVE_NEW_CHOICES["contacts"])
+    assert sorted(labels(hs, "contacts")[-20:]) == sorted(LIVE_NEW_CHOICES["contacts"])
     for obj in ("companies", "contacts"):  # the team's choices are sent back exactly as they were
         assert hs.props[obj]["hs_lead_status"]["options"][:len(before[obj])] == before[obj]
     assert len(hs.props["companies"]["industry_type"]["options"]) == 6  # live's own field: untouched
@@ -139,7 +139,7 @@ def test_refuses_live_account_without_flag_but_a_dry_run_only_reads():
     shown = []
     summary = setup_hubspot.run(hs, dry_run=True, log=shown.append)
     assert all(method == "GET" for method, _ in hs.calls)
-    assert summary["updated"] == 33 and any("[would add]" in line for line in shown)
+    assert summary["updated"] == 34 and any("[would add]" in line for line in shown)
     assert "New, Personal line filled" not in labels(hs, "contacts")
 
 

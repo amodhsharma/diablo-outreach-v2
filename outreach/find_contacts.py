@@ -586,6 +586,12 @@ def run(target, settings, hs, apollo, log=print, instantly=None):
                 log(f"Could not restart {(company.get('properties') or {}).get('name')}: {str(err)[:200]}")
     if restart_cfg:
         restart.save(restart_data)
+    try:  # 25 Nov 2026 (Ariel): old records checked with Apollo before their first email (old_records.py)
+        from . import old_records
+        if apollo is not None:
+            old_records.check(hs, apollo, statuses, settings, log)
+    except Exception as err:
+        log(f"Could not check the old records with Apollo: {str(err)[:200]}; checked at the next run")
     try:  # 10 Nov 2026 (Ariel): GATE1 with a contact becomes "Contact located"; with nobody left, back to GATE1
         settled = settle(hs, statuses, log, added={r["company_id"]: r.get("contact_ids") or [] for r in log_rows},
                          skip=restarts["skip"])

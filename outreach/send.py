@@ -21,7 +21,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from . import address_checks, campaign_guard, bond, chain, corrupt, redirect, referral_intro, restart, send_memory, timeline
+from . import address_checks, campaign_guard, old_records, bond, chain, corrupt, redirect, referral_intro, restart, send_memory, timeline
 from .common import (
     ROOT, PipelineError, channel_of, check_target, load_company_notes, load_settings, market_matches, run_dir, step_summary,
     write_json,
@@ -694,6 +694,7 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
     old_brake = address_checks.old_braked(in_instantly, checks_cfg, checks, lead_kinds, now, log, warn)
     if old_brake:
         risky_left = 0
+    old_checked = old_records.load()  # 25 Nov 2026 (Ariel)
     room = None
     if not dry_run and chain_cfg:  # new companies only in the room left today; companies already started always
         room = chain.room_today(in_instantly, daily_limit_for(settings["send"]))
@@ -745,6 +746,11 @@ def run(target, settings, hs, instantly, dry_run=False, log=print):
                 "system; Contact corrupt, and the next person moves up")
             continue
         is_risky = address_checks.risky(c, emailed_before, checks_cfg)
+        if is_risky and old_records.old_by_date(c, checks_cfg) and not old_records.cleared(c["id"], old_checked):
+            waiting += n_waiting  # 25 Nov 2026 (Ariel): an old record goes only once Apollo has confirmed it
+            log(f"Waiting: contact {c['id']} ({mask(p.get('email'))}) at {name}: an old record (created before "
+                "October 2026) not checked with Apollo yet; button 3 checks it")
+            continue
         if is_risky and risky_left <= 0:
             waiting += n_waiting
             if old_brake:

@@ -130,6 +130,9 @@ STAGES = {
         # the contact, not the company. A company inbox gets its own label (2 Nov 2026).
         "corrupt": "Unqualified: Contact corrupt",
         "inbox_bounced": "Unqualified: Inbox Bounced",
+        # 25 Nov 2026 (Ariel): an address not proven dead but not trusted enough to email: an old company inbox
+        # (from a website, before October 2026) or an old record Apollo does not confirm (old_records.py).
+        "possibly_corrupt": "Unqualified: Contact possibly corrupt",
         # 2 Nov 2026 (Ariel): set by hand (on leave, or pointed us to someone else); see redirect.py.
         "redirected": "Unqualified: Rejected/Redirected by company owner",
         # 3 Nov 2026 (Ariel): the person who gave a clear yes or no, and everyone else at that company.
@@ -160,7 +163,7 @@ EMAILED = ("in_outreach", "forwarded", "reminded")
 # A contact's own dead end (2 Nov 2026: plain Unqualified split by what happened).
 CONTACT_CLOSED = ("closed", "said_no", "opted_out", "bounced_other")
 # A contact who is never emailed again and whose place the next person takes.
-LEFT_OUT = ("corrupt", "inbox_bounced", "redirected")
+LEFT_OUT = ("corrupt", "inbox_bounced", "redirected", "possibly_corrupt")
 # A company that is Unqualified because of an answer, or because you rejected it.
 COMPANY_CLOSED = ("closed", "said_no", "opted_out")
 # Until button 1 adds a new choice, the stage used instead (2 Nov 2026). Since 3 Nov 2026 (Ariel) never
@@ -204,6 +207,7 @@ NEW_OPTION_VALUES = {
                  "Unqualified: Bounced, other reason": "UNQUALIFIED_BOUNCED_OTHER",
                  "Unqualified: Colleague Contacted, but no response": "COLLEAGUE_CONTACTED_NO_RESPONSE",
                  "Unqualified: Inbox Bounced": "UNQUALIFIED_INBOX_BOUNCED",
+                 "Unqualified: Contact possibly corrupt": "UNQUALIFIED_CONTACT_POSSIBLY_CORRUPT",  # 25 Nov 2026
                  "Unqualified: Rejected/Redirected by company owner": "UNQUALIFIED_REDIRECTED",
                  "END: Forwarded to Sales Team": "END_FORWARDED_TO_SALES_TEAM",
                  RESTART_LABEL: "NO_RESPONSE_CAN_RESTART"},
@@ -215,7 +219,7 @@ ORDER = {"": 0, "found": 0, "missing_info": 0, "missing_apollo": 0, "contact_exi
          "said_no": 3, "opted_out": 3, "bounced_other": 3,
          "colleague_positive": 2, "colleague_negative": 2, "colleague_replied": 2, "colleague_opted_out": 2,
          "colleague_no_response": 3,
-         "company_unqualified": 3, "no_response": 3, "corrupt": 3, "inbox_bounced": 3, "redirected": 3,
+         "company_unqualified": 3, "no_response": 3, "corrupt": 3, "inbox_bounced": 3, "redirected": 3, "possibly_corrupt": 3,
          "invalid_inbox": 3, "personal_bounced": 3, "redirected_none": 3,
          "channel_paused": 3,
          "sales": 4}  # 3 Nov 2026: the end; nothing moves a record on from there

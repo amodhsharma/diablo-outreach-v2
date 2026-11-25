@@ -207,3 +207,10 @@ def no_real_address_checks(tmp_path, monkeypatch, request):
         monkeypatch.setattr(address_checks, "domain_ok", lambda email, check=None: True)
         real = address_checks.settings_of
         monkeypatch.setattr(address_checks, "settings_of", lambda settings: dict(real(settings), risky_per_day=10 ** 6))
+
+
+@pytest.fixture(autouse=True)
+def no_real_old_record_checks(tmp_path, monkeypatch):
+    """25 Nov 2026: no test reads or writes the real record of old records checked with Apollo."""
+    from outreach import old_records
+    monkeypatch.setattr(old_records, "FILE", tmp_path / "old_record_checks.json")
