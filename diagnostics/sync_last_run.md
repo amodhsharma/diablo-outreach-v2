@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-24 22:40 UTC
+Written 2026-11-25 01:39 UTC
 
 ```
 1136 leads in the Diablo campaigns in Instantly
@@ -21,13 +21,13 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 CEO sent only an automatic answer (the text says "Automatisch generiert"); Instantly labelled it, the label is ignored; it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 78 for 65 address(es)
-Email threads: 3 emails since the last run
+Email threads: 1 emails since the last run
+Conga Food: the introduction goes to Company inbox (from website)
 Kloseâ€™s: Instantly refused the introduction (POST /leads/add failed with 400: {"statusCode":400,"error":"Bad Request","message":"No valid leads found"}); it is tried again next run
-Mayers Fine Food: the Company inbox (from website) was sent their reminder, as a forward of their introduction
 F. Uhlmann-Eyraud SA: c***@uhlmann.ch is already in Instantly; not added again
-Email threads: 10 companies read in full, 118 with no change since their last reading
-Loop: 0 forwards, 1 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Asian Pantry: the CEO was sent their reminder, as a forward of their introduction
+Email threads: 14 companies read in full, 114 with no change since their last reading
+Loop: 0 forwards, 1 reminders, 1 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
