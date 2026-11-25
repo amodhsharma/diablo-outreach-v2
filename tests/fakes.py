@@ -222,7 +222,17 @@ class FakeApollo:
         assert len(emails) <= 10
         self.matched = getattr(self, "matched", []) + list(emails)
         known = getattr(self, "by_email", {})
-        return [{"email": known[e][0], "email_status": known[e][1]} if e in known else None for e in emails]
+        out = []
+        for e in emails:
+            if e not in known:
+                out.append(None)
+                continue
+            email, status, *pid = known[e]
+            person = {"email": email, "email_status": status}
+            if pid:
+                person["id"] = pid[0]
+            out.append(person)
+        return out
 
 
 class FakeInstantly:

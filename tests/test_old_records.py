@@ -80,7 +80,7 @@ def test_5_contacts_found_by_the_automation_are_never_checked(settings):
     hs, _ = world(settings, created=NEW)
     a = apollo()
     out = check(hs, settings, a)
-    assert out == {"kept": 0, "switched": 0, "closed": 0, "inboxes": 0, "credits": 0, "left": 0}
+    assert out == {"kept": 0, "switched": 0, "closed": 0, "inboxes": 0, "credits": 0, "left": 0, "unclear": 0}
     assert not getattr(a, "matched", [])
 
 
@@ -117,6 +117,21 @@ def test_9_without_the_new_status_nothing_is_closed(settings):
     lines = []
     old_records.check(hs, apollo(), LeadStatus(hs), settings, log=lines.append)
     assert status(hs, "p1@noble.in") == "APPROVED_TO_SEND" and any("run button 1" in x for x in lines)
+
+
+def test_9b_no_status_from_the_match_is_asked_again_by_person_id(settings):
+    """25 Nov 2026: the live run got matches with no "email_status"; 88 people were closed by mistake."""
+    hs, _ = world(settings)
+    a = apollo(**{"p1@noble.in": ("p1@noble.in", None, "a1"), "p2@noble.in": ("p2@noble.in", None, "a2")})
+    a.emails = {"a1": ("p1@noble.in", "verified")}  # Apollo's reveal by ID knows p1 only
+    out = check(hs, settings, a)
+    assert out["kept"] == 1 and status(hs, "p1@noble.in") == "APPROVED_TO_SEND"
+    assert out["unclear"] == 1 and status(hs, "p2@noble.in") == "APPROVED_TO_SEND"  # never closed without a status
+    assert not old_records.cleared(ids(hs)["p2@noble.in"])  # still held, asked again in 7 days
+    a.matched = []
+    check(hs, settings, a)
+    assert a.matched == []  # not asked again (and not paid for) before then
+    assert status(hs, "p3@noble.in") == "UNQUALIFIED_CONTACT_POSSIBLY_CORRUPT"  # Apollo does not hold p3 at all
 
 
 # ---- Button 4 -------------------------------------------------------------------------------------------

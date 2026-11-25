@@ -84,6 +84,22 @@ def is_inbox(contact):
     return str(p.get("jobtitle") or "").strip().lower() == INBOX_TITLE.lower()
 
 
+UNCLEAR, RETRY_DAYS = "unclear", 7
+
+
+def _settled(entry, today=None):
+    """True for a contact already checked; one Apollo gave no status for is asked again after RETRY_DAYS days."""
+    if not entry:
+        return False
+    if entry.get("result") != UNCLEAR:
+        return True
+    try:
+        then = dt.date.fromisoformat(entry.get("on") or "")
+    except ValueError:
+        return False
+    return ((today or dt.date.today()) - then).days < RETRY_DAYS
+
+
 def to_check(hs, statuses, settings, data, memory=None):
     """The AUTO-OUTREACH old records waiting for their first email that have not been checked yet."""
     from . import send_memory
@@ -95,7 +111,7 @@ def to_check(hs, statuses, settings, data, memory=None):
             continue
         for c in hs.tagged_search("contacts", [statuses.filter("contacts", stage)], PROPS, max_results=5000):
             cid = str(c["id"])
-            if cid in seen or cid in data or not old_by_date(c, cfg):
+            if cid in seen or not old_by_date(c, cfg) or _settled(data.get(cid)):
                 continue
             seen.add(cid)
             if (send_memory.entry(memory, cid) or {}).get("introduced"):
@@ -112,7 +128,7 @@ def _close(hs, statuses, contact, why, now):
 def check(hs, apollo, statuses, settings, log=print, now=None, path=None, keep_statuses=None):
     """Checks the old records waiting for their first email (see the top of this file). Returns
     {"kept": n, "switched": n, "closed": n, "inboxes": n, "credits": n, "left": n}."""
-    out = {"kept": 0, "switched": 0, "closed": 0, "inboxes": 0, "credits": 0, "left": 0}
+    out = {"kept": 0, "switched": 0, "closed": 0, "inboxes": 0, "credits": 0, "left": 0, "unclear": 0}
     cfg = dict(DEFAULTS, **(((settings or {}).get("contacts") or {}).get("old_records") or {}))
     if not cfg["enabled"]:
         return out
@@ -144,12 +160,35 @@ def check(hs, apollo, statuses, settings, log=print, now=None, path=None, keep_s
                 out["closed"] += 1
             else:
                 people.append(c)
+        shown = False
         for i in range(0, len(people), 10):
             batch = people[i:i + 10]
             emails = [str(c["properties"]["email"]).strip().lower() for c in batch]
             matches = apollo.match_emails(emails)
             out["credits"] += sum(1 for m in matches if m)
+            # 25 Nov 2026: Apollo's match by address came back without "email_status" (and 88 people were closed by
+            # mistake, then put back). A match without it is now looked up again by Apollo's own person ID, the way
+            # button 3 has always revealed emails (find_contacts), which gives the address and its status.
+            missing = [m["id"] for m in matches if m and m.get("id") and not m.get("email_status")]
+            if missing and not shown:
+                shown = True
+                log("Apollo's match by address gave no email status; asking again by person ID. Fields it gave: "
+                    + ", ".join(sorted(k for k in next(m for m in matches if m and m.get("id") in missing))))
+            revealed = {}
+            for j in range(0, len(missing), 10):
+                for r in apollo.reveal_emails(missing[j:j + 10]):
+                    if r and r.get("id"):
+                        revealed[r["id"]] = r
+            out["credits"] += len(revealed)
             for c, email, m in zip(batch, emails, matches):
+                if m and not m.get("email_status") and m.get("id") in revealed:
+                    m = dict(m, **{k: v for k, v in revealed[m["id"]].items() if v})
+                if m and not m.get("email_status"):  # never closed without Apollo's word on the address
+                    out["unclear"] += 1
+                    remember(c, UNCLEAR)
+                    log(f"Contact {c['id']}: Apollo gave no status for its address; left as it is (held), asked "
+                        f"again in {RETRY_DAYS} days")
+                    continue
                 found = str((m or {}).get("email") or "").strip().lower()
                 good = (m or {}).get("email_status") in keep_statuses
                 if m and good and found == email:
