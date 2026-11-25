@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-25 19:38 UTC
+Written 2026-11-25 22:38 UTC
 
 ```
 1149 leads in the Diablo campaigns in Instantly
@@ -22,10 +22,9 @@ Leiterin Personal Schweiz sent only an automatic answer (the subject says "Autom
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Bounce notices read from the BOUNCED label: 82 for 69 address(es)
-Email threads: 4 emails since the last run
-ferndaleconfectionery: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Email threads: 1 emails since the last run
 F. Uhlmann-Eyraud SA: c***@uhlmann.ch is already in Instantly; not added again
-Email threads: 9 companies read in full, 115 with no change since their last reading
-Loop: 0 forwards, 1 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 8 companies read in full, 116 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
