@@ -283,3 +283,70 @@ def test_every_mailbox_sends_up_to_20_reminders_a_day():
     assert chain.reminders_left(state, "dana@diabloexport.com", cfg, NOW) == 20
     chain.count_reminder(state, "dana@diabloexport.com", NOW)
     assert chain.reminders_left(state, "dana@diabloexport.com", cfg, NOW) == 19
+
+
+# ---- 26 Nov 2026 (Ariel, Charmlaw Distributions): a referral forward is an introduction -------------------
+
+def test_the_referred_person_has_their_chance_before_the_others():
+    ref = dict(person("m1", 1, "sent"), referral=True, referred_by="n1")
+    other = person("r2", 2, "approved")
+    touches = {"m1": [at(0)]}
+    assert decide_chain([ref, other], "in_outreach", at(3), touches, RULES) == (None, "waiting_same_person")
+    assert decide_chain([ref, other], "in_outreach", at(7), touches, RULES) == (ref, "reminder")
+    touches["m1"].append(at(7))
+    assert decide_chain([ref, other], "in_outreach", at(9.9), touches, RULES) == (None, "waiting_for_reply")
+    assert decide_chain([ref, other], "in_outreach", at(10), touches, RULES) == (other, "next")  # then the others
+    ref["state"] = "skipped"  # closed as "no response" 48 hours after the reminder: the others carry on
+    assert decide_chain([ref, other], "in_outreach", at(10), touches, RULES) == (other, "next")
+
+
+def test_a_normal_introduction_still_lets_the_next_person_go_after_the_gap():
+    p1, p2 = person("p1", 1, "sent"), person("p2", 2, "approved")
+    assert decide_chain([p1, p2], "in_outreach", at(3), {"p1": [at(0)]}, RULES) == (p2, "next")
+
+
+def test_a_referral_forward_counts_as_emailed_on_the_day_it_went():
+    from outreach.next_in_line import annotate
+    hs = FakeCRM()
+    statuses = LeadStatus(hs)
+    m = {"id": "m1", "properties": {"email": "m1@x.example", LS: "FORWARD_SENT", ORDER: "1"}}
+    q = {"id": "q2", "properties": {"email": "q2@x.example", LS: "FORWARD_SENT", ORDER: "2"}}
+    annotate([m, q], statuses, {}, forwards={"m1": ("2026-11-21", "n1")})
+    assert m["state"] == "sent" and m["referral"] and m["referred_by"] == "n1"
+    assert m["sent_at"].date() == dt.date(2026, 11, 21)
+    assert q["state"] == "queued" and not q.get("referral")  # an ordinary forward not yet in Instantly
+
+
+def test_the_reminder_reaches_the_referred_person_in_the_colleague_s_thread(settings):
+    """The forward is filed under the colleague's thread; the follow-up step reads it there and sends the
+    reminder after the usual wait, then the colleague waiting behind them goes."""
+    from outreach import referrals
+    from .test_corrupt import ago as days_ago
+    settings["send"]["chain"] = dict(settings["send"].get("chain") or {}, enabled=True)
+    hs, instantly, emails = FakeCRM(), FakeInstantly(), FakeEmails()
+    cid, (nova, roxanne) = company(hs, "Charm Co", "charm.example", ("Business Development Manager", "Sales"))
+    hs.records["companies"][cid][LS] = "Attempted to Contact"
+    rec(hs, nova).update({LS: "UNQUALIFIED_REDIRECTED", ORDER: "0"})
+    michael = hs.add("contacts", email="michael@charm.example", firstname="Michael", lastname="B",
+                     jobtitle="Referred by colleague", lead_source="AUTO-OUTREACH",
+                     **{LS: "FORWARD_SENT", ORDER: "1", "diablo_personal_line": "Line."})
+    hs.links[michael] = [cid]
+    rec(hs, roxanne).update({LS: "APPROVED_TO_SEND", ORDER: "2"})
+    sent_at = days_ago(8)  # an ISO time, 8 days ago
+    referrals.save({"intro": {str(michael): {"company": str(cid), "from": str(nova), "day": sent_at[:10],
+                                             "sent": sent_at[:10]}}})
+    reply = emails.received("p1@charm.example", sent_at, subject="Re: Partnering")
+    emails.forward(reply, "michael@charm.example", "Fwd: Partnering", "<p>Hi</p>", "Hi")
+    emails.emails[-1]["timestamp_email"] = sent_at
+    for e in emails.emails:  # the colleague's own address in this made-up company
+        e["lead"] = rec(hs, nova)["email"]
+    reply["from_address_email"] = rec(hs, nova)["email"]
+    assert send.run("test", settings, hs, instantly, log=quiet)["queued"] == 0  # Roxanne waits for Michael
+    instantly.campaigns["c0"] = {"name": "Diablo | NOV2026", "status": 1}  # another company's lead in Instantly
+    instantly.leads["c0"] = [{"email": "x@other.example", "_campaign_id": "c0"}]
+    lines = []
+    moved = sync.run("test", settings, hs, instantly, log=lines.append, emails_api=emails)
+    assert moved["reminders_sent"] == 1
+    assert emails.replies[-1]["address"] == "michael@charm.example"
+    assert not any("introduction goes to" in l for l in lines)  # Roxanne still waits for Michael's answer
+    assert rec(hs, michael)[LS] == "REMINDER_SENT"

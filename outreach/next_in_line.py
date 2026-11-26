@@ -128,12 +128,36 @@ def contact_state(contact, statuses, leads):
     return STOP  # replied, closed (opted out or not interested) or a person's own Lead Status
 
 
-def annotate(contacts, statuses, leads):
-    """Add each contact's state, first email time and Instantly campaign (in place)."""
+def referral_forwards():
+    """26 Nov 2026 (Ariel, Charmlaw Distributions): {contact id: (day the referral email went, the colleague's
+    contact id)} from data/referrals.json. Someone a reply pointed us to gets their first email as a forward of
+    that reply, which Instantly files under the colleague's thread, not as a campaign lead of theirs."""
+    from . import referrals
+    out = {}
+    for cid, entry in (referrals.load().get("intro") or {}).items():
+        if entry.get("sent"):
+            out[str(cid)] = (entry["sent"], str(entry.get("from") or ""))
+    return out
+
+
+def annotate(contacts, statuses, leads, forwards=None):
+    """Add each contact's state, first email time and Instantly campaign (in place).
+
+    26 Nov 2026 (Ariel): a person reached by a referral forward (referral_intro.py) counts as emailed, an
+    employee like any other, from the day the forward went: c["referral"] is True and c["referred_by"] the
+    colleague whose reply named them. Their reminder follows after the usual wait, and the others at the
+    company wait for them (decide_chain)."""
+    forwards = referral_forwards() if forwards is None else forwards
     for c in contacts:
         lead = leads.get((c["properties"].get("email") or "").lower()) or {}
         c["state"] = contact_state(c, statuses, leads)
         c["sent_at"] = parse_time(lead.get("timestamp_last_contact"))
+        fwd = forwards.get(str(c.get("id")))
+        if fwd:
+            c["referral"], c["referred_by"] = True, fwd[1]
+            if c["state"] == "queued" and not c["sent_at"]:
+                c["state"] = "sent"
+                c["sent_at"] = parse_time(f"{fwd[0]}T12:00:00+00:00")
         c["campaign"] = lead.get("_campaign_id")
     return contacts
 
@@ -282,6 +306,17 @@ def decide_chain(contacts, company_stage, now=None, touches=None, chain=None, st
             due_at = not_before
         if now >= due_at:
             return c, "reminder"
+    # 26 Nov 2026 (Ariel): someone a colleague pointed us to has their chance first: nobody else there is
+    # introduced until they have had their reminder and the usual wait after it (then they close as "no response",
+    # contact_state gives "skipped", and the others carry on).
+    for r in (c for c in emailed if c.get("referral")):
+        if str(r.get("id")) in skip:  # their reminder went in this very run
+            return None, "waiting_for_reply"
+        if remind_ok(r) and not reminder_done(r, touches):
+            return None, "waiting_same_person"
+        times = touch_times(r, touches) + [t for t in [r.get("mem_reminded")] if isinstance(t, dt.datetime)]
+        if now - max(times) < close_after:
+            return None, "waiting_for_reply"
     queued = "queued" in states
     # Without an email or a personal line a contact cannot be introduced: skipped, so the company still closes.
     approved = sorted((c for c in contacts if c["state"] == "approved" and c["properties"].get("email")

@@ -791,7 +791,7 @@ def _addresses(value):
     return [a.strip().lower() for a in re.split(r"[,;\s]+", str(value or "")) if "@" in a]
 
 
-def company_mail(emails_api, contacts, details=None):
+def company_mail(emails_api, contacts, details=None, also=None):
     """What Instantly holds for a company's people: ({contact id: [times emailed]},
     {contact id: [emails sent to them, oldest first]}, {contact ids that replied}).
     A forward may be filed under the address it was forwarded from, so every email is matched to
@@ -800,7 +800,9 @@ def company_mail(emails_api, contacts, details=None):
     by_addr = {(c["properties"].get("email") or "").lower(): c for c in contacts
                if c.get("state") in ("queued", "sent", "bounced") and c["properties"].get("email")}
     seen = {}
-    for addr in by_addr:
+    # 26 Nov 2026: `also` adds the threads of colleagues whose reply named someone (referral forwards are filed
+    # under their thread); the emails in it are still matched to people by their own To or From address.
+    for addr in list(by_addr) + [a for a in (also or []) if a and a not in by_addr]:
         for e in emails_api.thread_emails(addr):
             seen.setdefault(e.get("id") or id(e), (e, addr))
     sent, replied = {}, set()
@@ -829,7 +831,7 @@ def company_mail(emails_api, contacts, details=None):
         if kind not in (1, 3):
             continue
         to = _addresses(e.get("to_address_email_list"))
-        people = [by_addr[a] for a in to if a in by_addr] if to else [by_addr[asked]]
+        people = [by_addr[a] for a in to if a in by_addr] if to else ([by_addr[asked]] if asked in by_addr else [])
         for who in people:
             sent.setdefault(who["id"], []).append(e)
     for cid in sent:
@@ -1194,6 +1196,18 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
                       follow_ups=one_email[0], no_reply_days=one_email[1], inbox_reminder=one_email[2],
                       chain=again, statuses=statuses)
 
+    def referrer_addresses(contacts):
+        """26 Nov 2026: the addresses of the colleagues whose reply named someone at this company."""
+        ids = {str(c.get("referred_by")) for c in contacts if c.get("referral") and c.get("referred_by")}
+        if not ids:
+            return []
+        known = {str(c["id"]): c for c in contacts}
+        missing = [i for i in ids if i not in known]
+        found = [known[i] for i in ids if i in known]
+        if missing:
+            found += list(hs.batch_read("contacts", missing, ["email"]))
+        return [str((c.get("properties") or {}).get("email") or "").lower() for c in found]
+
     def last_check(company, name, contacts, details):
         """Just before an email goes: anyone at the company opted out since the run started?"""
         found = stop_signals(contacts, fresh_blocklist(), leads, details)
@@ -1228,7 +1242,8 @@ def advance(hs, instantly, settings, log=print, now=None, emails_api=None, statu
             if watch is not None:
                 watch.read_full += 1
             try:
-                touches, history, replied = company_mail(emails_api, contacts, details)
+                touches, history, replied = company_mail(emails_api, contacts, details,
+                                                         also=referrer_addresses(contacts))
                 touches = restart.this_round(touches, begun)
             except Exception as err:  # one company's emails not readable never stops the others
                 log(f"{name}: Instantly's emails for this company could not be read ({str(err)[:150]}); "
