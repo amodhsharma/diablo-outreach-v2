@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-26 19:41 UTC
+Written 2026-11-26 22:43 UTC
 
 ```
 1163 leads in the Diablo campaigns in Instantly
@@ -23,13 +23,16 @@ Senior Product Owner sent only an automatic answer (the subject says "Out of off
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Bounce notices read from the BOUNCED label: 84 for 70 address(es)
 Email threads: 2 emails since the last run
+Confectionery Warehouse: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Confectionery Warehouse: the Company inbox (from website) was sent their reminder, as a forward of their introduction
 Aldi Switzerland: v***@aldi-suisse.ch is already in Instantly; not added again
 Migros Ticino: m***@migrosticino.ch is already in Instantly; not added again
 Aligro: k***@aligro.ch is already in Instantly; not added again
-Bensons Trading: the contact was sent their reminder, as a forward of their introduction
-Artistic Visual Agency: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Angeles Fine Foods Australia: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Bensons Trading: the introduction goes to the next contact
+Mayers Fine Food: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
 Perth Health: v***@phfwa.com is already in Instantly; not added again
-Email threads: 15 companies read in full, 98 with no change since their last reading
-Loop: 0 forwards, 2 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 18 companies read in full, 95 with no change since their last reading
+Loop: 0 forwards, 1 reminders, 1 introductions added, 3 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
