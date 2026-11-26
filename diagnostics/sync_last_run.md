@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-26 10:54 UTC
+Written 2026-11-26 13:47 UTC
 
 ```
-1154 leads in the Diablo campaigns in Instantly
+1161 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -16,28 +16,27 @@ Safety, Health & Environment Manager sent only an automatic answer (the subject 
 Director sent only an automatic answer (it says "Mailbox is no longer monitored"); it does not count as a reply, so the loop carries on
 Company inbox (from website) sent only an automatic answer (the subject says "Automatic reply"); it does not count as a reply, so the loop carries on
 Company inbox (from website) sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
-Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Leiterin Personal Schweiz sent only an automatic answer (the subject says "Automatische Antwort"); it does not count as a reply, so the loop carries on
+Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
+Wrote 7 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 84 for 70 address(es)
-Email threads: 29 emails since the last run
-Harris Farm Markets: the introduction goes to the next contact
-Aldi Australia: the introduction goes to the next contact
-Khans Supa Iga Supermarket Group: the contact was sent their reminder, as a forward of their introduction
-Metcash Convenience: the introduction goes to the next contact
+Email threads: 10 emails since the last run
+Lakonia Group: no reply to the introduction; the company is now "No response: can restart"
+Marco Polo Foods Pty Ltd: no reply to the introduction; the company is now "No response: can restart"
+Stellar Distribution: no reply to the introduction; the company is now "No response: can restart"
+EZ Mart Distribution Australia: no reply to the introduction; the company is now "No response: can restart"
+Cornetts Supermarkets: no reply to the introduction; the company is now "No response: can restart"
 Aldi Switzerland: v***@aldi-suisse.ch is already in Instantly; not added again
-Drakes: the introduction goes to the next contact
 Migros Ticino: m***@migrosticino.ch is already in Instantly; not added again
-Aligro: the Head of Customer Service was sent their reminder, as a forward of their introduction
 Aligro: k***@aligro.ch is already in Instantly; not added again
-Gourmet Brands: the introduction goes to the next contact
-Spar AU: the introduction goes to the next contact
-Intertrading Australia: the contact was sent their reminder, as a forward of their introduction
-Foodland SA: the introduction goes to the next contact
-globalfood: no reply to the introduction; the company is now "No response: can restart"
+Statewide Independent Wholesalers: the introduction goes to the next contact
+Tarlington Trading Co Pty Ltd: no reply to the introduction; the company is now "No response: can restart"
+Romeos Retail Group: the contact was sent their reminder, as a forward of their introduction
+Romeos Retail Group: the introduction goes to the next contact
 Perth Health: v***@phfwa.com is already in Instantly; not added again
-Email threads: 47 companies read in full, 78 with no change since their last reading
-Loop: 0 forwards, 3 reminders, 7 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 29 companies read in full, 95 with no change since their last reading
+Loop: 0 forwards, 1 reminders, 2 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 6 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
