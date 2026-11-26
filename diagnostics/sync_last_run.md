@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-26 16:45 UTC
+Written 2026-11-26 19:41 UTC
 
 ```
 1163 leads in the Diablo campaigns in Instantly
@@ -21,25 +21,15 @@ Leiterin Personal Schweiz sent only an automatic answer (the subject says "Autom
 Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 2 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 84 for 70 address(es)
-Email threads: 4 emails since the last run
-Ritchies IGA ( formerly part of Hastings Co-op): the Company inbox (from website) was sent their reminder, as a forward of their introduction
-Blayney Wholesale Foods: no reply to the introduction; the company is now "No response: can restart"
+Email threads: 2 emails since the last run
 Aldi Switzerland: v***@aldi-suisse.ch is already in Instantly; not added again
 Migros Ticino: m***@migrosticino.ch is already in Instantly; not added again
 Aligro: k***@aligro.ch is already in Instantly; not added again
-Bensons Trading: the contact did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Conga Food: the contact did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-JB Metropolitan Distributors Adelaide: no reply to the introduction; the company is now "No response: can restart"
-Festival Distributors: no reply to the introduction; the company is now "No response: can restart"
-Sabrands Australia: no reply to the introduction; the company is now "No response: can restart"
-BAIRO Group GmbH: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Artistic Visual Agency: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Savemore Group: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Bensons Trading: the contact was sent their reminder, as a forward of their introduction
+Artistic Visual Agency: the Company inbox (from website) was sent their reminder, as a forward of their introduction
 Perth Health: v***@phfwa.com is already in Instantly; not added again
-Rockman Australia: no reply to the introduction; the company is now "No response: can restart"
-Email threads: 24 companies read in full, 94 with no change since their last reading
-Loop: 0 forwards, 1 reminders, 0 introductions added, 5 contacts closed 48 hours after their reminder, 0 companies replied, 5 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 15 companies read in full, 98 with no change since their last reading
+Loop: 0 forwards, 2 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
