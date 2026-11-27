@@ -6,6 +6,13 @@
 # skills/outreachResearch/settings.yaml, next to the skill that uses them.
 
 contacts:
+  # HARD RULE (27 Nov 2026, Ariel): people in these roles are never emailed, whatever their seniority:
+  # HR, finance, IT, legal, PAs and assistants, safety, marketing and social media, store staff, logistics.
+  # A title that also names a role we target (buying, owner or the top of the company, commercial or sales
+  # leadership, business development) still goes. The words themselves are in outreach/roles.py; add
+  # "groups:", "targeted:" or "always:" here to replace them. enabled: false switches the rule off.
+  never_email:
+    enabled: true
   # How many people to collect per company in one "Find contacts" run, most senior first
   # (see hierarchy below). They are emailed one at a time, most senior first (see send).
   # To go deeper after all of them got no reply, set the company back to Approved and run

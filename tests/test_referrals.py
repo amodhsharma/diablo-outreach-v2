@@ -267,7 +267,7 @@ def test_a_copied_colleague_without_redirect_words_is_left_for_a_person():
 
 def test_a_french_out_of_office_is_automatic_and_its_stand_in_is_added(settings):
     assert sync.auto_reply_reason({"subject": "Re: hello", "body": {"text": VELO}})
-    hs, instantly, emails, cid, (p1, p2) = started(settings, "velo.example", ("Store Leader", "Buyer"))
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "velo.example", ("Owner", "Buyer"))
     lead(instantly, "p1@velo.example").update(email_reply_count=1)
     emails.received("p1@velo.example", ago(0.5), subject="Re: A sugar-free brand", text=VELO)
     sync.run("test", settings, hs, instantly, log=quiet, emails_api=emails)
@@ -280,7 +280,7 @@ def test_a_french_out_of_office_is_automatic_and_its_stand_in_is_added(settings)
 
 
 def test_a_misread_out_of_office_puts_the_company_back_and_is_read_again(settings):
-    hs, instantly, emails, cid, (p1, p2) = started(settings, "velo.example", ("Store Leader", "Buyer"))
+    hs, instantly, emails, cid, (p1, p2) = started(settings, "velo.example", ("Owner", "Buyer"))
     lead(instantly, "p1@velo.example").update(email_reply_count=1)
     emails.received("p1@velo.example", ago(2), subject="Re: A sugar-free brand", text=VELO)
     rec(hs, p1)[LS], rec(hs, p2)[LS] = "IN_PROGRESS", "COLLEAGUE_REPLIED"  # read as a real reply before today

@@ -538,6 +538,8 @@ def earlier_round_leads(hs, statuses, rows, leads, settings):
 
 def run(target, settings, hs, instantly, log=print, emails_api=None):
     check_target(hs, target)
+    from . import roles
+    roles.use(settings)  # 27 Nov 2026 (Ariel, HARD RULE): roles we never email
     statuses = LeadStatus(hs)
     leads = instantly_view(instantly, settings["sync"]["campaign_prefix"])
     log(f"{len(leads)} leads in the Diablo campaigns in Instantly")
@@ -747,6 +749,10 @@ def run(target, settings, hs, instantly, log=print, emails_api=None):
     except Exception as err:  # never stops the run; tried again next run
         pulled = {"pulled": 0}
         log(f"Could not take the closed companies' waiting introductions out of Instantly: {str(err)[:200]}")
+    try:  # 27 Nov 2026 (Ariel, HARD RULE): a waiting introduction to someone in a role we never email comes out
+        pulled["wrong_roles"] = roles.pull_waiting(hs, instantly, statuses, log, leads=leads, today=corrupt.today())
+    except Exception as err:  # never stops the run; tried again next run
+        log(f"Could not take the waiting introductions of roles we never email out of Instantly: {str(err)[:200]}")
     moved = advance(hs, instantly, settings, log, emails_api=emails_api, statuses=statuses, leads=leads,
                     blocked=blocked, opt_out_rows=opt_out_rows)
     moved["contacts_corrupt"] = dead.get("corrupt", 0)

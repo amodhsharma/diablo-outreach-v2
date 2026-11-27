@@ -103,7 +103,19 @@ def parked_ids():
     return _PARKED["ids"]
 
 
-def contact_state(contact, statuses, leads):
+def contact_state(contact, statuses, leads, roles=True):
+    """The contact's state (see the list at the top). 27 Nov 2026 (Ariel, HARD RULE): a person in a role we
+    never email (roles.py: HR, finance, IT, marketing and the like) who has not answered is "skipped": no
+    introduction, no reminder, and the next person moves up. roles=False gives the state without that rule."""
+    state = _state(contact, statuses, leads)
+    if roles and state in ("pending", "approved", "queued", "sent"):
+        from . import roles as _roles
+        if _roles.wrong_role((contact.get("properties") or {}).get("jobtitle")):
+            return "skipped"
+    return state
+
+
+def _state(contact, statuses, leads):
     stage = statuses.of("contacts", contact)
     lead = leads.get((contact["properties"].get("email") or "").lower())
     if stage == "replied" and str(contact.get("id")) in parked_ids():
