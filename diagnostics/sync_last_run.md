@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-27 19:45 UTC
+Written 2026-11-27 22:39 UTC
 
 ```
 1168 leads in the Diablo campaigns in Instantly
@@ -22,22 +22,13 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Bounce notices read from the BOUNCED label: 85 for 70 address(es)
-Email threads: 4 emails since the last run
-the-distributor: the contact was sent their reminder, as a forward of their introduction
-Oborne Health Supplies: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Oborne Health Supplies: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Email threads: 2 emails since the last run
 Aldi Switzerland: v***@aldi-suisse.ch is already in Instantly; not added again
 Migros Ticino: m***@migrosticino.ch is already in Instantly; not added again
 Aligro: k***@aligro.ch is already in Instantly; not added again
-Angeles Fine Foods Australia: no reply to the introduction; the company is now "No response: can restart"
-Kiss Distribution: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Socrates Distributors: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Nievole Distributors Pty Ltd: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-ferndaleconfectionery: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-BAIRO Group GmbH: no reply to the introduction; the company is now "No response: can restart"
-Savemore Group: no reply to the introduction; the company is now "No response: can restart"
+Mayers Fine Food: no reply to the introduction; the company is now "No response: can restart"
 Perth Health: v***@phfwa.com is already in Instantly; not added again
-Email threads: 23 companies read in full, 74 with no change since their last reading
-Loop: 0 forwards, 2 reminders, 0 introductions added, 5 contacts closed 48 hours after their reminder, 0 companies replied, 3 finished with no reply (now Unqualified: Contacted, but no response)
+Email threads: 9 companies read in full, 85 with no change since their last reading
+Loop: 0 forwards, 0 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
