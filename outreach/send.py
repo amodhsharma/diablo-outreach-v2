@@ -531,8 +531,6 @@ def created_emails(results, leads):
 def run(target, settings, hs, instantly, dry_run=False, log=print):
     """instantly may be None in a dry run; it is then not read, so everyone looks not yet emailed."""
     check_target(hs, target)
-    from . import roles
-    roles.use(settings)  # 27 Nov 2026 (Ariel, HARD RULE): roles we never email are skipped
     statuses = LeadStatus(hs)
     out_dir = run_dir("send")
     missing_link = booking_link_problem(settings)

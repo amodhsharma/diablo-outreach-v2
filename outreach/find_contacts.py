@@ -415,8 +415,6 @@ def fill_legal_basis(hs, log=print, limit=2000):
 
 def run(target, settings, hs, apollo, log=print, instantly=None):
     check_target(hs, target)
-    from . import roles
-    roles.use(settings)  # 27 Nov 2026 (Ariel, HARD RULE): roles we never email
     cfg = settings["contacts"]
     statuses = LeadStatus(hs)
     assigner = Assigner(hs, settings, log)
