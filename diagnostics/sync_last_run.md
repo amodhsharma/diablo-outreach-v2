@@ -1,9 +1,9 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-27 10:49 UTC
+Written 2026-11-27 13:50 UTC
 
 ```
-1164 leads in the Diablo campaigns in Instantly
+1167 leads in the Diablo campaigns in Instantly
 Instantly blocklist: 0 entries read (addresses and domains)
 People & Culture Business Partner sent only an automatic answer (the subject says "Out of Office"); it does not count as a reply, so the loop carries on
 Managing Director sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
@@ -21,23 +21,32 @@ Leiterin Personal Schweiz sent only an automatic answer (the subject says "Autom
 Deputy Managing Director sent only an automatic answer (the subject says "Abwesenheit"); it does not count as a reply, so the loop carries on
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
-Wrote 1 notes on contacts' timelines (email sent, bounced or replied)
-Niche Distributors: negative reply forwarded
+Wrote 3 notes on contacts' timelines (email sent, bounced or replied)
 Bounce notices read from the BOUNCED label: 84 for 70 address(es)
-Email threads: 15 emails since the last run
-Coffs Cordials & Confectionery: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Prestige Foods International Ltd: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-TerryWhite Chemmart: the introduction goes to the next contact
+Email threads: 3 emails since the last run
+Pearl Coast Distributors: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Costco Australia: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Australian International Traders Pty Ltd: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+the-distributor: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Prestige Foods International Ltd: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Priceline Pharmacy: the contact was sent their reminder, as a forward of their introduction
+Food Works: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Grocery Corporation: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+The Distributors Toowomba: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Eastern Cross: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
 Aldi Switzerland: v***@aldi-suisse.ch is already in Instantly; not added again
 Migros Ticino: m***@migrosticino.ch is already in Instantly; not added again
 Aligro: k***@aligro.ch is already in Instantly; not added again
-Kitwave: the introduction goes to the next contact
-Exclusive Food Houses: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-rialtofoods: the introduction goes to the next contact
-Swan Hill Wholesalers: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Spiroski Foods: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Spiroski Foods: the Company inbox (from website) was sent their reminder, as a forward of their introduction
 Perth Health: v***@phfwa.com is already in Instantly; not added again
-Email threads: 35 companies read in full, 62 with no change since their last reading
-Loop: 0 forwards, 0 reminders, 3 introductions added, 5 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
-Updated 1 contacts and 1 companies in HubSpot
+Panetta Mercato: the Owner / Director was sent their reminder, as a forward of their introduction
+NF Plus (Northern Foods Plus Ltd): the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Lancashire Suppliers Ltd: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Mr Crisp Ltd: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Limpopo Cash and Carry: the Executive Assistant was sent their reminder, as a forward of their introduction
+Arrow Cash and Carry: the Director was sent their reminder, as a forward of their introduction
+AH Importers: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Email threads: 37 companies read in full, 60 with no change since their last reading
+Loop: 0 forwards, 10 reminders, 0 introductions added, 8 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Updated 0 contacts and 0 companies in HubSpot
 ```
