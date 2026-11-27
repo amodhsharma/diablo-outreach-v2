@@ -1,6 +1,6 @@
 # Button 4, step 1: the last run
 
-Written 2026-11-27 04:40 UTC
+Written 2026-11-27 07:43 UTC
 
 ```
 1164 leads in the Diablo campaigns in Instantly
@@ -22,16 +22,27 @@ Deputy Managing Director sent only an automatic answer (the subject says "Abwese
 Senior Product Owner sent only an automatic answer (the subject says "Out of office"); it does not count as a reply, so the loop carries on
 Senior Tech Product Owner sent only an automatic answer (the text says "out of the office"); it does not count as a reply, so the loop carries on
 Bounce notices read from the BOUNCED label: 84 for 70 address(es)
-Email threads: 2 emails since the last run
+Email threads: 1 emails since the last run
+Niche Distributors: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Cas Holdings: the contact was sent their reminder, as a forward of their introduction
+TerryWhite Chemmart: the contact was sent their reminder, as a forward of their introduction
 Aldi Switzerland: v***@aldi-suisse.ch is already in Instantly; not added again
 Migros Ticino: m***@migrosticino.ch is already in Instantly; not added again
 Aligro: k***@aligro.ch is already in Instantly; not added again
-Kreis Suisse S.A.: the Company inbox (from website) was sent their reminder, as a forward of their introduction
-Iberpasion GmbH: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-TEK Eins GmbH (TEK1 Metzgerei & Lebensmittel): the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
+Kitwave: the contact was sent their reminder, as a forward of their introduction
+Mago: no reply to the introduction; the company is now "No response: can restart"
+rialtofoods: the contact was sent their reminder, as a forward of their introduction
+Rowlands Pharmacy: the Managing Director was sent their reminder, as a forward of their introduction
+Jenbray Foods P/l: the contact was sent their reminder, as a forward of their introduction
 Perth Health: v***@phfwa.com is already in Instantly; not added again
-Metropolitan Snack Foods: the Company inbox (from website) did not reply within 48 hours of their reminder; they are now "Unqualified: Contacted, but no response" (the others there carry on)
-Email threads: 15 companies read in full, 85 with no change since their last reading
-Loop: 0 forwards, 1 reminders, 0 introductions added, 3 contacts closed 48 hours after their reminder, 0 companies replied, 0 finished with no reply (now Unqualified: Contacted, but no response)
+Supplyer Ltd: the Company inbox (from website) was sent their reminder, as a forward of their introduction
+United Wholesale (Scotland): the Executive Chairman was sent their reminder, as a forward of their introduction
+A & J Williams (Yorkshire): the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Route To Market Solutions (RTMS): the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Albatross Food: the Company Owner was sent their reminder, as a forward of their introduction
+Candy Theatre (3 Aces London Ltd): the Company inbox (from website) was sent their reminder, as a forward of their introduction
+Smooth Wholesales: the Director was sent their reminder, as a forward of their introduction
+Email threads: 27 companies read in full, 73 with no change since their last reading
+Loop: 0 forwards, 14 reminders, 0 introductions added, 0 contacts closed 48 hours after their reminder, 0 companies replied, 1 finished with no reply (now Unqualified: Contacted, but no response)
 Updated 0 contacts and 0 companies in HubSpot
 ```
