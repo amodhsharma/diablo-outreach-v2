@@ -483,12 +483,14 @@
   "backlog": 0,
   "day": "2026-11-28",
   "reminders": {
-   "dana@diabloexport.com": 1,
-   "dana@meetdiablo.com": 1,
-   "elize@diabloexport.com": 1,
-   "elize@meetdiablo.com": 1,
-   "info@diablosnosugar.com": 2,
-   "joshua@diabloexport.com": 1
+   "dana@diabloexport.com": 5,
+   "dana@meetdiablo.com": 4,
+   "elize@diabloexport.com": 4,
+   "elize@meetdiablo.com": 4,
+   "info@diablosnosugar.com": 4,
+   "joshua@diabloexport.com": 4,
+   "joshua@meetdiablo.com": 4,
+   "sales@diablosnosugar.com": 3
   }
  }
 }
